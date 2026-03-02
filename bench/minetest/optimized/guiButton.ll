@@ -5285,29 +5285,28 @@ _ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit410: ; preds = %if.e
   %vfn152 = getelementptr inbounds nuw i8, ptr %vtable151, i64 96
   %164 = load ptr, ptr %vfn152, align 8
   %call153 = call noundef ptr %164(ptr noundef nonnull align 8 dereferenceable(8) %163)
-  %165 = icmp ne ptr %call153, null
-  call void @llvm.assume(i1 %165)
-  %166 = call ptr @__dynamic_cast(ptr nonnull %call153, ptr nonnull @_ZTIN3irr3gui8IGUISkinE, ptr nonnull @_ZTIN3irr3gui7GUISkinE, i64 0) #31
-  %vtable154 = load ptr, ptr %166, align 8, !tbaa !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call153) ]
+  %165 = call ptr @__dynamic_cast(ptr nonnull %call153, ptr nonnull @_ZTIN3irr3gui8IGUISkinE, ptr nonnull @_ZTIN3irr3gui7GUISkinE, i64 0) #31
+  %vtable154 = load ptr, ptr %165, align 8, !tbaa !4
   %vfn155 = getelementptr inbounds nuw i8, ptr %vtable154, i64 16
-  %167 = load ptr, ptr %vfn155, align 8
-  %call156 = call noundef i32 %167(ptr noundef nonnull align 8 dereferenceable(616) %166, i32 noundef 17)
-  %vtable157 = load ptr, ptr %166, align 8, !tbaa !4
+  %166 = load ptr, ptr %vfn155, align 8
+  %call156 = call noundef i32 %166(ptr noundef nonnull align 8 dereferenceable(616) %165, i32 noundef 17)
+  %vtable157 = load ptr, ptr %165, align 8, !tbaa !4
   %vfn158 = getelementptr inbounds nuw i8, ptr %vtable157, i64 16
-  %168 = load ptr, ptr %vfn158, align 8
-  %call159 = call noundef i32 %168(ptr noundef nonnull align 8 dereferenceable(616) %166, i32 noundef 18)
+  %167 = load ptr, ptr %vfn158, align 8
+  %call159 = call noundef i32 %167(ptr noundef nonnull align 8 dereferenceable(616) %165, i32 noundef 18)
   %vtable162 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn163 = getelementptr inbounds nuw i8, ptr %vtable162, i64 456
-  %169 = load ptr, ptr %vfn163, align 8
-  %call164 = call noundef zeroext i1 %169(ptr noundef nonnull align 8 dereferenceable(7452) %this)
-  %170 = zext i32 %call156 to i64
-  %171 = zext i32 %call159 to i64
-  %172 = shl nuw i64 %171, 32
-  %173 = or disjoint i64 %172, %170
-  %agg.tmp161.sroa.0.0.insert.insert = select i1 %call164, i64 %173, i64 0
+  %168 = load ptr, ptr %vfn163, align 8
+  %call164 = call noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(7452) %this)
+  %169 = zext i32 %call156 to i64
+  %170 = zext i32 %call159 to i64
+  %171 = shl nuw i64 %170, 32
+  %172 = or disjoint i64 %171, %169
+  %agg.tmp161.sroa.0.0.insert.insert = select i1 %call164, i64 %172, i64 0
   %_M_string_length.i.i.i425 = getelementptr inbounds nuw i8, ptr %style, i64 520
-  %174 = load i64, ptr %_M_string_length.i.i.i425, align 8, !tbaa !72
-  %cmp.i.i426 = icmp eq i64 %174, 0
+  %173 = load i64, ptr %_M_string_length.i.i.i425, align 8, !tbaa !72
+  %cmp.i.i426 = icmp eq i64 %173, 0
   br i1 %cmp.i.i426, label %if.then.i, label %if.end.i427
 
 if.then.i:                                        ; preds = %_ZNK9StyleSpec7getRectENS_8PropertyEN3irr4core4rectIiEE.exit410
@@ -5331,10 +5330,10 @@ if.then4.i:                                       ; preds = %if.end.i427
 
 if.end5.i:                                        ; preds = %if.end.i427
   %Y.i.i = getelementptr inbounds nuw i8, ptr %vec.i, i64 4
-  %175 = load float, ptr %vec.i, align 8, !tbaa !128
-  %conv6.i = fptosi float %175 to i32
-  %176 = load float, ptr %Y.i.i, align 4, !tbaa !129
-  %conv7.i = fptosi float %176 to i32
+  %174 = load float, ptr %vec.i, align 8, !tbaa !128
+  %conv6.i = fptosi float %174 to i32
+  %175 = load float, ptr %Y.i.i, align 4, !tbaa !129
+  %conv7.i = fptosi float %175 to i32
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.end5.i, %if.then4.i
@@ -5352,30 +5351,30 @@ _ZNK9StyleSpec11getVector2iENS_8PropertyEN3irr4core8vector2dIiEE.exit: ; preds =
   %retval.sroa.0.0.insert.insert.i434 = or disjoint i64 %retval.sroa.4.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i433
   %ContentOffset = getelementptr inbounds nuw i8, ptr %this, i64 7440
   store i64 %retval.sroa.0.0.insert.insert.i434, ptr %ContentOffset, align 8, !tbaa.struct !104
-  %177 = load i32, ptr %Padding, align 8, !tbaa !130
-  %add = add nsw i32 %177, %retval.sroa.0.1.i432
-  %178 = load i32, ptr %Y.i411, align 4, !tbaa !131
-  %add174 = add nsw i32 %178, %retval.sroa.4.1.i431
+  %176 = load i32, ptr %Padding, align 8, !tbaa !130
+  %add = add nsw i32 %176, %retval.sroa.0.1.i432
+  %177 = load i32, ptr %Y.i411, align 4, !tbaa !131
+  %add174 = add nsw i32 %177, %retval.sroa.4.1.i431
   %AbsoluteRect175 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %LowerRightCorner.i435 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %179 = load i32, ptr %LowerRightCorner.i435, align 8, !tbaa !98
-  %180 = load i32, ptr %AbsoluteRect175, align 8, !tbaa !95
-  %181 = load i32, ptr %ref.tmp135.sroa.4.0.Padding.sroa_idx, align 8, !tbaa !132
-  %sub.i436 = add i32 %179, %retval.sroa.0.1.i432
-  %add180 = sub i32 %sub.i436, %180
-  %add183 = add i32 %add180, %181
+  %178 = load i32, ptr %LowerRightCorner.i435, align 8, !tbaa !98
+  %179 = load i32, ptr %AbsoluteRect175, align 8, !tbaa !95
+  %180 = load i32, ptr %ref.tmp135.sroa.4.0.Padding.sroa_idx, align 8, !tbaa !132
+  %sub.i436 = add i32 %178, %retval.sroa.0.1.i432
+  %add180 = sub i32 %sub.i436, %179
+  %add183 = add i32 %add180, %180
   %Y.i437 = getelementptr inbounds nuw i8, ptr %this, i64 76
-  %182 = load i32, ptr %Y.i437, align 4, !tbaa !99
+  %181 = load i32, ptr %Y.i437, align 4, !tbaa !99
   %Y2.i438 = getelementptr inbounds nuw i8, ptr %this, i64 68
-  %183 = load i32, ptr %Y2.i438, align 4, !tbaa !96
-  %184 = load i32, ptr %Y.i413, align 4, !tbaa !133
-  %sub.i439 = add i32 %182, %retval.sroa.4.1.i431
-  %add189 = sub i32 %sub.i439, %183
-  %add192 = add i32 %add189, %184
+  %182 = load i32, ptr %Y2.i438, align 4, !tbaa !96
+  %183 = load i32, ptr %Y.i413, align 4, !tbaa !133
+  %sub.i439 = add i32 %181, %retval.sroa.4.1.i431
+  %add189 = sub i32 %sub.i439, %182
+  %add192 = add i32 %add189, %183
   %vtable193 = load ptr, ptr %this, align 8, !tbaa !4
   %vfn194 = getelementptr inbounds nuw i8, ptr %vtable193, i64 224
-  %185 = load ptr, ptr %vfn194, align 8
-  %call195 = call noundef nonnull align 8 dereferenceable(24) ptr %185(ptr noundef nonnull align 8 dereferenceable(308) %this)
+  %184 = load ptr, ptr %vfn194, align 8
+  %call195 = call noundef nonnull align 8 dereferenceable(24) ptr %184(ptr noundef nonnull align 8 dereferenceable(308) %this)
   %__begin1.sroa.0.0461 = load ptr, ptr %call195, align 8, !tbaa !107
   %cmp.i.not462 = icmp eq ptr %__begin1.sroa.0.0461, %call195
   br i1 %cmp.i.not462, label %for.cond.cleanup202, label %for.body203.lr.ph
@@ -5393,16 +5392,16 @@ for.cond.cleanup202:                              ; preds = %_ZN3irr3gui11IGUIEl
 for.body203:                                      ; preds = %_ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core4rectIiEE.exit, %for.body203.lr.ph
   %__begin1.sroa.0.0463 = phi ptr [ %__begin1.sroa.0.0461, %for.body203.lr.ph ], [ %__begin1.sroa.0.0, %_ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core4rectIiEE.exit ]
   %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0463, i64 16
-  %186 = load ptr, ptr %_M_storage.i.i, align 8, !tbaa !60
-  %Parent.i = getelementptr inbounds nuw i8, ptr %186, i64 32
-  %187 = load ptr, ptr %Parent.i, align 8, !tbaa !56
-  %tobool.not.i = icmp eq ptr %187, null
+  %185 = load ptr, ptr %_M_storage.i.i, align 8, !tbaa !60
+  %Parent.i = getelementptr inbounds nuw i8, ptr %185, i64 32
+  %186 = load ptr, ptr %Parent.i, align 8, !tbaa !56
+  %tobool.not.i = icmp eq ptr %186, null
   br i1 %tobool.not.i, label %_ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core4rectIiEE.exit, label %if.then.i442
 
 if.then.i442:                                     ; preds = %for.body203
-  %AbsoluteRect.i.i = getelementptr inbounds nuw i8, ptr %187, i64 64
+  %AbsoluteRect.i.i = getelementptr inbounds nuw i8, ptr %186, i64 64
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %AbsoluteRect.i.i, align 8, !tbaa.struct !100
-  %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %187, i64 72
+  %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %186, i64 72
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i, align 8, !tbaa.struct !104
   %sub.i.i.i = sub i64 %retval.sroa.2.0.copyload.i.i, %retval.sroa.0.0.copyload.i.i
   %ref.tmp.sroa.7.12.extract.shift.i = lshr i64 %retval.sroa.2.0.copyload.i.i, 32
@@ -5413,66 +5412,66 @@ if.then.i442:                                     ; preds = %for.body203
   %ref.tmp4.sroa.0.0.extract.trunc.i = trunc i64 %sub.i.i.i to i32
   %conv.i443 = sitofp i32 %ref.tmp4.sroa.0.0.extract.trunc.i to float
   %conv9.i = sitofp i32 %sub.i4.i.i to float
-  %AlignLeft.i = getelementptr inbounds nuw i8, ptr %186, i64 280
-  %188 = load i32, ptr %AlignLeft.i, align 8, !tbaa !134
-  %cmp.i444 = icmp eq i32 %188, 3
+  %AlignLeft.i = getelementptr inbounds nuw i8, ptr %185, i64 280
+  %187 = load i32, ptr %AlignLeft.i, align 8, !tbaa !134
+  %cmp.i444 = icmp eq i32 %187, 3
   br i1 %cmp.i444, label %if.then10.i, label %if.end.i445
 
 if.then10.i:                                      ; preds = %if.then.i442
   %div.i = fdiv nsz float %conv11.i, %conv.i443
-  %ScaleRect.i = getelementptr inbounds nuw i8, ptr %186, i64 128
+  %ScaleRect.i = getelementptr inbounds nuw i8, ptr %185, i64 128
   store float %div.i, ptr %ScaleRect.i, align 8, !tbaa !135
   br label %if.end.i445
 
 if.end.i445:                                      ; preds = %if.then10.i, %if.then.i442
-  %AlignRight.i = getelementptr inbounds nuw i8, ptr %186, i64 284
-  %189 = load i32, ptr %AlignRight.i, align 4, !tbaa !136
-  %cmp15.i = icmp eq i32 %189, 3
+  %AlignRight.i = getelementptr inbounds nuw i8, ptr %185, i64 284
+  %188 = load i32, ptr %AlignRight.i, align 4, !tbaa !136
+  %cmp15.i = icmp eq i32 %188, 3
   br i1 %cmp15.i, label %if.then16.i, label %if.end24.i
 
 if.then16.i:                                      ; preds = %if.end.i445
   %div20.i = fdiv nsz float %conv18.i450, %conv.i443
-  %LowerRightCorner22.i = getelementptr inbounds nuw i8, ptr %186, i64 136
+  %LowerRightCorner22.i = getelementptr inbounds nuw i8, ptr %185, i64 136
   store float %div20.i, ptr %LowerRightCorner22.i, align 8, !tbaa !137
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.then16.i, %if.end.i445
-  %AlignTop.i = getelementptr inbounds nuw i8, ptr %186, i64 288
-  %190 = load i32, ptr %AlignTop.i, align 8, !tbaa !138
-  %cmp25.i = icmp eq i32 %190, 3
+  %AlignTop.i = getelementptr inbounds nuw i8, ptr %185, i64 288
+  %189 = load i32, ptr %AlignTop.i, align 8, !tbaa !138
+  %cmp25.i = icmp eq i32 %189, 3
   br i1 %cmp25.i, label %if.then26.i, label %if.end34.i
 
 if.then26.i:                                      ; preds = %if.end24.i
   %div30.i = fdiv nsz float %conv28.i, %conv9.i
-  %Y33.i = getelementptr inbounds nuw i8, ptr %186, i64 132
+  %Y33.i = getelementptr inbounds nuw i8, ptr %185, i64 132
   store float %div30.i, ptr %Y33.i, align 4, !tbaa !139
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.then26.i, %if.end24.i
-  %AlignBottom.i = getelementptr inbounds nuw i8, ptr %186, i64 292
-  %191 = load i32, ptr %AlignBottom.i, align 4, !tbaa !140
-  %cmp35.i = icmp eq i32 %191, 3
+  %AlignBottom.i = getelementptr inbounds nuw i8, ptr %185, i64 292
+  %190 = load i32, ptr %AlignBottom.i, align 4, !tbaa !140
+  %cmp35.i = icmp eq i32 %190, 3
   br i1 %cmp35.i, label %if.then36.i, label %_ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core4rectIiEE.exit
 
 if.then36.i:                                      ; preds = %if.end34.i
   %div41.i = fdiv nsz float %conv39.i, %conv9.i
-  %Y44.i = getelementptr inbounds nuw i8, ptr %186, i64 140
+  %Y44.i = getelementptr inbounds nuw i8, ptr %185, i64 140
   store float %div41.i, ptr %Y44.i, align 4, !tbaa !141
   br label %_ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core4rectIiEE.exit
 
 _ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core4rectIiEE.exit: ; preds = %if.then36.i, %if.end34.i, %for.body203
-  %DesiredRect.i = getelementptr inbounds nuw i8, ptr %186, i64 96
+  %DesiredRect.i = getelementptr inbounds nuw i8, ptr %185, i64 96
   store i32 %add, ptr %DesiredRect.i, align 8, !tbaa !62
-  %childBounds.sroa.5.0.DesiredRect.i.sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 100
+  %childBounds.sroa.5.0.DesiredRect.i.sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 100
   store i32 %add174, ptr %childBounds.sroa.5.0.DesiredRect.i.sroa_idx, align 4, !tbaa !62
-  %childBounds.sroa.7.0.DesiredRect.i.sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 104
+  %childBounds.sroa.7.0.DesiredRect.i.sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 104
   store i32 %add183, ptr %childBounds.sroa.7.0.DesiredRect.i.sroa_idx, align 8, !tbaa !62
-  %childBounds.sroa.9.0.DesiredRect.i.sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 108
+  %childBounds.sroa.9.0.DesiredRect.i.sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 108
   store i32 %add192, ptr %childBounds.sroa.9.0.DesiredRect.i.sroa_idx, align 4, !tbaa !62
-  %vtable.i446 = load ptr, ptr %186, align 8, !tbaa !4
+  %vtable.i446 = load ptr, ptr %185, align 8, !tbaa !4
   %vfn.i447 = getelementptr inbounds nuw i8, ptr %vtable.i446, i64 24
-  %192 = load ptr, ptr %vfn.i447, align 8
-  call void %192(ptr noundef nonnull align 8 dereferenceable(308) %186)
+  %191 = load ptr, ptr %vfn.i447, align 8
+  call void %191(ptr noundef nonnull align 8 dereferenceable(308) %185)
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.0463, align 8, !tbaa !107
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %call195
   br i1 %cmp.i.not, label %for.cond.cleanup202, label %for.body203

@@ -385,6 +385,7 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Err
 19:                                               ; preds = %15
   %20 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %21 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
   %22 = load i64, ptr %21, align 8, !range !49, !invariant.load !10
   %23 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
@@ -428,6 +429,7 @@ common.resume:                                    ; preds = %.body, %82, %90, %6
 40:                                               ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val6) ]
   %42 = getelementptr inbounds nuw i8, ptr %.val7, i64 8
   %43 = load i64, ptr %42, align 8, !range !49, !invariant.load !10
   %44 = getelementptr inbounds nuw i8, ptr %.val7, i64 16
@@ -467,6 +469,7 @@ common.resume:                                    ; preds = %.body, %82, %90, %6
 61:                                               ; preds = %57
   %62 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val4) ]
   %63 = getelementptr inbounds nuw i8, ptr %.val5, i64 8
   %64 = load i64, ptr %63, align 8, !range !49, !invariant.load !10
   %65 = getelementptr inbounds nuw i8, ptr %.val5, i64 16
@@ -506,6 +509,7 @@ common.resume:                                    ; preds = %.body, %82, %90, %6
 82:                                               ; preds = %78
   %83 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val2) ]
   %84 = getelementptr inbounds nuw i8, ptr %.val3, i64 8
   %85 = load i64, ptr %84, align 8, !range !49, !invariant.load !10
   %86 = getelementptr inbounds nuw i8, ptr %.val3, i64 16
@@ -543,6 +547,7 @@ common.resume:                                    ; preds = %.body, %82, %90, %6
 .body:                                            ; preds = %99
   %102 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %101) ], !noalias !62
   tail call void @__rust_dealloc(ptr noundef nonnull %101, i64 noundef 32, i64 noundef 8) #12, !noalias !62
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17hc59cd67c4e2b08d4E"(ptr noalias noundef align 8 dereferenceable(8) %103) #11
@@ -559,6 +564,7 @@ common.resume:                                    ; preds = %.body, %82, %90, %6
 107:                                              ; preds = %104
   %108 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %106) ], !noalias !65
   tail call void @__rust_dealloc(ptr noundef nonnull %106, i64 noundef 32, i64 noundef 8) #12, !noalias !65
   br label %common.resume
 
@@ -591,6 +597,7 @@ define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$L
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 32, i64 noundef 8) #12
   resume { ptr, i32 } %5
 }

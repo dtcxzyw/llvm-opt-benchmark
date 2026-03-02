@@ -297,7 +297,7 @@ define hidden void @zif_xmlwriter_set_indent(ptr noundef %0, ptr noundef writeon
   store i32 %25, ptr %26, align 8, !tbaa !32
   br label %27
 
-27:                                               ; preds = %2, %20, %.critedge
+27:                                               ; preds = %20, %2, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -527,7 +527,7 @@ define hidden void @zif_xmlwriter_start_attribute_ns(ptr noundef %0, ptr noundef
   store i32 %35, ptr %36, align 8, !tbaa !32
   br label %37
 
-37:                                               ; preds = %2, %25, %30, %28
+37:                                               ; preds = %25, %2, %30, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -600,7 +600,7 @@ define hidden void @zif_xmlwriter_write_attribute(ptr noundef %0, ptr noundef wr
   store i32 %31, ptr %32, align 8, !tbaa !32
   br label %33
 
-33:                                               ; preds = %2, %23, %28, %27
+33:                                               ; preds = %23, %2, %28, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -678,7 +678,7 @@ define hidden void @zif_xmlwriter_write_attribute_ns(ptr noundef %0, ptr noundef
   store i32 %38, ptr %39, align 8, !tbaa !32
   br label %40
 
-40:                                               ; preds = %2, %27, %32, %30
+40:                                               ; preds = %27, %2, %32, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -815,7 +815,7 @@ define hidden void @zif_xmlwriter_start_element_ns(ptr noundef %0, ptr noundef w
   store i32 %35, ptr %36, align 8, !tbaa !32
   br label %37
 
-37:                                               ; preds = %2, %25, %30, %28
+37:                                               ; preds = %25, %2, %30, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -994,7 +994,7 @@ define hidden void @zif_xmlwriter_write_element(ptr noundef %0, ptr noundef writ
   store i32 %41, ptr %42, align 8, !tbaa !32
   br label %43
 
-43:                                               ; preds = %2, %23, %40, %34, %26
+43:                                               ; preds = %23, %2, %40, %34, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1095,7 +1095,7 @@ define hidden void @zif_xmlwriter_write_element_ns(ptr noundef %0, ptr noundef w
   store i32 %47, ptr %48, align 8, !tbaa !32
   br label %49
 
-49:                                               ; preds = %2, %27, %46, %40, %30
+49:                                               ; preds = %27, %2, %46, %40, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1269,7 +1269,7 @@ define hidden void @zif_xmlwriter_write_pi(ptr noundef %0, ptr noundef writeonly
   store i32 %31, ptr %32, align 8, !tbaa !32
   br label %33
 
-33:                                               ; preds = %2, %23, %28, %27
+33:                                               ; preds = %23, %2, %28, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1316,7 +1316,7 @@ define hidden void @zif_xmlwriter_start_cdata(ptr noundef %0, ptr noundef writeo
   store i32 %21, ptr %22, align 8, !tbaa !32
   br label %23
 
-23:                                               ; preds = %2, %19, %.critedge
+23:                                               ; preds = %19, %2, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1552,7 +1552,7 @@ define hidden void @zif_xmlwriter_start_comment(ptr noundef %0, ptr noundef writ
   store i32 %21, ptr %22, align 8, !tbaa !32
   br label %23
 
-23:                                               ; preds = %2, %19, %.critedge
+23:                                               ; preds = %19, %2, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1706,7 +1706,7 @@ define hidden void @zif_xmlwriter_start_document(ptr noundef %0, ptr noundef wri
   store i32 %30, ptr %31, align 8, !tbaa !32
   br label %32
 
-32:                                               ; preds = %2, %25, %.critedge
+32:                                               ; preds = %25, %2, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1815,7 +1815,7 @@ define hidden void @zif_xmlwriter_start_dtd(ptr noundef %0, ptr noundef writeonl
   store i32 %30, ptr %31, align 8, !tbaa !32
   br label %32
 
-32:                                               ; preds = %2, %25, %.critedge
+32:                                               ; preds = %25, %2, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1930,7 +1930,7 @@ define hidden void @zif_xmlwriter_write_dtd(ptr noundef %0, ptr noundef writeonl
   store i32 %33, ptr %34, align 8, !tbaa !32
   br label %35
 
-35:                                               ; preds = %2, %27, %.critedge
+35:                                               ; preds = %27, %2, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2104,7 +2104,7 @@ define hidden void @zif_xmlwriter_write_dtd_element(ptr noundef %0, ptr noundef 
   store i32 %31, ptr %32, align 8, !tbaa !32
   br label %33
 
-33:                                               ; preds = %2, %23, %28, %27
+33:                                               ; preds = %23, %2, %28, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2274,7 +2274,7 @@ define hidden void @zif_xmlwriter_write_dtd_attlist(ptr noundef %0, ptr noundef 
   store i32 %31, ptr %32, align 8, !tbaa !32
   br label %33
 
-33:                                               ; preds = %2, %23, %28, %27
+33:                                               ; preds = %23, %2, %28, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2341,7 +2341,7 @@ define hidden void @zif_xmlwriter_start_dtd_entity(ptr noundef %0, ptr noundef w
   store i32 %32, ptr %33, align 8, !tbaa !32
   br label %34
 
-34:                                               ; preds = %2, %22, %27, %25
+34:                                               ; preds = %22, %2, %27, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2474,7 +2474,7 @@ define hidden void @zif_xmlwriter_write_dtd_entity(ptr noundef %0, ptr noundef w
   store i32 %44, ptr %45, align 8, !tbaa !32
   br label %46
 
-46:                                               ; preds = %2, %30, %35, %33
+46:                                               ; preds = %30, %2, %35, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -3363,7 +3363,7 @@ smart_str_get_len.exit.thread:                    ; preds = %87, %smart_str_get_
   store i32 4, ptr %108, align 8, !tbaa !32
   br label %109
 
-109:                                              ; preds = %3, %21, %26, %smart_str_extract_ex.exit, %zend_string_dup.exit, %smart_str_get_len.exit.thread, %106
+109:                                              ; preds = %21, %26, %smart_str_extract_ex.exit, %zend_string_dup.exit, %smart_str_get_len.exit.thread, %106, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

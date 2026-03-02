@@ -91,9 +91,9 @@ define hidden void @_ZN20wasmtime_wit_bindgen5types5Types7analyze17hadb345168dc8
 
 .lr.ph:                                           ; preds = %4
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  br label %42
+  br label %40
 
-._crit_edge:                                      ; preds = %42, %4
+._crit_edge:                                      ; preds = %40, %4
   %24 = call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17h16d012100fe77124E"(ptr align 8 %1, i64 %2, i32 %3, ptr nonnull align 8 @anon.79fddc410019ed2c53b457c2d17796ca.1)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = call { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4iter17h456563d579ae648fE"(ptr nonnull align 8 %25)
@@ -103,131 +103,127 @@ define hidden void @_ZN20wasmtime_wit_bindgen5types5Types7analyze17hadb345168dc8
   %30 = call { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4iter17h456563d579ae648fE"(ptr nonnull align 8 %29)
   %31 = extractvalue { ptr, ptr } %30, 0
   %32 = extractvalue { ptr, ptr } %30, 1
-  %33 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %33)
-  %34 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %34)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %31) ]
   call void @_ZN4core4iter6traits8iterator8Iterator5chain17h977f3932b2afd0bdE(ptr nonnull sret({ { ptr, [1 x i64] }, { ptr, [1 x i64] } }) align 8 %10, ptr nonnull %27, ptr %28, ptr nonnull %31, ptr %32)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @_ZN4core4iter8adapters5chain17and_then_or_clear17haf6d79ed9ff7e7e7E(ptr nonnull sret({ i8, [23 x i8] }) align 8 %5, ptr nonnull align 8 %9)
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @"_ZN4core6option15Option$LT$T$GT$7or_else17he39cba0a2e1b0caaE"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %8, ptr nonnull align 8 %5, ptr nonnull align 8 %35)
-  %36 = load i8, ptr %8, align 8, !range !5, !noundef !4
-  %37 = icmp eq i8 %36, 2
-  br i1 %37, label %._crit_edge19, label %.lr.ph18
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @"_ZN4core6option15Option$LT$T$GT$7or_else17he39cba0a2e1b0caaE"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %8, ptr nonnull align 8 %5, ptr nonnull align 8 %33)
+  %34 = load i8, ptr %8, align 8, !range !5, !noundef !4
+  %35 = icmp eq i8 %34, 2
+  br i1 %35, label %._crit_edge19, label %.lr.ph18
 
 .lr.ph18:                                         ; preds = %._crit_edge
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br label %52
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br label %50
 
-42:                                               ; preds = %.lr.ph, %42
-  %43 = load i64, ptr %11, align 8, !noundef !4
-  %44 = load i32, ptr %23, align 8, !noundef !4
-  %45 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %43, i32 %44)
-  %46 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha43945336cbf37afE"(ptr nonnull align 8 %12)
-  %47 = extractvalue { i64, ptr } %46, 0
-  %48 = extractvalue { i64, ptr } %46, 1
-  %49 = load i32, ptr %18, align 8, !noundef !4
-  call void @_ZN8id_arena6add_id17h96739e7e49f18929E(ptr nonnull sret({ [2 x i64], ptr }) align 8 %11, i64 %47, ptr align 8 %48, i32 %49)
-  %50 = load ptr, ptr %20, align 8, !noundef !4
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %._crit_edge, label %42
+40:                                               ; preds = %.lr.ph, %40
+  %41 = load i64, ptr %11, align 8, !noundef !4
+  %42 = load i32, ptr %23, align 8, !noundef !4
+  %43 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %41, i32 %42)
+  %44 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha43945336cbf37afE"(ptr nonnull align 8 %12)
+  %45 = extractvalue { i64, ptr } %44, 0
+  %46 = extractvalue { i64, ptr } %44, 1
+  %47 = load i32, ptr %18, align 8, !noundef !4
+  call void @_ZN8id_arena6add_id17h96739e7e49f18929E(ptr nonnull sret({ [2 x i64], ptr }) align 8 %11, i64 %45, ptr align 8 %46, i32 %47)
+  %48 = load ptr, ptr %20, align 8, !noundef !4
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %._crit_edge, label %40
 
 ._crit_edge19:                                    ; preds = %.backedge, %._crit_edge
   ret void
 
-52:                                               ; preds = %.lr.ph18, %.backedge
-  %53 = phi i8 [ %36, %.lr.ph18 ], [ %75, %.backedge ]
-  %54 = load ptr, ptr %38, align 8, !nonnull !4, !align !6, !noundef !4
-  %55 = trunc nuw i8 %53 to i1
-  %56 = load i64, ptr %54, align 8, !range !7, !noundef !4
-  %57 = add nsw i64 %56, -2
-  %58 = icmp ult i64 %57, 3
-  %59 = select i1 %58, i64 %57, i64 1
-  switch i64 %59, label %60 [
-    i64 0, label %61
-    i64 1, label %74
-    i64 2, label %77
+50:                                               ; preds = %.lr.ph18, %.backedge
+  %51 = phi i8 [ %34, %.lr.ph18 ], [ %73, %.backedge ]
+  %52 = load ptr, ptr %36, align 8, !nonnull !4, !align !6, !noundef !4
+  %53 = trunc nuw i8 %51 to i1
+  %54 = load i64, ptr %52, align 8, !range !7, !noundef !4
+  %55 = add nsw i64 %54, -2
+  %56 = icmp ult i64 %55, 3
+  %57 = select i1 %56, i64 %55, i64 1
+  switch i64 %57, label %58 [
+    i64 0, label %59
+    i64 1, label %72
+    i64 2, label %75
   ]
 
-60:                                               ; preds = %52
+58:                                               ; preds = %50
   unreachable
 
-61:                                               ; preds = %52
-  %62 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %63 = load i64, ptr %62, align 8, !noundef !4
-  %64 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %65 = load i32, ptr %64, align 8, !noundef !4
-  %66 = call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17hf177f61c0c5bf03aE"(ptr nonnull align 8 %39, i64 %63, i32 %65, ptr nonnull align 8 @anon.79fddc410019ed2c53b457c2d17796ca.2)
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %68 = call { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4iter17h6bf68c088c61017fE"(ptr nonnull align 8 %67)
-  %69 = extractvalue { ptr, ptr } %68, 0
-  %70 = extractvalue { ptr, ptr } %68, 1
-  store ptr %69, ptr %7, align 8
-  store ptr %70, ptr %40, align 8
-  %71 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ba2a01b5b63969fE"(ptr nonnull align 8 %7)
-  %72 = extractvalue { ptr, ptr } %71, 0
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %._crit_edge14, label %.lr.ph13
+59:                                               ; preds = %50
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %61 = load i64, ptr %60, align 8, !noundef !4
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %63 = load i32, ptr %62, align 8, !noundef !4
+  %64 = call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17hf177f61c0c5bf03aE"(ptr nonnull align 8 %37, i64 %61, i32 %63, ptr nonnull align 8 @anon.79fddc410019ed2c53b457c2d17796ca.2)
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %66 = call { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4iter17h6bf68c088c61017fE"(ptr nonnull align 8 %65)
+  %67 = extractvalue { ptr, ptr } %66, 0
+  %68 = extractvalue { ptr, ptr } %66, 1
+  store ptr %67, ptr %7, align 8
+  store ptr %68, ptr %38, align 8
+  %69 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ba2a01b5b63969fE"(ptr nonnull align 8 %7)
+  %70 = extractvalue { ptr, ptr } %69, 0
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %._crit_edge14, label %.lr.ph13
 
-74:                                               ; preds = %52
-  call fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr align 8 %54, i1 zeroext %55)
+72:                                               ; preds = %50
+  call fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr align 8 %52, i1 zeroext %53)
   br label %.backedge
 
-.backedge:                                        ; preds = %.lr.ph16, %._crit_edge14, %74, %77
+.backedge:                                        ; preds = %.lr.ph16, %._crit_edge14, %72, %75
   call void @_ZN4core4iter8adapters5chain17and_then_or_clear17haf6d79ed9ff7e7e7E(ptr nonnull sret({ i8, [23 x i8] }) align 8 %5, ptr nonnull align 8 %9)
-  call void @"_ZN4core6option15Option$LT$T$GT$7or_else17he39cba0a2e1b0caaE"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %8, ptr nonnull align 8 %5, ptr nonnull align 8 %35)
-  %75 = load i8, ptr %8, align 8, !range !5, !noundef !4
-  %76 = icmp eq i8 %75, 2
-  br i1 %76, label %._crit_edge19, label %52
+  call void @"_ZN4core6option15Option$LT$T$GT$7or_else17he39cba0a2e1b0caaE"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %8, ptr nonnull align 8 %5, ptr nonnull align 8 %33)
+  %73 = load i8, ptr %8, align 8, !range !5, !noundef !4
+  %74 = icmp eq i8 %73, 2
+  br i1 %74, label %._crit_edge19, label %50
 
-77:                                               ; preds = %52
-  %78 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %79 = load i64, ptr %78, align 8, !noundef !4
-  %80 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %81 = load i32, ptr %80, align 8, !noundef !4
-  %82 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %79, i32 %81)
+75:                                               ; preds = %50
+  %76 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %77 = load i64, ptr %76, align 8, !noundef !4
+  %78 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %79 = load i32, ptr %78, align 8, !noundef !4
+  %80 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %77, i32 %79)
   br label %.backedge
 
-._crit_edge14:                                    ; preds = %.lr.ph13, %61
-  %83 = getelementptr inbounds nuw i8, ptr %66, i64 96
-  %84 = call { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4iter17hd31fd8369e5100eeE"(ptr nonnull align 8 %83)
-  %85 = extractvalue { ptr, ptr } %84, 0
-  %86 = extractvalue { ptr, ptr } %84, 1
-  store ptr %85, ptr %6, align 8
-  store ptr %86, ptr %41, align 8
-  %87 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc8b644cac382bf53E"(ptr nonnull align 8 %6)
-  %88 = extractvalue { ptr, ptr } %87, 0
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %.backedge, label %.lr.ph16
+._crit_edge14:                                    ; preds = %.lr.ph13, %59
+  %81 = getelementptr inbounds nuw i8, ptr %64, i64 96
+  %82 = call { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4iter17hd31fd8369e5100eeE"(ptr nonnull align 8 %81)
+  %83 = extractvalue { ptr, ptr } %82, 0
+  %84 = extractvalue { ptr, ptr } %82, 1
+  store ptr %83, ptr %6, align 8
+  store ptr %84, ptr %39, align 8
+  %85 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc8b644cac382bf53E"(ptr nonnull align 8 %6)
+  %86 = extractvalue { ptr, ptr } %85, 0
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %.backedge, label %.lr.ph16
 
-.lr.ph13:                                         ; preds = %61, %.lr.ph13
-  %90 = phi { ptr, ptr } [ %97, %.lr.ph13 ], [ %71, %61 ]
-  %91 = extractvalue { ptr, ptr } %90, 1
-  %92 = icmp ne ptr %91, null
-  call void @llvm.assume(i1 %92)
-  %93 = load i64, ptr %91, align 8, !noundef !4
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %95 = load i32, ptr %94, align 8, !noundef !4
-  %96 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %93, i32 %95)
-  %97 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ba2a01b5b63969fE"(ptr nonnull align 8 %7)
-  %98 = extractvalue { ptr, ptr } %97, 0
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %._crit_edge14, label %.lr.ph13
+.lr.ph13:                                         ; preds = %59, %.lr.ph13
+  %88 = phi { ptr, ptr } [ %94, %.lr.ph13 ], [ %69, %59 ]
+  %89 = extractvalue { ptr, ptr } %88, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %89) ]
+  %90 = load i64, ptr %89, align 8, !noundef !4
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %92 = load i32, ptr %91, align 8, !noundef !4
+  %93 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %90, i32 %92)
+  %94 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ba2a01b5b63969fE"(ptr nonnull align 8 %7)
+  %95 = extractvalue { ptr, ptr } %94, 0
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %._crit_edge14, label %.lr.ph13
 
 .lr.ph16:                                         ; preds = %._crit_edge14, %.lr.ph16
-  %100 = phi { ptr, ptr } [ %103, %.lr.ph16 ], [ %87, %._crit_edge14 ]
-  %101 = extractvalue { ptr, ptr } %100, 1
-  %102 = icmp ne ptr %101, null
-  call void @llvm.assume(i1 %102)
-  call fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr align 8 %101, i1 zeroext %55)
-  %103 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc8b644cac382bf53E"(ptr nonnull align 8 %6)
-  %104 = extractvalue { ptr, ptr } %103, 0
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %.backedge, label %.lr.ph16
+  %97 = phi { ptr, ptr } [ %99, %.lr.ph16 ], [ %85, %._crit_edge14 ]
+  %98 = extractvalue { ptr, ptr } %97, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %98) ]
+  call fastcc void @_ZN20wasmtime_wit_bindgen5types5Types14type_info_func17h2bea81c6812dea4bE(ptr align 8 %0, ptr align 8 %1, ptr align 8 %98, i1 zeroext %53)
+  %99 = call { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc8b644cac382bf53E"(ptr nonnull align 8 %6)
+  %100 = extractvalue { ptr, ptr } %99, 0
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %.backedge, label %.lr.ph16
 }
 
 ; Function Attrs: nonlazybind uwtable

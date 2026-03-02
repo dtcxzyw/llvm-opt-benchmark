@@ -132,7 +132,7 @@ define hidden void @zim_SplHeap_count(ptr noundef readonly captures(none) %0, pt
   store i32 4, ptr %12, align 8, !tbaa !4
   br label %13
 
-13:                                               ; preds = %.critedge, %5
+13:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -165,7 +165,7 @@ define hidden void @zim_SplHeap_isEmpty(ptr noundef readonly captures(none) %0, 
   store i32 %12, ptr %13, align 8, !tbaa !4
   br label %14
 
-14:                                               ; preds = %.critedge, %5
+14:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -180,7 +180,7 @@ define hidden void @zim_SplHeap_insert(ptr noundef %0, ptr noundef writeonly cap
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #15
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #15
-  br label %26
+  br label %25
 
 .critedge.critedge:                               ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -191,39 +191,39 @@ define hidden void @zim_SplHeap_insert(ptr noundef %0, ptr noundef writeonly cap
   %.val.val = load i32, ptr %10, align 4, !tbaa !23
   %11 = and i32 %.val.val, 1
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %12, label %14
+  br i1 %.not.i, label %12, label %spl_heap_consistency_validations.exit
 
 12:                                               ; preds = %.critedge.critedge
   %13 = and i32 %.val.val, 2
   %.not3.i.not = icmp eq i32 %13, 0
-  br i1 %.not3.i.not, label %17, label %14
+  br i1 %.not3.i.not, label %16, label %spl_heap_consistency_validations.exit
 
-14:                                               ; preds = %12, %.critedge.critedge
+spl_heap_consistency_validations.exit:            ; preds = %.critedge.critedge, %12
   %.str.6.sink.i = phi ptr [ @.str.5, %.critedge.critedge ], [ @.str.6, %12 ]
-  %15 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
-  %16 = tail call ptr @zend_throw_exception(ptr noundef %15, ptr noundef nonnull %.str.6.sink.i, i64 noundef 0) #15
-  br label %26
+  %14 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
+  %15 = tail call ptr @zend_throw_exception(ptr noundef %14, ptr noundef nonnull %.str.6.sink.i, i64 noundef 0) #15
+  br label %25
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %19 = load i8, ptr %18, align 1, !tbaa !4
-  %.not43 = icmp eq i8 %19, 0
-  br i1 %.not43, label %24, label %20
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 89
+  %18 = load i8, ptr %17, align 1, !tbaa !4
+  %.not43 = icmp eq i8 %18, 0
+  br i1 %.not43, label %23, label %19
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %7, align 8, !tbaa !4
-  %22 = load i32, ptr %21, align 4, !tbaa !25
-  %23 = add i32 %22, 1
-  store i32 %23, ptr %21, align 4, !tbaa !25
-  br label %24
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %7, align 8, !tbaa !4
+  %21 = load i32, ptr %20, align 4, !tbaa !25
+  %22 = add i32 %21, 1
+  store i32 %22, ptr %20, align 4, !tbaa !25
+  br label %23
 
-24:                                               ; preds = %20, %17
+23:                                               ; preds = %19, %16
   tail call fastcc void @spl_ptr_heap_insert(ptr noundef nonnull %.val, ptr noundef nonnull %7, ptr noundef nonnull %3)
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %25, align 8, !tbaa !4
-  br label %26
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 3, ptr %24, align 8, !tbaa !4
+  br label %25
 
-26:                                               ; preds = %6, %24, %14
+25:                                               ; preds = %spl_heap_consistency_validations.exit, %6, %23
   ret void
 }
 
@@ -367,7 +367,7 @@ define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef writeonly ca
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #15
-  br label %.sink.split
+  br label %21
 
 .critedge:                                        ; preds = %2
   %7 = load ptr, ptr %3, align 8, !tbaa !4
@@ -377,30 +377,30 @@ define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef writeonly ca
   %.val.val = load i32, ptr %9, align 4, !tbaa !23
   %10 = and i32 %.val.val, 1
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %11, label %13
+  br i1 %.not.i, label %11, label %spl_heap_consistency_validations.exit
 
 11:                                               ; preds = %.critedge
   %12 = and i32 %.val.val, 2
   %.not3.i.not = icmp eq i32 %12, 0
-  br i1 %.not3.i.not, label %16, label %13
+  br i1 %.not3.i.not, label %15, label %spl_heap_consistency_validations.exit
 
-13:                                               ; preds = %11, %.critedge
+spl_heap_consistency_validations.exit:            ; preds = %.critedge, %11
   %.str.6.sink.i = phi ptr [ @.str.5, %.critedge ], [ @.str.6, %11 ]
-  %14 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
-  %15 = tail call ptr @zend_throw_exception(ptr noundef %14, ptr noundef nonnull %.str.6.sink.i, i64 noundef 0) #15
-  br label %.sink.split
+  %13 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
+  %14 = tail call ptr @zend_throw_exception(ptr noundef %13, ptr noundef nonnull %.str.6.sink.i, i64 noundef 0) #15
+  br label %21
 
-16:                                               ; preds = %11
-  %17 = tail call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %.val, ptr noundef %1, ptr noundef nonnull %3)
-  %18 = icmp eq i32 %17, -1
-  br i1 %18, label %19, label %.sink.split
+15:                                               ; preds = %11
+  %16 = tail call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %.val, ptr noundef %1, ptr noundef nonnull %3)
+  %17 = icmp eq i32 %16, -1
+  br i1 %17, label %18, label %21
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
-  %21 = tail call ptr @zend_throw_exception(ptr noundef %20, ptr noundef nonnull @.str, i64 noundef 0) #15
-  br label %.sink.split
+18:                                               ; preds = %15
+  %19 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
+  %20 = tail call ptr @zend_throw_exception(ptr noundef %19, ptr noundef nonnull @.str, i64 noundef 0) #15
+  br label %21
 
-.sink.split:                                      ; preds = %19, %13, %6, %16
+21:                                               ; preds = %spl_heap_consistency_validations.exit, %6, %15, %18
   ret void
 }
 
@@ -586,7 +586,7 @@ define hidden void @zim_SplPriorityQueue_insert(ptr noundef %0, ptr noundef writ
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #15
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #15
-  br label %55
+  br label %54
 
 .critedge.critedge:                               ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -598,89 +598,89 @@ define hidden void @zim_SplPriorityQueue_insert(ptr noundef %0, ptr noundef writ
   %.val.val = load i32, ptr %12, align 4, !tbaa !23
   %13 = and i32 %.val.val, 1
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %14, label %16
+  br i1 %.not.i, label %14, label %spl_heap_consistency_validations.exit
 
 14:                                               ; preds = %.critedge.critedge
   %15 = and i32 %.val.val, 2
   %.not3.i.not = icmp eq i32 %15, 0
-  br i1 %.not3.i.not, label %19, label %16
+  br i1 %.not3.i.not, label %18, label %spl_heap_consistency_validations.exit
 
-16:                                               ; preds = %14, %.critedge.critedge
+spl_heap_consistency_validations.exit:            ; preds = %.critedge.critedge, %14
   %.str.6.sink.i = phi ptr [ @.str.5, %.critedge.critedge ], [ @.str.6, %14 ]
-  %17 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
-  %18 = tail call ptr @zend_throw_exception(ptr noundef %17, ptr noundef nonnull %.str.6.sink.i, i64 noundef 0) #15
-  br label %55
+  %16 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
+  %17 = tail call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull %.str.6.sink.i, i64 noundef 0) #15
+  br label %54
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %8, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %22 = load i32, ptr %21, align 8, !tbaa !4
-  store ptr %20, ptr %3, align 8, !tbaa !4
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %22, ptr %23, align 8, !tbaa !4
-  %24 = and i32 %22, 65280
-  %.not79 = icmp eq i32 %24, 0
-  br i1 %.not79, label %28, label %25
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %8, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %21 = load i32, ptr %20, align 8, !tbaa !4
+  store ptr %19, ptr %3, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !4
+  %23 = and i32 %21, 65280
+  %.not79 = icmp eq i32 %23, 0
+  br i1 %.not79, label %27, label %24
 
-25:                                               ; preds = %19
-  %26 = load i32, ptr %20, align 4, !tbaa !25
-  %27 = add i32 %26, 1
-  store i32 %27, ptr %20, align 4, !tbaa !25
-  br label %28
+24:                                               ; preds = %18
+  %25 = load i32, ptr %19, align 4, !tbaa !25
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %19, align 4, !tbaa !25
+  br label %27
 
-28:                                               ; preds = %25, %19
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %30 = load ptr, ptr %9, align 8, !tbaa !4
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %32 = load i32, ptr %31, align 8, !tbaa !4
-  store ptr %30, ptr %29, align 8, !tbaa !4
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %32, ptr %33, align 8, !tbaa !4
-  %34 = and i32 %32, 65280
-  %.not80 = icmp eq i32 %34, 0
-  %35 = trunc i32 %32 to i8
-  br i1 %.not80, label %39, label %36
+27:                                               ; preds = %24, %18
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %29 = load ptr, ptr %9, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %31 = load i32, ptr %30, align 8, !tbaa !4
+  store ptr %29, ptr %28, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 %31, ptr %32, align 8, !tbaa !4
+  %33 = and i32 %31, 65280
+  %.not80 = icmp eq i32 %33, 0
+  %34 = trunc i32 %31 to i8
+  br i1 %.not80, label %38, label %35
 
-36:                                               ; preds = %28
-  %37 = load i32, ptr %30, align 4, !tbaa !25
-  %38 = add i32 %37, 1
-  store i32 %38, ptr %30, align 4, !tbaa !25
-  br label %39
+35:                                               ; preds = %27
+  %36 = load i32, ptr %29, align 4, !tbaa !25
+  %37 = add i32 %36, 1
+  store i32 %37, ptr %29, align 4, !tbaa !25
+  br label %38
 
-39:                                               ; preds = %36, %28
-  %40 = getelementptr inbounds i8, ptr %10, i64 -16
-  %41 = load ptr, ptr %40, align 8, !tbaa !61
-  %.not81 = icmp eq ptr %41, null
-  br i1 %.not81, label %42, label %53
+38:                                               ; preds = %35, %27
+  %39 = getelementptr inbounds i8, ptr %10, i64 -16
+  %40 = load ptr, ptr %39, align 8, !tbaa !61
+  %.not81 = icmp eq ptr %40, null
+  br i1 %.not81, label %41, label %52
 
-42:                                               ; preds = %39
-  %43 = icmp eq i8 %35, 4
-  %44 = icmp eq i8 %35, 5
-  %45 = select i1 %44, ptr @spl_ptr_pqueue_elem_cmp_double, ptr @spl_ptr_pqueue_elem_cmp
-  %46 = select i1 %43, ptr @spl_ptr_pqueue_elem_cmp_long, ptr %45
-  %47 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %48 = load i32, ptr %47, align 8, !tbaa !19
-  %49 = icmp eq i32 %48, 0
-  %50 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  br i1 %49, label %.sink.split, label %51
+41:                                               ; preds = %38
+  %42 = icmp eq i8 %34, 4
+  %43 = icmp eq i8 %34, 5
+  %44 = select i1 %43, ptr @spl_ptr_pqueue_elem_cmp_double, ptr @spl_ptr_pqueue_elem_cmp
+  %45 = select i1 %42, ptr @spl_ptr_pqueue_elem_cmp_long, ptr %44
+  %46 = getelementptr inbounds nuw i8, ptr %.val, i64 32
+  %47 = load i32, ptr %46, align 8, !tbaa !19
+  %48 = icmp eq i32 %47, 0
+  %49 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  br i1 %48, label %.sink.split, label %50
 
-51:                                               ; preds = %42
-  %52 = load ptr, ptr %50, align 8, !tbaa !29
-  %.not82 = icmp eq ptr %46, %52
-  br i1 %.not82, label %53, label %.sink.split
+50:                                               ; preds = %41
+  %51 = load ptr, ptr %49, align 8, !tbaa !29
+  %.not82 = icmp eq ptr %45, %51
+  br i1 %.not82, label %52, label %.sink.split
 
-.sink.split:                                      ; preds = %51, %42
-  %.sink = phi ptr [ %46, %42 ], [ @spl_ptr_pqueue_elem_cmp, %51 ]
-  store ptr %.sink, ptr %50, align 8, !tbaa !29
-  br label %53
+.sink.split:                                      ; preds = %50, %41
+  %.sink = phi ptr [ %45, %41 ], [ @spl_ptr_pqueue_elem_cmp, %50 ]
+  store ptr %.sink, ptr %49, align 8, !tbaa !29
+  br label %52
 
-53:                                               ; preds = %.sink.split, %51, %39
+52:                                               ; preds = %.sink.split, %50, %38
   call fastcc void @spl_ptr_heap_insert(ptr noundef nonnull %.val, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %54, align 8, !tbaa !4
-  br label %55
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 3, ptr %53, align 8, !tbaa !4
+  br label %54
 
-55:                                               ; preds = %7, %53, %16
+54:                                               ; preds = %spl_heap_consistency_validations.exit, %7, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -783,7 +783,7 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #15
-  br label %27
+  br label %26
 
 .critedge:                                        ; preds = %2
   %8 = load ptr, ptr %4, align 8, !tbaa !4
@@ -793,39 +793,39 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
   %.val.val = load i32, ptr %10, align 4, !tbaa !23
   %11 = and i32 %.val.val, 1
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %12, label %14
+  br i1 %.not.i, label %12, label %spl_heap_consistency_validations.exit
 
 12:                                               ; preds = %.critedge
   %13 = and i32 %.val.val, 2
   %.not3.i.not = icmp eq i32 %13, 0
-  br i1 %.not3.i.not, label %17, label %14
+  br i1 %.not3.i.not, label %16, label %spl_heap_consistency_validations.exit
 
-14:                                               ; preds = %12, %.critedge
+spl_heap_consistency_validations.exit:            ; preds = %.critedge, %12
   %.str.6.sink.i = phi ptr [ @.str.5, %.critedge ], [ @.str.6, %12 ]
-  %15 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
-  %16 = tail call ptr @zend_throw_exception(ptr noundef %15, ptr noundef nonnull %.str.6.sink.i, i64 noundef 0) #15
-  br label %27
+  %14 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
+  %15 = tail call ptr @zend_throw_exception(ptr noundef %14, ptr noundef nonnull %.str.6.sink.i, i64 noundef 0) #15
+  br label %26
 
-17:                                               ; preds = %12
-  %18 = call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %.val, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %23
+16:                                               ; preds = %12
+  %17 = call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %.val, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %18 = icmp eq i32 %17, -1
+  br i1 %18, label %19, label %22
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
-  %22 = call ptr @zend_throw_exception(ptr noundef %21, ptr noundef nonnull @.str, i64 noundef 0) #15
-  br label %27
+19:                                               ; preds = %16
+  %20 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
+  %21 = call ptr @zend_throw_exception(ptr noundef %20, ptr noundef nonnull @.str, i64 noundef 0) #15
+  br label %26
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %8, i64 -24
-  %25 = load i32, ptr %24, align 8, !tbaa !63
-  call fastcc void @spl_pqueue_extract_helper(ptr noundef %1, ptr noundef nonnull %3, i32 noundef %25)
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds i8, ptr %8, i64 -24
+  %24 = load i32, ptr %23, align 8, !tbaa !63
+  call fastcc void @spl_pqueue_extract_helper(ptr noundef %1, ptr noundef nonnull %3, i32 noundef %24)
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #15
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @zval_ptr_dtor(ptr noundef nonnull %26) #15
-  br label %27
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @zval_ptr_dtor(ptr noundef nonnull %25) #15
+  br label %26
 
-27:                                               ; preds = %23, %20, %14, %7
+26:                                               ; preds = %spl_heap_consistency_validations.exit, %7, %22, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -936,7 +936,7 @@ define hidden void @zim_SplPriorityQueue_top(ptr noundef readonly captures(none)
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #15
-  br label %24
+  br label %23
 
 .critedge:                                        ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -947,36 +947,36 @@ define hidden void @zim_SplPriorityQueue_top(ptr noundef readonly captures(none)
   %.val.val = load i32, ptr %9, align 4, !tbaa !23
   %10 = and i32 %.val.val, 1
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %14, label %11
+  br i1 %.not.i, label %13, label %spl_heap_consistency_validations.exit
 
-11:                                               ; preds = %.critedge
-  %12 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
-  %13 = tail call ptr @zend_throw_exception(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef 0) #15
-  br label %24
+spl_heap_consistency_validations.exit:            ; preds = %.critedge
+  %11 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
+  %12 = tail call ptr @zend_throw_exception(ptr noundef %11, ptr noundef nonnull @.str.5, i64 noundef 0) #15
+  br label %23
 
-14:                                               ; preds = %.critedge
-  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !19
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %spl_ptr_heap_top.exit.thread, label %spl_ptr_heap_top.exit
+13:                                               ; preds = %.critedge
+  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 32
+  %15 = load i32, ptr %14, align 8, !tbaa !19
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %spl_ptr_heap_top.exit.thread, label %spl_ptr_heap_top.exit
 
-spl_ptr_heap_top.exit:                            ; preds = %14
-  %18 = load ptr, ptr %.val, align 8, !tbaa !28
-  %.not9 = icmp eq ptr %18, null
-  br i1 %.not9, label %spl_ptr_heap_top.exit.thread, label %21
+spl_ptr_heap_top.exit:                            ; preds = %13
+  %17 = load ptr, ptr %.val, align 8, !tbaa !28
+  %.not9 = icmp eq ptr %17, null
+  br i1 %.not9, label %spl_ptr_heap_top.exit.thread, label %20
 
-spl_ptr_heap_top.exit.thread:                     ; preds = %14, %spl_ptr_heap_top.exit
-  %19 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
-  %20 = tail call ptr @zend_throw_exception(ptr noundef %19, ptr noundef nonnull @.str.1, i64 noundef 0) #15
-  br label %24
+spl_ptr_heap_top.exit.thread:                     ; preds = %13, %spl_ptr_heap_top.exit
+  %18 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
+  %19 = tail call ptr @zend_throw_exception(ptr noundef %18, ptr noundef nonnull @.str.1, i64 noundef 0) #15
+  br label %23
 
-21:                                               ; preds = %spl_ptr_heap_top.exit
-  %22 = getelementptr inbounds i8, ptr %7, i64 -24
-  %23 = load i32, ptr %22, align 8, !tbaa !63
-  tail call fastcc void @spl_pqueue_extract_helper(ptr noundef %1, ptr noundef nonnull %18, i32 noundef %23)
-  br label %24
+20:                                               ; preds = %spl_ptr_heap_top.exit
+  %21 = getelementptr inbounds i8, ptr %7, i64 -24
+  %22 = load i32, ptr %21, align 8, !tbaa !63
+  tail call fastcc void @spl_pqueue_extract_helper(ptr noundef %1, ptr noundef nonnull %17, i32 noundef %22)
+  br label %23
 
-24:                                               ; preds = %21, %spl_ptr_heap_top.exit.thread, %11, %5
+23:                                               ; preds = %spl_heap_consistency_validations.exit, %5, %20, %spl_ptr_heap_top.exit.thread
   ret void
 }
 
@@ -1042,7 +1042,7 @@ define hidden void @zim_SplPriorityQueue_getExtractFlags(ptr noundef readonly ca
   store i32 4, ptr %11, align 8, !tbaa !4
   br label %12
 
-12:                                               ; preds = %.critedge, %5
+12:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1070,7 +1070,7 @@ define hidden void @zim_SplHeap_recoverFromCorruption(ptr noundef readonly captu
   store i32 3, ptr %13, align 8, !tbaa !4
   br label %14
 
-14:                                               ; preds = %.critedge, %5
+14:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1098,7 +1098,7 @@ define hidden void @zim_SplHeap_isCorrupted(ptr noundef readonly captures(none) 
   store i32 %13, ptr %14, align 8, !tbaa !4
   br label %15
 
-15:                                               ; preds = %.critedge, %5
+15:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1112,33 +1112,28 @@ define hidden void @zim_SplPriorityQueue_compare(ptr noundef readonly captures(n
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %8 = icmp eq i32 %7, -1
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !30
-  br i1 %8, label %10, label %12
+  br i1 %8, label %17, label %9
 
-10:                                               ; preds = %2
-  %11 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %11)
-  br label %19
+9:                                                ; preds = %2
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !30
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %11, label %spl_ptr_heap_zval_max_cmp.exit
 
-12:                                               ; preds = %2
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %13, label %spl_ptr_heap_zval_max_cmp.exit
-
-13:                                               ; preds = %12
-  %14 = load ptr, ptr %4, align 8, !tbaa !65
-  %15 = load ptr, ptr %3, align 8, !tbaa !65
-  %16 = call i32 @zend_compare(ptr noundef %15, ptr noundef %14) #15
-  %17 = sext i32 %16 to i64
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %4, align 8, !tbaa !65
+  %13 = load ptr, ptr %3, align 8, !tbaa !65
+  %14 = call i32 @zend_compare(ptr noundef %13, ptr noundef %12) #15
+  %15 = sext i32 %14 to i64
   br label %spl_ptr_heap_zval_max_cmp.exit
 
-spl_ptr_heap_zval_max_cmp.exit:                   ; preds = %12, %13
-  %.0.i = phi i64 [ 0, %12 ], [ %17, %13 ]
+spl_ptr_heap_zval_max_cmp.exit:                   ; preds = %9, %11
+  %.0.i = phi i64 [ 0, %9 ], [ %15, %11 ]
   store i64 %.0.i, ptr %1, align 8, !tbaa !4
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %18, align 8, !tbaa !4
-  br label %19
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %16, align 8, !tbaa !4
+  br label %17
 
-19:                                               ; preds = %spl_ptr_heap_zval_max_cmp.exit, %10
+17:                                               ; preds = %2, %spl_ptr_heap_zval_max_cmp.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1214,7 +1209,7 @@ define hidden void @zim_SplHeap_top(ptr noundef readonly captures(none) %0, ptr 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #15
-  br label %43
+  br label %42
 
 .critedge:                                        ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1225,73 +1220,73 @@ define hidden void @zim_SplHeap_top(ptr noundef readonly captures(none) %0, ptr 
   %.val.val = load i32, ptr %9, align 4, !tbaa !23
   %10 = and i32 %.val.val, 1
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %14, label %11
+  br i1 %.not.i, label %13, label %spl_heap_consistency_validations.exit
 
-11:                                               ; preds = %.critedge
-  %12 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
-  %13 = tail call ptr @zend_throw_exception(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef 0) #15
-  br label %43
+spl_heap_consistency_validations.exit:            ; preds = %.critedge
+  %11 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
+  %12 = tail call ptr @zend_throw_exception(ptr noundef %11, ptr noundef nonnull @.str.5, i64 noundef 0) #15
+  br label %42
 
-14:                                               ; preds = %.critedge
-  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !19
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %spl_ptr_heap_top.exit.thread, label %spl_ptr_heap_top.exit
+13:                                               ; preds = %.critedge
+  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 32
+  %15 = load i32, ptr %14, align 8, !tbaa !19
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %spl_ptr_heap_top.exit.thread, label %spl_ptr_heap_top.exit
 
-spl_ptr_heap_top.exit:                            ; preds = %14
-  %18 = load ptr, ptr %.val, align 8, !tbaa !28
-  %.not21 = icmp eq ptr %18, null
-  br i1 %.not21, label %spl_ptr_heap_top.exit.thread, label %21
+spl_ptr_heap_top.exit:                            ; preds = %13
+  %17 = load ptr, ptr %.val, align 8, !tbaa !28
+  %.not21 = icmp eq ptr %17, null
+  br i1 %.not21, label %spl_ptr_heap_top.exit.thread, label %20
 
-spl_ptr_heap_top.exit.thread:                     ; preds = %14, %spl_ptr_heap_top.exit
-  %19 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
-  %20 = tail call ptr @zend_throw_exception(ptr noundef %19, ptr noundef nonnull @.str.1, i64 noundef 0) #15
-  br label %43
+spl_ptr_heap_top.exit.thread:                     ; preds = %13, %spl_ptr_heap_top.exit
+  %18 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !24
+  %19 = tail call ptr @zend_throw_exception(ptr noundef %18, ptr noundef nonnull @.str.1, i64 noundef 0) #15
+  br label %42
 
-21:                                               ; preds = %spl_ptr_heap_top.exit
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %23 = load i32, ptr %22, align 8
-  %24 = and i32 %23, 65280
-  %.not22 = icmp eq i32 %24, 0
-  br i1 %.not22, label %38, label %25
+20:                                               ; preds = %spl_ptr_heap_top.exit
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %22 = load i32, ptr %21, align 8
+  %23 = and i32 %22, 65280
+  %.not22 = icmp eq i32 %23, 0
+  br i1 %.not22, label %37, label %24
 
-25:                                               ; preds = %21
-  %26 = and i32 %23, 255
-  %27 = icmp eq i32 %26, 10
-  br i1 %27, label %28, label %.sink.split, !prof !66
+24:                                               ; preds = %20
+  %25 = and i32 %22, 255
+  %26 = icmp eq i32 %25, 10
+  br i1 %26, label %27, label %.sink.split, !prof !66
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %18, align 8, !tbaa !4
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %32 = load i32, ptr %31, align 8
-  %33 = and i32 %32, 65280
-  %.not23 = icmp eq i32 %33, 0
-  br i1 %.not23, label %38, label %.sink.split
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %17, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %31 = load i32, ptr %30, align 8
+  %32 = and i32 %31, 65280
+  %.not23 = icmp eq i32 %32, 0
+  br i1 %.not23, label %37, label %.sink.split
 
-.sink.split:                                      ; preds = %25, %28
-  %.sink34 = phi i32 [ %32, %28 ], [ %23, %25 ]
-  %.sink.in = phi ptr [ %30, %28 ], [ %18, %25 ]
-  %34 = and i32 %.sink34, 65280
-  %35 = icmp ne i32 %34, 0
-  tail call void @llvm.assume(i1 %35)
+.sink.split:                                      ; preds = %24, %27
+  %.sink34 = phi i32 [ %31, %27 ], [ %22, %24 ]
+  %.sink.in = phi ptr [ %29, %27 ], [ %17, %24 ]
+  %33 = and i32 %.sink34, 65280
+  %34 = icmp ne i32 %33, 0
+  tail call void @llvm.assume(i1 %34)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !4
-  %36 = load i32, ptr %.sink, align 4, !tbaa !25
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %.sink, align 4, !tbaa !25
-  br label %38
+  %35 = load i32, ptr %.sink, align 4, !tbaa !25
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %.sink, align 4, !tbaa !25
+  br label %37
 
-38:                                               ; preds = %.sink.split, %21, %28
-  %.0 = phi ptr [ %18, %21 ], [ %30, %28 ], [ %.sink.in, %.sink.split ]
-  %39 = load ptr, ptr %.0, align 8, !tbaa !4
-  %40 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !4
-  store ptr %39, ptr %1, align 8, !tbaa !4
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %41, ptr %42, align 8, !tbaa !4
-  br label %43
+37:                                               ; preds = %.sink.split, %20, %27
+  %.0 = phi ptr [ %17, %20 ], [ %29, %27 ], [ %.sink.in, %.sink.split ]
+  %38 = load ptr, ptr %.0, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %40 = load i32, ptr %39, align 8, !tbaa !4
+  store ptr %38, ptr %1, align 8, !tbaa !4
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %40, ptr %41, align 8, !tbaa !4
+  br label %42
 
-43:                                               ; preds = %38, %spl_ptr_heap_top.exit.thread, %11, %5
+42:                                               ; preds = %spl_heap_consistency_validations.exit, %5, %37, %spl_ptr_heap_top.exit.thread
   ret void
 }
 
@@ -1305,33 +1300,28 @@ define hidden void @zim_SplMinHeap_compare(ptr noundef readonly captures(none) %
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %8 = icmp eq i32 %7, -1
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !30
-  br i1 %8, label %10, label %12
+  br i1 %8, label %17, label %9
 
-10:                                               ; preds = %2
-  %11 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %11)
-  br label %19
+9:                                                ; preds = %2
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !30
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %11, label %spl_ptr_heap_zval_min_cmp.exit
 
-12:                                               ; preds = %2
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %13, label %spl_ptr_heap_zval_min_cmp.exit
-
-13:                                               ; preds = %12
-  %14 = load ptr, ptr %4, align 8, !tbaa !65
-  %15 = load ptr, ptr %3, align 8, !tbaa !65
-  %16 = call i32 @zend_compare(ptr noundef %14, ptr noundef %15) #15
-  %17 = sext i32 %16 to i64
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %4, align 8, !tbaa !65
+  %13 = load ptr, ptr %3, align 8, !tbaa !65
+  %14 = call i32 @zend_compare(ptr noundef %12, ptr noundef %13) #15
+  %15 = sext i32 %14 to i64
   br label %spl_ptr_heap_zval_min_cmp.exit
 
-spl_ptr_heap_zval_min_cmp.exit:                   ; preds = %12, %13
-  %.0.i = phi i64 [ 0, %12 ], [ %17, %13 ]
+spl_ptr_heap_zval_min_cmp.exit:                   ; preds = %9, %11
+  %.0.i = phi i64 [ 0, %9 ], [ %15, %11 ]
   store i64 %.0.i, ptr %1, align 8, !tbaa !4
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %18, align 8, !tbaa !4
-  br label %19
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %16, align 8, !tbaa !4
+  br label %17
 
-19:                                               ; preds = %spl_ptr_heap_zval_min_cmp.exit, %10
+17:                                               ; preds = %2, %spl_ptr_heap_zval_min_cmp.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1408,33 +1398,28 @@ define hidden void @zim_SplMaxHeap_compare(ptr noundef readonly captures(none) %
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %8 = icmp eq i32 %7, -1
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !30
-  br i1 %8, label %10, label %12
+  br i1 %8, label %17, label %9
 
-10:                                               ; preds = %2
-  %11 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %11)
-  br label %19
+9:                                                ; preds = %2
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !30
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %11, label %spl_ptr_heap_zval_max_cmp.exit
 
-12:                                               ; preds = %2
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %13, label %spl_ptr_heap_zval_max_cmp.exit
-
-13:                                               ; preds = %12
-  %14 = load ptr, ptr %4, align 8, !tbaa !65
-  %15 = load ptr, ptr %3, align 8, !tbaa !65
-  %16 = call i32 @zend_compare(ptr noundef %15, ptr noundef %14) #15
-  %17 = sext i32 %16 to i64
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %4, align 8, !tbaa !65
+  %13 = load ptr, ptr %3, align 8, !tbaa !65
+  %14 = call i32 @zend_compare(ptr noundef %13, ptr noundef %12) #15
+  %15 = sext i32 %14 to i64
   br label %spl_ptr_heap_zval_max_cmp.exit
 
-spl_ptr_heap_zval_max_cmp.exit:                   ; preds = %12, %13
-  %.0.i = phi i64 [ 0, %12 ], [ %17, %13 ]
+spl_ptr_heap_zval_max_cmp.exit:                   ; preds = %9, %11
+  %.0.i = phi i64 [ 0, %9 ], [ %15, %11 ]
   store i64 %.0.i, ptr %1, align 8, !tbaa !4
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %18, align 8, !tbaa !4
-  br label %19
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %16, align 8, !tbaa !4
+  br label %17
 
-19:                                               ; preds = %spl_ptr_heap_zval_max_cmp.exit, %10
+17:                                               ; preds = %2, %spl_ptr_heap_zval_max_cmp.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1465,7 +1450,7 @@ define hidden void @zim_SplHeap_key(ptr noundef readonly captures(none) %0, ptr 
   store i32 4, ptr %14, align 8, !tbaa !4
   br label %15
 
-15:                                               ; preds = %.critedge, %5
+15:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1488,7 +1473,7 @@ define hidden void @zim_SplHeap_next(ptr noundef %0, ptr readnone captures(none)
   %10 = tail call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef %9, ptr noundef null, ptr noundef nonnull %6)
   br label %11
 
-11:                                               ; preds = %.critedge, %5
+11:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1516,7 +1501,7 @@ define hidden void @zim_SplHeap_valid(ptr noundef readonly captures(none) %0, pt
   store i32 %12, ptr %13, align 8, !tbaa !4
   br label %14
 
-14:                                               ; preds = %.critedge, %5
+14:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1531,7 +1516,7 @@ define hidden void @zim_SplHeap_rewind(ptr noundef readonly captures(none) %0, p
   tail call void @zend_wrong_parameters_none_error() #15
   br label %.critedge
 
-.critedge:                                        ; preds = %2, %5
+.critedge:                                        ; preds = %5, %2
   ret void
 }
 
@@ -1605,7 +1590,7 @@ define hidden void @zim_SplHeap_current(ptr noundef readonly captures(none) %0, 
   store i32 %35, ptr %36, align 8, !tbaa !4
   br label %37
 
-37:                                               ; preds = %32, %12, %5
+37:                                               ; preds = %5, %32, %12
   ret void
 }
 
@@ -1642,7 +1627,7 @@ define hidden void @zim_SplPriorityQueue_current(ptr noundef readonly captures(n
   tail call fastcc void @spl_pqueue_extract_helper(ptr noundef %1, ptr noundef %15, i32 noundef %17)
   br label %18
 
-18:                                               ; preds = %14, %12, %7
+18:                                               ; preds = %7, %14, %12
   ret void
 }
 
@@ -1667,7 +1652,7 @@ define hidden void @zim_SplHeap___debugInfo(ptr noundef readonly captures(none) 
   store i32 775, ptr %10, align 8, !tbaa !4
   br label %11
 
-11:                                               ; preds = %.critedge, %5
+11:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1834,7 +1819,7 @@ define hidden void @zim_SplPriorityQueue___debugInfo(ptr noundef readonly captur
   store i32 775, ptr %10, align 8, !tbaa !4
   br label %11
 
-11:                                               ; preds = %.critedge, %5
+11:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -2352,200 +2337,209 @@ define internal fastcc noundef nonnull ptr @spl_heap_object_new_ex(ptr noundef %
   tail call void @zend_object_std_init(ptr noundef nonnull %15, ptr noundef %0) #15
   tail call void @object_properties_init(ptr noundef nonnull %15, ptr noundef %0) #15
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.lr.ph, label %21
+  br i1 %.not, label %.lr.ph, label %20
 
 .lr.ph:                                           ; preds = %3
   %16 = load ptr, ptr @spl_ce_SplPriorityQueue, align 8, !tbaa !24
   %17 = load ptr, ptr @spl_ce_SplMinHeap, align 8
   %18 = load ptr, ptr @spl_ce_SplMaxHeap, align 8
   %19 = load ptr, ptr @spl_ce_SplHeap, align 8
-  %20 = icmp eq ptr %0, %16
-  br i1 %20, label %._crit_edge, label %.lr.ph95
+  br label %66
 
-21:                                               ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %1, i64 -32
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !103
-  %25 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store ptr %24, ptr %25, align 8, !tbaa !103
-  %.not49 = icmp eq i32 %2, 0
-  %26 = load ptr, ptr %22, align 8, !tbaa !8
-  br i1 %.not49, label %spl_ptr_heap_clone.exit, label %27
+20:                                               ; preds = %3
+  %21 = getelementptr inbounds i8, ptr %1, i64 -32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %23 = load ptr, ptr %22, align 8, !tbaa !103
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  store ptr %23, ptr %24, align 8, !tbaa !103
+  %.not50 = icmp eq i32 %2, 0
+  %25 = load ptr, ptr %21, align 8, !tbaa !8
+  br i1 %.not50, label %spl_ptr_heap_clone.exit, label %26
 
-27:                                               ; preds = %21
-  %28 = tail call noalias ptr @_emalloc_56() #15
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !60
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store ptr %30, ptr %31, align 8, !tbaa !60
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !104
-  %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %33, ptr %34, align 8, !tbaa !104
-  %35 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !29
-  %37 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr %36, ptr %37, align 8, !tbaa !29
-  %38 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %39 = load i64, ptr %38, align 8, !tbaa !26
-  %40 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  store i64 %39, ptr %40, align 8, !tbaa !26
-  %41 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %42 = load i32, ptr %41, align 8, !tbaa !19
-  %43 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store i32 %42, ptr %43, align 8, !tbaa !19
-  %44 = getelementptr inbounds nuw i8, ptr %26, i64 36
-  %45 = load i32, ptr %44, align 4, !tbaa !23
-  %46 = getelementptr inbounds nuw i8, ptr %28, i64 36
-  store i32 %45, ptr %46, align 4, !tbaa !23
-  %47 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %48 = load i64, ptr %47, align 8, !tbaa !27
-  %49 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store i64 %48, ptr %49, align 8, !tbaa !27
-  %50 = tail call noalias ptr @_safe_emalloc(i64 noundef %48, i64 noundef %39, i64 noundef 0) #15
-  store ptr %50, ptr %28, align 8, !tbaa !28
-  %51 = load ptr, ptr %26, align 8, !tbaa !28
-  %52 = load i64, ptr %47, align 8, !tbaa !27
-  %53 = load i64, ptr %38, align 8, !tbaa !26
-  %54 = mul i64 %53, %52
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %51, i64 %54, i1 false)
-  %55 = icmp sgt i32 %42, 0
-  br i1 %55, label %.lr.ph.preheader.i, label %spl_ptr_heap_clone.exit
+26:                                               ; preds = %20
+  %27 = tail call noalias ptr @_emalloc_56() #15
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %29 = load ptr, ptr %28, align 8, !tbaa !60
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store ptr %29, ptr %30, align 8, !tbaa !60
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !104
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %32, ptr %33, align 8, !tbaa !104
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %35 = load ptr, ptr %34, align 8, !tbaa !29
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store ptr %35, ptr %36, align 8, !tbaa !29
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %38 = load i64, ptr %37, align 8, !tbaa !26
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  store i64 %38, ptr %39, align 8, !tbaa !26
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %41 = load i32, ptr %40, align 8, !tbaa !19
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store i32 %41, ptr %42, align 8, !tbaa !19
+  %43 = getelementptr inbounds nuw i8, ptr %25, i64 36
+  %44 = load i32, ptr %43, align 4, !tbaa !23
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 36
+  store i32 %44, ptr %45, align 4, !tbaa !23
+  %46 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  %47 = load i64, ptr %46, align 8, !tbaa !27
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  store i64 %47, ptr %48, align 8, !tbaa !27
+  %49 = tail call noalias ptr @_safe_emalloc(i64 noundef %47, i64 noundef %38, i64 noundef 0) #15
+  store ptr %49, ptr %27, align 8, !tbaa !28
+  %50 = load ptr, ptr %25, align 8, !tbaa !28
+  %51 = load i64, ptr %46, align 8, !tbaa !27
+  %52 = load i64, ptr %37, align 8, !tbaa !26
+  %53 = mul i64 %52, %51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr align 1 %50, i64 %53, i1 false)
+  %54 = icmp sgt i32 %41, 0
+  br i1 %54, label %.lr.ph.preheader.i, label %spl_ptr_heap_clone.exit
 
-.lr.ph.preheader.i:                               ; preds = %27
-  %wide.trip.count.i = zext nneg i32 %42 to i64
+.lr.ph.preheader.i:                               ; preds = %26
+  %wide.trip.count.i = zext nneg i32 %41 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %56 = mul i64 %indvars.iv.i, %48
-  %57 = getelementptr inbounds nuw i8, ptr %50, i64 %56
-  tail call void %33(ptr noundef %57) #15
+  %55 = mul i64 %indvars.iv.i, %47
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 %55
+  tail call void %32(ptr noundef %56) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %spl_ptr_heap_clone.exit, label %.lr.ph.i
 
-spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
-  %storemerge = phi ptr [ %26, %21 ], [ %28, %27 ], [ %28, %.lr.ph.i ]
+spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %20, %26
+  %storemerge = phi ptr [ %25, %20 ], [ %27, %26 ], [ %27, %.lr.ph.i ]
   store ptr %storemerge, ptr %14, align 8, !tbaa !8
-  %58 = getelementptr inbounds i8, ptr %1, i64 -24
-  %59 = load i32, ptr %58, align 8, !tbaa !63
-  %60 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 %59, ptr %60, align 8, !tbaa !63
-  %61 = getelementptr inbounds i8, ptr %1, i64 -16
-  %62 = load ptr, ptr %61, align 8, !tbaa !61
-  %63 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %62, ptr %63, align 8, !tbaa !61
-  %64 = getelementptr inbounds i8, ptr %1, i64 -8
-  %65 = load ptr, ptr %64, align 8, !tbaa !98
-  %66 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %65, ptr %66, align 8, !tbaa !98
-  br label %113
+  %57 = getelementptr inbounds i8, ptr %1, i64 -24
+  %58 = load i32, ptr %57, align 8, !tbaa !63
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 %58, ptr %59, align 8, !tbaa !63
+  %60 = getelementptr inbounds i8, ptr %1, i64 -16
+  %61 = load ptr, ptr %60, align 8, !tbaa !61
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr %61, ptr %62, align 8, !tbaa !61
+  %63 = getelementptr inbounds i8, ptr %1, i64 -8
+  %64 = load ptr, ptr %63, align 8, !tbaa !98
+  %65 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %64, ptr %65, align 8, !tbaa !98
+  br label %115
 
-._crit_edge:                                      ; preds = %80, %.lr.ph
-  %67 = tail call noalias ptr @_emalloc_56() #15
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store ptr @spl_ptr_heap_pqueue_elem_dtor, ptr %68, align 8, !tbaa !60
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store ptr @spl_ptr_heap_pqueue_elem_ctor, ptr %69, align 8, !tbaa !104
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store ptr @spl_ptr_pqueue_elem_cmp, ptr %70, align 8, !tbaa !29
-  %71 = tail call noalias dereferenceable_or_null(2048) ptr @_ecalloc(i64 noundef 64, i64 noundef 32) #17
-  store ptr %71, ptr %67, align 8, !tbaa !28
-  %72 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  store i64 64, ptr %72, align 8, !tbaa !26
-  %73 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  store i32 0, ptr %73, align 8, !tbaa !19
-  %74 = getelementptr inbounds nuw i8, ptr %67, i64 36
-  store i32 0, ptr %74, align 4, !tbaa !23
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 48
-  store i64 32, ptr %75, align 8, !tbaa !27
-  store ptr %67, ptr %14, align 8, !tbaa !8
-  %76 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 1, ptr %76, align 8, !tbaa !63
-  br i1 %20, label %113, label %94
+66:                                               ; preds = %.lr.ph, %83
+  %.not4965 = phi i1 [ true, %.lr.ph ], [ false, %83 ]
+  %.04664 = phi ptr [ %0, %.lr.ph ], [ %85, %83 ]
+  %67 = icmp eq ptr %.04664, %16
+  br i1 %67, label %68, label %79
 
-.lr.ph95:                                         ; preds = %.lr.ph, %80
-  %.0466594 = phi ptr [ %82, %80 ], [ %0, %.lr.ph ]
-  %.not486693 = phi i1 [ false, %80 ], [ true, %.lr.ph ]
-  %77 = icmp eq ptr %.0466594, %17
-  %78 = icmp eq ptr %.0466594, %18
-  %or.cond = select i1 %77, i1 true, i1 %78
-  %79 = icmp eq ptr %.0466594, %19
-  %or.cond52 = select i1 %or.cond, i1 true, i1 %79
-  br i1 %or.cond52, label %.loopexit, label %80
+68:                                               ; preds = %66
+  %69 = tail call noalias ptr @_emalloc_56() #15
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  store ptr @spl_ptr_heap_pqueue_elem_dtor, ptr %70, align 8, !tbaa !60
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store ptr @spl_ptr_heap_pqueue_elem_ctor, ptr %71, align 8, !tbaa !104
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  store ptr @spl_ptr_pqueue_elem_cmp, ptr %72, align 8, !tbaa !29
+  %73 = tail call noalias dereferenceable_or_null(2048) ptr @_ecalloc(i64 noundef 64, i64 noundef 32) #17
+  store ptr %73, ptr %69, align 8, !tbaa !28
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  store i64 64, ptr %74, align 8, !tbaa !26
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  store i32 0, ptr %75, align 8, !tbaa !19
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 36
+  store i32 0, ptr %76, align 4, !tbaa !23
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 48
+  store i64 32, ptr %77, align 8, !tbaa !27
+  store ptr %69, ptr %14, align 8, !tbaa !8
+  %78 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 1, ptr %78, align 8, !tbaa !63
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.04664) ]
+  br i1 %.not4965, label %115, label %96
 
-80:                                               ; preds = %.lr.ph95
-  %81 = getelementptr inbounds nuw i8, ptr %.0466594, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !4, !nonnull !105, !noundef !105
-  %83 = icmp eq ptr %82, %16
-  br i1 %83, label %._crit_edge, label %.lr.ph95
+79:                                               ; preds = %66
+  %80 = icmp eq ptr %.04664, %17
+  %81 = icmp eq ptr %.04664, %18
+  %or.cond = select i1 %80, i1 true, i1 %81
+  %82 = icmp eq ptr %.04664, %19
+  %or.cond53 = select i1 %or.cond, i1 true, i1 %82
+  br i1 %or.cond53, label %.loopexit, label %83
 
-.loopexit:                                        ; preds = %.lr.ph95
-  %84 = select i1 %77, ptr @spl_ptr_heap_zval_min_cmp, ptr @spl_ptr_heap_zval_max_cmp
-  %85 = tail call noalias ptr @_emalloc_56() #15
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store ptr @spl_ptr_heap_zval_dtor, ptr %86, align 8, !tbaa !60
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr @spl_ptr_heap_zval_ctor, ptr %87, align 8, !tbaa !104
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  store ptr %84, ptr %88, align 8, !tbaa !29
-  %89 = tail call noalias dereferenceable_or_null(1024) ptr @_ecalloc(i64 noundef 64, i64 noundef 16) #17
-  store ptr %89, ptr %85, align 8, !tbaa !28
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 40
-  store i64 64, ptr %90, align 8, !tbaa !26
-  %91 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  store i32 0, ptr %91, align 8, !tbaa !19
-  %92 = getelementptr inbounds nuw i8, ptr %85, i64 36
-  store i32 0, ptr %92, align 4, !tbaa !23
-  %93 = getelementptr inbounds nuw i8, ptr %85, i64 48
-  store i64 16, ptr %93, align 8, !tbaa !27
-  store ptr %85, ptr %14, align 8, !tbaa !8
-  br i1 %.not486693, label %113, label %94
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds nuw i8, ptr %.04664, i64 16
+  %85 = load ptr, ptr %84, align 8, !tbaa !4
+  %.not48 = icmp eq ptr %85, null
+  br i1 %.not48, label %.loopexit.thread, label %66
 
-94:                                               ; preds = %._crit_edge, %.loopexit
-  %.0466385 = phi ptr [ %16, %._crit_edge ], [ %.0466594, %.loopexit ]
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %96 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %95, ptr noundef nonnull @.str.7, i64 noundef 7) #15
-  %.not.i = icmp eq ptr %96, null
-  br i1 %.not.i, label %zend_hash_str_find_ptr.exit, label %97
+.loopexit.thread:                                 ; preds = %83
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr null) ]
+  br label %96
 
-97:                                               ; preds = %94
-  %98 = load ptr, ptr %96, align 8, !tbaa !4, !nonnull !105, !noundef !105
+.loopexit:                                        ; preds = %79
+  %86 = select i1 %80, ptr @spl_ptr_heap_zval_min_cmp, ptr @spl_ptr_heap_zval_max_cmp
+  %87 = tail call noalias ptr @_emalloc_56() #15
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  store ptr @spl_ptr_heap_zval_dtor, ptr %88, align 8, !tbaa !60
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  store ptr @spl_ptr_heap_zval_ctor, ptr %89, align 8, !tbaa !104
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  store ptr %86, ptr %90, align 8, !tbaa !29
+  %91 = tail call noalias dereferenceable_or_null(1024) ptr @_ecalloc(i64 noundef 64, i64 noundef 16) #17
+  store ptr %91, ptr %87, align 8, !tbaa !28
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 40
+  store i64 64, ptr %92, align 8, !tbaa !26
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  store i32 0, ptr %93, align 8, !tbaa !19
+  %94 = getelementptr inbounds nuw i8, ptr %87, i64 36
+  store i32 0, ptr %94, align 4, !tbaa !23
+  %95 = getelementptr inbounds nuw i8, ptr %87, i64 48
+  store i64 16, ptr %95, align 8, !tbaa !27
+  store ptr %87, ptr %14, align 8, !tbaa !8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.04664) ]
+  br i1 %.not4965, label %115, label %96
+
+96:                                               ; preds = %68, %.loopexit.thread, %.loopexit
+  %.0466280 = phi ptr [ null, %.loopexit.thread ], [ %.04664, %.loopexit ], [ %.04664, %68 ]
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %98 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %97, ptr noundef nonnull @.str.7, i64 noundef 7) #15
+  %.not.i = icmp eq ptr %98, null
+  br i1 %.not.i, label %zend_hash_str_find_ptr.exit, label %99
+
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %98, align 8, !tbaa !4, !nonnull !105, !noundef !105
   br label %zend_hash_str_find_ptr.exit
 
-zend_hash_str_find_ptr.exit:                      ; preds = %94, %97
-  %.0.i = phi ptr [ %98, %97 ], [ null, %94 ]
-  %99 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %.0.i, ptr %99, align 8, !tbaa !61
-  %100 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !4
-  %102 = icmp eq ptr %101, %.0466385
-  %spec.store.select = select i1 %102, ptr null, ptr %.0.i
-  store ptr %spec.store.select, ptr %99, align 8
-  %103 = load ptr, ptr @zend_known_strings, align 8, !tbaa !106
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 576
-  %105 = load ptr, ptr %104, align 8, !tbaa !108
-  %106 = tail call ptr @zend_hash_find(ptr noundef nonnull %95, ptr noundef %105) #15
-  %.not.i54 = icmp eq ptr %106, null
-  br i1 %.not.i54, label %zend_hash_find_ptr.exit, label %107
+zend_hash_str_find_ptr.exit:                      ; preds = %96, %99
+  %.0.i = phi ptr [ %100, %99 ], [ null, %96 ]
+  %101 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr %.0.i, ptr %101, align 8, !tbaa !61
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !4
+  %104 = icmp eq ptr %103, %.0466280
+  %spec.store.select = select i1 %104, ptr null, ptr %.0.i
+  store ptr %spec.store.select, ptr %101, align 8
+  %105 = load ptr, ptr @zend_known_strings, align 8, !tbaa !106
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 576
+  %107 = load ptr, ptr %106, align 8, !tbaa !108
+  %108 = tail call ptr @zend_hash_find(ptr noundef nonnull %97, ptr noundef %107) #15
+  %.not.i55 = icmp eq ptr %108, null
+  br i1 %.not.i55, label %zend_hash_find_ptr.exit, label %109
 
-107:                                              ; preds = %zend_hash_str_find_ptr.exit
-  %108 = load ptr, ptr %106, align 8, !tbaa !4, !nonnull !105, !noundef !105
+109:                                              ; preds = %zend_hash_str_find_ptr.exit
+  %110 = load ptr, ptr %108, align 8, !tbaa !4, !nonnull !105, !noundef !105
   br label %zend_hash_find_ptr.exit
 
-zend_hash_find_ptr.exit:                          ; preds = %zend_hash_str_find_ptr.exit, %107
-  %.0.i55 = phi ptr [ %108, %107 ], [ null, %zend_hash_str_find_ptr.exit ]
-  %109 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %.0.i55, ptr %109, align 8, !tbaa !98
-  %110 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 16
-  %111 = load ptr, ptr %110, align 8, !tbaa !4
-  %112 = icmp eq ptr %111, %.0466385
-  %spec.store.select53 = select i1 %112, ptr null, ptr %.0.i55
-  store ptr %spec.store.select53, ptr %109, align 8
-  br label %113
+zend_hash_find_ptr.exit:                          ; preds = %zend_hash_str_find_ptr.exit, %109
+  %.0.i56 = phi ptr [ %110, %109 ], [ null, %zend_hash_str_find_ptr.exit ]
+  %111 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %.0.i56, ptr %111, align 8, !tbaa !98
+  %112 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 16
+  %113 = load ptr, ptr %112, align 8, !tbaa !4
+  %114 = icmp eq ptr %113, %.0466280
+  %spec.store.select54 = select i1 %114, ptr null, ptr %.0.i56
+  store ptr %spec.store.select54, ptr %111, align 8
+  br label %115
 
-113:                                              ; preds = %._crit_edge, %zend_hash_find_ptr.exit, %.loopexit, %spl_ptr_heap_clone.exit
+115:                                              ; preds = %68, %zend_hash_find_ptr.exit, %.loopexit, %spl_ptr_heap_clone.exit
   ret ptr %15
 }
 

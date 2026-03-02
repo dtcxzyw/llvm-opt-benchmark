@@ -20311,8 +20311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150: ; preds = %_Z
           to label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit unwind label %173
 
 _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %158
-  %.not.i.i151 = icmp ne ptr %161, null
-  call void @llvm.assume(i1 %.not.i.i151)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %161) ]
   %162 = load i32, ptr %161, align 8, !tbaa !233
   %163 = icmp eq i32 %162, 8
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 8

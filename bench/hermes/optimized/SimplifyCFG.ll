@@ -562,8 +562,7 @@ for.body47.i.i:                                   ; preds = %if.end42.i.i, %for.
 
 for.end57.i.i:                                    ; preds = %for.body47.i.i, %if.end42.i.i
   %ourValue.0.lcssa.i.i = phi ptr [ null, %if.end42.i.i ], [ %spec.select.i73.i, %for.body47.i.i ]
-  %tobool58.i.i = icmp ne ptr %ourValue.0.lcssa.i.i, null
-  call void @llvm.assume(i1 %tobool58.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %ourValue.0.lcssa.i.i) ]
   %call63215.i.i = call noundef i32 @_ZNK6hermes7PhiInst13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(132) %64) #9
   %cmp64216.not.i.i = icmp eq i32 %call63215.i.i, 0
   br i1 %cmp64216.not.i.i, label %for.inc81.i.i, label %for.body65.i.i
@@ -666,8 +665,7 @@ for.inc81.i.i:                                    ; preds = %for.inc77.i.i, %for
 
 for.end83.i.i:                                    ; preds = %for.inc81.i.i, %if.end24.i.i
   %phiBlock.0.lcssa.i.i = phi ptr [ null, %if.end24.i.i ], [ %phiBlock.1.i.i, %for.inc81.i.i ]
-  %tobool84.i.i = icmp ne ptr %phiBlock.0.lcssa.i.i, null
-  call void @llvm.assume(i1 %tobool84.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %phiBlock.0.lcssa.i.i) ]
   %call89.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6hermes5Value8getUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i58.i) #9
   %82 = load ptr, ptr %call89.i.i, align 8
   %Size.i114.i.i = getelementptr inbounds nuw i8, ptr %call89.i.i, i64 8

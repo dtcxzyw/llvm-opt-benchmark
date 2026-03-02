@@ -560,7 +560,7 @@ default.unreachable15:                            ; preds = %3
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @"_ZN4core3ptr263drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$http_client..async_body..AsyncBody$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h681dbf4fb4cc442aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #45
-          to label %.body unwind label %56
+          to label %.body unwind label %55
 
 "_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6a90225bfe87f2c2E.exit": ; preds = %21
   %30 = load i64, ptr %4, align 8, !range !49, !noundef !28
@@ -635,8 +635,7 @@ common.ret:                                       ; preds = %"_ZN4core6result19R
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha5761577e7ae0a0bE.exit"
 
 54:                                               ; preds = %"_ZN4core3ptr263drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$http_client..async_body..AsyncBody$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h681dbf4fb4cc442aE.exit"
-  %55 = icmp ne ptr %.sroa.3.0.copyload, null
-  tail call void @llvm.assume(i1 %55)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.3.0.copyload) ]
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha5761577e7ae0a0bE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha5761577e7ae0a0bE.exit": ; preds = %54, %53
@@ -647,8 +646,8 @@ common.ret:                                       ; preds = %"_ZN4core6result19R
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.5, i64 128, i1 false)
   br label %common.ret
 
-56:                                               ; preds = %28
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %28
+  %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #46
   unreachable

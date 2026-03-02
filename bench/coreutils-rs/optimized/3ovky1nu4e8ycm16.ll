@@ -320,19 +320,18 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Resul
 
 3:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !92
-  %4 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h0a823a07905f6e8cE.llvm.3940996947460080253(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull %.8.val), !noalias !92
-  %5 = load i8, ptr %1, align 8, !range !99, !alias.scope !100, !noalias !92, !noundef !5
-  %6 = icmp eq i8 %5, 3
-  br i1 %6, label %7, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h45b20128874d56dfE.exit"
+  %4 = load i8, ptr %1, align 8, !range !99, !alias.scope !100, !noalias !92, !noundef !5
+  %5 = icmp eq i8 %4, 3
+  br i1 %5, label %6, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h45b20128874d56dfE.exit"
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hd88e26e70cc00c10E.llvm.3940996947460080253"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !92
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hd88e26e70cc00c10E.llvm.3940996947460080253"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7), !noalias !92
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h45b20128874d56dfE.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h45b20128874d56dfE.exit": ; preds = %3, %7
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h45b20128874d56dfE.exit": ; preds = %3, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !92
   br label %2
 }
@@ -3524,23 +3523,22 @@ default.unreachable:                              ; preds = %26
 135:                                              ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 
-136:                                              ; preds = %137, %141
+136:                                              ; preds = %137, %140
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !816
   br label %132
 
 137:                                              ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !816
-  %138 = icmp ne ptr %.sroa.13.2, null
-  tail call void @llvm.assume(i1 %138)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.13.2) ]
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h0a823a07905f6e8cE.llvm.3940996947460080253(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %.sroa.13.2), !noalias !816
-  %139 = load i8, ptr %3, align 8, !range !99, !alias.scope !823, !noalias !816, !noundef !5
-  %140 = icmp eq i8 %139, 3
-  br i1 %140, label %141, label %136
+  %138 = load i8, ptr %3, align 8, !range !99, !alias.scope !823, !noalias !816, !noundef !5
+  %139 = icmp eq i8 %138, 3
+  br i1 %139, label %140, label %136
 
-141:                                              ; preds = %137
-  %142 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hd88e26e70cc00c10E.llvm.3940996947460080253"(ptr noalias noundef nonnull align 8 dereferenceable(8) %142), !noalias !816
+140:                                              ; preds = %137
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hd88e26e70cc00c10E.llvm.3940996947460080253"(ptr noalias noundef nonnull align 8 dereferenceable(8) %141), !noalias !816
   br label %136
 }
 

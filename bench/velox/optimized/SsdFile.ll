@@ -8396,8 +8396,7 @@ while.end.i:                                      ; preds = %while.cond.i
 _ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i: ; preds = %while.body.i
   %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
   store i32 %1, ptr %arrayidx.i.i.i.i.le, align 4
-  %cmp11 = icmp ne ptr %0, null
-  call void @llvm.assume(i1 %cmp11)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %arrayidx13 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %conv.i21
   %second.i.i = getelementptr inbounds nuw i8, ptr %arrayidx13, i64 24
   store ptr null, ptr %arrayidx, align 8
@@ -10415,6 +10414,7 @@ for.body.i:                                       ; preds = %_ZN5folly6detail18r
   %i.012.i = phi i64 [ %inc.i, %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ 0, %_ZN5folly6detail18rawOverAlignedImplISaIhELm16ELb1EEEvRKT_mRPv.exit.i ]
   %src.addr.011.i = phi ptr [ %incdec.ptr.i, %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ %0, %_ZN5folly6detail18rawOverAlignedImplISaIhELm16ELb1EEEvRKT_mRPv.exit.i ]
   %dst.addr.010.i = phi ptr [ %incdec.ptr4.i, %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ %add.ptr, %_ZN5folly6detail18rawOverAlignedImplISaIhELm16ELb1EEEvRKT_mRPv.exit.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %dst.addr.010.i) ]
   %second.i.i = getelementptr inbounds nuw i8, ptr %src.addr.011.i, i64 24
   store ptr null, ptr %dst.addr.010.i, align 8
   %id_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %dst.addr.010.i, i64 8
@@ -10534,8 +10534,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %i.012.i.i.i = phi i64 [ %inc.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i.i.i ], [ 0, %if.then.i.i ]
   %src.addr.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i.i.i ], [ %27, %if.then.i.i ]
   %dst.addr.010.i.i.i = phi ptr [ %incdec.ptr4.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i.i.i ], [ %23, %if.then.i.i ]
-  %cmp2.i.i.i = icmp ne ptr %dst.addr.010.i.i.i, null
-  tail call void @llvm.assume(i1 %cmp2.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %dst.addr.010.i.i.i) ]
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %src.addr.011.i.i.i, i64 24
   store ptr null, ptr %dst.addr.010.i.i.i, align 8
   %id_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %dst.addr.010.i.i.i, i64 8

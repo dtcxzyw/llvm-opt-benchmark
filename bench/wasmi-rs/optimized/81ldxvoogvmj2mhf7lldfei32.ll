@@ -2941,22 +2941,21 @@ define hidden noundef zeroext i1 @"_ZN5wasmi5store14Store$LT$T$GT$22can_create_m
   %20 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %21 = extractvalue { ptr, ptr } %20, 0
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %31, label %22
+  br i1 %.not, label %30, label %22
 
 22:                                               ; preds = %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit"
   %23 = extractvalue { ptr, ptr } %20, 1
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  %25 = call noundef i64 @_ZN5wasmi5store5inner10StoreInner10len_tables17h98bc6e457387cf9bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
-  %26 = call i64 @llvm.uadd.sat.i64(i64 %25, i64 %1)
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %28 = load ptr, ptr %27, align 8, !invariant.load !4, !nonnull !4
-  %29 = call noundef i64 %28(ptr noundef nonnull align 1 %21)
-  %30 = icmp ule i64 %26, %29
-  br label %31
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
+  %24 = call noundef i64 @_ZN5wasmi5store5inner10StoreInner10len_tables17h98bc6e457387cf9bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
+  %25 = call i64 @llvm.uadd.sat.i64(i64 %24, i64 %1)
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  %27 = load ptr, ptr %26, align 8, !invariant.load !4, !nonnull !4
+  %28 = call noundef i64 %27(ptr noundef nonnull align 1 %21)
+  %29 = icmp ule i64 %25, %28
+  br label %30
 
-31:                                               ; preds = %22, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit"
-  %.sroa.0.0 = phi i1 [ true, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit" ], [ %30, %22 ]
+30:                                               ; preds = %22, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit"
+  %.sroa.0.0 = phi i1 [ true, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit" ], [ %29, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.sroa.0.0
 }
@@ -2995,22 +2994,21 @@ define hidden noundef zeroext i1 @"_ZN5wasmi5store14Store$LT$T$GT$24can_create_m
   %20 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %21 = extractvalue { ptr, ptr } %20, 0
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %31, label %22
+  br i1 %.not, label %30, label %22
 
 22:                                               ; preds = %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit"
   %23 = extractvalue { ptr, ptr } %20, 1
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  %25 = call noundef i64 @_ZN5wasmi5store5inner10StoreInner12len_memories17h19b093a349115b39E(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
-  %26 = call i64 @llvm.uadd.sat.i64(i64 %25, i64 %1)
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %28 = load ptr, ptr %27, align 8, !invariant.load !4, !nonnull !4
-  %29 = call noundef i64 %28(ptr noundef nonnull align 1 %21)
-  %30 = icmp ule i64 %26, %29
-  br label %31
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
+  %24 = call noundef i64 @_ZN5wasmi5store5inner10StoreInner12len_memories17h19b093a349115b39E(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
+  %25 = call i64 @llvm.uadd.sat.i64(i64 %24, i64 %1)
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 72
+  %27 = load ptr, ptr %26, align 8, !invariant.load !4, !nonnull !4
+  %28 = call noundef i64 %27(ptr noundef nonnull align 1 %21)
+  %29 = icmp ule i64 %25, %28
+  br label %30
 
-31:                                               ; preds = %22, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit"
-  %.sroa.0.0 = phi i1 [ true, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit" ], [ %30, %22 ]
+30:                                               ; preds = %22, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit"
+  %.sroa.0.0 = phi i1 [ true, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit" ], [ %29, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.sroa.0.0
 }
@@ -3049,22 +3047,21 @@ define hidden noundef zeroext i1 @"_ZN5wasmi5store14Store$LT$T$GT$25can_create_m
   %20 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %21 = extractvalue { ptr, ptr } %20, 0
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %31, label %22
+  br i1 %.not, label %30, label %22
 
 22:                                               ; preds = %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit"
   %23 = extractvalue { ptr, ptr } %20, 1
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  %25 = call noundef i64 @_ZN5wasmi5store5inner10StoreInner13len_instances17h78c836b44b3073c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
-  %26 = call i64 @llvm.uadd.sat.i64(i64 %25, i64 %1)
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %28 = load ptr, ptr %27, align 8, !invariant.load !4, !nonnull !4
-  %29 = call noundef i64 %28(ptr noundef nonnull align 1 %21)
-  %30 = icmp ule i64 %26, %29
-  br label %31
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
+  %24 = call noundef i64 @_ZN5wasmi5store5inner10StoreInner13len_instances17h78c836b44b3073c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
+  %25 = call i64 @llvm.uadd.sat.i64(i64 %24, i64 %1)
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %27 = load ptr, ptr %26, align 8, !invariant.load !4, !nonnull !4
+  %28 = call noundef i64 %27(ptr noundef nonnull align 1 %21)
+  %29 = icmp ule i64 %25, %28
+  br label %30
 
-31:                                               ; preds = %22, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit"
-  %.sroa.0.0 = phi i1 [ true, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit" ], [ %30, %22 ]
+30:                                               ; preds = %22, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit"
+  %.sroa.0.0 = phi i1 [ true, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h0204e9c3a0e6e371E.exit" ], [ %29, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.sroa.0.0
 }
@@ -3183,7 +3180,7 @@ define hidden { i32, i32 } @_ZN5wasmi5table7element14ElementSegment3new17h0fc738
   %.sroa.6.0 = phi i64 [ %29, %22 ], [ 0, %4 ]
   %.sroa.0.0 = phi ptr [ %28, %22 ], [ inttoptr (i64 8 to ptr), %4 ]
   %31 = invoke noundef i8 @_ZN5wasmi6module7element14ElementSegment2ty17h02c02d0affaed741E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
-          to label %.noexc unwind label %46
+          to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !460
@@ -3224,8 +3221,7 @@ define hidden { i32, i32 } @_ZN5wasmi5table7element14ElementSegment3new17h0fc738
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit.sink.split"
 
 43:                                               ; preds = %.noexc
-  %44 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %44)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %33) ]
   %.val6 = load ptr, ptr %15, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %33, ptr %10, align 8
@@ -3233,30 +3229,29 @@ define hidden { i32, i32 } @_ZN5wasmi5table7element14ElementSegment3new17h0fc738
   store i64 %34, ptr %.sroa.4.0..sroa_idx21, align 8
   %.sroa.5.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 %31, ptr %.sroa.5.0..sroa_idx22, align 8
-  %45 = call { i32, i32 } @_ZN5wasmi5store5inner10StoreInner21alloc_element_segment17ha1abc48cd9f2d413E(ptr noalias noundef nonnull align 8 dereferenceable(240) %.val6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10)
+  %44 = call { i32, i32 } @_ZN5wasmi5store5inner10StoreInner21alloc_element_segment17ha1abc48cd9f2d413E(ptr noalias noundef nonnull align 8 dereferenceable(240) %.val6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  ret { i32, i32 } %45
+  ret { i32, i32 } %44
 
-46:                                               ; preds = %30
+45:                                               ; preds = %30
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %47 = icmp eq i64 %.sroa.6.0, 0
-  br i1 %47, label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit", label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit.sink.split"
+  %46 = icmp eq i64 %.sroa.6.0, 0
+  br i1 %46, label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit", label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit.sink.split"
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit.sink.split": ; preds = %46, %.thread14
-  %.sroa.6.0.sink = phi i64 [ %34, %.thread14 ], [ %.sroa.6.0, %46 ]
-  %.sroa.0.0.sink24 = phi ptr [ %33, %.thread14 ], [ %.sroa.0.0, %46 ]
-  %.pn13.ph = phi { ptr, i32 } [ %42, %.thread14 ], [ %lpad.thr_comm.split-lp, %46 ]
-  %48 = shl nuw nsw i64 %.sroa.6.0.sink, 4
-  %49 = icmp ne ptr %.sroa.0.0.sink24, null
-  call void @llvm.assume(i1 %49)
-  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.0.0.sink24, i64 noundef range(i64 1, -9223372036854775808) %48, i64 noundef 8) #15
+"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit.sink.split": ; preds = %45, %.thread14
+  %.sroa.6.0.sink = phi i64 [ %34, %.thread14 ], [ %.sroa.6.0, %45 ]
+  %.sroa.0.0.sink23 = phi ptr [ %33, %.thread14 ], [ %.sroa.0.0, %45 ]
+  %.pn13.ph = phi { ptr, i32 } [ %42, %.thread14 ], [ %lpad.thr_comm.split-lp, %45 ]
+  %47 = shl nuw nsw i64 %.sroa.6.0.sink, 4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.sink23) ]
+  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.0.0.sink23, i64 noundef range(i64 1, -9223372036854775808) %47, i64 noundef 8) #15
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit"
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit.sink.split", %46
-  %.pn13 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %46 ], [ %.pn13.ph, %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit.sink.split" ]
+"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit.sink.split", %45
+  %.pn13 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %45 ], [ %.pn13.ph, %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17he0cde5aebf7110deE.exit.sink.split" ]
   resume { ptr, i32 } %.pn13
 }
 

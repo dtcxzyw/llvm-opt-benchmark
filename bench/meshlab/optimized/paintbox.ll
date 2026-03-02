@@ -13742,10 +13742,9 @@ define void @_ZN8Paintbox19restorePreviousTypeEv(ptr noundef nonnull readonly al
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(12) %9)
-  %14 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call ptr @__dynamic_cast(ptr nonnull %13, ptr nonnull @_ZTI7QWidget, ptr nonnull @_ZTI11QToolButton, i64 0) #19
-  tail call void @_ZN15QAbstractButton6toggleEv(ptr noundef nonnull align 8 dereferenceable(48) %15)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
+  %14 = tail call ptr @__dynamic_cast(ptr nonnull %13, ptr nonnull @_ZTI7QWidget, ptr nonnull @_ZTI11QToolButton, i64 0) #19
+  tail call void @_ZN15QAbstractButton6toggleEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
   ret void
 }
 

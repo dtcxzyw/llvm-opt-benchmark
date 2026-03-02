@@ -729,20 +729,19 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h0054df821a8434d3E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 32
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.2)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -751,20 +750,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h06415e8027267cf3E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 40
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.4)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -773,20 +771,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h08cd28ac239cae96E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 120
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 120
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.5)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -795,20 +792,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h237ac6113c8e6d38E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 72
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.6)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -817,20 +813,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h339ee3982b73b8dbE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 104
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 104
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.7)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -839,20 +834,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h391dd94894ecaef9E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 96
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.8)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.8)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -861,20 +855,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h39f753b87911b3e7E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 64
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.9)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.9)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -883,20 +876,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h3d85fe9c8b1cc062E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 1
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.10)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -905,20 +897,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h4387264f9bc25d17E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 1
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.11)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.11)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -927,20 +918,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h58700803ee16da40E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 32
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.12)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.12)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -949,20 +939,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h6e782ceca0e274c0E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 56
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.13)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.13)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -971,20 +960,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h8908485e95ab8831E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 64
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.14)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.14)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -993,20 +981,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h8c1383e4b85cd69eE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 72
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.15)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.15)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -1015,20 +1002,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h9c88ddc06d6ac694E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 128
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 128
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.16)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.16)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -1037,20 +1023,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hc2a622ff81fffa0eE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 128
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 128
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.17)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.17)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -1059,20 +1044,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hcba3204f431ac1e9E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 168
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 168
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.18)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.18)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -1081,20 +1065,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hda26f546ca9dda1cE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 72
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.19)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.19)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -1103,20 +1086,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hf57a4d463ce6153cE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 88
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.20)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.20)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -1125,20 +1107,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hf7b901fce3cebefcE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 128
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 128
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.21)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.21)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -1147,20 +1128,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hfdb2e37f3c38b0d2E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 80
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.22)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h74b72459e18f9095E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.22)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -3607,129 +3587,127 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN21ruff_python_
   %8 = alloca [1 x i8], align 1
   %9 = alloca [16 x i8], align 8
   %10 = alloca [8 x i8], align 8
-  %11 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = icmp eq ptr %1, %2
-  br i1 %12, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %11 = icmp eq ptr %1, %2
+  br i1 %11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %.promoted = load i32, ptr %0, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !nonnull !3, !align !4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = load ptr, ptr %14, align 8, !nonnull !3, !align !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.4.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.4.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.promoted13 = load i32, ptr %17, align 4
-  br label %22
+  %.promoted13 = load i32, ptr %16, align 4
+  br label %21
 
-22:                                               ; preds = %.lr.ph, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit
-  %23 = phi i32 [ %.promoted13, %.lr.ph ], [ %52, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit ]
-  %.sroa.0.012 = phi ptr [ %1, %.lr.ph ], [ %25, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit ]
-  %24 = phi i32 [ %.promoted, %.lr.ph ], [ %53, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 88
-  %26 = call { ptr, i8 } @"_ZN21ruff_python_formatter7pattern167_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Pattern$GT$6format17h18363b00469998b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0.012), !noalias !304
-  %27 = extractvalue { ptr, i8 } %26, 0
-  %28 = extractvalue { ptr, i8 } %26, 1
-  %29 = call noundef i8 @"_ZN196_$LT$ruff_python_formatter..pattern..FormatPattern$u20$as$u20$ruff_formatter..FormatRuleWithOptions$LT$ruff_python_ast..generated..Pattern$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$12with_options17hae2ab7a87392e8ccE"(i8 noundef %28, i8 noundef 0), !noalias !304
+21:                                               ; preds = %.lr.ph, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit
+  %22 = phi i32 [ %.promoted13, %.lr.ph ], [ %50, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit ]
+  %.sroa.0.012 = phi ptr [ %1, %.lr.ph ], [ %24, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit ]
+  %23 = phi i32 [ %.promoted, %.lr.ph ], [ %51, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 88
+  %25 = call { ptr, i8 } @"_ZN21ruff_python_formatter7pattern167_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Pattern$GT$6format17h18363b00469998b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0.012), !noalias !304
+  %26 = extractvalue { ptr, i8 } %25, 0
+  %27 = extractvalue { ptr, i8 } %25, 1
+  %28 = call noundef i8 @"_ZN196_$LT$ruff_python_formatter..pattern..FormatPattern$u20$as$u20$ruff_formatter..FormatRuleWithOptions$LT$ruff_python_ast..generated..Pattern$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$12with_options17hae2ab7a87392e8ccE"(i8 noundef %27, i8 noundef 0), !noalias !304
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %.sroa.0.012, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %30 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %30)
-  store ptr %27, ptr %9, align 8
-  store i8 %29, ptr %13, align 8
-  %31 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)
+  store ptr %26, ptr %9, align 8
+  store i8 %28, ptr %12, align 8
+  %29 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)
   call void @llvm.experimental.noalias.scope.decl(metadata !310)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i8 %31, ptr %8, align 1, !noalias !313
+  store i8 %29, ptr %8, align 1, !noalias !313
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !313
-  %.sroa.0.0.copyload.i = load i32, ptr %14, align 8, !alias.scope !310, !noalias !315
+  %.sroa.0.0.copyload.i = load i32, ptr %13, align 8, !alias.scope !310, !noalias !315
   %.not.i = icmp eq i32 %.sroa.0.0.copyload.i, 4
-  br i1 %.not.i, label %33, label %32
+  br i1 %.not.i, label %31, label %30
 
-32:                                               ; preds = %22
+30:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx.i2, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.0..sroa_idx.i, i64 20, i1 false), !noalias !315
   store i32 %.sroa.0.0.copyload.i, ptr %7, align 8, !noalias !313
   br label %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit
 
-33:                                               ; preds = %22
+31:                                               ; preds = %21
   call void @llvm.experimental.noalias.scope.decl(metadata !316)
-  %34 = call noundef zeroext i1 @_ZN21ruff_python_formatter8builders7Entries14is_one_or_more17h888cda8c262b1d3cE(i32 noundef %24, i32 %23), !noalias !319
-  br i1 %34, label %35, label %44
+  %32 = call noundef zeroext i1 @_ZN21ruff_python_formatter8builders7Entries14is_one_or_more17h888cda8c262b1d3cE(i32 noundef %23, i32 %22), !noalias !319
+  br i1 %32, label %33, label %42
 
-35:                                               ; preds = %33
+33:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !319
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !319
   store ptr @anon.fbb8a89e229272059607b56e720f22e4.45, ptr %5, align 8, !noalias !319
-  store i64 1, ptr %18, align 8, !noalias !319
+  store i64 1, ptr %17, align 8, !noalias !319
   store ptr %5, ptr %6, align 8, !noalias !319
-  store ptr @anon.fbb8a89e229272059607b56e720f22e4.46, ptr %19, align 8, !noalias !319
-  store ptr %8, ptr %20, align 8, !noalias !319
-  store ptr @anon.fbb8a89e229272059607b56e720f22e4.47, ptr %21, align 8, !noalias !319
+  store ptr @anon.fbb8a89e229272059607b56e720f22e4.46, ptr %18, align 8, !noalias !319
+  store ptr %8, ptr %19, align 8, !noalias !319
+  store ptr @anon.fbb8a89e229272059607b56e720f22e4.47, ptr %20, align 8, !noalias !319
   call void @llvm.experimental.noalias.scope.decl(metadata !321)
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %42, %35
-  %.sroa.01.02.i.idx.i.i = phi i64 [ %.sroa.01.02.i.add.i.i, %42 ], [ 0, %35 ]
+.lr.ph.i.i.i:                                     ; preds = %40, %33
+  %.sroa.01.02.i.idx.i.i = phi i64 [ %.sroa.01.02.i.add.i.i, %40 ], [ 0, %33 ]
   %.sroa.01.02.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.01.02.i.idx.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !324
-  %36 = load ptr, ptr %.sroa.01.02.i.ptr.i.i, align 8, !alias.scope !321, !noalias !327, !nonnull !3, !align !65, !noundef !3
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.ptr.i.i, i64 8
-  %38 = load ptr, ptr %37, align 8, !alias.scope !321, !noalias !327, !nonnull !3, !align !4, !noundef !3
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %40 = load ptr, ptr %39, align 8, !invariant.load !3, !noalias !328, !nonnull !3
-  call void %40(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %36, ptr noalias noundef nonnull align 8 dereferenceable(16) %16), !noalias !328
-  %41 = load i32, ptr %4, align 8, !range !67, !noalias !324, !noundef !3
-  %.not.i.i.i = icmp eq i32 %41, 4
-  br i1 %.not.i.i.i, label %42, label %50
+  %34 = load ptr, ptr %.sroa.01.02.i.ptr.i.i, align 8, !alias.scope !321, !noalias !327, !nonnull !3, !align !65, !noundef !3
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.ptr.i.i, i64 8
+  %36 = load ptr, ptr %35, align 8, !alias.scope !321, !noalias !327, !nonnull !3, !align !4, !noundef !3
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %38 = load ptr, ptr %37, align 8, !invariant.load !3, !noalias !328, !nonnull !3
+  call void %38(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %34, ptr noalias noundef nonnull align 8 dereferenceable(16) %15), !noalias !328
+  %39 = load i32, ptr %4, align 8, !range !67, !noalias !324, !noundef !3
+  %.not.i.i.i = icmp eq i32 %39, 4
+  br i1 %.not.i.i.i, label %40, label %48
 
-42:                                               ; preds = %.lr.ph.i.i.i
+40:                                               ; preds = %.lr.ph.i.i.i
   %.sroa.01.02.i.add.i.i = add nuw nsw i64 %.sroa.01.02.i.idx.i.i, 16
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !324
-  %43 = icmp eq i64 %.sroa.01.02.i.add.i.i, 32
-  br i1 %43, label %51, label %.lr.ph.i.i.i
+  %41 = icmp eq i64 %.sroa.01.02.i.add.i.i, 32
+  br i1 %41, label %49, label %.lr.ph.i.i.i
 
-44:                                               ; preds = %51, %33
-  %45 = call noundef i32 @_ZN14ruff_text_size6traits6Ranged3end17h05a994928c977745E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10), !noalias !329
-  %46 = call { i32, i32 } @_ZN21ruff_python_formatter8builders7Entries4next17h4e04058fc350dce6E(i32 noundef %24, i32 %23, i32 noundef %45), !noalias !329
-  %47 = extractvalue { i32, i32 } %46, 0
-  %48 = extractvalue { i32, i32 } %46, 1
-  store i32 %47, ptr %0, align 8, !alias.scope !310, !noalias !330
-  store i32 %48, ptr %17, align 4, !alias.scope !310, !noalias !330
-  %49 = load ptr, ptr %9, align 8, !alias.scope !331, !noalias !334, !nonnull !3, !align !4, !noundef !3
-  call void @"_ZN185_$LT$ruff_python_formatter..pattern..FormatPattern$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..generated..Pattern$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17hd3b02088cf5c260aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %49, ptr noalias noundef nonnull align 8 dereferenceable(16) %16), !noalias !337
+42:                                               ; preds = %49, %31
+  %43 = call noundef i32 @_ZN14ruff_text_size6traits6Ranged3end17h05a994928c977745E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10), !noalias !329
+  %44 = call { i32, i32 } @_ZN21ruff_python_formatter8builders7Entries4next17h4e04058fc350dce6E(i32 noundef %23, i32 %22, i32 noundef %43), !noalias !329
+  %45 = extractvalue { i32, i32 } %44, 0
+  %46 = extractvalue { i32, i32 } %44, 1
+  store i32 %45, ptr %0, align 8, !alias.scope !310, !noalias !330
+  store i32 %46, ptr %16, align 4, !alias.scope !310, !noalias !330
+  %47 = load ptr, ptr %9, align 8, !alias.scope !331, !noalias !334, !nonnull !3, !align !4, !noundef !3
+  call void @"_ZN185_$LT$ruff_python_formatter..pattern..FormatPattern$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..generated..Pattern$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17hd3b02088cf5c260aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %47, ptr noalias noundef nonnull align 8 dereferenceable(16) %15), !noalias !337
   br label %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit
 
-50:                                               ; preds = %.lr.ph.i.i.i
+48:                                               ; preds = %.lr.ph.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx.i2, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx2.i.i, i64 20, i1 false), !noalias !338
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !324
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !319
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !319
-  store i32 %41, ptr %7, align 8, !alias.scope !316, !noalias !338
+  store i32 %39, ptr %7, align 8, !alias.scope !316, !noalias !338
   br label %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit
 
-51:                                               ; preds = %42
+49:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !319
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !319
-  br label %44
+  br label %42
 
-_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit: ; preds = %32, %44, %50
-  %52 = phi i32 [ %23, %32 ], [ %48, %44 ], [ %23, %50 ]
-  %53 = phi i32 [ %24, %32 ], [ %47, %44 ], [ %24, %50 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !315
+_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit: ; preds = %30, %42, %48
+  %50 = phi i32 [ %22, %30 ], [ %46, %42 ], [ %22, %48 ]
+  %51 = phi i32 [ %23, %30 ], [ %45, %42 ], [ %23, %48 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !315
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !313
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %54 = icmp eq ptr %25, %2
-  br i1 %54, label %._crit_edge, label %22
+  %52 = icmp eq ptr %24, %2
+  br i1 %52, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hd41779ad8b5b6baeE.exit, %3
   ret ptr %0
@@ -3744,123 +3722,122 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN21ruff_python_
   %8 = alloca [1 x i8], align 1
   %9 = alloca [8 x i8], align 8
   %10 = alloca [8 x i8], align 8
-  %11 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = icmp eq ptr %1, %2
-  br i1 %12, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %11 = icmp eq ptr %1, %2
+  br i1 %11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %.promoted = load i32, ptr %0, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !nonnull !3, !align !4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.4.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.promoted11 = load i32, ptr %16, align 4
-  br label %22
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.promoted11 = load i32, ptr %15, align 4
+  br label %21
 
-22:                                               ; preds = %.lr.ph, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit
-  %23 = phi i32 [ %.promoted11, %.lr.ph ], [ %48, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit ]
-  %.sroa.0.010 = phi ptr [ %1, %.lr.ph ], [ %25, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit ]
-  %24 = phi i32 [ %.promoted, %.lr.ph ], [ %49, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.010, i64 72
-  %26 = call noundef align 8 dereferenceable(72) ptr @"_ZN21ruff_python_formatter9generated161_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..nodes..Alias$GT$6format17hc7d125ed2e2bf404E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.0.010), !noalias !339
+21:                                               ; preds = %.lr.ph, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit
+  %22 = phi i32 [ %.promoted11, %.lr.ph ], [ %47, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit ]
+  %.sroa.0.010 = phi ptr [ %1, %.lr.ph ], [ %24, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit ]
+  %23 = phi i32 [ %.promoted, %.lr.ph ], [ %48, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.010, i64 72
+  %25 = call noundef align 8 dereferenceable(72) ptr @"_ZN21ruff_python_formatter9generated161_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..nodes..Alias$GT$6format17hc7d125ed2e2bf404E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.0.010), !noalias !339
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %.sroa.0.010, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store ptr %26, ptr %9, align 8
-  %27 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)
+  store ptr %25, ptr %9, align 8
+  %26 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)
   call void @llvm.experimental.noalias.scope.decl(metadata !342)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i8 %27, ptr %8, align 1, !noalias !345
+  store i8 %26, ptr %8, align 1, !noalias !345
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !345
-  %.sroa.0.0.copyload.i = load i32, ptr %13, align 8, !alias.scope !342, !noalias !347
+  %.sroa.0.0.copyload.i = load i32, ptr %12, align 8, !alias.scope !342, !noalias !347
   %.not.i = icmp eq i32 %.sroa.0.0.copyload.i, 4
-  br i1 %.not.i, label %29, label %28
+  br i1 %.not.i, label %28, label %27
 
-28:                                               ; preds = %22
+27:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.0..sroa_idx.i, i64 20, i1 false), !noalias !347
   store i32 %.sroa.0.0.copyload.i, ptr %7, align 8, !noalias !345
   br label %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit
 
-29:                                               ; preds = %22
+28:                                               ; preds = %21
   call void @llvm.experimental.noalias.scope.decl(metadata !348)
-  %30 = call noundef zeroext i1 @_ZN21ruff_python_formatter8builders7Entries14is_one_or_more17h888cda8c262b1d3cE(i32 noundef %24, i32 %23), !noalias !351
-  br i1 %30, label %31, label %40
+  %29 = call noundef zeroext i1 @_ZN21ruff_python_formatter8builders7Entries14is_one_or_more17h888cda8c262b1d3cE(i32 noundef %23, i32 %22), !noalias !351
+  br i1 %29, label %30, label %39
 
-31:                                               ; preds = %29
+30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !351
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !351
   store ptr @anon.fbb8a89e229272059607b56e720f22e4.45, ptr %5, align 8, !noalias !351
-  store i64 1, ptr %17, align 8, !noalias !351
+  store i64 1, ptr %16, align 8, !noalias !351
   store ptr %5, ptr %6, align 8, !noalias !351
-  store ptr @anon.fbb8a89e229272059607b56e720f22e4.46, ptr %18, align 8, !noalias !351
-  store ptr %8, ptr %19, align 8, !noalias !351
-  store ptr @anon.fbb8a89e229272059607b56e720f22e4.47, ptr %20, align 8, !noalias !351
+  store ptr @anon.fbb8a89e229272059607b56e720f22e4.46, ptr %17, align 8, !noalias !351
+  store ptr %8, ptr %18, align 8, !noalias !351
+  store ptr @anon.fbb8a89e229272059607b56e720f22e4.47, ptr %19, align 8, !noalias !351
   call void @llvm.experimental.noalias.scope.decl(metadata !353)
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %38, %31
-  %.sroa.01.02.i.idx.i.i = phi i64 [ %.sroa.01.02.i.add.i.i, %38 ], [ 0, %31 ]
+.lr.ph.i.i.i:                                     ; preds = %37, %30
+  %.sroa.01.02.i.idx.i.i = phi i64 [ %.sroa.01.02.i.add.i.i, %37 ], [ 0, %30 ]
   %.sroa.01.02.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.01.02.i.idx.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !356
-  %32 = load ptr, ptr %.sroa.01.02.i.ptr.i.i, align 8, !alias.scope !353, !noalias !359, !nonnull !3, !align !65, !noundef !3
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.ptr.i.i, i64 8
-  %34 = load ptr, ptr %33, align 8, !alias.scope !353, !noalias !359, !nonnull !3, !align !4, !noundef !3
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %36 = load ptr, ptr %35, align 8, !invariant.load !3, !noalias !360, !nonnull !3
-  call void %36(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull align 8 dereferenceable(16) %15), !noalias !360
-  %37 = load i32, ptr %4, align 8, !range !67, !noalias !356, !noundef !3
-  %.not.i.i.i = icmp eq i32 %37, 4
-  br i1 %.not.i.i.i, label %38, label %46
+  %31 = load ptr, ptr %.sroa.01.02.i.ptr.i.i, align 8, !alias.scope !353, !noalias !359, !nonnull !3, !align !65, !noundef !3
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.ptr.i.i, i64 8
+  %33 = load ptr, ptr %32, align 8, !alias.scope !353, !noalias !359, !nonnull !3, !align !4, !noundef !3
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = load ptr, ptr %34, align 8, !invariant.load !3, !noalias !360, !nonnull !3
+  call void %35(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %31, ptr noalias noundef nonnull align 8 dereferenceable(16) %14), !noalias !360
+  %36 = load i32, ptr %4, align 8, !range !67, !noalias !356, !noundef !3
+  %.not.i.i.i = icmp eq i32 %36, 4
+  br i1 %.not.i.i.i, label %37, label %45
 
-38:                                               ; preds = %.lr.ph.i.i.i
+37:                                               ; preds = %.lr.ph.i.i.i
   %.sroa.01.02.i.add.i.i = add nuw nsw i64 %.sroa.01.02.i.idx.i.i, 16
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !356
-  %39 = icmp eq i64 %.sroa.01.02.i.add.i.i, 32
-  br i1 %39, label %47, label %.lr.ph.i.i.i
+  %38 = icmp eq i64 %.sroa.01.02.i.add.i.i, 32
+  br i1 %38, label %46, label %.lr.ph.i.i.i
 
-40:                                               ; preds = %47, %29
-  %41 = call noundef i32 @_ZN14ruff_text_size6traits6Ranged3end17h3cf19892f1a4d5e3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10), !noalias !361
-  %42 = call { i32, i32 } @_ZN21ruff_python_formatter8builders7Entries4next17h4e04058fc350dce6E(i32 noundef %24, i32 %23, i32 noundef %41), !noalias !361
-  %43 = extractvalue { i32, i32 } %42, 0
-  %44 = extractvalue { i32, i32 } %42, 1
-  store i32 %43, ptr %0, align 8, !alias.scope !342, !noalias !362
-  store i32 %44, ptr %16, align 4, !alias.scope !342, !noalias !362
-  %45 = load ptr, ptr %9, align 8, !alias.scope !363, !noalias !366, !nonnull !3, !align !4, !noundef !3
-  call void @_ZN21ruff_python_formatter14FormatNodeRule3fmt17h14c0c40b0cc2d1deE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %45, ptr noalias noundef nonnull align 8 dereferenceable(16) %15), !noalias !369
+39:                                               ; preds = %46, %28
+  %40 = call noundef i32 @_ZN14ruff_text_size6traits6Ranged3end17h3cf19892f1a4d5e3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10), !noalias !361
+  %41 = call { i32, i32 } @_ZN21ruff_python_formatter8builders7Entries4next17h4e04058fc350dce6E(i32 noundef %23, i32 %22, i32 noundef %40), !noalias !361
+  %42 = extractvalue { i32, i32 } %41, 0
+  %43 = extractvalue { i32, i32 } %41, 1
+  store i32 %42, ptr %0, align 8, !alias.scope !342, !noalias !362
+  store i32 %43, ptr %15, align 4, !alias.scope !342, !noalias !362
+  %44 = load ptr, ptr %9, align 8, !alias.scope !363, !noalias !366, !nonnull !3, !align !4, !noundef !3
+  call void @_ZN21ruff_python_formatter14FormatNodeRule3fmt17h14c0c40b0cc2d1deE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %44, ptr noalias noundef nonnull align 8 dereferenceable(16) %14), !noalias !369
   br label %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit
 
-46:                                               ; preds = %.lr.ph.i.i.i
+45:                                               ; preds = %.lr.ph.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx2.i.i, i64 20, i1 false), !noalias !370
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !356
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !351
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !351
-  store i32 %37, ptr %7, align 8, !alias.scope !348, !noalias !370
+  store i32 %36, ptr %7, align 8, !alias.scope !348, !noalias !370
   br label %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit
 
-47:                                               ; preds = %38
+46:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !351
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !351
-  br label %40
+  br label %39
 
-_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit: ; preds = %28, %40, %46
-  %48 = phi i32 [ %23, %28 ], [ %44, %40 ], [ %23, %46 ]
-  %49 = phi i32 [ %24, %28 ], [ %43, %40 ], [ %24, %46 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !347
+_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit: ; preds = %27, %39, %45
+  %47 = phi i32 [ %22, %27 ], [ %43, %39 ], [ %22, %45 ]
+  %48 = phi i32 [ %23, %27 ], [ %42, %39 ], [ %23, %45 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !347
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !345
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %50 = icmp eq ptr %25, %2
-  br i1 %50, label %._crit_edge, label %22
+  %49 = icmp eq ptr %24, %2
+  br i1 %49, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h57dfdc7b001f9188E.exit, %3
   ret ptr %0
@@ -3869,31 +3846,30 @@ _ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder5nodes17h070f4cff2bbbdd96E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %7
 
-8:                                                ; preds = %.lr.ph, %8
-  %.sroa.0.07 = phi ptr [ %1, %.lr.ph ], [ %9, %8 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 64
+7:                                                ; preds = %.lr.ph, %7
+  %.sroa.0.07 = phi ptr [ %1, %.lr.ph ], [ %8, %7 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %10 = call { ptr, i8 } @"_ZN21ruff_python_formatter10expression164_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Expr$GT$6format17h4e50c003e272006bE"(ptr noundef nonnull align 8 %.sroa.0.07)
-  %11 = extractvalue { ptr, i8 } %10, 0
-  %12 = extractvalue { ptr, i8 } %10, 1
-  store ptr %11, ptr %4, align 8
-  store i8 %12, ptr %7, align 8
-  %13 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)
-  %14 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h0a27b67a8b4cf4fcE(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 %.sroa.0.07, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.50, i8 noundef %13)
+  %9 = call { ptr, i8 } @"_ZN21ruff_python_formatter10expression164_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Expr$GT$6format17h4e50c003e272006bE"(ptr noundef nonnull align 8 %.sroa.0.07)
+  %10 = extractvalue { ptr, i8 } %9, 0
+  %11 = extractvalue { ptr, i8 } %9, 1
+  store ptr %10, ptr %4, align 8
+  store i8 %11, ptr %6, align 8
+  %12 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)
+  %13 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h0a27b67a8b4cf4fcE(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 %.sroa.0.07, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.50, i8 noundef %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %15 = icmp eq ptr %9, %2
-  br i1 %15, label %._crit_edge, label %8
+  %14 = icmp eq ptr %8, %2
+  br i1 %14, label %._crit_edge, label %7
 
-._crit_edge:                                      ; preds = %8, %3
+._crit_edge:                                      ; preds = %7, %3
   ret ptr %0
 }
 
@@ -3908,122 +3884,120 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN21ruff_python_
   %9 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h08a1138a943f5da9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = extractvalue { ptr, ptr } %9, 1
-  %12 = icmp ne ptr %11, null
-  tail call void @llvm.assume(i1 %12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   %.promoted = load i32, ptr %0, align 8
-  %13 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %13)
-  %14 = icmp eq ptr %10, %11
-  br i1 %14, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
+  %12 = icmp eq ptr %10, %11
+  br i1 %12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !align !4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = load ptr, ptr %14, align 8, !nonnull !3, !align !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.4.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.promoted9 = load i32, ptr %18, align 4
-  br label %24
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.promoted9 = load i32, ptr %16, align 4
+  br label %22
 
-24:                                               ; preds = %.lr.ph, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit
-  %25 = phi i32 [ %.promoted9, %.lr.ph ], [ %50, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit ]
-  %.sroa.0.08 = phi ptr [ %10, %.lr.ph ], [ %27, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit ]
-  %26 = phi i32 [ %.promoted, %.lr.ph ], [ %51, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit ]
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 128
+22:                                               ; preds = %.lr.ph, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit
+  %23 = phi i32 [ %.promoted9, %.lr.ph ], [ %48, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit ]
+  %.sroa.0.08 = phi ptr [ %10, %.lr.ph ], [ %25, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit ]
+  %24 = phi i32 [ %.promoted, %.lr.ph ], [ %49, %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 128
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %28 = call noundef align 8 dereferenceable(128) ptr @"_ZN21ruff_python_formatter9generated170_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..nodes..PatternKeyword$GT$6format17h41c0d5a6dcaf5adcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.0.08)
-  store ptr %28, ptr %8, align 8
-  %29 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)
+  %26 = call noundef align 8 dereferenceable(128) ptr @"_ZN21ruff_python_formatter9generated170_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..nodes..PatternKeyword$GT$6format17h41c0d5a6dcaf5adcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.0.08)
+  store ptr %26, ptr %8, align 8
+  %27 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)
   call void @llvm.experimental.noalias.scope.decl(metadata !371)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i8 %29, ptr %7, align 1, !noalias !374
+  store i8 %27, ptr %7, align 1, !noalias !374
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !374
-  %.sroa.0.0.copyload.i = load i32, ptr %15, align 8, !alias.scope !371, !noalias !376
+  %.sroa.0.0.copyload.i = load i32, ptr %13, align 8, !alias.scope !371, !noalias !376
   %.not.i = icmp eq i32 %.sroa.0.0.copyload.i, 4
-  br i1 %.not.i, label %31, label %30
+  br i1 %.not.i, label %29, label %28
 
-30:                                               ; preds = %24
+28:                                               ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5.0..sroa_idx.i, i64 20, i1 false), !noalias !376
   store i32 %.sroa.0.0.copyload.i, ptr %6, align 8, !noalias !374
   br label %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit
 
-31:                                               ; preds = %24
+29:                                               ; preds = %22
   call void @llvm.experimental.noalias.scope.decl(metadata !377)
-  %32 = call noundef zeroext i1 @_ZN21ruff_python_formatter8builders7Entries14is_one_or_more17h888cda8c262b1d3cE(i32 noundef %26, i32 %25), !noalias !380
-  br i1 %32, label %33, label %42
+  %30 = call noundef zeroext i1 @_ZN21ruff_python_formatter8builders7Entries14is_one_or_more17h888cda8c262b1d3cE(i32 noundef %24, i32 %23), !noalias !380
+  br i1 %30, label %31, label %40
 
-33:                                               ; preds = %31
+31:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !380
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !380
   store ptr @anon.fbb8a89e229272059607b56e720f22e4.45, ptr %4, align 8, !noalias !380
-  store i64 1, ptr %19, align 8, !noalias !380
+  store i64 1, ptr %17, align 8, !noalias !380
   store ptr %4, ptr %5, align 8, !noalias !380
-  store ptr @anon.fbb8a89e229272059607b56e720f22e4.46, ptr %20, align 8, !noalias !380
-  store ptr %7, ptr %21, align 8, !noalias !380
-  store ptr @anon.fbb8a89e229272059607b56e720f22e4.47, ptr %22, align 8, !noalias !380
+  store ptr @anon.fbb8a89e229272059607b56e720f22e4.46, ptr %18, align 8, !noalias !380
+  store ptr %7, ptr %19, align 8, !noalias !380
+  store ptr @anon.fbb8a89e229272059607b56e720f22e4.47, ptr %20, align 8, !noalias !380
   call void @llvm.experimental.noalias.scope.decl(metadata !382)
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %40, %33
-  %.sroa.01.02.i.idx.i.i = phi i64 [ %.sroa.01.02.i.add.i.i, %40 ], [ 0, %33 ]
+.lr.ph.i.i.i:                                     ; preds = %38, %31
+  %.sroa.01.02.i.idx.i.i = phi i64 [ %.sroa.01.02.i.add.i.i, %38 ], [ 0, %31 ]
   %.sroa.01.02.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.01.02.i.idx.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !385
-  %34 = load ptr, ptr %.sroa.01.02.i.ptr.i.i, align 8, !alias.scope !382, !noalias !388, !nonnull !3, !align !65, !noundef !3
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.ptr.i.i, i64 8
-  %36 = load ptr, ptr %35, align 8, !alias.scope !382, !noalias !388, !nonnull !3, !align !4, !noundef !3
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8, !invariant.load !3, !noalias !389, !nonnull !3
-  call void %38(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 %34, ptr noalias noundef nonnull align 8 dereferenceable(16) %17), !noalias !389
-  %39 = load i32, ptr %3, align 8, !range !67, !noalias !385, !noundef !3
-  %.not.i.i.i = icmp eq i32 %39, 4
-  br i1 %.not.i.i.i, label %40, label %48
+  %32 = load ptr, ptr %.sroa.01.02.i.ptr.i.i, align 8, !alias.scope !382, !noalias !388, !nonnull !3, !align !65, !noundef !3
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.ptr.i.i, i64 8
+  %34 = load ptr, ptr %33, align 8, !alias.scope !382, !noalias !388, !nonnull !3, !align !4, !noundef !3
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %36 = load ptr, ptr %35, align 8, !invariant.load !3, !noalias !389, !nonnull !3
+  call void %36(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 %32, ptr noalias noundef nonnull align 8 dereferenceable(16) %15), !noalias !389
+  %37 = load i32, ptr %3, align 8, !range !67, !noalias !385, !noundef !3
+  %.not.i.i.i = icmp eq i32 %37, 4
+  br i1 %.not.i.i.i, label %38, label %46
 
-40:                                               ; preds = %.lr.ph.i.i.i
+38:                                               ; preds = %.lr.ph.i.i.i
   %.sroa.01.02.i.add.i.i = add nuw nsw i64 %.sroa.01.02.i.idx.i.i, 16
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !385
-  %41 = icmp eq i64 %.sroa.01.02.i.add.i.i, 32
-  br i1 %41, label %49, label %.lr.ph.i.i.i
+  %39 = icmp eq i64 %.sroa.01.02.i.add.i.i, 32
+  br i1 %39, label %47, label %.lr.ph.i.i.i
 
-42:                                               ; preds = %49, %31
-  %43 = call noundef i32 @_ZN14ruff_text_size6traits6Ranged3end17h30b672b6ff0c870dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.0.08), !noalias !390
-  %44 = call { i32, i32 } @_ZN21ruff_python_formatter8builders7Entries4next17h4e04058fc350dce6E(i32 noundef %26, i32 %25, i32 noundef %43), !noalias !390
-  %45 = extractvalue { i32, i32 } %44, 0
-  %46 = extractvalue { i32, i32 } %44, 1
-  store i32 %45, ptr %0, align 8, !alias.scope !371, !noalias !391
-  store i32 %46, ptr %18, align 4, !alias.scope !371, !noalias !391
-  %47 = load ptr, ptr %8, align 8, !alias.scope !392, !noalias !395, !nonnull !3, !align !4, !noundef !3
-  call void @_ZN21ruff_python_formatter14FormatNodeRule3fmt17ha5c3c63bcf7eb5c9E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %47, ptr noalias noundef nonnull align 8 dereferenceable(16) %17), !noalias !398
+40:                                               ; preds = %47, %29
+  %41 = call noundef i32 @_ZN14ruff_text_size6traits6Ranged3end17h30b672b6ff0c870dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.0.08), !noalias !390
+  %42 = call { i32, i32 } @_ZN21ruff_python_formatter8builders7Entries4next17h4e04058fc350dce6E(i32 noundef %24, i32 %23, i32 noundef %41), !noalias !390
+  %43 = extractvalue { i32, i32 } %42, 0
+  %44 = extractvalue { i32, i32 } %42, 1
+  store i32 %43, ptr %0, align 8, !alias.scope !371, !noalias !391
+  store i32 %44, ptr %16, align 4, !alias.scope !371, !noalias !391
+  %45 = load ptr, ptr %8, align 8, !alias.scope !392, !noalias !395, !nonnull !3, !align !4, !noundef !3
+  call void @_ZN21ruff_python_formatter14FormatNodeRule3fmt17ha5c3c63bcf7eb5c9E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %45, ptr noalias noundef nonnull align 8 dereferenceable(16) %15), !noalias !398
   br label %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit
 
-48:                                               ; preds = %.lr.ph.i.i.i
+46:                                               ; preds = %.lr.ph.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx2.i.i, i64 20, i1 false), !noalias !399
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !385
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !380
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !380
-  store i32 %39, ptr %6, align 8, !alias.scope !377, !noalias !399
+  store i32 %37, ptr %6, align 8, !alias.scope !377, !noalias !399
   br label %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit
 
-49:                                               ; preds = %40
+47:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !380
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !380
-  br label %42
+  br label %40
 
-_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit: ; preds = %30, %42, %48
-  %50 = phi i32 [ %25, %30 ], [ %46, %42 ], [ %25, %48 ]
-  %51 = phi i32 [ %26, %30 ], [ %45, %42 ], [ %26, %48 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !376
+_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit: ; preds = %28, %40, %46
+  %48 = phi i32 [ %23, %28 ], [ %44, %40 ], [ %23, %46 ]
+  %49 = phi i32 [ %24, %28 ], [ %43, %40 ], [ %24, %46 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !376
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !374
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %52 = icmp eq ptr %27, %11
-  br i1 %52, label %._crit_edge, label %24
+  %50 = icmp eq ptr %25, %11
+  br i1 %50, label %._crit_edge, label %22
 
 ._crit_edge:                                      ; preds = %_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h3bba4da5b6421c47E.exit, %2
   ret ptr %0
@@ -4032,31 +4006,30 @@ _ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder5nodes17hab9f140582813925E(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %7
 
-8:                                                ; preds = %.lr.ph, %8
-  %.sroa.0.07 = phi ptr [ %1, %.lr.ph ], [ %9, %8 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 88
+7:                                                ; preds = %.lr.ph, %7
+  %.sroa.0.07 = phi ptr [ %1, %.lr.ph ], [ %8, %7 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %10 = call { ptr, i8 } @"_ZN21ruff_python_formatter7pattern167_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Pattern$GT$6format17h18363b00469998b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0.07)
-  %11 = extractvalue { ptr, i8 } %10, 0
-  %12 = extractvalue { ptr, i8 } %10, 1
-  store ptr %11, ptr %4, align 8
-  store i8 %12, ptr %7, align 8
-  %13 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)
-  %14 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hdea9144be5f75a55E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0.07, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.48, i8 noundef %13)
+  %9 = call { ptr, i8 } @"_ZN21ruff_python_formatter7pattern167_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Pattern$GT$6format17h18363b00469998b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0.07)
+  %10 = extractvalue { ptr, i8 } %9, 0
+  %11 = extractvalue { ptr, i8 } %9, 1
+  store ptr %10, ptr %4, align 8
+  store i8 %11, ptr %6, align 8
+  %12 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)
+  %13 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hdea9144be5f75a55E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0.07, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.48, i8 noundef %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %15 = icmp eq ptr %9, %2
-  br i1 %15, label %._crit_edge, label %8
+  %14 = icmp eq ptr %8, %2
+  br i1 %14, label %._crit_edge, label %7
 
-._crit_edge:                                      ; preds = %8, %3
+._crit_edge:                                      ; preds = %7, %3
   ret ptr %0
 }
 
@@ -4066,33 +4039,31 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN21ruff_python_
   %4 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h704cd8fb7e15c5bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %5 = extractvalue { ptr, ptr } %4, 0
   %6 = extractvalue { ptr, ptr } %4, 1
-  %7 = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %7)
-  %8 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = icmp eq ptr %5, %6
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %11
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %9
 
-11:                                               ; preds = %.lr.ph, %11
-  %.sroa.0.07 = phi ptr [ %5, %.lr.ph ], [ %12, %11 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 64
+9:                                                ; preds = %.lr.ph, %9
+  %.sroa.0.07 = phi ptr [ %5, %.lr.ph ], [ %10, %9 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %13 = call { ptr, i8 } @"_ZN21ruff_python_formatter10expression164_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Expr$GT$6format17h4e50c003e272006bE"(ptr noundef nonnull align 8 %.sroa.0.07)
-  %14 = extractvalue { ptr, i8 } %13, 0
-  %15 = extractvalue { ptr, i8 } %13, 1
-  store ptr %14, ptr %3, align 8
-  store i8 %15, ptr %10, align 8
-  %16 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)
-  %17 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h0a27b67a8b4cf4fcE(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 %.sroa.0.07, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.50, i8 noundef %16)
+  %11 = call { ptr, i8 } @"_ZN21ruff_python_formatter10expression164_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Expr$GT$6format17h4e50c003e272006bE"(ptr noundef nonnull align 8 %.sroa.0.07)
+  %12 = extractvalue { ptr, i8 } %11, 0
+  %13 = extractvalue { ptr, i8 } %11, 1
+  store ptr %12, ptr %3, align 8
+  store i8 %13, ptr %8, align 8
+  %14 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)
+  %15 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h0a27b67a8b4cf4fcE(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 %.sroa.0.07, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.fbb8a89e229272059607b56e720f22e4.50, i8 noundef %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %18 = icmp eq ptr %12, %6
-  br i1 %18, label %._crit_edge, label %11
+  %16 = icmp eq ptr %10, %6
+  br i1 %16, label %._crit_edge, label %9
 
-._crit_edge:                                      ; preds = %11, %2
+._crit_edge:                                      ; preds = %9, %2
   ret ptr %0
 }
 
@@ -5980,34 +5951,33 @@ define void @"_ZN173_$LT$ruff_python_formatter..pattern..pattern_keyword..Format
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN21ruff_python_formatter5range11NarrowRange6narrow17h23f6eb6b8ba7acf6E(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %4)
-  br label %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  br label %4
 
-5:                                                ; preds = %.backedge, %3
-  %6 = phi ptr [ %1, %3 ], [ %9, %.backedge ]
-  %7 = icmp eq ptr %6, %2
-  br i1 %7, label %16, label %8
+4:                                                ; preds = %.backedge, %3
+  %5 = phi ptr [ %1, %3 ], [ %8, %.backedge ]
+  %6 = icmp eq ptr %5, %2
+  br i1 %6, label %15, label %7
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %10 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %6), !noalias !474
-  %11 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %10), !noalias !474
-  br i1 %11, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd76431a23ee5c3ebE.exit", label %.backedge
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %9 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments13SourceComment13line_position17hfbcdfe3e5c9cf5d0E(ptr noundef nonnull align 4 %5), !noalias !474
+  %10 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %9), !noalias !474
+  br i1 %10, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd76431a23ee5c3ebE.exit", label %.backedge
 
-.backedge:                                        ; preds = %8, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd76431a23ee5c3ebE.exit"
-  br label %5
+.backedge:                                        ; preds = %7, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd76431a23ee5c3ebE.exit"
+  br label %4
 
-"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd76431a23ee5c3ebE.exit": ; preds = %8
-  %12 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6)
-  %13 = extractvalue { i32, i32 } %12, 0
-  tail call void @_ZN21ruff_python_formatter5range11NarrowRange13narrow_offset17h73449b483667f763E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %13)
-  %14 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6)
-  %15 = extractvalue { i32, i32 } %14, 1
-  tail call void @_ZN21ruff_python_formatter5range11NarrowRange13narrow_offset17h73449b483667f763E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %15)
+"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd76431a23ee5c3ebE.exit": ; preds = %7
+  %11 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5)
+  %12 = extractvalue { i32, i32 } %11, 0
+  tail call void @_ZN21ruff_python_formatter5range11NarrowRange13narrow_offset17h73449b483667f763E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %12)
+  %13 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5)
+  %14 = extractvalue { i32, i32 } %13, 1
+  tail call void @_ZN21ruff_python_formatter5range11NarrowRange13narrow_offset17h73449b483667f763E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %14)
   br label %.backedge
 
-16:                                               ; preds = %5
+15:                                               ; preds = %4
   ret void
 }
 
@@ -6994,52 +6964,51 @@ define void @"_ZN167_$LT$ruff_python_formatter..statement..stmt_return..FormatSt
   %64 = extractvalue { ptr, i8 } %63, 0
   %65 = extractvalue { ptr, i8 } %63, 1
   %66 = call noundef i8 @"_ZN215_$LT$ruff_python_formatter..expression..expr_tuple..FormatExprTuple$u20$as$u20$ruff_formatter..FormatRuleWithOptions$LT$ruff_python_ast..generated..ExprTuple$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$12with_options17hc214a79b4afdb352E"(i8 noundef %65, i8 noundef 2)
-  %67 = icmp ne ptr %64, null
-  call void @llvm.assume(i1 %67)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %64) ]
   store ptr %64, ptr %12, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i8 %66, ptr %68, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i8 %66, ptr %67, align 8
   store ptr %5, ptr %13, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr @anon.fbb8a89e229272059607b56e720f22e4.70, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %12, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr @anon.fbb8a89e229272059607b56e720f22e4.94, ptr %71, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr @anon.fbb8a89e229272059607b56e720f22e4.70, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %12, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store ptr @anon.fbb8a89e229272059607b56e720f22e4.94, ptr %70, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !591)
   call void @llvm.experimental.noalias.scope.decl(metadata !594)
   br label %.lr.ph.i7
 
-.lr.ph.i7:                                        ; preds = %79, %62
-  %.sroa.01.02.i8.idx = phi i64 [ %.sroa.01.02.i8.add, %79 ], [ 0, %62 ]
+.lr.ph.i7:                                        ; preds = %78, %62
+  %.sroa.01.02.i8.idx = phi i64 [ %.sroa.01.02.i8.add, %78 ], [ 0, %62 ]
   %.sroa.01.02.i8.ptr = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.01.02.i8.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !596
-  %72 = load ptr, ptr %.sroa.01.02.i8.ptr, align 8, !alias.scope !594, !noalias !598, !nonnull !3, !align !65, !noundef !3
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i8.ptr, i64 8
-  %74 = load ptr, ptr %73, align 8, !alias.scope !594, !noalias !598, !nonnull !3, !align !4, !noundef !3
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %76 = load ptr, ptr %75, align 8, !invariant.load !3, !noalias !599, !nonnull !3
-  call void %76(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 1 %72, ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !599
-  %77 = load i32, ptr %6, align 8, !range !67, !noalias !596, !noundef !3
-  %.not.i9 = icmp eq i32 %77, 4
-  br i1 %.not.i9, label %79, label %78
+  %71 = load ptr, ptr %.sroa.01.02.i8.ptr, align 8, !alias.scope !594, !noalias !598, !nonnull !3, !align !65, !noundef !3
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i8.ptr, i64 8
+  %73 = load ptr, ptr %72, align 8, !alias.scope !594, !noalias !598, !nonnull !3, !align !4, !noundef !3
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %75 = load ptr, ptr %74, align 8, !invariant.load !3, !noalias !599, !nonnull !3
+  call void %75(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 1 %71, ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !599
+  %76 = load i32, ptr %6, align 8, !range !67, !noalias !596, !noundef !3
+  %.not.i9 = icmp eq i32 %76, 4
+  br i1 %.not.i9, label %78, label %77
 
-._crit_edge.i10:                                  ; preds = %79
+._crit_edge.i10:                                  ; preds = %78
   store i32 4, ptr %0, align 8, !alias.scope !591, !noalias !600
   br label %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit11"
 
-78:                                               ; preds = %.lr.ph.i7
+77:                                               ; preds = %.lr.ph.i7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !600
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !596
   br label %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit11"
 
-79:                                               ; preds = %.lr.ph.i7
+78:                                               ; preds = %.lr.ph.i7
   %.sroa.01.02.i8.add = add nuw nsw i64 %.sroa.01.02.i8.idx, 16
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !596
-  %80 = icmp eq i64 %.sroa.01.02.i8.add, 32
-  br i1 %80, label %._crit_edge.i10, label %.lr.ph.i7
+  %79 = icmp eq i64 %.sroa.01.02.i8.add, 32
+  br i1 %79, label %._crit_edge.i10, label %.lr.ph.i7
 
-"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit11": ; preds = %._crit_edge.i10, %78
+"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit11": ; preds = %._crit_edge.i10, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %26

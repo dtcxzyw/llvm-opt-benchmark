@@ -747,6 +747,7 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit: ; preds
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %54, align 8
   %112 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %113 = inttoptr i64 %112 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %113) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %113, align 8
   %114 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %114, 0
@@ -928,6 +929,7 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit111: ; pr
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0115.0146, align 8
   %195 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %196 = inttoptr i64 %195 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %196) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %196, align 8
   %197 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %197, 0
@@ -4140,6 +4142,7 @@ _ZNK4llvm11SlotIndexes13getIndexAfterERKNS_12MachineInstrE.exit: ; preds = %_ZNK
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.08.0.i16, align 8
   %77 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %78 = inttoptr i64 %77 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %78) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i17 = load i64, ptr %78, align 8
   %79 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i17, 4
   %.not.i.i.i.i18 = icmp eq i64 %79, 0
@@ -6242,6 +6245,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEjLj9ENS_15IntervalMapInfoIS1_EEE14const_iter
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.041.058, align 8
   %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %70 = inttoptr i64 %69 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %70) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %70, align 8
   %71 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %71, 0

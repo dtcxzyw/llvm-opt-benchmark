@@ -2048,8 +2048,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEC2IS1_vEERKS_IT_E.exit: ; p
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   call void @llvm.experimental.noalias.scope.decl(metadata !68)
   %39 = call ptr @__dynamic_cast(ptr nonnull %32, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev15MatrixTransformE, i64 0) #23, !noalias !71
-  %.not.not.i.i = icmp ne ptr %39, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %39) ]
   store ptr %39, ptr %4, align 8, !tbaa !72, !alias.scope !71
   %40 = load ptr, ptr %12, align 8, !tbaa !23, !noalias !71
   store ptr %40, ptr %13, align 8, !tbaa !23, !alias.scope !71
@@ -2543,8 +2542,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev11ConfigUtils24contain
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %19 = load ptr, ptr %0, align 8, !tbaa !42, !noalias !86, !nonnull !87, !noundef !87
   %20 = tail call ptr @__dynamic_cast(ptr nonnull %19, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev14GroupTransformE, i64 0) #23, !noalias !86
-  %.not.not.i.i = icmp ne ptr %20, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   store ptr %20, ptr %4, align 8, !tbaa !88, !alias.scope !86
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2748,8 +2746,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev14GroupTransformELN9__gnu_cxx12_Lock_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %111 = load ptr, ptr %0, align 8, !tbaa !42, !noalias !97, !nonnull !87, !noundef !87
   %112 = tail call ptr @__dynamic_cast(ptr nonnull %111, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev13FileTransformE, i64 0) #23, !noalias !97
-  %.not.not.i.i44 = icmp ne ptr %112, null
-  tail call void @llvm.assume(i1 %.not.not.i.i44)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %112) ]
   store ptr %112, ptr %6, align 8, !tbaa !98, !alias.scope !97
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 8

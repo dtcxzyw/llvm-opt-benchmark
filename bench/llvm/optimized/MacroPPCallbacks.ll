@@ -898,8 +898,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   %35 = call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %2) #16
   %.fca.0.extract.i = extractvalue { ptr, i64 } %35, 0
-  %.not.i.i.i.i = icmp ne ptr %.fca.0.extract.i, null
-  call void @llvm.assume(i1 %.not.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract.i) ]
   %36 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !308
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16

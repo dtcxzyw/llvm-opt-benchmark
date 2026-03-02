@@ -1584,7 +1584,7 @@ define hidden void @zif_opcache_get_configuration(ptr noundef readonly captures(
   call void @add_assoc_zval_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.134, i64 noundef 9, ptr noundef nonnull %5) #12
   br label %115
 
-115:                                              ; preds = %21, %19, %8
+115:                                              ; preds = %8, %21, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1676,7 +1676,7 @@ define hidden void @zif_opcache_reset(ptr noundef readonly captures(none) %0, pt
   store i32 3, ptr %31, align 8, !tbaa !40
   br label %32
 
-32:                                               ; preds = %30, %28, %16, %5
+32:                                               ; preds = %5, %30, %28, %16
   ret void
 }
 
@@ -1779,7 +1779,7 @@ define hidden void @zif_opcache_jit_blacklist(ptr noundef readonly captures(none
   call void @zend_jit_blacklist_function(ptr noundef nonnull %12) #12
   br label %15
 
-15:                                               ; preds = %2, %9, %14
+15:                                               ; preds = %9, %14, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

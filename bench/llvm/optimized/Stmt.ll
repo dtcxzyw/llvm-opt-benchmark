@@ -14553,37 +14553,36 @@ define dso_local noundef nonnull ptr @_ZN5clang12CompoundStmt11CreateEmptyERKNS_
 
 _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %23, %26
   %.0.i.i.i = phi ptr [ %25, %23 ], [ %27, %26 ]
-  %28 = icmp ne ptr %.0.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 249
-  store i16 %31, ptr %.0.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !37, !range !470, !noundef !472
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang12CompoundStmtC2ENS_4Stmt10EmptyShellE.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 249
+  store i16 %30, ptr %.0.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !37, !range !470, !noundef !472
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang12CompoundStmtC2ENS_4Stmt10EmptyShellE.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %35 = tail call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZL21getStmtInfoTableEntryN5clang4Stmt9StmtClassE(i32 noundef 249)
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !33
-  %38 = add i32 %37, 1
-  store i32 %38, ptr %36, align 8, !tbaa !33
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit
+  %34 = tail call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZL21getStmtInfoTableEntryN5clang4Stmt9StmtClassE(i32 noundef 249)
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load i32, ptr %35, align 8, !tbaa !33
+  %37 = add i32 %36, 1
+  store i32 %37, ptr %35, align 8, !tbaa !33
   %.pre = load i16, ptr %.0.i.i.i, align 8
   br label %_ZN5clang12CompoundStmtC2ENS_4Stmt10EmptyShellE.exit
 
-_ZN5clang12CompoundStmtC2ENS_4Stmt10EmptyShellE.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit, %34
-  %39 = phi i16 [ %31, %_ZNK5clang10ASTContext8AllocateEmj.exit ], [ %.pre, %34 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+_ZN5clang12CompoundStmtC2ENS_4Stmt10EmptyShellE.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit, %33
+  %38 = phi i16 [ %30, %_ZNK5clang10ASTContext8AllocateEmj.exit ], [ %.pre, %33 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  store i32 0, ptr %39, align 4, !tbaa !1158
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   store i32 0, ptr %40, align 4, !tbaa !1158
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
-  store i32 0, ptr %41, align 4, !tbaa !1158
-  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
-  store i32 %1, ptr %42, align 4, !tbaa !57
-  %43 = select i1 %2, i16 512, i16 0
-  %44 = and i16 %39, -513
-  %45 = or disjoint i16 %44, %43
-  store i16 %45, ptr %.0.i.i.i, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
+  store i32 %1, ptr %41, align 4, !tbaa !57
+  %42 = select i1 %2, i16 512, i16 0
+  %43 = and i16 %38, -513
+  %44 = or disjoint i16 %43, %42
+  store i16 %44, ptr %.0.i.i.i, align 8
   ret ptr %.0.i.i.i
 }
 

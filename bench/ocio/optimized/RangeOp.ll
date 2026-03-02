@@ -2586,8 +2586,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut3DOpDataELN9__gnu_cxx12_Lock_pol
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %153 = tail call ptr @__dynamic_cast(ptr nonnull %21, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11RangeOpDataE, i64 0) #23, !noalias !145
-  %.not.not.i.i = icmp ne ptr %153, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %153) ]
   store ptr %153, ptr %6, align 8, !tbaa !82, !alias.scope !145
   %154 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %155 = load ptr, ptr %10, align 8, !tbaa !14, !noalias !145
@@ -3001,8 +3000,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val22 = load ptr, ptr %83, align 8
   %84 = tail call ptr @__dynamic_cast(ptr nonnull %.val21, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev2OpE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpE, i64 0) #23, !noalias !156
-  %.not.not.i.i = icmp ne ptr %84, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %84) ]
   %.not.i.i.i.i.i27 = icmp eq ptr %.val22, null
   br i1 %.not.i.i.i.i.i27, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17RangeOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit, label %85
 
@@ -3353,8 +3351,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOp8finalizeEv(
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val2 = load ptr, ptr %5, align 8
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %.val, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11RangeOpDataE, i64 0) #23, !noalias !166
-  %.not.not.i.i.i = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %.not.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %.not.i.i.i.i.i.i = icmp eq ptr %.val2, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %7
 

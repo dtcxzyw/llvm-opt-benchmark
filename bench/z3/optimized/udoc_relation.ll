@@ -16452,8 +16452,7 @@ _ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit:
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %1)
-  %.not.i = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %7 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(28) %2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #24
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
@@ -17085,8 +17084,7 @@ _ZN7datalog11udoc_plugin2dmERKNS_18relation_signatureE.exit: ; preds = %_ZN7data
           to label %_ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit unwind label %127
 
 _ZN7datalog11udoc_plugin3getEPNS_13relation_baseE.exit: ; preds = %_ZN7datalog11udoc_plugin2dmERKNS_18relation_signatureE.exit
-  %.not.i = icmp ne ptr %103, null
-  call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %103) ]
   %104 = call ptr @__dynamic_cast(ptr nonnull readonly %103, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #24
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 40
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 32

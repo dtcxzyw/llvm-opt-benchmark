@@ -11897,8 +11897,8 @@ invoke.cont56:                                    ; preds = %invoke.cont54
   %24 = load ptr, ptr %fields, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %fields, i64 8
   %25 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i62.not96 = icmp eq ptr %24, %25
-  br i1 %cmp.i62.not96, label %for.end, label %for.body.lr.ph
+  %cmp.i62.not98 = icmp eq ptr %24, %25
+  br i1 %cmp.i62.not98, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont56
   %extensions_offset_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -11907,8 +11907,8 @@ for.body.lr.ph:                                   ; preds = %invoke.cont56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin2.sroa.0.097 = phi ptr [ %24, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %26 = load ptr, ptr %__begin2.sroa.0.097, align 8
+  %__begin2.sroa.0.099 = phi ptr [ %24, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %26 = load ptr, ptr %__begin2.sroa.0.099, align 8
   %is_extension_.i = getelementptr inbounds nuw i8, ptr %26, i64 1
   %bf.load.i = load i8, ptr %is_extension_.i, align 1
   %27 = and i8 %bf.load.i, 8
@@ -12100,7 +12100,7 @@ if.then95:                                        ; preds = %invoke.cont93
           to label %for.inc unwind label %lpad53.loopexit
 
 for.inc:                                          ; preds = %for.body.i.i.i.i.i.i.i, %invoke.cont67, %invoke.cont85, %if.then95, %invoke.cont93, %invoke.cont90, %if.end80
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.097, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.099, i64 8
   %cmp.i62.not = icmp eq ptr %incdec.ptr.i, %25
   br i1 %cmp.i62.not, label %for.end, label %for.body
 
@@ -12278,8 +12278,8 @@ invoke.cont56:                                    ; preds = %invoke.cont54
   %24 = load ptr, ptr %fields, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %fields, i64 8
   %25 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i62.not96 = icmp eq ptr %24, %25
-  br i1 %cmp.i62.not96, label %for.end, label %for.body.lr.ph
+  %cmp.i62.not98 = icmp eq ptr %24, %25
+  br i1 %cmp.i62.not98, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont56
   %extensions_offset_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -12288,8 +12288,8 @@ for.body.lr.ph:                                   ; preds = %invoke.cont56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin2.sroa.0.097 = phi ptr [ %24, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %26 = load ptr, ptr %__begin2.sroa.0.097, align 8
+  %__begin2.sroa.0.099 = phi ptr [ %24, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %26 = load ptr, ptr %__begin2.sroa.0.099, align 8
   %is_extension_.i = getelementptr inbounds nuw i8, ptr %26, i64 1
   %bf.load.i = load i8, ptr %is_extension_.i, align 1
   %27 = and i8 %bf.load.i, 8
@@ -12481,7 +12481,7 @@ if.then95:                                        ; preds = %invoke.cont93
           to label %for.inc unwind label %lpad53.loopexit
 
 for.inc:                                          ; preds = %for.body.i.i.i.i.i.i.i, %invoke.cont67, %invoke.cont85, %if.then95, %invoke.cont93, %invoke.cont90, %if.end80
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.097, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.099, i64 8
   %cmp.i62.not = icmp eq ptr %incdec.ptr.i, %25
   br i1 %cmp.i62.not, label %for.end, label %for.body
 

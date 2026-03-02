@@ -6690,8 +6690,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
   %608 = load ptr, ptr %36, align 8, !tbaa !87, !noalias !109, !nonnull !50, !noundef !50
   %609 = call ptr @__dynamic_cast(ptr nonnull %608, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj11coordinates18CoordinateMetadataE, i64 0) #25, !noalias !109
-  %.not.i = icmp ne ptr %609, null
-  call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %609) ]
   store ptr %609, ptr %38, align 8, !tbaa !35, !alias.scope !109
   %610 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %611 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -7761,8 +7760,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
   %976 = load ptr, ptr %66, align 8, !tbaa !87, !noalias !112, !nonnull !50, !noundef !50
   %977 = call ptr @__dynamic_cast(ptr nonnull %976, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj11coordinates18CoordinateMetadataE, i64 0) #25, !noalias !112
-  %.not.i423 = icmp ne ptr %977, null
-  call void @llvm.assume(i1 %.not.i423)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %977) ]
   store ptr %977, ptr %67, align 8, !tbaa !35, !alias.scope !112
   %978 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %979 = getelementptr inbounds nuw i8, ptr %66, i64 8

@@ -244,7 +244,7 @@ zend_string_alloc.exit:                           ; preds = %61
   store i32 6, ptr %77, align 8, !tbaa !5
   br label %78
 
-78:                                               ; preds = %2, %30, %dom_convert_number_unsigned.exit, %56, %75, %zend_string_alloc.exit, %15
+78:                                               ; preds = %30, %dom_convert_number_unsigned.exit, %56, %75, %zend_string_alloc.exit, %2, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -463,7 +463,7 @@ php_dom_follow_spec_doc_ref.exit.i:               ; preds = %37
   store i32 3, ptr %62, align 8, !tbaa !5
   br label %63
 
-63:                                               ; preds = %3, %30, %44, %49, %61, %54, %17
+63:                                               ; preds = %30, %44, %49, %61, %54, %3, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -600,7 +600,7 @@ php_dom_follow_spec_doc_ref.exit.i:               ; preds = %41
   store i32 3, ptr %68, align 8, !tbaa !5
   br label %69
 
-69:                                               ; preds = %3, %34, %48, %67, %55, %16
+69:                                               ; preds = %34, %48, %67, %55, %3, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -757,7 +757,7 @@ php_dom_follow_spec_doc_ref.exit.i:               ; preds = %43
   store i32 3, ptr %77, align 8, !tbaa !5
   br label %78
 
-78:                                               ; preds = %3, %36, %50, %76, %74, %18
+78:                                               ; preds = %36, %50, %76, %74, %3, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

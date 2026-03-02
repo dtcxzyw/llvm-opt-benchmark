@@ -4041,8 +4041,7 @@ define linkonce_odr hidden void @_ZN6mapbox6detail6EarcutIjE10indexCurveEPNS2_4N
 .lr.ph80.i:                                       ; preds = %._crit_edge81.i, %57
   %.058.i = phi ptr [ %55, %57 ], [ %.260.us.i, %._crit_edge81.i ]
   %.0.i = phi i32 [ 1, %57 ], [ %103, %._crit_edge81.i ]
-  %.not74.i = icmp ne ptr %.058.i, null
-  tail call void @llvm.assume(i1 %.not74.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.058.i) ]
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.loopexit.us.i, %.lr.ph80.i

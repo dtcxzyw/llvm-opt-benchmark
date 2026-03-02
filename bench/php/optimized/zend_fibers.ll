@@ -210,7 +210,7 @@ zend_fiber_get_page_size.exit.i:                  ; preds = %6, %4
 zend_fiber_stack_allocate.exit.thread:            ; preds = %12, %22, %34
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %41, align 8, !tbaa !47
-  br label %55
+  br label %54
 
 42:                                               ; preds = %28
   %43 = tail call noalias ptr @_emalloc_16() #22
@@ -225,18 +225,17 @@ zend_fiber_stack_allocate.exit.thread:            ; preds = %12, %22, %34
   %49 = inttoptr i64 %48 to ptr
   %50 = tail call ptr @make_fcontext(ptr noundef %49, i64 noundef %18, ptr noundef nonnull @zend_fiber_trampoline) #22
   store ptr %50, ptr %0, align 8, !tbaa !50
-  %51 = icmp ne ptr %50, null
-  tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %52, align 8, !tbaa !51
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %53, align 8, !tbaa !52
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %54, align 8, !tbaa !53
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %51, align 8, !tbaa !51
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %2, ptr %52, align 8, !tbaa !52
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %53, align 8, !tbaa !53
   tail call void @zend_observer_fiber_init_notify(ptr noundef nonnull %0) #22
-  br label %55
+  br label %54
 
-55:                                               ; preds = %zend_fiber_stack_allocate.exit.thread, %42
+54:                                               ; preds = %zend_fiber_stack_allocate.exit.thread, %42
   %.0 = phi i32 [ 0, %42 ], [ -1, %zend_fiber_stack_allocate.exit.thread ]
   ret i32 %.0
 }

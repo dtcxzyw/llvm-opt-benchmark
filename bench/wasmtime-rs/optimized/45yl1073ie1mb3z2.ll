@@ -72,33 +72,32 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h9037182efb2894dbE.exit.i: 
   ret void
 
 27:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h9037182efb2894dbE.exit.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h9037182efb2894dbE.exit.thread.i
-  %.sroa.4.0 = phi i64 [ %.sroa.4.023.ph.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h9037182efb2894dbE.exit.thread.i ], [ %11, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h9037182efb2894dbE.exit.i ]
+  %.sroa.3.0 = phi i64 [ %.sroa.4.023.ph.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h9037182efb2894dbE.exit.thread.i ], [ %11, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h9037182efb2894dbE.exit.i ]
   %.sroa.02.0 = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h9037182efb2894dbE.exit.thread.i ], [ %25, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h9037182efb2894dbE.exit.i ]
-  %28 = icmp ne ptr %.sroa.02.0, null
-  call void @llvm.assume(i1 %28)
-  %29 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %30 = add i64 %.sroa.4.0, 17
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.02.0, ptr nonnull align 1 %29, i64 %30, i1 false)
-  %31 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %32 = load i64, ptr %5, align 8, !noundef !3
-  %33 = xor i64 %32, -1
-  %34 = getelementptr { { ptr, i64 }, { ptr, i64 } }, ptr %31, i64 %33
-  %35 = xor i64 %.sroa.4.0, -1
-  %36 = getelementptr { { ptr, i64 }, { ptr, i64 } }, ptr %.sroa.02.0, i64 %35
-  %37 = shl i64 %.sroa.4.0, 5
-  %38 = add i64 %37, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %34, i64 %38, i1 false)
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %40 = load i64, ptr %39, align 8, !noundef !3
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %42 = load i64, ptr %41, align 8, !noundef !3
+  %28 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
+  %29 = add i64 %.sroa.3.0, 17
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.02.0, ptr nonnull align 1 %28, i64 %29, i1 false)
+  %30 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
+  %31 = load i64, ptr %5, align 8, !noundef !3
+  %32 = xor i64 %31, -1
+  %33 = getelementptr { { ptr, i64 }, { ptr, i64 } }, ptr %30, i64 %32
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.02.0) ]
+  %34 = xor i64 %.sroa.3.0, -1
+  %35 = getelementptr { { ptr, i64 }, { ptr, i64 } }, ptr %.sroa.02.0, i64 %34
+  %36 = shl i64 %.sroa.3.0, 5
+  %37 = add i64 %36, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %33, i64 %37, i1 false)
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %39 = load i64, ptr %38, align 8, !noundef !3
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = load i64, ptr %40, align 8, !noundef !3
   store ptr %.sroa.02.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.4.0, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %42, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %41, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %40, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %39, ptr %.sroa.7.0..sroa_idx, align 8
   br label %26
 }
 
@@ -1258,47 +1257,42 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h9037182efb2894dbE.exit: ; 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h1726a9d8463bd87dE"(ptr readnone captures(address_is_null, ret: address, provenance) %0, i64 %1) unnamed_addr #4 {
+define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h1726a9d8463bd87dE"(ptr readnone captures(ret: address, provenance) %0, i64 %1) unnamed_addr #4 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %3
-  %5 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h8d259911fc154414E"(ptr readnone captures(address_is_null, ret: address, provenance) %0, i64 %1) unnamed_addr #4 {
+define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h8d259911fc154414E"(ptr readnone captures(ret: address, provenance) %0, i64 %1) unnamed_addr #4 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 %3
-  %5 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17haa2c859bf69a9962E"(ptr readnone captures(address_is_null, ret: address, provenance) %0, i64 %1) unnamed_addr #4 {
+define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17haa2c859bf69a9962E"(ptr readnone captures(ret: address, provenance) %0, i64 %1) unnamed_addr #4 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %0, i64 %3
-  %5 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hb0b7e73f8cacd143E"(ptr readnone captures(address_is_null, ret: address, provenance) %0, i64 %1) unnamed_addr #4 {
+define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hb0b7e73f8cacd143E"(ptr readnone captures(ret: address, provenance) %0, i64 %1) unnamed_addr #4 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { { i64, [1 x i64] }, i64 }, ptr %0, i64 %3
-  %5 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hb674370776b217d9E"(ptr readnone captures(address_is_null, ret: address, provenance) %0, i64 %1) unnamed_addr #4 {
+define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hb674370776b217d9E"(ptr readnone captures(ret: address, provenance) %0, i64 %1) unnamed_addr #4 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, i64, i64, i8, [7 x i8] }, ptr }, ptr %0, i64 %3
-  %5 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   ret ptr %4
 }
 
@@ -1380,6 +1374,7 @@ define void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17he50dddabe987f
   br i1 %6, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc04c8237269550d4E.exit.thread", label %.preheader
 
 .preheader:                                       ; preds = %1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9

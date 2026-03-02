@@ -4872,8 +4872,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %94, %_ZNSt6vectorIi
   br i1 %.not.i.i54.not, label %._crit_edge104, label %.lr.ph103.split
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103
-  %.not.i.i59.not = icmp ne ptr %.fr, null
-  tail call void @llvm.assume(i1 %.not.i.i59.not)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fr) ]
   br label %.lr.ph103.split.split.us
 
 .lr.ph103.split.split.us:                         ; preds = %.lr.ph103.split, %_ZNK10duckdb_re211SparseArrayIiE9has_indexEi.exit58.thread.us114

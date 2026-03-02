@@ -23420,7 +23420,9 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %692, %688
 
 .critedge48.i.i:                                  ; preds = %.lr.ph90.i.i
   %731 = icmp eq i8 %729, 86
-  br i1 %731, label %732, label %735
+  %spec.select.i.i57.i.i = select i1 %731, ptr %728, ptr null
+  %.not44.not.i.i = icmp eq ptr %spec.select.i.i57.i.i, null
+  br i1 %.not44.not.i.i, label %735, label %732
 
 732:                                              ; preds = %.critedge48.i.i
   %733 = getelementptr inbounds i8, ptr %728, i64 -64
@@ -23430,7 +23432,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %692, %688
   br label %735
 
 735:                                              ; preds = %732, %.critedge48.i.i
-  call void @llvm.assume(i1 %731)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i57.i.i) ]
   br label %736
 
 736:                                              ; preds = %735, %730

@@ -7500,7 +7500,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
 
 10:                                               ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %31
+  br label %30
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -7565,17 +7565,16 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   store ptr %.sroa.11.228, ptr %.sroa.421.0..sroa_idx, align 8
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.14.227, ptr %.sroa.522.0..sroa_idx, align 8
-  br label %31
+  br label %30
 
 28:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit"
-  %29 = icmp ne ptr %.sroa.11.2, null
-  tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.11.2, ptr %30, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.11.2) ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.11.2, ptr %29, align 8
   store i64 -9223372036854775806, ptr %0, align 8
-  br label %31
+  br label %30
 
-31:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit.thread", %10, %28
+30:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit.thread", %10, %28
   ret void
 }
 
@@ -7790,7 +7789,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
 
 10:                                               ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %31
+  br label %30
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -7855,17 +7854,16 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   store ptr %.sroa.11.228, ptr %.sroa.421.0..sroa_idx, align 8
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.14.227, ptr %.sroa.522.0..sroa_idx, align 8
-  br label %31
+  br label %30
 
 28:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit"
-  %29 = icmp ne ptr %.sroa.11.2, null
-  tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.11.2, ptr %30, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.11.2) ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.11.2, ptr %29, align 8
   store i64 -9223372036854775806, ptr %0, align 8
-  br label %31
+  br label %30
 
-31:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit.thread", %10, %28
+30:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit.thread", %10, %28
   ret void
 }
 

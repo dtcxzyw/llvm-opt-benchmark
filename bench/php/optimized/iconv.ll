@@ -1408,7 +1408,7 @@ get_internal_encoding.exit:                       ; preds = %19, %21
   store i32 2, ptr %70, align 8, !tbaa !4
   br label %71
 
-71:                                               ; preds = %2, %67, %69, %53, %46, %38, %26
+71:                                               ; preds = %67, %69, %2, %53, %46, %38, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2922,7 +2922,7 @@ smart_str_free_ex.exit:                           ; preds = %516, %zend_string_r
   call void @_efree(ptr noundef nonnull %.0) #16
   br label %.critedge
 
-.critedge:                                        ; preds = %get_internal_encoding.exit, %540, %535, %531, %65, %87, %120, %529
+.critedge:                                        ; preds = %540, %535, %531, %65, %87, %120, %529, %get_internal_encoding.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4051,7 +4051,7 @@ zend_string_release_ex.exit.i:                    ; preds = %44, %48, %53, %43
   store i32 2, ptr %30, align 8, !tbaa !4
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %zend_string_release_ex.exit.i76, %2, %28, %.loopexit.thread122, %zend_string_release_ex.exit.i, %26
+.loopexit.thread:                                 ; preds = %zend_string_release_ex.exit.i76, %28, %.loopexit.thread122, %zend_string_release_ex.exit.i, %2, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4569,7 +4569,7 @@ get_internal_encoding.exit54:                     ; preds = %90, %92
   store i32 2, ptr %105, align 8, !tbaa !4
   br label %106
 
-106:                                              ; preds = %2, %get_internal_encoding.exit, %get_output_encoding.exit50, %get_internal_encoding.exit54, %get_input_encoding.exit46, %104
+106:                                              ; preds = %get_internal_encoding.exit, %get_output_encoding.exit50, %get_internal_encoding.exit54, %get_input_encoding.exit46, %2, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

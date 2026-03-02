@@ -3864,58 +3864,57 @@ _ZN9OopHandleC2EP10OopStorageP7oopDesc.exit35:    ; preds = %_ZN14objArrayHandle
 
 109:                                              ; preds = %_ZN9OopHandleC2EP10OopStorageP7oopDesc.exit35, %108
   %110 = icmp sgt i32 %11, 0
-  br i1 %110, label %.lr.ph, label %._crit_edge
+  br i1 %110, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %109
-  %111 = icmp ne ptr %storemerge.i.i, null
+.lr.ph.preheader:                                 ; preds = %109
   %smax = tail call i32 @llvm.smax.i32(i32 %53, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
-  br label %112
+  br label %.lr.ph
 
-112:                                              ; preds = %.lr.ph, %129
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
-  %.046 = phi i32 [ %11, %.lr.ph ], [ %113, %129 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %127
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %127 ]
+  %.046 = phi i32 [ %11, %.lr.ph.preheader ], [ %111, %127 ]
   %..0 = tail call i32 @llvm.smin.i32(i32 %.046, i32 16384)
-  %113 = sub nsw i32 %.046, %..0
-  %114 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 8
-  %115 = tail call noundef ptr @_ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread(ptr noundef %114, i32 noundef %..0, ptr noundef nonnull %0) #17
-  %116 = load ptr, ptr %84, align 8
-  %.not43 = icmp eq ptr %116, null
+  %111 = sub nsw i32 %.046, %..0
+  %112 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 8
+  %113 = tail call noundef ptr @_ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread(ptr noundef %112, i32 noundef %..0, ptr noundef nonnull %0) #17
+  %114 = load ptr, ptr %84, align 8
+  %.not43 = icmp eq ptr %114, null
   br i1 %.not43, label %_ZNK14objArrayHandleclEv.exit, label %.loopexit
 
-_ZNK14objArrayHandleclEv.exit:                    ; preds = %112
-  tail call void @llvm.assume(i1 %111)
-  %117 = load ptr, ptr %storemerge.i.i, align 8
-  %118 = load i8, ptr @UseCompressedOops, align 1
+_ZNK14objArrayHandleclEv.exit:                    ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %storemerge.i.i) ]
+  %115 = load ptr, ptr %storemerge.i.i, align 8
+  %116 = load i8, ptr @UseCompressedOops, align 1
+  %117 = trunc i8 %116 to i1
+  %118 = load i8, ptr @UseCompressedClassPointers, align 1
   %119 = trunc i8 %118 to i1
-  %120 = load i8, ptr @UseCompressedClassPointers, align 1
-  %121 = trunc i8 %120 to i1
-  %..i = select i1 %119, i64 20, i64 24
-  %.9.i = select i1 %119, i64 2, i64 3
-  %122 = select i1 %121, i64 16, i64 %..i
-  %123 = shl nuw nsw i64 %indvars.iv, %.9.i
-  %124 = add nuw nsw i64 %122, %123
-  %125 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %125(ptr noundef nonnull align 8 dereferenceable(16) %117, i64 noundef %124, ptr noundef %115) #17
-  %126 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not44 = icmp eq ptr %126, null
-  br i1 %.not44, label %129, label %127
+  %..i = select i1 %117, i64 20, i64 24
+  %.9.i = select i1 %117, i64 2, i64 3
+  %120 = select i1 %119, i64 16, i64 %..i
+  %121 = shl nuw nsw i64 %indvars.iv, %.9.i
+  %122 = add nuw nsw i64 %120, %121
+  %123 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
+  tail call void %123(ptr noundef nonnull align 8 dereferenceable(16) %115, i64 noundef %122, ptr noundef %113) #17
+  %124 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not44 = icmp eq ptr %124, null
+  br i1 %.not44, label %127, label %125
 
-127:                                              ; preds = %_ZNK14objArrayHandleclEv.exit
-  %128 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.34, i32 noundef %128, i32 noundef %..0)
-  br label %129
+125:                                              ; preds = %_ZNK14objArrayHandleclEv.exit
+  %126 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.34, i32 noundef %126, i32 noundef %..0)
+  br label %127
 
-129:                                              ; preds = %127, %_ZNK14objArrayHandleclEv.exit
+127:                                              ; preds = %125, %_ZNK14objArrayHandleclEv.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %112, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %129, %109
+._crit_edge:                                      ; preds = %127, %109
   store i8 1, ptr @_ZN11StringTable40_is_two_dimensional_shared_strings_arrayE, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %112, %81, %50, %_ZN9OopHandleC2EP10OopStorageP7oopDesc.exit, %38, %1, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph, %81, %50, %_ZN9OopHandleC2EP10OopStorageP7oopDesc.exit, %38, %1, %._crit_edge
   ret void
 }
 

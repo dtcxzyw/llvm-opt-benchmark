@@ -932,7 +932,7 @@ define dso_local range(i32 -1, 1) i32 @zend_enum_get_case_by_value(ptr noundef w
 12:                                               ; preds = %8
   %13 = tail call i32 @zend_update_class_constants(ptr noundef nonnull %1) #12
   %14 = icmp eq i32 %13, -1
-  br i1 %14, label %88, label %15
+  br i1 %14, label %87, label %15
 
 15:                                               ; preds = %12, %8, %5
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -961,7 +961,7 @@ zend_class_backed_enum_table.exit:                ; preds = %21, %27
   %.0.in.i = phi ptr [ %26, %21 ], [ %28, %27 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !92
   %.not34 = icmp eq ptr %.0.i, null
-  br i1 %.not34, label %41, label %29
+  br i1 %.not34, label %40, label %29
 
 29:                                               ; preds = %zend_class_backed_enum_table.exit
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 480
@@ -971,111 +971,109 @@ zend_class_backed_enum_table.exit:                ; preds = %21, %27
 
 33:                                               ; preds = %29
   %34 = tail call ptr @zend_hash_index_find(ptr noundef nonnull %.0.i, i64 noundef %2) #12
-  br label %39
+  br label %38
 
 35:                                               ; preds = %29
   %36 = icmp eq i32 %31, 6
   tail call void @llvm.assume(i1 %36)
-  %37 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call ptr @zend_hash_find(ptr noundef nonnull %.0.i, ptr noundef nonnull %3) #12
-  br label %39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
+  %37 = tail call ptr @zend_hash_find(ptr noundef nonnull %.0.i, ptr noundef nonnull %3) #12
+  br label %38
 
-39:                                               ; preds = %35, %33
-  %.030 = phi ptr [ %34, %33 ], [ %38, %35 ]
-  %40 = icmp eq ptr %.030, null
-  br i1 %40, label %41, label %57
+38:                                               ; preds = %35, %33
+  %.030 = phi ptr [ %34, %33 ], [ %37, %35 ]
+  %39 = icmp eq ptr %.030, null
+  br i1 %39, label %40, label %56
 
-41:                                               ; preds = %39, %zend_class_backed_enum_table.exit
-  br i1 %4, label %42, label %43
+40:                                               ; preds = %38, %zend_class_backed_enum_table.exit
+  br i1 %4, label %41, label %42
 
-42:                                               ; preds = %41
+41:                                               ; preds = %40
   store ptr null, ptr %0, align 8, !tbaa !93
-  br label %88
+  br label %87
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 480
-  %45 = load i32, ptr %44, align 8, !tbaa !28
-  %46 = icmp eq i32 %45, 4
-  br i1 %46, label %47, label %51
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 480
+  %44 = load i32, ptr %43, align 8, !tbaa !28
+  %45 = icmp eq i32 %44, 4
+  br i1 %45, label %46, label %50
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !41
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.4, i64 noundef %2, ptr noundef nonnull %50) #12
-  br label %88
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !41
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.4, i64 noundef %2, ptr noundef nonnull %49) #12
+  br label %87
 
-51:                                               ; preds = %43
-  %52 = icmp eq i32 %45, 6
-  tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !41
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.5, ptr noundef nonnull %53, ptr noundef nonnull %56) #12
-  br label %88
+50:                                               ; preds = %42
+  %51 = icmp eq i32 %44, 6
+  tail call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !41
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.5, ptr noundef nonnull %52, ptr noundef nonnull %55) #12
+  br label %87
 
-57:                                               ; preds = %39
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %59 = load i32, ptr %58, align 4, !tbaa !61
-  %60 = and i32 %59, 16777216
-  %.not.i = icmp eq i32 %60, 0
-  br i1 %.not.i, label %73, label %61
+56:                                               ; preds = %38
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %58 = load i32, ptr %57, align 4, !tbaa !61
+  %59 = and i32 %58, 16777216
+  %.not.i = icmp eq i32 %59, 0
+  br i1 %.not.i, label %72, label %60
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %16, align 8, !tbaa !67
-  %.not12.i = icmp eq ptr %62, null
-  br i1 %.not12.i, label %73, label %63
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %16, align 8, !tbaa !67
+  %.not12.i = icmp eq ptr %61, null
+  br i1 %.not12.i, label %72, label %62
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !70
-  %65 = ptrtoint ptr %62 to i64
-  %66 = getelementptr inbounds i8, ptr %64, i64 %65
-  %67 = load ptr, ptr %66, align 8, !tbaa !56
-  %.not13.i = icmp eq ptr %67, null
-  br i1 %.not13.i, label %71, label %68
+62:                                               ; preds = %60
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !70
+  %64 = ptrtoint ptr %61 to i64
+  %65 = getelementptr inbounds i8, ptr %63, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !56
+  %.not13.i = icmp eq ptr %66, null
+  br i1 %.not13.i, label %70, label %67
 
-68:                                               ; preds = %63
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !88
-  %.not14.i = icmp eq ptr %70, null
-  br i1 %.not14.i, label %71, label %zend_class_constants_table.exit
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !88
+  %.not14.i = icmp eq ptr %69, null
+  br i1 %.not14.i, label %70, label %zend_class_constants_table.exit
 
-71:                                               ; preds = %68, %63
-  %72 = tail call ptr @zend_separate_class_constants_table(ptr noundef nonnull %1) #12
+70:                                               ; preds = %67, %62
+  %71 = tail call ptr @zend_separate_class_constants_table(ptr noundef nonnull %1) #12
   br label %zend_class_constants_table.exit
 
-73:                                               ; preds = %61, %57
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 176
+72:                                               ; preds = %60, %56
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 176
   br label %zend_class_constants_table.exit
 
-zend_class_constants_table.exit:                  ; preds = %68, %71, %73
-  %.1.i = phi ptr [ %74, %73 ], [ %72, %71 ], [ %70, %68 ]
-  %75 = load ptr, ptr %.030, align 8, !tbaa !4
-  %76 = tail call ptr @zend_hash_find(ptr noundef %.1.i, ptr noundef %75) #12
-  %.not.i36 = icmp ne ptr %76, null
-  tail call void @llvm.assume(i1 %.not.i36)
-  %77 = load ptr, ptr %76, align 8, !tbaa !4, !nonnull !95, !noundef !95
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load i8, ptr %78, align 8, !tbaa !4
-  %80 = icmp eq i8 %79, 11
-  br i1 %80, label %81, label %86
+zend_class_constants_table.exit:                  ; preds = %67, %70, %72
+  %.1.i = phi ptr [ %73, %72 ], [ %71, %70 ], [ %69, %67 ]
+  %74 = load ptr, ptr %.030, align 8, !tbaa !4
+  %75 = tail call ptr @zend_hash_find(ptr noundef %.1.i, ptr noundef %74) #12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %75) ]
+  %76 = load ptr, ptr %75, align 8, !tbaa !4, !nonnull !95, !noundef !95
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %78 = load i8, ptr %77, align 8, !tbaa !4
+  %79 = icmp eq i8 %78, 11
+  br i1 %79, label %80, label %85
 
-81:                                               ; preds = %zend_class_constants_table.exit
-  %82 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %83 = load ptr, ptr %82, align 8, !tbaa !96
-  %84 = tail call i32 @zval_update_constant_ex(ptr noundef nonnull %77, ptr noundef %83) #12
-  %85 = icmp eq i32 %84, -1
-  br i1 %85, label %88, label %86
+80:                                               ; preds = %zend_class_constants_table.exit
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  %82 = load ptr, ptr %81, align 8, !tbaa !96
+  %83 = tail call i32 @zval_update_constant_ex(ptr noundef nonnull %76, ptr noundef %82) #12
+  %84 = icmp eq i32 %83, -1
+  br i1 %84, label %87, label %85
 
-86:                                               ; preds = %81, %zend_class_constants_table.exit
-  %87 = load ptr, ptr %77, align 8, !tbaa !4
-  store ptr %87, ptr %0, align 8, !tbaa !93
-  br label %88
+85:                                               ; preds = %80, %zend_class_constants_table.exit
+  %86 = load ptr, ptr %76, align 8, !tbaa !4
+  store ptr %86, ptr %0, align 8, !tbaa !93
+  br label %87
 
-88:                                               ; preds = %42, %86, %51, %47, %81, %12
-  %.0 = phi i32 [ -1, %12 ], [ 0, %42 ], [ 0, %86 ], [ -1, %47 ], [ -1, %51 ], [ -1, %81 ]
+87:                                               ; preds = %41, %85, %50, %46, %80, %12
+  %.0 = phi i32 [ -1, %12 ], [ 0, %41 ], [ 0, %85 ], [ -1, %46 ], [ -1, %50 ], [ -1, %80 ]
   ret i32 %.0
 }
 
@@ -2006,8 +2004,7 @@ define dso_local ptr @zend_enum_get_case(ptr noundef %0, ptr noundef %1) local_u
 zend_class_constants_table.exit:                  ; preds = %14, %17, %19
   %.1.i = phi ptr [ %20, %19 ], [ %18, %17 ], [ %16, %14 ]
   %21 = tail call ptr @zend_hash_find(ptr noundef %.1.i, ptr noundef %1) #12
-  %.not.i8 = icmp ne ptr %21, null
-  tail call void @llvm.assume(i1 %.not.i8)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %21) ]
   %22 = load ptr, ptr %21, align 8, !tbaa !4, !nonnull !95, !noundef !95
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i8, ptr %23, align 8, !tbaa !4
@@ -2080,8 +2077,7 @@ zend_string_alloc.exit:
 zend_class_constants_table.exit.i:                ; preds = %27, %25, %22
   %.1.i.i = phi ptr [ %28, %27 ], [ %26, %25 ], [ %24, %22 ]
   %29 = tail call ptr @zend_hash_find(ptr noundef %.1.i.i, ptr noundef nonnull %5) #12
-  %.not.i8.i = icmp ne ptr %29, null
-  tail call void @llvm.assume(i1 %.not.i8.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   %30 = load ptr, ptr %29, align 8, !tbaa !4, !nonnull !95, !noundef !95
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !4
@@ -2459,7 +2455,7 @@ zend_string_release.exit:                         ; preds = %118, %117, %110, %1
   store i32 1, ptr %119, align 8, !tbaa !4
   br label %zend_string_release.exit154
 
-zend_string_release.exit154:                      ; preds = %90, %91, %96, %103, %104, %zend_string_release.exit, %zend_string_release.exit157
+zend_string_release.exit154:                      ; preds = %104, %103, %96, %91, %90, %zend_string_release.exit, %zend_string_release.exit157
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %120
 

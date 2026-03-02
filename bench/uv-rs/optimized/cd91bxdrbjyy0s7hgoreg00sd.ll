@@ -2683,6 +2683,7 @@ _ZN5alloc11collections5btree3mem7replace17heb2315a8c7a47dcdE.exit42: ; preds = %
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.062, i64 8
   %170 = getelementptr inbounds nuw { [3 x i64] }, ptr %169, i64 %167
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %170, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.062) ]
   br label %.loopexit
 
 171:                                              ; preds = %.loopexit74, %.loopexit.split-lp75, %113, %160

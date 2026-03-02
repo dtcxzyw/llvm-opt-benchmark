@@ -1562,8 +1562,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %46, %48
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = load ptr, ptr %51, align 8
   %53 = call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(72) %3) #17
-  %.not.i.i9 = icmp ne ptr %53, null
-  call void @llvm.assume(i1 %.not.i.i9)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %53) ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load i64, ptr %54, align 8, !tbaa !444
   %56 = and i64 %55, -8

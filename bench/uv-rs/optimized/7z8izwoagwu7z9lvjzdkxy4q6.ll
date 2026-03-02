@@ -1778,8 +1778,8 @@ _ZN10serde_json3ser6to_vec17hf9ef4b54995177beE.exit.thread: ; preds = %23, %27
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #36, !noalias !319
   unreachable
 
-common.resume:                                    ; preds = %36, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %37, %36 ]
+common.resume:                                    ; preds = %35, %19
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10serde_json3ser6to_vec17hf9ef4b54995177beE.exit: ; preds = %21
@@ -1792,24 +1792,23 @@ _ZN10serde_json3ser6to_vec17hf9ef4b54995177beE.exit: ; preds = %21
 
 34:                                               ; preds = %_ZN10serde_json3ser6to_vec17hf9ef4b54995177beE.exit, %_ZN10serde_json3ser6to_vec17hf9ef4b54995177beE.exit.thread
   %.sroa.7.019 = phi ptr [ %18, %_ZN10serde_json3ser6to_vec17hf9ef4b54995177beE.exit.thread ], [ %.sroa.7.0.copyload9, %_ZN10serde_json3ser6to_vec17hf9ef4b54995177beE.exit ]
-  %35 = icmp ne ptr %.sroa.7.019, null
-  call void @llvm.assume(i1 %35)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.7.019) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !330
   store ptr %.sroa.7.019, ptr %3, align 8, !noalias !330
   invoke void @_ZN4core6result13unwrap_failed17h3ff7104a9ace307aE(ptr noalias noundef nonnull readonly align 1 @anon.742f634b11764f302b5887be9511959d.54, i64 noundef 35, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.742f634b11764f302b5887be9511959d.33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.742f634b11764f302b5887be9511959d.56) #33
-          to label %38 unwind label %36, !noalias !330
+          to label %37 unwind label %35, !noalias !330
 
-36:                                               ; preds = %34
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %34
+  %36 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h62b399cb5ac316b2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3) #35
-          to label %common.resume unwind label %39, !noalias !330
+          to label %common.resume unwind label %38, !noalias !330
 
-38:                                               ; preds = %34
+37:                                               ; preds = %34
   unreachable
 
-39:                                               ; preds = %36
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %35
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #36, !noalias !330
   unreachable
@@ -2370,64 +2369,63 @@ define void @"_ZN103_$LT$uv_configuration..config_settings..ConfigSettings$u20$a
   ret void
 
 .lr.ph:                                           ; preds = %2, %"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit"
-  %.pn = phi { ptr, ptr } [ %40, %"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit" ], [ %10, %2 ]
-  %13 = phi ptr [ %41, %"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit" ], [ %11, %2 ]
+  %.pn = phi { ptr, ptr } [ %39, %"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit" ], [ %10, %2 ]
+  %13 = phi ptr [ %40, %"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit" ], [ %11, %2 ]
   %14 = extractvalue { ptr, ptr } %.pn, 1
-  %15 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !4
-  call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3e79456457f625c7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %19)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !4
+  call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3e79456457f625c7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %18)
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h63b4371ef14dab80E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef -1)
-  %20 = load i64, ptr %14, align 8, !range !81, !noundef !4
-  %trunc = trunc nuw i64 %20 to i1
-  br i1 %trunc, label %26, label %21
+  %19 = load i64, ptr %14, align 8, !range !81, !noundef !4
+  %trunc = trunc nuw i64 %19 to i1
+  br i1 %trunc, label %25, label %20
 
-21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %23 = load ptr, ptr %22, align 8, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %25 = load i64, ptr %24, align 8, !noundef !4
-  call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3e79456457f625c7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %25)
+20:                                               ; preds = %.lr.ph
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %24 = load i64, ptr %23, align 8, !noundef !4
+  call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3e79456457f625c7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %24)
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h63b4371ef14dab80E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef -1)
   br label %"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit"
 
-26:                                               ; preds = %.lr.ph
+25:                                               ; preds = %.lr.ph
   call void @llvm.experimental.noalias.scope.decl(metadata !404)
-  %27 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %28 = load i64, ptr %27, align 8, !alias.scope !404, !noalias !407, !noundef !4
-  %29 = icmp ult i64 %28, 384307168202282326
-  call void @llvm.assume(i1 %29)
-  call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hbeefd52994500ef0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %28), !noalias !404
-  %30 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %31 = load ptr, ptr %30, align 8, !alias.scope !404, !noalias !407, !nonnull !4, !noundef !4
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %27 = load i64, ptr %26, align 8, !alias.scope !404, !noalias !407, !noundef !4
+  %28 = icmp ult i64 %27, 384307168202282326
+  call void @llvm.assume(i1 %28)
+  call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hbeefd52994500ef0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %27), !noalias !404
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %30 = load ptr, ptr %29, align 8, !alias.scope !404, !noalias !407, !nonnull !4, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !409)
-  %.idx.i.i = mul nuw nsw i64 %28, 24
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i
-  %33 = icmp eq i64 %28, 0
-  br i1 %33, label %"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit", label %.lr.ph.i.i
+  %.idx.i.i = mul nuw nsw i64 %27, 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i
+  %32 = icmp eq i64 %27, 0
+  br i1 %32, label %"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit", label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %26, %.lr.ph.i.i
-  %.sroa.0.05.i.i = phi ptr [ %34, %.lr.ph.i.i ], [ %31, %26 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i, i64 24
+.lr.ph.i.i:                                       ; preds = %25, %.lr.ph.i.i
+  %.sroa.0.05.i.i = phi ptr [ %33, %.lr.ph.i.i ], [ %30, %25 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !412)
   call void @llvm.experimental.noalias.scope.decl(metadata !415)
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i, i64 8
-  %36 = load ptr, ptr %35, align 8, !alias.scope !418, !noalias !419, !nonnull !4, !noundef !4
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i, i64 16
-  %38 = load i64, ptr %37, align 8, !alias.scope !418, !noalias !419, !noundef !4
-  call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3e79456457f625c7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %38), !noalias !423
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i, i64 8
+  %35 = load ptr, ptr %34, align 8, !alias.scope !418, !noalias !419, !nonnull !4, !noundef !4
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i, i64 16
+  %37 = load i64, ptr %36, align 8, !alias.scope !418, !noalias !419, !noundef !4
+  call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3e79456457f625c7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 %35, i64 noundef %37), !noalias !423
   call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h63b4371ef14dab80E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef -1), !noalias !423
-  %39 = icmp eq ptr %34, %32
-  br i1 %39, label %"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit", label %.lr.ph.i.i
+  %38 = icmp eq ptr %33, %31
+  br i1 %38, label %"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit", label %.lr.ph.i.i
 
-"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit": ; preds = %.lr.ph.i.i, %26, %21
-  %40 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c9b7511238ad5dbE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3)
-  %41 = extractvalue { ptr, ptr } %40, 0
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %._crit_edge, label %.lr.ph
+"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit": ; preds = %.lr.ph.i.i, %25, %20
+  %39 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c9b7511238ad5dbE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3)
+  %40 = extractvalue { ptr, ptr } %39, 0
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

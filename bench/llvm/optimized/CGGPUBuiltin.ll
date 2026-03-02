@@ -188,8 +188,7 @@ _ZN12_GLOBAL__N_121GetVprintfDeclarationERN4llvm6ModuleE.exit: ; preds = %3, %36
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !691, !noalias !684
   %59 = call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #10, !noalias !684
-  %.not.i.i.i.i = icmp ne ptr %59, null
-  call void @llvm.assume(i1 %.not.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %59) ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %.sroa.0.0.copyload.i.i = load i64, ptr %60, align 8, !tbaa !682, !noalias !684
   %61 = and i64 %.sroa.0.0.copyload.i.i, -16
@@ -634,8 +633,7 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit:
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !691
   %28 = call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #10
-  %.not.i.i.i = icmp ne ptr %28, null
-  call void @llvm.assume(i1 %.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %28) ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %29, align 8, !tbaa !682
   %30 = and i64 %.sroa.0.0.copyload.i, -16

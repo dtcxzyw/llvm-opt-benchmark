@@ -2425,31 +2425,30 @@ define hidden void @"_ZN89_$LT$tracing_core..field..DisplayValue$LT$T$GT$$u20$as
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0bd89735b4ddb049E.llvm.9275802895842548201"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %0, %1
-  br i1 %5, label %.loopexit, label %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %4 = icmp eq ptr %0, %1
+  br i1 %4, label %.loopexit, label %5
 
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub nuw i64 %7, %8
-  %10 = lshr exact i64 %9, 4
-  br label %11
+5:                                                ; preds = %3
+  %6 = ptrtoint ptr %1 to i64
+  %7 = ptrtoint ptr %0 to i64
+  %8 = sub nuw i64 %6, %7
+  %9 = lshr exact i64 %8, 4
+  br label %10
 
-11:                                               ; preds = %11, %6
-  %.sroa.07.0 = phi i64 [ %2, %6 ], [ %14, %11 ]
-  %.sroa.09.0 = phi i64 [ 0, %6 ], [ %15, %11 ]
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.sroa.09.0
-  %13 = getelementptr i8, ptr %12, i64 8
-  %.val19 = load i64, ptr %13, align 8, !alias.scope !393, !noundef !25
-  %14 = add i64 %.val19, %.sroa.07.0
-  %15 = add nuw i64 %.sroa.09.0, 1
-  %16 = icmp eq i64 %15, %10
-  br i1 %16, label %.loopexit, label %11
+10:                                               ; preds = %10, %5
+  %.sroa.07.0 = phi i64 [ %2, %5 ], [ %13, %10 ]
+  %.sroa.09.0 = phi i64 [ 0, %5 ], [ %14, %10 ]
+  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.sroa.09.0
+  %12 = getelementptr i8, ptr %11, i64 8
+  %.val19 = load i64, ptr %12, align 8, !alias.scope !393, !noundef !25
+  %13 = add i64 %.val19, %.sroa.07.0
+  %14 = add nuw i64 %.sroa.09.0, 1
+  %15 = icmp eq i64 %14, %9
+  br i1 %15, label %.loopexit, label %10
 
-.loopexit:                                        ; preds = %11, %3
-  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %14, %11 ]
+.loopexit:                                        ; preds = %10, %3
+  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %13, %10 ]
   ret i64 %.sroa.04.0
 }
 
@@ -2734,25 +2733,21 @@ _ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit15: ; preds =
 
 94:                                               ; preds = %90, %88
   %95 = tail call { ptr, i64 } @_ZN3url3Url4path17hb2f38af7471df853E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
-  %96 = extractvalue { ptr, i64 } %95, 0
-  %97 = extractvalue { ptr, i64 } %95, 1
-  %98 = tail call { ptr, i64 } @_ZN3url3Url4path17hb2f38af7471df853E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %3)
-  %99 = extractvalue { ptr, i64 } %98, 0
-  %100 = extractvalue { ptr, i64 } %98, 1
-  %101 = icmp ne ptr %96, null
-  tail call void @llvm.assume(i1 %101)
-  %102 = icmp ne ptr %99, null
-  tail call void @llvm.assume(i1 %102)
-  %.not.i25 = icmp ult i64 %97, %100
+  %96 = extractvalue { ptr, i64 } %95, 1
+  %97 = tail call { ptr, i64 } @_ZN3url3Url4path17hb2f38af7471df853E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %3)
+  %98 = extractvalue { ptr, i64 } %97, 1
+  %.not.i25 = icmp ult i64 %96, %98
   br i1 %.not.i25, label %.thread, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i": ; preds = %94
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %99, ptr nonnull readonly align 1 %96, i64 %100), !alias.scope !473
-  %103 = icmp eq i32 %bcmp.i.i, 0
+  %99 = extractvalue { ptr, i64 } %97, 0
+  %100 = extractvalue { ptr, i64 } %95, 0
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %99, ptr nonnull readonly align 1 %100, i64 %98), !alias.scope !473
+  %101 = icmp eq i32 %bcmp.i.i, 0
   br label %.thread
 
 .thread:                                          ; preds = %_ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit15, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i", %94, %88, %44, %90, %49, %46, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit"
-  %.sroa.0.0 = phi i1 [ false, %88 ], [ false, %49 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit" ], [ false, %46 ], [ false, %90 ], [ false, %_ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit15 ], [ false, %94 ], [ false, %44 ], [ %103, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i" ]
+  %.sroa.0.0 = phi i1 [ false, %88 ], [ false, %49 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit" ], [ false, %46 ], [ false, %90 ], [ false, %_ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit15 ], [ false, %94 ], [ false, %44 ], [ %101, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i" ]
   ret i1 %.sroa.0.0
 }
 

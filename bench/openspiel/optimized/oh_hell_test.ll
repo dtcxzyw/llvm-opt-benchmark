@@ -4648,8 +4648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70.i: 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #21
   %1446 = load ptr, ptr %65, align 8, !noalias !13, !nonnull !16, !noundef !16
   %1447 = call ptr @__dynamic_cast(ptr nonnull %1446, ptr nonnull @_ZTIN10open_spiel4GameE, ptr nonnull @_ZTIN10open_spiel7oh_hell10OhHellGameE, i64 0) #21, !noalias !13
-  %.not.i.i = icmp ne ptr %1447, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1447) ]
   %1448 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %1449 = load ptr, ptr %1448, align 8, !noalias !13
   %.not.i.i.i.i71.i = icmp eq ptr %1449, null

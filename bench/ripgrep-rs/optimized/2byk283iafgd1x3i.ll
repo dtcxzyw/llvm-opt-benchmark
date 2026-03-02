@@ -241,10 +241,10 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   br i1 %.not.i.i.i.i.i, label %11, label %_ZN4core3ops8function6FnOnce9call_once17h8927258861c72051E.exit
 
 11:                                               ; preds = %2
-  %12 = getelementptr i8, ptr %8, i64 -40
-  %.val4.i.i = load ptr, ptr %12, align 8, !noalias !50, !nonnull !4, !noundef !4
-  %13 = getelementptr i8, ptr %.val.i.i, i64 8
-  %.val2.i.i.i = load ptr, ptr %13, align 8, !noalias !50, !nonnull !4, !noundef !4
+  %12 = getelementptr i8, ptr %.val.i.i, i64 8
+  %.val2.i.i.i = load ptr, ptr %12, align 8, !noalias !50, !nonnull !4, !noundef !4
+  %13 = getelementptr i8, ptr %8, i64 -40
+  %.val4.i.i = load ptr, ptr %13, align 8, !noalias !50, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val4.i.i, ptr nonnull readonly align 1 %.val2.i.i.i, i64 %.val5.i.i), !alias.scope !51, !noalias !50
   %14 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %_ZN4core3ops8function6FnOnce9call_once17h8927258861c72051E.exit
@@ -273,10 +273,10 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   br i1 %.not.i.i.i.i.i, label %11, label %_ZN4core3ops8function6FnOnce9call_once17h8e0da78bef4f912fE.exit
 
 11:                                               ; preds = %2
-  %12 = getelementptr i8, ptr %8, i64 -40
-  %.val4.i.i = load ptr, ptr %12, align 8, !noalias !64, !nonnull !4, !noundef !4
-  %13 = getelementptr i8, ptr %.val.i.i, i64 8
-  %.val2.i.i.i = load ptr, ptr %13, align 8, !noalias !64, !nonnull !4, !noundef !4
+  %12 = getelementptr i8, ptr %.val.i.i, i64 8
+  %.val2.i.i.i = load ptr, ptr %12, align 8, !noalias !64, !nonnull !4, !noundef !4
+  %13 = getelementptr i8, ptr %8, i64 -40
+  %.val4.i.i = load ptr, ptr %13, align 8, !noalias !64, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val4.i.i, ptr nonnull readonly align 1 %.val2.i.i.i, i64 %.val5.i.i), !alias.scope !65, !noalias !64
   %14 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %_ZN4core3ops8function6FnOnce9call_once17h8e0da78bef4f912fE.exit
@@ -1765,10 +1765,10 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   br i1 %.not.i.i.i, label %11, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h80896d0afe1f0145E.exit"
 
 11:                                               ; preds = %2
-  %12 = getelementptr i8, ptr %8, i64 -40
-  %.val4 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr i8, ptr %.val, i64 8
-  %.val2.i = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
+  %12 = getelementptr i8, ptr %.val, i64 8
+  %.val2.i = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
+  %13 = getelementptr i8, ptr %8, i64 -40
+  %.val4 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val4, ptr nonnull readonly align 1 %.val2.i, i64 %.val5), !alias.scope !492
   %14 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h80896d0afe1f0145E.exit"
@@ -1795,10 +1795,10 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   br i1 %.not.i.i.i, label %11, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h20913355e8ccf823E.exit"
 
 11:                                               ; preds = %2
-  %12 = getelementptr i8, ptr %8, i64 -40
-  %.val4 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr i8, ptr %.val, i64 8
-  %.val2.i = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
+  %12 = getelementptr i8, ptr %.val, i64 8
+  %.val2.i = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
+  %13 = getelementptr i8, ptr %8, i64 -40
+  %.val4 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val4, ptr nonnull readonly align 1 %.val2.i, i64 %.val5), !alias.scope !496
   %14 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h20913355e8ccf823E.exit"

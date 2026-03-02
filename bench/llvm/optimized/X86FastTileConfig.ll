@@ -386,6 +386,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117X86FastTileConfig20runOnM
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %115, align 8
   %116 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %117 = inttoptr i64 %116 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %117) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %117, align 8
   %118 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %118, 0
@@ -1551,6 +1552,7 @@ _ZN4llvm8DebugLocD2Ev.exit112.i:                  ; preds = %509, %_ZN4llvm8Debu
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0226.0248.i, align 8
   %511 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %512 = inttoptr i64 %511 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %512) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %512, align 8
   %513 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i114.i = icmp eq i64 %513, 0

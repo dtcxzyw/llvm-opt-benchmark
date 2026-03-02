@@ -46200,8 +46200,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
   %476 = phi ptr [ %471, %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEED2Ev.exit267 ], [ %461, %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEEaSEOS5_.exit.thread ], [ %461, %475 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.val35 = load i64, ptr %403, align 8
-  %.not.i270 = icmp ne ptr %.sroa.022.1, null
-  call void @llvm.assume(i1 %.not.i270)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.022.1) ]
   %477 = getelementptr i8, ptr %.sroa.022.1, i64 56
   %.val15.i.i90 = load i64, ptr %477, align 8, !tbaa !510
   %478 = icmp eq i64 %.val35, %.val15.i.i90

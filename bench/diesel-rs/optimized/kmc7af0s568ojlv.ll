@@ -174,11 +174,10 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h5638e3c646e3fe
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hfbfadf4a686e4cd9E"(ptr readnone captures(address_is_null, ret: address, provenance) %0, i64 %1) unnamed_addr #1 {
+define nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hfbfadf4a686e4cd9E"(ptr readnone captures(ret: address, provenance) %0, i64 %1) unnamed_addr #1 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { ptr, { { i64, [28 x i64] }, { { i64, ptr }, i64 } } }, ptr %0, i64 %3
-  %5 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   ret ptr %4
 }
 

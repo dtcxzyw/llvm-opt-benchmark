@@ -928,8 +928,7 @@ define dso_local void @_ZN5clang6format18CommaSeparatedList25precomputeFormattin
   br i1 %43, label %.backedge, label %44
 
 44:                                               ; preds = %.lr.ph
-  %.not.i = icmp ne ptr %.067.pre, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.067.pre) ]
   %45 = getelementptr inbounds nuw i8, ptr %.067.pre, i64 72
   %46 = load i32, ptr %45, align 8, !tbaa !167
   %.not161 = icmp eq i32 %46, 0
@@ -1037,8 +1036,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit105:   ; preds = %_ZN4llvm15SmallVect
   br i1 %90, label %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread, label %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107
 
 _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107: ; preds = %.lr.ph267
-  %.not.i106 = icmp ne ptr %.pre228, null
-  call void @llvm.assume(i1 %.not.i106)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre228) ]
   %91 = getelementptr inbounds nuw i8, ptr %.pre228, i64 72
   %92 = load i32, ptr %91, align 8, !tbaa !167
   %.not164 = icmp eq i32 %92, 0

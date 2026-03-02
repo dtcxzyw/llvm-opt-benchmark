@@ -220,8 +220,7 @@ define hidden noundef i64 @_ZNK9EdgeStore6get_idEPK4Edge(ptr noundef nonnull rea
   %11 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %10, i64 %9
   %12 = load volatile ptr, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %.not11.i = icmp ne ptr %12, null
-  tail call void @llvm.assume(i1 %.not11.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, %6
@@ -263,8 +262,7 @@ define hidden noundef i64 @_ZNK9EdgeStore10gc_root_idEPK4Edge(ptr noundef nonnul
   %15 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %14, i64 %13
   %16 = load volatile ptr, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %.not11.i.i = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %.not11.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %16) ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %10
@@ -959,89 +957,88 @@ _ZN9EdgeStore3putE13UnifiedOopRef.exit:           ; preds = %2, %11
   %35 = call noundef ptr @_ZNK4Edge7pointeeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #14
   %36 = load ptr, ptr @_ZL19_leak_context_edges, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %61
+  br i1 %37, label %38, label %60
 
 38:                                               ; preds = %_ZN9EdgeStore3putE13UnifiedOopRef.exit
   %39 = call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 16) #14
-  %40 = icmp ne ptr %39, null
-  call void @llvm.assume(i1 %40)
-  %41 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 64, i32 noundef 8, i8 noundef zeroext 16) #14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %39) ]
+  %40 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 64, i32 noundef 8, i8 noundef zeroext 16) #14
   store i32 0, ptr %39, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  store i32 64, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %41, ptr %43, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %41, i8 0, i64 512, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store i64 33, ptr %44, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  store i32 64, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store ptr %40, ptr %42, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %40, i8 0, i64 512, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store i64 33, ptr %43, align 8
   store ptr %39, ptr @_ZL19_leak_context_edges, align 8
-  %45 = load i32, ptr %39, align 8
-  %46 = load i32, ptr %42, align 4
-  %47 = icmp eq i32 %45, %46
-  br i1 %47, label %48, label %_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_.exit.i.i
+  %44 = load i32, ptr %39, align 8
+  %45 = load i32, ptr %41, align 4
+  %46 = icmp eq i32 %44, %45
+  br i1 %46, label %47, label %_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_.exit.i.i
 
-48:                                               ; preds = %38
-  %49 = add nsw i32 %45, 1
-  %50 = icmp sgt i32 %45, -1
-  %51 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %49)
-  %52 = icmp samesign ult i32 %51, 2
-  %or.cond.i.i.i.i.i.i = select i1 %50, i1 %52, i1 false
-  %53 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %49, i1 true)
-  %54 = sub nuw nsw i32 32, %53
-  %55 = shl nuw i32 1, %54
-  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %49, i32 %55
+47:                                               ; preds = %38
+  %48 = add nsw i32 %44, 1
+  %49 = icmp sgt i32 %44, -1
+  %50 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %48)
+  %51 = icmp samesign ult i32 %50, 2
+  %or.cond.i.i.i.i.i.i = select i1 %49, i1 %51, i1 false
+  %52 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)
+  %53 = sub nuw nsw i32 32, %52
+  %54 = shl nuw i32 1, %53
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %48, i32 %54
   call void @_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %39, align 8
   %.pre.pre.i.i = load ptr, ptr @_ZL19_leak_context_edges, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_.exit.i.i
 
-_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_.exit.i.i: ; preds = %48, %38
-  %.pre.i.i = phi ptr [ %.pre.pre.i.i, %48 ], [ %39, %38 ]
-  %56 = phi i32 [ %.pre.i.i.i, %48 ], [ %45, %38 ]
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %39, align 8
-  %58 = load ptr, ptr %43, align 8
-  %59 = sext i32 %56 to i64
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
-  store ptr null, ptr %60, align 8
-  br label %61
+_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_.exit.i.i: ; preds = %47, %38
+  %.pre.i.i = phi ptr [ %.pre.pre.i.i, %47 ], [ %39, %38 ]
+  %55 = phi i32 [ %.pre.i.i.i, %47 ], [ %44, %38 ]
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %39, align 8
+  %57 = load ptr, ptr %42, align 8
+  %58 = sext i32 %55 to i64
+  %59 = getelementptr inbounds ptr, ptr %57, i64 %58
+  store ptr null, ptr %59, align 8
+  br label %60
 
-61:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_.exit.i.i, %_ZN9EdgeStore3putE13UnifiedOopRef.exit
-  %62 = phi ptr [ %.pre.i.i, %_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_.exit.i.i ], [ %36, %_ZN9EdgeStore3putE13UnifiedOopRef.exit ]
-  %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp eq i32 %63, %65
-  br i1 %66, label %67, label %_ZL24associate_with_candidatePK10StoredEdge.exit
+60:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_.exit.i.i, %_ZN9EdgeStore3putE13UnifiedOopRef.exit
+  %61 = phi ptr [ %.pre.i.i, %_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_.exit.i.i ], [ %36, %_ZN9EdgeStore3putE13UnifiedOopRef.exit ]
+  %62 = load i32, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp eq i32 %62, %64
+  br i1 %65, label %66, label %_ZL24associate_with_candidatePK10StoredEdge.exit
 
-67:                                               ; preds = %61
-  %68 = add nsw i32 %63, 1
-  %69 = icmp sgt i32 %63, -1
-  %70 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %68)
-  %71 = icmp samesign ult i32 %70, 2
-  %or.cond.i.i.i.i1.i.i = select i1 %69, i1 %71, i1 false
-  %72 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %68, i1 true)
-  %73 = sub nuw nsw i32 32, %72
-  %74 = shl nuw i32 1, %73
-  %.0.i.i.i.i2.i.i = select i1 %or.cond.i.i.i.i1.i.i, i32 %68, i32 %74
-  call void @_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %62, i32 noundef %.0.i.i.i.i2.i.i)
-  %.pre.i3.i.i = load i32, ptr %62, align 8
+66:                                               ; preds = %60
+  %67 = add nsw i32 %62, 1
+  %68 = icmp sgt i32 %62, -1
+  %69 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %67)
+  %70 = icmp samesign ult i32 %69, 2
+  %or.cond.i.i.i.i1.i.i = select i1 %68, i1 %70, i1 false
+  %71 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %67, i1 true)
+  %72 = sub nuw nsw i32 32, %71
+  %73 = shl nuw i32 1, %72
+  %.0.i.i.i.i2.i.i = select i1 %or.cond.i.i.i.i1.i.i, i32 %67, i32 %73
+  call void @_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef %.0.i.i.i.i2.i.i)
+  %.pre.i3.i.i = load i32, ptr %61, align 8
   br label %_ZL24associate_with_candidatePK10StoredEdge.exit
 
-_ZL24associate_with_candidatePK10StoredEdge.exit: ; preds = %61, %67
-  %75 = phi i32 [ %.pre.i3.i.i, %67 ], [ %63, %61 ]
-  %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %62, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = sext i32 %75 to i64
-  %80 = getelementptr inbounds ptr, ptr %78, i64 %79
-  store ptr %34, ptr %80, align 8
-  %81 = load volatile i64, ptr %35, align 8
-  %82 = shl i32 %75, 2
-  %83 = sext i32 %82 to i64
-  %84 = or i64 %81, %83
-  store volatile i64 %84, ptr %35, align 8
+_ZL24associate_with_candidatePK10StoredEdge.exit: ; preds = %60, %66
+  %74 = phi i32 [ %.pre.i3.i.i, %66 ], [ %62, %60 ]
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %61, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = sext i32 %74 to i64
+  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
+  store ptr %34, ptr %79, align 8
+  %80 = load volatile i64, ptr %35, align 8
+  %81 = shl i32 %74, 2
+  %82 = sext i32 %81 to i64
+  %83 = or i64 %80, %82
+  store volatile i64 %83, ptr %35, align 8
   ret ptr %34
 }
 
@@ -1072,8 +1069,7 @@ define hidden void @_ZN9EdgeStore9put_chainEPK4Edgem(ptr noundef nonnull readonl
   %21 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %20, i64 %19
   %22 = load volatile ptr, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %.not11.i.i.i = icmp ne ptr %22, null
-  tail call void @llvm.assume(i1 %.not11.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, %16
@@ -1126,8 +1122,7 @@ _ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10StoredEdgePK4Edge.exit:
   %50 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %49, i64 %48
   %51 = load volatile ptr, ptr %50, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %.not11.i.i.i.i = icmp ne ptr %51, null
-  tail call void @llvm.assume(i1 %.not11.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %51) ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, %45
@@ -1168,7 +1163,7 @@ _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit: ; preds = %35, %_Z
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit20
+  br i1 %72, label %73, label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit19
 
 73:                                               ; preds = %66
   %74 = load ptr, ptr %0, align 8
@@ -1183,30 +1178,29 @@ _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit: ; preds = %35, %_Z
   %82 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %81, i64 %80
   %83 = load volatile ptr, ptr %82, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %.not11.i.i.i.i15 = icmp ne ptr %83, null
-  tail call void @llvm.assume(i1 %.not11.i.i.i.i15)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = load i64, ptr %84, align 8
   %86 = icmp eq i64 %85, %77
-  br i1 %86, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i18, label %.lr.ph.i.i.i.i16
+  br i1 %86, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i17, label %.lr.ph.i.i.i.i15
 
-.lr.ph.i.i.i.i16:                                 ; preds = %73, %.lr.ph.i.i.i.i16
-  %.012.i3.i.i.i17 = phi ptr [ %87, %.lr.ph.i.i.i.i16 ], [ %83, %73 ]
-  %87 = load ptr, ptr %.012.i3.i.i.i17, align 8, !nonnull !9, !noundef !9
+.lr.ph.i.i.i.i15:                                 ; preds = %73, %.lr.ph.i.i.i.i15
+  %.012.i3.i.i.i16 = phi ptr [ %87, %.lr.ph.i.i.i.i15 ], [ %83, %73 ]
+  %87 = load ptr, ptr %.012.i3.i.i.i16, align 8, !nonnull !9, !noundef !9
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %89 = load i64, ptr %88, align 8
   %90 = icmp eq i64 %89, %77
-  br i1 %90, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i18, label %.lr.ph.i.i.i.i16
+  br i1 %90, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i17, label %.lr.ph.i.i.i.i15
 
-_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i18:         ; preds = %.lr.ph.i.i.i.i16, %73
-  %.012.i.lcssa.i.i.i19 = phi ptr [ %83, %73 ], [ %87, %.lr.ph.i.i.i.i16 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.012.i.lcssa.i.i.i19, i64 48
+_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i17:         ; preds = %.lr.ph.i.i.i.i15, %73
+  %.012.i.lcssa.i.i.i18 = phi ptr [ %83, %73 ], [ %87, %.lr.ph.i.i.i.i15 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.012.i.lcssa.i.i.i18, i64 48
   %92 = load i64, ptr %91, align 8
   store i64 %92, ptr %70, align 8
-  br label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit20
+  br label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit19
 
-_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit20: ; preds = %66, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i18
-  %.0.i.i13 = phi i64 [ %92, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i18 ], [ %71, %66 ]
+_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit19: ; preds = %66, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i17
+  %.0.i.i13 = phi i64 [ %92, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i17 ], [ %71, %66 ]
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.0.i.i13, ptr %93, align 8
   br label %122
@@ -1218,13 +1212,13 @@ _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit20: ; preds = %66, %
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i64, ptr %98, align 8
   %100 = icmp eq i64 %99, 0
-  br i1 %100, label %101, label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit28
+  br i1 %100, label %101, label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit26
 
 101:                                              ; preds = %94
   %102 = load ptr, ptr %0, align 8
   %103 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %.sroa.0.0.copyload.i.i.i.i22 = load i64, ptr %103, align 8
-  %104 = lshr i64 %.sroa.0.0.copyload.i.i.i.i22, 1
+  %.sroa.0.0.copyload.i.i.i.i21 = load i64, ptr %103, align 8
+  %104 = lshr i64 %.sroa.0.0.copyload.i.i.i.i21, 1
   %105 = and i64 %104, 9223372036854775804
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %107 = load i64, ptr %106, align 8
@@ -1233,35 +1227,34 @@ _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit20: ; preds = %66, %
   %110 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %109, i64 %108
   %111 = load volatile ptr, ptr %110, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %.not11.i.i.i.i23 = icmp ne ptr %111, null
-  tail call void @llvm.assume(i1 %.not11.i.i.i.i23)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %111) ]
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 40
   %113 = load i64, ptr %112, align 8
   %114 = icmp eq i64 %113, %105
-  br i1 %114, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i26, label %.lr.ph.i.i.i.i24
+  br i1 %114, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i24, label %.lr.ph.i.i.i.i22
 
-.lr.ph.i.i.i.i24:                                 ; preds = %101, %.lr.ph.i.i.i.i24
-  %.012.i3.i.i.i25 = phi ptr [ %115, %.lr.ph.i.i.i.i24 ], [ %111, %101 ]
-  %115 = load ptr, ptr %.012.i3.i.i.i25, align 8, !nonnull !9, !noundef !9
+.lr.ph.i.i.i.i22:                                 ; preds = %101, %.lr.ph.i.i.i.i22
+  %.012.i3.i.i.i23 = phi ptr [ %115, %.lr.ph.i.i.i.i22 ], [ %111, %101 ]
+  %115 = load ptr, ptr %.012.i3.i.i.i23, align 8, !nonnull !9, !noundef !9
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %117 = load i64, ptr %116, align 8
   %118 = icmp eq i64 %117, %105
-  br i1 %118, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i26, label %.lr.ph.i.i.i.i24
+  br i1 %118, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i24, label %.lr.ph.i.i.i.i22
 
-_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i26:         ; preds = %.lr.ph.i.i.i.i24, %101
-  %.012.i.lcssa.i.i.i27 = phi ptr [ %111, %101 ], [ %115, %.lr.ph.i.i.i.i24 ]
-  %119 = getelementptr inbounds nuw i8, ptr %.012.i.lcssa.i.i.i27, i64 48
+_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i24:         ; preds = %.lr.ph.i.i.i.i22, %101
+  %.012.i.lcssa.i.i.i25 = phi ptr [ %111, %101 ], [ %115, %.lr.ph.i.i.i.i22 ]
+  %119 = getelementptr inbounds nuw i8, ptr %.012.i.lcssa.i.i.i25, i64 48
   %120 = load i64, ptr %119, align 8
   store i64 %120, ptr %98, align 8
-  br label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit28
+  br label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit26
 
-_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit28: ; preds = %94, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i26
-  %.0.i.i21 = phi i64 [ %120, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i26 ], [ %99, %94 ]
+_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit26: ; preds = %94, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i24
+  %.0.i.i20 = phi i64 [ %120, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i24 ], [ %99, %94 ]
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %.0.i.i21, ptr %121, align 8
+  store i64 %.0.i.i20, ptr %121, align 8
   br label %122
 
-122:                                              ; preds = %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit28, %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit20, %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit, %_ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10StoredEdgePK4Edge.exit
+122:                                              ; preds = %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit26, %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit19, %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit, %_ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10StoredEdgePK4Edge.exit
   ret void
 }
 
@@ -1285,8 +1278,7 @@ define hidden void @_ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10Sto
   %16 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %15, i64 %14
   %17 = load volatile ptr, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %.not11.i.i = icmp ne ptr %17, null
-  tail call void @llvm.assume(i1 %.not11.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, %11
@@ -1334,8 +1326,7 @@ define hidden void @_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge(ptr 
   %16 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %15, i64 %14
   %17 = load volatile ptr, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %.not11.i.i.i = icmp ne ptr %17, null
-  tail call void @llvm.assume(i1 %.not11.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, %11

@@ -686,78 +686,75 @@ define void @_ZN5salsa12active_query11ActiveQuery8add_read17h54809651489e759aE(p
   %29 = call { ptr, ptr } @"_ZN90_$LT$$RF$salsa..cycle..CycleHeads$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h694a0320e325f2a3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
   %30 = extractvalue { ptr, ptr } %29, 0
   %31 = extractvalue { ptr, ptr } %29, 1
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
-  %33 = icmp ne ptr %30, null
-  call void @llvm.assume(i1 %33)
-  %34 = icmp eq ptr %30, %31
-  br i1 %34, label %_ZN5salsa5cycle10CycleHeads6extend17h0cdd96d7af8e0423E.exit, label %.lr.ph.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %31) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
+  %32 = icmp eq ptr %30, %31
+  br i1 %32, label %_ZN5salsa5cycle10CycleHeads6extend17h0cdd96d7af8e0423E.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %8, %63
-  %.sroa.03.09.i = phi ptr [ %35, %63 ], [ %30, %8 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i, i64 12
-  %36 = call noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h8cd3886604df0158E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26)
-  %37 = load ptr, ptr %26, align 8, !alias.scope !59, !noalias !62, !nonnull !3, !noundef !3
-  %38 = load i64, ptr %37, align 8, !noundef !3
-  %.idx.i = mul nuw nsw i64 %38, 12
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
+.lr.ph.i:                                         ; preds = %8, %60
+  %.sroa.03.09.i = phi ptr [ %33, %60 ], [ %30, %8 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i, i64 12
+  %34 = call noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h8cd3886604df0158E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26)
+  %35 = load ptr, ptr %26, align 8, !alias.scope !59, !noalias !62, !nonnull !3, !noundef !3
+  %36 = load i64, ptr %35, align 8, !noundef !3
+  %.idx.i = mul nuw nsw i64 %36, 12
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %40 = icmp ne ptr %36, null
-  call void @llvm.assume(i1 %40)
-  %41 = icmp eq i64 %38, 0
-  br i1 %41, label %.loopexit.i, label %.lr.ph.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
+  %38 = icmp eq i64 %36, 0
+  br i1 %38, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i, i64 4
-  %43 = load i32, ptr %42, align 4, !alias.scope !65, !noalias !68, !noundef !3
-  %44 = load i32, ptr %.sroa.03.09.i, align 4, !range !70, !alias.scope !65, !noalias !68
-  br label %45
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i, i64 4
+  %40 = load i32, ptr %39, align 4, !alias.scope !65, !noalias !68, !noundef !3
+  %41 = load i32, ptr %.sroa.03.09.i, align 4, !range !70, !alias.scope !65, !noalias !68
+  br label %42
 
-45:                                               ; preds = %"_ZN5salsa5cycle10CycleHeads6extend28_$u7b$$u7b$closure$u7d$$u7d$17h10837caa29010bcbE.exit.backedge.i.i", %.lr.ph.i.i
-  %46 = phi ptr [ %36, %.lr.ph.i.i ], [ %47, %"_ZN5salsa5cycle10CycleHeads6extend28_$u7b$$u7b$closure$u7d$$u7d$17h10837caa29010bcbE.exit.backedge.i.i" ]
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %49 = load i32, ptr %48, align 4, !noalias !71, !noundef !3
-  %50 = icmp eq i32 %49, %43
-  br i1 %50, label %51, label %"_ZN5salsa5cycle10CycleHeads6extend28_$u7b$$u7b$closure$u7d$$u7d$17h10837caa29010bcbE.exit.backedge.i.i"
+42:                                               ; preds = %"_ZN5salsa5cycle10CycleHeads6extend28_$u7b$$u7b$closure$u7d$$u7d$17h10837caa29010bcbE.exit.backedge.i.i", %.lr.ph.i.i
+  %43 = phi ptr [ %34, %.lr.ph.i.i ], [ %44, %"_ZN5salsa5cycle10CycleHeads6extend28_$u7b$$u7b$closure$u7d$$u7d$17h10837caa29010bcbE.exit.backedge.i.i" ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %46 = load i32, ptr %45, align 4, !noalias !71, !noundef !3
+  %47 = icmp eq i32 %46, %40
+  br i1 %47, label %48, label %"_ZN5salsa5cycle10CycleHeads6extend28_$u7b$$u7b$closure$u7d$$u7d$17h10837caa29010bcbE.exit.backedge.i.i"
 
-51:                                               ; preds = %45
-  %52 = load i32, ptr %46, align 4, !range !70, !noalias !71, !noundef !3
-  %53 = icmp eq i32 %52, %44
-  br i1 %53, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h84034c04d1d4785aE.exit.i", label %"_ZN5salsa5cycle10CycleHeads6extend28_$u7b$$u7b$closure$u7d$$u7d$17h10837caa29010bcbE.exit.backedge.i.i"
+48:                                               ; preds = %42
+  %49 = load i32, ptr %43, align 4, !range !70, !noalias !71, !noundef !3
+  %50 = icmp eq i32 %49, %41
+  br i1 %50, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h84034c04d1d4785aE.exit.i", label %"_ZN5salsa5cycle10CycleHeads6extend28_$u7b$$u7b$closure$u7d$$u7d$17h10837caa29010bcbE.exit.backedge.i.i"
 
-"_ZN5salsa5cycle10CycleHeads6extend28_$u7b$$u7b$closure$u7d$$u7d$17h10837caa29010bcbE.exit.backedge.i.i": ; preds = %51, %45
-  %54 = icmp eq ptr %47, %39
-  br i1 %54, label %.loopexit.i, label %45
+"_ZN5salsa5cycle10CycleHeads6extend28_$u7b$$u7b$closure$u7d$$u7d$17h10837caa29010bcbE.exit.backedge.i.i": ; preds = %48, %42
+  %51 = icmp eq ptr %44, %37
+  br i1 %51, label %.loopexit.i, label %42
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h84034c04d1d4785aE.exit.i": ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i, i64 8
-  %57 = load i32, ptr %55, align 4, !noundef !3
-  %58 = load i32, ptr %56, align 4, !noundef !3
-  %59 = icmp eq i32 %57, %58
-  br i1 %59, label %63, label %60, !prof !55
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h84034c04d1d4785aE.exit.i": ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i, i64 8
+  %54 = load i32, ptr %52, align 4, !noundef !3
+  %55 = load i32, ptr %53, align 4, !noundef !3
+  %56 = icmp eq i32 %54, %55
+  br i1 %56, label %60, label %57, !prof !55
 
 .loopexit.i:                                      ; preds = %"_ZN5salsa5cycle10CycleHeads6extend28_$u7b$$u7b$closure$u7d$$u7d$17h10837caa29010bcbE.exit.backedge.i.i", %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.03.09.i, i64 12, i1 false)
   call void @"_ZN8thin_vec16ThinVec$LT$T$GT$4push17he8e9ea9d1d5a2712E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !64
-  br label %63
+  br label %60
 
-60:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h84034c04d1d4785aE.exit.i"
-  %61 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i, i64 8
+57:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h84034c04d1d4785aE.exit.i"
+  %58 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.03.09.i, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !64
   store ptr null, ptr %10, align 8, !noalias !64
-  call void @_ZN4core9panicking13assert_failed17h6e89ecdfc6cbb64dE(i8 noundef 0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %61, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %62, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e3ae4507d0d9b5d003813a1409fd0ef.57) #19
+  call void @_ZN4core9panicking13assert_failed17h6e89ecdfc6cbb64dE(i8 noundef 0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %58, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e3ae4507d0d9b5d003813a1409fd0ef.57) #19
   unreachable
 
-63:                                               ; preds = %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h84034c04d1d4785aE.exit.i"
-  %64 = icmp eq ptr %35, %31
-  br i1 %64, label %_ZN5salsa5cycle10CycleHeads6extend17h0cdd96d7af8e0423E.exit, label %.lr.ph.i
+60:                                               ; preds = %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h84034c04d1d4785aE.exit.i"
+  %61 = icmp eq ptr %33, %31
+  br i1 %61, label %_ZN5salsa5cycle10CycleHeads6extend17h0cdd96d7af8e0423E.exit, label %.lr.ph.i
 
-_ZN5salsa5cycle10CycleHeads6extend17h0cdd96d7af8e0423E.exit: ; preds = %63, %8
+_ZN5salsa5cycle10CycleHeads6extend17h0cdd96d7af8e0423E.exit: ; preds = %60, %8
   ret void
 }
 

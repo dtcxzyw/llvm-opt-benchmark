@@ -2429,8 +2429,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   %25 = inttoptr i64 %24 to ptr
   %26 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %25) #16
   %.fca.0.extract.i.i = extractvalue { ptr, i64 } %26, 0
-  %.not.i.i.i.i = icmp ne ptr %.fca.0.extract.i.i, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract.i.i) ]
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i
 
 _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i: ; preds = %23, %17
@@ -2468,8 +2467,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   %12 = load i32, ptr %1, align 8, !tbaa !586
   %13 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %2) #16
   %.fca.0.extract.i = extractvalue { ptr, i64 } %13, 0
-  %.not.i.i.i.i = icmp ne ptr %.fca.0.extract.i, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract.i) ]
   %14 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !81
   tail call void @_ZN5clang5index15IndexingContext18handleMacroDefinedERKNS_14IdentifierInfoENS_14SourceLocationERKNS_9MacroInfoE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(24) %.0.i, i32 %12, ptr noundef nonnull align 8 dereferenceable(38) %15) #16
@@ -2552,8 +2550,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %41) #16
   %.fca.0.extract.i.i10 = extractvalue { ptr, i64 } %42, 0
-  %.not.i.i.i.i11 = icmp ne ptr %.fca.0.extract.i.i10, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i11)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract.i.i10) ]
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i5
 
 _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i5: ; preds = %39, %33
@@ -2643,8 +2640,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %41) #16
   %.fca.0.extract.i.i11 = extractvalue { ptr, i64 } %42, 0
-  %.not.i.i.i.i12 = icmp ne ptr %.fca.0.extract.i.i11, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract.i.i11) ]
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
 
 _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6: ; preds = %39, %33
@@ -2756,8 +2752,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %41) #16
   %.fca.0.extract.i.i11 = extractvalue { ptr, i64 } %42, 0
-  %.not.i.i.i.i12 = icmp ne ptr %.fca.0.extract.i.i11, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract.i.i11) ]
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
 
 _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6: ; preds = %39, %33
@@ -2847,8 +2842,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %41) #16
   %.fca.0.extract.i.i11 = extractvalue { ptr, i64 } %42, 0
-  %.not.i.i.i.i12 = icmp ne ptr %.fca.0.extract.i.i11, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract.i.i11) ]
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
 
 _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6: ; preds = %39, %33
@@ -2943,8 +2937,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %41) #16
   %.fca.0.extract.i.i11 = extractvalue { ptr, i64 } %42, 0
-  %.not.i.i.i.i12 = icmp ne ptr %.fca.0.extract.i.i11, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract.i.i11) ]
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
 
 _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6: ; preds = %39, %33
@@ -3034,8 +3027,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %41) #16
   %.fca.0.extract.i.i11 = extractvalue { ptr, i64 } %42, 0
-  %.not.i.i.i.i12 = icmp ne ptr %.fca.0.extract.i.i11, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract.i.i11) ]
   br label %_ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6
 
 _ZN5clang14MacroDirective12getMacroInfoEv.exit.sink.split.i6: ; preds = %39, %33

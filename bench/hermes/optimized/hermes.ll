@@ -20962,8 +20962,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
-  %tobool.not.i.i.i = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %tobool.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %__typeinfo_result.i.i.i.i)
   %call.i.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %__typeinfo_result.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 0)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i

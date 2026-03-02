@@ -15918,16 +15918,16 @@ _ZNK5clang12CompoundStmt17getStmtExprResultEv.exit: ; preds = %12, %17, %19
   %.not.us = icmp eq ptr %33, %28
   br i1 %.not.us, label %._crit_edge47, label %.lr.ph46.split.us
 
-._crit_edge47:                                    ; preds = %.lr.ph46.split.us, %59, %_ZNK5clang12CompoundStmt17getStmtExprResultEv.exit
+._crit_edge47:                                    ; preds = %.lr.ph46.split.us, %57, %_ZNK5clang12CompoundStmt17getStmtExprResultEv.exit
   ret void
 
-.lr.ph46.split:                                   ; preds = %.lr.ph46.split.preheader, %59
-  %.045 = phi ptr [ %60, %59 ], [ %.ptr16.i.i, %.lr.ph46.split.preheader ]
-  %.03744 = phi ptr [ %.2, %59 ], [ %.3.i.i, %.lr.ph46.split.preheader ]
-  %.sroa.6.043 = phi i8 [ %.sroa.6.1, %59 ], [ undef, %.lr.ph46.split.preheader ]
+.lr.ph46.split:                                   ; preds = %.lr.ph46.split.preheader, %57
+  %.045 = phi ptr [ %58, %57 ], [ %.ptr16.i.i, %.lr.ph46.split.preheader ]
+  %.03744 = phi ptr [ %.2, %57 ], [ %.3.i.i, %.lr.ph46.split.preheader ]
+  %.sroa.6.043 = phi i8 [ %.sroa.6.1, %57 ], [ undef, %.lr.ph46.split.preheader ]
   %34 = load ptr, ptr %.045, align 8, !tbaa !288
   %35 = icmp eq ptr %.03744, %34
-  br i1 %35, label %.preheader, label %58
+  br i1 %35, label %.preheader, label %56
 
 .preheader:                                       ; preds = %.lr.ph46.split
   %36 = load i16, ptr %.03744, align 8
@@ -15936,9 +15936,9 @@ _ZNK5clang12CompoundStmt17getStmtExprResultEv.exit: ; preds = %12, %17, %19
   %spec.select.i.i.i.i.i.i.i.i40 = icmp ult i16 %38, 129
   br i1 %spec.select.i.i.i.i.i.i.i.i40, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %45
-  %39 = phi i16 [ %48, %45 ], [ %37, %.preheader ]
-  %.141 = phi ptr [ %storemerge, %45 ], [ %.03744, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %43
+  %39 = phi i16 [ %46, %43 ], [ %37, %.preheader ]
+  %.141 = phi ptr [ %storemerge, %43 ], [ %.03744, %.preheader ]
   %.not39 = icmp eq i16 %39, 2
   br i1 %.not39, label %40, label %43
 
@@ -15946,37 +15946,32 @@ _ZNK5clang12CompoundStmt17getStmtExprResultEv.exit: ; preds = %12, %17, %19
   %41 = getelementptr inbounds nuw i8, ptr %.141, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !997
   call void @_ZN5clang7CodeGen15CodeGenFunction9EmitLabelEPKNS_9LabelDeclE(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %42)
-  br label %45
+  br label %43
 
-43:                                               ; preds = %.lr.ph
-  %44 = icmp eq i16 %39, 132
-  call void @llvm.assume(i1 %44)
-  br label %45
-
-45:                                               ; preds = %43, %40
-  %.sink = phi i64 [ 8, %43 ], [ 16, %40 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.141, i64 %.sink
-  %storemerge = load ptr, ptr %46, align 8, !tbaa !288
-  %47 = load i16, ptr %storemerge, align 8
-  %48 = and i16 %47, 511
-  %49 = add nsw i16 %48, -3
-  %spec.select.i.i.i.i.i.i.i.i = icmp ult i16 %49, 129
+43:                                               ; preds = %.lr.ph, %40
+  %.sink = phi i64 [ 16, %40 ], [ 8, %.lr.ph ]
+  %44 = getelementptr inbounds nuw i8, ptr %.141, i64 %.sink
+  %storemerge = load ptr, ptr %44, align 8, !tbaa !288
+  %45 = load i16, ptr %storemerge, align 8
+  %46 = and i16 %45, 511
+  %47 = add nsw i16 %46, -3
+  %spec.select.i.i.i.i.i.i.i.i = icmp ult i16 %47, 129
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %._crit_edge, label %.lr.ph, !llvm.loop !1469
 
-._crit_edge:                                      ; preds = %45, %.preheader
-  %.1.lcssa = phi ptr [ %.03744, %.preheader ], [ %storemerge, %45 ]
+._crit_edge:                                      ; preds = %43, %.preheader
+  %.1.lcssa = phi ptr [ %.03744, %.preheader ], [ %storemerge, %43 ]
   call void @_ZN5clang7CodeGen15CodeGenFunction17EnsureInsertPointEv(ptr noundef nonnull align 8 dereferenceable(6496) %1)
-  %50 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %50, align 8, !tbaa !988
-  %51 = call noundef i32 @_ZN5clang7CodeGen15CodeGenFunction17getEvaluationKindENS_8QualTypeE(i64 %.sroa.0.0.copyload.i) #19
-  %52 = icmp eq i32 %51, 2
-  br i1 %52, label %53, label %54
+  %48 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %48, align 8, !tbaa !988
+  %49 = call noundef i32 @_ZN5clang7CodeGen15CodeGenFunction17getEvaluationKindENS_8QualTypeE(i64 %.sroa.0.0.copyload.i) #19
+  %50 = icmp eq i32 %49, 2
+  br i1 %50, label %51, label %52
 
-53:                                               ; preds = %._crit_edge
+51:                                               ; preds = %._crit_edge
   call void @_ZN5clang7CodeGen15CodeGenFunction11EmitAggExprEPKNS_4ExprENS0_12AggValueSlotE(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull %.1.lcssa, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %4) #19
-  br label %59
+  br label %57
 
-54:                                               ; preds = %._crit_edge
+52:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %30, align 1, !tbaa !1075
   store ptr @.str.2, ptr %7, align 8, !tbaa !988
@@ -15986,30 +15981,30 @@ _ZNK5clang12CompoundStmt17getStmtExprResultEv.exit: ; preds = %12, %17, %19
   %.sroa.435.0.copyload = load ptr, ptr %.sroa.435.0..sroa_idx, align 8
   %.sroa.536.0.copyload = load i64, ptr %.sroa.536.0..sroa_idx, align 8
   %.0.copyload.i.i.i.i.fr.i = freeze i64 %.sroa.034.0.copyload
-  %55 = icmp ugt i64 %.0.copyload.i.i.i.i.fr.i, 7
-  %56 = and i64 %.0.copyload.i.i.i.i.fr.i, -4
-  %.sink10.i = select i1 %55, i64 %56, i64 0
-  %.sink.i = select i1 %55, ptr %.sroa.435.0.copyload, ptr null
-  %storemerge.i = select i1 %55, i64 %.sroa.536.0.copyload, i64 0
-  %57 = and i8 %.sroa.6.043, -64
+  %53 = icmp ugt i64 %.0.copyload.i.i.i.i.fr.i, 7
+  %54 = and i64 %.0.copyload.i.i.i.i.fr.i, -4
+  %.sink10.i = select i1 %53, i64 %54, i64 0
+  %.sink.i = select i1 %53, ptr %.sroa.435.0.copyload, ptr null
+  %storemerge.i = select i1 %53, i64 %.sroa.536.0.copyload, i64 0
+  %55 = and i8 %.sroa.6.043, -64
   store i64 %.sink10.i, ptr %0, align 8, !tbaa !988
   store ptr %.sink.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !1284
   store i64 %storemerge.i, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !295
-  store i8 %57, ptr %24, align 8, !tbaa !988
+  store i8 %55, ptr %24, align 8, !tbaa !988
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5clang7CodeGen15CodeGenFunction16EmitAnyExprToMemEPKNS_4ExprENS0_7AddressENS_10QualifiersEb(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull %.1.lcssa, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %0, i64 0, i1 noundef zeroext false) #19
-  br label %59
+  br label %57
 
-58:                                               ; preds = %.lr.ph46.split
+56:                                               ; preds = %.lr.ph46.split
   call void @_ZN5clang7CodeGen15CodeGenFunction8EmitStmtEPKNS_4StmtEN4llvm8ArrayRefIPKNS_4AttrEEE(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %34, ptr null, i64 0)
-  br label %59
+  br label %57
 
-59:                                               ; preds = %53, %54, %58
-  %.sroa.6.1 = phi i8 [ %.sroa.6.043, %53 ], [ %57, %54 ], [ %.sroa.6.043, %58 ]
-  %.2 = phi ptr [ %.1.lcssa, %53 ], [ %.1.lcssa, %54 ], [ %.03744, %58 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.045, i64 8
-  %.not = icmp eq ptr %60, %28
+57:                                               ; preds = %51, %52, %56
+  %.sroa.6.1 = phi i8 [ %.sroa.6.043, %51 ], [ %55, %52 ], [ %.sroa.6.043, %56 ]
+  %.2 = phi ptr [ %.1.lcssa, %51 ], [ %.1.lcssa, %52 ], [ %.03744, %56 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.045, i64 8
+  %.not = icmp eq ptr %58, %28
   br i1 %.not, label %._crit_edge47, label %.lr.ph46.split
 }
 

@@ -2748,8 +2748,7 @@ g_list_shorter_than.exit:                         ; preds = %.lr.ph.i41
   br i1 %.not40.not, label %16, label %33
 
 16:                                               ; preds = %.lr.ph54
-  %.not18.i = icmp ne ptr %.03551, null
-  tail call void @llvm.assume(i1 %.not18.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.03551) ]
   %17 = load ptr, ptr %.03551, align 8, !tbaa !54
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %1) #18

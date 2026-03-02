@@ -135,15 +135,14 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   br i1 %.not.i.i.i.i.i.i.i, label %13, label %_ZN4core3ops8function6FnOnce9call_once17h22c1f8035edf6f14E.exit
 
 13:                                               ; preds = %2
-  %14 = icmp ne ptr %.val4.i.i, null
-  tail call void @llvm.assume(i1 %14)
-  %15 = load ptr, ptr %.val.i.i, align 8, !alias.scope !48, !noalias !49, !nonnull !9, !align !52, !noundef !9
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %15, ptr nonnull readonly align 1 %.val4.i.i, i64 %.val5.i.i), !alias.scope !53, !noalias !60
-  %16 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val4.i.i) ]
+  %14 = load ptr, ptr %.val.i.i, align 8, !alias.scope !48, !noalias !49, !nonnull !9, !align !52, !noundef !9
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %14, ptr nonnull readonly align 1 %.val4.i.i, i64 %.val5.i.i), !alias.scope !53, !noalias !60
+  %15 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br label %_ZN4core3ops8function6FnOnce9call_once17h22c1f8035edf6f14E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h22c1f8035edf6f14E.exit: ; preds = %2, %13
-  %.0.i.i.i.i.i.i.i = phi i1 [ %16, %13 ], [ false, %2 ]
+  %.0.i.i.i.i.i.i.i = phi i1 [ %15, %13 ], [ false, %2 ]
   ret i1 %.0.i.i.i.i.i.i.i
 }
 
@@ -1262,15 +1261,14 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   br i1 %.not.i.i.i.i.i, label %13, label %"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h05cbd710d7ae9bb1E.exit"
 
 13:                                               ; preds = %2
-  %14 = icmp ne ptr %.val4, null
-  tail call void @llvm.assume(i1 %14)
-  %15 = load ptr, ptr %.val, align 8, !alias.scope !430, !noalias !431, !nonnull !9, !align !52, !noundef !9
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %15, ptr nonnull readonly align 1 %.val4, i64 %.val5), !alias.scope !434, !noalias !441
-  %16 = icmp eq i32 %bcmp.i.i.i.i.i, 0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val4) ]
+  %14 = load ptr, ptr %.val, align 8, !alias.scope !430, !noalias !431, !nonnull !9, !align !52, !noundef !9
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %14, ptr nonnull readonly align 1 %.val4, i64 %.val5), !alias.scope !434, !noalias !441
+  %15 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h05cbd710d7ae9bb1E.exit"
 
 "_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h05cbd710d7ae9bb1E.exit": ; preds = %2, %13
-  %.0.i.i.i.i.i = phi i1 [ %16, %13 ], [ false, %2 ]
+  %.0.i.i.i.i.i = phi i1 [ %15, %13 ], [ false, %2 ]
   ret i1 %.0.i.i.i.i.i
 }
 

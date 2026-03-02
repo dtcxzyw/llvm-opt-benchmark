@@ -1406,7 +1406,7 @@ zone_set_dst.exit:                                ; preds = %.lr.ph.i.i, %time_s
 define internal fastcc i64 @utc_offset_arg(i64 noundef %0) unnamed_addr #1 {
   %2 = tail call i64 @rb_check_string_type(i64 noundef %0) #22
   %3 = icmp eq i64 %2, 4
-  br i1 %3, label %113, label %4
+  br i1 %3, label %112, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr
@@ -1516,7 +1516,7 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
   %.2 = phi ptr [ null, %13 ], [ %39, %38 ], [ %.1, %45 ]
   %49 = getelementptr i8, ptr %.sroa.2.0.i, i64 %.sink
   %.not66 = icmp eq ptr %.2, null
-  br i1 %.not66, label %67, label %50
+  br i1 %.not66, label %66, label %50
 
 50:                                               ; preds = %48
   %51 = load i8, ptr %.2, align 1, !tbaa !53
@@ -1539,94 +1539,93 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
   %62 = mul nuw nsw i32 %52, 10
   %63 = add nsw i32 %62, -528
   %64 = add nsw i32 %63, %58
-  %65 = icmp ne ptr %49, null
-  tail call void @llvm.assume(i1 %65)
-  %66 = add nuw nsw i32 %64, -31680
-  br label %68
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
+  %65 = add nuw nsw i32 %64, -31680
+  br label %67
 
-67:                                               ; preds = %48
+66:                                               ; preds = %48
   %.not69 = icmp eq ptr %49, null
-  br i1 %.not69, label %.thread88, label %68
+  br i1 %.not69, label %.thread88, label %67
 
-68:                                               ; preds = %.thread92, %67
-  %.15697 = phi i32 [ %66, %.thread92 ], [ -31680, %67 ]
-  %69 = load i8, ptr %49, align 1, !tbaa !53
-  %70 = sext i8 %69 to i32
-  %71 = add nsw i32 %70, -58
-  %72 = icmp ult i32 %71, -10
-  br i1 %72, label %rb_enc_str_asciicompat_p.exit.thread, label %73
+67:                                               ; preds = %.thread92, %66
+  %.15697 = phi i32 [ %65, %.thread92 ], [ -31680, %66 ]
+  %68 = load i8, ptr %49, align 1, !tbaa !53
+  %69 = sext i8 %68 to i32
+  %70 = add nsw i32 %69, -58
+  %71 = icmp ult i32 %70, -10
+  br i1 %71, label %rb_enc_str_asciicompat_p.exit.thread, label %72
 
-73:                                               ; preds = %68
-  %74 = getelementptr i8, ptr %49, i64 1
-  %75 = load i8, ptr %74, align 1, !tbaa !53
-  %76 = sext i8 %75 to i32
-  %77 = add nsw i32 %76, -58
-  %78 = icmp ult i32 %77, -10
-  %79 = icmp sgt i8 %69, 53
-  %or.cond81 = or i1 %79, %78
-  br i1 %or.cond81, label %rb_enc_str_asciicompat_p.exit.thread, label %80
+72:                                               ; preds = %67
+  %73 = getelementptr i8, ptr %49, i64 1
+  %74 = load i8, ptr %73, align 1, !tbaa !53
+  %75 = sext i8 %74 to i32
+  %76 = add nsw i32 %75, -58
+  %77 = icmp ult i32 %76, -10
+  %78 = icmp sgt i8 %68, 53
+  %or.cond81 = or i1 %78, %77
+  br i1 %or.cond81, label %rb_enc_str_asciicompat_p.exit.thread, label %79
 
-80:                                               ; preds = %73
-  %81 = mul nuw nsw i32 %70, 10
-  %82 = add nuw nsw i32 %81, %76
-  %83 = mul nuw nsw i32 %82, 60
-  %84 = add nsw i32 %.15697, %83
-  %85 = add nuw nsw i32 %84, -1900800
+79:                                               ; preds = %72
+  %80 = mul nuw nsw i32 %69, 10
+  %81 = add nuw nsw i32 %80, %75
+  %82 = mul nuw nsw i32 %81, 60
+  %83 = add nsw i32 %.15697, %82
+  %84 = add nuw nsw i32 %83, -1900800
   br label %.thread88
 
-.thread88:                                        ; preds = %35, %80, %67
-  %.257 = phi i32 [ %85, %80 ], [ -1900800, %67 ], [ -1900800, %35 ]
-  %86 = load i8, ptr %.sroa.2.0.i, align 1, !tbaa !53
-  switch i8 %86, label %rb_enc_str_asciicompat_p.exit.thread [
-    i8 43, label %87
-    i8 45, label %87
+.thread88:                                        ; preds = %35, %79, %66
+  %.257 = phi i32 [ %84, %79 ], [ -1900800, %66 ], [ -1900800, %35 ]
+  %85 = load i8, ptr %.sroa.2.0.i, align 1, !tbaa !53
+  switch i8 %85, label %rb_enc_str_asciicompat_p.exit.thread [
+    i8 43, label %86
+    i8 45, label %86
   ]
 
-87:                                               ; preds = %.thread88, %.thread88
-  %88 = getelementptr i8, ptr %.sroa.2.0.i, i64 1
-  %89 = load i8, ptr %88, align 1, !tbaa !53
-  %90 = sext i8 %89 to i32
-  %91 = add nsw i32 %90, -58
-  %92 = icmp ult i32 %91, -10
-  br i1 %92, label %rb_enc_str_asciicompat_p.exit.thread, label %93
+86:                                               ; preds = %.thread88, %.thread88
+  %87 = getelementptr i8, ptr %.sroa.2.0.i, i64 1
+  %88 = load i8, ptr %87, align 1, !tbaa !53
+  %89 = sext i8 %88 to i32
+  %90 = add nsw i32 %89, -58
+  %91 = icmp ult i32 %90, -10
+  br i1 %91, label %rb_enc_str_asciicompat_p.exit.thread, label %92
 
-93:                                               ; preds = %87
-  %94 = getelementptr i8, ptr %.sroa.2.0.i, i64 2
-  %95 = load i8, ptr %94, align 1, !tbaa !53
-  %96 = sext i8 %95 to i32
-  %97 = add nsw i32 %96, -58
-  %98 = icmp ult i32 %97, -10
-  br i1 %98, label %rb_enc_str_asciicompat_p.exit.thread, label %99
+92:                                               ; preds = %86
+  %93 = getelementptr i8, ptr %.sroa.2.0.i, i64 2
+  %94 = load i8, ptr %93, align 1, !tbaa !53
+  %95 = sext i8 %94 to i32
+  %96 = add nsw i32 %95, -58
+  %97 = icmp ult i32 %96, -10
+  br i1 %97, label %rb_enc_str_asciicompat_p.exit.thread, label %98
 
-99:                                               ; preds = %93
-  %100 = mul nuw nsw i32 %90, 10
-  %101 = add nuw nsw i32 %100, %96
-  %102 = mul nuw nsw i32 %101, 3600
-  %103 = add nsw i32 %.257, %102
-  %104 = icmp eq i8 %86, 45
-  br i1 %104, label %105, label %109
+98:                                               ; preds = %92
+  %99 = mul nuw nsw i32 %89, 10
+  %100 = add nuw nsw i32 %99, %95
+  %101 = mul nuw nsw i32 %100, 3600
+  %102 = add nsw i32 %.257, %101
+  %103 = icmp eq i8 %85, 45
+  br i1 %103, label %104, label %108
 
-105:                                              ; preds = %99
-  %106 = icmp eq i32 %103, 0
-  br i1 %106, label %rb_enc_str_asciicompat_p.exit.thread, label %107
+104:                                              ; preds = %98
+  %105 = icmp eq i32 %102, 0
+  br i1 %105, label %rb_enc_str_asciicompat_p.exit.thread, label %106
 
-107:                                              ; preds = %105
-  %108 = sub nsw i32 0, %103
-  br label %109
+106:                                              ; preds = %104
+  %107 = sub nsw i32 0, %102
+  br label %108
 
-109:                                              ; preds = %107, %99
-  %.3 = phi i32 [ %108, %107 ], [ %103, %99 ]
-  %110 = sext i32 %.3 to i64
-  %111 = shl nsw i64 %110, 1
-  %112 = or disjoint i64 %111, 1
+108:                                              ; preds = %106, %98
+  %.3 = phi i32 [ %107, %106 ], [ %102, %98 ]
+  %109 = sext i32 %.3 to i64
+  %110 = shl nsw i64 %109, 1
+  %111 = or disjoint i64 %110, 1
   br label %rb_enc_str_asciicompat_p.exit.thread
 
-113:                                              ; preds = %1
-  %114 = tail call fastcc i64 @num_exact(i64 noundef %0)
+112:                                              ; preds = %1
+  %113 = tail call fastcc i64 @num_exact(i64 noundef %0)
   br label %rb_enc_str_asciicompat_p.exit.thread
 
-rb_enc_str_asciicompat_p.exit.thread:             ; preds = %RSTRING_PTR.exit, %105, %35, %16, %109, %32, %45, %rb_enc_str_asciicompat_p.exit, %28, %50, %68, %93, %87, %.thread88, %13, %40, %55, %73, %113
-  %.154 = phi i64 [ %114, %113 ], [ 36, %35 ], [ 36, %105 ], [ %112, %109 ], [ %34, %32 ], [ 36, %16 ], [ 4, %45 ], [ 4, %rb_enc_str_asciicompat_p.exit ], [ 4, %28 ], [ 4, %50 ], [ 4, %68 ], [ 4, %93 ], [ 4, %87 ], [ 4, %.thread88 ], [ 4, %13 ], [ 4, %40 ], [ 4, %55 ], [ 4, %73 ], [ 4, %RSTRING_PTR.exit ]
+rb_enc_str_asciicompat_p.exit.thread:             ; preds = %RSTRING_PTR.exit, %104, %35, %16, %108, %32, %45, %rb_enc_str_asciicompat_p.exit, %28, %50, %67, %92, %86, %.thread88, %13, %40, %55, %72, %112
+  %.154 = phi i64 [ %113, %112 ], [ 36, %35 ], [ 36, %104 ], [ %111, %108 ], [ %34, %32 ], [ 36, %16 ], [ 4, %45 ], [ 4, %rb_enc_str_asciicompat_p.exit ], [ 4, %28 ], [ 4, %50 ], [ 4, %67 ], [ 4, %92 ], [ 4, %86 ], [ 4, %.thread88 ], [ 4, %13 ], [ 4, %40 ], [ 4, %55 ], [ 4, %72 ], [ 4, %RSTRING_PTR.exit ]
   ret i64 %.154
 }
 

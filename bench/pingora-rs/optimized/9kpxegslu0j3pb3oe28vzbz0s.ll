@@ -263,7 +263,7 @@ define hidden void @_ZN15pingora_timeout5timer12TimerManager12clock_thread17he08
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 24
   br label %38
 
-38:                                               ; preds = %72, %34
+38:                                               ; preds = %71, %34
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %35, align 8, !noundef !15
   %.not35 = icmp eq ptr %39, null
@@ -293,22 +293,22 @@ define hidden void @_ZN15pingora_timeout5timer12TimerManager12clock_thread17he08
   %45 = invoke { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c6654ceb291f4c4E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4)
           to label %50 unwind label %.loopexit
 
-46:                                               ; preds = %.loopexit, %.loopexit.split-lp, %70
-  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+46:                                               ; preds = %.loopexit, %.loopexit.split-lp, %69
+  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %47 = cmpxchg ptr %29, i64 8, i64 0 release monotonic, align 8
   %48 = extractvalue { i64, i1 } %47, 1
   br i1 %48, label %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit", label %49, !prof !17
 
 49:                                               ; preds = %46
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h68b5f824a08f644bE(ptr noundef nonnull align 8 %29, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit" unwind label %73
+          to label %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit" unwind label %72
 
 .loopexit:                                        ; preds = %44, %59, %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %46
 
-.loopexit.split-lp:                               ; preds = %68
+.loopexit.split-lp:                               ; preds = %67
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %46
@@ -350,44 +350,43 @@ define hidden void @_ZN15pingora_timeout5timer12TimerManager12clock_thread17he08
   %62 = extractvalue { ptr, ptr } %60, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not37 = icmp eq ptr %62, null
-  br i1 %.not37, label %68, label %63, !prof !6
+  br i1 %.not37, label %67, label %63, !prof !6
 
 63:                                               ; preds = %61
   %64 = extractvalue { ptr, ptr } %60, 1
-  %65 = icmp ne ptr %64, null
-  call void @llvm.assume(i1 %65)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %64) ]
   store ptr %62, ptr %2, align 8
   store ptr %64, ptr %11, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store atomic i8 1, ptr %66 seq_cst, align 1, !noalias !19
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  invoke void @_ZN5tokio4sync6notify6Notify14notify_waiters17hdf4de0b525862fe6E(ptr noundef nonnull align 8 %67)
-          to label %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit unwind label %70
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store atomic i8 1, ptr %65 seq_cst, align 1, !noalias !19
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  invoke void @_ZN5tokio4sync6notify6Notify14notify_waiters17hdf4de0b525862fe6E(ptr noundef nonnull align 8 %66)
+          to label %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit unwind label %69
 
-68:                                               ; preds = %61
+67:                                               ; preds = %61
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7c6d26faa869537ba431a1080b3fc556.28) #17
-          to label %69 unwind label %.loopexit.split-lp
+          to label %68 unwind label %.loopexit.split-lp
 
-69:                                               ; preds = %68
+68:                                               ; preds = %67
   unreachable
 
-70:                                               ; preds = %63
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %63
+  %70 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$pingora_timeout..timer..Timer$GT$17h4a17a76a217a0b3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2) #19
-          to label %46 unwind label %73
+          to label %46 unwind label %72
 
 _ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit: ; preds = %63
   invoke void @"_ZN4core3ptr50drop_in_place$LT$pingora_timeout..timer..Timer$GT$17h4a17a76a217a0b3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-          to label %72 unwind label %.loopexit
+          to label %71 unwind label %.loopexit
 
-72:                                               ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
+71:                                               ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
 
-73:                                               ; preds = %49, %70
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %49, %69
+  %73 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #18
   unreachable
@@ -451,7 +450,7 @@ define { ptr, ptr } @_ZN15pingora_timeout5timer12TimerManager14register_timer17h
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %10 = load atomic i8, ptr %9 seq_cst, align 8
   %.not41 = icmp eq i8 %10, 0
-  br i1 %.not41, label %11, label %43
+  br i1 %.not41, label %11, label %42
 
 11:                                               ; preds = %3
   %12 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
@@ -478,249 +477,246 @@ define { ptr, ptr } @_ZN15pingora_timeout5timer12TimerManager14register_timer17h
   store i128 %32, ptr %7, align 16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = tail call noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17he9d539b889aa510bE"(ptr noundef nonnull align 8 %33)
-  %35 = icmp ne ptr %34, null
-  tail call void @llvm.assume(i1 %35)
-  %36 = load atomic i64, ptr %34 monotonic, align 8
-  %37 = and i64 %36, 8
-  %38 = icmp ne i64 %37, 0
-  %39 = icmp ugt i64 %36, -17
-  %or.cond.i = or i1 %39, %38
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
+  %35 = load atomic i64, ptr %34 monotonic, align 8
+  %36 = and i64 %35, 8
+  %37 = icmp ne i64 %36, 0
+  %38 = icmp ugt i64 %35, -17
+  %or.cond.i = or i1 %38, %37
   br i1 %or.cond.i, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.thread, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit, !prof !22
 
 _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit: ; preds = %11
-  %40 = add nuw i64 %36, 16
-  %41 = cmpxchg weak ptr %34, i64 %36, i64 %40 acquire monotonic, align 8
-  %42 = extractvalue { i64, i1 } %41, 1
-  br i1 %42, label %51, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.thread, !prof !23
+  %39 = add nuw i64 %35, 16
+  %40 = cmpxchg weak ptr %34, i64 %35, i64 %39 acquire monotonic, align 8
+  %41 = extractvalue { i64, i1 } %40, 1
+  br i1 %41, label %50, label %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.thread, !prof !23
 
-43:                                               ; preds = %3
+42:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %44 = tail call fastcc { ptr, ptr } @_ZN15pingora_timeout5timer5Timer3new17h71ce7553c834b9baE()
-  %45 = extractvalue { ptr, ptr } %44, 0
-  %46 = extractvalue { ptr, ptr } %44, 1
-  store ptr %45, ptr %8, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store atomic i8 1, ptr %48 seq_cst, align 1, !noalias !24
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  invoke void @_ZN5tokio4sync6notify6Notify14notify_waiters17hdf4de0b525862fe6E(ptr noundef nonnull align 8 %49)
-          to label %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit unwind label %123
+  %43 = tail call fastcc { ptr, ptr } @_ZN15pingora_timeout5timer5Timer3new17h71ce7553c834b9baE()
+  %44 = extractvalue { ptr, ptr } %43, 0
+  %45 = extractvalue { ptr, ptr } %43, 1
+  store ptr %44, ptr %8, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %45, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store atomic i8 1, ptr %47 seq_cst, align 1, !noalias !24
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  invoke void @_ZN5tokio4sync6notify6Notify14notify_waiters17hdf4de0b525862fe6E(ptr noundef nonnull align 8 %48)
+          to label %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit unwind label %119
 
 _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.thread: ; preds = %11, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit
-  %50 = tail call noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock16lock_shared_slow17h6a1a606eca6706f4E(ptr noundef nonnull align 8 %34, i1 noundef zeroext false, i64 undef, i32 noundef 1000000000)
-  br label %51
+  %49 = tail call noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock16lock_shared_slow17h6a1a606eca6706f4E(ptr noundef nonnull align 8 %34, i1 noundef zeroext false, i64 undef, i32 noundef 1000000000)
+  br label %50
 
-51:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit
-  %52 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %53 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17he843ad48d69b2cb0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52, ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %7)
-          to label %60 unwind label %54
+50:                                               ; preds = %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit.thread, %_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E.exit
+  %51 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %52 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17he843ad48d69b2cb0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %51, ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %7)
+          to label %59 unwind label %53
 
-54:                                               ; preds = %51
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %50
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %56 = atomicrmw sub ptr %34, i64 16 release, align 8
-  %57 = and i64 %56, -14
-  %58 = icmp eq i64 %57, 18
-  br i1 %58, label %59, label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit", !prof !6
+  %55 = atomicrmw sub ptr %34, i64 16 release, align 8
+  %56 = and i64 %55, -14
+  %57 = icmp eq i64 %56, 18
+  br i1 %57, label %58, label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit", !prof !6
 
-59:                                               ; preds = %54
+58:                                               ; preds = %53
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hd7b98226de795fccE(ptr noundef nonnull align 8 %34)
-          to label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit" unwind label %121
+          to label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit" unwind label %117
 
-60:                                               ; preds = %51
-  %.not = icmp eq ptr %53, null
-  br i1 %.not, label %71, label %61
+59:                                               ; preds = %50
+  %.not = icmp eq ptr %52, null
+  br i1 %.not, label %69, label %60
 
-61:                                               ; preds = %60
-  %.val23 = load ptr, ptr %53, align 8, !nonnull !15, !noundef !15
-  %62 = getelementptr i8, ptr %53, i64 8
-  %.val24 = load ptr, ptr %62, align 8
-  %63 = atomicrmw add ptr %.val23, i64 1 monotonic, align 8
-  %64 = icmp slt i64 %63, 0
-  br i1 %64, label %69, label %65
+60:                                               ; preds = %59
+  %.val23 = load ptr, ptr %52, align 8, !nonnull !15, !noundef !15
+  %61 = getelementptr i8, ptr %52, i64 8
+  %.val24 = load ptr, ptr %61, align 8
+  %62 = atomicrmw add ptr %.val23, i64 1 monotonic, align 8
+  %63 = icmp slt i64 %62, 0
+  br i1 %63, label %67, label %64
 
-65:                                               ; preds = %61
-  %66 = icmp ne ptr %.val24, null
-  call void @llvm.assume(i1 %66)
-  %67 = atomicrmw add ptr %.val24, i64 1 monotonic, align 8
-  %68 = icmp slt i64 %67, 0
-  br i1 %68, label %70, label %81
+64:                                               ; preds = %60
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val24) ]
+  %65 = atomicrmw add ptr %.val24, i64 1 monotonic, align 8
+  %66 = icmp slt i64 %65, 0
+  br i1 %66, label %68, label %79
 
-69:                                               ; preds = %61
+67:                                               ; preds = %60
   call void @llvm.trap()
   unreachable
 
-70:                                               ; preds = %65
+68:                                               ; preds = %64
   call void @llvm.trap()
   unreachable
 
-71:                                               ; preds = %60
-  %72 = atomicrmw sub ptr %34, i64 16 release, align 8
-  %73 = and i64 %72, -14
-  %74 = icmp eq i64 %73, 18
-  br i1 %74, label %75, label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit26", !prof !6
+69:                                               ; preds = %59
+  %70 = atomicrmw sub ptr %34, i64 16 release, align 8
+  %71 = and i64 %70, -14
+  %72 = icmp eq i64 %71, 18
+  br i1 %72, label %73, label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit26", !prof !6
 
-75:                                               ; preds = %71
+73:                                               ; preds = %69
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hd7b98226de795fccE(ptr noundef nonnull align 8 %34)
   br label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit26"
 
-"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit26": ; preds = %71, %75
+"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit26": ; preds = %69, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %76 = call fastcc { ptr, ptr } @_ZN15pingora_timeout5timer5Timer3new17h71ce7553c834b9baE()
-  %77 = extractvalue { ptr, ptr } %76, 0
-  %78 = extractvalue { ptr, ptr } %76, 1
-  store ptr %77, ptr %6, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %78, ptr %79, align 8
-  %80 = invoke noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17he65adb3dcdab5834E"(ptr noundef nonnull align 8 %33)
-          to label %86 unwind label %.thread
+  %74 = call fastcc { ptr, ptr } @_ZN15pingora_timeout5timer5Timer3new17h71ce7553c834b9baE()
+  %75 = extractvalue { ptr, ptr } %74, 0
+  %76 = extractvalue { ptr, ptr } %74, 1
+  store ptr %75, ptr %6, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %76, ptr %77, align 8
+  %78 = invoke noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17he65adb3dcdab5834E"(ptr noundef nonnull align 8 %33)
+          to label %84 unwind label %.thread
 
-81:                                               ; preds = %65
-  %82 = atomicrmw sub ptr %34, i64 16 release, align 8
-  %83 = and i64 %82, -14
-  %84 = icmp eq i64 %83, 18
-  br i1 %84, label %85, label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27", !prof !6
+79:                                               ; preds = %64
+  %80 = atomicrmw sub ptr %34, i64 16 release, align 8
+  %81 = and i64 %80, -14
+  %82 = icmp eq i64 %81, 18
+  br i1 %82, label %83, label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27", !prof !6
 
-85:                                               ; preds = %81
+83:                                               ; preds = %79
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hd7b98226de795fccE(ptr noundef nonnull align 8 %34)
   br label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27"
 
-"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27": ; preds = %85, %81, %132, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34"
-  %.val19.pn = phi ptr [ %45, %132 ], [ %.val21, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34" ], [ %.val23, %81 ], [ %.val23, %85 ]
-  %.val20.pn = phi ptr [ %46, %132 ], [ %.val22, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34" ], [ %.val24, %81 ], [ %.val24, %85 ]
+"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27": ; preds = %83, %79, %128, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34"
+  %.val19.pn = phi ptr [ %44, %128 ], [ %.val21, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34" ], [ %.val23, %79 ], [ %.val23, %83 ]
+  %.val20.pn = phi ptr [ %45, %128 ], [ %.val22, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34" ], [ %.val24, %79 ], [ %.val24, %83 ]
   %.pn = insertvalue { ptr, ptr } poison, ptr %.val19.pn, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.val20.pn, 1
   ret { ptr, ptr } %.merged
 
-.thread:                                          ; preds = %90, %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit26"
+.thread:                                          ; preds = %87, %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit26"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$pingora_timeout..timer..Timer$GT$17h4a17a76a217a0b3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #19
-          to label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit" unwind label %121
+          to label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit" unwind label %117
 
-86:                                               ; preds = %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit26"
-  %87 = icmp ne ptr %80, null
-  call void @llvm.assume(i1 %87)
-  %88 = cmpxchg weak ptr %80, i64 0, i64 8 acquire monotonic, align 8
-  %89 = extractvalue { i64, i1 } %88, 1
-  br i1 %89, label %92, label %90, !prof !17
+84:                                               ; preds = %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit26"
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %78) ]
+  %85 = cmpxchg weak ptr %78, i64 0, i64 8 acquire monotonic, align 8
+  %86 = extractvalue { i64, i1 } %85, 1
+  br i1 %86, label %89, label %87, !prof !17
 
-90:                                               ; preds = %86
-  %91 = invoke noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock19lock_exclusive_slow17h0ffcbd0c4b942ad3E(ptr noundef nonnull align 8 %80, i64 undef, i32 noundef 1000000000)
-          to label %92 unwind label %.thread
+87:                                               ; preds = %84
+  %88 = invoke noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock19lock_exclusive_slow17h0ffcbd0c4b942ad3E(ptr noundef nonnull align 8 %78, i64 undef, i32 noundef 1000000000)
+          to label %89 unwind label %.thread
 
-92:                                               ; preds = %90, %86
+89:                                               ; preds = %87, %84
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.val21 = load ptr, ptr %6, align 8, !nonnull !15, !noundef !15
-  %.val22 = load ptr, ptr %79, align 8
-  %93 = atomicrmw add ptr %.val21, i64 1 monotonic, align 8
+  %.val22 = load ptr, ptr %77, align 8
+  %90 = atomicrmw add ptr %.val21, i64 1 monotonic, align 8
+  %91 = icmp slt i64 %90, 0
+  br i1 %91, label %95, label %92
+
+92:                                               ; preds = %89
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val22) ]
+  %93 = atomicrmw add ptr %.val22, i64 1 monotonic, align 8
   %94 = icmp slt i64 %93, 0
-  br i1 %94, label %99, label %95
+  br i1 %94, label %96, label %101
 
-95:                                               ; preds = %92
-  %96 = icmp ne ptr %.val22, null
-  call void @llvm.assume(i1 %96)
-  %97 = atomicrmw add ptr %.val22, i64 1 monotonic, align 8
-  %98 = icmp slt i64 %97, 0
-  br i1 %98, label %100, label %105
-
-99:                                               ; preds = %92
+95:                                               ; preds = %89
   call void @llvm.trap()
   unreachable
 
-100:                                              ; preds = %95
+96:                                               ; preds = %92
   call void @llvm.trap()
   unreachable
 
-101:                                              ; preds = %110
-  %102 = cmpxchg ptr %80, i64 8, i64 0 release monotonic, align 8
-  %103 = extractvalue { i64, i1 } %102, 1
-  br i1 %103, label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit", label %104, !prof !17
+97:                                               ; preds = %106
+  %98 = cmpxchg ptr %78, i64 8, i64 0 release monotonic, align 8
+  %99 = extractvalue { i64, i1 } %98, 1
+  br i1 %99, label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit", label %100, !prof !17
 
-104:                                              ; preds = %101
-  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h68b5f824a08f644bE(ptr noundef nonnull align 8 %80, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit" unwind label %121
+100:                                              ; preds = %97
+  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h68b5f824a08f644bE(ptr noundef nonnull align 8 %78, i1 noundef zeroext false)
+          to label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit" unwind label %117
 
-105:                                              ; preds = %95
+101:                                              ; preds = %92
   store ptr %.val21, ptr %5, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.val22, ptr %106, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %.val22, ptr %102, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %107 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %108 = load i128, ptr %7, align 16, !noundef !15
-  %109 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h2c8d250552e672a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %107, i128 noundef %108, ptr noundef nonnull %.val21, ptr noundef nonnull %.val22)
-          to label %112 unwind label %110
+  %103 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %104 = load i128, ptr %7, align 16, !noundef !15
+  %105 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h2c8d250552e672a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %103, i128 noundef %104, ptr noundef nonnull %.val21, ptr noundef nonnull %.val22)
+          to label %108 unwind label %106
 
-110:                                              ; preds = %117, %105
-  %111 = landingpad { ptr, i32 }
+106:                                              ; preds = %113, %101
+  %107 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$pingora_timeout..timer..TimerStub$GT$17h822635e5e2324fa6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #19
-          to label %101 unwind label %121
+          to label %97 unwind label %117
 
-112:                                              ; preds = %105
-  %113 = extractvalue { ptr, ptr } %109, 0
-  %114 = extractvalue { ptr, ptr } %109, 1
-  store ptr %113, ptr %4, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %114, ptr %115, align 8
-  %116 = icmp eq ptr %113, null
-  br i1 %116, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit", label %117
+108:                                              ; preds = %101
+  %109 = extractvalue { ptr, ptr } %105, 0
+  %110 = extractvalue { ptr, ptr } %105, 1
+  store ptr %109, ptr %4, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %110, ptr %111, align 8
+  %112 = icmp eq ptr %109, null
+  br i1 %112, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit", label %113
 
-117:                                              ; preds = %112
+113:                                              ; preds = %108
   invoke void @"_ZN4core3ptr50drop_in_place$LT$pingora_timeout..timer..Timer$GT$17h4a17a76a217a0b3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit" unwind label %110
+          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit" unwind label %106
 
-"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit": ; preds = %112, %117
+"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit": ; preds = %108, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %118 = cmpxchg ptr %80, i64 8, i64 0 release monotonic, align 8
-  %119 = extractvalue { i64, i1 } %118, 1
-  br i1 %119, label %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34", label %120, !prof !17
+  %114 = cmpxchg ptr %78, i64 8, i64 0 release monotonic, align 8
+  %115 = extractvalue { i64, i1 } %114, 1
+  br i1 %115, label %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34", label %116, !prof !17
 
-120:                                              ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit"
-  call void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h68b5f824a08f644bE(ptr noundef nonnull align 8 %80, i1 noundef zeroext false)
+116:                                              ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit"
+  call void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h68b5f824a08f644bE(ptr noundef nonnull align 8 %78, i1 noundef zeroext false)
   br label %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34"
 
-"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34": ; preds = %120, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit"
+"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34": ; preds = %116, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$pingora_timeout..timer..Timer$GT$$GT$17h9f3fa3f507f14496E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27"
 
-121:                                              ; preds = %104, %59, %123, %.thread, %110
-  %122 = landingpad { ptr, i32 }
+117:                                              ; preds = %100, %58, %119, %.thread, %106
+  %118 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #18
   unreachable
 
-"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit": ; preds = %101, %104, %54, %59, %123, %.thread
-  %.pn13 = phi { ptr, i32 } [ %124, %123 ], [ %111, %101 ], [ %lpad.thr_comm, %.thread ], [ %55, %59 ], [ %55, %54 ], [ %111, %104 ]
+"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit": ; preds = %97, %100, %53, %58, %119, %.thread
+  %.pn13 = phi { ptr, i32 } [ %120, %119 ], [ %107, %97 ], [ %lpad.thr_comm, %.thread ], [ %54, %58 ], [ %54, %53 ], [ %107, %100 ]
   resume { ptr, i32 } %.pn13
 
-123:                                              ; preds = %43
-  %124 = landingpad { ptr, i32 }
+119:                                              ; preds = %42
+  %120 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$pingora_timeout..timer..Timer$GT$17h4a17a76a217a0b3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #19
-          to label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit" unwind label %121
+          to label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit" unwind label %117
 
-_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit: ; preds = %43
-  %125 = atomicrmw add ptr %45, i64 1 monotonic, align 8
-  %126 = icmp slt i64 %125, 0
-  br i1 %126, label %130, label %127
+_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit: ; preds = %42
+  %121 = atomicrmw add ptr %44, i64 1 monotonic, align 8
+  %122 = icmp slt i64 %121, 0
+  br i1 %122, label %126, label %123
 
-127:                                              ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
-  %128 = atomicrmw add ptr %46, i64 1 monotonic, align 8
-  %129 = icmp slt i64 %128, 0
-  br i1 %129, label %131, label %132
+123:                                              ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %45) ]
+  %124 = atomicrmw add ptr %45, i64 1 monotonic, align 8
+  %125 = icmp slt i64 %124, 0
+  br i1 %125, label %127, label %128
 
-130:                                              ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
+126:                                              ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
   tail call void @llvm.trap()
   unreachable
 
-131:                                              ; preds = %127
+127:                                              ; preds = %123
   tail call void @llvm.trap()
   unreachable
 
-132:                                              ; preds = %127
+128:                                              ; preds = %123
   call void @"_ZN4core3ptr50drop_in_place$LT$pingora_timeout..timer..Timer$GT$17h4a17a76a217a0b3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27"

@@ -620,8 +620,7 @@ define hidden void @_ZN31ShenandoahConcurrentRootScanner17update_tlab_statsEv(pt
 
 19:                                               ; preds = %9
   %20 = call noundef ptr @_ZN17StackWatermarkSet4headEP10JavaThread(ptr noundef nonnull %14) #12
-  %.not7.i.i = icmp ne ptr %20, null
-  call void @llvm.assume(i1 %.not7.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 152
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0

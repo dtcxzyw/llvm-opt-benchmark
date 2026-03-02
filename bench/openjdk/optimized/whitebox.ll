@@ -14101,8 +14101,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %34
-  %.not.i14 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %.not.i14)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %35 = ptrtoint ptr %2 to i64
   %36 = and i64 %35, 3
   switch i64 %36, label %45 [
@@ -28700,8 +28699,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %33
-  %.not.i8 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %.not.i8)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %34 = ptrtoint ptr %2 to i64
   %35 = and i64 %34, 3
   switch i64 %35, label %44 [
@@ -28856,8 +28854,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %33
-  %.not.i10 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %.not.i10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %34 = ptrtoint ptr %2 to i64
   %35 = and i64 %34, 3
   switch i64 %35, label %44 [
@@ -29015,8 +29012,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %33
-  %.not.i10 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %.not.i10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %34 = ptrtoint ptr %2 to i64
   %35 = and i64 %34, 3
   switch i64 %35, label %44 [
@@ -29183,8 +29179,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %34
-  %.not.i11 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %.not.i11)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %35 = ptrtoint ptr %2 to i64
   %36 = and i64 %35, 3
   switch i64 %36, label %45 [
@@ -29355,8 +29350,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %33
-  %.not.i10 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %.not.i10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %34 = ptrtoint ptr %2 to i64
   %35 = and i64 %34, 3
   switch i64 %35, label %44 [
@@ -29523,8 +29517,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %34
-  %.not.i11 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %.not.i11)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %35 = ptrtoint ptr %2 to i64
   %36 = and i64 %35, 3
   switch i64 %36, label %45 [
@@ -29695,8 +29688,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %33
-  %.not.i10 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %.not.i10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %34 = ptrtoint ptr %2 to i64
   %35 = and i64 %34, 3
   switch i64 %35, label %44 [
@@ -29863,8 +29855,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %34
-  %.not.i11 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %.not.i11)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %35 = ptrtoint ptr %2 to i64
   %36 = and i64 %35, 3
   switch i64 %36, label %45 [
@@ -37788,8 +37779,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %33
-  %.not.i8 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %.not.i8)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %34 = ptrtoint ptr %2 to i64
   %35 = and i64 %34, 3
   switch i64 %35, label %44 [
@@ -40227,8 +40217,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %25, label %26, label %63
 
 26:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %.not.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %27 = ptrtoint ptr %1 to i64
   %28 = and i64 %27, 3
   switch i64 %28, label %37 [

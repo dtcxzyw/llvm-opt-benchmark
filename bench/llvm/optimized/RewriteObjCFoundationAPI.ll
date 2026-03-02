@@ -1849,8 +1849,7 @@ _ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread57.i: ; preds = %_Z
 
 _ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i: ; preds = %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread57.i
   %81 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %77) #15
-  %.not.i33.i = icmp ne ptr %81, null
-  tail call void @llvm.assume(i1 %.not.i33.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %81) ]
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %81, i64 16
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 16
   br label %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i

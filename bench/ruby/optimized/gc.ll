@@ -22373,8 +22373,7 @@ rb_darray_size.exit:                              ; preds = %44, %heap_page_free
   %.147 = phi i64 [ %.0465772, %heap_page_free.exit ], [ %45, %44 ]
   %.1 = phi i64 [ 0, %heap_page_free.exit ], [ %.2, %44 ]
   %47 = add nuw i64 %.0455871, 1
-  %.not.i = icmp ne ptr %46, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %46) ]
   %48 = load i64, ptr %46, align 8, !tbaa !171
   %49 = icmp ult i64 %47, %48
   br i1 %49, label %.lr.ph, label %rb_darray_size.exit.rb_darray_size.exit52.loopexit_crit_edge

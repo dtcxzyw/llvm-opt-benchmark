@@ -1653,16 +1653,15 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hffe7364202b87c8cE"(ptr %.0.val, i64 %.8.val) unnamed_addr #13 {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %5, label %2
+  br i1 %1, label %4, label %2
 
 2:                                                ; preds = %0
   %3 = mul nsw i64 %.8.val, 96
-  %4 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %3, i64 noundef 8) #26
-  br label %5
+  br label %4
 
-5:                                                ; preds = %0, %2
+4:                                                ; preds = %0, %2
   ret void
 }
 

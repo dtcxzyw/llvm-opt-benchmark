@@ -5565,6 +5565,7 @@ _ZN12_GLOBAL__N_122MachineCopyPropagation23EliminateSpillageCopiesERN4llvm17Mach
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1316, align 8
   %1317 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %1318 = inttoptr i64 %1317 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1318) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1318, align 8
   %1319 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i14 = icmp eq i64 %1319, 0
@@ -5607,6 +5608,7 @@ _ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit.i: ; preds = %_ZNK4llvm14i
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i80.i = load i64, ptr %.sroa.0209.0281.i, align 8
   %1332 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i80.i, -8
   %1333 = inttoptr i64 %1332 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1333) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1333, align 8
   %1334 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %1334, 0

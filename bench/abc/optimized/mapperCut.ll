@@ -701,8 +701,7 @@ Map_CutMergeLists.exit.i:                         ; preds = %276, %.loopexit.i.i
   %.14271.i = phi ptr [ %.0..0..0..0..0..0..0..0..i.i48, %Map_CutSortCuts.exit ], [ %277, %.lr.ph.i.preheader ]
   %282 = getelementptr inbounds nuw i8, ptr %.04072.i, i64 160
   %283 = load ptr, ptr %282, align 8, !tbaa !32
-  %.not10.i.i = icmp ne ptr %.14271.i, null
-  call void @llvm.assume(i1 %.not10.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.14271.i) ]
   br label %.lr.ph.i49.i
 
 .lr.ph.i49.i:                                     ; preds = %.lr.ph.i49.i, %.lr.ph.i

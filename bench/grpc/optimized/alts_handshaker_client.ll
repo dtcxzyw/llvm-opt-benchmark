@@ -3440,8 +3440,7 @@ _upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i.i.i90.i: ;
 
 upb_Message_GetOrCreateMutableArray.exit.i79.i:   ; preds = %_upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i.i.i90.i, %171
   %.0.i.i80.i = phi ptr [ %173, %171 ], [ %.0.i.i15.i.i88.i, %_upb_Message_SetPresence_dont_copy_me__upb_internal_use_only.exit.i.i.i.i90.i ]
-  %.not.i81.i = icmp ne ptr %.0.i.i80.i, null
-  tail call void @llvm.assume(i1 %.not.i81.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i80.i) ]
   %191 = getelementptr inbounds nuw i8, ptr %.0.i.i80.i, i64 8
   %192 = load i64, ptr %191, align 8, !tbaa !139
   %193 = add i64 %192, 1
@@ -3479,8 +3478,7 @@ upb_Array_Reserve.exit.i.i85.i:                   ; preds = %upb_Message_GetOrCr
 
 upb_Arena_Malloc.exit.i.i82.i:                    ; preds = %210, %208
   %.0.i.i.i83.i = phi ptr [ %203, %210 ], [ %209, %208 ]
-  %.not.i14.i.i = icmp ne ptr %.0.i.i.i83.i, null
-  tail call void @llvm.assume(i1 %.not.i14.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i83.i) ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i83.i, i8 0, i64 %199, i1 false)
   %212 = load i64, ptr %191, align 8, !tbaa !139
   %213 = load i64, ptr %.0.i.i80.i, align 8, !tbaa !137

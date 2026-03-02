@@ -1321,93 +1321,92 @@ define hidden void @_ZN14HandshakeStateD2Ev(ptr noundef nonnull align 8 derefere
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %7
 
-7:                                                ; preds = %.lr.ph, %36
+7:                                                ; preds = %.lr.ph, %35
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load volatile ptr, ptr %3, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %9 = icmp ne ptr %8, null
-  call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   call void @_ZN9SpinYieldC1Ejjj(ptr noundef nonnull align 8 dereferenceable(36) %2, i32 noundef 40960, i32 noundef 64, i32 noundef 1000) #11
-  br label %10
+  br label %9
 
-10:                                               ; preds = %.backedge, %7
+9:                                                ; preds = %.backedge, %7
   %.132.i = phi ptr [ %8, %7 ], [ %.132.i.be, %.backedge ]
   %.130.i = phi ptr [ null, %7 ], [ %.130.i.be, %.backedge ]
-  %11 = load ptr, ptr %.132.i, align 8
-  %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %12, label %.backedge
+  %10 = load ptr, ptr %.132.i, align 8
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %11, label %.backedge
 
-.backedge:                                        ; preds = %10, %_ZN9SpinYield4waitEv.exit.i
-  %.132.i.be = phi ptr [ %11, %10 ], [ %25, %_ZN9SpinYield4waitEv.exit.i ]
-  %.130.i.be = phi ptr [ %.132.i, %10 ], [ null, %_ZN9SpinYield4waitEv.exit.i ]
-  br label %10, !llvm.loop !17
+.backedge:                                        ; preds = %9, %_ZN9SpinYield4waitEv.exit.i
+  %.132.i.be = phi ptr [ %10, %9 ], [ %24, %_ZN9SpinYield4waitEv.exit.i ]
+  %.130.i.be = phi ptr [ %.132.i, %9 ], [ null, %_ZN9SpinYield4waitEv.exit.i ]
+  br label %9, !llvm.loop !17
 
-12:                                               ; preds = %10
-  %13 = icmp eq ptr %.130.i, null
-  br i1 %13, label %14, label %26
+11:                                               ; preds = %9
+  %12 = icmp eq ptr %.130.i, null
+  br i1 %12, label %13, label %25
 
-14:                                               ; preds = %12
-  %15 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %.132.i, ptr nonnull align 8 dereferenceable(8) %3) #11, !srcloc !18
-  %16 = icmp eq ptr %15, %.132.i
-  br i1 %16, label %.loopexit.sink.split.i, label %17
+13:                                               ; preds = %11
+  %14 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %.132.i, ptr nonnull align 8 dereferenceable(8) %3) #11, !srcloc !18
+  %15 = icmp eq ptr %14, %.132.i
+  br i1 %15, label %.loopexit.sink.split.i, label %16
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %5, align 8
-  %19 = load i32, ptr %6, align 8
-  %20 = icmp ult i32 %18, %19
-  br i1 %20, label %21, label %24
+16:                                               ; preds = %13
+  %17 = load i32, ptr %5, align 8
+  %18 = load i32, ptr %6, align 8
+  %19 = icmp ult i32 %17, %18
+  br i1 %19, label %20, label %23
 
-21:                                               ; preds = %17
-  %22 = add nuw i32 %18, 1
-  store i32 %22, ptr %5, align 8
-  %23 = call i32 @SpinPause() #11
+20:                                               ; preds = %16
+  %21 = add nuw i32 %17, 1
+  store i32 %21, ptr %5, align 8
+  %22 = call i32 @SpinPause() #11
   br label %_ZN9SpinYield4waitEv.exit.i
 
-24:                                               ; preds = %17
+23:                                               ; preds = %16
   call void @_ZN9SpinYield14yield_or_sleepEv(ptr noundef nonnull align 8 dereferenceable(36) %2) #11
   br label %_ZN9SpinYield4waitEv.exit.i
 
-_ZN9SpinYield4waitEv.exit.i:                      ; preds = %24, %21
-  %25 = load volatile ptr, ptr %3, align 8
+_ZN9SpinYield4waitEv.exit.i:                      ; preds = %23, %20
+  %24 = load volatile ptr, ptr %3, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   br label %.backedge
 
-26:                                               ; preds = %12
+25:                                               ; preds = %11
   store ptr null, ptr %.130.i, align 8
   br label %.loopexit.sink.split.i
 
-.loopexit.sink.split.i:                           ; preds = %14, %26
+.loopexit.sink.split.i:                           ; preds = %13, %25
   %.lcssa46 = getelementptr inbounds nuw i8, ptr %.132.i, i64 8
-  %27 = load ptr, ptr %.lcssa46, align 8
+  %26 = load ptr, ptr %.lcssa46, align 8
   call void @_Z8FreeHeapPv(ptr noundef nonnull %.132.i) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load ptr, ptr %31, align 8
-  %33 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %29) #11
-  br i1 %33, label %36, label %34
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %28) #11
+  br i1 %32, label %35, label %33
 
-34:                                               ; preds = %.loopexit.sink.split.i
-  %35 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %35, align 1
+33:                                               ; preds = %.loopexit.sink.split.i
+  %34 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %34, align 1
   call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.6, i32 noundef 469, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #12
   unreachable
 
-36:                                               ; preds = %.loopexit.sink.split.i
-  %37 = load ptr, ptr %27, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %27) #11
-  %40 = load volatile ptr, ptr %3, align 8
+35:                                               ; preds = %.loopexit.sink.split.i
+  %36 = load ptr, ptr %26, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = load ptr, ptr %37, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(40) %26) #11
+  %39 = load volatile ptr, ptr %3, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %.not = icmp eq ptr %40, null
+  %.not = icmp eq ptr %39, null
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %36, %1
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %41) #11
+._crit_edge:                                      ; preds = %35, %1
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %40) #11
   ret void
 }
 

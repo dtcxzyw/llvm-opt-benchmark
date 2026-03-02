@@ -1424,6 +1424,7 @@ default.unreachable592:                           ; preds = %._crit_edge
 
 523:                                              ; preds = %521
   %524 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   store ptr %1, ptr %13, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17hfd92b114c250e98cE", ptr %174, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %14, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.58, i64 2, ptr nonnull align 8 %13, i64 1)
@@ -1928,13 +1929,13 @@ default.unreachable135:                           ; preds = %53
   %113 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %114 = load i8, ptr %113, align 1, !noundef !3
   %115 = call fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr17heab48b1e0142927aE(ptr align 8 %0, ptr nonnull align 8 %1, i16 %112)
-  br i1 %115, label %.loopexit, label %239
+  br i1 %115, label %.loopexit, label %238
 
 116:                                              ; preds = %53
   %117 = getelementptr inbounds nuw i8, ptr %56, i64 2
   %118 = load i16, ptr %117, align 2, !noundef !3
   %119 = call fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr17heab48b1e0142927aE(ptr align 8 %0, ptr nonnull align 8 %1, i16 %118)
-  br i1 %119, label %.loopexit, label %245
+  br i1 %119, label %.loopexit, label %244
 
 120:                                              ; preds = %53
   %121 = getelementptr inbounds nuw i8, ptr %56, i64 2
@@ -1942,10 +1943,10 @@ default.unreachable135:                           ; preds = %53
   %123 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %124 = load i8, ptr %123, align 1, !noundef !3
   %125 = call fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr17heab48b1e0142927aE(ptr align 8 %0, ptr nonnull align 8 %1, i16 %122)
-  br i1 %125, label %.loopexit, label %253
+  br i1 %125, label %.loopexit, label %252
 
-.loopexit:                                        ; preds = %233, %236, %228, %224, %216, %120, %116, %110, %190, %184, %177, %98, %253, %245, %239, %133, %126, %90, %85, %77, %61, %47
-  %.0.shrunk = phi i1 [ %52, %47 ], [ %66, %61 ], [ %131, %126 ], [ %84, %77 ], [ %89, %85 ], [ %97, %90 ], [ %140, %133 ], [ true, %116 ], [ true, %177 ], [ true, %120 ], [ %252, %245 ], [ true, %110 ], [ %258, %253 ], [ true, %190 ], [ false, %184 ], [ true, %98 ], [ %244, %239 ], [ %217, %216 ], [ true, %224 ], [ true, %228 ], [ true, %236 ], [ true, %233 ]
+.loopexit:                                        ; preds = %232, %235, %227, %223, %216, %120, %116, %110, %190, %184, %177, %98, %252, %244, %238, %133, %126, %90, %85, %77, %61, %47
+  %.0.shrunk = phi i1 [ %52, %47 ], [ %66, %61 ], [ %131, %126 ], [ %84, %77 ], [ %89, %85 ], [ %97, %90 ], [ %140, %133 ], [ true, %116 ], [ true, %177 ], [ true, %120 ], [ %251, %244 ], [ true, %110 ], [ %257, %252 ], [ true, %190 ], [ false, %184 ], [ true, %98 ], [ %243, %238 ], [ %217, %216 ], [ true, %223 ], [ true, %227 ], [ true, %235 ], [ true, %232 ]
   ret i1 %.0.shrunk
 
 126:                                              ; preds = %67
@@ -2091,7 +2092,7 @@ default.unreachable135:                           ; preds = %53
   %210 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %211
 
-211:                                              ; preds = %233, %192
+211:                                              ; preds = %232, %192
   %212 = call { ptr, ptr } @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17habf8acede358dd2aE"(ptr nonnull align 8 %19)
   %213 = extractvalue { ptr, ptr } %212, 0
   %214 = extractvalue { ptr, ptr } %212, 1
@@ -2103,96 +2104,95 @@ default.unreachable135:                           ; preds = %53
   br label %.loopexit
 
 218:                                              ; preds = %211
-  %219 = icmp ne ptr %214, null
-  call void @llvm.assume(i1 %219)
-  %220 = load ptr, ptr %160, align 8, !nonnull !3, !align !4, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %214) ]
+  %219 = load ptr, ptr %160, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr %1, ptr %16, align 8
-  %221 = load i64, ptr %213, align 8, !noundef !3
-  %222 = call i64 @_ZN14cranelift_isle4sema3Sym5index17h8bddbd8f0125423aE(i64 %221)
-  %223 = icmp ult i64 %222, %167
-  br i1 %223, label %224, label %227, !prof !6
+  %220 = load i64, ptr %213, align 8, !noundef !3
+  %221 = call i64 @_ZN14cranelift_isle4sema3Sym5index17h8bddbd8f0125423aE(i64 %220)
+  %222 = icmp ult i64 %221, %167
+  br i1 %222, label %223, label %226, !prof !6
 
-224:                                              ; preds = %218
-  %225 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %165, i64 %222
-  store ptr %225, ptr %15, align 8
+223:                                              ; preds = %218
+  %224 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %165, i64 %221
+  store ptr %224, ptr %15, align 8
   store ptr %16, ptr %17, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %199, align 8
   store ptr %15, ptr %200, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %201, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %18, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.88, i64 3, ptr nonnull align 8 %17, i64 2)
-  %226 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %220, ptr nonnull align 8 %18)
-  br i1 %226, label %.loopexit, label %228
+  %225 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %219, ptr nonnull align 8 %18)
+  br i1 %225, label %.loopexit, label %227
 
-227:                                              ; preds = %218
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %222, i64 %167, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.89) #10
+226:                                              ; preds = %218
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %221, i64 %167, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.89) #10
   unreachable
 
-228:                                              ; preds = %224
-  %229 = load i16, ptr %214, align 2, !noundef !3
-  %230 = call fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr17heab48b1e0142927aE(ptr nonnull align 8 %0, ptr nonnull align 8 %1, i16 %229)
-  br i1 %230, label %.loopexit, label %231
+227:                                              ; preds = %223
+  %228 = load i16, ptr %214, align 2, !noundef !3
+  %229 = call fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr17heab48b1e0142927aE(ptr nonnull align 8 %0, ptr nonnull align 8 %1, i16 %228)
+  br i1 %229, label %.loopexit, label %230
 
-231:                                              ; preds = %228
-  %232 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %202, ptr nonnull align 2 %214)
-  br i1 %232, label %236, label %233
+230:                                              ; preds = %227
+  %231 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %202, ptr nonnull align 2 %214)
+  br i1 %231, label %235, label %232
 
-233:                                              ; preds = %236, %231
-  %234 = load ptr, ptr %160, align 8, !nonnull !3, !align !4, !noundef !3
+232:                                              ; preds = %235, %230
+  %233 = load ptr, ptr %160, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.91, ptr %13, align 8
   store i64 1, ptr %207, align 8
   store ptr null, ptr %208, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %209, align 8
   store i64 0, ptr %210, align 8
-  %235 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %234, ptr nonnull align 8 %13)
-  br i1 %235, label %.loopexit, label %211
+  %234 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %233, ptr nonnull align 8 %13)
+  br i1 %234, label %.loopexit, label %211
 
-236:                                              ; preds = %231
-  %237 = load ptr, ptr %160, align 8, !nonnull !3, !align !4, !noundef !3
+235:                                              ; preds = %230
+  %236 = load ptr, ptr %160, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.50, ptr %14, align 8
   store i64 1, ptr %203, align 8
   store ptr null, ptr %204, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %205, align 8
   store i64 0, ptr %206, align 8
-  %238 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %237, ptr nonnull align 8 %14)
-  br i1 %238, label %.loopexit, label %233
+  %237 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %236, ptr nonnull align 8 %14)
+  br i1 %237, label %.loopexit, label %232
 
-239:                                              ; preds = %110
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %241 = load ptr, ptr %240, align 8, !nonnull !3, !align !4, !noundef !3
-  %242 = call i64 @_ZN14cranelift_isle10trie_again10TupleIndex5index17h9f7d1c5bea4311f4E(i8 %114)
-  store i64 %242, ptr %6, align 8
+238:                                              ; preds = %110
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %240 = load ptr, ptr %239, align 8, !nonnull !3, !align !4, !noundef !3
+  %241 = call i64 @_ZN14cranelift_isle10trie_again10TupleIndex5index17h9f7d1c5bea4311f4E(i8 %114)
+  store i64 %241, ptr %6, align 8
   store ptr %6, ptr %7, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %243, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %242, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %8, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.97, i64 2, ptr nonnull align 8 %7, i64 1)
-  %244 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %241, ptr nonnull align 8 %8)
+  %243 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %240, ptr nonnull align 8 %8)
   br label %.loopexit
 
-245:                                              ; preds = %116
-  %246 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %247 = load ptr, ptr %246, align 8, !nonnull !3, !align !4, !noundef !3
+244:                                              ; preds = %116
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %246 = load ptr, ptr %245, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.99, ptr %12, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 1, ptr %248, align 8
-  %249 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr null, ptr %249, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %250, align 8
-  %251 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 0, ptr %251, align 8
-  %252 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %247, ptr nonnull align 8 %12)
+  %247 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 1, ptr %247, align 8
+  %248 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr null, ptr %248, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %249, align 8
+  %250 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i64 0, ptr %250, align 8
+  %251 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %246, ptr nonnull align 8 %12)
   br label %.loopexit
 
-253:                                              ; preds = %120
-  %254 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %255 = load ptr, ptr %254, align 8, !nonnull !3, !align !4, !noundef !3
-  %256 = call i64 @_ZN14cranelift_isle10trie_again10TupleIndex5index17h9f7d1c5bea4311f4E(i8 %124)
-  store i64 %256, ptr %9, align 8
+252:                                              ; preds = %120
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %254 = load ptr, ptr %253, align 8, !nonnull !3, !align !4, !noundef !3
+  %255 = call i64 @_ZN14cranelift_isle10trie_again10TupleIndex5index17h9f7d1c5bea4311f4E(i8 %124)
+  store i64 %255, ptr %9, align 8
   store ptr %9, ptr %10, align 8
-  %257 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %257, align 8
+  %256 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %256, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %11, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.100, i64 1, ptr nonnull align 8 %10, i64 1)
-  %258 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %255, ptr nonnull align 8 %11)
+  %257 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %254, ptr nonnull align 8 %11)
   br label %.loopexit
 }
 
@@ -2272,12 +2272,12 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %21, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.108, i64 2, ptr nonnull align 8 %20, i64 1)
           to label %80 unwind label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %99, %108, %137, %144, %151, %155, %158, %164, %168
+.loopexit:                                        ; preds = %99, %108, %136, %143, %150, %154, %157, %163, %167
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %59
 
-.loopexit.split-lp:                               ; preds = %46, %52, %62, %70, %80, %83, %115, %123, %132, %134
+.loopexit.split-lp:                               ; preds = %46, %52, %62, %70, %80, %83, %114, %122, %131, %133
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %59
@@ -2285,7 +2285,7 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
 59:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$cranelift_isle..sema..ExternalSig$GT$17hff1c4745da4a339cE"(ptr nonnull align 8 %24) #8
-          to label %173 unwind label %171
+          to label %172 unwind label %170
 
 60:                                               ; preds = %46
   %61 = extractvalue { i1, i64 } %51, 0
@@ -2349,7 +2349,7 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %99
 
-99:                                               ; preds = %170, %90
+99:                                               ; preds = %169, %90
   %100 = invoke { ptr, ptr } @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h894115fd7569117eE"(ptr nonnull align 8 %18)
           to label %101 unwind label %.loopexit
 
@@ -2362,158 +2362,157 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
   %105 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %106 = load i8, ptr %105, align 8, !range !11, !noundef !3
   %107 = icmp eq i8 %106, 2
-  br i1 %107, label %115, label %123
+  br i1 %107, label %114, label %122
 
 108:                                              ; preds = %101
   %109 = extractvalue { ptr, ptr } %100, 1
   %110 = load i16, ptr %102, align 2, !noundef !3
   store i16 %110, ptr %17, align 2
-  %111 = icmp ne ptr %109, null
-  call void @llvm.assume(i1 %111)
-  %112 = load i64, ptr %109, align 8, !noundef !3
-  %113 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %114 = invoke { i1, i64 } @_ZN14cranelift_isle7codegen7Codegen2ty17h0dba03be43795e81E(ptr nonnull align 8 %113, i64 %112)
-          to label %137 unwind label %.loopexit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
+  %111 = load i64, ptr %109, align 8, !noundef !3
+  %112 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
+  %113 = invoke { i1, i64 } @_ZN14cranelift_isle7codegen7Codegen2ty17h0dba03be43795e81E(ptr nonnull align 8 %112, i64 %111)
+          to label %136 unwind label %.loopexit
 
-115:                                              ; preds = %104
-  %116 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %118 = load ptr, ptr %117, align 8, !nonnull !3, !align !4, !noundef !3
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %120 = load ptr, ptr %119, align 8, !nonnull !3, !align !12, !noundef !3
-  %121 = load i16, ptr %120, align 2, !noundef !3
-  %122 = invoke i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %121)
-          to label %132 unwind label %.loopexit.split-lp
+114:                                              ; preds = %104
+  %115 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
+  %117 = load ptr, ptr %116, align 8, !nonnull !3, !align !4, !noundef !3
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %119 = load ptr, ptr %118, align 8, !nonnull !3, !align !12, !noundef !3
+  %120 = load i16, ptr %119, align 2, !noundef !3
+  %121 = invoke i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %120)
+          to label %131 unwind label %.loopexit.split-lp
 
-123:                                              ; preds = %136, %104
-  %124 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  %126 = load ptr, ptr %125, align 8, !nonnull !3, !align !4, !noundef !3
+122:                                              ; preds = %135, %104
+  %123 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %125 = load ptr, ptr %124, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.112, ptr %6, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %127, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %128, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %129, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %130, align 8
-  %131 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %126, ptr nonnull align 8 %6)
+  %126 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %126, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %127, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %129, align 8
+  %130 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %125, ptr nonnull align 8 %6)
           to label %.loopexit57 unwind label %.loopexit.split-lp
 
-132:                                              ; preds = %115
-  store i64 %122, ptr %7, align 8
+131:                                              ; preds = %114
+  store i64 %121, ptr %7, align 8
   store ptr %7, ptr %8, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %133, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %132, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %9, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.110, i64 1, ptr nonnull align 8 %8, i64 1)
-          to label %134 unwind label %.loopexit.split-lp
+          to label %133 unwind label %.loopexit.split-lp
 
-134:                                              ; preds = %132
-  %135 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %118, ptr nonnull align 8 %9)
-          to label %136 unwind label %.loopexit.split-lp
+133:                                              ; preds = %131
+  %134 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %117, ptr nonnull align 8 %9)
+          to label %135 unwind label %.loopexit.split-lp
 
-136:                                              ; preds = %134
-  br i1 %135, label %.loopexit57, label %123
+135:                                              ; preds = %133
+  br i1 %134, label %.loopexit57, label %122
 
-.loopexit57:                                      ; preds = %143, %157, %163, %170, %123, %79, %82, %136
-  %.1 = phi i1 [ true, %79 ], [ %131, %123 ], [ true, %136 ], [ true, %82 ], [ true, %170 ], [ true, %163 ], [ true, %157 ], [ true, %143 ]
+.loopexit57:                                      ; preds = %142, %156, %162, %169, %122, %79, %82, %135
+  %.1 = phi i1 [ true, %79 ], [ %130, %122 ], [ true, %135 ], [ true, %82 ], [ true, %169 ], [ true, %162 ], [ true, %156 ], [ true, %142 ]
   call void @"_ZN4core3ptr54drop_in_place$LT$cranelift_isle..sema..ExternalSig$GT$17hff1c4745da4a339cE"(ptr nonnull align 8 %24)
   ret i1 %.1
 
-137:                                              ; preds = %108
-  %138 = extractvalue { i1, i64 } %114, 0
-  %139 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  %141 = load ptr, ptr %140, align 8, !nonnull !3, !align !4, !noundef !3
+136:                                              ; preds = %108
+  %137 = extractvalue { i1, i64 } %113, 0
+  %138 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
+  %140 = load ptr, ptr %139, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.114, ptr %16, align 8
   store i64 1, ptr %91, align 8
   store ptr null, ptr %92, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %93, align 8
   store i64 0, ptr %94, align 8
-  %142 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %141, ptr nonnull align 8 %16)
-          to label %143 unwind label %.loopexit
+  %141 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %140, ptr nonnull align 8 %16)
+          to label %142 unwind label %.loopexit
 
-143:                                              ; preds = %137
-  br i1 %142, label %.loopexit57, label %144
+142:                                              ; preds = %136
+  br i1 %141, label %.loopexit57, label %143
 
-144:                                              ; preds = %143
-  %145 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 40
-  %147 = invoke zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %146, ptr nonnull align 2 %17)
-          to label %148 unwind label %.loopexit
+143:                                              ; preds = %142
+  %144 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 40
+  %146 = invoke zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %145, ptr nonnull align 2 %17)
+          to label %147 unwind label %.loopexit
 
-148:                                              ; preds = %144
-  br i1 %138, label %150, label %149
+147:                                              ; preds = %143
+  br i1 %137, label %149, label %148
 
-149:                                              ; preds = %148
-  %spec.select = select i1 %147, ptr @anon.56deb51d4300d1bb4711f96d6950176e.49, ptr @anon.56deb51d4300d1bb4711f96d6950176e.3
-  %spec.select54 = select i1 %147, i64 8, i64 0
-  br label %151
+148:                                              ; preds = %147
+  %spec.select = select i1 %146, ptr @anon.56deb51d4300d1bb4711f96d6950176e.49, ptr @anon.56deb51d4300d1bb4711f96d6950176e.3
+  %spec.select54 = select i1 %146, i64 8, i64 0
+  br label %150
 
-150:                                              ; preds = %148
-  %spec.select55 = select i1 %147, ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr @anon.56deb51d4300d1bb4711f96d6950176e.105
-  %not. = xor i1 %147, true
+149:                                              ; preds = %147
+  %spec.select55 = select i1 %146, ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr @anon.56deb51d4300d1bb4711f96d6950176e.105
+  %not. = xor i1 %146, true
   %spec.select56 = zext i1 %not. to i64
-  br label %151
+  br label %150
 
-151:                                              ; preds = %150, %149
-  %.sroa.040.0 = phi ptr [ %spec.select55, %150 ], [ @anon.56deb51d4300d1bb4711f96d6950176e.3, %149 ]
-  %.sroa.4.0 = phi i64 [ %spec.select56, %150 ], [ 0, %149 ]
-  %.sroa.041.0 = phi ptr [ @anon.56deb51d4300d1bb4711f96d6950176e.3, %150 ], [ %spec.select, %149 ]
-  %.sroa.442.0 = phi i64 [ 0, %150 ], [ %spec.select54, %149 ]
+150:                                              ; preds = %149, %148
+  %.sroa.040.0 = phi ptr [ %spec.select55, %149 ], [ @anon.56deb51d4300d1bb4711f96d6950176e.3, %148 ]
+  %.sroa.4.0 = phi i64 [ %spec.select56, %149 ], [ 0, %148 ]
+  %.sroa.041.0 = phi ptr [ @anon.56deb51d4300d1bb4711f96d6950176e.3, %149 ], [ %spec.select, %148 ]
+  %.sroa.442.0 = phi i64 [ 0, %149 ], [ %spec.select54, %148 ]
   store ptr %.sroa.040.0, ptr %15, align 8
   store i64 %.sroa.4.0, ptr %95, align 8
   store ptr %.sroa.041.0, ptr %14, align 8
   store i64 %.sroa.442.0, ptr %96, align 8
-  %152 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  %154 = load ptr, ptr %153, align 8, !nonnull !3, !align !4, !noundef !3
+  %151 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
+  %153 = load ptr, ptr %152, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr %15, ptr %12, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h46b5357b9e5169a6E", ptr %97, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %13, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.25, i64 1, ptr nonnull align 8 %12, i64 1)
-          to label %155 unwind label %.loopexit
+          to label %154 unwind label %.loopexit
 
-155:                                              ; preds = %151
-  %156 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %154, ptr nonnull align 8 %13)
-          to label %157 unwind label %.loopexit
+154:                                              ; preds = %150
+  %155 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %153, ptr nonnull align 8 %13)
+          to label %156 unwind label %.loopexit
 
-157:                                              ; preds = %155
-  br i1 %156, label %.loopexit57, label %158
+156:                                              ; preds = %154
+  br i1 %155, label %.loopexit57, label %157
 
-158:                                              ; preds = %157
-  %159 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %160 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
-  %161 = load i16, ptr %17, align 2, !noundef !3
-  %162 = invoke fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr17heab48b1e0142927aE(ptr nonnull align 8 %159, ptr nonnull align 8 %160, i16 %161)
-          to label %163 unwind label %.loopexit
+157:                                              ; preds = %156
+  %158 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
+  %159 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
+  %160 = load i16, ptr %17, align 2, !noundef !3
+  %161 = invoke fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr17heab48b1e0142927aE(ptr nonnull align 8 %158, ptr nonnull align 8 %159, i16 %160)
+          to label %162 unwind label %.loopexit
 
-163:                                              ; preds = %158
-  br i1 %162, label %.loopexit57, label %164
+162:                                              ; preds = %157
+  br i1 %161, label %.loopexit57, label %163
 
-164:                                              ; preds = %163
-  %165 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 24
-  %167 = load ptr, ptr %166, align 8, !nonnull !3, !align !4, !noundef !3
+163:                                              ; preds = %162
+  %164 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 24
+  %166 = load ptr, ptr %165, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr %14, ptr %10, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h46b5357b9e5169a6E", ptr %98, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %11, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.25, i64 1, ptr nonnull align 8 %10, i64 1)
-          to label %168 unwind label %.loopexit
+          to label %167 unwind label %.loopexit
 
-168:                                              ; preds = %164
-  %169 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %167, ptr nonnull align 8 %11)
-          to label %170 unwind label %.loopexit
+167:                                              ; preds = %163
+  %168 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %166, ptr nonnull align 8 %11)
+          to label %169 unwind label %.loopexit
 
-170:                                              ; preds = %168
-  br i1 %169, label %.loopexit57, label %99
+169:                                              ; preds = %167
+  br i1 %168, label %.loopexit57, label %99
 
-171:                                              ; preds = %59
-  %172 = landingpad { ptr, i32 }
+170:                                              ; preds = %59
+  %171 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
   unreachable
 
-173:                                              ; preds = %59
+172:                                              ; preds = %59
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -2618,9 +2617,9 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_con
   %47 = phi ptr [ %42, %.lr.ph ], [ %49, %.backedge ]
   %48 = load i16, ptr %47, align 2, !range !14, !noundef !3
   %.not = icmp eq i16 %48, 0
-  br i1 %.not, label %.backedge, label %226
+  br i1 %.not, label %.backedge, label %225
 
-.backedge:                                        ; preds = %46, %226
+.backedge:                                        ; preds = %46, %225
   %49 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd3808083ddcae3aE"(ptr nonnull align 8 %34)
   %50 = icmp eq ptr %49, null
   br i1 %50, label %._crit_edge, label %46
@@ -2658,7 +2657,7 @@ default.unreachable143:                           ; preds = %._crit_edge
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %75 = load i64, ptr %74, align 8, !noundef !3
   %76 = icmp ult i64 %73, %75
-  br i1 %76, label %189, label %195, !prof !6
+  br i1 %76, label %188, label %194, !prof !6
 
 77:                                               ; preds = %._crit_edge
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2673,7 +2672,7 @@ default.unreachable143:                           ; preds = %._crit_edge
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 0, ptr %83, align 8
   %84 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %79, ptr nonnull align 8 %12)
-  br i1 %84, label %.loopexit, label %196
+  br i1 %84, label %.loopexit, label %195
 
 85:                                               ; preds = %51
   %86 = getelementptr inbounds nuw i8, ptr %56, i64 80
@@ -2794,7 +2793,7 @@ default.unreachable143:                           ; preds = %._crit_edge
   %.095.ph = phi i1 [ false, %135 ], [ true, %156 ]
   br label %150
 
-150:                                              ; preds = %.outer, %181
+150:                                              ; preds = %.outer, %180
   %151 = call { ptr, ptr } @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h4a4ca23b62218918E"(ptr nonnull align 8 %24)
   %152 = extractvalue { ptr, ptr } %151, 0
   %153 = extractvalue { ptr, ptr } %151, 1
@@ -2802,169 +2801,168 @@ default.unreachable143:                           ; preds = %._crit_edge
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %150
-  br i1 %.095.ph, label %163, label %161
+  br i1 %.095.ph, label %162, label %160
 
 156:                                              ; preds = %150
   %157 = load i16, ptr %152, align 2, !range !14, !noundef !3
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %159 = load i16, ptr %158, align 2
-  %160 = icmp ne ptr %153, null
-  call void @llvm.assume(i1 %160)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %153) ]
   %.not119 = icmp eq i16 %157, 0
-  br i1 %.not119, label %.outer, label %167
+  br i1 %.not119, label %.outer, label %166
 
-161:                                              ; preds = %163, %155
-  %162 = call fastcc zeroext i1 @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$25end_block_without_newline17h2de627923735e670E"(ptr align 8 %1)
+160:                                              ; preds = %162, %155
+  %161 = call fastcc zeroext i1 @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$25end_block_without_newline17h2de627923735e670E"(ptr align 8 %1)
   br label %.loopexit
 
-163:                                              ; preds = %155
-  %164 = load ptr, ptr %102, align 8, !nonnull !3, !align !4, !noundef !3
+162:                                              ; preds = %155
+  %163 = load ptr, ptr %102, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr %1, ptr %13, align 8
   store ptr %13, ptr %14, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %165, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %164, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %15, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.121, i64 2, ptr nonnull align 8 %14, i64 1)
-  %166 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %164, ptr nonnull align 8 %15)
-  br i1 %166, label %.loopexit, label %161
+  %165 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %163, ptr nonnull align 8 %15)
+  br i1 %165, label %.loopexit, label %160
 
-.loopexit:                                        ; preds = %181, %185, %172, %161, %205, %212, %77, %163, %128, %126, %119, %219, %189, %61
-  %.0.shrunk = phi i1 [ true, %119 ], [ true, %205 ], [ true, %128 ], [ true, %77 ], [ true, %212 ], [ true, %163 ], [ false, %126 ], [ %162, %161 ], [ %66, %61 ], [ %194, %189 ], [ %225, %219 ], [ true, %172 ], [ true, %185 ], [ true, %181 ]
+.loopexit:                                        ; preds = %180, %184, %171, %160, %204, %211, %77, %162, %128, %126, %119, %218, %188, %61
+  %.0.shrunk = phi i1 [ true, %119 ], [ true, %204 ], [ true, %128 ], [ true, %77 ], [ true, %211 ], [ true, %162 ], [ false, %126 ], [ %161, %160 ], [ %66, %61 ], [ %193, %188 ], [ %224, %218 ], [ true, %171 ], [ true, %184 ], [ true, %180 ]
   ret i1 %.0.shrunk
 
-167:                                              ; preds = %156
-  %168 = load ptr, ptr %102, align 8, !nonnull !3, !align !4, !noundef !3
+166:                                              ; preds = %156
+  %167 = load ptr, ptr %102, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr %1, ptr %21, align 8
-  %169 = load i64, ptr %153, align 8, !noundef !3
-  %170 = call i64 @_ZN14cranelift_isle4sema3Sym5index17h8bddbd8f0125423aE(i64 %169)
-  %171 = icmp ult i64 %170, %109
-  br i1 %171, label %172, label %175, !prof !6
+  %168 = load i64, ptr %153, align 8, !noundef !3
+  %169 = call i64 @_ZN14cranelift_isle4sema3Sym5index17h8bddbd8f0125423aE(i64 %168)
+  %170 = icmp ult i64 %169, %109
+  br i1 %170, label %171, label %174, !prof !6
 
-172:                                              ; preds = %167
-  %173 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %107, i64 %170
-  store ptr %173, ptr %20, align 8
+171:                                              ; preds = %166
+  %172 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %107, i64 %169
+  store ptr %172, ptr %20, align 8
   store ptr %21, ptr %22, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %141, align 8
   store ptr %20, ptr %142, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %143, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %23, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.88, i64 3, ptr nonnull align 8 %22, i64 2)
-  %174 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %168, ptr nonnull align 8 %23)
-  br i1 %174, label %.loopexit, label %176
+  %173 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %167, ptr nonnull align 8 %23)
+  br i1 %173, label %.loopexit, label %175
 
-175:                                              ; preds = %167
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %170, i64 %109, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.122) #10
+174:                                              ; preds = %166
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %169, i64 %109, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.122) #10
   unreachable
 
-176:                                              ; preds = %172
-  %177 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %178 = load i64, ptr %177, align 8, !noundef !3
-  %179 = call { i1, i64 } @_ZN14cranelift_isle7codegen7Codegen2ty17h0dba03be43795e81E(ptr nonnull align 8 %0, i64 %178)
-  %180 = extractvalue { i1, i64 } %179, 0
-  br i1 %180, label %185, label %181
+175:                                              ; preds = %171
+  %176 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  %177 = load i64, ptr %176, align 8, !noundef !3
+  %178 = call { i1, i64 } @_ZN14cranelift_isle7codegen7Codegen2ty17h0dba03be43795e81E(ptr nonnull align 8 %0, i64 %177)
+  %179 = extractvalue { i1, i64 } %178, 0
+  br i1 %179, label %184, label %180
 
-181:                                              ; preds = %185, %176
-  %182 = load ptr, ptr %102, align 8, !nonnull !3, !align !4, !noundef !3
-  %183 = call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %159)
-  store i64 %183, ptr %16, align 8
+180:                                              ; preds = %184, %175
+  %181 = load ptr, ptr %102, align 8, !nonnull !3, !align !4, !noundef !3
+  %182 = call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %159)
+  store i64 %182, ptr %16, align 8
   store ptr %16, ptr %17, align 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %149, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %18, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.125, i64 2, ptr nonnull align 8 %17, i64 1)
-  %184 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %182, ptr nonnull align 8 %18)
-  br i1 %184, label %.loopexit, label %150
+  %183 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %181, ptr nonnull align 8 %18)
+  br i1 %183, label %.loopexit, label %150
 
-185:                                              ; preds = %176
-  %186 = call zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h1e2312ee2d4dce33E"(ptr nonnull align 8 %144, i16 %159)
-  %187 = load ptr, ptr %102, align 8, !nonnull !3, !align !4, !noundef !3
+184:                                              ; preds = %175
+  %185 = call zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h1e2312ee2d4dce33E"(ptr nonnull align 8 %144, i16 %159)
+  %186 = load ptr, ptr %102, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.124, ptr %19, align 8
   store i64 1, ptr %145, align 8
   store ptr null, ptr %146, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %147, align 8
   store i64 0, ptr %148, align 8
-  %188 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %187, ptr nonnull align 8 %19)
-  br i1 %188, label %.loopexit, label %181
+  %187 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %186, ptr nonnull align 8 %19)
+  br i1 %187, label %.loopexit, label %180
 
-189:                                              ; preds = %67
-  %190 = getelementptr inbounds nuw i8, ptr %72, i64 56
-  %191 = load ptr, ptr %190, align 8, !nonnull !3, !noundef !3
-  %192 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %191, i64 %73
-  store ptr %192, ptr %31, align 8
+188:                                              ; preds = %67
+  %189 = getelementptr inbounds nuw i8, ptr %72, i64 56
+  %190 = load ptr, ptr %189, align 8, !nonnull !3, !noundef !3
+  %191 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %190, i64 %73
+  store ptr %191, ptr %31, align 8
   store ptr %31, ptr %32, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %193, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %192, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %33, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.25, i64 1, ptr nonnull align 8 %32, i64 1)
-  %194 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %71, ptr nonnull align 8 %33)
+  %193 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %71, ptr nonnull align 8 %33)
   br label %.loopexit
 
-195:                                              ; preds = %67
+194:                                              ; preds = %67
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %73, i64 %75, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.129) #10
   unreachable
 
-196:                                              ; preds = %77
+195:                                              ; preds = %77
   %.not116 = icmp eq i64 %39, 0
-  br i1 %.not116, label %199, label %197, !prof !8
+  br i1 %.not116, label %198, label %196, !prof !8
 
-197:                                              ; preds = %196
-  %198 = load i16, ptr %37, align 2, !range !14, !noundef !3
-  %.not117 = icmp eq i16 %198, 0
-  br i1 %.not117, label %205, label %200
+196:                                              ; preds = %195
+  %197 = load i16, ptr %37, align 2, !range !14, !noundef !3
+  %.not117 = icmp eq i16 %197, 0
+  br i1 %.not117, label %204, label %199
 
-199:                                              ; preds = %196
+198:                                              ; preds = %195
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 0, i64 0, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.132) #10
   unreachable
 
-200:                                              ; preds = %197
-  %201 = getelementptr inbounds nuw i8, ptr %37, i64 2
-  %202 = load i16, ptr %201, align 2, !noundef !3
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %204 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %203, ptr nonnull align 2 %35)
-  br i1 %204, label %217, label %212
+199:                                              ; preds = %196
+  %200 = getelementptr inbounds nuw i8, ptr %37, i64 2
+  %201 = load i16, ptr %200, align 2, !noundef !3
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %203 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %202, ptr nonnull align 2 %35)
+  br i1 %203, label %216, label %211
 
-205:                                              ; preds = %197
-  %206 = load ptr, ptr %78, align 8, !nonnull !3, !align !4, !noundef !3
+204:                                              ; preds = %196
+  %205 = load ptr, ptr %78, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.134, ptr %8, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 1, ptr %207, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %208, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %209, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 0, ptr %210, align 8
-  %211 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %206, ptr nonnull align 8 %8)
-  br i1 %211, label %.loopexit, label %219
+  %206 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 1, ptr %206, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr null, ptr %207, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %208, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 0, ptr %209, align 8
+  %210 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %205, ptr nonnull align 8 %8)
+  br i1 %210, label %.loopexit, label %218
 
-212:                                              ; preds = %217, %200
-  %213 = load ptr, ptr %78, align 8, !nonnull !3, !align !4, !noundef !3
-  %214 = call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %202)
-  store i64 %214, ptr %9, align 8
+211:                                              ; preds = %216, %199
+  %212 = load ptr, ptr %78, align 8, !nonnull !3, !align !4, !noundef !3
+  %213 = call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %201)
+  store i64 %213, ptr %9, align 8
   store ptr %9, ptr %10, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %215, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %214, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %11, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.102, i64 1, ptr nonnull align 8 %10, i64 1)
-  %216 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %213, ptr nonnull align 8 %11)
-  br i1 %216, label %.loopexit, label %219
+  %215 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %212, ptr nonnull align 8 %11)
+  br i1 %215, label %.loopexit, label %218
 
-217:                                              ; preds = %200
-  %218 = call zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h1e2312ee2d4dce33E"(ptr nonnull align 8 %203, i16 %202)
-  br label %212
+216:                                              ; preds = %199
+  %217 = call zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h1e2312ee2d4dce33E"(ptr nonnull align 8 %202, i16 %201)
+  br label %211
 
-219:                                              ; preds = %205, %212
-  %220 = load ptr, ptr %78, align 8, !nonnull !3, !align !4, !noundef !3
+218:                                              ; preds = %204, %211
+  %219 = load ptr, ptr %78, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.112, ptr %7, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %221, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %222, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %223, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 0, ptr %224, align 8
-  %225 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %220, ptr nonnull align 8 %7)
+  %220 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %220, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr null, ptr %221, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %222, align 8
+  %223 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 0, ptr %223, align 8
+  %224 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %219, ptr nonnull align 8 %7)
   br label %.loopexit
 
-226:                                              ; preds = %46
-  %227 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  %228 = load i16, ptr %227, align 2, !noundef !3
-  %229 = call zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h1e2312ee2d4dce33E"(ptr nonnull align 8 %44, i16 %228)
+225:                                              ; preds = %46
+  %226 = getelementptr inbounds nuw i8, ptr %47, i64 2
+  %227 = load i16, ptr %226, align 2, !noundef !3
+  %228 = call zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h1e2312ee2d4dce33E"(ptr nonnull align 8 %44, i16 %227)
   br label %.backedge
 }
 

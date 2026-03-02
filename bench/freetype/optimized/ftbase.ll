@@ -9490,8 +9490,7 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %32
-  %.not.i.i = icmp ne ptr %30, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !61
   tail call void %36(ptr noundef %11, ptr noundef nonnull %30) #35

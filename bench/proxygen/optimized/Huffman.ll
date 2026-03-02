@@ -647,8 +647,7 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %cmp.i.i.i = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   br label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit
 
 if.else.i.i:                                      ; preds = %if.else

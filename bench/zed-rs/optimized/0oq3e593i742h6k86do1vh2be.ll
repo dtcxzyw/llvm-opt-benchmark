@@ -1408,63 +1408,60 @@ define hidden void @"_ZN4text9selection18Selection$LT$T$GT$3map17hc40e9e932cd0cf
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = extractvalue { ptr, ptr } %9, 1
   %12 = invoke noundef i64 @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17h25c52fc28136e704E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %6)
-          to label %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf118c1ca00b1f441E.llvm.2886363541943592925.exit" unwind label %16, !noalias !332
+          to label %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf118c1ca00b1f441E.llvm.2886363541943592925.exit" unwind label %15, !noalias !332
 
-common.resume:                                    ; preds = %26, %16
-  %.sink8 = phi ptr [ %24, %26 ], [ %11, %16 ]
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %17, %16 ]
-  %13 = icmp ne ptr %.sink8, null
-  call void @llvm.assume(i1 %13)
-  %14 = load i64, ptr %.sink8, align 8, !noalias !20, !noundef !20
-  %15 = add i64 %14, -1
-  store i64 %15, ptr %.sink8, align 8, !noalias !20
+common.resume:                                    ; preds = %24, %15
+  %.sink7 = phi ptr [ %22, %24 ], [ %11, %15 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %16, %15 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink7) ]
+  %13 = load i64, ptr %.sink7, align 8, !noalias !20, !noundef !20
+  %14 = add i64 %13, -1
+  store i64 %14, ptr %.sink7, align 8, !noalias !20
   resume { ptr, i32 } %common.resume.op
 
-16:                                               ; preds = %4
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 "_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf118c1ca00b1f441E.llvm.2886363541943592925.exit": ; preds = %4
-  %18 = icmp ne ptr %11, null
-  call void @llvm.assume(i1 %18)
-  %19 = load i64, ptr %11, align 8, !noalias !333, !noundef !20
-  %20 = add i64 %19, -1
-  store i64 %20, ptr %11, align 8, !noalias !333
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
+  %17 = load i64, ptr %11, align 8, !noalias !333, !noundef !20
+  %18 = add i64 %17, -1
+  store i64 %18, ptr %11, align 8, !noalias !333
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull readonly align 8 dereferenceable(48) %21, i64 48, i1 false)
-  %22 = call { ptr, ptr } @_ZN6editor21selections_collection20SelectionsCollection6buffer17h1cdaf7da7af217ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(320) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %3), !noalias !340
-  %23 = extractvalue { ptr, ptr } %22, 0
-  %24 = extractvalue { ptr, ptr } %22, 1
-  %25 = invoke noundef i64 @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17h25c52fc28136e704E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
-          to label %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf118c1ca00b1f441E.llvm.2886363541943592925.exit2" unwind label %26, !noalias !344
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull readonly align 8 dereferenceable(48) %19, i64 48, i1 false)
+  %20 = call { ptr, ptr } @_ZN6editor21selections_collection20SelectionsCollection6buffer17h1cdaf7da7af217ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(320) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %3), !noalias !340
+  %21 = extractvalue { ptr, ptr } %20, 0
+  %22 = extractvalue { ptr, ptr } %20, 1
+  %23 = invoke noundef i64 @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17h25c52fc28136e704E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
+          to label %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf118c1ca00b1f441E.llvm.2886363541943592925.exit2" unwind label %24, !noalias !344
 
-26:                                               ; preds = %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf118c1ca00b1f441E.llvm.2886363541943592925.exit"
-  %27 = landingpad { ptr, i32 }
+24:                                               ; preds = %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf118c1ca00b1f441E.llvm.2886363541943592925.exit"
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 "_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf118c1ca00b1f441E.llvm.2886363541943592925.exit2": ; preds = %"_ZN6editor21selections_collection20SelectionsCollection7pending28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf118c1ca00b1f441E.llvm.2886363541943592925.exit"
-  %28 = icmp ne ptr %24, null
-  call void @llvm.assume(i1 %28)
-  %29 = load i64, ptr %24, align 8, !noalias !345, !noundef !20
-  %30 = add i64 %29, -1
-  store i64 %30, ptr %24, align 8, !noalias !345
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  %26 = load i64, ptr %22, align 8, !noalias !345, !noundef !20
+  %27 = add i64 %26, -1
+  store i64 %27, ptr %22, align 8, !noalias !345
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %32 = load i8, ptr %31, align 4, !range !26, !noundef !20
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %34, ptr noundef nonnull align 8 dereferenceable(12) %33, i64 12, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %29 = load i8, ptr %28, align 4, !range !26, !noundef !20
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false)
   store i64 %8, ptr %0, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %12, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %25, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i8 %32, ptr %37, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %12, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %23, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i8 %29, ptr %34, align 4
   ret void
 }
 
@@ -1694,25 +1691,23 @@ define hidden noundef i64 @"_ZN6editor21selections_collection20SelectionsCollect
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
   %9 = invoke noundef i64 @_ZN12multi_buffer19MultiBufferSnapshot18summary_for_anchor17h25c52fc28136e704E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
-          to label %10 unwind label %14
+          to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = load i64, ptr %8, align 8, !noalias !352, !noundef !20
-  %13 = add i64 %12, -1
-  store i64 %13, ptr %8, align 8, !noalias !352
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
+  %11 = load i64, ptr %8, align 8, !noalias !352, !noundef !20
+  %12 = add i64 %11, -1
+  store i64 %12, ptr %8, align 8, !noalias !352
   ret i64 %9
 
-14:                                               ; preds = %2
-  %15 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %16 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %16)
-  %17 = load i64, ptr %8, align 8, !noalias !359, !noundef !20
-  %18 = add i64 %17, -1
-  store i64 %18, ptr %8, align 8, !noalias !359
-  resume { ptr, i32 } %15
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
+  %15 = load i64, ptr %8, align 8, !noalias !359, !noundef !20
+  %16 = add i64 %15, -1
+  store i64 %16, ptr %8, align 8, !noalias !359
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable

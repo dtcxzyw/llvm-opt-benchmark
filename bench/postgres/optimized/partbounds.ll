@@ -8030,8 +8030,7 @@ get_partition_operator.exit.thread:               ; preds = %34
   ]
 
 list_length.exit:                                 ; preds = %51
-  %.not.i77 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %.not.i77)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, 1

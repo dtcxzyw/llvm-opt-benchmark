@@ -61422,8 +61422,7 @@ _ZN7AstNode9privateIsI22AstNBACommitQueueDTypeP12AstNodeDTypeEEbPKS_.exit.thread
           to label %_ZNK6AstVar13dtypeSkipRefpEv.exit unwind label %758
 
 _ZNK6AstVar13dtypeSkipRefpEv.exit:                ; preds = %_ZN7AstNode9privateIsI22AstNBACommitQueueDTypeP12AstNodeDTypeEEbPKS_.exit.thread
-  %.not.i406 = icmp ne ptr %751, null
-  call void @llvm.assume(i1 %.not.i406)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %751) ]
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 64
   %.sroa.0.0.copyload.i.i.i407 = load i16, ptr %752, align 8, !tbaa !83
   %753 = icmp eq i16 %.sroa.0.0.copyload.i.i.i407, 77
@@ -63007,8 +63006,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit609: ; preds = %_ZN12AstNodeDType8skipRefpEv.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i607
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  %.not.i610 = icmp ne ptr %1309, null
-  call void @llvm.assume(i1 %.not.i610)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1309) ]
   %1314 = getelementptr inbounds nuw i8, ptr %1309, i64 64
   %.sroa.0.0.copyload.i.i.i611 = load i16, ptr %1314, align 8, !tbaa !83
   %1315 = icmp eq i16 %.sroa.0.0.copyload.i.i.i611, 77

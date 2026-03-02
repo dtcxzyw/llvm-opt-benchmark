@@ -10556,8 +10556,7 @@ do.end21.i:                                       ; preds = %do.end14.i
   br i1 %call31.i, label %do.end36.i, label %cleanup.sink.split.i
 
 do.end36.i:                                       ; preds = %do.end21.i
-  %cmp.i.i.i.i = icmp ne ptr %retval.sroa.0.0.copyload.i.i.i, null
-  call void @llvm.assume(i1 %cmp.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %retval.sroa.0.0.copyload.i.i.i) ]
   %call5.i.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.copyload.i.i.i) #24
   %6 = load i64, ptr %retval.sroa.0.0.copyload.i.i.i, align 8
   %sub.i.i.i.i.i = add i64 %6, 47
@@ -11144,8 +11143,7 @@ if.then59:                                        ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup.sink.split
 
 do.end65:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %cmp.i.i.i = icmp ne ptr %retval.sroa.0.0.copyload.i.i, null
-  call void @llvm.assume(i1 %cmp.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %retval.sroa.0.0.copyload.i.i) ]
   %call5.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.copyload.i.i) #24
   %6 = load i64, ptr %retval.sroa.0.0.copyload.i.i, align 8
   %sub.i.i.i.i = add i64 %6, 47

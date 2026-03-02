@@ -36,8 +36,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcd1b4d52950d5698E.llvm.1987397210980494944.exit": ; preds = %2, %.lr.ph.i.i
   %7 = phi i64 [ %6, %.lr.ph.i.i ], [ %.sroa.42.0.copyload, %2 ]
-  %8 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %8)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.01.0.copyload) ]
   store i64 %7, ptr %.sroa.01.0.copyload, align 8, !noalias !23
   ret void
 }
@@ -375,11 +374,10 @@ define hidden void @_ZN4core9panicking13assert_failed17hfed266cecf70d045E(i8 nou
 define hidden { ptr, i64 } @"_ZN5alloc5boxed22Box$LT$$u5b$T$u5d$$GT$16new_uninit_slice17h8179a9b45be1cb0eE"(i64 noundef %0) unnamed_addr #2 {
   %2 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h3d638ab7ae1515cfE"(i64 noundef %0, i1 noundef zeroext false)
   %3 = extractvalue { i64, ptr } %2, 1
-  %4 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = insertvalue { ptr, i64 } poison, ptr %3, 0
-  %6 = insertvalue { ptr, i64 } %5, i64 %0, 1
-  ret { ptr, i64 } %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
+  %4 = insertvalue { ptr, i64 } poison, ptr %3, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %0, 1
+  ret { ptr, i64 } %5
 }
 
 ; Function Attrs: nonlazybind uwtable

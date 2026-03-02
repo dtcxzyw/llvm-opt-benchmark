@@ -356,8 +356,7 @@ define void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..col
   %6 = load i64, ptr %4, align 8, !noundef !3
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha6997c65cc1d3354E"(ptr align 8 %0, i64 %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
-  %7 = icmp ne ptr %0, null
-  call void @llvm.assume(i1 %7)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   call void @_ZN4core4iter6traits8iterator8Iterator8for_each17h4ed07087fc2cd18cE(ptr nonnull align 4 %3, ptr nonnull align 8 %0)
   ret void
 }

@@ -2510,7 +2510,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento7SMTConv10getSymExprERSt10
 
 21:                                               ; preds = %15, %16
   %22 = tail call noundef ptr @_ZN5clang4ento7SMTConv8fromDataERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_10SymbolDataE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %2)
-  br label %129
+  br label %127
 
 23:                                               ; preds = %5
   %24 = icmp ne i32 %12, 4
@@ -2563,7 +2563,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento7SMTConv10getSymExprERSt10
   %51 = call noundef ptr @_ZN5clang4ento7SMTConv8fromCastERSt10shared_ptrIN4llvm9SMTSolverEERKPKNS3_7SMTExprENS_8QualTypeEmSC_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 %40, i64 noundef %45, i64 %.sroa.013.0.copyload, i64 noundef %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %129
+  br label %127
 
 52:                                               ; preds = %23
   %53 = icmp ne i32 %12, 0
@@ -2675,27 +2675,24 @@ switch.lookup:                                    ; preds = %60
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %129
+  br label %127
 
 119:                                              ; preds = %52
-  %120 = add i32 %12, -1
-  %121 = icmp ult i32 %120, 3
-  tail call void @llvm.assume(i1 %121)
-  %122 = tail call noundef ptr @_ZN5clang4ento7SMTConv13getSymBinExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_13BinarySymExprEPbPNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %2, ptr noundef %4, ptr noundef %3)
+  %120 = tail call noundef ptr @_ZN5clang4ento7SMTConv13getSymBinExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_13BinarySymExprEPbPNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %2, ptr noundef %4, ptr noundef %3)
   %.not88 = icmp eq ptr %4, null
-  br i1 %.not88, label %129, label %123
+  br i1 %.not88, label %127, label %121
 
-123:                                              ; preds = %119
-  %124 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %125 = load i32, ptr %124, align 4, !tbaa !221
-  %126 = add i32 %125, -9
-  %127 = icmp ult i32 %126, 7
-  %128 = zext i1 %127 to i8
-  store i8 %128, ptr %4, align 1, !tbaa !216
-  br label %129
+121:                                              ; preds = %119
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %123 = load i32, ptr %122, align 4, !tbaa !221
+  %124 = add i32 %123, -9
+  %125 = icmp ult i32 %124, 7
+  %126 = zext i1 %125 to i8
+  store i8 %126, ptr %4, align 1, !tbaa !216
+  br label %127
 
-129:                                              ; preds = %118, %36, %21, %123, %119
-  %.1 = phi ptr [ %22, %21 ], [ %.3, %118 ], [ %51, %36 ], [ %122, %119 ], [ %122, %123 ]
+127:                                              ; preds = %118, %36, %21, %121, %119
+  %.1 = phi ptr [ %22, %21 ], [ %.3, %118 ], [ %51, %36 ], [ %120, %119 ], [ %120, %121 ]
   ret ptr %.1
 }
 
@@ -2933,11 +2930,11 @@ _ZNSt4pairIN4llvm6APSIntEN5clang8QualTypeEED2Ev.exit: ; preds = %5
 42:                                               ; preds = %_ZNSt4pairIN4llvm6APSIntEN5clang8QualTypeEED2Ev.exit
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %12, ptr noundef nonnull align 8 dereferenceable(13) %9) #20
   %.pre = load i8, ptr %29, align 4, !tbaa !166, !range !131
-  %.pre80 = load i32, ptr %28, align 8, !tbaa !164
+  %.pre79 = load i32, ptr %28, align 8, !tbaa !164
   br label %_ZN4llvm6APSIntC2ERKS0_.exit
 
 _ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %41, %42
-  %43 = phi i32 [ %33, %41 ], [ %.pre80, %42 ]
+  %43 = phi i32 [ %33, %41 ], [ %.pre79, %42 ]
   %44 = phi i8 [ %35, %41 ], [ %.pre, %42 ]
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i8 %44, ptr %45, align 4, !tbaa !166
@@ -3020,13 +3017,13 @@ _ZNSt4pairIN4llvm6APSIntEN5clang8QualTypeEED2Ev.exit63: ; preds = %64
 
 80:                                               ; preds = %_ZNSt4pairIN4llvm6APSIntEN5clang8QualTypeEED2Ev.exit63
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %16, ptr noundef nonnull align 8 dereferenceable(13) %13) #20
-  %.pre81 = load i8, ptr %67, align 4, !tbaa !166, !range !131
-  %.pre82 = load i32, ptr %66, align 8, !tbaa !164
+  %.pre80 = load i8, ptr %67, align 4, !tbaa !166, !range !131
+  %.pre81 = load i32, ptr %66, align 8, !tbaa !164
   br label %_ZN4llvm6APSIntC2ERKS0_.exit64
 
 _ZN4llvm6APSIntC2ERKS0_.exit64:                   ; preds = %79, %80
-  %81 = phi i32 [ %71, %79 ], [ %.pre82, %80 ]
-  %82 = phi i8 [ %73, %79 ], [ %.pre81, %80 ]
+  %81 = phi i32 [ %71, %79 ], [ %.pre81, %80 ]
+  %82 = phi i8 [ %73, %79 ], [ %.pre80, %80 ]
   %83 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i8 %82, ptr %83, align 4, !tbaa !166
   %84 = load ptr, ptr %76, align 8, !tbaa !8
@@ -3077,7 +3074,9 @@ _ZN4llvm5APIntD2Ev.exit65:                        ; preds = %_ZN4llvm6APSIntC2ER
 
 105:                                              ; preds = %64
   %106 = icmp eq i32 %23, 3
-  br i1 %106, label %107, label %115
+  %spec.select.i.i67 = select i1 %106, ptr %2, ptr null
+  %.not58.not = icmp eq ptr %spec.select.i.i67, null
+  br i1 %.not58.not, label %115, label %107
 
 107:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -3099,7 +3098,7 @@ _ZN4llvm5APIntD2Ev.exit65:                        ; preds = %_ZN4llvm6APSIntC2ER
 
 115:                                              ; preds = %105, %107
   %.3 = phi ptr [ %114, %107 ], [ undef, %105 ]
-  call void @llvm.assume(i1 %106)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i67) ]
   br label %116
 
 116:                                              ; preds = %104, %63, %115

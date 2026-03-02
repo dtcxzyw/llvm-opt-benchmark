@@ -5276,8 +5276,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_113AllocatedDataEEENS0_17Program
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.037.0.copyload, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !441
   %52 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #25
-  %.not.i.i.i = icmp ne ptr %52, null
-  tail call void @llvm.assume(i1 %.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %52) ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %54 = load i64, ptr %53, align 8, !tbaa !335
   %55 = and i64 %54, 7

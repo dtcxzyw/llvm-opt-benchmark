@@ -2598,8 +2598,7 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit61.i.i: ; preds = %58
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !100
   %68 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #23
-  %.not.i.i.i58.i.i = icmp ne ptr %68, null
-  tail call void @llvm.assume(i1 %.not.i.i.i58.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %68) ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 28
   %70 = load i32, ptr %69, align 4
   %71 = and i32 %70, 126

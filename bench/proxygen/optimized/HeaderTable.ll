@@ -3356,8 +3356,7 @@ for.body:                                         ; preds = %entry, %_ZNSt16allo
   %i.013 = phi i64 [ %inc, %_ZNSt16allocator_traitsISaISt4pairIKN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEEEE7destroyIS8_EEvRS9_PT_.exit ], [ 0, %entry ]
   %src.addr.012 = phi ptr [ %incdec.ptr, %_ZNSt16allocator_traitsISaISt4pairIKN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEEEE7destroyIS8_EEvRS9_PT_.exit ], [ %src, %entry ]
   %dst.addr.011 = phi ptr [ %incdec.ptr4, %_ZNSt16allocator_traitsISaISt4pairIKN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEEEE7destroyIS8_EEvRS9_PT_.exit ], [ %dst, %entry ]
-  %cmp2 = icmp ne ptr %dst.addr.011, null
-  tail call void @llvm.assume(i1 %cmp2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %dst.addr.011) ]
   %second.i = getelementptr inbounds nuw i8, ptr %src.addr.012, i64 8
   store ptr null, ptr %dst.addr.011, align 8
   %0 = load ptr, ptr %src.addr.012, align 8
@@ -3792,8 +3791,7 @@ while.end.i:                                      ; preds = %while.cond.i
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSD_8PrefetchE.exit: ; preds = %while.body.i
   %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
   store i32 %1, ptr %arrayidx.i.i.i.i.le, align 4
-  %cmp11 = icmp ne ptr %0, null
-  call void @llvm.assume(i1 %cmp11)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %arrayidx13 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %0, i64 %shr.i.i.i.i
   call void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKS4_S8_EEPSE_SH_m(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %arrayidx13, ptr noundef nonnull %arrayidx, i64 noundef 1)
   br label %if.end

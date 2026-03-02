@@ -5077,128 +5077,127 @@ php_valid_var_name.exit:                          ; preds = %89, %78, %64, %62
 
 zend_forbid_dynamic_call.exit:                    ; preds = %php_valid_var_name.exit
   %113 = call ptr @zend_rebuild_symbol_table() #21
-  %114 = icmp ne ptr %113, null
-  call void @llvm.assume(i1 %114)
-  br i1 %.not112, label %136, label %115
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %113) ]
+  br i1 %.not112, label %135, label %114
 
-115:                                              ; preds = %zend_forbid_dynamic_call.exit
-  %116 = load i64, ptr %3, align 8, !tbaa !4
-  %117 = load ptr, ptr %.1103, align 8, !tbaa !8
-  switch i64 %116, label %134 [
-    i64 6, label %118
-    i64 0, label %120
-    i64 5, label %122
-    i64 2, label %125
-    i64 3, label %128
-    i64 4, label %131
+114:                                              ; preds = %zend_forbid_dynamic_call.exit
+  %115 = load i64, ptr %3, align 8, !tbaa !4
+  %116 = load ptr, ptr %.1103, align 8, !tbaa !8
+  switch i64 %115, label %133 [
+    i64 6, label %117
+    i64 0, label %119
+    i64 5, label %121
+    i64 2, label %124
+    i64 3, label %127
+    i64 4, label %130
   ]
 
-118:                                              ; preds = %115
-  %119 = call fastcc i64 @php_extract_ref_if_exists(ptr noundef %117, ptr noundef %113)
-  br label %165
+117:                                              ; preds = %114
+  %118 = call fastcc i64 @php_extract_ref_if_exists(ptr noundef %116, ptr noundef %113)
+  br label %164
 
-120:                                              ; preds = %115
-  %121 = call fastcc i64 @php_extract_ref_overwrite(ptr noundef %117, ptr noundef %113)
-  br label %165
+119:                                              ; preds = %114
+  %120 = call fastcc i64 @php_extract_ref_overwrite(ptr noundef %116, ptr noundef %113)
+  br label %164
 
-122:                                              ; preds = %115
-  %123 = load ptr, ptr %4, align 8, !tbaa !33
-  %124 = call fastcc i64 @php_extract_ref_prefix_if_exists(ptr noundef %117, ptr noundef %113, ptr noundef %123)
-  br label %165
+121:                                              ; preds = %114
+  %122 = load ptr, ptr %4, align 8, !tbaa !33
+  %123 = call fastcc i64 @php_extract_ref_prefix_if_exists(ptr noundef %116, ptr noundef %113, ptr noundef %122)
+  br label %164
 
-125:                                              ; preds = %115
-  %126 = load ptr, ptr %4, align 8, !tbaa !33
-  %127 = call fastcc i64 @php_extract_ref_prefix_same(ptr noundef %117, ptr noundef %113, ptr noundef %126)
-  br label %165
+124:                                              ; preds = %114
+  %125 = load ptr, ptr %4, align 8, !tbaa !33
+  %126 = call fastcc i64 @php_extract_ref_prefix_same(ptr noundef %116, ptr noundef %113, ptr noundef %125)
+  br label %164
 
-128:                                              ; preds = %115
-  %129 = load ptr, ptr %4, align 8, !tbaa !33
-  %130 = call fastcc i64 @php_extract_ref_prefix_all(ptr noundef %117, ptr noundef %113, ptr noundef %129)
-  br label %165
+127:                                              ; preds = %114
+  %128 = load ptr, ptr %4, align 8, !tbaa !33
+  %129 = call fastcc i64 @php_extract_ref_prefix_all(ptr noundef %116, ptr noundef %113, ptr noundef %128)
+  br label %164
 
-131:                                              ; preds = %115
-  %132 = load ptr, ptr %4, align 8, !tbaa !33
-  %133 = call fastcc i64 @php_extract_ref_prefix_invalid(ptr noundef %117, ptr noundef %113, ptr noundef %132)
-  br label %165
+130:                                              ; preds = %114
+  %131 = load ptr, ptr %4, align 8, !tbaa !33
+  %132 = call fastcc i64 @php_extract_ref_prefix_invalid(ptr noundef %116, ptr noundef %113, ptr noundef %131)
+  br label %164
 
-134:                                              ; preds = %115
-  %135 = call fastcc i64 @php_extract_ref_skip(ptr noundef %117, ptr noundef %113)
-  br label %165
+133:                                              ; preds = %114
+  %134 = call fastcc i64 @php_extract_ref_skip(ptr noundef %116, ptr noundef %113)
+  br label %164
 
-136:                                              ; preds = %zend_forbid_dynamic_call.exit
+135:                                              ; preds = %zend_forbid_dynamic_call.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %137 = load ptr, ptr %.1103, align 8, !tbaa !8
-  %138 = load i32, ptr %19, align 8, !tbaa !8
-  store ptr %137, ptr %5, align 8, !tbaa !8
-  %139 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %138, ptr %139, align 8, !tbaa !8
-  %140 = and i32 %138, 65280
-  %.not116 = icmp eq i32 %140, 0
-  br i1 %.not116, label %144, label %141
+  %136 = load ptr, ptr %.1103, align 8, !tbaa !8
+  %137 = load i32, ptr %19, align 8, !tbaa !8
+  store ptr %136, ptr %5, align 8, !tbaa !8
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %137, ptr %138, align 8, !tbaa !8
+  %139 = and i32 %137, 65280
+  %.not116 = icmp eq i32 %139, 0
+  br i1 %.not116, label %143, label %140
 
-141:                                              ; preds = %136
-  %142 = load i32, ptr %137, align 4, !tbaa !11
-  %143 = add i32 %142, 1
-  store i32 %143, ptr %137, align 4, !tbaa !11
-  br label %144
+140:                                              ; preds = %135
+  %141 = load i32, ptr %136, align 4, !tbaa !11
+  %142 = add i32 %141, 1
+  store i32 %142, ptr %136, align 4, !tbaa !11
+  br label %143
 
-144:                                              ; preds = %141, %136
-  %145 = load i64, ptr %3, align 8, !tbaa !4
-  switch i64 %145, label %162 [
-    i64 6, label %146
-    i64 0, label %148
-    i64 5, label %150
-    i64 2, label %153
-    i64 3, label %156
-    i64 4, label %159
+143:                                              ; preds = %140, %135
+  %144 = load i64, ptr %3, align 8, !tbaa !4
+  switch i64 %144, label %161 [
+    i64 6, label %145
+    i64 0, label %147
+    i64 5, label %149
+    i64 2, label %152
+    i64 3, label %155
+    i64 4, label %158
   ]
 
-146:                                              ; preds = %144
-  %147 = call fastcc i64 @php_extract_if_exists(ptr noundef %137, ptr noundef %113)
-  br label %164
+145:                                              ; preds = %143
+  %146 = call fastcc i64 @php_extract_if_exists(ptr noundef %136, ptr noundef %113)
+  br label %163
 
-148:                                              ; preds = %144
-  %149 = call fastcc i64 @php_extract_overwrite(ptr noundef %137, ptr noundef %113)
-  br label %164
+147:                                              ; preds = %143
+  %148 = call fastcc i64 @php_extract_overwrite(ptr noundef %136, ptr noundef %113)
+  br label %163
 
-150:                                              ; preds = %144
-  %151 = load ptr, ptr %4, align 8, !tbaa !33
-  %152 = call fastcc i64 @php_extract_prefix_if_exists(ptr noundef %137, ptr noundef %113, ptr noundef %151)
-  br label %164
+149:                                              ; preds = %143
+  %150 = load ptr, ptr %4, align 8, !tbaa !33
+  %151 = call fastcc i64 @php_extract_prefix_if_exists(ptr noundef %136, ptr noundef %113, ptr noundef %150)
+  br label %163
 
-153:                                              ; preds = %144
-  %154 = load ptr, ptr %4, align 8, !tbaa !33
-  %155 = call fastcc i64 @php_extract_prefix_same(ptr noundef %137, ptr noundef %113, ptr noundef %154)
-  br label %164
+152:                                              ; preds = %143
+  %153 = load ptr, ptr %4, align 8, !tbaa !33
+  %154 = call fastcc i64 @php_extract_prefix_same(ptr noundef %136, ptr noundef %113, ptr noundef %153)
+  br label %163
 
-156:                                              ; preds = %144
-  %157 = load ptr, ptr %4, align 8, !tbaa !33
-  %158 = call fastcc i64 @php_extract_prefix_all(ptr noundef %137, ptr noundef %113, ptr noundef %157)
-  br label %164
+155:                                              ; preds = %143
+  %156 = load ptr, ptr %4, align 8, !tbaa !33
+  %157 = call fastcc i64 @php_extract_prefix_all(ptr noundef %136, ptr noundef %113, ptr noundef %156)
+  br label %163
 
-159:                                              ; preds = %144
-  %160 = load ptr, ptr %4, align 8, !tbaa !33
-  %161 = call fastcc i64 @php_extract_prefix_invalid(ptr noundef %137, ptr noundef %113, ptr noundef %160)
-  br label %164
+158:                                              ; preds = %143
+  %159 = load ptr, ptr %4, align 8, !tbaa !33
+  %160 = call fastcc i64 @php_extract_prefix_invalid(ptr noundef %136, ptr noundef %113, ptr noundef %159)
+  br label %163
 
-162:                                              ; preds = %144
-  %163 = call fastcc i64 @php_extract_skip(ptr noundef %137, ptr noundef %113)
-  br label %164
+161:                                              ; preds = %143
+  %162 = call fastcc i64 @php_extract_skip(ptr noundef %136, ptr noundef %113)
+  br label %163
 
-164:                                              ; preds = %162, %159, %156, %153, %150, %148, %146
-  %.0 = phi i64 [ %163, %162 ], [ %147, %146 ], [ %149, %148 ], [ %152, %150 ], [ %155, %153 ], [ %158, %156 ], [ %161, %159 ]
+163:                                              ; preds = %161, %158, %155, %152, %149, %147, %145
+  %.0 = phi i64 [ %162, %161 ], [ %146, %145 ], [ %148, %147 ], [ %151, %149 ], [ %154, %152 ], [ %157, %155 ], [ %160, %158 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %165
+  br label %164
 
-165:                                              ; preds = %118, %120, %122, %125, %128, %131, %134, %164
-  %.1 = phi i64 [ %135, %134 ], [ %119, %118 ], [ %121, %120 ], [ %124, %122 ], [ %127, %125 ], [ %130, %128 ], [ %133, %131 ], [ %.0, %164 ]
+164:                                              ; preds = %117, %119, %121, %124, %127, %130, %133, %163
+  %.1 = phi i64 [ %134, %133 ], [ %118, %117 ], [ %120, %119 ], [ %123, %121 ], [ %126, %124 ], [ %129, %127 ], [ %132, %130 ], [ %.0, %163 ]
   store i64 %.1, ptr %1, align 8, !tbaa !8
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %166, align 8, !tbaa !8
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %165, align 8, !tbaa !8
   br label %zend_forbid_dynamic_call.exit.thread
 
-zend_forbid_dynamic_call.exit.thread:             ; preds = %112, %111, %104, %95, %zend_parse_arg_array.exit.thread149, %165, %.loopexit, %61, %56
+zend_forbid_dynamic_call.exit.thread:             ; preds = %112, %111, %104, %95, %zend_parse_arg_array.exit.thread149, %164, %.loopexit, %61, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -9337,38 +9336,37 @@ define hidden void @zif_compact(ptr noundef %0, ptr noundef captures(none) %1) l
 
 zend_forbid_dynamic_call.exit:                    ; preds = %.critedge
   %35 = tail call ptr @zend_rebuild_symbol_table() #21
-  %36 = icmp ne ptr %35, null
-  tail call void @llvm.assume(i1 %36)
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %38 = load i8, ptr %37, align 8, !tbaa !8
-  %39 = icmp eq i8 %38, 7
-  br i1 %39, label %40, label %44
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %35) ]
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %37 = load i8, ptr %36, align 8, !tbaa !8
+  %38 = icmp eq i8 %37, 7
+  br i1 %38, label %39, label %43
 
-40:                                               ; preds = %zend_forbid_dynamic_call.exit
-  %41 = load ptr, ptr %8, align 8, !tbaa !8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 28
-  %43 = load i32, ptr %42, align 4, !tbaa !17
-  br label %44
+39:                                               ; preds = %zend_forbid_dynamic_call.exit
+  %40 = load ptr, ptr %8, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 28
+  %42 = load i32, ptr %41, align 4, !tbaa !17
+  br label %43
 
-44:                                               ; preds = %zend_forbid_dynamic_call.exit, %40
-  %.sink71 = phi i32 [ %43, %40 ], [ %4, %zend_forbid_dynamic_call.exit ]
-  %45 = tail call ptr @_zend_new_array(i32 noundef %.sink71) #21
-  store ptr %45, ptr %1, align 8, !tbaa !8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 775, ptr %46, align 8, !tbaa !8
+43:                                               ; preds = %zend_forbid_dynamic_call.exit, %39
+  %.sink71 = phi i32 [ %42, %39 ], [ %4, %zend_forbid_dynamic_call.exit ]
+  %44 = tail call ptr @_zend_new_array(i32 noundef %.sink71) #21
+  store ptr %44, ptr %1, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 775, ptr %45, align 8, !tbaa !8
   %wide.trip.count = zext i32 %4 to i64
-  br label %47
+  br label %46
 
-47:                                               ; preds = %44, %47
-  %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %47 ]
-  %48 = getelementptr inbounds nuw %struct._zval_struct, ptr %8, i64 %indvars.iv
+46:                                               ; preds = %43, %46
+  %indvars.iv = phi i64 [ 0, %43 ], [ %indvars.iv.next, %46 ]
+  %47 = getelementptr inbounds nuw %struct._zval_struct, ptr %8, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = trunc nuw i64 %indvars.iv.next to i32
-  tail call fastcc void @php_compact_var(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull %48, i32 noundef %49)
+  %48 = trunc nuw i64 %indvars.iv.next to i32
+  tail call fastcc void @php_compact_var(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull %47, i32 noundef %48)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %zend_forbid_dynamic_call.exit.thread, label %47
+  br i1 %exitcond.not, label %zend_forbid_dynamic_call.exit.thread, label %46
 
-zend_forbid_dynamic_call.exit.thread:             ; preds = %47, %34, %33, %26, %17, %12
+zend_forbid_dynamic_call.exit.thread:             ; preds = %46, %34, %33, %26, %17, %12
   ret void
 }
 
@@ -10780,7 +10778,7 @@ zend_dval_to_lval.exit:                           ; preds = %51, %53
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.22) #21
   br label %.thread535
 
-.thread535:                                       ; preds = %74, %70, %332, %381, %372, %323, %363, %._crit_edge618, %293, %._crit_edge610, %220, %269, %._crit_edge594, %184, %._crit_edge, %97, %89, %.thread538, %387
+.thread535:                                       ; preds = %332, %381, %372, %323, %363, %._crit_edge618, %293, %._crit_edge610, %220, %269, %._crit_edge594, %184, %._crit_edge, %97, %89, %74, %70, %.thread538, %387
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19231,7 +19229,7 @@ define internal fastcc void @php_array_intersect_key(i32 %.44.val, ptr noundef c
   %.not = icmp eq i32 %106, 0
   br i1 %.not, label %.loopexit3, label %.lr.ph19
 
-.loopexit3:                                       ; preds = %.loopexit, %15, %6, %._crit_edge
+.loopexit3:                                       ; preds = %.loopexit, %._crit_edge, %6, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -19888,7 +19886,7 @@ zend_may_modify_arg_in_place.exit.thread:         ; preds = %._crit_edge, %124, 
   store i32 %296, ptr %294, align 4, !tbaa !11
   br label %297
 
-297:                                              ; preds = %29, %16, %._crit_edge338, %293
+297:                                              ; preds = %._crit_edge338, %293, %29, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -20201,7 +20199,7 @@ define internal fastcc void @php_array_diff_key(i32 %.44.val, ptr noundef captur
   %.not = icmp eq i32 %110, 0
   br i1 %.not, label %.loopexit4, label %.lr.ph19
 
-.loopexit4:                                       ; preds = %.loopexit, %21, %6, %9, %._crit_edge
+.loopexit4:                                       ; preds = %.loopexit, %._crit_edge, %9, %6, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -22612,7 +22610,7 @@ zend_parse_arg_array.exit.thread59:               ; preds = %zend_parse_arg_long
   %25 = call zeroext i1 @php_array_pick_keys(ptr %22, ptr %23, ptr noundef nonnull %9, i64 noundef %24, ptr noundef %1, i1 noundef zeroext false)
   br label %26
 
-26:                                               ; preds = %.critedge, %zend_parse_arg_array.exit.thread59
+26:                                               ; preds = %zend_parse_arg_array.exit.thread59, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -23553,7 +23551,7 @@ zend_parse_arg_array.exit:                        ; preds = %9, %8, %zend_parse_
   store i32 1, ptr %22, align 8, !tbaa !8
   br label %26
 
-26:                                               ; preds = %.critedge, %zend_parse_arg_array.exit, %21, %25
+26:                                               ; preds = %zend_parse_arg_array.exit, %21, %.critedge, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -23805,7 +23803,7 @@ zend_parse_arg_array.exit:                        ; preds = %13, %12, %zend_pars
   %.045 = phi i32 [ 1, %12 ], [ %.53, %zend_parse_arg_func.exit ], [ 9, %13 ]
   call void @zend_wrong_parameter_error(i32 noundef %.045, i32 noundef %.046, ptr noundef %22, i32 noundef %.047, ptr noundef %.048) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %89
+  br label %88
 
 .critedge:                                        ; preds = %18
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %8) #21
@@ -23913,7 +23911,7 @@ zend_parse_arg_array.exit:                        ; preds = %13, %12, %zend_pars
   %69 = call i32 @zend_call_function(ptr noundef nonnull align 8 %6, ptr noundef nonnull align 8 %5) #21
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !110
   %.not98.i = icmp eq ptr %70, null
-  br i1 %.not98.i, label %71, label %84, !prof !10
+  br i1 %.not98.i, label %71, label %php_array_find.exit, !prof !10
 
 71:                                               ; preds = %66
   %72 = call zeroext i1 @zend_is_true(ptr noundef nonnull %3) #21
@@ -23944,28 +23942,28 @@ zend_parse_arg_array.exit:                        ; preds = %13, %12, %zend_pars
   %.not94.i = icmp eq i32 %83, 0
   br i1 %.not94.i, label %.loopexit, label %42
 
-84:                                               ; preds = %66
+php_array_find.exit:                              ; preds = %66
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %89
+  br label %88
 
 .loopexit:                                        ; preds = %82, %26, %74, %79, %73, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %86 = load i8, ptr %85, align 8, !tbaa !8
-  %87 = icmp eq i8 %86, 0
-  br i1 %87, label %88, label %89
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %85 = load i8, ptr %84, align 8, !tbaa !8
+  %86 = icmp eq i8 %85, 0
+  br i1 %86, label %87, label %88
 
-88:                                               ; preds = %.loopexit
-  store i32 1, ptr %85, align 8, !tbaa !8
-  br label %89
+87:                                               ; preds = %.loopexit
+  store i32 1, ptr %84, align 8, !tbaa !8
+  br label %88
 
-89:                                               ; preds = %zend_parse_arg_array.exit, %.loopexit, %88, %84
+88:                                               ; preds = %php_array_find.exit, %zend_parse_arg_array.exit, %.loopexit, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
@@ -24022,7 +24020,7 @@ zend_parse_arg_array.exit:                        ; preds = %13, %12, %zend_pars
   %.045 = phi i32 [ 1, %12 ], [ %.54, %zend_parse_arg_func.exit ], [ 9, %13 ]
   call void @zend_wrong_parameter_error(i32 noundef %.045, i32 noundef %.046, ptr noundef %22, i32 noundef %.047, ptr noundef %.048) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %88
+  br label %87
 
 .critedge:                                        ; preds = %18
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %8) #21
@@ -24130,7 +24128,7 @@ zend_parse_arg_array.exit:                        ; preds = %13, %12, %zend_pars
   %69 = call i32 @zend_call_function(ptr noundef nonnull align 8 %6, ptr noundef nonnull align 8 %5) #21
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !110
   %.not98.i = icmp eq ptr %70, null
-  br i1 %.not98.i, label %71, label %84, !prof !10
+  br i1 %.not98.i, label %71, label %php_array_find.exit, !prof !10
 
 71:                                               ; preds = %66
   %72 = call zeroext i1 @zend_is_true(ptr noundef nonnull %3) #21
@@ -24161,26 +24159,26 @@ zend_parse_arg_array.exit:                        ; preds = %13, %12, %zend_pars
   %.not94.i = icmp eq i32 %83, 0
   br i1 %.not94.i, label %.loopexit, label %42
 
-84:                                               ; preds = %66
+php_array_find.exit:                              ; preds = %66
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %88
+  br label %87
 
 .loopexit:                                        ; preds = %82, %26, %74, %79, %73, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %86 = load i8, ptr %85, align 8, !tbaa !8
-  %.not53 = icmp eq i8 %86, 0
-  %87 = select i1 %.not53, i32 2, i32 3
-  store i32 %87, ptr %85, align 8, !tbaa !8
-  br label %88
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %85 = load i8, ptr %84, align 8, !tbaa !8
+  %.not53 = icmp eq i8 %85, 0
+  %86 = select i1 %.not53, i32 2, i32 3
+  store i32 %86, ptr %84, align 8, !tbaa !8
+  br label %87
 
-88:                                               ; preds = %zend_parse_arg_array.exit, %.loopexit, %84
+87:                                               ; preds = %php_array_find.exit, %zend_parse_arg_array.exit, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
@@ -24237,7 +24235,7 @@ zend_parse_arg_array.exit:                        ; preds = %13, %12, %zend_pars
   %.045 = phi i32 [ 1, %12 ], [ %.53, %zend_parse_arg_func.exit ], [ 9, %13 ]
   call void @zend_wrong_parameter_error(i32 noundef %.045, i32 noundef %.046, ptr noundef %22, i32 noundef %.047, ptr noundef %.048) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %89
+  br label %88
 
 .critedge:                                        ; preds = %18
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %8) #21
@@ -24345,7 +24343,7 @@ zend_parse_arg_array.exit:                        ; preds = %13, %12, %zend_pars
   %69 = call i32 @zend_call_function(ptr noundef nonnull align 8 %6, ptr noundef nonnull align 8 %5) #21
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !110
   %.not98.i = icmp eq ptr %70, null
-  br i1 %.not98.i, label %71, label %84, !prof !10
+  br i1 %.not98.i, label %71, label %php_array_find.exit, !prof !10
 
 71:                                               ; preds = %66
   %72 = call zeroext i1 @zend_is_true(ptr noundef nonnull %3) #21
@@ -24376,26 +24374,26 @@ zend_parse_arg_array.exit:                        ; preds = %13, %12, %zend_pars
   %.not94.i = icmp eq i32 %83, 0
   br i1 %.not94.i, label %.loopexit, label %42
 
-84:                                               ; preds = %66
+php_array_find.exit:                              ; preds = %66
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %89
+  br label %88
 
 .loopexit:                                        ; preds = %82, %26, %74, %79, %73, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %86 = load i8, ptr %85, align 8, !tbaa !8
-  %87 = icmp eq i8 %86, 0
-  %88 = select i1 %87, i32 3, i32 2
-  store i32 %88, ptr %85, align 8, !tbaa !8
-  br label %89
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %85 = load i8, ptr %84, align 8, !tbaa !8
+  %86 = icmp eq i8 %85, 0
+  %87 = select i1 %86, i32 3, i32 2
+  store i32 %87, ptr %84, align 8, !tbaa !8
+  br label %88
 
-89:                                               ; preds = %zend_parse_arg_array.exit, %.loopexit, %84
+88:                                               ; preds = %php_array_find.exit, %zend_parse_arg_array.exit, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void

@@ -16412,8 +16412,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EmitDeclRefLValueEPKN
   %56 = icmp ne i8 %55, 5
   %57 = and i32 %48, 256
   %.not.i = icmp eq i32 %57, 0
-  %or.cond619 = or i1 %56, %.not.i
-  br i1 %or.cond619, label %_ZNK5clang4Decl7hasAttrINS_12AsmLabelAttrEEEbv.exit.thread537, label %58
+  %or.cond618 = or i1 %56, %.not.i
+  br i1 %or.cond618, label %_ZNK5clang4Decl7hasAttrINS_12AsmLabelAttrEEEbv.exit.thread537, label %58
 
 58:                                               ; preds = %52
   %59 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %45) #27
@@ -17095,7 +17095,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   br i1 %.not555, label %.critedge._crit_edge, label %380
 
 .critedge._crit_edge:                             ; preds = %.critedge
-  %.pre584 = load i32, ptr %47, align 4
+  %.pre583 = load i32, ptr %47, align 4
   br label %583
 
 380:                                              ; preds = %.critedge
@@ -17468,7 +17468,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   br label %.critedge135
 
 583:                                              ; preds = %.critedge._crit_edge, %3
-  %584 = phi i32 [ %.pre584, %.critedge._crit_edge ], [ %48, %3 ]
+  %584 = phi i32 [ %.pre583, %.critedge._crit_edge ], [ %48, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %585 = and i32 %584, 256
   %.not.i185 = icmp eq i32 %585, 0
@@ -18193,8 +18193,8 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit:         ; preds = %_ZNK5clang4Decl21ge
   %940 = tail call noundef ptr @_ZN4llvm13IRBuilderBase24CreateThreadLocalAddressEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(128) %937, ptr noundef %939) #27
   %941 = ptrtoint ptr %940 to i64
   %942 = and i64 %941, -5
-  %.sroa.22.7..sroa_idx638 = getelementptr inbounds nuw i8, ptr %.sroa.22, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.22.7..sroa_idx638, i8 0, i64 16, i1 false)
+  %.sroa.22.7..sroa_idx637 = getelementptr inbounds nuw i8, ptr %.sroa.22, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.22.7..sroa_idx637, i8 0, i64 16, i1 false)
   br label %943
 
 943:                                              ; preds = %936, %934
@@ -18551,7 +18551,9 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
 
 .critedge147:                                     ; preds = %.critedge145
   %1093 = icmp eq i32 %635, 28
-  br i1 %1093, label %1094, label %1145
+  %spec.select.i.i269 = select i1 %1093, ptr %45, ptr null
+  %.not130.not = icmp eq ptr %spec.select.i.i269, null
+  br i1 %.not130.not, label %1145, label %1094
 
 1094:                                             ; preds = %.critedge147
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
@@ -18652,7 +18654,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit285:   ; preds = %_ZNK5clang8QualType
   br label %1145
 
 1145:                                             ; preds = %.critedge147, %1138
-  call void @llvm.assume(i1 %1093)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i269) ]
   br label %1146
 
 .critedge135:                                     ; preds = %551, %485, %481, %473, %414, %_ZL23EmitGlobalNamedRegisterPKN5clang7VarDeclERNS_7CodeGen13CodeGenModuleE.exit, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit184, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit
@@ -23187,8 +23189,8 @@ _ZN5clang7CodeGen15CodeGenFunction16IsWrappedCXXThisEPKNS_4ExprE.exit50.thread: 
   %130 = add nsw i32 %129, -32
   %131 = icmp ult i32 %130, 6
   %spec.select.i.i51 = select i1 %131, ptr %93, ptr null
-  %.not37 = icmp ne ptr %spec.select.i.i51, null
-  br i1 %.not37, label %132, label %166
+  %.not37.not = icmp eq ptr %spec.select.i.i51, null
+  br i1 %.not37.not, label %166, label %132
 
 132:                                              ; preds = %.critedge39
   %133 = and i32 %95, 256
@@ -23255,7 +23257,7 @@ _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit: ; preds = %_ZNK5clang4Decl7h
   br label %166
 
 166:                                              ; preds = %.critedge39, %_ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit
-  call void @llvm.assume(i1 %.not37)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i51) ]
   br label %167
 
 167:                                              ; preds = %119, %_ZN5clang7CodeGen15CodeGenFunction16IsWrappedCXXThisEPKNS_4ExprE.exit50.thread, %125, %99, %166

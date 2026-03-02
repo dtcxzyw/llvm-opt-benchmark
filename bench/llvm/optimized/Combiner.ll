@@ -1103,6 +1103,7 @@ _ZN4llvm20GISelObserverWrapper11addObserverEPNS_19GISelChangeObserverE.exit37: ;
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %298, align 8
   %299 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %300 = inttoptr i64 %299 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %300) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %300, align 8
   %301 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %301, 0
@@ -1308,6 +1309,7 @@ _ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i42 = load i64, ptr %.sroa.060.092, align 8
   %390 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i42, -8
   %391 = inttoptr i64 %390 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %391) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %391, align 8
   %392 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %392, 0

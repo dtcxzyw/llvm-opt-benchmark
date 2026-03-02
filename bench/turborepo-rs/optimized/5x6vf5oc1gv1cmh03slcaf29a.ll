@@ -38,6 +38,7 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort11inser
   %.val17 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   %16 = getelementptr i8, ptr %.sroa.5.0, i64 -32
   %.val18 = load i64, ptr %16, align 8, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload) ]
   %17 = invoke noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.sroa.4.0.copyload, i64 noundef %.sroa.532.0.copyload, ptr noalias noundef nonnull readonly align 1 %.val17, i64 noundef %.val18)
           to label %18 unwind label %21
 
@@ -291,6 +292,7 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort25inser
   %.val17.i = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr i8, ptr %.sroa.5.0.i, i64 -32
   %.val18.i = load i64, ptr %21, align 8, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i) ]
   %22 = invoke noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.sroa.4.0.copyload.i, i64 noundef %.sroa.532.0.copyload.i, ptr noalias noundef nonnull readonly align 1 %.val17.i, i64 noundef %.val18.i)
           to label %23 unwind label %26
 

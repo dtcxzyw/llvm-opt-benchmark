@@ -146,14 +146,14 @@ define hidden void @_ZNK8rawspeed10FileReader8readFileEv(ptr dead_on_unwind noal
   br label %.body
 
 "_ZNSt10unique_ptrI8_IO_FILEZNK8rawspeed10FileReader8readFileEvE3$_0ED2Ev.exit": ; preds = %28
-  %45 = load ptr, ptr %24, align 8, !tbaa !15, !nonnull !21, !noundef !21
+  %45 = load ptr, ptr %24, align 8, !tbaa !15
   %46 = trunc nuw nsw i64 %10 to i32
   %.cast = ptrtoint ptr %22 to i64
   store i64 %.cast, ptr %0, align 8, !tbaa !19
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %45, ptr %47, align 8, !tbaa !22
+  store ptr %45, ptr %47, align 8, !tbaa !21
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %46, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !23
+  store i32 %46, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = tail call i32 @fclose(ptr noundef nonnull %5)
   ret void
@@ -269,7 +269,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed15FileIOExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #9 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #23
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed15FileIOExceptionE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed15FileIOExceptionE, i64 16), ptr %0, align 8, !tbaa !24
   ret void
 }
 
@@ -301,7 +301,7 @@ declare noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef, i64 nound
 ; Function Attrs: cold mustprogress noinline optsize uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !24
   invoke void @_ZN8rawspeed17RawspeedException3logEPKc(ptr noundef %1) #23
           to label %3 unwind label %4
 
@@ -379,9 +379,8 @@ attributes #23 = { cold }
 !18 = !{!16, !8, i64 8}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"p1 _ZTSSt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS0_16AlignedAllocatorIhLi16EEEEEE", !9, i64 0}
-!21 = !{}
-!22 = !{!8, !8, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"int", !10, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"vtable pointer", !11, i64 0}
+!21 = !{!8, !8, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"int", !10, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"vtable pointer", !11, i64 0}

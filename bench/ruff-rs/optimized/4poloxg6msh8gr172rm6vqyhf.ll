@@ -2251,14 +2251,13 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !198
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  %12 = trunc i64 %8 to i32
-  %13 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %14 = insertvalue { i32, i32 } %13, i32 %12, 1
-  ret { i32, i32 } %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %9 = ptrtoint ptr %7 to i64
+  %10 = trunc i64 %9 to i32
+  %11 = trunc i64 %8 to i32
+  %12 = insertvalue { i32, i32 } poison, i32 %10, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %11, 1
+  ret { i32, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2279,14 +2278,13 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !201
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  %12 = trunc i64 %8 to i32
-  %13 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %14 = insertvalue { i32, i32 } %13, i32 %12, 1
-  ret { i32, i32 } %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %9 = ptrtoint ptr %7 to i64
+  %10 = trunc i64 %9 to i32
+  %11 = trunc i64 %8 to i32
+  %12 = insertvalue { i32, i32 } poison, i32 %10, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %11, 1
+  ret { i32, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2307,14 +2305,13 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !204
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  %12 = trunc i64 %8 to i32
-  %13 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %14 = insertvalue { i32, i32 } %13, i32 %12, 1
-  ret { i32, i32 } %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %9 = ptrtoint ptr %7 to i64
+  %10 = trunc i64 %9 to i32
+  %11 = trunc i64 %8 to i32
+  %12 = insertvalue { i32, i32 } poison, i32 %10, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %11, 1
+  ret { i32, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2335,14 +2332,13 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !207
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  %12 = trunc i64 %8 to i32
-  %13 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %14 = insertvalue { i32, i32 } %13, i32 %12, 1
-  ret { i32, i32 } %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %9 = ptrtoint ptr %7 to i64
+  %10 = trunc i64 %9 to i32
+  %11 = trunc i64 %8 to i32
+  %12 = insertvalue { i32, i32 } poison, i32 %10, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %11, 1
+  ret { i32, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2363,14 +2359,13 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !210
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  %12 = trunc i64 %8 to i32
-  %13 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %14 = insertvalue { i32, i32 } %13, i32 %12, 1
-  ret { i32, i32 } %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %9 = ptrtoint ptr %7 to i64
+  %10 = trunc i64 %9 to i32
+  %11 = trunc i64 %8 to i32
+  %12 = insertvalue { i32, i32 } poison, i32 %10, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %11, 1
+  ret { i32, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2391,14 +2386,13 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !213
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  %12 = trunc i64 %8 to i32
-  %13 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %14 = insertvalue { i32, i32 } %13, i32 %12, 1
-  ret { i32, i32 } %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %9 = ptrtoint ptr %7 to i64
+  %10 = trunc i64 %9 to i32
+  %11 = trunc i64 %8 to i32
+  %12 = insertvalue { i32, i32 } poison, i32 %10, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %11, 1
+  ret { i32, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2419,14 +2413,13 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !216
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  %12 = trunc i64 %8 to i32
-  %13 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %14 = insertvalue { i32, i32 } %13, i32 %12, 1
-  ret { i32, i32 } %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %9 = ptrtoint ptr %7 to i64
+  %10 = trunc i64 %9 to i32
+  %11 = trunc i64 %8 to i32
+  %12 = insertvalue { i32, i32 } poison, i32 %10, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %11, 1
+  ret { i32, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2447,14 +2440,13 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !219
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  %12 = trunc i64 %8 to i32
-  %13 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %14 = insertvalue { i32, i32 } %13, i32 %12, 1
-  ret { i32, i32 } %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %9 = ptrtoint ptr %7 to i64
+  %10 = trunc i64 %9 to i32
+  %11 = trunc i64 %8 to i32
+  %12 = insertvalue { i32, i32 } poison, i32 %10, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %11, 1
+  ret { i32, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2475,14 +2467,13 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !222
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  %12 = trunc i64 %8 to i32
-  %13 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %14 = insertvalue { i32, i32 } %13, i32 %12, 1
-  ret { i32, i32 } %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %9 = ptrtoint ptr %7 to i64
+  %10 = trunc i64 %9 to i32
+  %11 = trunc i64 %8 to i32
+  %12 = insertvalue { i32, i32 } poison, i32 %10, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %11, 1
+  ret { i32, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2503,14 +2494,13 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !225
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  %12 = trunc i64 %8 to i32
-  %13 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %14 = insertvalue { i32, i32 } %13, i32 %12, 1
-  ret { i32, i32 } %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %9 = ptrtoint ptr %7 to i64
+  %10 = trunc i64 %9 to i32
+  %11 = trunc i64 %8 to i32
+  %12 = insertvalue { i32, i32 } poison, i32 %10, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %11, 1
+  ret { i32, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2531,14 +2521,13 @@ define hidden { i32, i32 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_int
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !228
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  %12 = trunc i64 %8 to i32
-  %13 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %14 = insertvalue { i32, i32 } %13, i32 %12, 1
-  ret { i32, i32 } %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %9 = ptrtoint ptr %7 to i64
+  %10 = trunc i64 %9 to i32
+  %11 = trunc i64 %8 to i32
+  %12 = insertvalue { i32, i32 } poison, i32 %10, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %11, 1
+  ret { i32, i32 } %13
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

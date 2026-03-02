@@ -1905,8 +1905,8 @@ _Z9get_depthPK4expr.exit16:                       ; preds = %_Z9get_depthPK4expr
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %103
-  %.035.i.i.i.i.i.i = phi ptr [ %104, %103 ], [ %93, %.lr.ph.i.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %102
+  %.035.i.i.i.i.i.i = phi ptr [ %103, %102 ], [ %93, %.lr.ph.i.i.i.i.i.i.preheader ]
   %94 = load ptr, ptr %.035.i.i.i.i.i.i, align 8, !tbaa !144
   %95 = icmp ult ptr %94, inttoptr (i64 2 to ptr)
   br i1 %95, label %101, label %96
@@ -1917,73 +1917,71 @@ _Z9get_depthPK4expr.exit16:                       ; preds = %_Z9get_depthPK4expr
   %99 = icmp eq i32 %98, %9
   %100 = icmp eq ptr %94, %1
   %or.cond.i.i.i.i.i.i = and i1 %100, %99
-  br i1 %or.cond.i.i.i.i.i.i, label %_ZNK20dominator_simplifier4idomEP4expr.exit, label %103
+  br i1 %or.cond.i.i.i.i.i.i, label %_ZNK20dominator_simplifier4idomEP4expr.exit, label %102
 
 101:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %102 = icmp ne ptr %94, null
-  tail call void @llvm.assume(i1 %102)
-  br label %103
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %94) ]
+  br label %102
 
-103:                                              ; preds = %101, %96
-  %104 = getelementptr inbounds nuw i8, ptr %.035.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %104, %91
+102:                                              ; preds = %101, %96
+  %103 = getelementptr inbounds nuw i8, ptr %.035.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %103, %91
   br i1 %.not.i.i.i.i.i.i, label %.lr.ph38.i.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !152
 
-.lr.ph38.i.i.i.i.i.i.preheader:                   ; preds = %103, %83
+.lr.ph38.i.i.i.i.i.i.preheader:                   ; preds = %102, %83
   br label %.lr.ph38.i.i.i.i.i.i
 
 .lr.ph38.i.i.i.i.i.i:                             ; preds = %.lr.ph38.i.i.i.i.i.i.preheader, %.lr.ph38.backedge.i.i.i.i.i.i
   %.137.i.i.i.i.i.i = phi ptr [ %.pn.i.i.i.i, %.lr.ph38.backedge.i.i.i.i.i.i ], [ %89, %.lr.ph38.i.i.i.i.i.i.preheader ]
-  %105 = load ptr, ptr %.137.i.i.i.i.i.i, align 8, !tbaa !144
-  %106 = icmp ult ptr %105, inttoptr (i64 2 to ptr)
-  br i1 %106, label %112, label %107
+  %104 = load ptr, ptr %.137.i.i.i.i.i.i, align 8, !tbaa !144
+  %105 = icmp ult ptr %104, inttoptr (i64 2 to ptr)
+  br i1 %105, label %111, label %106
 
-107:                                              ; preds = %.lr.ph38.i.i.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 12
-  %109 = load i32, ptr %108, align 4, !tbaa !136
-  %110 = icmp eq i32 %109, %9
-  %111 = icmp eq ptr %105, %1
-  %or.cond31.i.i.i.i.i.i = and i1 %111, %110
+106:                                              ; preds = %.lr.ph38.i.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 12
+  %108 = load i32, ptr %107, align 4, !tbaa !136
+  %109 = icmp eq i32 %108, %9
+  %110 = icmp eq ptr %104, %1
+  %or.cond31.i.i.i.i.i.i = and i1 %110, %109
   br i1 %or.cond31.i.i.i.i.i.i, label %_ZNK20dominator_simplifier4idomEP4expr.exit, label %.lr.ph38.backedge.i.i.i.i.i.i
 
-112:                                              ; preds = %.lr.ph38.i.i.i.i.i.i
-  %113 = icmp ne ptr %105, null
-  tail call void @llvm.assume(i1 %113)
+111:                                              ; preds = %.lr.ph38.i.i.i.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %104) ]
   br label %.lr.ph38.backedge.i.i.i.i.i.i
 
-.lr.ph38.backedge.i.i.i.i.i.i:                    ; preds = %112, %107
+.lr.ph38.backedge.i.i.i.i.i.i:                    ; preds = %111, %106
   %.pn.i.i.i.i = getelementptr inbounds nuw i8, ptr %.137.i.i.i.i.i.i, i64 16
   br label %.lr.ph38.i.i.i.i.i.i, !llvm.loop !153
 
 common.ret72:                                     ; preds = %.loopexit, %_Z9get_depthPK4expr.exit16, %3, %_ZNK20dominator_simplifier4idomEP4expr.exit
-  %common.ret72.op = phi i1 [ %116, %_ZNK20dominator_simplifier4idomEP4expr.exit ], [ false, %_Z9get_depthPK4expr.exit16 ], [ true, %3 ], [ %64, %.loopexit ]
+  %common.ret72.op = phi i1 [ %114, %_ZNK20dominator_simplifier4idomEP4expr.exit ], [ false, %_Z9get_depthPK4expr.exit16 ], [ true, %3 ], [ %64, %.loopexit ]
   ret i1 %common.ret72.op
 
-_ZNK20dominator_simplifier4idomEP4expr.exit:      ; preds = %96, %107
-  %.026.i.i.i.i.i.i = phi ptr [ %.137.i.i.i.i.i.i, %107 ], [ %.035.i.i.i.i.i.i, %96 ]
-  %114 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i.i.i, i64 8
-  %115 = load ptr, ptr %114, align 8, !tbaa !45
-  %116 = tail call noundef zeroext i1 @_ZN20dominator_simplifier10is_subexprEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(281) %0, ptr noundef %115, ptr noundef %2)
-  %117 = zext i1 %116 to i8
+_ZNK20dominator_simplifier4idomEP4expr.exit:      ; preds = %96, %106
+  %.026.i.i.i.i.i.i = phi ptr [ %.137.i.i.i.i.i.i, %106 ], [ %.035.i.i.i.i.i.i, %96 ]
+  %112 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i.i.i, i64 8
+  %113 = load ptr, ptr %112, align 8, !tbaa !45
+  %114 = tail call noundef zeroext i1 @_ZN20dominator_simplifier10is_subexprEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(281) %0, ptr noundef %113, ptr noundef %2)
+  %115 = zext i1 %114 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !168
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %2, ptr %118, align 8, !tbaa !169
-  %119 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 %117, ptr %119, align 8, !tbaa !170
-  %120 = load i32, ptr %8, align 4, !tbaa !136
-  %121 = load i32, ptr %10, align 4, !tbaa !136
-  %122 = sub i32 %121, %120
-  %123 = shl i32 %120, 8
-  %124 = xor i32 %122, %123
-  %125 = sub i32 %120, %124
-  %126 = shl i32 %125, 16
-  %127 = xor i32 %126, %124
-  %128 = sub i32 %127, %125
-  %129 = shl i32 %125, 10
-  %130 = xor i32 %128, %129
-  %131 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %130, ptr %131, align 4, !tbaa !159
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %2, ptr %116, align 8, !tbaa !169
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i8 %115, ptr %117, align 8, !tbaa !170
+  %118 = load i32, ptr %8, align 4, !tbaa !136
+  %119 = load i32, ptr %10, align 4, !tbaa !136
+  %120 = sub i32 %119, %118
+  %121 = shl i32 %118, 8
+  %122 = xor i32 %120, %121
+  %123 = sub i32 %118, %122
+  %124 = shl i32 %123, 16
+  %125 = xor i32 %124, %122
+  %126 = sub i32 %125, %123
+  %127 = shl i32 %123, 10
+  %128 = xor i32 %126, %127
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 %128, ptr %129, align 4, !tbaa !159
   call void @_ZN14core_hashtableIN12obj_pair_mapI4exprS1_bE5entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.ret72

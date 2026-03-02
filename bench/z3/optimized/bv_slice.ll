@@ -3003,7 +3003,7 @@ define hidden void @_ZN2bv5slice11get_concatsEP4exprR10ptr_vectorIS1_E(ptr nound
   br i1 %10, label %.lr.ph, label %_ZNK14bv_recognizers9is_concatEPK4expr.exit.thread
 
 .lr.ph:                                           ; preds = %3, %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit.thread
-  %.013 = phi ptr [ %95, %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit.thread ], [ %1, %3 ]
+  %.013 = phi ptr [ %94, %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit.thread ], [ %1, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %.013, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !81
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -3181,56 +3181,55 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i:   ; preds = %_ZN6vectorIP4exprLb
   br i1 %exitcond.not.i, label %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit.thread, label %.lr.ph.i, !llvm.loop !121
 
 _ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit:       ; preds = %22
-  %88 = icmp ne ptr %.pre, null
-  tail call void @llvm.assume(i1 %88)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre) ]
   br label %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit.thread
 
 _ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit.thread: ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i, %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit
-  %89 = phi ptr [ %.pre, %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit ], [ %81, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i ]
-  %90 = getelementptr inbounds i8, ptr %89, i64 -4
-  %91 = load i32, ptr %90, align 4, !tbaa !54
-  %92 = add i32 %91, -1
-  %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %89, i64 %93
-  %95 = load ptr, ptr %94, align 8, !tbaa !41
-  %96 = getelementptr inbounds i8, ptr %89, i64 -4
-  store i32 %92, ptr %96, align 4, !tbaa !54
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  %98 = load i32, ptr %97, align 4
-  %99 = and i32 %98, 65535
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %.lr.ph, label %_ZNK14bv_recognizers9is_concatEPK4expr.exit.thread, !llvm.loop !122
+  %88 = phi ptr [ %.pre, %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit ], [ %81, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i ]
+  %89 = getelementptr inbounds i8, ptr %88, i64 -4
+  %90 = load i32, ptr %89, align 4, !tbaa !54
+  %91 = add i32 %90, -1
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds nuw ptr, ptr %88, i64 %92
+  %94 = load ptr, ptr %93, align 8, !tbaa !41
+  %95 = getelementptr inbounds i8, ptr %88, i64 -4
+  store i32 %91, ptr %95, align 4, !tbaa !54
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %97 = load i32, ptr %96, align 4
+  %98 = and i32 %97, 65535
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %.lr.ph, label %_ZNK14bv_recognizers9is_concatEPK4expr.exit.thread, !llvm.loop !122
 
 _ZNK14bv_recognizers9is_concatEPK4expr.exit.thread: ; preds = %_ZNK14bv_recognizers9is_concatEPK4expr.exit, %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit.thread, %.lr.ph, %3
-  %.0.lcssa = phi ptr [ %1, %3 ], [ %.013, %.lr.ph ], [ %95, %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit.thread ], [ %.013, %_ZNK14bv_recognizers9is_concatEPK4expr.exit ]
-  %101 = load ptr, ptr %2, align 8, !tbaa !51
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %109, label %103
+  %.0.lcssa = phi ptr [ %1, %3 ], [ %.013, %.lr.ph ], [ %94, %_ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit.thread ], [ %.013, %_ZNK14bv_recognizers9is_concatEPK4expr.exit ]
+  %100 = load ptr, ptr %2, align 8, !tbaa !51
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %108, label %102
 
-103:                                              ; preds = %_ZNK14bv_recognizers9is_concatEPK4expr.exit.thread
-  %104 = getelementptr inbounds i8, ptr %101, i64 -4
-  %105 = load i32, ptr %104, align 4, !tbaa !54
-  %106 = getelementptr inbounds i8, ptr %101, i64 -8
-  %107 = load i32, ptr %106, align 4, !tbaa !54
-  %108 = icmp eq i32 %105, %107
-  br i1 %108, label %109, label %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit
+102:                                              ; preds = %_ZNK14bv_recognizers9is_concatEPK4expr.exit.thread
+  %103 = getelementptr inbounds i8, ptr %100, i64 -4
+  %104 = load i32, ptr %103, align 4, !tbaa !54
+  %105 = getelementptr inbounds i8, ptr %100, i64 -8
+  %106 = load i32, ptr %105, align 4, !tbaa !54
+  %107 = icmp eq i32 %104, %106
+  br i1 %107, label %108, label %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit
 
-109:                                              ; preds = %103, %_ZNK14bv_recognizers9is_concatEPK4expr.exit.thread
+108:                                              ; preds = %102, %_ZNK14bv_recognizers9is_concatEPK4expr.exit.thread
   tail call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.pre.i5 = load ptr, ptr %2, align 8, !tbaa !51
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i5, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !54
   br label %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit
 
-_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %103, %109
-  %110 = phi i32 [ %.pre2.i, %109 ], [ %105, %103 ]
-  %111 = phi ptr [ %.pre.i5, %109 ], [ %101, %103 ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 -4
-  %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw ptr, ptr %111, i64 %113
-  store ptr %.0.lcssa, ptr %114, align 8, !tbaa !41
-  %115 = add i32 %110, 1
-  store i32 %115, ptr %112, align 4, !tbaa !54
+_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %102, %108
+  %109 = phi i32 [ %.pre2.i, %108 ], [ %104, %102 ]
+  %110 = phi ptr [ %.pre.i5, %108 ], [ %100, %102 ]
+  %111 = getelementptr inbounds i8, ptr %110, i64 -4
+  %112 = zext i32 %109 to i64
+  %113 = getelementptr inbounds nuw ptr, ptr %110, i64 %112
+  store ptr %.0.lcssa, ptr %113, align 8, !tbaa !41
+  %114 = add i32 %109, 1
+  store i32 %114, ptr %111, align 4, !tbaa !54
   ret void
 }
 

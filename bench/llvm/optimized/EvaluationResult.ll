@@ -67,10 +67,10 @@ $_ZN4llvm8DenseMapIPKN5clang6interp5BlockENS_6detail13DenseSetEmptyENS_12DenseMa
 define dso_local void @_ZNK5clang6interp16EvaluationResult9toAPValueEv(ptr dead_on_unwind noalias writable sret(%"class.clang::APValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8, !tbaa !3
-  switch i32 %4, label %25 [
+  switch i32 %4, label %22 [
     i32 1, label %5
-    i32 2, label %16
-    i32 4, label %21
+    i32 2, label %13
+    i32 4, label %18
   ]
 
 5:                                                ; preds = %2
@@ -78,49 +78,45 @@ define dso_local void @_ZNK5clang6interp16EvaluationResult9toAPValueEv(ptr dead_
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load i8, ptr %7, align 8, !tbaa !23
   %.not = icmp eq i8 %8, 1
-  br i1 %.not, label %9, label %12
+  %9 = load ptr, ptr %1, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !25
+  br i1 %.not, label %11, label %12
 
-9:                                                ; preds = %5
-  %10 = load ptr, ptr %1, align 8, !tbaa !24
-  %11 = load ptr, ptr %10, align 8, !tbaa !25
-  tail call void @_ZNK5clang6interp7Pointer9toAPValueERKNS_10ASTContextE(ptr dead_on_unwind writable sret(%"class.clang::APValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %6, ptr noundef nonnull align 8 dereferenceable(23216) %11) #13
-  br label %26
+11:                                               ; preds = %5
+  tail call void @_ZNK5clang6interp7Pointer9toAPValueERKNS_10ASTContextE(ptr dead_on_unwind writable sret(%"class.clang::APValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %6, ptr noundef nonnull align 8 dereferenceable(23216) %10) #13
+  br label %23
 
 12:                                               ; preds = %5
-  %13 = icmp eq i8 %8, 2
-  tail call void @llvm.assume(i1 %13)
-  %14 = load ptr, ptr %1, align 8, !tbaa !24
-  %15 = load ptr, ptr %14, align 8, !tbaa !25
-  tail call void @_ZNK5clang6interp15FunctionPointer9toAPValueERKNS_10ASTContextE(ptr dead_on_unwind writable sret(%"class.clang::APValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(23216) %15) #13
-  br label %26
+  tail call void @_ZNK5clang6interp15FunctionPointer9toAPValueERKNS_10ASTContextE(ptr dead_on_unwind writable sret(%"class.clang::APValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(23216) %10) #13
+  br label %23
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %18 = load i8, ptr %17, align 8, !tbaa !23
-  %.not.i.i = icmp eq i8 %18, 3
-  br i1 %.not.i.i, label %_ZSt3getIN5clang7APValueEJSt9monostateNS0_6interp7PointerENS3_15FunctionPointerES1_EERKT_RKSt7variantIJDpT0_EE.exit, label %19
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %15 = load i8, ptr %14, align 8, !tbaa !23
+  %.not.i.i = icmp eq i8 %15, 3
+  br i1 %.not.i.i, label %_ZSt3getIN5clang7APValueEJSt9monostateNS0_6interp7PointerENS3_15FunctionPointerES1_EERKT_RKSt7variantIJDpT0_EE.exit, label %16
 
-19:                                               ; preds = %16
+16:                                               ; preds = %13
   tail call void @abort() #14
   unreachable
 
-_ZSt3getIN5clang7APValueEJSt9monostateNS0_6interp7PointerENS3_15FunctionPointerES1_EERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @_ZN5clang7APValueC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %20) #13
-  br label %26
+_ZSt3getIN5clang7APValueEJSt9monostateNS0_6interp7PointerENS3_15FunctionPointerES1_EERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @_ZN5clang7APValueC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %17) #13
+  br label %23
 
-21:                                               ; preds = %2
+18:                                               ; preds = %2
   store i32 0, ptr %0, align 8, !tbaa !39
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = load i8, ptr %22, align 4
-  %24 = and i8 %23, -2
-  store i8 %24, ptr %22, align 4
-  br label %26
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %20 = load i8, ptr %19, align 4
+  %21 = and i8 %20, -2
+  store i8 %21, ptr %19, align 4
+  br label %23
 
-25:                                               ; preds = %2
+22:                                               ; preds = %2
   unreachable
 
-26:                                               ; preds = %9, %12, %21, %_ZSt3getIN5clang7APValueEJSt9monostateNS0_6interp7PointerENS3_15FunctionPointerES1_EERKT_RKSt7variantIJDpT0_EE.exit
+23:                                               ; preds = %11, %12, %18, %_ZSt3getIN5clang7APValueEJSt9monostateNS0_6interp7PointerENS3_15FunctionPointerES1_EERKT_RKSt7variantIJDpT0_EE.exit
   ret void
 }
 

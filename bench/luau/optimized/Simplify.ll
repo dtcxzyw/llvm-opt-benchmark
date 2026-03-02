@@ -6366,8 +6366,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit:
   %5 = alloca %"struct.Luau::TypeIterator", align 8
   %6 = alloca %"struct.Luau::TypeIterator", align 8
   %7 = alloca %"struct.Luau::UnionType", align 8
-  %.not.i.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7714,11 +7713,9 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit:
   %7 = alloca %"struct.Luau::TypeIterator", align 8
   %8 = alloca %"struct.Luau::TypeIterator", align 8
   %9 = alloca %"struct.Luau::UnionType", align 8
-  %.not.i.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not.i.i51 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %.not.i.i51)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -8418,15 +8415,14 @@ _ZN4Luau16IntersectionTypeD2Ev.exit54:            ; preds = %291, %303, %306, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4Luau14TypeSimplifier21intersectNegatedUnionEPKNS_4TypeES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4Luau14TypeSimplifier21intersectNegatedUnionEPKNS_4TypeES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit:
   %3 = alloca %"class.Luau::Set", align 8
   %4 = alloca %"class.std::set", align 8
   %5 = alloca %"struct.Luau::TypeIterator", align 8
   %6 = alloca %"struct.Luau::TypeIterator", align 8
   %7 = alloca %"class.std::set", align 8
-  %.not.i.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %9)
@@ -8992,8 +8988,7 @@ _ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit:
   %13 = alloca %"struct.Luau::IntersectionType", align 8
   %14 = alloca %"struct.Luau::UnionType", align 8
   %15 = alloca %"struct.Luau::IntersectionType", align 8
-  %.not.i.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %17)
@@ -10330,8 +10325,7 @@ define dso_local noundef ptr @_ZN4Luau14TypeSimplifier18intersectNegationsEPKNS_
 _ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit:
   %3 = alloca %"class.Luau::Set", align 8
   %4 = alloca %"struct.Luau::IntersectionType", align 8
-  %.not.i.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %6)
@@ -10348,8 +10342,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %8
   br label %_ZN4Luau16IntersectionTypeD2Ev.exit
 
 _ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit25: ; preds = %8, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit
-  %.not.i.i24 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %.not.i.i24)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %13)
@@ -10472,8 +10465,7 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit:
   %6 = alloca %"struct.Luau::TypeIterator.80", align 8
   %7 = alloca %"struct.Luau::TypeIterator.80", align 8
   %8 = alloca %"class.std::set", align 8
-  %.not.i.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !50

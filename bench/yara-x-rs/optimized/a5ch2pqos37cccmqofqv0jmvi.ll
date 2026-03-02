@@ -15248,7 +15248,7 @@ define internal void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$al
 define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$wasmtime..runtime..vm..traphandlers..UnwindReason$GT$17hc322c2e20d660ea7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !726, !noundef !3
   %3 = icmp eq i64 %2, 5
-  br i1 %3, label %4, label %28
+  br i1 %3, label %4, label %26
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15257,62 +15257,60 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$wasmtime..runtime..
   %.val1 = load ptr, ptr %6, align 8, !nonnull !3, !align !9, !noundef !3
   %7 = load ptr, ptr %.val1, align 8, !invariant.load !3
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %10, label %8
+  br i1 %.not.i, label %9, label %8
 
 8:                                                ; preds = %4
-  %9 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   invoke void %7(ptr noundef nonnull %.val)
-          to label %10 unwind label %19
+          to label %9 unwind label %17
 
-10:                                               ; preds = %8, %4
-  %11 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %13 = load i64, ptr %12, align 8, !range !727, !invariant.load !3
-  %14 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
-  %15 = load i64, ptr %14, align 8, !range !728, !invariant.load !3
-  %16 = icmp ult i64 %15, -9223372036854775807
-  tail call void @llvm.assume(i1 %16)
-  %17 = icmp eq i64 %13, 0
-  br i1 %17, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h1c7ef8e21657433bE.exit", label %18
+9:                                                ; preds = %8, %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  %10 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %11 = load i64, ptr %10, align 8, !range !727, !invariant.load !3
+  %12 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
+  %13 = load i64, ptr %12, align 8, !range !728, !invariant.load !3
+  %14 = icmp ult i64 %13, -9223372036854775807
+  tail call void @llvm.assume(i1 %14)
+  %15 = icmp eq i64 %11, 0
+  br i1 %15, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h1c7ef8e21657433bE.exit", label %16
 
-18:                                               ; preds = %10
-  tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %13, i64 noundef range(i64 1, -9223372036854775807) %15) #28
+16:                                               ; preds = %9
+  tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %11, i64 noundef range(i64 1, -9223372036854775807) %13) #28
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h1c7ef8e21657433bE.exit"
 
-19:                                               ; preds = %8
-  %20 = landingpad { ptr, i32 }
+17:                                               ; preds = %8
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %21 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %22 = load i64, ptr %21, align 8, !range !727, !invariant.load !3
-  %23 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
-  %24 = load i64, ptr %23, align 8, !range !728, !invariant.load !3
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb35848f19d01f5c4E.exit4.i", label %27
+  %19 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %20 = load i64, ptr %19, align 8, !range !727, !invariant.load !3
+  %21 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
+  %22 = load i64, ptr %21, align 8, !range !728, !invariant.load !3
+  %23 = icmp ult i64 %22, -9223372036854775807
+  tail call void @llvm.assume(i1 %23)
+  %24 = icmp eq i64 %20, 0
+  br i1 %24, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb35848f19d01f5c4E.exit4.i", label %25
 
-27:                                               ; preds = %19
-  tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %22, i64 noundef range(i64 1, -9223372036854775807) %24) #28
+25:                                               ; preds = %17
+  tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %20, i64 noundef range(i64 1, -9223372036854775807) %22) #28
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb35848f19d01f5c4E.exit4.i"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb35848f19d01f5c4E.exit4.i": ; preds = %27, %19
-  resume { ptr, i32 } %20
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb35848f19d01f5c4E.exit4.i": ; preds = %25, %17
+  resume { ptr, i32 } %18
 
-28:                                               ; preds = %1
-  %29 = add nsw i64 %2, -2
-  %30 = icmp ne i64 %29, 1
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp eq i64 %29, 0
-  br i1 %31, label %32, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h1c7ef8e21657433bE.exit"
+26:                                               ; preds = %1
+  %27 = add nsw i64 %2, -2
+  %28 = icmp ne i64 %27, 1
+  tail call void @llvm.assume(i1 %28)
+  %29 = icmp eq i64 %27, 0
+  br i1 %29, label %30, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h1c7ef8e21657433bE.exit"
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h0d59a04ac134eff4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %33)
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h0d59a04ac134eff4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31)
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h1c7ef8e21657433bE.exit"
 
-"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h1c7ef8e21657433bE.exit": ; preds = %32, %28, %18, %10
+"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h1c7ef8e21657433bE.exit": ; preds = %30, %26, %16, %9
   ret void
 }
 
@@ -15321,7 +15319,7 @@ define internal fastcc void @"_ZN4core3ptr729drop_in_place$LT$wasmtime..runtime.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !729)
   %2 = load i64, ptr %0, align 8, !range !726, !alias.scope !729, !noundef !3
   %3 = icmp eq i64 %2, 5
-  br i1 %3, label %4, label %28
+  br i1 %3, label %4, label %26
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15330,62 +15328,60 @@ define internal fastcc void @"_ZN4core3ptr729drop_in_place$LT$wasmtime..runtime.
   %.val1.i = load ptr, ptr %6, align 8, !alias.scope !729, !nonnull !3, !align !9, !noundef !3
   %7 = load ptr, ptr %.val1.i, align 8, !invariant.load !3, !noalias !729
   %.not.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i, label %10, label %8
+  br i1 %.not.i.i, label %9, label %8
 
 8:                                                ; preds = %4
-  %9 = icmp ne ptr %.val.i, null
-  tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   invoke void %7(ptr noundef nonnull %.val.i)
-          to label %10 unwind label %19, !noalias !729
+          to label %9 unwind label %17, !noalias !729
 
-10:                                               ; preds = %8, %4
-  %11 = icmp ne ptr %.val.i, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 8
-  %13 = load i64, ptr %12, align 8, !range !727, !invariant.load !3, !noalias !729
-  %14 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 16
-  %15 = load i64, ptr %14, align 8, !range !728, !invariant.load !3, !noalias !729
-  %16 = icmp ult i64 %15, -9223372036854775807
-  tail call void @llvm.assume(i1 %16)
-  %17 = icmp eq i64 %13, 0
-  br i1 %17, label %"_ZN4core3ptr70drop_in_place$LT$wasmtime..runtime..vm..traphandlers..UnwindReason$GT$17hc322c2e20d660ea7E.exit", label %18
+9:                                                ; preds = %8, %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
+  %10 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 8
+  %11 = load i64, ptr %10, align 8, !range !727, !invariant.load !3, !noalias !729
+  %12 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 16
+  %13 = load i64, ptr %12, align 8, !range !728, !invariant.load !3, !noalias !729
+  %14 = icmp ult i64 %13, -9223372036854775807
+  tail call void @llvm.assume(i1 %14)
+  %15 = icmp eq i64 %11, 0
+  br i1 %15, label %"_ZN4core3ptr70drop_in_place$LT$wasmtime..runtime..vm..traphandlers..UnwindReason$GT$17hc322c2e20d660ea7E.exit", label %16
 
-18:                                               ; preds = %10
-  tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, -9223372036854775808) %13, i64 noundef range(i64 1, -9223372036854775807) %15) #28, !noalias !729
+16:                                               ; preds = %9
+  tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, -9223372036854775808) %11, i64 noundef range(i64 1, -9223372036854775807) %13) #28, !noalias !729
   br label %"_ZN4core3ptr70drop_in_place$LT$wasmtime..runtime..vm..traphandlers..UnwindReason$GT$17hc322c2e20d660ea7E.exit"
 
-19:                                               ; preds = %8
-  %20 = landingpad { ptr, i32 }
+17:                                               ; preds = %8
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %21 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 8
-  %22 = load i64, ptr %21, align 8, !range !727, !invariant.load !3, !noalias !729
-  %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 16
-  %24 = load i64, ptr %23, align 8, !range !728, !invariant.load !3, !noalias !729
-  %25 = icmp ult i64 %24, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %22, 0
-  br i1 %26, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb35848f19d01f5c4E.exit4.i.i", label %27
+  %19 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 8
+  %20 = load i64, ptr %19, align 8, !range !727, !invariant.load !3, !noalias !729
+  %21 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 16
+  %22 = load i64, ptr %21, align 8, !range !728, !invariant.load !3, !noalias !729
+  %23 = icmp ult i64 %22, -9223372036854775807
+  tail call void @llvm.assume(i1 %23)
+  %24 = icmp eq i64 %20, 0
+  br i1 %24, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb35848f19d01f5c4E.exit4.i.i", label %25
 
-27:                                               ; preds = %19
-  tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, -9223372036854775808) %22, i64 noundef range(i64 1, -9223372036854775807) %24) #28, !noalias !729
+25:                                               ; preds = %17
+  tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, -9223372036854775808) %20, i64 noundef range(i64 1, -9223372036854775807) %22) #28, !noalias !729
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb35848f19d01f5c4E.exit4.i.i"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb35848f19d01f5c4E.exit4.i.i": ; preds = %27, %19
-  resume { ptr, i32 } %20
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb35848f19d01f5c4E.exit4.i.i": ; preds = %25, %17
+  resume { ptr, i32 } %18
 
-28:                                               ; preds = %1
-  %29 = add nsw i64 %2, -2
-  %30 = icmp ne i64 %29, 1
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp eq i64 %29, 0
-  br i1 %31, label %32, label %"_ZN4core3ptr70drop_in_place$LT$wasmtime..runtime..vm..traphandlers..UnwindReason$GT$17hc322c2e20d660ea7E.exit"
+26:                                               ; preds = %1
+  %27 = add nsw i64 %2, -2
+  %28 = icmp ne i64 %27, 1
+  tail call void @llvm.assume(i1 %28)
+  %29 = icmp eq i64 %27, 0
+  br i1 %29, label %30, label %"_ZN4core3ptr70drop_in_place$LT$wasmtime..runtime..vm..traphandlers..UnwindReason$GT$17hc322c2e20d660ea7E.exit"
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h0d59a04ac134eff4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %33)
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h0d59a04ac134eff4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31)
   br label %"_ZN4core3ptr70drop_in_place$LT$wasmtime..runtime..vm..traphandlers..UnwindReason$GT$17hc322c2e20d660ea7E.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$wasmtime..runtime..vm..traphandlers..UnwindReason$GT$17hc322c2e20d660ea7E.exit": ; preds = %10, %18, %28, %32
+"_ZN4core3ptr70drop_in_place$LT$wasmtime..runtime..vm..traphandlers..UnwindReason$GT$17hc322c2e20d660ea7E.exit": ; preds = %9, %16, %26, %30
   ret void
 }
 
@@ -22064,70 +22060,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h96968fc667fc9b51E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h96968fc667fc9b51E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5307224aed8a5fa8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5307224aed8a5fa8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7815718144eb812cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7815718144eb812cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8beb7018d90de963E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8beb7018d90de963E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2244dd5bf4f4590eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2244dd5bf4f4590eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he7108dea267dd305E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he7108dea267dd305E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22136,70 +22126,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb7e990fee1543b5dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb7e990fee1543b5dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc820e02f097fc73dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc820e02f097fc73dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h77204037fecb9456E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h77204037fecb9456E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h26953676658b10acE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h26953676658b10acE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf4e29fb9baf75ae0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf4e29fb9baf75ae0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he01561b50d44bdb3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he01561b50d44bdb3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22208,70 +22192,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hccaa6f2eb6de3fb6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hccaa6f2eb6de3fb6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbca6f1b3c9d797a0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbca6f1b3c9d797a0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h79d1e0f38bf56379E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h79d1e0f38bf56379E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf237aa7efd4b8ed7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf237aa7efd4b8ed7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8222c3ec53d67b02E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8222c3ec53d67b02E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hfc4051860dfde1ccE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hfc4051860dfde1ccE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22280,70 +22258,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcf4710efb26e364eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcf4710efb26e364eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc6420dfae60953ddE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc6420dfae60953ddE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h73a9a3dfd586d451E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h73a9a3dfd586d451E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha344bd94ecca83ceE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha344bd94ecca83ceE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1708c26af7c1c755E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1708c26af7c1c755E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h79049decab9a0009E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h79049decab9a0009E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22352,70 +22324,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0ddc8bdb350de759E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0ddc8bdb350de759E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb4abb206b345b006E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb4abb206b345b006E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6c05d76830827da6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6c05d76830827da6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h14db2baeea62efbcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h14db2baeea62efbcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h701ea10e5c0864ebE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h701ea10e5c0864ebE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he80c977b83ec9bc7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he80c977b83ec9bc7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22424,70 +22390,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8b9d5431c4775142E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8b9d5431c4775142E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h18f08b52d5d8ad1eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h18f08b52d5d8ad1eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha870468e75ac7295E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha870468e75ac7295E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h93298e9abdbff8a1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h93298e9abdbff8a1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc2c1bd9d97910fa3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc2c1bd9d97910fa3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h99cf26f70c6643b7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h99cf26f70c6643b7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22496,70 +22456,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h79579b4fea6aa9beE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h79579b4fea6aa9beE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17head3fe51bcfd1c17E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17head3fe51bcfd1c17E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2d36ffa56ba1f97aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2d36ffa56ba1f97aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2c7e2b7e36ce8dcbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2c7e2b7e36ce8dcbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h62e9a10d6bae6fcdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h62e9a10d6bae6fcdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9cde00c2f44ecb45E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9cde00c2f44ecb45E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22568,70 +22522,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h62b5526a1ca4fa5aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h62b5526a1ca4fa5aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0a421860f285148dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0a421860f285148dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h33c56adc47b387c1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h33c56adc47b387c1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h373cb3555d60f462E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h373cb3555d60f462E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3188fcb710d7f534E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3188fcb710d7f534E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h91cb193ac29fb3ccE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h91cb193ac29fb3ccE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22640,70 +22588,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hdb8e92037893cd85E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hdb8e92037893cd85E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hca2a43c08d4a4327E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hca2a43c08d4a4327E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h24aed77c68ec6d8fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h24aed77c68ec6d8fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2b7d22610c2a7966E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2b7d22610c2a7966E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h30d4d03410b2fd28E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h30d4d03410b2fd28E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8df1059b00480032E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8df1059b00480032E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22712,70 +22654,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1c66f6788e9a916bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1c66f6788e9a916bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1bc0928a209b57a0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1bc0928a209b57a0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h33869a33653ef0fbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h33869a33653ef0fbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcd2c29378bddb063E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcd2c29378bddb063E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcceace80b812f9bbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcceace80b812f9bbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1b978ea553e5a167E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1b978ea553e5a167E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22784,70 +22720,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3c6041603fac3284E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3c6041603fac3284E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha5cbd246706ea769E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha5cbd246706ea769E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h16557d520a6a353aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h16557d520a6a353aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hce962677f50d2151E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hce962677f50d2151E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2f26c7a858dff66eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2f26c7a858dff66eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf502b80c74d10d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf502b80c74d10d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22856,70 +22786,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h92bc84d85911edf9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h92bc84d85911edf9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0b9c4b78a17ccb6fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0b9c4b78a17ccb6fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h60e2ef660b49c007E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h60e2ef660b49c007E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17had18adbc5bf0bc05E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17had18adbc5bf0bc05E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h45895077e4afc7c1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h45895077e4afc7c1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he66df16b7667a74dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he66df16b7667a74dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22928,70 +22852,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h921e685f1e218d98E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h921e685f1e218d98E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4cfe77abcfae23bbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4cfe77abcfae23bbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3a2ca3ed0e98c26cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3a2ca3ed0e98c26cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h092315cce7bb4e84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h092315cce7bb4e84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha53e688867f9f541E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha53e688867f9f541E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h675d8070af8c4278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h675d8070af8c4278E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23000,70 +22918,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9622dd8f8f80990fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9622dd8f8f80990fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h44f9d399dd37a1efE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h44f9d399dd37a1efE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3ce184c8be78a2bdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3ce184c8be78a2bdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hdf5e42bb3aaa3afcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hdf5e42bb3aaa3afcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc59076b9d22a7937E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc59076b9d22a7937E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17had5c1a86536a155eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17had5c1a86536a155eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23072,70 +22984,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h153c1839449aa6a3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h153c1839449aa6a3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hdec80472715727cfE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hdec80472715727cfE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcb2c2383ac9cec9fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcb2c2383ac9cec9fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h20c2a6102ae4be3fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h20c2a6102ae4be3fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4c7ba9c90afe009eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4c7ba9c90afe009eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd92f33dfecbd8605E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd92f33dfecbd8605E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23144,70 +23050,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd98b921a48c51c66E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd98b921a48c51c66E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h232a7710df1a7787E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h232a7710df1a7787E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd628e79986bf10beE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd628e79986bf10beE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9d0bceb76e911a36E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9d0bceb76e911a36E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9d8d3258b45d84c2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9d8d3258b45d84c2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h261ad6a8e7bb393dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h261ad6a8e7bb393dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23216,70 +23116,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9f05fa2900746853E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9f05fa2900746853E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hfe6a5ddb7ff33f02E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hfe6a5ddb7ff33f02E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h23fef3e58ad5a973E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h23fef3e58ad5a973E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17heb81aab03e125c01E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17heb81aab03e125c01E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb6b925a878637429E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb6b925a878637429E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2dac3a32a7a6fce1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2dac3a32a7a6fce1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23288,70 +23182,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h26fb0f7ac6e6ccf6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h26fb0f7ac6e6ccf6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4d919403426b8c53E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4d919403426b8c53E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h764a28105997a036E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h764a28105997a036E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h45814bbd6f59d92bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h45814bbd6f59d92bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9203827c2a9ca30fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9203827c2a9ca30fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha22272645070c5b0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha22272645070c5b0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23360,70 +23248,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h58f9a613ef8eb7a3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h58f9a613ef8eb7a3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h93af4bb565085b87E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h93af4bb565085b87E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8c6befead32d629dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8c6befead32d629dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h57aa402c2567c51bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h57aa402c2567c51bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd4d8ad26da43055eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd4d8ad26da43055eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8e794e7e14294f17E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8e794e7e14294f17E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23432,70 +23314,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h37345519b30f1863E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h37345519b30f1863E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5ac6b272abb6a79cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5ac6b272abb6a79cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he8da132e7ca628b3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he8da132e7ca628b3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf02898e8c73195aeE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf02898e8c73195aeE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hff99dc2cc3e0e748E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hff99dc2cc3e0e748E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4723ee373243e035E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4723ee373243e035E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23504,70 +23380,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6434d012aa79032dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6434d012aa79032dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1868e2861f41f83dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1868e2861f41f83dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0f954ea26af7eed0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0f954ea26af7eed0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd3eacb0b47b94004E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd3eacb0b47b94004E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h554f4be3b7dbe37aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h554f4be3b7dbe37aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h92e1ed6888b6a29eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h92e1ed6888b6a29eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23576,70 +23446,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf178bc8f5dc12455E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf178bc8f5dc12455E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hea43f9c2ddb9dd62E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hea43f9c2ddb9dd62E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf6b9fdfb6cd180b9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf6b9fdfb6cd180b9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9a827c67f0eb74a8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9a827c67f0eb74a8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h45bed3c6f55fffa6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h45bed3c6f55fffa6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9fa7de1d5662f86eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9fa7de1d5662f86eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23648,70 +23512,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h633afc4af38a898aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h633afc4af38a898aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h704bd6edf6a83ff1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h704bd6edf6a83ff1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h948803bc92dd8d44E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h948803bc92dd8d44E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd606d38753a51692E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd606d38753a51692E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6cdd9713e474c006E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6cdd9713e474c006E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5cc96479cfceecf1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5cc96479cfceecf1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23720,70 +23578,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2afea777d4cbcdf0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2afea777d4cbcdf0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcad179fedb5072caE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcad179fedb5072caE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0be1d2d850e04bfdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0be1d2d850e04bfdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd3e05a91eb21a4e0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd3e05a91eb21a4e0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h750202ea3ad07421E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h750202ea3ad07421E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4c927b55d325630bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4c927b55d325630bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23792,70 +23644,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha955eca2b46a4774E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha955eca2b46a4774E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h944ab22ba0ea5955E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h944ab22ba0ea5955E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h83f19e4d16f99026E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h83f19e4d16f99026E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he05fb3c51b145d99E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he05fb3c51b145d99E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd0c3770d9a7d09e2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd0c3770d9a7d09e2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h74b979c3296809d9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h74b979c3296809d9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23864,70 +23710,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc8ae29d4724444e5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc8ae29d4724444e5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9c28fad2a095352bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9c28fad2a095352bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9585694d3077b150E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9585694d3077b150E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5d7d2726bf783beaE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5d7d2726bf783beaE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h95e5d85fe05e9272E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h95e5d85fe05e9272E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h008eb3fc1aad64faE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h008eb3fc1aad64faE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23936,70 +23776,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h89c07b1a0b155d13E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h89c07b1a0b155d13E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd9637874b69f9f19E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd9637874b69f9f19E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h978c56e356f007b2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h978c56e356f007b2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6d1536257516533dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6d1536257516533dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hba1094a254d3b581E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hba1094a254d3b581E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf9e6ba5728d40a68E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf9e6ba5728d40a68E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24008,70 +23842,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8a6be1a83d5f5796E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8a6be1a83d5f5796E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h369c982bc8537be1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h369c982bc8537be1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17heea9a10d2ff97bd2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17heea9a10d2ff97bd2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h309a23210de6c425E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h309a23210de6c425E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h79ea5e81f48b4d67E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h79ea5e81f48b4d67E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h15d2707931fe3428E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h15d2707931fe3428E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24080,70 +23908,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1d3924052b7af360E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1d3924052b7af360E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he58ae13b95c9dfabE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he58ae13b95c9dfabE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hca57aec826efbaf0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hca57aec826efbaf0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5146865f3b3d4c5bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5146865f3b3d4c5bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h03aa1a9034820e45E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h03aa1a9034820e45E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h15a38dac443bccdcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h15a38dac443bccdcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24152,70 +23974,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0b50da87470d304dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0b50da87470d304dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3a66f9870aa7e4fdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3a66f9870aa7e4fdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h343f70af5d930157E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h343f70af5d930157E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7084551a9a8df717E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7084551a9a8df717E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0d37fef20a50c7c9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0d37fef20a50c7c9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8257a32bdebac6ceE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8257a32bdebac6ceE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24224,70 +24040,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4b4f6f91d5cf6389E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4b4f6f91d5cf6389E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h53e90c590b1b71d4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h53e90c590b1b71d4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hee6e48823ba43932E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hee6e48823ba43932E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h67f9fe8e53a2bf47E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h67f9fe8e53a2bf47E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5aeaf2bd5bd4fe4aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5aeaf2bd5bd4fe4aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd61c6cad688525bfE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd61c6cad688525bfE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24296,70 +24106,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h81f304353d086e97E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h81f304353d086e97E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hecb75932cad8621eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hecb75932cad8621eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h25b345195d35abb8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h25b345195d35abb8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd0fb364679eaebd2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd0fb364679eaebd2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8dbcaf13fd92cbd3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8dbcaf13fd92cbd3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h29f48ab623a635c5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h29f48ab623a635c5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24368,70 +24172,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h55ce4b97c7fff230E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h55ce4b97c7fff230E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8e52f6d01f6d35fcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8e52f6d01f6d35fcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8971ceb4fa158d30E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8971ceb4fa158d30E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5b1add1727d7248eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5b1add1727d7248eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hafa6b26266bab179E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hafa6b26266bab179E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h535eeb4eca0004cfE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h535eeb4eca0004cfE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24440,70 +24238,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha0d27cb3de2124efE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha0d27cb3de2124efE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb43bf62960eaa7dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb43bf62960eaa7dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2e7d16d09933b570E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2e7d16d09933b570E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h860459f887f30f84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h860459f887f30f84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h30d720b04980737fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h30d720b04980737fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6124a56655aded63E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6124a56655aded63E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24512,70 +24304,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3acbc298aba09e42E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3acbc298aba09e42E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h56cd50c1b32e83b1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h56cd50c1b32e83b1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0fa8a5a66e60b687E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0fa8a5a66e60b687E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h126326ab169fb672E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h126326ab169fb672E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h13eaf597066752f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h13eaf597066752f7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc5421dce599e520fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc5421dce599e520fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24584,70 +24370,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9535a3b0ba160a3dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9535a3b0ba160a3dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h98a67cbae52a90beE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h98a67cbae52a90beE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h39fa57f9fde487cbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h39fa57f9fde487cbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h17cc0bddf0d82352E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h17cc0bddf0d82352E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h07e5596c0efac6b4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h07e5596c0efac6b4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd33219b924e76e0dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd33219b924e76e0dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24656,70 +24436,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hdd5866d732a3cd90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hdd5866d732a3cd90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hefb3a3d01ddf858fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hefb3a3d01ddf858fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7444b1015690bb6dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7444b1015690bb6dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h54730a7df25167c7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h54730a7df25167c7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf4ee3d419838e64bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf4ee3d419838e64bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hed87df33e39e5d86E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hed87df33e39e5d86E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24728,70 +24502,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9b0f6c4040d5004dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9b0f6c4040d5004dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h273f4c5700a09797E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h273f4c5700a09797E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5c1c1e8ce5d78a53E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5c1c1e8ce5d78a53E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha38491f268678ab3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha38491f268678ab3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd157663c70e64f39E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd157663c70e64f39E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3bbaee2ab00d680dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3bbaee2ab00d680dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24800,70 +24568,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5d86b5b06de0066dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5d86b5b06de0066dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h923b851f300eaee0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h923b851f300eaee0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hef666c75798114cdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hef666c75798114cdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h17ad8ee5e521f580E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h17ad8ee5e521f580E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4202a6a78b3b755eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4202a6a78b3b755eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1d7399e942250455E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1d7399e942250455E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24872,70 +24634,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9ace33866d2e4dc9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9ace33866d2e4dc9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbc47e01de2ea711eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbc47e01de2ea711eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h21079b412d14a6b6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h21079b412d14a6b6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h29df24770f97141bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h29df24770f97141bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h833acf42281c3a25E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h833acf42281c3a25E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h35339f3a68fde985E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h35339f3a68fde985E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24944,70 +24700,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hefbaff37a905a369E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hefbaff37a905a369E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h523bf382846b758bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h523bf382846b758bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc36dea50d4893214E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc36dea50d4893214E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7a52117b7517b906E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7a52117b7517b906E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcf8b79950fb247eeE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcf8b79950fb247eeE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h91357bd4dd7e678eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h91357bd4dd7e678eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25016,70 +24766,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3ed30a638735a61aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3ed30a638735a61aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he75c3cbb3a94c858E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he75c3cbb3a94c858E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8478de5390ceac79E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8478de5390ceac79E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h336649a0cf8576d4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h336649a0cf8576d4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5c2f4e8f5c032da3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5c2f4e8f5c032da3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbdf31aaed3412422E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbdf31aaed3412422E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25088,70 +24832,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8156a7565cf0d412E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8156a7565cf0d412E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h85c4d74472aa9c89E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h85c4d74472aa9c89E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1623e41da63c275cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1623e41da63c275cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hfeccf66ba32d5fb6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hfeccf66ba32d5fb6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc8262e465050f362E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc8262e465050f362E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h40519fa391d78f7dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h40519fa391d78f7dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25160,70 +24898,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9431fd55a7d560d6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9431fd55a7d560d6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7e41eaabcc975fdbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7e41eaabcc975fdbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4062ba2ea0d1f645E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4062ba2ea0d1f645E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcbfa50710ea5e785E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcbfa50710ea5e785E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd4f931d0b37faeb4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd4f931d0b37faeb4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha8dc693c0942355fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha8dc693c0942355fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25232,70 +24964,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h23d2e6cfa15f2b7dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h23d2e6cfa15f2b7dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hfe1a2407db8b97ccE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hfe1a2407db8b97ccE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h14004f1de6e7b5b2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h14004f1de6e7b5b2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17heb96dd7ef2b9d205E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17heb96dd7ef2b9d205E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb5011398cf307b19E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb5011398cf307b19E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6c1084155e63ac58E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6c1084155e63ac58E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25304,70 +25030,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf8737483eea44fc3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf8737483eea44fc3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd7c9fb06eed4c2b5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd7c9fb06eed4c2b5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0561b3d7bf2ff6ffE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0561b3d7bf2ff6ffE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h63df511128391762E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h63df511128391762E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbbc45a13b726ade6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbbc45a13b726ade6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h230fc154b6c48a65E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h230fc154b6c48a65E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25376,70 +25096,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17had9962fd6b9595bdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17had9962fd6b9595bdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6ce0676a57d0d607E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6ce0676a57d0d607E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd6dafb78238d43beE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd6dafb78238d43beE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h86bc88d9bb55f62cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h86bc88d9bb55f62cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd4106b032bdfc921E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd4106b032bdfc921E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h91785f80a86b1832E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h91785f80a86b1832E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25448,70 +25162,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6e74fe55b43d2b46E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6e74fe55b43d2b46E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbde5287c44513268E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbde5287c44513268E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he2aa1d9f192cf3b9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he2aa1d9f192cf3b9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hec150dd24f652804E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hec150dd24f652804E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4f16c1e1372e79efE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4f16c1e1372e79efE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9c514e512a8f0771E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9c514e512a8f0771E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25520,70 +25228,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb1a7fcb666538caeE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb1a7fcb666538caeE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6b775290206d35ebE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6b775290206d35ebE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5ae10c288d6e4a56E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5ae10c288d6e4a56E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6ff70d13b742f5efE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6ff70d13b742f5efE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17heb9cb220eda13bd9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17heb9cb220eda13bd9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0e9ed0b06117e9b3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h0e9ed0b06117e9b3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25592,70 +25294,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf7176176e4b27f4eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf7176176e4b27f4eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h45fff1400d01ed6fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h45fff1400d01ed6fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h78b53b9e1bf92cc5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h78b53b9e1bf92cc5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hfa69f642870c1585E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hfa69f642870c1585E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h763cba2cb9304495E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h763cba2cb9304495E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4577601e5bd36508E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4577601e5bd36508E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25664,70 +25360,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h694bae1bc38d9e4fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h694bae1bc38d9e4fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2ba7da976f87f087E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2ba7da976f87f087E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he2cf3f4d05b08f2eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he2cf3f4d05b08f2eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha53d9201ffaca0e4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha53d9201ffaca0e4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h75dd982eda60aa26E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h75dd982eda60aa26E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h223b89eb092cd1ceE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h223b89eb092cd1ceE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25736,70 +25426,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he32d81bfc3b22455E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he32d81bfc3b22455E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha5525bfe83ca88f9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha5525bfe83ca88f9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h20928ec4d8b5a8a8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h20928ec4d8b5a8a8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4f854dc2bfd9c01bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4f854dc2bfd9c01bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h351ad8167a75b480E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h351ad8167a75b480E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc3b4228bd04b05fdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc3b4228bd04b05fdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25808,70 +25492,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he40dd55c34a96df2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he40dd55c34a96df2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hac935d88d97f804eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hac935d88d97f804eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbe079a27dc21905dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbe079a27dc21905dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha7c402f1ce5da3deE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha7c402f1ce5da3deE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h15d86cd57aa97af3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h15d86cd57aa97af3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4ad40789495a0d85E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4ad40789495a0d85E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25880,70 +25558,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6482ea065346be35E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6482ea065346be35E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbb93335d6fda1cf1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbb93335d6fda1cf1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h849786bce5830fd3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h849786bce5830fd3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8f7e2862e8d10a89E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h8f7e2862e8d10a89E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3a934acc40edc6edE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3a934acc40edc6edE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7f6acad8cc0eb68dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7f6acad8cc0eb68dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25952,70 +25624,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2c383c19915a940dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2c383c19915a940dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h486208e9e1febed7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h486208e9e1febed7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc461ec2003bc6917E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc461ec2003bc6917E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hfeb2cce1052556e5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hfeb2cce1052556e5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1ec712d5768a73f4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1ec712d5768a73f4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h163f86a4251a7460E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h163f86a4251a7460E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26024,70 +25690,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf080eb4521fe08faE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf080eb4521fe08faE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb40bceed5cb7efb7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb40bceed5cb7efb7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4387ba688ef4c12eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4387ba688ef4c12eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf4598e7662ff7459E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf4598e7662ff7459E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcf8822a85f3b3f3bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hcf8822a85f3b3f3bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h38d873e4c9732290E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h38d873e4c9732290E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26096,70 +25756,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5ea0040dfc72e481E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5ea0040dfc72e481E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf01d0b6d58d13ebcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf01d0b6d58d13ebcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbf5cd296f1793b14E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbf5cd296f1793b14E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha36c6bd11ae5fa4cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha36c6bd11ae5fa4cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he5a87bc4eea17509E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he5a87bc4eea17509E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h14406ddd3715e789E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h14406ddd3715e789E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26168,70 +25822,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3a9cd5872e831b8eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3a9cd5872e831b8eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h428b71e883137df0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h428b71e883137df0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h60129bd0dda81e61E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h60129bd0dda81e61E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc105c16b4457b6f0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hc105c16b4457b6f0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3c9d1c38d9f255aaE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3c9d1c38d9f255aaE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h72f6d7aca599adb8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h72f6d7aca599adb8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26240,70 +25888,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2be3ad63fb736fedE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2be3ad63fb736fedE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb632c7fda5421cf0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hb632c7fda5421cf0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha2148152c74f6336E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17ha2148152c74f6336E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9a25b0c3b811c397E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9a25b0c3b811c397E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2c7893a07469a12fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h2c7893a07469a12fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4e9949d621997e07E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4e9949d621997e07E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26312,70 +25954,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h65c1cb7cf62d429aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h65c1cb7cf62d429aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5e055c1a1d420e97E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5e055c1a1d420e97E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he24f6108bcad614eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he24f6108bcad614eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4a387f2f1ddc80d2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h4a387f2f1ddc80d2E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7189f1789d11d2d4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7189f1789d11d2d4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7403bab18d32e4b5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7403bab18d32e4b5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26384,70 +26020,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9fe310e5b1dc3bd1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h9fe310e5b1dc3bd1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3a1e2661643e333aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h3a1e2661643e333aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1e88166be1a54656E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1e88166be1a54656E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7fae3bf245a38807E(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h7fae3bf245a38807E(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he08334153ddd8e1eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he08334153ddd8e1eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd7471855a2c3fc90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd7471855a2c3fc90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26456,70 +26086,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbfbbd57ea6f08040E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbfbbd57ea6f08040E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5e6376132fad256cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h5e6376132fad256cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6da9439b364591fbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h6da9439b364591fbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he4d5f1d2ad8000efE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17he4d5f1d2ad8000efE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h03388441b9fe6b69E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h03388441b9fe6b69E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf56a3ebd09f8afbfE(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf56a3ebd09f8afbfE(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26528,70 +26152,64 @@ define hidden { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutV
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = trunc nuw i64 %3 to i1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  br i1 %5, label %7, label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %1
-  %8 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbed4b872c17dafb4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
-  %11 = trunc nuw i64 %9 to i1
-  %12 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %12)
-  br i1 %11, label %16, label %13
+6:                                                ; preds = %1
+  %7 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hbed4b872c17dafb4E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %34, %28, %22, %16, %7, %1, %40
-  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %40 ], [ %31, %28 ], [ %25, %22 ], [ %19, %16 ], [ %10, %7 ], [ %37, %34 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %40 ], [ 4, %28 ], [ 3, %22 ], [ 2, %16 ], [ 1, %7 ], [ 5, %34 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.9.0, 1
-  ret { i64, ptr } %15
+11:                                               ; preds = %29, %24, %19, %14, %6, %1, %34
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %32, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select33, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 5, %29 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %7
-  %17 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h05d5a9b5bcb57b09E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  %20 = trunc nuw i64 %18 to i1
-  %21 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %21)
-  br i1 %20, label %22, label %13
+14:                                               ; preds = %6
+  %15 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h05d5a9b5bcb57b09E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  %18 = trunc nuw i64 %16 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  br i1 %18, label %19, label %11
 
-22:                                               ; preds = %16
-  %23 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf5e1ec3ee377be83E(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-  %24 = extractvalue { i64, ptr } %23, 0
-  %25 = extractvalue { i64, ptr } %23, 1
-  %26 = trunc nuw i64 %24 to i1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  br i1 %26, label %28, label %13
+19:                                               ; preds = %14
+  %20 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hf5e1ec3ee377be83E(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  %21 = extractvalue { i64, ptr } %20, 0
+  %22 = extractvalue { i64, ptr } %20, 1
+  %23 = trunc nuw i64 %21 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  br i1 %23, label %24, label %11
 
-28:                                               ; preds = %22
-  %29 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1d66e022d3d359fdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  %32 = trunc nuw i64 %30 to i1
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
-  br i1 %32, label %34, label %13
+24:                                               ; preds = %19
+  %25 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h1d66e022d3d359fdE(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = extractvalue { i64, ptr } %25, 1
+  %28 = trunc nuw i64 %26 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br i1 %28, label %29, label %11
 
-34:                                               ; preds = %28
-  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd1fe034e7c653043E(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
+29:                                               ; preds = %24
+  %30 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17hd1fe034e7c653043E(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  %31 = extractvalue { i64, ptr } %30, 0
+  %32 = extractvalue { i64, ptr } %30, 1
+  %33 = trunc nuw i64 %31 to i1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
+  br i1 %33, label %34, label %11
+
+34:                                               ; preds = %29
+  %35 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h807959522b16b343E(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   %36 = extractvalue { i64, ptr } %35, 0
-  %37 = extractvalue { i64, ptr } %35, 1
-  %38 = trunc nuw i64 %36 to i1
-  %39 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %39)
-  br i1 %38, label %40, label %13
-
-40:                                               ; preds = %34
-  %41 = tail call { i64, ptr } @_ZN8protobuf7reflect8repeated9transmute19transmute_mut_if_eq17h807959522b16b343E(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = extractvalue { i64, ptr } %41, 0
-  %43 = trunc nuw i64 %42 to i1
-  %44 = extractvalue { i64, ptr } %41, 1
-  %spec.select = select i1 %43, ptr undef, ptr %44
-  %spec.select33 = or i64 %42, 6
-  br label %13
+  %37 = trunc nuw i64 %36 to i1
+  %38 = extractvalue { i64, ptr } %35, 1
+  %spec.select = select i1 %37, ptr undef, ptr %38
+  %spec.select33 = or i64 %36, 6
+  br label %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26674,32 +26292,30 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   store ptr %14, ptr %8, align 8, !alias.scope !835, !noalias !838
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !840
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !844
-  %15 = icmp ne ptr %.val1, null
-  tail call void @llvm.assume(i1 %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !840
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val1) ]
   %.val.i.i = load ptr, ptr %.val1, align 8, !noalias !840, !nonnull !3, !align !9, !noundef !3
   call void @_ZN6yara_x2re8thompson8compiler7CodeLoc3sub17h821c2cdd8bdcf1d9E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val.i.i), !noalias !840
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !840
   %.sroa.0.0.copyload.i.i = load i8, ptr %5, align 4, !noalias !840
-  %16 = trunc nuw i8 %.sroa.0.0.copyload.i.i to i1
-  br i1 %16, label %17, label %19
+  %15 = trunc nuw i8 %.sroa.0.0.copyload.i.i to i1
+  br i1 %15, label %16, label %17
 
-17:                                               ; preds = %13
+16:                                               ; preds = %13
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   %.sroa.4.0.copyload.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !noalias !840
-  %18 = icmp ne ptr %.val, null
-  call void @llvm.assume(i1 %18)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   store i8 %.sroa.4.0.copyload.i.i, ptr %.val, align 1, !noalias !845
-  br label %21
+  br label %19
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.51.0.copyload.i.i = load i64, ptr %20, align 4, !noalias !840
-  br label %21
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.51.0.copyload.i.i = load i64, ptr %18, align 4, !noalias !840
+  br label %19
 
-21:                                               ; preds = %19, %17
-  %.sroa.5.1.i = phi i64 [ undef, %17 ], [ %.sroa.51.0.copyload.i.i, %19 ]
-  %.sink.i.i.i = phi i32 [ 0, %17 ], [ 1, %19 ]
+19:                                               ; preds = %17, %16
+  %.sroa.5.1.i = phi i64 [ undef, %16 ], [ %.sroa.51.0.copyload.i.i, %17 ]
+  %.sink.i.i.i = phi i32 [ 0, %16 ], [ 1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !840
   store i32 %.sink.i.i.i, ptr %0, align 4, !alias.scope !849, !noalias !833
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -26710,7 +26326,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   store i32 2, ptr %0, align 4, !alias.scope !853, !noalias !833
   br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hf360da6920764158E.exit
 
-_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hf360da6920764158E.exit: ; preds = %21, %"_ZN118_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h56ff5eaad3cfff5aE.exit.i"
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hf360da6920764158E.exit: ; preds = %19, %"_ZN118_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h56ff5eaad3cfff5aE.exit.i"
   ret void
 }
 
@@ -95519,7 +95135,7 @@ _ZN3nom8internal6Parser5parse17hf6bc684445267845E.exit.thread30.i: ; preds = %13
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.354.0..sroa_idx, align 8
   %.sroa.455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sroa.14.24.insert.ext, ptr %.sroa.455.0..sroa_idx, align 8
-  br label %174
+  br label %173
 
 160:                                              ; preds = %_ZN3nom8internal6Parser5parse17hf6bc684445267845E.exit.thread.i, %_ZN3nom8internal6Parser5parse17hf6bc684445267845E.exit.thread28.i, %_ZN3nom8internal6Parser5parse17hf6bc684445267845E.exit.thread30.i
   %161 = phi i32 [ %.sroa.0.1.i.i132.i.i, %_ZN3nom8internal6Parser5parse17hf6bc684445267845E.exit.thread30.i ], [ %.sroa.0.1.i.i67.i.i, %_ZN3nom8internal6Parser5parse17hf6bc684445267845E.exit.thread28.i ], [ %.sroa.0.1.i.i.i.i, %_ZN3nom8internal6Parser5parse17hf6bc684445267845E.exit.thread.i ]
@@ -95541,18 +95157,17 @@ _ZN3nom8internal6Parser5parse17hf6bc684445267845E.exit.thread30.i: ; preds = %13
   %171 = extractvalue { ptr, i64 } %169, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !4810
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !4810
-  %172 = icmp ne ptr %170, null
-  call void @llvm.assume(i1 %172)
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %170, ptr %173, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %170) ]
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %170, ptr %172, align 8
   %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %171, ptr %.sroa.436.0..sroa_idx, align 8
   %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %161, ptr %.sroa.537.0..sroa_idx, align 8
   store i64 3, ptr %0, align 8
-  br label %174
+  br label %173
 
-174:                                              ; preds = %160, %157
+173:                                              ; preds = %160, %157
   ret void
 }
 
@@ -96003,7 +95618,7 @@ _ZN3nom8internal6Parser5parse17h0b1891475ed17b35E.exit.thread30.i: ; preds = %13
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.365.0..sroa_idx, align 8
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sroa.14.24.insert.ext, ptr %.sroa.466.0..sroa_idx, align 8
-  br label %187
+  br label %186
 
 172:                                              ; preds = %_ZN3nom8internal6Parser5parse17h0b1891475ed17b35E.exit.thread.i, %_ZN3nom8internal6Parser5parse17h0b1891475ed17b35E.exit.thread28.i, %_ZN3nom8internal6Parser5parse17h0b1891475ed17b35E.exit.thread30.i
   %173 = phi i32 [ %.sroa.0.0.i.i151.i.i, %_ZN3nom8internal6Parser5parse17h0b1891475ed17b35E.exit.thread30.i ], [ %.sroa.0.0.i.i85.i.i, %_ZN3nom8internal6Parser5parse17h0b1891475ed17b35E.exit.thread28.i ], [ %.sroa.0.0.i.i.i.i, %_ZN3nom8internal6Parser5parse17h0b1891475ed17b35E.exit.thread.i ]
@@ -96025,18 +95640,17 @@ _ZN3nom8internal6Parser5parse17h0b1891475ed17b35E.exit.thread30.i: ; preds = %13
   %184 = extractvalue { ptr, i64 } %182, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !4930
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !4930
-  %185 = icmp ne ptr %183, null
-  call void @llvm.assume(i1 %185)
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %183, ptr %186, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %183, ptr %185, align 8
   %.sroa.447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %184, ptr %.sroa.447.0..sroa_idx, align 8
   %.sroa.548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %173, ptr %.sroa.548.0..sroa_idx, align 8
   store i64 3, ptr %0, align 8
-  br label %187
+  br label %186
 
-187:                                              ; preds = %172, %169
+186:                                              ; preds = %172, %169
   ret void
 }
 
@@ -97073,86 +96687,85 @@ define void @_ZN6yara_x7modules3lnk6parser9LnkParser12parse_string17ha859a4b2a09
 "_ZN55_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..Input$GT$22split_at_position_mode28_$u7b$$u7b$closure$u7d$$u7d$17h2a3124b9d78f2008E.exit": ; preds = %15, %.loopexit
   %.sroa.17.0 = phi i64 [ %.val41, %.loopexit ], [ %.sroa.02.011.i, %15 ]
   %.pn = phi { ptr, i64 } [ %20, %.loopexit ], [ %17, %15 ]
+  %.sroa.13.0 = load ptr, ptr %5, align 8, !nonnull !3, !align !8, !noundef !3
   %.sroa.5.0 = extractvalue { ptr, i64 } %.pn, 0
   %.sroa.9.0 = extractvalue { ptr, i64 } %.pn, 1
-  %.sroa.13.0 = load ptr, ptr %5, align 8, !nonnull !3, !align !8, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %21 = icmp ne ptr %.sroa.5.0, null
-  call void @llvm.assume(i1 %21)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.5.0) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5alloc6string6String15from_utf8_lossy17hdf429bf11f422e60E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.13.0, i64 noundef %.sroa.17.0)
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.val = load ptr, ptr %22, align 8, !nonnull !3, !noundef !3
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val36 = load i64, ptr %23, align 8, !noundef !3
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.val = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.val36 = load i64, ptr %22, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !5079
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h4420a9d269a161cbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %.val36, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc unwind label %31
+          to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %"_ZN55_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..Input$GT$22split_at_position_mode28_$u7b$$u7b$closure$u7d$$u7d$17h2a3124b9d78f2008E.exit"
-  %24 = load i64, ptr %4, align 8, !range !138, !noalias !5079, !noundef !3
-  %25 = trunc nuw i64 %24 to i1
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %27 = load i64, ptr %26, align 8, !range !139, !noalias !5079, !noundef !3
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br i1 %25, label %29, label %36, !prof !4
+  %23 = load i64, ptr %4, align 8, !range !138, !noalias !5079, !noundef !3
+  %24 = trunc nuw i64 %23 to i1
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %26 = load i64, ptr %25, align 8, !range !139, !noalias !5079, !noundef !3
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br i1 %24, label %28, label %35, !prof !4
 
-29:                                               ; preds = %.noexc
-  %30 = load i64, ptr %28, align 8, !noalias !5079
-  invoke void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %27, i64 %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.215f301ce771400005d504a43175a162.165) #27
-          to label %.noexc42 unwind label %31
+28:                                               ; preds = %.noexc
+  %29 = load i64, ptr %27, align 8, !noalias !5079
+  invoke void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %26, i64 %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.215f301ce771400005d504a43175a162.165) #27
+          to label %.noexc42 unwind label %30
 
-.noexc42:                                         ; preds = %29
+.noexc42:                                         ; preds = %28
   unreachable
 
-31:                                               ; preds = %29, %"_ZN55_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..Input$GT$22split_at_position_mode28_$u7b$$u7b$closure$u7d$$u7d$17h2a3124b9d78f2008E.exit"
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %28, %"_ZN55_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..Input$GT$22split_at_position_mode28_$u7b$$u7b$closure$u7d$$u7d$17h2a3124b9d78f2008E.exit"
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %33 = load i64, ptr %6, align 8, !range !139, !alias.scope !5087, !noundef !3
-  %34 = icmp eq i64 %33, -9223372036854775808
-  br i1 %34, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc0cbe964a3f516adE.exit", label %35
+  %32 = load i64, ptr %6, align 8, !range !139, !alias.scope !5087, !noundef !3
+  %33 = icmp eq i64 %32, -9223372036854775808
+  br i1 %33, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc0cbe964a3f516adE.exit", label %34
 
-35:                                               ; preds = %31
+34:                                               ; preds = %30
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h17da03b531ea35d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-          to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc0cbe964a3f516adE.exit" unwind label %44
+          to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc0cbe964a3f516adE.exit" unwind label %43
 
-36:                                               ; preds = %.noexc
-  %37 = load ptr, ptr %28, align 8, !noalias !5079, !nonnull !3, !noundef !3
-  %38 = icmp ule i64 %.val36, %27
-  call void @llvm.assume(i1 %38)
+35:                                               ; preds = %.noexc
+  %36 = load ptr, ptr %27, align 8, !noalias !5079, !nonnull !3, !noundef !3
+  %37 = icmp ule i64 %.val36, %26
+  call void @llvm.assume(i1 %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5079
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %.val, i64 %.val36, i1 false), !noalias !5090
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.5.0, ptr %39, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull readonly align 1 %.val, i64 %.val36, i1 false), !noalias !5090
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.5.0, ptr %38, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.9.0, ptr %.sroa.417.0..sroa_idx, align 8
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %27, ptr %.sroa.518.0..sroa_idx, align 8
+  store i64 %26, ptr %.sroa.518.0..sroa_idx, align 8
   %.sroa.518.sroa.4.0..sroa.518.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %37, ptr %.sroa.518.sroa.4.0..sroa.518.0..sroa_idx.sroa_idx, align 8
+  store ptr %36, ptr %.sroa.518.sroa.4.0..sroa.518.0..sroa_idx.sroa_idx, align 8
   %.sroa.518.sroa.5.0..sroa.518.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.val36, ptr %.sroa.518.sroa.5.0..sroa.518.0..sroa_idx.sroa_idx, align 8
   store i64 0, ptr %0, align 8
-  %40 = load i64, ptr %6, align 8, !range !139, !alias.scope !5091, !noundef !3
-  %41 = icmp eq i64 %40, -9223372036854775808
-  br i1 %41, label %43, label %42
+  %39 = load i64, ptr %6, align 8, !range !139, !alias.scope !5091, !noundef !3
+  %40 = icmp eq i64 %39, -9223372036854775808
+  br i1 %40, label %42, label %41
 
-42:                                               ; preds = %36
+41:                                               ; preds = %35
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h17da03b531ea35d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-  br label %43
+  br label %42
 
-43:                                               ; preds = %42, %36
+42:                                               ; preds = %41, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-44:                                               ; preds = %35
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %34
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #30
   unreachable
 
-"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc0cbe964a3f516adE.exit": ; preds = %31, %35
-  resume { ptr, i32 } %32
+"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc0cbe964a3f516adE.exit": ; preds = %30, %34
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: nonlazybind uwtable

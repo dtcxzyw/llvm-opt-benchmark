@@ -3702,6 +3702,7 @@ define internal void @"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$$u5b
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i": ; preds = %"_ZN4core3ptr94drop_in_place$LT$$LP$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$C$hir_def..TraitId$RP$$GT$17h2d329ca0e9195983E.exit7.i"
   %17 = shl nsw i64 %4, 4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %17, i64 noundef 8) #51
   resume { ptr, i32 } %11
 
@@ -3711,8 +3712,7 @@ define internal void @"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$$u5b
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i4": ; preds = %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$C$hir_def..TraitId$RP$$u5d$$GT$17h65fe391d5a1961e0E.exit"
   %19 = shl nsw i64 %4, 4
-  %20 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %20)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef 8) #51
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6bf93c3e31dfd20fE.exit5"
 
@@ -7046,11 +7046,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h53bf8d1ad1
   %7 = extractvalue { ptr, ptr } %5, 1
   %8 = load ptr, ptr %6, align 8, !nonnull !11, !noundef !11
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %9, 1
-  ret { ptr, ptr } %12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %10 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
+  ret { ptr, ptr } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7063,11 +7062,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h7889de743c
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !11, !noundef !11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7080,11 +7078,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17had14ad83df
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load ptr, ptr %8, align 8, !nonnull !11, !noundef !11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7096,11 +7093,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hb74b07d73e
   %7 = extractvalue { ptr, ptr } %5, 1
   %8 = load ptr, ptr %6, align 8, !nonnull !11, !noundef !11
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %9, 1
-  ret { ptr, ptr } %12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %10 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
+  ret { ptr, ptr } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7113,11 +7109,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hd941d5511e
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8, !nonnull !11, !noundef !11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

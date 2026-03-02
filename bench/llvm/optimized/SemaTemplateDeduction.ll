@@ -11085,8 +11085,7 @@ _ZNK5clang4Type6castAsINS_19RValueReferenceTypeEEEPKT_v.exit: ; preds = %712, %7
 _ZNK5clang10ASTContext24getAsIncompleteArrayTypeENS_8QualTypeE.exit: ; preds = %730
   %734 = load ptr, ptr %727, align 8, !tbaa !13
   %735 = call noundef ptr @_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %734, i64 %.sroa.01294.2) #23
-  %.not.i.i.i1024 = icmp ne ptr %735, null
-  call void @llvm.assume(i1 %.not.i.i.i1024)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %735) ]
   %736 = getelementptr inbounds nuw i8, ptr %735, i64 32
   %.sroa.0.0.copyload.i1028 = load i64, ptr %736, align 16, !tbaa !12
   %737 = getelementptr inbounds nuw i8, ptr %729, i64 32

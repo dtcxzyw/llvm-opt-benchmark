@@ -35,7 +35,7 @@ define hidden void @_ZN8rawspeed10FileWriterC2EPKc(ptr noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK8rawspeed10FileWriter9writeFileENS_6BufferEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address_is_null) %1, i32 %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK8rawspeed10FileWriter9writeFileENS_6BufferEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(none) %1, i32 %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !6
   %6 = tail call noalias ptr @fopen(ptr noundef %5, ptr noundef nonnull @.str)
   %7 = icmp eq ptr %6, null
@@ -47,24 +47,22 @@ define hidden void @_ZNK8rawspeed10FileWriter9writeFileENS_6BufferEj(ptr noundef
 
 9:                                                ; preds = %4
   %spec.select = tail call i32 @llvm.umin.i32(i32 %3, i32 %2)
-  %10 = icmp ne ptr %1, null
+  %10 = icmp sgt i32 %2, -1
   tail call void @llvm.assume(i1 %10)
-  %11 = icmp sgt i32 %2, -1
-  tail call void @llvm.assume(i1 %11)
   %.not = icmp eq i32 %spec.select, 0
   %spec.select14 = select i1 %.not, i32 %2, i32 %spec.select
-  %12 = zext nneg i32 %spec.select14 to i64
-  %13 = tail call i64 @fwrite(ptr noundef nonnull %1, i64 noundef 1, i64 noundef %12, ptr noundef nonnull %6)
-  %14 = tail call i32 @fclose(ptr noundef nonnull %6)
-  %15 = zext nneg i32 %spec.select to i64
-  %.not11 = icmp eq i64 %13, %15
-  br i1 %.not11, label %17, label %16
+  %11 = zext nneg i32 %spec.select14 to i64
+  %12 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %11, ptr noundef nonnull %6)
+  %13 = tail call i32 @fclose(ptr noundef nonnull %6)
+  %14 = zext nneg i32 %spec.select to i64
+  %.not11 = icmp eq i64 %12, %14
+  br i1 %.not11, label %16, label %15
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_15FileIOExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10FileWriter9writeFileENS_6BufferEj) #10
   unreachable
 
-17:                                               ; preds = %9
+16:                                               ; preds = %9
   ret void
 }
 

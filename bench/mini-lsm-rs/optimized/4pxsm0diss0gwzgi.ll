@@ -1527,33 +1527,32 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
   %3 = icmp ult i64 %1, 30
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %15, %2
-  %4 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %4)
+._crit_edge:                                      ; preds = %14, %2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 752, i64 noundef 8) #6
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %2, %15
-  %.sroa.01.09 = phi i64 [ %5, %15 ], [ %1, %2 ]
-  %5 = add nuw nsw i64 %.sroa.01.09, 1
-  %6 = getelementptr inbounds nuw { { i64, i32 }, { i64 } }, ptr %0, i64 %.sroa.01.09
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load atomic i64, ptr %7 acquire, align 8
-  %9 = and i64 %8, 2
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %15
+.lr.ph:                                           ; preds = %2, %14
+  %.sroa.01.09 = phi i64 [ %4, %14 ], [ %1, %2 ]
+  %4 = add nuw nsw i64 %.sroa.01.09, 1
+  %5 = getelementptr inbounds nuw { { i64, i32 }, { i64 } }, ptr %0, i64 %.sroa.01.09
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = load atomic i64, ptr %6 acquire, align 8
+  %8 = and i64 %7, 2
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %14
 
-.loopexit:                                        ; preds = %11, %._crit_edge
+.loopexit:                                        ; preds = %10, %._crit_edge
   ret void
 
-11:                                               ; preds = %.lr.ph
-  %12 = atomicrmw or ptr %7, i64 4 acq_rel, align 8
-  %13 = and i64 %12, 2
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %.loopexit, label %15
+10:                                               ; preds = %.lr.ph
+  %11 = atomicrmw or ptr %6, i64 4 acq_rel, align 8
+  %12 = and i64 %11, 2
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %.loopexit, label %14
 
-15:                                               ; preds = %11, %.lr.ph
-  %exitcond.not = icmp eq i64 %5, 30
+14:                                               ; preds = %10, %.lr.ph
+  %exitcond.not = icmp eq i64 %4, 30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
@@ -1564,35 +1563,34 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %6
+  br label %5
 
-._crit_edge:                                      ; preds = %16, %2
-  %5 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %5)
+._crit_edge:                                      ; preds = %15, %2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 256, i64 noundef 8) #6
   br label %.loopexit
 
-6:                                                ; preds = %.lr.ph, %16
-  %.sroa.01.09 = phi i64 [ %1, %.lr.ph ], [ %7, %16 ]
-  %7 = add nuw nsw i64 %.sroa.01.09, 1
-  %8 = getelementptr inbounds nuw { { i64 }, { { [0 x i8] } } }, ptr %4, i64 %.sroa.01.09
-  %9 = load atomic i64, ptr %8 acquire, align 8
-  %10 = and i64 %9, 2
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %16
+5:                                                ; preds = %.lr.ph, %15
+  %.sroa.01.09 = phi i64 [ %1, %.lr.ph ], [ %6, %15 ]
+  %6 = add nuw nsw i64 %.sroa.01.09, 1
+  %7 = getelementptr inbounds nuw { { i64 }, { { [0 x i8] } } }, ptr %4, i64 %.sroa.01.09
+  %8 = load atomic i64, ptr %7 acquire, align 8
+  %9 = and i64 %8, 2
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %15
 
-.loopexit:                                        ; preds = %12, %._crit_edge
+.loopexit:                                        ; preds = %11, %._crit_edge
   ret void
 
-12:                                               ; preds = %6
-  %13 = atomicrmw or ptr %8, i64 4 acq_rel, align 8
-  %14 = and i64 %13, 2
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %.loopexit, label %16
+11:                                               ; preds = %5
+  %12 = atomicrmw or ptr %7, i64 4 acq_rel, align 8
+  %13 = and i64 %12, 2
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %.loopexit, label %15
 
-16:                                               ; preds = %12, %6
-  %exitcond.not = icmp eq i64 %7, 30
-  br i1 %exitcond.not, label %._crit_edge, label %6
+15:                                               ; preds = %11, %5
+  %exitcond.not = icmp eq i64 %6, 30
+  br i1 %exitcond.not, label %._crit_edge, label %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3237,6 +3235,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.15562554790
 "_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$9wait_next17h24f32feff8394ef9E.exit": ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.15562554790014090263.exit.i, %31
   %42 = load atomic i64, ptr %32 acquire, align 8
   %43 = inttoptr i64 %42 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.156) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.156, i64 noundef 1000, i64 noundef 8) #6
   br label %"_ZN4core3ptr139drop_in_place$LT$moka..common..concurrent..ReadOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_starter..block..Block$GT$$GT$$GT$17h1467d770736342dfE.exit"
 

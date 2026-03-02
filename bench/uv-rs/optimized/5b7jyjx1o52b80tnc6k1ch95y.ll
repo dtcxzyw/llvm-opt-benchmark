@@ -3791,9 +3791,10 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..d
           to label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17h5921a6b45ba615b1E.exit" unwind label %31, !noalias !622
 
 common.resume:                                    ; preds = %36, %31
-  %.sink = phi ptr [ %35, %36 ], [ %30, %31 ]
+  %.sink5 = phi ptr [ %35, %36 ], [ %30, %31 ]
   %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %32, %31 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 32, i64 noundef 8) #22, !noalias !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink5) ], !noalias !3
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sink5, i64 noundef 32, i64 noundef 8) #22, !noalias !3
   resume { ptr, i32 } %common.resume.op
 
 31:                                               ; preds = %28

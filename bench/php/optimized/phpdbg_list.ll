@@ -924,8 +924,7 @@ zend_hash_find_ptr.exit:                          ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 168
   %56 = load ptr, ptr %55, align 8, !tbaa !87
   %57 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1424), ptr noundef %56) #12
-  %.not.i31 = icmp ne ptr %57, null
-  call void @llvm.assume(i1 %.not.i31)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %57) ]
   %58 = load ptr, ptr %57, align 8, !tbaa !45, !nonnull !52, !noundef !52
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %59, ptr noundef nonnull align 8 dereferenceable(256) %53, i64 256, i1 false), !tbaa.struct !118

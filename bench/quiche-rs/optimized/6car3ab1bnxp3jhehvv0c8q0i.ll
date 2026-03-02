@@ -878,7 +878,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15insert_writable17ha8
 define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_readable17h54801b879f0d17a2E"(ptr noalias noundef align 8 dereferenceable(304) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !8, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %5 = getelementptr i8, ptr %4, i64 40
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %24, label %7
@@ -890,29 +890,35 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_readable17h54
   %10 = getelementptr i8, ptr %4, i64 32
   %.val.i.i = load ptr, ptr %10, align 8, !noalias !88, !noundef !8
   %.not.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i, label %.critedge.i.i, label %.preheader.i.i
+  br i1 %.not.i.i, label %.preheader.i.i, label %.preheader2.i.i
 
-.critedge.i.i:                                    ; preds = %7, %13
-  %.sroa.0.0.i.i = phi ptr [ %14, %13 ], [ %9, %7 ]
-  %11 = getelementptr i8, ptr %.sroa.0.0.i.i, i64 16
-  %.sroa.0.0.val.i.i = load i64, ptr %11, align 8, !noalias !88, !noundef !8
-  %12 = and i64 %.sroa.0.0.val.i.i, -2
-  %.not13.i.i = icmp eq i64 %12, 0
-  br i1 %.not13.i.i, label %.loopexit, label %13
+.preheader.i.i:                                   ; preds = %7
+  %11 = and i64 %6, -2
+  %.not135.i.i = icmp eq i64 %11, 0
+  br i1 %.not135.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.preheader.i.i:                                   ; preds = %7, %.preheader.i.i
-  %.sroa.08.0.i.i = phi ptr [ %.sroa.08.0.val.i.i, %.preheader.i.i ], [ %.val.i.i, %7 ]
+.preheader2.i.i:                                  ; preds = %7, %.preheader2.i.i
+  %.sroa.08.0.i.i = phi ptr [ %.sroa.08.0.val.i.i, %.preheader2.i.i ], [ %.val.i.i, %7 ]
   %.sroa.08.0.val.i.i = load ptr, ptr %.sroa.08.0.i.i, align 8, !noalias !88, !noundef !8
   %.not15.i.i = icmp eq ptr %.sroa.08.0.val.i.i, null
-  br i1 %.not15.i.i, label %.loopexit, label %.preheader.i.i
+  br i1 %.not15.i.i, label %.loopexit, label %.preheader2.i.i
 
-13:                                               ; preds = %.critedge.i.i
-  %14 = inttoptr i64 %12 to ptr
-  %.val16.i.i = load ptr, ptr %14, align 8, !noalias !88, !noundef !8
-  %15 = icmp eq ptr %.val16.i.i, %.sroa.0.0.i.i
-  br i1 %15, label %.loopexit, label %.critedge.i.i
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.critedge.i.i
+  %.in.i.i = phi i64 [ %15, %.critedge.i.i ], [ %11, %.preheader.i.i ]
+  %.sroa.0.06.i.i = phi ptr [ %12, %.critedge.i.i ], [ %9, %.preheader.i.i ]
+  %12 = inttoptr i64 %.in.i.i to ptr
+  %.val16.i.i = load ptr, ptr %12, align 8, !noalias !88, !noundef !8
+  %13 = icmp eq ptr %.val16.i.i, %.sroa.0.06.i.i
+  br i1 %13, label %.loopexit, label %.critedge.i.i
 
-.loopexit:                                        ; preds = %.preheader.i.i, %13, %.critedge.i.i
+.critedge.i.i:                                    ; preds = %.lr.ph.i.i
+  %14 = getelementptr i8, ptr %12, i64 16
+  %.sroa.0.0.val.i.i = load i64, ptr %14, align 8, !noalias !88, !noundef !8
+  %15 = and i64 %.sroa.0.0.val.i.i, -2
+  %.not13.i.i = icmp eq i64 %15, 0
+  br i1 %.not13.i.i, label %.loopexit, label %.lr.ph.i.i
+
+.loopexit:                                        ; preds = %.preheader2.i.i, %.critedge.i.i, %.lr.ph.i.i, %.preheader.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @_ZN21intrusive_collections6rbtree6remove17hc4ca33355d2b1a4fE(ptr noalias noundef nonnull align 1 %16, ptr noundef nonnull %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !88
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -941,7 +947,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_readable17h54
 define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_writable17hf28c0ac7c504a515E"(ptr noalias noundef align 8 dereferenceable(304) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !8, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %5 = getelementptr i8, ptr %4, i64 64
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %24, label %7
@@ -953,29 +959,35 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_writable17hf2
   %10 = getelementptr i8, ptr %4, i64 56
   %.val.i.i = load ptr, ptr %10, align 8, !noalias !98, !noundef !8
   %.not.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i, label %.critedge.i.i, label %.preheader.i.i
+  br i1 %.not.i.i, label %.preheader.i.i, label %.preheader2.i.i
 
-.critedge.i.i:                                    ; preds = %7, %13
-  %.sroa.0.0.i.i = phi ptr [ %14, %13 ], [ %9, %7 ]
-  %11 = getelementptr i8, ptr %.sroa.0.0.i.i, i64 16
-  %.sroa.0.0.val.i.i = load i64, ptr %11, align 8, !noalias !98, !noundef !8
-  %12 = and i64 %.sroa.0.0.val.i.i, -2
-  %.not13.i.i = icmp eq i64 %12, 0
-  br i1 %.not13.i.i, label %.loopexit, label %13
+.preheader.i.i:                                   ; preds = %7
+  %11 = and i64 %6, -2
+  %.not135.i.i = icmp eq i64 %11, 0
+  br i1 %.not135.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.preheader.i.i:                                   ; preds = %7, %.preheader.i.i
-  %.sroa.08.0.i.i = phi ptr [ %.sroa.08.0.val.i.i, %.preheader.i.i ], [ %.val.i.i, %7 ]
+.preheader2.i.i:                                  ; preds = %7, %.preheader2.i.i
+  %.sroa.08.0.i.i = phi ptr [ %.sroa.08.0.val.i.i, %.preheader2.i.i ], [ %.val.i.i, %7 ]
   %.sroa.08.0.val.i.i = load ptr, ptr %.sroa.08.0.i.i, align 8, !noalias !98, !noundef !8
   %.not15.i.i = icmp eq ptr %.sroa.08.0.val.i.i, null
-  br i1 %.not15.i.i, label %.loopexit, label %.preheader.i.i
+  br i1 %.not15.i.i, label %.loopexit, label %.preheader2.i.i
 
-13:                                               ; preds = %.critedge.i.i
-  %14 = inttoptr i64 %12 to ptr
-  %.val16.i.i = load ptr, ptr %14, align 8, !noalias !98, !noundef !8
-  %15 = icmp eq ptr %.val16.i.i, %.sroa.0.0.i.i
-  br i1 %15, label %.loopexit, label %.critedge.i.i
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.critedge.i.i
+  %.in.i.i = phi i64 [ %15, %.critedge.i.i ], [ %11, %.preheader.i.i ]
+  %.sroa.0.06.i.i = phi ptr [ %12, %.critedge.i.i ], [ %9, %.preheader.i.i ]
+  %12 = inttoptr i64 %.in.i.i to ptr
+  %.val16.i.i = load ptr, ptr %12, align 8, !noalias !98, !noundef !8
+  %13 = icmp eq ptr %.val16.i.i, %.sroa.0.06.i.i
+  br i1 %13, label %.loopexit, label %.critedge.i.i
 
-.loopexit:                                        ; preds = %.preheader.i.i, %13, %.critedge.i.i
+.critedge.i.i:                                    ; preds = %.lr.ph.i.i
+  %14 = getelementptr i8, ptr %12, i64 16
+  %.sroa.0.0.val.i.i = load i64, ptr %14, align 8, !noalias !98, !noundef !8
+  %15 = and i64 %.sroa.0.0.val.i.i, -2
+  %.not13.i.i = icmp eq i64 %15, 0
+  br i1 %.not13.i.i, label %.loopexit, label %.lr.ph.i.i
+
+.loopexit:                                        ; preds = %.preheader2.i.i, %.critedge.i.i, %.lr.ph.i.i, %.preheader.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 296
   tail call void @_ZN21intrusive_collections6rbtree6remove17hc4ca33355d2b1a4fE(ptr noalias noundef nonnull align 1 %16, ptr noundef nonnull %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !98
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1029,29 +1041,35 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15update_priority17hdf
   %18 = getelementptr i8, ptr %7, i64 32
   %.val.i.i.i = load ptr, ptr %18, align 8, !noalias !112, !noundef !8
   %.not.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %.preheader.i.i.i
+  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.preheader2.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %15, %21
-  %.sroa.0.0.i.i.i = phi ptr [ %22, %21 ], [ %17, %15 ]
-  %19 = getelementptr i8, ptr %.sroa.0.0.i.i.i, i64 16
-  %.sroa.0.0.val.i.i.i = load i64, ptr %19, align 8, !noalias !112, !noundef !8
-  %20 = and i64 %.sroa.0.0.val.i.i.i, -2
-  %.not13.i.i.i = icmp eq i64 %20, 0
-  br i1 %.not13.i.i.i, label %.loopexit.i, label %21
+.preheader.i.i.i:                                 ; preds = %15
+  %19 = and i64 %14, -2
+  %.not135.i.i.i = icmp eq i64 %19, 0
+  br i1 %.not135.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %15, %.preheader.i.i.i
-  %.sroa.08.0.i.i.i = phi ptr [ %.sroa.08.0.val.i.i.i, %.preheader.i.i.i ], [ %.val.i.i.i, %15 ]
+.preheader2.i.i.i:                                ; preds = %15, %.preheader2.i.i.i
+  %.sroa.08.0.i.i.i = phi ptr [ %.sroa.08.0.val.i.i.i, %.preheader2.i.i.i ], [ %.val.i.i.i, %15 ]
   %.sroa.08.0.val.i.i.i = load ptr, ptr %.sroa.08.0.i.i.i, align 8, !noalias !112, !noundef !8
   %.not15.i.i.i = icmp eq ptr %.sroa.08.0.val.i.i.i, null
-  br i1 %.not15.i.i.i, label %.loopexit.i, label %.preheader.i.i.i
+  br i1 %.not15.i.i.i, label %.loopexit.i, label %.preheader2.i.i.i
 
-21:                                               ; preds = %.critedge.i.i.i
-  %22 = inttoptr i64 %20 to ptr
-  %.val16.i.i.i = load ptr, ptr %22, align 8, !noalias !112, !noundef !8
-  %23 = icmp eq ptr %.val16.i.i.i, %.sroa.0.0.i.i.i
-  br i1 %23, label %.loopexit.i, label %.critedge.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.critedge.i.i.i
+  %.in.i.i.i = phi i64 [ %23, %.critedge.i.i.i ], [ %19, %.preheader.i.i.i ]
+  %.sroa.0.06.i.i.i = phi ptr [ %20, %.critedge.i.i.i ], [ %17, %.preheader.i.i.i ]
+  %20 = inttoptr i64 %.in.i.i.i to ptr
+  %.val16.i.i.i = load ptr, ptr %20, align 8, !noalias !112, !noundef !8
+  %21 = icmp eq ptr %.val16.i.i.i, %.sroa.0.06.i.i.i
+  br i1 %21, label %.loopexit.i, label %.critedge.i.i.i
 
-.loopexit.i:                                      ; preds = %.preheader.i.i.i, %21, %.critedge.i.i.i
+.critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i
+  %22 = getelementptr i8, ptr %20, i64 16
+  %.sroa.0.0.val.i.i.i = load i64, ptr %22, align 8, !noalias !112, !noundef !8
+  %23 = and i64 %.sroa.0.0.val.i.i.i, -2
+  %.not13.i.i.i = icmp eq i64 %23, 0
+  br i1 %.not13.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
+
+.loopexit.i:                                      ; preds = %.preheader2.i.i.i, %.critedge.i.i.i, %.lr.ph.i.i.i, %.preheader.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @_ZN21intrusive_collections6rbtree6remove17hc4ca33355d2b1a4fE(ptr noalias noundef nonnull align 1 %24, ptr noundef nonnull %17, ptr noalias noundef nonnull align 8 dereferenceable(8) %16), !noalias !115
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1105,29 +1123,35 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15update_priority17hdf
   %46 = getelementptr i8, ptr %7, i64 56
   %.val.i.i.i6 = load ptr, ptr %46, align 8, !noalias !128, !noundef !8
   %.not.i.i.i7 = icmp eq ptr %.val.i.i.i6, null
-  br i1 %.not.i.i.i7, label %.critedge.i.i.i14, label %.preheader.i.i.i8
+  br i1 %.not.i.i.i7, label %.preheader.i.i.i14, label %.preheader2.i.i.i8
 
-.critedge.i.i.i14:                                ; preds = %43, %49
-  %.sroa.0.0.i.i.i15 = phi ptr [ %50, %49 ], [ %45, %43 ]
-  %47 = getelementptr i8, ptr %.sroa.0.0.i.i.i15, i64 16
-  %.sroa.0.0.val.i.i.i16 = load i64, ptr %47, align 8, !noalias !128, !noundef !8
-  %48 = and i64 %.sroa.0.0.val.i.i.i16, -2
-  %.not13.i.i.i17 = icmp eq i64 %48, 0
-  br i1 %.not13.i.i.i17, label %.loopexit.i12, label %49
+.preheader.i.i.i14:                               ; preds = %43
+  %47 = and i64 %42, -2
+  %.not135.i.i.i15 = icmp eq i64 %47, 0
+  br i1 %.not135.i.i.i15, label %.loopexit.i12, label %.lr.ph.i.i.i16
 
-.preheader.i.i.i8:                                ; preds = %43, %.preheader.i.i.i8
-  %.sroa.08.0.i.i.i9 = phi ptr [ %.sroa.08.0.val.i.i.i10, %.preheader.i.i.i8 ], [ %.val.i.i.i6, %43 ]
+.preheader2.i.i.i8:                               ; preds = %43, %.preheader2.i.i.i8
+  %.sroa.08.0.i.i.i9 = phi ptr [ %.sroa.08.0.val.i.i.i10, %.preheader2.i.i.i8 ], [ %.val.i.i.i6, %43 ]
   %.sroa.08.0.val.i.i.i10 = load ptr, ptr %.sroa.08.0.i.i.i9, align 8, !noalias !128, !noundef !8
   %.not15.i.i.i11 = icmp eq ptr %.sroa.08.0.val.i.i.i10, null
-  br i1 %.not15.i.i.i11, label %.loopexit.i12, label %.preheader.i.i.i8
+  br i1 %.not15.i.i.i11, label %.loopexit.i12, label %.preheader2.i.i.i8
 
-49:                                               ; preds = %.critedge.i.i.i14
-  %50 = inttoptr i64 %48 to ptr
-  %.val16.i.i.i18 = load ptr, ptr %50, align 8, !noalias !128, !noundef !8
-  %51 = icmp eq ptr %.val16.i.i.i18, %.sroa.0.0.i.i.i15
-  br i1 %51, label %.loopexit.i12, label %.critedge.i.i.i14
+.lr.ph.i.i.i16:                                   ; preds = %.preheader.i.i.i14, %.critedge.i.i.i20
+  %.in.i.i.i17 = phi i64 [ %51, %.critedge.i.i.i20 ], [ %47, %.preheader.i.i.i14 ]
+  %.sroa.0.06.i.i.i18 = phi ptr [ %48, %.critedge.i.i.i20 ], [ %45, %.preheader.i.i.i14 ]
+  %48 = inttoptr i64 %.in.i.i.i17 to ptr
+  %.val16.i.i.i19 = load ptr, ptr %48, align 8, !noalias !128, !noundef !8
+  %49 = icmp eq ptr %.val16.i.i.i19, %.sroa.0.06.i.i.i18
+  br i1 %49, label %.loopexit.i12, label %.critedge.i.i.i20
 
-.loopexit.i12:                                    ; preds = %.preheader.i.i.i8, %49, %.critedge.i.i.i14
+.critedge.i.i.i20:                                ; preds = %.lr.ph.i.i.i16
+  %50 = getelementptr i8, ptr %48, i64 16
+  %.sroa.0.0.val.i.i.i21 = load i64, ptr %50, align 8, !noalias !128, !noundef !8
+  %51 = and i64 %.sroa.0.0.val.i.i.i21, -2
+  %.not13.i.i.i22 = icmp eq i64 %51, 0
+  br i1 %.not13.i.i.i22, label %.loopexit.i12, label %.lr.ph.i.i.i16
+
+.loopexit.i12:                                    ; preds = %.preheader2.i.i.i8, %.critedge.i.i.i20, %.lr.ph.i.i.i16, %.preheader.i.i.i14
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 296
   call void @_ZN21intrusive_collections6rbtree6remove17hc4ca33355d2b1a4fE(ptr noalias noundef nonnull align 1 %52, ptr noundef nonnull %45, ptr noalias noundef nonnull align 8 dereferenceable(8) %44), !noalias !131
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1168,39 +1192,45 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15update_priority17hdf
 
 67:                                               ; preds = %38
   %68 = load atomic i64, ptr %39 monotonic, align 8, !noalias !140
-  %.not.i19 = icmp eq i64 %68, 0
-  br i1 %.not.i19, label %"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit", label %69
+  %.not.i23 = icmp eq i64 %68, 0
+  br i1 %.not.i23, label %"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit", label %69
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !140
   %72 = getelementptr i8, ptr %7, i64 80
-  %.val.i.i.i20 = load ptr, ptr %72, align 8, !noalias !144, !noundef !8
-  %.not.i.i.i21 = icmp eq ptr %.val.i.i.i20, null
-  br i1 %.not.i.i.i21, label %.critedge.i.i.i28, label %.preheader.i.i.i22
+  %.val.i.i.i24 = load ptr, ptr %72, align 8, !noalias !144, !noundef !8
+  %.not.i.i.i25 = icmp eq ptr %.val.i.i.i24, null
+  br i1 %.not.i.i.i25, label %.preheader.i.i.i32, label %.preheader2.i.i.i26
 
-.critedge.i.i.i28:                                ; preds = %69, %75
-  %.sroa.0.0.i.i.i29 = phi ptr [ %76, %75 ], [ %71, %69 ]
-  %73 = getelementptr i8, ptr %.sroa.0.0.i.i.i29, i64 16
-  %.sroa.0.0.val.i.i.i30 = load i64, ptr %73, align 8, !noalias !144, !noundef !8
-  %74 = and i64 %.sroa.0.0.val.i.i.i30, -2
-  %.not13.i.i.i31 = icmp eq i64 %74, 0
-  br i1 %.not13.i.i.i31, label %.loopexit.i26, label %75
+.preheader.i.i.i32:                               ; preds = %69
+  %73 = and i64 %68, -2
+  %.not135.i.i.i33 = icmp eq i64 %73, 0
+  br i1 %.not135.i.i.i33, label %.loopexit.i30, label %.lr.ph.i.i.i34
 
-.preheader.i.i.i22:                               ; preds = %69, %.preheader.i.i.i22
-  %.sroa.08.0.i.i.i23 = phi ptr [ %.sroa.08.0.val.i.i.i24, %.preheader.i.i.i22 ], [ %.val.i.i.i20, %69 ]
-  %.sroa.08.0.val.i.i.i24 = load ptr, ptr %.sroa.08.0.i.i.i23, align 8, !noalias !144, !noundef !8
-  %.not15.i.i.i25 = icmp eq ptr %.sroa.08.0.val.i.i.i24, null
-  br i1 %.not15.i.i.i25, label %.loopexit.i26, label %.preheader.i.i.i22
+.preheader2.i.i.i26:                              ; preds = %69, %.preheader2.i.i.i26
+  %.sroa.08.0.i.i.i27 = phi ptr [ %.sroa.08.0.val.i.i.i28, %.preheader2.i.i.i26 ], [ %.val.i.i.i24, %69 ]
+  %.sroa.08.0.val.i.i.i28 = load ptr, ptr %.sroa.08.0.i.i.i27, align 8, !noalias !144, !noundef !8
+  %.not15.i.i.i29 = icmp eq ptr %.sroa.08.0.val.i.i.i28, null
+  br i1 %.not15.i.i.i29, label %.loopexit.i30, label %.preheader2.i.i.i26
 
-75:                                               ; preds = %.critedge.i.i.i28
-  %76 = inttoptr i64 %74 to ptr
-  %.val16.i.i.i32 = load ptr, ptr %76, align 8, !noalias !144, !noundef !8
-  %77 = icmp eq ptr %.val16.i.i.i32, %.sroa.0.0.i.i.i29
-  br i1 %77, label %.loopexit.i26, label %.critedge.i.i.i28
+.lr.ph.i.i.i34:                                   ; preds = %.preheader.i.i.i32, %.critedge.i.i.i38
+  %.in.i.i.i35 = phi i64 [ %77, %.critedge.i.i.i38 ], [ %73, %.preheader.i.i.i32 ]
+  %.sroa.0.06.i.i.i36 = phi ptr [ %74, %.critedge.i.i.i38 ], [ %71, %.preheader.i.i.i32 ]
+  %74 = inttoptr i64 %.in.i.i.i35 to ptr
+  %.val16.i.i.i37 = load ptr, ptr %74, align 8, !noalias !144, !noundef !8
+  %75 = icmp eq ptr %.val16.i.i.i37, %.sroa.0.06.i.i.i36
+  br i1 %75, label %.loopexit.i30, label %.critedge.i.i.i38
 
-.loopexit.i26:                                    ; preds = %.preheader.i.i.i22, %75, %.critedge.i.i.i28
+.critedge.i.i.i38:                                ; preds = %.lr.ph.i.i.i34
+  %76 = getelementptr i8, ptr %74, i64 16
+  %.sroa.0.0.val.i.i.i39 = load i64, ptr %76, align 8, !noalias !144, !noundef !8
+  %77 = and i64 %.sroa.0.0.val.i.i.i39, -2
+  %.not13.i.i.i40 = icmp eq i64 %77, 0
+  br i1 %.not13.i.i.i40, label %.loopexit.i30, label %.lr.ph.i.i.i34
+
+.loopexit.i30:                                    ; preds = %.preheader2.i.i.i26, %.critedge.i.i.i38, %.lr.ph.i.i.i34, %.preheader.i.i.i32
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 280
   call void @_ZN21intrusive_collections6rbtree6remove17hc4ca33355d2b1a4fE(ptr noalias noundef nonnull align 1 %78, ptr noundef nonnull %71, ptr noalias noundef nonnull align 8 dereferenceable(8) %70), !noalias !147
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1210,18 +1240,18 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15update_priority17hdf
   store ptr %82, ptr %4, align 8, !noalias !140
   %83 = atomicrmw sub ptr %82, i64 1 release, align 8, !noalias !148
   %84 = icmp eq i64 %83, 1
-  br i1 %84, label %85, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i27"
+  br i1 %84, label %85, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i31"
 
-85:                                               ; preds = %.loopexit.i26
+85:                                               ; preds = %.loopexit.i30
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h643e7529c6b71fcaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4), !noalias !155
-  br label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i27"
+  br label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i31"
 
-"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i27": ; preds = %85, %.loopexit.i26
+"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i31": ; preds = %85, %.loopexit.i30
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !140
   br label %"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit"
 
-"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit": ; preds = %67, %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i27"
+"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit": ; preds = %67, %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i31"
   %86 = load ptr, ptr %2, align 8, !nonnull !8, !noundef !8
   %87 = atomicrmw add ptr %86, i64 1 monotonic, align 8
   %88 = icmp slt i64 %87, 0
@@ -1297,7 +1327,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$7collect17hc4cd827add4
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 344
   call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %18 = load ptr, ptr %17, align 8, !alias.scope !157, !noalias !160, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %19 = getelementptr i8, ptr %18, i64 40
   %20 = load atomic i64, ptr %19 monotonic, align 8, !noalias !162
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_readable17h54801b879f0d17a2E.exit", label %21
@@ -1309,29 +1339,35 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$7collect17hc4cd827add4
   %24 = getelementptr i8, ptr %18, i64 32
   %.val.i.i.i = load ptr, ptr %24, align 8, !noalias !163, !noundef !8
   %.not.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %.preheader.i.i.i
+  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.preheader2.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %21, %27
-  %.sroa.0.0.i.i.i = phi ptr [ %28, %27 ], [ %23, %21 ]
-  %25 = getelementptr i8, ptr %.sroa.0.0.i.i.i, i64 16
-  %.sroa.0.0.val.i.i.i = load i64, ptr %25, align 8, !noalias !163, !noundef !8
-  %26 = and i64 %.sroa.0.0.val.i.i.i, -2
-  %.not13.i.i.i = icmp eq i64 %26, 0
-  br i1 %.not13.i.i.i, label %.loopexit.i, label %27
+.preheader.i.i.i:                                 ; preds = %21
+  %25 = and i64 %20, -2
+  %.not135.i.i.i = icmp eq i64 %25, 0
+  br i1 %.not135.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %21, %.preheader.i.i.i
-  %.sroa.08.0.i.i.i = phi ptr [ %.sroa.08.0.val.i.i.i, %.preheader.i.i.i ], [ %.val.i.i.i, %21 ]
+.preheader2.i.i.i:                                ; preds = %21, %.preheader2.i.i.i
+  %.sroa.08.0.i.i.i = phi ptr [ %.sroa.08.0.val.i.i.i, %.preheader2.i.i.i ], [ %.val.i.i.i, %21 ]
   %.sroa.08.0.val.i.i.i = load ptr, ptr %.sroa.08.0.i.i.i, align 8, !noalias !163, !noundef !8
   %.not15.i.i.i = icmp eq ptr %.sroa.08.0.val.i.i.i, null
-  br i1 %.not15.i.i.i, label %.loopexit.i, label %.preheader.i.i.i
+  br i1 %.not15.i.i.i, label %.loopexit.i, label %.preheader2.i.i.i
 
-27:                                               ; preds = %.critedge.i.i.i
-  %28 = inttoptr i64 %26 to ptr
-  %.val16.i.i.i = load ptr, ptr %28, align 8, !noalias !163, !noundef !8
-  %29 = icmp eq ptr %.val16.i.i.i, %.sroa.0.0.i.i.i
-  br i1 %29, label %.loopexit.i, label %.critedge.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.critedge.i.i.i
+  %.in.i.i.i = phi i64 [ %29, %.critedge.i.i.i ], [ %25, %.preheader.i.i.i ]
+  %.sroa.0.06.i.i.i = phi ptr [ %26, %.critedge.i.i.i ], [ %23, %.preheader.i.i.i ]
+  %26 = inttoptr i64 %.in.i.i.i to ptr
+  %.val16.i.i.i = load ptr, ptr %26, align 8, !noalias !163, !noundef !8
+  %27 = icmp eq ptr %.val16.i.i.i, %.sroa.0.06.i.i.i
+  br i1 %27, label %.loopexit.i, label %.critedge.i.i.i
 
-.loopexit.i:                                      ; preds = %.preheader.i.i.i, %27, %.critedge.i.i.i
+.critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i
+  %28 = getelementptr i8, ptr %26, i64 16
+  %.sroa.0.0.val.i.i.i = load i64, ptr %28, align 8, !noalias !163, !noundef !8
+  %29 = and i64 %.sroa.0.0.val.i.i.i, -2
+  %.not13.i.i.i = icmp eq i64 %29, 0
+  br i1 %.not13.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
+
+.loopexit.i:                                      ; preds = %.preheader2.i.i.i, %.critedge.i.i.i, %.lr.ph.i.i.i, %.preheader.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 288
   invoke void @_ZN21intrusive_collections6rbtree6remove17hc4ca33355d2b1a4fE(ptr noalias noundef nonnull align 1 %30, ptr noundef nonnull %23, ptr noalias noundef nonnull align 8 dereferenceable(8) %22)
           to label %.noexc unwind label %39
@@ -1363,7 +1399,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$7collect17hc4cd827add4
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09a04e7d5453d218e7c8d61a2c8e2b93.22) #16
   unreachable
 
-39:                                               ; preds = %80, %.noexc36, %.loopexit.i29, %60, %.noexc19, %.loopexit.i12, %37, %.noexc, %.loopexit.i, %"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit"
+39:                                               ; preds = %80, %.noexc44, %.loopexit.i33, %60, %.noexc23, %.loopexit.i12, %37, %.noexc, %.loopexit.i, %"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit"
   %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$quiche..stream..Stream$GT$17hae43e918bd526339E"(ptr noalias noundef nonnull align 8 dereferenceable(368) %8) #18
@@ -1372,7 +1408,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$7collect17hc4cd827add4
 "_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_readable17h54801b879f0d17a2E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i", %16
   %41 = phi ptr [ %.pre, %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i" ], [ %18, %16 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !173)
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
+  %42 = getelementptr i8, ptr %41, i64 64
   %43 = load atomic i64, ptr %42 monotonic, align 8, !noalias !178
   %.not.i5 = icmp eq i64 %43, 0
   br i1 %.not.i5, label %"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_writable17hf28c0ac7c504a515E.exit", label %44
@@ -1384,39 +1420,45 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$7collect17hc4cd827add4
   %47 = getelementptr i8, ptr %41, i64 56
   %.val.i.i.i6 = load ptr, ptr %47, align 8, !noalias !179, !noundef !8
   %.not.i.i.i7 = icmp eq ptr %.val.i.i.i6, null
-  br i1 %.not.i.i.i7, label %.critedge.i.i.i14, label %.preheader.i.i.i8
+  br i1 %.not.i.i.i7, label %.preheader.i.i.i14, label %.preheader2.i.i.i8
 
-.critedge.i.i.i14:                                ; preds = %44, %50
-  %.sroa.0.0.i.i.i15 = phi ptr [ %51, %50 ], [ %46, %44 ]
-  %48 = getelementptr i8, ptr %.sroa.0.0.i.i.i15, i64 16
-  %.sroa.0.0.val.i.i.i16 = load i64, ptr %48, align 8, !noalias !179, !noundef !8
-  %49 = and i64 %.sroa.0.0.val.i.i.i16, -2
-  %.not13.i.i.i17 = icmp eq i64 %49, 0
-  br i1 %.not13.i.i.i17, label %.loopexit.i12, label %50
+.preheader.i.i.i14:                               ; preds = %44
+  %48 = and i64 %43, -2
+  %.not135.i.i.i15 = icmp eq i64 %48, 0
+  br i1 %.not135.i.i.i15, label %.loopexit.i12, label %.lr.ph.i.i.i16
 
-.preheader.i.i.i8:                                ; preds = %44, %.preheader.i.i.i8
-  %.sroa.08.0.i.i.i9 = phi ptr [ %.sroa.08.0.val.i.i.i10, %.preheader.i.i.i8 ], [ %.val.i.i.i6, %44 ]
+.preheader2.i.i.i8:                               ; preds = %44, %.preheader2.i.i.i8
+  %.sroa.08.0.i.i.i9 = phi ptr [ %.sroa.08.0.val.i.i.i10, %.preheader2.i.i.i8 ], [ %.val.i.i.i6, %44 ]
   %.sroa.08.0.val.i.i.i10 = load ptr, ptr %.sroa.08.0.i.i.i9, align 8, !noalias !179, !noundef !8
   %.not15.i.i.i11 = icmp eq ptr %.sroa.08.0.val.i.i.i10, null
-  br i1 %.not15.i.i.i11, label %.loopexit.i12, label %.preheader.i.i.i8
+  br i1 %.not15.i.i.i11, label %.loopexit.i12, label %.preheader2.i.i.i8
 
-50:                                               ; preds = %.critedge.i.i.i14
-  %51 = inttoptr i64 %49 to ptr
-  %.val16.i.i.i18 = load ptr, ptr %51, align 8, !noalias !179, !noundef !8
-  %52 = icmp eq ptr %.val16.i.i.i18, %.sroa.0.0.i.i.i15
-  br i1 %52, label %.loopexit.i12, label %.critedge.i.i.i14
+.lr.ph.i.i.i16:                                   ; preds = %.preheader.i.i.i14, %.critedge.i.i.i20
+  %.in.i.i.i17 = phi i64 [ %52, %.critedge.i.i.i20 ], [ %48, %.preheader.i.i.i14 ]
+  %.sroa.0.06.i.i.i18 = phi ptr [ %49, %.critedge.i.i.i20 ], [ %46, %.preheader.i.i.i14 ]
+  %49 = inttoptr i64 %.in.i.i.i17 to ptr
+  %.val16.i.i.i19 = load ptr, ptr %49, align 8, !noalias !179, !noundef !8
+  %50 = icmp eq ptr %.val16.i.i.i19, %.sroa.0.06.i.i.i18
+  br i1 %50, label %.loopexit.i12, label %.critedge.i.i.i20
 
-.loopexit.i12:                                    ; preds = %.preheader.i.i.i8, %50, %.critedge.i.i.i14
+.critedge.i.i.i20:                                ; preds = %.lr.ph.i.i.i16
+  %51 = getelementptr i8, ptr %49, i64 16
+  %.sroa.0.0.val.i.i.i21 = load i64, ptr %51, align 8, !noalias !179, !noundef !8
+  %52 = and i64 %.sroa.0.0.val.i.i.i21, -2
+  %.not13.i.i.i22 = icmp eq i64 %52, 0
+  br i1 %.not13.i.i.i22, label %.loopexit.i12, label %.lr.ph.i.i.i16
+
+.loopexit.i12:                                    ; preds = %.preheader2.i.i.i8, %.critedge.i.i.i20, %.lr.ph.i.i.i16, %.preheader.i.i.i14
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 296
   invoke void @_ZN21intrusive_collections6rbtree6remove17hc4ca33355d2b1a4fE(ptr noalias noundef nonnull align 1 %53, ptr noundef nonnull %46, ptr noalias noundef nonnull align 8 dereferenceable(8) %45)
-          to label %.noexc19 unwind label %39
+          to label %.noexc23 unwind label %39
 
-.noexc19:                                         ; preds = %.loopexit.i12
+.noexc23:                                         ; preds = %.loopexit.i12
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %55 = invoke noundef i64 @_ZN5alloc4sync11data_offset17h806b83494dfb91e9E(ptr noundef nonnull %54)
-          to label %.noexc20 unwind label %39
+          to label %.noexc24 unwind label %39
 
-.noexc20:                                         ; preds = %.noexc19
+.noexc24:                                         ; preds = %.noexc23
   %56 = sub nsw i64 0, %55
   %57 = getelementptr inbounds i8, ptr %54, i64 %56
   store ptr %57, ptr %5, align 8, !noalias !178
@@ -1424,81 +1466,87 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$7collect17hc4cd827add4
   %59 = icmp eq i64 %58, 1
   br i1 %59, label %60, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i13"
 
-60:                                               ; preds = %.noexc20
+60:                                               ; preds = %.noexc24
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h643e7529c6b71fcaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
           to label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i13" unwind label %39
 
-"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i13": ; preds = %60, %.noexc20
+"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i13": ; preds = %60, %.noexc24
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !178
-  %.pre45 = load ptr, ptr %17, align 8, !alias.scope !189, !noalias !192
+  %.pre53 = load ptr, ptr %17, align 8, !alias.scope !189, !noalias !192
   br label %"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_writable17hf28c0ac7c504a515E.exit"
 
 "_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_writable17hf28c0ac7c504a515E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i13", %"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_readable17h54801b879f0d17a2E.exit"
-  %61 = phi ptr [ %.pre45, %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i13" ], [ %41, %"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_readable17h54801b879f0d17a2E.exit" ]
+  %61 = phi ptr [ %.pre53, %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i13" ], [ %41, %"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_readable17h54801b879f0d17a2E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !189)
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 88
+  %62 = getelementptr i8, ptr %61, i64 88
   %63 = load atomic i64, ptr %62 monotonic, align 8, !noalias !194
-  %.not.i22 = icmp eq i64 %63, 0
-  br i1 %.not.i22, label %"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit", label %64
+  %.not.i26 = icmp eq i64 %63, 0
+  br i1 %.not.i26, label %"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit", label %64
 
 64:                                               ; preds = %"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_writable17hf28c0ac7c504a515E.exit"
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !194
   %67 = getelementptr i8, ptr %61, i64 80
-  %.val.i.i.i23 = load ptr, ptr %67, align 8, !noalias !195, !noundef !8
-  %.not.i.i.i24 = icmp eq ptr %.val.i.i.i23, null
-  br i1 %.not.i.i.i24, label %.critedge.i.i.i31, label %.preheader.i.i.i25
+  %.val.i.i.i27 = load ptr, ptr %67, align 8, !noalias !195, !noundef !8
+  %.not.i.i.i28 = icmp eq ptr %.val.i.i.i27, null
+  br i1 %.not.i.i.i28, label %.preheader.i.i.i35, label %.preheader2.i.i.i29
 
-.critedge.i.i.i31:                                ; preds = %64, %70
-  %.sroa.0.0.i.i.i32 = phi ptr [ %71, %70 ], [ %66, %64 ]
-  %68 = getelementptr i8, ptr %.sroa.0.0.i.i.i32, i64 16
-  %.sroa.0.0.val.i.i.i33 = load i64, ptr %68, align 8, !noalias !195, !noundef !8
-  %69 = and i64 %.sroa.0.0.val.i.i.i33, -2
-  %.not13.i.i.i34 = icmp eq i64 %69, 0
-  br i1 %.not13.i.i.i34, label %.loopexit.i29, label %70
+.preheader.i.i.i35:                               ; preds = %64
+  %68 = and i64 %63, -2
+  %.not135.i.i.i36 = icmp eq i64 %68, 0
+  br i1 %.not135.i.i.i36, label %.loopexit.i33, label %.lr.ph.i.i.i37
 
-.preheader.i.i.i25:                               ; preds = %64, %.preheader.i.i.i25
-  %.sroa.08.0.i.i.i26 = phi ptr [ %.sroa.08.0.val.i.i.i27, %.preheader.i.i.i25 ], [ %.val.i.i.i23, %64 ]
-  %.sroa.08.0.val.i.i.i27 = load ptr, ptr %.sroa.08.0.i.i.i26, align 8, !noalias !195, !noundef !8
-  %.not15.i.i.i28 = icmp eq ptr %.sroa.08.0.val.i.i.i27, null
-  br i1 %.not15.i.i.i28, label %.loopexit.i29, label %.preheader.i.i.i25
+.preheader2.i.i.i29:                              ; preds = %64, %.preheader2.i.i.i29
+  %.sroa.08.0.i.i.i30 = phi ptr [ %.sroa.08.0.val.i.i.i31, %.preheader2.i.i.i29 ], [ %.val.i.i.i27, %64 ]
+  %.sroa.08.0.val.i.i.i31 = load ptr, ptr %.sroa.08.0.i.i.i30, align 8, !noalias !195, !noundef !8
+  %.not15.i.i.i32 = icmp eq ptr %.sroa.08.0.val.i.i.i31, null
+  br i1 %.not15.i.i.i32, label %.loopexit.i33, label %.preheader2.i.i.i29
 
-70:                                               ; preds = %.critedge.i.i.i31
-  %71 = inttoptr i64 %69 to ptr
-  %.val16.i.i.i35 = load ptr, ptr %71, align 8, !noalias !195, !noundef !8
-  %72 = icmp eq ptr %.val16.i.i.i35, %.sroa.0.0.i.i.i32
-  br i1 %72, label %.loopexit.i29, label %.critedge.i.i.i31
+.lr.ph.i.i.i37:                                   ; preds = %.preheader.i.i.i35, %.critedge.i.i.i41
+  %.in.i.i.i38 = phi i64 [ %72, %.critedge.i.i.i41 ], [ %68, %.preheader.i.i.i35 ]
+  %.sroa.0.06.i.i.i39 = phi ptr [ %69, %.critedge.i.i.i41 ], [ %66, %.preheader.i.i.i35 ]
+  %69 = inttoptr i64 %.in.i.i.i38 to ptr
+  %.val16.i.i.i40 = load ptr, ptr %69, align 8, !noalias !195, !noundef !8
+  %70 = icmp eq ptr %.val16.i.i.i40, %.sroa.0.06.i.i.i39
+  br i1 %70, label %.loopexit.i33, label %.critedge.i.i.i41
 
-.loopexit.i29:                                    ; preds = %.preheader.i.i.i25, %70, %.critedge.i.i.i31
+.critedge.i.i.i41:                                ; preds = %.lr.ph.i.i.i37
+  %71 = getelementptr i8, ptr %69, i64 16
+  %.sroa.0.0.val.i.i.i42 = load i64, ptr %71, align 8, !noalias !195, !noundef !8
+  %72 = and i64 %.sroa.0.0.val.i.i.i42, -2
+  %.not13.i.i.i43 = icmp eq i64 %72, 0
+  br i1 %.not13.i.i.i43, label %.loopexit.i33, label %.lr.ph.i.i.i37
+
+.loopexit.i33:                                    ; preds = %.preheader2.i.i.i29, %.critedge.i.i.i41, %.lr.ph.i.i.i37, %.preheader.i.i.i35
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 280
   invoke void @_ZN21intrusive_collections6rbtree6remove17hc4ca33355d2b1a4fE(ptr noalias noundef nonnull align 1 %73, ptr noundef nonnull %66, ptr noalias noundef nonnull align 8 dereferenceable(8) %65)
-          to label %.noexc36 unwind label %39
+          to label %.noexc44 unwind label %39
 
-.noexc36:                                         ; preds = %.loopexit.i29
+.noexc44:                                         ; preds = %.loopexit.i33
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %75 = invoke noundef i64 @_ZN5alloc4sync11data_offset17h806b83494dfb91e9E(ptr noundef nonnull %74)
-          to label %.noexc37 unwind label %39
+          to label %.noexc45 unwind label %39
 
-.noexc37:                                         ; preds = %.noexc36
+.noexc45:                                         ; preds = %.noexc44
   %76 = sub nsw i64 0, %75
   %77 = getelementptr inbounds i8, ptr %74, i64 %76
   store ptr %77, ptr %4, align 8, !noalias !194
   %78 = atomicrmw sub ptr %77, i64 1 release, align 8, !noalias !198
   %79 = icmp eq i64 %78, 1
-  br i1 %79, label %80, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i30"
+  br i1 %79, label %80, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i34"
 
-80:                                               ; preds = %.noexc37
+80:                                               ; preds = %.noexc45
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h643e7529c6b71fcaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i30" unwind label %39
+          to label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i34" unwind label %39
 
-"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i30": ; preds = %80, %.noexc37
+"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i34": ; preds = %80, %.noexc45
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !194
   br label %"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit"
 
-"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i30", %"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_writable17hf28c0ac7c504a515E.exit"
+"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i34", %"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_writable17hf28c0ac7c504a515E.exit"
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %82 = load i64, ptr %9, align 8, !noundef !8
   %83 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hbd541f04ea2a87dfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %81, i64 noundef %82)

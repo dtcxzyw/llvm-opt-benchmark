@@ -18220,33 +18220,32 @@ _ZNKSt8functionIFN5clang12ActionResultINS0_9OpaquePtrINS0_8QualTypeEEELb0EEEN4ll
 58:                                               ; preds = %27
   %59 = icmp eq i32 %34, 73
   %spec.select.i.i59 = select i1 %59, ptr %1, ptr null
-  %60 = icmp ne ptr %spec.select.i.i59, null
-  call void @llvm.assume(i1 %60)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i59) ]
   %.sroa.0.0.copyload.i60 = load i32, ptr %20, align 8, !tbaa !9
-  %61 = getelementptr inbounds nuw i8, ptr %spec.select.i.i59, i64 56
-  %.sroa.0.0.copyload.i61 = load i64, ptr %61, align 8, !tbaa !34
-  %62 = call fastcc noundef zeroext i1 @_ZL28checkAPINotesReplacementTypeRN5clang4SemaENS_14SourceLocationENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %.sroa.0.0.copyload.i60, i64 %.sroa.0.0.copyload.i61, i64 %28)
-  br i1 %62, label %_ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit, label %63
+  %60 = getelementptr inbounds nuw i8, ptr %spec.select.i.i59, i64 56
+  %.sroa.0.0.copyload.i61 = load i64, ptr %60, align 8, !tbaa !34
+  %61 = call fastcc noundef zeroext i1 @_ZL28checkAPINotesReplacementTypeRN5clang4SemaENS_14SourceLocationENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %.sroa.0.0.copyload.i60, i64 %.sroa.0.0.copyload.i61, i64 %28)
+  br i1 %61, label %_ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit, label %62
 
-63:                                               ; preds = %58
-  store i64 %28, ptr %61, align 8, !tbaa !34
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %31, ptr %64, align 8, !tbaa !1261
+62:                                               ; preds = %58
+  store i64 %28, ptr %60, align 8, !tbaa !34
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store ptr %31, ptr %63, align 8, !tbaa !1261
   br label %_ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit
 
-_ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit: ; preds = %_ZNKSt8functionIFN5clang12ActionResultINS0_9OpaquePtrINS0_8QualTypeEEELb0EEEN4llvm9StringRefES7_NS0_14SourceLocationEEEclES7_S7_S8_.exit, %55, %51, %63, %58, %45, %11, %4
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %66 = load i8, ptr %65, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %71
+_ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit: ; preds = %_ZNKSt8functionIFN5clang12ActionResultINS0_9OpaquePtrINS0_8QualTypeEEELb0EEEN4llvm9StringRefES7_NS0_14SourceLocationEEEclES7_S7_S8_.exit, %55, %51, %62, %58, %45, %11, %4
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %65 = load i8, ptr %64, align 8
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %70
 
-68:                                               ; preds = %_ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit
-  %69 = lshr i8 %66, 1
-  %70 = and i8 %69, 3
-  call fastcc void @_ZL16applyNullabilityRN5clang4SemaEPNS_4DeclENS_15NullabilityKindEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i8 noundef zeroext %70, i8 %9)
-  br label %71
+67:                                               ; preds = %_ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit
+  %68 = lshr i8 %65, 1
+  %69 = and i8 %68, 3
+  call fastcc void @_ZL16applyNullabilityRN5clang4SemaEPNS_4DeclENS_15NullabilityKindEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i8 noundef zeroext %69, i8 %9)
+  br label %70
 
-71:                                               ; preds = %68, %_ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit
+70:                                               ; preds = %67, %_ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit
   call fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEPNS_4DeclERKNS_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 %3)
   ret void
 }

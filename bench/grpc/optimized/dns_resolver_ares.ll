@@ -10776,10 +10776,11 @@ define linkonce_odr { ptr, ptr } @_ZN4absl12lts_2024072218container_internal12ra
   br i1 %49, label %.thread29.i, label %53, !prof !155
 
 .thread29.i:                                      ; preds = %.lr.ph.i
-  %50 = load ptr, ptr %13, align 8, !tbaa !51, !nonnull !178, !noundef !178
+  %50 = load ptr, ptr %13, align 8, !tbaa !51
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %47
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %38, align 8, !tbaa !51
   %52 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %47
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %51) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE12find_non_sooIS6_EENSG_8iteratorERKS6_m.exit
 
 53:                                               ; preds = %.lr.ph.i
@@ -10910,11 +10911,12 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %29 = xor i128 %28, %27
   %30 = trunc i128 %29 to i64
   %31 = tail call noundef i64 @_ZN4absl12lts_2024072218container_internal21PrepareInsertAfterSooEmmRNS1_12CommonFieldsE(i64 noundef %30, i64 noundef 16, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !295
-  %32 = load ptr, ptr %13, align 8, !tbaa !51, !noalias !295, !nonnull !178, !noundef !178
+  %32 = load ptr, ptr %13, align 8, !tbaa !51, !noalias !295
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %34, align 8, !tbaa !51, !noalias !295
   %35 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %31
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %33) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE26find_or_prepare_insert_sooIS6_EESt4pairINSG_8iteratorEbERKT_.exit
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE26find_or_prepare_insert_sooIS6_EESt4pairINSG_8iteratorEbERKT_.exit: ; preds = %10, %12, %15
@@ -11016,12 +11018,13 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %31
 
 .critedge21:                                      ; preds = %.lr.ph, %.thread
-  %.sink73 = phi i64 [ %50, %.thread ], [ %39, %.lr.ph ]
+  %.sink74 = phi i64 [ %50, %.thread ], [ %39, %.lr.ph ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.lr.ph ]
-  %54 = load ptr, ptr %4, align 8, !tbaa !51, !nonnull !178, !noundef !178
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink73
+  %54 = load ptr, ptr %4, align 8, !tbaa !51
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink74
   %.sroa.0.0.copyload.i.i.i.i22 = load ptr, ptr %30, align 8, !tbaa !51
-  %56 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %.sink73
+  %56 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %.sink74
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %55) ]
   store ptr %55, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %56, ptr %.sroa.4.0..sroa_idx, align 8

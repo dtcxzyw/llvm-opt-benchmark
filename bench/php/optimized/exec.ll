@@ -621,7 +621,7 @@ zend_gc_try_delref.exit:                          ; preds = %73, %77, %60, %54, 
   store i32 4, ptr %91, align 8, !tbaa !8
   br label %zend_try_array_init_size.exit
 
-zend_try_array_init_size.exit:                    ; preds = %73, %85, %31, %80, %88, %35, %32
+zend_try_array_init_size.exit:                    ; preds = %85, %73, %31, %80, %88, %35, %32
   ret void
 }
 

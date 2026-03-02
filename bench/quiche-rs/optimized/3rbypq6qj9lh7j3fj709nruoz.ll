@@ -354,86 +354,85 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h8c79965388c2eb4dE
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !6
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !6
   invoke void @"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$20new_with_constructor17h0e3f95133ae4fa06E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 @anon.2a2831ffa4dab201532ff2a190b9987d.49, i64 noundef 17)
-          to label %26 unwind label %24, !noalias !6
+          to label %25 unwind label %23, !noalias !6
 
-20:                                               ; preds = %44, %.body6.i, %24
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %44 ], [ %eh.lpad-body7.i, %.body6.i ], [ %25, %24 ]
-  %21 = icmp ne ptr %18, null
-  call void @llvm.assume(i1 %21)
-  %22 = cmpxchg ptr %18, i64 8, i64 0 release monotonic, align 8, !noalias !6
-  %.sroa.18.0.in.i.i.i.i.i = extractvalue { i64, i1 } %22, 1
-  br i1 %.sroa.18.0.in.i.i.i.i.i, label %"_ZN4core3ptr239drop_in_place$LT$lock_api..rwlock..MappedRwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometheus_client..registry..Registry$LT$alloc..boxed..Box$LT$dyn$u20$prometheus_client..encoding..text..SendSyncEncodeMetric$GT$$GT$$GT$$GT$17h47f8ce59794bdeb6E.exit.i", label %23, !prof !5
+20:                                               ; preds = %43, %.body6.i, %23
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %43 ], [ %eh.lpad-body7.i, %.body6.i ], [ %24, %23 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
+  %21 = cmpxchg ptr %18, i64 8, i64 0 release monotonic, align 8, !noalias !6
+  %.sroa.18.0.in.i.i.i.i.i = extractvalue { i64, i1 } %21, 1
+  br i1 %.sroa.18.0.in.i.i.i.i.i, label %"_ZN4core3ptr239drop_in_place$LT$lock_api..rwlock..MappedRwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometheus_client..registry..Registry$LT$alloc..boxed..Box$LT$dyn$u20$prometheus_client..encoding..text..SendSyncEncodeMetric$GT$$GT$$GT$$GT$17h47f8ce59794bdeb6E.exit.i", label %22, !prof !5
 
-23:                                               ; preds = %20
+22:                                               ; preds = %20
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17hd55f380220c48fd7E(ptr noundef nonnull align 8 %18, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr239drop_in_place$LT$lock_api..rwlock..MappedRwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometheus_client..registry..Registry$LT$alloc..boxed..Box$LT$dyn$u20$prometheus_client..encoding..text..SendSyncEncodeMetric$GT$$GT$$GT$$GT$17h47f8ce59794bdeb6E.exit.i" unwind label %103, !noalias !6
+          to label %"_ZN4core3ptr239drop_in_place$LT$lock_api..rwlock..MappedRwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometheus_client..registry..Registry$LT$alloc..boxed..Box$LT$dyn$u20$prometheus_client..encoding..text..SendSyncEncodeMetric$GT$$GT$$GT$$GT$17h47f8ce59794bdeb6E.exit.i" unwind label %101, !noalias !6
 
-24:                                               ; preds = %1
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %1
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %20
 
-26:                                               ; preds = %1
+25:                                               ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !6
-  %27 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h6bb824e137aae2f9E"(ptr noalias noundef nonnull readonly align 1 @anon.2a2831ffa4dab201532ff2a190b9987d.50, i64 noundef 34)
-          to label %30 unwind label %28, !noalias !6
+  %26 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h6bb824e137aae2f9E"(ptr noalias noundef nonnull readonly align 1 @anon.2a2831ffa4dab201532ff2a190b9987d.50, i64 noundef 34)
+          to label %29 unwind label %27, !noalias !6
 
-28:                                               ; preds = %42, %30, %26
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %41, %29, %25
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %.body6.i
 
-.body6.i:                                         ; preds = %38, %28
-  %eh.lpad-body7.i = phi { ptr, i32 } [ %29, %28 ], [ %39, %38 ]
+.body6.i:                                         ; preds = %37, %27
+  %eh.lpad-body7.i = phi { ptr, i32 } [ %28, %27 ], [ %38, %37 ]
   invoke void @"_ZN4core3ptr212drop_in_place$LT$prometools..serde..Family$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$C$prometools..histogram..TimeHistogram$C$foundations..telemetry..metrics..HistogramBuilder$GT$$GT$17hca98b23581be94f3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #27
-          to label %20 unwind label %103, !noalias !6
+          to label %20 unwind label %101, !noalias !6
 
-30:                                               ; preds = %26
-  %31 = extractvalue { ptr, i64 } %27, 0
-  %32 = extractvalue { ptr, i64 } %27, 1
+29:                                               ; preds = %25
+  %30 = extractvalue { ptr, i64 } %26, 0
+  %31 = extractvalue { ptr, i64 } %26, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !6
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !6
   invoke void @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h06bde2397becf9bdE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
-          to label %33 unwind label %28, !noalias !6
+          to label %32 unwind label %27, !noalias !6
 
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !6
-  %34 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !9
-  %35 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 16, 513) 24, i64 noundef range(i64 8, 129) 8) #23, !noalias !9
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %42, !prof !12
+  %33 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !9
+  %34 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 16, 513) 24, i64 noundef range(i64 8, 129) 8) #23, !noalias !9
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %41, !prof !12
 
-37:                                               ; preds = %33
+36:                                               ; preds = %32
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef 24) #26
-          to label %.noexc9.i unwind label %38, !noalias !6
+          to label %.noexc9.i unwind label %37, !noalias !6
 
-.noexc9.i:                                        ; preds = %37
+.noexc9.i:                                        ; preds = %36
   unreachable
 
-38:                                               ; preds = %37
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %36
+  %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr212drop_in_place$LT$prometools..serde..Family$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$C$prometools..histogram..TimeHistogram$C$foundations..telemetry..metrics..HistogramBuilder$GT$$GT$17hca98b23581be94f3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #27
-          to label %.body6.i unwind label %40, !noalias !6
+          to label %.body6.i unwind label %39, !noalias !6
 
-40:                                               ; preds = %38
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #28, !noalias !6
   unreachable
 
-42:                                               ; preds = %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !6
+41:                                               ; preds = %32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !6
   store i64 -9223372036854775799, ptr %7, align 8, !noalias !6
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !6
-  invoke void @"_ZN17prometheus_client8registry17Registry$LT$M$GT$13priv_register17hbb936a8e4b438cb0E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %19, ptr noalias noundef nonnull readonly align 1 @anon.2a2831ffa4dab201532ff2a190b9987d.52, i64 noundef 37, ptr noalias noundef nonnull readonly align 1 %31, i64 noundef %32, ptr noundef nonnull align 1 %35, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.2a2831ffa4dab201532ff2a190b9987d.51, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
-          to label %43 unwind label %28, !noalias !6
+  invoke void @"_ZN17prometheus_client8registry17Registry$LT$M$GT$13priv_register17hbb936a8e4b438cb0E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %19, ptr noalias noundef nonnull readonly align 1 @anon.2a2831ffa4dab201532ff2a190b9987d.52, i64 noundef 37, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %31, ptr noundef nonnull align 1 %34, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.2a2831ffa4dab201532ff2a190b9987d.51, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
+          to label %42 unwind label %27, !noalias !6
 
-43:                                               ; preds = %42
+42:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !6
@@ -441,228 +440,226 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h8c79965388c2eb4dE
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !6
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6
   invoke void @"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$20new_with_constructor17h235fb6fd5be4cc5fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 @anon.2a2831ffa4dab201532ff2a190b9987d.49, i64 noundef 17)
-          to label %47 unwind label %45, !noalias !6
+          to label %46 unwind label %44, !noalias !6
 
-44:                                               ; preds = %66, %.body.i, %45
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %66 ], [ %eh.lpad-body.i, %.body.i ], [ %46, %45 ]
+43:                                               ; preds = %65, %.body.i, %44
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %65 ], [ %eh.lpad-body.i, %.body.i ], [ %45, %44 ]
   invoke void @"_ZN4core3ptr212drop_in_place$LT$prometools..serde..Family$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$C$prometools..histogram..TimeHistogram$C$foundations..telemetry..metrics..HistogramBuilder$GT$$GT$17hca98b23581be94f3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #27
-          to label %20 unwind label %103, !noalias !6
+          to label %20 unwind label %101, !noalias !6
 
-45:                                               ; preds = %43
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %42
+  %45 = landingpad { ptr, i32 }
           cleanup
-  br label %44
+  br label %43
 
-47:                                               ; preds = %43
+46:                                               ; preds = %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !6
-  %48 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h6bb824e137aae2f9E"(ptr noalias noundef nonnull readonly align 1 @anon.2a2831ffa4dab201532ff2a190b9987d.53, i64 noundef 33)
-          to label %51 unwind label %49, !noalias !6
+  %47 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h6bb824e137aae2f9E"(ptr noalias noundef nonnull readonly align 1 @anon.2a2831ffa4dab201532ff2a190b9987d.53, i64 noundef 33)
+          to label %50 unwind label %48, !noalias !6
 
-49:                                               ; preds = %63, %51, %47
-  %50 = landingpad { ptr, i32 }
+48:                                               ; preds = %62, %50, %46
+  %49 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %59, %49
-  %eh.lpad-body.i = phi { ptr, i32 } [ %50, %49 ], [ %60, %59 ]
+.body.i:                                          ; preds = %58, %48
+  %eh.lpad-body.i = phi { ptr, i32 } [ %49, %48 ], [ %59, %58 ]
   invoke void @"_ZN4core3ptr211drop_in_place$LT$prometools..serde..Family$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$C$prometools..histogram..TimeHistogram$C$foundations..telemetry..metrics..HistogramBuilder$GT$$GT$17h9d0bca668227e767E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %44 unwind label %103, !noalias !6
+          to label %43 unwind label %101, !noalias !6
 
-51:                                               ; preds = %47
-  %52 = extractvalue { ptr, i64 } %48, 0
-  %53 = extractvalue { ptr, i64 } %48, 1
+50:                                               ; preds = %46
+  %51 = extractvalue { ptr, i64 } %47, 0
+  %52 = extractvalue { ptr, i64 } %47, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !6
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6
   invoke void @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h029e398b5fe122ceE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
-          to label %54 unwind label %49, !noalias !6
+          to label %53 unwind label %48, !noalias !6
 
-54:                                               ; preds = %51
+53:                                               ; preds = %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6
-  %55 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !13
-  %56 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 16, 513) 24, i64 noundef range(i64 8, 129) 8) #23, !noalias !13
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %63, !prof !12
+  %54 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !13
+  %55 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 16, 513) 24, i64 noundef range(i64 8, 129) 8) #23, !noalias !13
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %62, !prof !12
 
-58:                                               ; preds = %54
+57:                                               ; preds = %53
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef 24) #26
-          to label %.noexc10.i unwind label %59, !noalias !6
+          to label %.noexc10.i unwind label %58, !noalias !6
 
-.noexc10.i:                                       ; preds = %58
+.noexc10.i:                                       ; preds = %57
   unreachable
 
-59:                                               ; preds = %58
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %57
+  %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr211drop_in_place$LT$prometools..serde..Family$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$C$prometools..histogram..TimeHistogram$C$foundations..telemetry..metrics..HistogramBuilder$GT$$GT$17h9d0bca668227e767E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #27
-          to label %.body.i unwind label %61, !noalias !6
+          to label %.body.i unwind label %60, !noalias !6
 
-61:                                               ; preds = %59
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %58
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #28, !noalias !6
   unreachable
 
-63:                                               ; preds = %54
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !6
+62:                                               ; preds = %53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !6
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !6
-  invoke void @"_ZN17prometheus_client8registry17Registry$LT$M$GT$13priv_register17hbb936a8e4b438cb0E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %19, ptr noalias noundef nonnull readonly align 1 @anon.2a2831ffa4dab201532ff2a190b9987d.55, i64 noundef 36, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %53, ptr noundef nonnull align 1 %56, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.2a2831ffa4dab201532ff2a190b9987d.54, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
-          to label %64 unwind label %49, !noalias !6
+  invoke void @"_ZN17prometheus_client8registry17Registry$LT$M$GT$13priv_register17hbb936a8e4b438cb0E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %19, ptr noalias noundef nonnull readonly align 1 @anon.2a2831ffa4dab201532ff2a190b9987d.55, i64 noundef 36, ptr noalias noundef nonnull readonly align 1 %51, i64 noundef %52, ptr noundef nonnull align 1 %55, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.2a2831ffa4dab201532ff2a190b9987d.54, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
+          to label %63 unwind label %48, !noalias !6
 
-64:                                               ; preds = %63
+63:                                               ; preds = %62
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !6
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !6
-  %65 = invoke { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$GT$$u20$as$u20$core..default..Default$GT$7default17h94917d73a4d1b1f7E"()
-          to label %69 unwind label %67, !noalias !6
+  %64 = invoke { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$GT$$u20$as$u20$core..default..Default$GT$7default17h94917d73a4d1b1f7E"()
+          to label %68 unwind label %66, !noalias !6
 
-66:                                               ; preds = %.body4.i, %67
-  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body5.i, %.body4.i ], [ %68, %67 ]
+65:                                               ; preds = %.body4.i, %66
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body5.i, %.body4.i ], [ %67, %66 ]
   invoke void @"_ZN4core3ptr211drop_in_place$LT$prometools..serde..Family$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$C$prometools..histogram..TimeHistogram$C$foundations..telemetry..metrics..HistogramBuilder$GT$$GT$17h9d0bca668227e767E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #27
-          to label %44 unwind label %103, !noalias !6
+          to label %43 unwind label %101, !noalias !6
 
-67:                                               ; preds = %64
-  %68 = landingpad { ptr, i32 }
+66:                                               ; preds = %63
+  %67 = landingpad { ptr, i32 }
           cleanup
-  br label %66
+  br label %65
 
-69:                                               ; preds = %64
-  %70 = extractvalue { ptr, ptr } %65, 0
-  %71 = extractvalue { ptr, ptr } %65, 1
-  store ptr %70, ptr %10, align 8, !noalias !6
-  %72 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %71, ptr %72, align 8, !noalias !6
-  %73 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h6bb824e137aae2f9E"(ptr noalias noundef nonnull readonly align 1 @anon.2a2831ffa4dab201532ff2a190b9987d.56, i64 noundef 61)
-          to label %76 unwind label %74, !noalias !6
+68:                                               ; preds = %63
+  %69 = extractvalue { ptr, ptr } %64, 0
+  %70 = extractvalue { ptr, ptr } %64, 1
+  store ptr %69, ptr %10, align 8, !noalias !6
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %70, ptr %71, align 8, !noalias !6
+  %72 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h6bb824e137aae2f9E"(ptr noalias noundef nonnull readonly align 1 @anon.2a2831ffa4dab201532ff2a190b9987d.56, i64 noundef 61)
+          to label %75 unwind label %73, !noalias !6
 
-74:                                               ; preds = %92, %76, %69
-  %75 = landingpad { ptr, i32 }
+73:                                               ; preds = %91, %75, %68
+  %74 = landingpad { ptr, i32 }
           cleanup
   br label %.body4.i
 
-.body4.i:                                         ; preds = %88, %74
-  %eh.lpad-body5.i = phi { ptr, i32 } [ %75, %74 ], [ %89, %88 ]
+.body4.i:                                         ; preds = %87, %73
+  %eh.lpad-body5.i = phi { ptr, i32 } [ %74, %73 ], [ %88, %87 ]
   invoke void @"_ZN4core3ptr175drop_in_place$LT$prometools..serde..Family$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17he9a5d22bbf6d2cfeE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #27
-          to label %66 unwind label %103, !noalias !6
+          to label %65 unwind label %101, !noalias !6
 
-76:                                               ; preds = %69
-  %77 = extractvalue { ptr, i64 } %73, 0
-  %78 = extractvalue { ptr, i64 } %73, 1
-  %79 = invoke { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf1efa07263a7eebbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
-          to label %80 unwind label %74, !noalias !6
+75:                                               ; preds = %68
+  %76 = extractvalue { ptr, i64 } %72, 0
+  %77 = extractvalue { ptr, i64 } %72, 1
+  %78 = invoke { ptr, ptr } @"_ZN98_$LT$prometheus_client..metrics..family..Family$LT$S$C$M$C$C$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf1efa07263a7eebbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+          to label %79 unwind label %73, !noalias !6
 
-80:                                               ; preds = %76
-  %81 = extractvalue { ptr, ptr } %79, 0
-  %82 = extractvalue { ptr, ptr } %79, 1
+79:                                               ; preds = %75
+  %80 = extractvalue { ptr, ptr } %78, 0
+  %81 = extractvalue { ptr, ptr } %78, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !6
-  store ptr %81, ptr %2, align 8, !noalias !6
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %82, ptr %83, align 8, !noalias !6
-  %84 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !6
-  %85 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 16, 513) 16, i64 noundef range(i64 8, 129) 8) #23, !noalias !6
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %92, !prof !12
+  store ptr %80, ptr %2, align 8, !noalias !6
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %81, ptr %82, align 8, !noalias !6
+  %83 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !6
+  %84 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 16, 513) 16, i64 noundef range(i64 8, 129) 8) #23, !noalias !6
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %86, label %91, !prof !12
 
-87:                                               ; preds = %80
+86:                                               ; preds = %79
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef 16) #26
-          to label %.noexc12.i unwind label %88, !noalias !6
+          to label %.noexc12.i unwind label %87, !noalias !6
 
-.noexc12.i:                                       ; preds = %87
+.noexc12.i:                                       ; preds = %86
   unreachable
 
-88:                                               ; preds = %87
-  %89 = landingpad { ptr, i32 }
+87:                                               ; preds = %86
+  %88 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr175drop_in_place$LT$prometools..serde..Family$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17he9a5d22bbf6d2cfeE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2) #27
-          to label %.body4.i unwind label %90, !noalias !6
+          to label %.body4.i unwind label %89, !noalias !6
 
-90:                                               ; preds = %88
-  %91 = landingpad { ptr, i32 }
+89:                                               ; preds = %87
+  %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #28, !noalias !6
   unreachable
 
-92:                                               ; preds = %80
-  store ptr %81, ptr %85, align 8, !noalias !6
-  %93 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr %82, ptr %93, align 8, !noalias !6
+91:                                               ; preds = %79
+  store ptr %80, ptr %84, align 8, !noalias !6
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store ptr %81, ptr %92, align 8, !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !6
-  invoke void @"_ZN17prometheus_client8registry17Registry$LT$M$GT$13priv_register17hbb936a8e4b438cb0E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %19, ptr noalias noundef nonnull readonly align 1 @anon.2a2831ffa4dab201532ff2a190b9987d.58, i64 noundef 35, ptr noalias noundef nonnull readonly align 1 %77, i64 noundef %78, ptr noundef nonnull align 1 %85, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.2a2831ffa4dab201532ff2a190b9987d.57, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
-          to label %94 unwind label %74, !noalias !6
+  invoke void @"_ZN17prometheus_client8registry17Registry$LT$M$GT$13priv_register17hbb936a8e4b438cb0E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %19, ptr noalias noundef nonnull readonly align 1 @anon.2a2831ffa4dab201532ff2a190b9987d.58, i64 noundef 35, ptr noalias noundef nonnull readonly align 1 %76, i64 noundef %77, ptr noundef nonnull align 1 %84, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.2a2831ffa4dab201532ff2a190b9987d.57, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
+          to label %93 unwind label %73, !noalias !6
 
-94:                                               ; preds = %92
-  %95 = load ptr, ptr %10, align 8, !noalias !6, !nonnull !3, !noundef !3
-  %96 = load ptr, ptr %72, align 8, !noalias !6, !nonnull !3, !noundef !3
+93:                                               ; preds = %91
+  %94 = load ptr, ptr %10, align 8, !noalias !6, !nonnull !3, !noundef !3
+  %95 = load ptr, ptr %71, align 8, !noalias !6, !nonnull !3, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %94, ptr %97, align 8, !alias.scope !6
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %95, ptr %98, align 8, !alias.scope !6
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %96, ptr %99, align 8, !alias.scope !6
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !6
-  %100 = icmp ne ptr %18, null
-  call void @llvm.assume(i1 %100)
-  %101 = cmpxchg ptr %18, i64 8, i64 0 release monotonic, align 8, !noalias !6
-  %.sroa.18.0.in.i.i.i.i14.i = extractvalue { i64, i1 } %101, 1
-  br i1 %.sroa.18.0.in.i.i.i.i14.i, label %"_ZN12tokio_quiche7metrics5tokio15__tokio_Metrics28_$u7b$$u7b$closure$u7d$$u7d$17hcf0ba9e6bd21b23eE.exit", label %102, !prof !5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
+  %99 = cmpxchg ptr %18, i64 8, i64 0 release monotonic, align 8, !noalias !6
+  %.sroa.18.0.in.i.i.i.i14.i = extractvalue { i64, i1 } %99, 1
+  br i1 %.sroa.18.0.in.i.i.i.i14.i, label %"_ZN12tokio_quiche7metrics5tokio15__tokio_Metrics28_$u7b$$u7b$closure$u7d$$u7d$17hcf0ba9e6bd21b23eE.exit", label %100, !prof !5
 
-102:                                              ; preds = %94
+100:                                              ; preds = %93
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17hd55f380220c48fd7E(ptr noundef nonnull align 8 %18, i1 noundef zeroext false), !noalias !6
   br label %"_ZN12tokio_quiche7metrics5tokio15__tokio_Metrics28_$u7b$$u7b$closure$u7d$$u7d$17hcf0ba9e6bd21b23eE.exit"
 
-103:                                              ; preds = %.body4.i, %66, %.body.i, %44, %.body6.i, %23
-  %104 = landingpad { ptr, i32 }
+101:                                              ; preds = %.body4.i, %65, %.body.i, %43, %.body6.i, %22
+  %102 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #28, !noalias !6
   unreachable
 
-"_ZN4core3ptr239drop_in_place$LT$lock_api..rwlock..MappedRwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometheus_client..registry..Registry$LT$alloc..boxed..Box$LT$dyn$u20$prometheus_client..encoding..text..SendSyncEncodeMetric$GT$$GT$$GT$$GT$17h47f8ce59794bdeb6E.exit.i": ; preds = %23, %20
+"_ZN4core3ptr239drop_in_place$LT$lock_api..rwlock..MappedRwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometheus_client..registry..Registry$LT$alloc..boxed..Box$LT$dyn$u20$prometheus_client..encoding..text..SendSyncEncodeMetric$GT$$GT$$GT$$GT$17h47f8ce59794bdeb6E.exit.i": ; preds = %22, %20
   resume { ptr, i32 } %.pn.pn.pn.i
 
-"_ZN12tokio_quiche7metrics5tokio15__tokio_Metrics28_$u7b$$u7b$closure$u7d$$u7d$17hcf0ba9e6bd21b23eE.exit": ; preds = %94, %102
+"_ZN12tokio_quiche7metrics5tokio15__tokio_Metrics28_$u7b$$u7b$closure$u7d$$u7d$17hcf0ba9e6bd21b23eE.exit": ; preds = %93, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$tokio..runtime..io..registration_set..Synced$GT$$GT$17h0eed913f36da8438E"(ptr %.0.val, i8 %.8.val) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %3 = trunc nuw i8 %.8.val to i1
-  br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i, label %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %2 = trunc nuw i8 %.8.val to i1
+  br i1 %2, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i, label %3
 
-4:                                                ; preds = %0
-  %5 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hbe50f93f4fcd319cE monotonic, align 8
-  %6 = and i64 %5, 9223372036854775807
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i, label %8, !prof !5
+3:                                                ; preds = %0
+  %4 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hbe50f93f4fcd319cE monotonic, align 8
+  %5 = and i64 %4, 9223372036854775807
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i, label %7, !prof !5
 
-8:                                                ; preds = %4
-  %9 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h1c1768a2b70327b8E()
-  br i1 %9, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i, label %10
+7:                                                ; preds = %3
+  %8 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h1c1768a2b70327b8E()
+  br i1 %8, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i, label %9
 
-10:                                               ; preds = %8
-  store atomic i8 1, ptr %2 monotonic, align 1
+9:                                                ; preds = %7
+  store atomic i8 1, ptr %1 monotonic, align 1
   br label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i
 
-_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i: ; preds = %10, %8, %4, %0
-  %11 = atomicrmw xchg ptr %.0.val, i32 0 release, align 4
-  %12 = icmp eq i32 %11, 2
-  br i1 %12, label %13, label %"_ZN87_$LT$std..sync..poison..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfe20bcaf07c246aE.exit", !prof !12
+_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i: ; preds = %9, %7, %3, %0
+  %10 = atomicrmw xchg ptr %.0.val, i32 0 release, align 4
+  %11 = icmp eq i32 %10, 2
+  br i1 %11, label %12, label %"_ZN87_$LT$std..sync..poison..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfe20bcaf07c246aE.exit", !prof !12
 
-13:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i
+12:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17hd721f493096dd565E(ptr noundef nonnull align 4 %.0.val)
   br label %"_ZN87_$LT$std..sync..poison..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfe20bcaf07c246aE.exit"
 
-"_ZN87_$LT$std..sync..poison..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfe20bcaf07c246aE.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i, %13
+"_ZN87_$LT$std..sync..poison..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfe20bcaf07c246aE.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i, %12
   ret void
 }
 
@@ -3576,12 +3573,12 @@ define hidden noundef nonnull ptr @_ZN12tokio_quiche7metrics5tokio37runtime_task
   tail call void @llvm.trap()
   unreachable
 
-"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit": ; preds = %19, %25, %13
-  %.pn = phi { ptr, i32 } [ %14, %13 ], [ %20, %25 ], [ %20, %19 ]
+"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit": ; preds = %19, %24, %13
+  %.pn = phi { ptr, i32 } [ %14, %13 ], [ %20, %24 ], [ %20, %19 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$17h26ae9d064df2fffaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2) #27
-          to label %34 unwind label %32
+          to label %32 unwind label %30
 
-13:                                               ; preds = %31, %7
+13:                                               ; preds = %29, %7
   %14 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit"
@@ -3590,46 +3587,44 @@ define hidden noundef nonnull ptr @_ZN12tokio_quiche7metrics5tokio37runtime_task
   %16 = extractvalue { ptr, ptr } %11, 0
   %17 = extractvalue { ptr, ptr } %11, 1
   %18 = invoke noundef nonnull ptr @"_ZN75_$LT$prometools..histogram..TimeHistogram$u20$as$u20$core..clone..Clone$GT$5clone17hf140ea75d1f26ae4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17)
-          to label %26 unwind label %19
+          to label %25 unwind label %19
 
 19:                                               ; preds = %15
   %20 = landingpad { ptr, i32 }
           cleanup
-  %21 = icmp ne ptr %16, null
-  call void @llvm.assume(i1 %21)
-  %22 = atomicrmw sub ptr %16, i64 16 release, align 8
-  %23 = and i64 %22, -14
-  %24 = icmp eq i64 %23, 18
-  br i1 %24, label %25, label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit", !prof !12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %16) ]
+  %21 = atomicrmw sub ptr %16, i64 16 release, align 8
+  %22 = and i64 %21, -14
+  %23 = icmp eq i64 %22, 18
+  br i1 %23, label %24, label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit", !prof !12
 
-25:                                               ; preds = %19
+24:                                               ; preds = %19
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %16)
-          to label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit" unwind label %32
+          to label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit" unwind label %30
 
-26:                                               ; preds = %15
-  %27 = icmp ne ptr %16, null
-  call void @llvm.assume(i1 %27)
-  %28 = atomicrmw sub ptr %16, i64 16 release, align 8
-  %29 = and i64 %28, -14
-  %30 = icmp eq i64 %29, 18
-  br i1 %30, label %31, label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit6", !prof !12
+25:                                               ; preds = %15
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %16) ]
+  %26 = atomicrmw sub ptr %16, i64 16 release, align 8
+  %27 = and i64 %26, -14
+  %28 = icmp eq i64 %27, 18
+  br i1 %28, label %29, label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit6", !prof !12
 
-31:                                               ; preds = %26
+29:                                               ; preds = %25
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %16)
           to label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit6" unwind label %13
 
-"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit6": ; preds = %26, %31
+"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit6": ; preds = %25, %29
   call void @"_ZN4core3ptr88drop_in_place$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$17h26ae9d064df2fffaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
 
-32:                                               ; preds = %25, %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit"
-  %33 = landingpad { ptr, i32 }
+30:                                               ; preds = %24, %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit"
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #28
   unreachable
 
-34:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit"
+32:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit"
   resume { ptr, i32 } %.pn
 }
 
@@ -3657,12 +3652,12 @@ define hidden noundef nonnull ptr @_ZN12tokio_quiche7metrics5tokio36runtime_task
   tail call void @llvm.trap()
   unreachable
 
-"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit": ; preds = %20, %26, %14
-  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %21, %26 ], [ %21, %20 ]
+"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit": ; preds = %20, %25, %14
+  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %21, %25 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$17haa97b66f659b5af4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2) #27
-          to label %35 unwind label %33
+          to label %33 unwind label %31
 
-14:                                               ; preds = %32, %7
+14:                                               ; preds = %30, %7
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit"
@@ -3671,46 +3666,44 @@ define hidden noundef nonnull ptr @_ZN12tokio_quiche7metrics5tokio36runtime_task
   %17 = extractvalue { ptr, ptr } %12, 0
   %18 = extractvalue { ptr, ptr } %12, 1
   %19 = invoke noundef nonnull ptr @"_ZN75_$LT$prometools..histogram..TimeHistogram$u20$as$u20$core..clone..Clone$GT$5clone17hf140ea75d1f26ae4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %18)
-          to label %27 unwind label %20
+          to label %26 unwind label %20
 
 20:                                               ; preds = %16
   %21 = landingpad { ptr, i32 }
           cleanup
-  %22 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %22)
-  %23 = atomicrmw sub ptr %17, i64 16 release, align 8
-  %24 = and i64 %23, -14
-  %25 = icmp eq i64 %24, 18
-  br i1 %25, label %26, label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit", !prof !12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  %22 = atomicrmw sub ptr %17, i64 16 release, align 8
+  %23 = and i64 %22, -14
+  %24 = icmp eq i64 %23, 18
+  br i1 %24, label %25, label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit", !prof !12
 
-26:                                               ; preds = %20
+25:                                               ; preds = %20
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %17)
-          to label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit" unwind label %33
+          to label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit" unwind label %31
 
-27:                                               ; preds = %16
-  %28 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %28)
-  %29 = atomicrmw sub ptr %17, i64 16 release, align 8
-  %30 = and i64 %29, -14
-  %31 = icmp eq i64 %30, 18
-  br i1 %31, label %32, label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit6", !prof !12
+26:                                               ; preds = %16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  %27 = atomicrmw sub ptr %17, i64 16 release, align 8
+  %28 = and i64 %27, -14
+  %29 = icmp eq i64 %28, 18
+  br i1 %29, label %30, label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit6", !prof !12
 
-32:                                               ; preds = %27
+30:                                               ; preds = %26
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %17)
           to label %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit6" unwind label %14
 
-"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit6": ; preds = %27, %32
+"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit6": ; preds = %26, %30
   call void @"_ZN4core3ptr87drop_in_place$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$17haa97b66f659b5af4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %19
 
-33:                                               ; preds = %26, %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit"
-  %34 = landingpad { ptr, i32 }
+31:                                               ; preds = %25, %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit"
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #28
   unreachable
 
-35:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit"
+33:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..histogram..TimeHistogram$GT$$GT$17hcd3c73ba7783313eE.exit"
   resume { ptr, i32 } %.pn
 }
 
@@ -3738,12 +3731,12 @@ define hidden noundef nonnull ptr @_ZN12tokio_quiche7metrics5tokio35runtime_task
   tail call void @llvm.trap()
   unreachable
 
-"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit": ; preds = %20, %26, %14
-  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %21, %26 ], [ %21, %20 ]
+"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit": ; preds = %20, %25, %14
+  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %21, %25 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr86drop_in_place$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$17h9f49625127dd9006E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2) #27
-          to label %35 unwind label %33
+          to label %33 unwind label %31
 
-14:                                               ; preds = %32, %7
+14:                                               ; preds = %30, %7
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit"
@@ -3752,46 +3745,44 @@ define hidden noundef nonnull ptr @_ZN12tokio_quiche7metrics5tokio35runtime_task
   %17 = extractvalue { ptr, ptr } %12, 0
   %18 = extractvalue { ptr, ptr } %12, 1
   %19 = invoke noundef nonnull ptr @"_ZN96_$LT$prometheus_client..metrics..counter..Counter$LT$N$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hced6e87be4f919b3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %18)
-          to label %27 unwind label %20
+          to label %26 unwind label %20
 
 20:                                               ; preds = %16
   %21 = landingpad { ptr, i32 }
           cleanup
-  %22 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %22)
-  %23 = atomicrmw sub ptr %17, i64 16 release, align 8
-  %24 = and i64 %23, -14
-  %25 = icmp eq i64 %24, 18
-  br i1 %25, label %26, label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit", !prof !12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  %22 = atomicrmw sub ptr %17, i64 16 release, align 8
+  %23 = and i64 %22, -14
+  %24 = icmp eq i64 %23, 18
+  br i1 %24, label %25, label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit", !prof !12
 
-26:                                               ; preds = %20
+25:                                               ; preds = %20
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %17)
-          to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit" unwind label %33
+          to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit" unwind label %31
 
-27:                                               ; preds = %16
-  %28 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %28)
-  %29 = atomicrmw sub ptr %17, i64 16 release, align 8
-  %30 = and i64 %29, -14
-  %31 = icmp eq i64 %30, 18
-  br i1 %31, label %32, label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit6", !prof !12
+26:                                               ; preds = %16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  %27 = atomicrmw sub ptr %17, i64 16 release, align 8
+  %28 = and i64 %27, -14
+  %29 = icmp eq i64 %28, 18
+  br i1 %29, label %30, label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit6", !prof !12
 
-32:                                               ; preds = %27
+30:                                               ; preds = %26
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %17)
           to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit6" unwind label %14
 
-"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit6": ; preds = %27, %32
+"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit6": ; preds = %26, %30
   call void @"_ZN4core3ptr86drop_in_place$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$17h9f49625127dd9006E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %19
 
-33:                                               ; preds = %26, %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit"
-  %34 = landingpad { ptr, i32 }
+31:                                               ; preds = %25, %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit"
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #28
   unreachable
 
-35:                                               ; preds = %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit"
+33:                                               ; preds = %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit"
   resume { ptr, i32 } %.pn
 }
 

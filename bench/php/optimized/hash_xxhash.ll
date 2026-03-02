@@ -944,151 +944,155 @@ XXH_INLINE_XXH3_64bits_reset_withSeed.exit:       ; preds = %29, %XXH3_initCusto
   store i32 %78, ptr %72, align 4, !tbaa !43
   br label %zval_try_get_string.exit.thread
 
+zval_try_get_string.exit.thread:                  ; preds = %76, %.thread22
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %72) ]
+  br label %80
+
 zval_try_get_string.exit:                         ; preds = %70
   %79 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %.0.i.i) #16
   %.not44.i = icmp eq ptr %79, null
-  br i1 %.not44.i, label %_PHP_XXH3_Init.exit, label %zval_try_get_string.exit.thread, !prof !44
+  br i1 %.not44.i, label %_PHP_XXH3_Init.exit, label %80, !prof !44
 
-zval_try_get_string.exit.thread:                  ; preds = %.thread22, %76, %zval_try_get_string.exit
-  %.0.i225 = phi ptr [ %79, %zval_try_get_string.exit ], [ %72, %76 ], [ %72, %.thread22 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 16
-  %81 = load i64, ptr %80, align 8, !tbaa !45
-  %82 = icmp ult i64 %81, 136
-  br i1 %82, label %83, label %96
+80:                                               ; preds = %zval_try_get_string.exit.thread, %zval_try_get_string.exit
+  %.0.i225 = phi ptr [ %72, %zval_try_get_string.exit.thread ], [ %79, %zval_try_get_string.exit ]
+  %81 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 16
+  %82 = load i64, ptr %81, align 8, !tbaa !45
+  %83 = icmp ult i64 %82, 136
+  br i1 %83, label %84, label %97
 
-83:                                               ; preds = %zval_try_get_string.exit.thread
-  %84 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 4
-  %85 = load i32, ptr %84, align 4, !tbaa !4
-  %86 = and i32 %85, 64
-  %.not.i3 = icmp eq i32 %86, 0
-  br i1 %.not.i3, label %87, label %zend_string_release.exit
+84:                                               ; preds = %80
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 4
+  %86 = load i32, ptr %85, align 4, !tbaa !4
+  %87 = and i32 %86, 64
+  %.not.i3 = icmp eq i32 %87, 0
+  br i1 %.not.i3, label %88, label %zend_string_release.exit
 
-87:                                               ; preds = %83
-  %88 = load i32, ptr %.0.i225, align 4, !tbaa !43
-  %89 = icmp ne i32 %88, 0
-  tail call void @llvm.assume(i1 %89)
-  %90 = add i32 %88, -1
-  store i32 %90, ptr %.0.i225, align 4, !tbaa !43
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %zend_string_release.exit
+88:                                               ; preds = %84
+  %89 = load i32, ptr %.0.i225, align 4, !tbaa !43
+  %90 = icmp ne i32 %89, 0
+  tail call void @llvm.assume(i1 %90)
+  %91 = add i32 %89, -1
+  store i32 %91, ptr %.0.i225, align 4, !tbaa !43
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %zend_string_release.exit
 
-92:                                               ; preds = %87
-  %93 = and i32 %85, 128
-  %.not5.i = icmp eq i32 %93, 0
-  br i1 %.not5.i, label %95, label %94
+93:                                               ; preds = %88
+  %94 = and i32 %86, 128
+  %.not5.i = icmp eq i32 %94, 0
+  br i1 %.not5.i, label %96, label %95
 
-94:                                               ; preds = %92
+95:                                               ; preds = %93
   tail call void @free(ptr noundef nonnull %.0.i225) #16
   br label %zend_string_release.exit
 
-95:                                               ; preds = %92
+96:                                               ; preds = %93
   tail call void @_efree(ptr noundef nonnull %.0.i225) #16
   br label %zend_string_release.exit
 
-zend_string_release.exit:                         ; preds = %83, %87, %94, %95
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.6, i32 noundef 136, i64 noundef %81) #16
+zend_string_release.exit:                         ; preds = %84, %88, %95, %96
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.6, i32 noundef 136, i64 noundef %82) #16
   br label %_PHP_XXH3_Init.exit
 
-96:                                               ; preds = %zval_try_get_string.exit.thread
-  %97 = icmp ugt i64 %81, 256
-  br i1 %97, label %98, label %99
+97:                                               ; preds = %80
+  %98 = icmp ugt i64 %82, 256
+  br i1 %98, label %99, label %100
 
-98:                                               ; preds = %96
+99:                                               ; preds = %97
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.6, i64 noundef 256) #16
-  br label %99
+  br label %100
 
-99:                                               ; preds = %98, %96
-  %.0.i = phi i64 [ 256, %98 ], [ %81, %96 ]
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %101 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %100, ptr nonnull align 8 %101, i64 %.0.i, i1 false)
-  %102 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 4
-  %103 = load i32, ptr %102, align 4, !tbaa !4
-  %104 = and i32 %103, 64
-  %.not.i4 = icmp eq i32 %104, 0
-  br i1 %.not.i4, label %105, label %XXH_INLINE_XXH3_64bits_reset_withSecret.exit
+100:                                              ; preds = %99, %97
+  %.0.i = phi i64 [ 256, %99 ], [ %82, %97 ]
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %101, ptr nonnull align 8 %102, i64 %.0.i, i1 false)
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 4
+  %104 = load i32, ptr %103, align 4, !tbaa !4
+  %105 = and i32 %104, 64
+  %.not.i4 = icmp eq i32 %105, 0
+  br i1 %.not.i4, label %106, label %XXH_INLINE_XXH3_64bits_reset_withSecret.exit
 
-105:                                              ; preds = %99
-  %106 = load i32, ptr %.0.i225, align 4, !tbaa !43
-  %107 = icmp ne i32 %106, 0
-  tail call void @llvm.assume(i1 %107)
-  %108 = add i32 %106, -1
-  store i32 %108, ptr %.0.i225, align 4, !tbaa !43
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %XXH_INLINE_XXH3_64bits_reset_withSecret.exit
+106:                                              ; preds = %100
+  %107 = load i32, ptr %.0.i225, align 4, !tbaa !43
+  %108 = icmp ne i32 %107, 0
+  tail call void @llvm.assume(i1 %108)
+  %109 = add i32 %107, -1
+  store i32 %109, ptr %.0.i225, align 4, !tbaa !43
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %XXH_INLINE_XXH3_64bits_reset_withSecret.exit
 
-110:                                              ; preds = %105
-  %111 = and i32 %103, 128
-  %.not5.i5 = icmp eq i32 %111, 0
-  br i1 %.not5.i5, label %113, label %112
+111:                                              ; preds = %106
+  %112 = and i32 %104, 128
+  %.not5.i5 = icmp eq i32 %112, 0
+  br i1 %.not5.i5, label %114, label %113
 
-112:                                              ; preds = %110
+113:                                              ; preds = %111
   tail call void @free(ptr noundef nonnull %.0.i225) #16
   br label %XXH_INLINE_XXH3_64bits_reset_withSecret.exit
 
-113:                                              ; preds = %110
+114:                                              ; preds = %111
   tail call void @_efree(ptr noundef nonnull %.0.i225) #16
   br label %XXH_INLINE_XXH3_64bits_reset_withSecret.exit
 
-XXH_INLINE_XXH3_64bits_reset_withSecret.exit:     ; preds = %99, %105, %112, %113
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %114, i8 0, i64 24, i1 false)
+XXH_INLINE_XXH3_64bits_reset_withSecret.exit:     ; preds = %100, %106, %113, %114
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %115, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64, !tbaa !31
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -7046029288634856825, ptr %115, align 8, !tbaa !31
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -4417276706812531889, ptr %116, align 16, !tbaa !31
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1609587929392839161, ptr %117, align 8, !tbaa !31
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -8796714831421723037, ptr %118, align 32, !tbaa !31
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 2246822519, ptr %119, align 8, !tbaa !31
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2870177450012600261, ptr %120, align 16, !tbaa !31
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 2654435761, ptr %121, align 8, !tbaa !31
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %122, align 8, !tbaa !35
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr %100, ptr %123, align 8, !tbaa !37
-  %124 = add nsw i64 %.0.i, -64
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 %124, ptr %125, align 32, !tbaa !40
-  %126 = lshr i64 %124, 3
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 %126, ptr %127, align 8, !tbaa !41
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -7046029288634856825, ptr %116, align 8, !tbaa !31
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 -4417276706812531889, ptr %117, align 16, !tbaa !31
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 1609587929392839161, ptr %118, align 8, !tbaa !31
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 -8796714831421723037, ptr %119, align 32, !tbaa !31
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 2246822519, ptr %120, align 8, !tbaa !31
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 2870177450012600261, ptr %121, align 16, !tbaa !31
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 2654435761, ptr %122, align 8, !tbaa !31
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  store i64 0, ptr %123, align 8, !tbaa !35
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  store ptr %101, ptr %124, align 8, !tbaa !37
+  %125 = add nsw i64 %.0.i, -64
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  store i64 %125, ptr %126, align 32, !tbaa !40
+  %127 = lshr i64 %125, 3
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  store i64 %127, ptr %128, align 8, !tbaa !41
   br label %_PHP_XXH3_Init.exit
 
 XXH_INLINE_XXH3_64bits_reset_withSeed.exit14:     ; preds = %25, %zend_hash_str_find_deref.exit47.i.thread, %2
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %128, i8 0, i64 24, i1 false)
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %129, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64, !tbaa !31
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -7046029288634856825, ptr %129, align 8, !tbaa !31
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -4417276706812531889, ptr %130, align 16, !tbaa !31
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1609587929392839161, ptr %131, align 8, !tbaa !31
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -8796714831421723037, ptr %132, align 32, !tbaa !31
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 2246822519, ptr %133, align 8, !tbaa !31
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2870177450012600261, ptr %134, align 16, !tbaa !31
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 2654435761, ptr %135, align 8, !tbaa !31
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %136, align 8, !tbaa !35
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr @XXH3_kSecret, ptr %137, align 8, !tbaa !37
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 128, ptr %138, align 32, !tbaa !40
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 16, ptr %139, align 8, !tbaa !41
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -7046029288634856825, ptr %130, align 8, !tbaa !31
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 -4417276706812531889, ptr %131, align 16, !tbaa !31
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 1609587929392839161, ptr %132, align 8, !tbaa !31
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 -8796714831421723037, ptr %133, align 32, !tbaa !31
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 2246822519, ptr %134, align 8, !tbaa !31
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 2870177450012600261, ptr %135, align 16, !tbaa !31
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 2654435761, ptr %136, align 8, !tbaa !31
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  store i64 0, ptr %137, align 8, !tbaa !35
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  store ptr @XXH3_kSecret, ptr %138, align 8, !tbaa !37
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  store i64 128, ptr %139, align 32, !tbaa !40
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  store i64 16, ptr %140, align 8, !tbaa !41
   br label %_PHP_XXH3_Init.exit
 
-_PHP_XXH3_Init.exit:                              ; preds = %zval_try_get_string.exit, %XXH_INLINE_XXH3_64bits_reset_withSecret.exit, %zend_string_release.exit, %XXH_INLINE_XXH3_64bits_reset_withSeed.exit, %22, %XXH_INLINE_XXH3_64bits_reset_withSeed.exit14
+_PHP_XXH3_Init.exit:                              ; preds = %XXH_INLINE_XXH3_64bits_reset_withSecret.exit, %zend_string_release.exit, %zval_try_get_string.exit, %XXH_INLINE_XXH3_64bits_reset_withSeed.exit, %22, %XXH_INLINE_XXH3_64bits_reset_withSeed.exit14
   ret void
 }
 
@@ -2887,151 +2891,155 @@ XXH_INLINE_XXH3_128bits_reset_withSeed.exit:      ; preds = %29, %XXH3_initCusto
   store i32 %78, ptr %72, align 4, !tbaa !43
   br label %zval_try_get_string.exit.thread
 
+zval_try_get_string.exit.thread:                  ; preds = %76, %.thread22
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %72) ]
+  br label %80
+
 zval_try_get_string.exit:                         ; preds = %70
   %79 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %.0.i.i) #16
   %.not44.i = icmp eq ptr %79, null
-  br i1 %.not44.i, label %_PHP_XXH3_Init.exit, label %zval_try_get_string.exit.thread, !prof !44
+  br i1 %.not44.i, label %_PHP_XXH3_Init.exit, label %80, !prof !44
 
-zval_try_get_string.exit.thread:                  ; preds = %.thread22, %76, %zval_try_get_string.exit
-  %.0.i225 = phi ptr [ %79, %zval_try_get_string.exit ], [ %72, %76 ], [ %72, %.thread22 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 16
-  %81 = load i64, ptr %80, align 8, !tbaa !45
-  %82 = icmp ult i64 %81, 136
-  br i1 %82, label %83, label %96
+80:                                               ; preds = %zval_try_get_string.exit.thread, %zval_try_get_string.exit
+  %.0.i225 = phi ptr [ %72, %zval_try_get_string.exit.thread ], [ %79, %zval_try_get_string.exit ]
+  %81 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 16
+  %82 = load i64, ptr %81, align 8, !tbaa !45
+  %83 = icmp ult i64 %82, 136
+  br i1 %83, label %84, label %97
 
-83:                                               ; preds = %zval_try_get_string.exit.thread
-  %84 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 4
-  %85 = load i32, ptr %84, align 4, !tbaa !4
-  %86 = and i32 %85, 64
-  %.not.i3 = icmp eq i32 %86, 0
-  br i1 %.not.i3, label %87, label %zend_string_release.exit
+84:                                               ; preds = %80
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 4
+  %86 = load i32, ptr %85, align 4, !tbaa !4
+  %87 = and i32 %86, 64
+  %.not.i3 = icmp eq i32 %87, 0
+  br i1 %.not.i3, label %88, label %zend_string_release.exit
 
-87:                                               ; preds = %83
-  %88 = load i32, ptr %.0.i225, align 4, !tbaa !43
-  %89 = icmp ne i32 %88, 0
-  tail call void @llvm.assume(i1 %89)
-  %90 = add i32 %88, -1
-  store i32 %90, ptr %.0.i225, align 4, !tbaa !43
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %zend_string_release.exit
+88:                                               ; preds = %84
+  %89 = load i32, ptr %.0.i225, align 4, !tbaa !43
+  %90 = icmp ne i32 %89, 0
+  tail call void @llvm.assume(i1 %90)
+  %91 = add i32 %89, -1
+  store i32 %91, ptr %.0.i225, align 4, !tbaa !43
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %zend_string_release.exit
 
-92:                                               ; preds = %87
-  %93 = and i32 %85, 128
-  %.not5.i = icmp eq i32 %93, 0
-  br i1 %.not5.i, label %95, label %94
+93:                                               ; preds = %88
+  %94 = and i32 %86, 128
+  %.not5.i = icmp eq i32 %94, 0
+  br i1 %.not5.i, label %96, label %95
 
-94:                                               ; preds = %92
+95:                                               ; preds = %93
   tail call void @free(ptr noundef nonnull %.0.i225) #16
   br label %zend_string_release.exit
 
-95:                                               ; preds = %92
+96:                                               ; preds = %93
   tail call void @_efree(ptr noundef nonnull %.0.i225) #16
   br label %zend_string_release.exit
 
-zend_string_release.exit:                         ; preds = %83, %87, %94, %95
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.7, i32 noundef 136, i64 noundef %81) #16
+zend_string_release.exit:                         ; preds = %84, %88, %95, %96
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.7, i32 noundef 136, i64 noundef %82) #16
   br label %_PHP_XXH3_Init.exit
 
-96:                                               ; preds = %zval_try_get_string.exit.thread
-  %97 = icmp ugt i64 %81, 256
-  br i1 %97, label %98, label %99
+97:                                               ; preds = %80
+  %98 = icmp ugt i64 %82, 256
+  br i1 %98, label %99, label %100
 
-98:                                               ; preds = %96
+99:                                               ; preds = %97
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.7, i64 noundef 256) #16
-  br label %99
+  br label %100
 
-99:                                               ; preds = %98, %96
-  %.0.i = phi i64 [ 256, %98 ], [ %81, %96 ]
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %101 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %100, ptr nonnull align 8 %101, i64 %.0.i, i1 false)
-  %102 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 4
-  %103 = load i32, ptr %102, align 4, !tbaa !4
-  %104 = and i32 %103, 64
-  %.not.i4 = icmp eq i32 %104, 0
-  br i1 %.not.i4, label %105, label %XXH_INLINE_XXH3_128bits_reset_withSecret.exit
+100:                                              ; preds = %99, %97
+  %.0.i = phi i64 [ 256, %99 ], [ %82, %97 ]
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %101, ptr nonnull align 8 %102, i64 %.0.i, i1 false)
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 4
+  %104 = load i32, ptr %103, align 4, !tbaa !4
+  %105 = and i32 %104, 64
+  %.not.i4 = icmp eq i32 %105, 0
+  br i1 %.not.i4, label %106, label %XXH_INLINE_XXH3_128bits_reset_withSecret.exit
 
-105:                                              ; preds = %99
-  %106 = load i32, ptr %.0.i225, align 4, !tbaa !43
-  %107 = icmp ne i32 %106, 0
-  tail call void @llvm.assume(i1 %107)
-  %108 = add i32 %106, -1
-  store i32 %108, ptr %.0.i225, align 4, !tbaa !43
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %XXH_INLINE_XXH3_128bits_reset_withSecret.exit
+106:                                              ; preds = %100
+  %107 = load i32, ptr %.0.i225, align 4, !tbaa !43
+  %108 = icmp ne i32 %107, 0
+  tail call void @llvm.assume(i1 %108)
+  %109 = add i32 %107, -1
+  store i32 %109, ptr %.0.i225, align 4, !tbaa !43
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %XXH_INLINE_XXH3_128bits_reset_withSecret.exit
 
-110:                                              ; preds = %105
-  %111 = and i32 %103, 128
-  %.not5.i5 = icmp eq i32 %111, 0
-  br i1 %.not5.i5, label %113, label %112
+111:                                              ; preds = %106
+  %112 = and i32 %104, 128
+  %.not5.i5 = icmp eq i32 %112, 0
+  br i1 %.not5.i5, label %114, label %113
 
-112:                                              ; preds = %110
+113:                                              ; preds = %111
   tail call void @free(ptr noundef nonnull %.0.i225) #16
   br label %XXH_INLINE_XXH3_128bits_reset_withSecret.exit
 
-113:                                              ; preds = %110
+114:                                              ; preds = %111
   tail call void @_efree(ptr noundef nonnull %.0.i225) #16
   br label %XXH_INLINE_XXH3_128bits_reset_withSecret.exit
 
-XXH_INLINE_XXH3_128bits_reset_withSecret.exit:    ; preds = %99, %105, %112, %113
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %114, i8 0, i64 24, i1 false)
+XXH_INLINE_XXH3_128bits_reset_withSecret.exit:    ; preds = %100, %106, %113, %114
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %115, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64, !tbaa !31
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -7046029288634856825, ptr %115, align 8, !tbaa !31
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -4417276706812531889, ptr %116, align 16, !tbaa !31
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1609587929392839161, ptr %117, align 8, !tbaa !31
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -8796714831421723037, ptr %118, align 32, !tbaa !31
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 2246822519, ptr %119, align 8, !tbaa !31
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2870177450012600261, ptr %120, align 16, !tbaa !31
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 2654435761, ptr %121, align 8, !tbaa !31
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %122, align 8, !tbaa !35
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr %100, ptr %123, align 8, !tbaa !37
-  %124 = add nsw i64 %.0.i, -64
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 %124, ptr %125, align 32, !tbaa !40
-  %126 = lshr i64 %124, 3
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 %126, ptr %127, align 8, !tbaa !41
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -7046029288634856825, ptr %116, align 8, !tbaa !31
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 -4417276706812531889, ptr %117, align 16, !tbaa !31
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 1609587929392839161, ptr %118, align 8, !tbaa !31
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 -8796714831421723037, ptr %119, align 32, !tbaa !31
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 2246822519, ptr %120, align 8, !tbaa !31
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 2870177450012600261, ptr %121, align 16, !tbaa !31
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 2654435761, ptr %122, align 8, !tbaa !31
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  store i64 0, ptr %123, align 8, !tbaa !35
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  store ptr %101, ptr %124, align 8, !tbaa !37
+  %125 = add nsw i64 %.0.i, -64
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  store i64 %125, ptr %126, align 32, !tbaa !40
+  %127 = lshr i64 %125, 3
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  store i64 %127, ptr %128, align 8, !tbaa !41
   br label %_PHP_XXH3_Init.exit
 
 XXH_INLINE_XXH3_128bits_reset_withSeed.exit14:    ; preds = %25, %zend_hash_str_find_deref.exit47.i.thread, %2
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %128, i8 0, i64 24, i1 false)
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %129, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64, !tbaa !31
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -7046029288634856825, ptr %129, align 8, !tbaa !31
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -4417276706812531889, ptr %130, align 16, !tbaa !31
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1609587929392839161, ptr %131, align 8, !tbaa !31
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -8796714831421723037, ptr %132, align 32, !tbaa !31
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 2246822519, ptr %133, align 8, !tbaa !31
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2870177450012600261, ptr %134, align 16, !tbaa !31
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 2654435761, ptr %135, align 8, !tbaa !31
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %136, align 8, !tbaa !35
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr @XXH3_kSecret, ptr %137, align 8, !tbaa !37
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 128, ptr %138, align 32, !tbaa !40
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 16, ptr %139, align 8, !tbaa !41
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -7046029288634856825, ptr %130, align 8, !tbaa !31
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 -4417276706812531889, ptr %131, align 16, !tbaa !31
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 1609587929392839161, ptr %132, align 8, !tbaa !31
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 -8796714831421723037, ptr %133, align 32, !tbaa !31
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 2246822519, ptr %134, align 8, !tbaa !31
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 2870177450012600261, ptr %135, align 16, !tbaa !31
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 2654435761, ptr %136, align 8, !tbaa !31
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  store i64 0, ptr %137, align 8, !tbaa !35
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  store ptr @XXH3_kSecret, ptr %138, align 8, !tbaa !37
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  store i64 128, ptr %139, align 32, !tbaa !40
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  store i64 16, ptr %140, align 8, !tbaa !41
   br label %_PHP_XXH3_Init.exit
 
-_PHP_XXH3_Init.exit:                              ; preds = %zval_try_get_string.exit, %XXH_INLINE_XXH3_128bits_reset_withSecret.exit, %zend_string_release.exit, %XXH_INLINE_XXH3_128bits_reset_withSeed.exit, %22, %XXH_INLINE_XXH3_128bits_reset_withSeed.exit14
+_PHP_XXH3_Init.exit:                              ; preds = %XXH_INLINE_XXH3_128bits_reset_withSecret.exit, %zend_string_release.exit, %zval_try_get_string.exit, %XXH_INLINE_XXH3_128bits_reset_withSeed.exit, %22, %XXH_INLINE_XXH3_128bits_reset_withSeed.exit14
   ret void
 }
 

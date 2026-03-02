@@ -926,7 +926,7 @@ zend_hash_str_find_ptr.exit34.thread:             ; preds = %89
   %106 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %103, i64 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %104, ptr noundef %105) #20
   br label %107
 
-107:                                              ; preds = %2, %33, %102, %58, %53, %79, %77
+107:                                              ; preds = %33, %102, %58, %53, %79, %77, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1630,7 +1630,7 @@ thread-pre-split:                                 ; preds = %171, %198
   call fastcc void @phar_file_action(ptr noundef %325, ptr noundef %283, ptr noundef %324, i32 noundef %.3145, ptr noundef %282, i64 noundef %.pre, ptr noundef nonnull %61, ptr noundef %.3140, i64 noundef %326)
   br label %.thread
 
-.thread:                                          ; preds = %2, %83, %87, %90, %313, %322, %153, %58, %.critedge212, %.critedge.thread, %.thread221.thread, %39, %56, %33, %35
+.thread:                                          ; preds = %83, %87, %90, %313, %322, %153, %58, %.critedge212, %.critedge.thread, %.thread221.thread, %39, %56, %33, %35, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -1727,8 +1727,7 @@ define internal fastcc void @phar_postprocess_ru_web(ptr noundef %0, i64 noundef
 
 zend_hash_str_find_ptr.exit53:                    ; preds = %5
   %10 = tail call ptr @zend_hash_str_find(ptr noundef nonnull @cached_phars, ptr noundef %0, i64 noundef %1) #20
-  %.not.i = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   br label %zend_hash_str_find_ptr.exit
 
 zend_hash_str_find_ptr.exit:                      ; preds = %5, %zend_hash_str_find_ptr.exit53
@@ -2440,11 +2439,11 @@ define hidden void @zim_Phar_mungServer(ptr noundef readonly captures(none) %0, 
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !89
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %.loopexit.sink.split.sink.split, label %13
+  br i1 %.not, label %.loopexit.sink.split, label %13
 
 13:                                               ; preds = %8
   %14 = icmp ugt i32 %12, 4
-  br i1 %14, label %.loopexit.sink.split.sink.split, label %15
+  br i1 %14, label %.loopexit.sink.split, label %15
 
 15:                                               ; preds = %13
   call void @phar_request_initialize() #20
@@ -2473,7 +2472,7 @@ define hidden void @zim_Phar_mungServer(ptr noundef readonly captures(none) %0, 
   %29 = phi i32 [ %.promoted, %.lr.ph ], [ %40, %zend_string_equals_cstr.exit27.thread ]
   %30 = getelementptr inbounds nuw i8, ptr %.035, i64 8
   %31 = load i8, ptr %30, align 8, !tbaa !8
-  switch i8 %31, label %.loopexit.sink.split.sink.split [
+  switch i8 %31, label %.loopexit.sink.split [
     i8 0, label %zend_string_equals_cstr.exit27.thread
     i8 6, label %32
   ], !prof !104
@@ -2525,13 +2524,13 @@ zend_string_equals_cstr.exit27.thread:            ; preds = %zend_string_equals_
   %.not17 = icmp eq i32 %43, 0
   br i1 %.not17, label %.loopexit, label %28
 
-.loopexit.sink.split.sink.split:                  ; preds = %28, %13, %8
-  %.str.34.sink = phi ptr [ @.str.35, %13 ], [ @.str.34, %8 ], [ @.str.36, %28 ]
+.loopexit.sink.split:                             ; preds = %28, %13, %8
+  %.str.36.sink = phi ptr [ @.str.35, %13 ], [ @.str.34, %8 ], [ @.str.36, %28 ]
   %44 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
-  %45 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %44, i64 noundef 0, ptr noundef nonnull %.str.34.sink) #20
+  %45 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %44, i64 noundef 0, ptr noundef nonnull %.str.36.sink) #20
   br label %.loopexit
 
-.loopexit:                                        ; preds = %zend_string_equals_cstr.exit27.thread, %2, %.loopexit.sink.split.sink.split, %15
+.loopexit:                                        ; preds = %zend_string_equals_cstr.exit27.thread, %.loopexit.sink.split, %15, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2551,7 +2550,7 @@ define hidden void @zim_Phar_interceptFileFuncs(ptr noundef readonly captures(no
   tail call void @phar_intercept_functions() #20
   br label %6
 
-6:                                                ; preds = %.critedge, %5
+6:                                                ; preds = %5, %.critedge
   ret void
 }
 
@@ -2652,7 +2651,7 @@ define hidden void @zim_Phar_mapPhar(ptr noundef readonly captures(none) %0, ptr
   call void @_efree(ptr noundef %22) #20
   br label %23
 
-23:                                               ; preds = %2, %11, %19
+23:                                               ; preds = %11, %19, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2702,7 +2701,7 @@ define hidden void @zim_Phar_loadPhar(ptr noundef readonly captures(none) %0, pt
   call void @_efree(ptr noundef %25) #20
   br label %26
 
-26:                                               ; preds = %2, %12, %22
+26:                                               ; preds = %12, %22, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2742,7 +2741,7 @@ define hidden void @zim_Phar_apiVersion(ptr noundef readonly captures(none) %0, 
   store i32 262, ptr %12, align 8, !tbaa !8
   br label %13
 
-13:                                               ; preds = %.critedge, %5
+13:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -2834,7 +2833,7 @@ define hidden void @zim_Phar_canWrite(ptr noundef readonly captures(none) %0, pt
   store i32 %8, ptr %9, align 8, !tbaa !8
   br label %10
 
-10:                                               ; preds = %.critedge, %5
+10:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -3242,7 +3241,7 @@ define hidden void @zim_Phar_getSupportedSignatures(ptr noundef readonly capture
   %16 = tail call i32 @add_next_index_stringl(ptr noundef nonnull %1, ptr noundef nonnull @.str.61, i64 noundef 14) #20
   br label %17
 
-17:                                               ; preds = %13, %.critedge, %5
+17:                                               ; preds = %5, %13, %.critedge
   ret void
 }
 
@@ -3284,7 +3283,7 @@ define hidden void @zim_Phar_getSupportedCompression(ptr noundef readonly captur
   %16 = tail call i32 @add_next_index_stringl(ptr noundef nonnull %1, ptr noundef nonnull @.str.63, i64 noundef 5) #20
   br label %17
 
-17:                                               ; preds = %15, %12, %5
+17:                                               ; preds = %5, %15, %12
   ret void
 }
 
@@ -3441,7 +3440,7 @@ zend_string_starts_with_cstr_ci.exit.thread:      ; preds = %35, %55, %41, %zend
   store i32 3, ptr %83, align 8, !tbaa !8
   br label %84
 
-84:                                               ; preds = %31, %28, %2, %50, %61, %68, %72, %17
+84:                                               ; preds = %50, %61, %68, %72, %31, %28, %2, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3493,7 +3492,7 @@ define hidden void @zim_Phar___destruct(ptr noundef readonly captures(none) %0, 
   %20 = tail call i32 @zend_hash_str_del(ptr noundef nonnull @phar_globals, ptr noundef nonnull %14, i64 noundef 8) #20
   br label %21
 
-21:                                               ; preds = %.critedge, %15, %19, %5
+21:                                               ; preds = %5, %.critedge, %15, %19
   ret void
 }
 
@@ -3780,7 +3779,7 @@ define hidden void @zim_Phar_buildFromDirectory(ptr noundef readonly captures(no
   %153 = call i32 @_php_stream_free(ptr noundef %152, i32 noundef 3) #20
   br label %154
 
-154:                                              ; preds = %2, %26, %36, %42, %60, %64, %77, %86, %113, %128, %139, %145, %151
+154:                                              ; preds = %26, %36, %42, %60, %64, %77, %86, %113, %128, %139, %145, %151, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4687,7 +4686,7 @@ define hidden void @zim_Phar_buildFromIterator(ptr noundef readonly captures(non
   %79 = call i32 @_php_stream_free(ptr noundef %68, i32 noundef 3) #20
   br label %80
 
-80:                                               ; preds = %2, %23, %32, %39, %59, %69, %74, %78
+80:                                               ; preds = %23, %32, %39, %59, %69, %74, %78, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4732,7 +4731,7 @@ define hidden void @zim_Phar_count(ptr noundef readonly captures(none) %0, ptr n
   store i32 4, ptr %25, align 8, !tbaa !8
   br label %26
 
-26:                                               ; preds = %2, %18, %21
+26:                                               ; preds = %18, %21, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -4808,7 +4807,7 @@ define hidden void @zim_Phar_isFileFormat(ptr noundef readonly captures(none) %0
   %44 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %43, i64 noundef 0, ptr noundef nonnull @.str.82) #20
   br label %45
 
-45:                                               ; preds = %2, %18, %23, %29, %35, %42
+45:                                               ; preds = %18, %23, %29, %35, %42, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -5000,7 +4999,7 @@ define hidden void @zim_Phar_convertToExecutable(ptr noundef readonly captures(n
   store i32 1, ptr %97, align 8, !tbaa !8
   br label %98
 
-98:                                               ; preds = %2, %23, %29, %41, %52, %58, %63, %69, %72, %94, %96
+98:                                               ; preds = %23, %29, %41, %52, %58, %63, %69, %72, %94, %96, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6087,7 +6086,7 @@ define hidden void @zim_Phar_convertToData(ptr noundef readonly captures(none) %
   store i32 1, ptr %99, align 8, !tbaa !8
   br label %100
 
-100:                                              ; preds = %2, %23, %37, %40, %43, %54, %60, %65, %71, %74, %96, %98
+100:                                              ; preds = %23, %37, %40, %43, %54, %60, %65, %71, %74, %96, %98, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6155,7 +6154,7 @@ define hidden void @zim_Phar_isCompressed(ptr noundef readonly captures(none) %0
   store i32 2, ptr %29, align 8, !tbaa !8
   br label %30
 
-30:                                               ; preds = %15, %22, %26, %28, %5
+30:                                               ; preds = %5, %15, %22, %26, %28
   ret void
 }
 
@@ -6234,7 +6233,7 @@ define hidden void @zim_Phar_isWritable(ptr noundef readonly captures(none) %0, 
   store i32 %40, ptr %28, align 8, !tbaa !8
   br label %41
 
-41:                                               ; preds = %16, %23, %34, %35, %36, %6
+41:                                               ; preds = %6, %16, %23, %34, %35, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -6357,7 +6356,7 @@ define hidden void @zim_Phar_delete(ptr noundef readonly captures(none) %0, ptr 
   store i32 3, ptr %69, align 8, !tbaa !8
   br label %70
 
-70:                                               ; preds = %2, %19, %28, %35, %49, %59, %64, %68
+70:                                               ; preds = %19, %28, %35, %49, %59, %64, %68, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -6426,7 +6425,7 @@ zend_string_alloc.exit:                           ; preds = %21
   store i32 262, ptr %34, align 8, !tbaa !8
   br label %35
 
-35:                                               ; preds = %15, %zend_string_alloc.exit, %21, %18, %5
+35:                                               ; preds = %5, %15, %zend_string_alloc.exit, %21, %18
   ret void
 }
 
@@ -6483,7 +6482,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge
   store i32 262, ptr %30, align 8, !tbaa !8
   br label %31
 
-31:                                               ; preds = %15, %zend_string_alloc.exit, %5
+31:                                               ; preds = %5, %15, %zend_string_alloc.exit
   ret void
 }
 
@@ -6500,7 +6499,7 @@ define hidden void @zim_Phar_setAlias(ptr noundef readonly captures(none) %0, pt
   %8 = load i32, ptr %7, align 4, !tbaa !8
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.95, ptr noundef nonnull %5) #20
   %10 = icmp eq i32 %9, -1
-  br i1 %10, label %184, label %11
+  br i1 %10, label %187, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6518,7 +6517,7 @@ define hidden void @zim_Phar_setAlias(ptr noundef readonly captures(none) %0, pt
 21:                                               ; preds = %11
   %22 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !25
   %23 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %22, i64 noundef 0, ptr noundef nonnull @.str.72) #20
-  br label %184
+  br label %187
 
 24:                                               ; preds = %11
   %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 192), align 8, !tbaa !108, !range !19, !noundef !20
@@ -6535,7 +6534,7 @@ define hidden void @zim_Phar_setAlias(ptr noundef readonly captures(none) %0, pt
 31:                                               ; preds = %27
   %32 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !25
   %33 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %32, i64 noundef 0, ptr noundef nonnull @.str.79) #20
-  br label %184
+  br label %187
 
 34:                                               ; preds = %27, %24
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 448), align 8, !tbaa !129
@@ -6546,271 +6545,277 @@ define hidden void @zim_Phar_setAlias(ptr noundef readonly captures(none) %0, pt
   %37 = load i16, ptr %36, align 4
   %38 = and i16 %37, 128
   %.not50 = icmp eq i16 %38, 0
-  br i1 %.not50, label %43, label %39
+  br i1 %.not50, label %46, label %39
 
 39:                                               ; preds = %34
   %40 = and i16 %37, 64
   %.not60 = icmp eq i16 %40, 0
   %41 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !25
-  %.str.97..str.96 = select i1 %.not60, ptr @.str.97, ptr @.str.96
-  %42 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %41, i64 noundef 0, ptr noundef nonnull %.str.97..str.96) #20
-  br label %184
+  br i1 %.not60, label %44, label %42
 
-43:                                               ; preds = %34
-  %44 = load ptr, ptr %5, align 8, !tbaa !9
-  %45 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  %46 = load i32, ptr %45, align 8, !tbaa !182
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !12
-  %50 = icmp eq i64 %49, %47
-  br i1 %50, label %zend_string_equals_cstr.exit, label %zend_string_equals_cstr.exit.thread
+42:                                               ; preds = %39
+  %43 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %41, i64 noundef 0, ptr noundef nonnull @.str.96) #20
+  br label %187
 
-zend_string_equals_cstr.exit:                     ; preds = %43
-  %51 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !166
-  %53 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %bcmp.i = call i32 @bcmp(ptr nonnull %53, ptr %52, i64 range(i64 0, 4294967296) %47)
+44:                                               ; preds = %39
+  %45 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %41, i64 noundef 0, ptr noundef nonnull @.str.97) #20
+  br label %187
+
+46:                                               ; preds = %34
+  %47 = load ptr, ptr %5, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %49 = load i32, ptr %48, align 8, !tbaa !182
+  %50 = zext i32 %49 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %52 = load i64, ptr %51, align 8, !tbaa !12
+  %53 = icmp eq i64 %52, %50
+  br i1 %53, label %zend_string_equals_cstr.exit, label %zend_string_equals_cstr.exit.thread
+
+zend_string_equals_cstr.exit:                     ; preds = %46
+  %54 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %55 = load ptr, ptr %54, align 8, !tbaa !166
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %bcmp.i = call i32 @bcmp(ptr nonnull %56, ptr %55, i64 range(i64 0, 4294967296) %50)
   %.not.i61 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i61, label %54, label %zend_string_equals_cstr.exit.thread
+  br i1 %.not.i61, label %57, label %zend_string_equals_cstr.exit.thread
 
-54:                                               ; preds = %zend_string_equals_cstr.exit
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %55, align 8, !tbaa !8
-  br label %184
+57:                                               ; preds = %zend_string_equals_cstr.exit
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 3, ptr %58, align 8, !tbaa !8
+  br label %187
 
-zend_string_equals_cstr.exit.thread:              ; preds = %43, %zend_string_equals_cstr.exit
-  %56 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef nonnull %44) #20
-  %.not.i64 = icmp eq ptr %56, null
-  br i1 %.not.i64, label %76, label %57
+zend_string_equals_cstr.exit.thread:              ; preds = %46, %zend_string_equals_cstr.exit
+  %59 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef nonnull %47) #20
+  %.not.i64 = icmp eq ptr %59, null
+  br i1 %.not.i64, label %79, label %60
 
-57:                                               ; preds = %zend_string_equals_cstr.exit.thread
-  %58 = load ptr, ptr %56, align 8, !tbaa !8, !nonnull !20, !noundef !20
-  %59 = load ptr, ptr %5, align 8, !tbaa !9
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %61 = load ptr, ptr %58, align 8, !tbaa !117
-  %62 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull @.str.98, ptr noundef nonnull %60, ptr noundef %61) #20
-  %63 = load ptr, ptr %5, align 8, !tbaa !9
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %66 = load i64, ptr %65, align 8, !tbaa !12
-  %67 = call i32 @phar_free_alias(ptr noundef nonnull %58, ptr noundef nonnull %64, i64 noundef %66) #20
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %71
+60:                                               ; preds = %zend_string_equals_cstr.exit.thread
+  %61 = load ptr, ptr %59, align 8, !tbaa !8, !nonnull !20, !noundef !20
+  %62 = load ptr, ptr %5, align 8, !tbaa !9
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %64 = load ptr, ptr %61, align 8, !tbaa !117
+  %65 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull @.str.98, ptr noundef nonnull %63, ptr noundef %64) #20
+  %66 = load ptr, ptr %5, align 8, !tbaa !9
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %69 = load i64, ptr %68, align 8, !tbaa !12
+  %70 = call i32 @phar_free_alias(ptr noundef nonnull %61, ptr noundef nonnull %67, i64 noundef %69) #20
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %74
 
-69:                                               ; preds = %57
-  %70 = load ptr, ptr %6, align 8, !tbaa !17
-  call void @_efree(ptr noundef %70) #20
-  br label %96
-
-71:                                               ; preds = %57
-  %72 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
+72:                                               ; preds = %60
   %73 = load ptr, ptr %6, align 8, !tbaa !17
-  %74 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %72, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %73) #20
-  %75 = load ptr, ptr %6, align 8, !tbaa !17
-  call void @_efree(ptr noundef %75) #20
-  br label %184
+  call void @_efree(ptr noundef %73) #20
+  br label %99
 
-76:                                               ; preds = %zend_string_equals_cstr.exit.thread
-  %77 = load ptr, ptr %5, align 8, !tbaa !9
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %80 = load i64, ptr %79, align 8, !tbaa !12
-  %81 = call ptr @memchr(ptr noundef nonnull readonly %78, i32 noundef 47, i64 noundef %80) #21
-  %.not.i68 = icmp eq ptr %81, null
-  br i1 %.not.i68, label %82, label %phar_validate_alias.exit.thread
+74:                                               ; preds = %60
+  %75 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
+  %76 = load ptr, ptr %6, align 8, !tbaa !17
+  %77 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %75, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %76) #20
+  %78 = load ptr, ptr %6, align 8, !tbaa !17
+  call void @_efree(ptr noundef %78) #20
+  br label %187
 
-82:                                               ; preds = %76
-  %83 = call ptr @memchr(ptr noundef nonnull readonly %78, i32 noundef 92, i64 noundef %80) #21
-  %.not11.i = icmp eq ptr %83, null
-  br i1 %.not11.i, label %84, label %phar_validate_alias.exit.thread
+79:                                               ; preds = %zend_string_equals_cstr.exit.thread
+  %80 = load ptr, ptr %5, align 8, !tbaa !9
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %83 = load i64, ptr %82, align 8, !tbaa !12
+  %84 = call ptr @memchr(ptr noundef nonnull readonly %81, i32 noundef 47, i64 noundef %83) #21
+  %.not.i68 = icmp eq ptr %84, null
+  br i1 %.not.i68, label %85, label %phar_validate_alias.exit.thread
 
-84:                                               ; preds = %82
-  %85 = call ptr @memchr(ptr noundef nonnull readonly %78, i32 noundef 58, i64 noundef %80) #21
-  %.not12.i = icmp eq ptr %85, null
-  br i1 %.not12.i, label %86, label %phar_validate_alias.exit.thread
+85:                                               ; preds = %79
+  %86 = call ptr @memchr(ptr noundef nonnull readonly %81, i32 noundef 92, i64 noundef %83) #21
+  %.not11.i = icmp eq ptr %86, null
+  br i1 %.not11.i, label %87, label %phar_validate_alias.exit.thread
 
-86:                                               ; preds = %84
-  %87 = call ptr @memchr(ptr noundef nonnull readonly %78, i32 noundef 59, i64 noundef %80) #21
-  %.not13.i = icmp eq ptr %87, null
-  br i1 %.not13.i, label %88, label %phar_validate_alias.exit.thread
+87:                                               ; preds = %85
+  %88 = call ptr @memchr(ptr noundef nonnull readonly %81, i32 noundef 58, i64 noundef %83) #21
+  %.not12.i = icmp eq ptr %88, null
+  br i1 %.not12.i, label %89, label %phar_validate_alias.exit.thread
 
-88:                                               ; preds = %86
-  %89 = call ptr @memchr(ptr noundef nonnull readonly %78, i32 noundef 10, i64 noundef %80) #21
-  %.not14.i = icmp eq ptr %89, null
+89:                                               ; preds = %87
+  %90 = call ptr @memchr(ptr noundef nonnull readonly %81, i32 noundef 59, i64 noundef %83) #21
+  %.not13.i = icmp eq ptr %90, null
+  br i1 %.not13.i, label %91, label %phar_validate_alias.exit.thread
+
+91:                                               ; preds = %89
+  %92 = call ptr @memchr(ptr noundef nonnull readonly %81, i32 noundef 10, i64 noundef %83) #21
+  %.not14.i = icmp eq ptr %92, null
   br i1 %.not14.i, label %phar_validate_alias.exit, label %phar_validate_alias.exit.thread
 
-phar_validate_alias.exit:                         ; preds = %88
-  %90 = call ptr @memchr(ptr noundef nonnull readonly %78, i32 noundef 13, i64 noundef %80) #21
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %96, label %phar_validate_alias.exit.thread
+phar_validate_alias.exit:                         ; preds = %91
+  %93 = call ptr @memchr(ptr noundef nonnull readonly %81, i32 noundef 13, i64 noundef %83) #21
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %99, label %phar_validate_alias.exit.thread
 
-phar_validate_alias.exit.thread:                  ; preds = %76, %82, %84, %86, %88, %phar_validate_alias.exit
-  %92 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !25
-  %93 = load ptr, ptr %19, align 8, !tbaa !8
-  %94 = load ptr, ptr %93, align 8, !tbaa !117
-  %95 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %92, i64 noundef 0, ptr noundef nonnull @.str.99, ptr noundef nonnull %78, ptr noundef %94) #20
-  br label %184
+phar_validate_alias.exit.thread:                  ; preds = %79, %85, %87, %89, %91, %phar_validate_alias.exit
+  %95 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !25
+  %96 = load ptr, ptr %19, align 8, !tbaa !8
+  %97 = load ptr, ptr %96, align 8, !tbaa !117
+  %98 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %95, i64 noundef 0, ptr noundef nonnull @.str.99, ptr noundef nonnull %81, ptr noundef %97) #20
+  br label %187
 
-96:                                               ; preds = %phar_validate_alias.exit, %69
-  %97 = load ptr, ptr %19, align 8, !tbaa !8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 316
-  %99 = load i16, ptr %98, align 4
-  %100 = and i16 %99, 256
-  %.not52 = icmp eq i16 %100, 0
-  br i1 %.not52, label %108, label %101
+99:                                               ; preds = %phar_validate_alias.exit, %72
+  %100 = load ptr, ptr %19, align 8, !tbaa !8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 316
+  %102 = load i16, ptr %101, align 4
+  %103 = and i16 %102, 256
+  %.not52 = icmp eq i16 %103, 0
+  br i1 %.not52, label %111, label %104
 
-101:                                              ; preds = %96
-  %102 = call i32 @phar_copy_on_write(ptr noundef nonnull %19) #20
-  %103 = icmp eq i32 %102, -1
+104:                                              ; preds = %99
+  %105 = call i32 @phar_copy_on_write(ptr noundef nonnull %19) #20
+  %106 = icmp eq i32 %105, -1
   %.pre = load ptr, ptr %19, align 8, !tbaa !8
-  br i1 %103, label %104, label %108
+  br i1 %106, label %107, label %111
 
-104:                                              ; preds = %101
-  %105 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
-  %106 = load ptr, ptr %.pre, align 8, !tbaa !117
-  %107 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %105, i64 noundef 0, ptr noundef nonnull @.str.77, ptr noundef %106) #20
-  br label %184
+107:                                              ; preds = %104
+  %108 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
+  %109 = load ptr, ptr %.pre, align 8, !tbaa !117
+  %110 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %108, i64 noundef 0, ptr noundef nonnull @.str.77, ptr noundef %109) #20
+  br label %187
 
-108:                                              ; preds = %101, %96
-  %109 = phi ptr [ %.pre, %101 ], [ %97, %96 ]
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
-  %111 = load i32, ptr %110, align 8, !tbaa !182
-  %.not53 = icmp eq i32 %111, 0
-  br i1 %.not53, label %zend_hash_str_find_ptr.exit.thread, label %112
+111:                                              ; preds = %104, %99
+  %112 = phi ptr [ %.pre, %104 ], [ %100, %99 ]
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
+  %114 = load i32, ptr %113, align 8, !tbaa !182
+  %.not53 = icmp eq i32 %114, 0
+  br i1 %.not53, label %zend_hash_str_find_ptr.exit.thread, label %115
 
-112:                                              ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %109, i64 32
-  %114 = load ptr, ptr %113, align 8, !tbaa !166
-  %115 = zext i32 %111 to i64
-  %116 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef %114, i64 noundef %115) #20
-  %.not.i = icmp eq ptr %116, null
+115:                                              ; preds = %111
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 32
+  %117 = load ptr, ptr %116, align 8, !tbaa !166
+  %118 = zext i32 %114 to i64
+  %119 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef %117, i64 noundef %118) #20
+  %.not.i = icmp eq ptr %119, null
   %.pre74 = load ptr, ptr %19, align 8, !tbaa !8
-  br i1 %.not.i, label %zend_hash_str_find_ptr.exit.thread, label %117
+  br i1 %.not.i, label %zend_hash_str_find_ptr.exit.thread, label %120
 
-117:                                              ; preds = %112
-  %118 = getelementptr inbounds nuw i8, ptr %.pre74, i64 32
-  %119 = load ptr, ptr %118, align 8, !tbaa !166
-  %120 = getelementptr inbounds nuw i8, ptr %.pre74, i64 40
-  %121 = load i32, ptr %120, align 8, !tbaa !182
-  %122 = zext i32 %121 to i64
-  %123 = call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef %119, i64 noundef %122) #20
+120:                                              ; preds = %115
+  %121 = getelementptr inbounds nuw i8, ptr %.pre74, i64 32
+  %122 = load ptr, ptr %121, align 8, !tbaa !166
+  %123 = getelementptr inbounds nuw i8, ptr %.pre74, i64 40
+  %124 = load i32, ptr %123, align 8, !tbaa !182
+  %125 = zext i32 %124 to i64
+  %126 = call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef %122, i64 noundef %125) #20
   %.pre73 = load ptr, ptr %19, align 8, !tbaa !8
   br label %zend_hash_str_find_ptr.exit.thread
 
-zend_hash_str_find_ptr.exit.thread:               ; preds = %112, %117, %108
-  %124 = phi ptr [ %.pre73, %117 ], [ %109, %108 ], [ %.pre74, %112 ]
-  %.not59 = phi i1 [ false, %117 ], [ true, %108 ], [ true, %112 ]
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %126 = load ptr, ptr %125, align 8, !tbaa !166
-  %127 = getelementptr inbounds nuw i8, ptr %124, i64 40
-  %128 = load i32, ptr %127, align 8, !tbaa !182
-  %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds nuw i8, ptr %124, i64 316
-  %131 = load i16, ptr %130, align 4
-  %132 = and i16 %131, 1
-  %133 = load ptr, ptr %5, align 8, !tbaa !9
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %135 = load i64, ptr %134, align 8, !tbaa !12
-  %136 = trunc i64 %135 to i32
-  store i32 %136, ptr %127, align 8, !tbaa !182
-  %137 = load ptr, ptr %19, align 8, !tbaa !8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 40
-  %139 = load i32, ptr %138, align 8, !tbaa !182
-  %.not55 = icmp eq i32 %139, 0
-  br i1 %.not55, label %152, label %140
+zend_hash_str_find_ptr.exit.thread:               ; preds = %115, %120, %111
+  %127 = phi ptr [ %.pre73, %120 ], [ %112, %111 ], [ %.pre74, %115 ]
+  %.not59 = phi i1 [ false, %120 ], [ true, %111 ], [ true, %115 ]
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
+  %129 = load ptr, ptr %128, align 8, !tbaa !166
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 40
+  %131 = load i32, ptr %130, align 8, !tbaa !182
+  %132 = zext i32 %131 to i64
+  %133 = getelementptr inbounds nuw i8, ptr %127, i64 316
+  %134 = load i16, ptr %133, align 4
+  %135 = and i16 %134, 1
+  %136 = load ptr, ptr %5, align 8, !tbaa !9
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %138 = load i64, ptr %137, align 8, !tbaa !12
+  %139 = trunc i64 %138 to i32
+  store i32 %139, ptr %130, align 8, !tbaa !182
+  %140 = load ptr, ptr %19, align 8, !tbaa !8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 40
+  %142 = load i32, ptr %141, align 8, !tbaa !182
+  %.not55 = icmp eq i32 %142, 0
+  br i1 %.not55, label %155, label %143
 
-140:                                              ; preds = %zend_hash_str_find_ptr.exit.thread
-  %141 = getelementptr inbounds nuw i8, ptr %137, i64 316
-  %142 = load i16, ptr %141, align 4
-  %143 = and i16 %142, 256
-  %.not56 = icmp eq i16 %143, 0
-  %144 = getelementptr inbounds nuw i8, ptr %133, i64 24
-  br i1 %.not56, label %147, label %145
+143:                                              ; preds = %zend_hash_str_find_ptr.exit.thread
+  %144 = getelementptr inbounds nuw i8, ptr %140, i64 316
+  %145 = load i16, ptr %144, align 4
+  %146 = and i16 %145, 256
+  %.not56 = icmp eq i16 %146, 0
+  %147 = getelementptr inbounds nuw i8, ptr %136, i64 24
+  br i1 %.not56, label %150, label %148
 
-145:                                              ; preds = %140
-  %146 = call noalias ptr @zend_strndup(ptr noundef nonnull %144, i64 noundef %135) #20
-  br label %149
-
-147:                                              ; preds = %140
-  %148 = call noalias ptr @_estrndup(ptr noundef nonnull %144, i64 noundef %135) #20
-  br label %149
-
-149:                                              ; preds = %147, %145
-  %150 = phi ptr [ %146, %145 ], [ %148, %147 ]
-  %151 = load ptr, ptr %19, align 8, !tbaa !8
+148:                                              ; preds = %143
+  %149 = call noalias ptr @zend_strndup(ptr noundef nonnull %147, i64 noundef %138) #20
   br label %152
 
-152:                                              ; preds = %zend_hash_str_find_ptr.exit.thread, %149
-  %.sink81 = phi ptr [ %151, %149 ], [ %137, %zend_hash_str_find_ptr.exit.thread ]
-  %.sink = phi ptr [ %150, %149 ], [ null, %zend_hash_str_find_ptr.exit.thread ]
-  %153 = getelementptr inbounds nuw i8, ptr %.sink81, i64 32
-  store ptr %.sink, ptr %153, align 8, !tbaa !166
+150:                                              ; preds = %143
+  %151 = call noalias ptr @_estrndup(ptr noundef nonnull %147, i64 noundef %138) #20
+  br label %152
+
+152:                                              ; preds = %150, %148
+  %153 = phi ptr [ %149, %148 ], [ %151, %150 ]
   %154 = load ptr, ptr %19, align 8, !tbaa !8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 316
-  %156 = load i16, ptr %155, align 4
-  %157 = and i16 %156, -2
-  store i16 %157, ptr %155, align 4
-  %158 = load ptr, ptr %19, align 8, !tbaa !8
-  call void @phar_flush(ptr noundef %158, ptr noundef nonnull %6) #20
-  %159 = load ptr, ptr %6, align 8, !tbaa !17
-  %.not57 = icmp eq ptr %159, null
-  br i1 %.not57, label %zend_hash_add_ptr.exit, label %160
+  br label %155
 
-160:                                              ; preds = %152
+155:                                              ; preds = %zend_hash_str_find_ptr.exit.thread, %152
+  %.sink81 = phi ptr [ %154, %152 ], [ %140, %zend_hash_str_find_ptr.exit.thread ]
+  %.sink = phi ptr [ %153, %152 ], [ null, %zend_hash_str_find_ptr.exit.thread ]
+  %156 = getelementptr inbounds nuw i8, ptr %.sink81, i64 32
+  store ptr %.sink, ptr %156, align 8, !tbaa !166
+  %157 = load ptr, ptr %19, align 8, !tbaa !8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 316
+  %159 = load i16, ptr %158, align 4
+  %160 = and i16 %159, -2
+  store i16 %160, ptr %158, align 4
   %161 = load ptr, ptr %19, align 8, !tbaa !8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 32
-  store ptr %126, ptr %162, align 8, !tbaa !166
-  %163 = load ptr, ptr %19, align 8, !tbaa !8
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 40
-  store i32 %128, ptr %164, align 8, !tbaa !182
-  %165 = load ptr, ptr %19, align 8, !tbaa !8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 316
-  %167 = load i16, ptr %166, align 4
-  %168 = and i16 %167, -2
-  %169 = or disjoint i16 %168, %132
-  store i16 %169, ptr %166, align 4
-  %170 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
-  %171 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %170, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %159) #20
-  br i1 %.not59, label %175, label %zend_hash_str_add_ptr.exit
+  call void @phar_flush(ptr noundef %161, ptr noundef nonnull %6) #20
+  %162 = load ptr, ptr %6, align 8, !tbaa !17
+  %.not57 = icmp eq ptr %162, null
+  br i1 %.not57, label %zend_hash_add_ptr.exit, label %163
 
-zend_hash_str_add_ptr.exit:                       ; preds = %160
-  %172 = load ptr, ptr %19, align 8, !tbaa !8
+163:                                              ; preds = %155
+  %164 = load ptr, ptr %19, align 8, !tbaa !8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 32
+  store ptr %129, ptr %165, align 8, !tbaa !166
+  %166 = load ptr, ptr %19, align 8, !tbaa !8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 40
+  store i32 %131, ptr %167, align 8, !tbaa !182
+  %168 = load ptr, ptr %19, align 8, !tbaa !8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 316
+  %170 = load i16, ptr %169, align 4
+  %171 = and i16 %170, -2
+  %172 = or disjoint i16 %171, %135
+  store i16 %172, ptr %169, align 4
+  %173 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
+  %174 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %173, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %162) #20
+  br i1 %.not59, label %178, label %zend_hash_str_add_ptr.exit
+
+zend_hash_str_add_ptr.exit:                       ; preds = %163
+  %175 = load ptr, ptr %19, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %172, ptr %4, align 8, !tbaa !8
-  %173 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 13, ptr %173, align 8, !tbaa !8
-  %174 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef %126, i64 noundef range(i64 0, 4294967296) %129, ptr noundef nonnull %4) #20
+  store ptr %175, ptr %4, align 8, !tbaa !8
+  %176 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 13, ptr %176, align 8, !tbaa !8
+  %177 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef %129, i64 noundef range(i64 0, 4294967296) %132, ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %175
+  br label %178
 
-175:                                              ; preds = %zend_hash_str_add_ptr.exit, %160
-  %176 = load ptr, ptr %6, align 8, !tbaa !17
-  call void @_efree(ptr noundef %176) #20
-  br label %184
+178:                                              ; preds = %zend_hash_str_add_ptr.exit, %163
+  %179 = load ptr, ptr %6, align 8, !tbaa !17
+  call void @_efree(ptr noundef %179) #20
+  br label %187
 
-zend_hash_add_ptr.exit:                           ; preds = %152
-  %177 = load ptr, ptr %5, align 8, !tbaa !9
-  %178 = load ptr, ptr %19, align 8, !tbaa !8
+zend_hash_add_ptr.exit:                           ; preds = %155
+  %180 = load ptr, ptr %5, align 8, !tbaa !9
+  %181 = load ptr, ptr %19, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %178, ptr %3, align 8, !tbaa !8
-  %179 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 13, ptr %179, align 8, !tbaa !8
-  %180 = call ptr @zend_hash_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef %177, ptr noundef nonnull %3) #20
+  store ptr %181, ptr %3, align 8, !tbaa !8
+  %182 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 13, ptr %182, align 8, !tbaa !8
+  %183 = call ptr @zend_hash_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef %180, ptr noundef nonnull %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not58 = icmp eq ptr %126, null
-  br i1 %.not58, label %182, label %181
+  %.not58 = icmp eq ptr %129, null
+  br i1 %.not58, label %185, label %184
 
-181:                                              ; preds = %zend_hash_add_ptr.exit
-  call void @_efree(ptr noundef nonnull %126) #20
-  br label %182
+184:                                              ; preds = %zend_hash_add_ptr.exit
+  call void @_efree(ptr noundef nonnull %129) #20
+  br label %185
 
-182:                                              ; preds = %181, %zend_hash_add_ptr.exit
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %183, align 8, !tbaa !8
-  br label %184
+185:                                              ; preds = %184, %zend_hash_add_ptr.exit
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 3, ptr %186, align 8, !tbaa !8
+  br label %187
 
-184:                                              ; preds = %2, %21, %31, %39, %54, %71, %phar_validate_alias.exit.thread, %104, %175, %182
+187:                                              ; preds = %21, %31, %57, %74, %phar_validate_alias.exit.thread, %107, %178, %185, %42, %44, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -6871,7 +6876,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge
   store i32 262, ptr %28, align 8, !tbaa !8
   br label %29
 
-29:                                               ; preds = %15, %zend_string_alloc.exit, %5
+29:                                               ; preds = %5, %15, %zend_string_alloc.exit
   ret void
 }
 
@@ -6911,7 +6916,7 @@ define hidden void @zim_Phar_startBuffering(ptr noundef readonly captures(none) 
   store i16 %21, ptr %19, align 4
   br label %22
 
-22:                                               ; preds = %15, %18, %5
+22:                                               ; preds = %5, %15, %18
   ret void
 }
 
@@ -6954,7 +6959,7 @@ define hidden void @zim_Phar_isBuffering(ptr noundef readonly captures(none) %0,
   store i32 %22, ptr %23, align 8, !tbaa !8
   br label %24
 
-24:                                               ; preds = %15, %18, %5
+24:                                               ; preds = %5, %15, %18
   ret void
 }
 
@@ -7021,7 +7026,7 @@ define hidden void @zim_Phar_stopBuffering(ptr noundef readonly captures(none) %
   call void @_efree(ptr noundef %35) #20
   br label %36
 
-36:                                               ; preds = %16, %25, %32, %._crit_edge, %6
+36:                                               ; preds = %6, %16, %25, %32, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -7072,194 +7077,200 @@ define hidden void @zim_Phar_setStub(ptr noundef readonly captures(none) %0, ptr
 ._crit_edge:                                      ; preds = %19
   %28 = and i16 %23, 128
   %.not36 = icmp eq i16 %28, 0
-  br i1 %.not36, label %33, label %29
+  br i1 %.not36, label %36, label %29
 
 29:                                               ; preds = %._crit_edge
   %30 = and i16 %23, 64
   %.not43 = icmp eq i16 %30, 0
   %31 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !25
-  %.str.102..str.101 = select i1 %.not43, ptr @.str.102, ptr @.str.101
-  %32 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %31, i64 noundef 0, ptr noundef nonnull %.str.102..str.101) #20
+  br i1 %.not43, label %34, label %32
+
+32:                                               ; preds = %29
+  %33 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %31, i64 noundef 0, ptr noundef nonnull @.str.101) #20
   br label %.critedge
 
-33:                                               ; preds = %._crit_edge
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %35 = load i32, ptr %34, align 4, !tbaa !8
-  %36 = call i32 (i32, i32, ptr, ...) @zend_parse_parameters_ex(i32 noundef 2, i32 noundef %35, ptr noundef nonnull @.str.103, ptr noundef nonnull %5, ptr noundef nonnull %6) #20
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %103
+34:                                               ; preds = %29
+  %35 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %31, i64 noundef 0, ptr noundef nonnull @.str.102) #20
+  br label %.critedge
 
-38:                                               ; preds = %33
-  %39 = call ptr @get_active_function_or_method_name() #20
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.104, ptr noundef nonnull %40) #20
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !8
-  %43 = and i32 %42, 64
-  %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %44, label %zend_string_release.exit
+36:                                               ; preds = %._crit_edge
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %38 = load i32, ptr %37, align 4, !tbaa !8
+  %39 = call i32 (i32, i32, ptr, ...) @zend_parse_parameters_ex(i32 noundef 2, i32 noundef %38, ptr noundef nonnull @.str.103, ptr noundef nonnull %5, ptr noundef nonnull %6) #20
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %106
 
-44:                                               ; preds = %38
-  %45 = load i32, ptr %39, align 4, !tbaa !22
-  %46 = icmp ne i32 %45, 0
-  call void @llvm.assume(i1 %46)
-  %47 = add i32 %45, -1
-  store i32 %47, ptr %39, align 4, !tbaa !22
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %zend_string_release.exit
+41:                                               ; preds = %36
+  %42 = call ptr @get_active_function_or_method_name() #20
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.104, ptr noundef nonnull %43) #20
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %45 = load i32, ptr %44, align 4, !tbaa !8
+  %46 = and i32 %45, 64
+  %.not.i = icmp eq i32 %46, 0
+  br i1 %.not.i, label %47, label %zend_string_release.exit
 
-49:                                               ; preds = %44
-  %50 = and i32 %42, 128
-  %.not5.i = icmp eq i32 %50, 0
-  br i1 %.not5.i, label %52, label %51
+47:                                               ; preds = %41
+  %48 = load i32, ptr %42, align 4, !tbaa !22
+  %49 = icmp ne i32 %48, 0
+  call void @llvm.assume(i1 %49)
+  %50 = add i32 %48, -1
+  store i32 %50, ptr %42, align 4, !tbaa !22
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %zend_string_release.exit
 
-51:                                               ; preds = %49
-  call void @free(ptr noundef nonnull %39) #20
+52:                                               ; preds = %47
+  %53 = and i32 %45, 128
+  %.not5.i = icmp eq i32 %53, 0
+  br i1 %.not5.i, label %55, label %54
+
+54:                                               ; preds = %52
+  call void @free(ptr noundef nonnull %42) #20
   br label %zend_string_release.exit
 
-52:                                               ; preds = %49
-  call void @_efree(ptr noundef nonnull %39) #20
+55:                                               ; preds = %52
+  call void @_efree(ptr noundef nonnull %42) #20
   br label %zend_string_release.exit
 
-zend_string_release.exit:                         ; preds = %38, %44, %51, %52
-  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !62
-  %.not39 = icmp eq ptr %53, null
-  br i1 %.not39, label %54, label %.critedge, !prof !105
+zend_string_release.exit:                         ; preds = %41, %47, %54, %55
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !62
+  %.not39 = icmp eq ptr %56, null
+  br i1 %.not39, label %57, label %.critedge, !prof !105
 
-54:                                               ; preds = %zend_string_release.exit
-  %55 = load ptr, ptr %5, align 8, !tbaa !33
-  %56 = call i32 @php_file_le_stream() #20
-  %57 = call i32 @php_file_le_pstream() #20
-  %58 = call ptr @zend_fetch_resource2_ex(ptr noundef %55, ptr noundef nonnull @.str.105, i32 noundef %56, i32 noundef %57) #20
-  %.not40 = icmp eq ptr %58, null
-  br i1 %.not40, label %100, label %59
+57:                                               ; preds = %zend_string_release.exit
+  %58 = load ptr, ptr %5, align 8, !tbaa !33
+  %59 = call i32 @php_file_le_stream() #20
+  %60 = call i32 @php_file_le_pstream() #20
+  %61 = call ptr @zend_fetch_resource2_ex(ptr noundef %58, ptr noundef nonnull @.str.105, i32 noundef %59, i32 noundef %60) #20
+  %.not40 = icmp eq ptr %61, null
+  br i1 %.not40, label %103, label %62
 
-59:                                               ; preds = %54
-  %60 = load ptr, ptr %14, align 8, !tbaa !8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 316
-  %62 = load i16, ptr %61, align 4
-  %63 = and i16 %62, 256
-  %.not41 = icmp eq i16 %63, 0
-  br i1 %.not41, label %72, label %64
+62:                                               ; preds = %57
+  %63 = load ptr, ptr %14, align 8, !tbaa !8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 316
+  %65 = load i16, ptr %64, align 4
+  %66 = and i16 %65, 256
+  %.not41 = icmp eq i16 %66, 0
+  br i1 %.not41, label %75, label %67
 
-64:                                               ; preds = %59
-  %65 = call i32 @phar_copy_on_write(ptr noundef nonnull %14) #20
-  %66 = icmp eq i32 %65, -1
-  br i1 %66, label %67, label %72
+67:                                               ; preds = %62
+  %68 = call i32 @phar_copy_on_write(ptr noundef nonnull %14) #20
+  %69 = icmp eq i32 %68, -1
+  br i1 %69, label %70, label %75
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
-  %69 = load ptr, ptr %14, align 8, !tbaa !8
-  %70 = load ptr, ptr %69, align 8, !tbaa !117
-  %71 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %68, i64 noundef 0, ptr noundef nonnull @.str.77, ptr noundef %70) #20
+70:                                               ; preds = %67
+  %71 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
+  %72 = load ptr, ptr %14, align 8, !tbaa !8
+  %73 = load ptr, ptr %72, align 8, !tbaa !117
+  %74 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %71, i64 noundef 0, ptr noundef nonnull @.str.77, ptr noundef %73) #20
   br label %.critedge
 
-72:                                               ; preds = %64, %59
-  %73 = load i64, ptr %6, align 8, !tbaa !21
-  %74 = icmp sgt i64 %73, 0
-  %. = select i1 %74, i64 %73, i64 -1
-  %75 = call ptr @_php_stream_copy_to_mem(ptr noundef nonnull %58, i64 noundef %., i32 noundef 0) #20
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %82
+75:                                               ; preds = %67, %62
+  %76 = load i64, ptr %6, align 8, !tbaa !21
+  %77 = icmp sgt i64 %76, 0
+  %. = select i1 %77, i64 %76, i64 -1
+  %78 = call ptr @_php_stream_copy_to_mem(ptr noundef nonnull %61, i64 noundef %., i32 noundef 0) #20
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %80, label %85
 
-77:                                               ; preds = %72
-  %78 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
-  %79 = load ptr, ptr %14, align 8, !tbaa !8
-  %80 = load ptr, ptr %79, align 8, !tbaa !117
-  %81 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %78, i64 noundef 0, ptr noundef nonnull @.str.106, ptr noundef %80) #20
+80:                                               ; preds = %75
+  %81 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
+  %82 = load ptr, ptr %14, align 8, !tbaa !8
+  %83 = load ptr, ptr %82, align 8, !tbaa !117
+  %84 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %81, i64 noundef 0, ptr noundef nonnull @.str.106, ptr noundef %83) #20
   br label %.critedge
 
-82:                                               ; preds = %72
-  %83 = load ptr, ptr %14, align 8, !tbaa !8
-  call void @phar_flush_ex(ptr noundef %83, ptr noundef nonnull %75, i1 noundef zeroext false, ptr noundef nonnull %3) #20
-  %84 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %85 = load i32, ptr %84, align 4, !tbaa !8
-  %86 = and i32 %85, 64
-  %.not.i44 = icmp eq i32 %86, 0
-  br i1 %.not.i44, label %87, label %zend_string_release_ex.exit
+85:                                               ; preds = %75
+  %86 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @phar_flush_ex(ptr noundef %86, ptr noundef nonnull %78, i1 noundef zeroext false, ptr noundef nonnull %3) #20
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %88 = load i32, ptr %87, align 4, !tbaa !8
+  %89 = and i32 %88, 64
+  %.not.i44 = icmp eq i32 %89, 0
+  br i1 %.not.i44, label %90, label %zend_string_release_ex.exit
 
-87:                                               ; preds = %82
-  %88 = load i32, ptr %75, align 4, !tbaa !22
-  %89 = icmp ne i32 %88, 0
-  call void @llvm.assume(i1 %89)
-  %90 = add i32 %88, -1
-  store i32 %90, ptr %75, align 4, !tbaa !22
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %zend_string_release_ex.exit
+90:                                               ; preds = %85
+  %91 = load i32, ptr %78, align 4, !tbaa !22
+  %92 = icmp ne i32 %91, 0
+  call void @llvm.assume(i1 %92)
+  %93 = add i32 %91, -1
+  store i32 %93, ptr %78, align 4, !tbaa !22
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %zend_string_release_ex.exit
 
-92:                                               ; preds = %87
-  call void @_efree(ptr noundef nonnull %75) #20
+95:                                               ; preds = %90
+  call void @_efree(ptr noundef nonnull %78) #20
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %82, %87, %92
-  %93 = load ptr, ptr %3, align 8, !tbaa !17
-  %.not42 = icmp eq ptr %93, null
-  br i1 %.not42, label %98, label %94
+zend_string_release_ex.exit:                      ; preds = %85, %90, %95
+  %96 = load ptr, ptr %3, align 8, !tbaa !17
+  %.not42 = icmp eq ptr %96, null
+  br i1 %.not42, label %101, label %97
 
-94:                                               ; preds = %zend_string_release_ex.exit
-  %95 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
-  %96 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %95, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %93) #20
-  %97 = load ptr, ptr %3, align 8, !tbaa !17
-  call void @_efree(ptr noundef %97) #20
-  br label %98
+97:                                               ; preds = %zend_string_release_ex.exit
+  %98 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
+  %99 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %98, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %96) #20
+  %100 = load ptr, ptr %3, align 8, !tbaa !17
+  call void @_efree(ptr noundef %100) #20
+  br label %101
 
-98:                                               ; preds = %94, %zend_string_release_ex.exit
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %99, align 8, !tbaa !8
+101:                                              ; preds = %97, %zend_string_release_ex.exit
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 3, ptr %102, align 8, !tbaa !8
   br label %.critedge
 
-100:                                              ; preds = %54
-  %101 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !25
-  %102 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %101, i64 noundef 0, ptr noundef nonnull @.str.107) #20
+103:                                              ; preds = %57
+  %104 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !25
+  %105 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %104, i64 noundef 0, ptr noundef nonnull @.str.107) #20
   br label %.critedge
 
-103:                                              ; preds = %33
-  %104 = load i32, ptr %34, align 4, !tbaa !8
-  %105 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %104, ptr noundef nonnull @.str.95, ptr noundef nonnull %4) #20
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %.critedge
+106:                                              ; preds = %36
+  %107 = load i32, ptr %37, align 4, !tbaa !8
+  %108 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %107, ptr noundef nonnull @.str.95, ptr noundef nonnull %4) #20
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %.critedge
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr %14, align 8, !tbaa !8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 316
-  %110 = load i16, ptr %109, align 4
-  %111 = and i16 %110, 256
-  %.not37 = icmp eq i16 %111, 0
-  br i1 %.not37, label %119, label %112
+110:                                              ; preds = %106
+  %111 = load ptr, ptr %14, align 8, !tbaa !8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 316
+  %113 = load i16, ptr %112, align 4
+  %114 = and i16 %113, 256
+  %.not37 = icmp eq i16 %114, 0
+  br i1 %.not37, label %122, label %115
 
-112:                                              ; preds = %107
-  %113 = call i32 @phar_copy_on_write(ptr noundef nonnull %14) #20
-  %114 = icmp eq i32 %113, -1
+115:                                              ; preds = %110
+  %116 = call i32 @phar_copy_on_write(ptr noundef nonnull %14) #20
+  %117 = icmp eq i32 %116, -1
   %.pre45 = load ptr, ptr %14, align 8, !tbaa !8
-  br i1 %114, label %115, label %119
+  br i1 %117, label %118, label %122
 
-115:                                              ; preds = %112
-  %116 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
-  %117 = load ptr, ptr %.pre45, align 8, !tbaa !117
-  %118 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %116, i64 noundef 0, ptr noundef nonnull @.str.77, ptr noundef %117) #20
+118:                                              ; preds = %115
+  %119 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
+  %120 = load ptr, ptr %.pre45, align 8, !tbaa !117
+  %121 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %119, i64 noundef 0, ptr noundef nonnull @.str.77, ptr noundef %120) #20
   br label %.critedge
 
-119:                                              ; preds = %112, %107
-  %120 = phi ptr [ %.pre45, %112 ], [ %108, %107 ]
-  %121 = load ptr, ptr %4, align 8, !tbaa !9
-  call void @phar_flush_ex(ptr noundef %120, ptr noundef %121, i1 noundef zeroext false, ptr noundef nonnull %3) #20
-  %122 = load ptr, ptr %3, align 8, !tbaa !17
-  %.not38 = icmp eq ptr %122, null
-  br i1 %.not38, label %127, label %123
+122:                                              ; preds = %115, %110
+  %123 = phi ptr [ %.pre45, %115 ], [ %111, %110 ]
+  %124 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @phar_flush_ex(ptr noundef %123, ptr noundef %124, i1 noundef zeroext false, ptr noundef nonnull %3) #20
+  %125 = load ptr, ptr %3, align 8, !tbaa !17
+  %.not38 = icmp eq ptr %125, null
+  br i1 %.not38, label %130, label %126
 
-123:                                              ; preds = %119
-  %124 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
-  %125 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %124, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %122) #20
-  %126 = load ptr, ptr %3, align 8, !tbaa !17
-  call void @_efree(ptr noundef %126) #20
+126:                                              ; preds = %122
+  %127 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
+  %128 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %127, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %125) #20
+  %129 = load ptr, ptr %3, align 8, !tbaa !17
+  call void @_efree(ptr noundef %129) #20
   br label %.critedge
 
-127:                                              ; preds = %119
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %128, align 8, !tbaa !8
+130:                                              ; preds = %122
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 3, ptr %131, align 8, !tbaa !8
   br label %.critedge
 
-.critedge:                                        ; preds = %103, %100, %zend_string_release.exit, %67, %98, %77, %127, %123, %115, %29, %25, %16
+.critedge:                                        ; preds = %zend_string_release.exit, %70, %101, %80, %106, %103, %34, %32, %130, %126, %118, %25, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -7329,148 +7340,154 @@ define hidden void @zim_Phar_setDefaultStub(ptr noundef readonly captures(none) 
   %27 = load i16, ptr %26, align 4
   %28 = and i16 %27, 128
   %.not26 = icmp eq i16 %28, 0
-  br i1 %.not26, label %33, label %29
+  br i1 %.not26, label %36, label %29
 
 29:                                               ; preds = %25
   %30 = and i16 %27, 64
   %.not37 = icmp eq i16 %30, 0
   %31 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !25
-  %.str.102..str.101 = select i1 %.not37, ptr @.str.102, ptr @.str.101
-  %32 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %31, i64 noundef 0, ptr noundef nonnull %.str.102..str.101) #20
+  br i1 %.not37, label %34, label %32
+
+32:                                               ; preds = %29
+  %33 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %31, i64 noundef 0, ptr noundef nonnull @.str.101) #20
   br label %zend_string_free.exit
 
-33:                                               ; preds = %25
-  %34 = load ptr, ptr %3, align 8, !tbaa !17
-  %35 = icmp eq ptr %34, null
-  %36 = load ptr, ptr %4, align 8
-  %37 = icmp eq ptr %36, null
-  %or.cond.not46 = select i1 %35, i1 %37, i1 false
-  %38 = and i16 %27, 96
-  %or.cond38 = icmp eq i16 %38, 0
+34:                                               ; preds = %29
+  %35 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %31, i64 noundef 0, ptr noundef nonnull @.str.102) #20
+  br label %zend_string_free.exit
+
+36:                                               ; preds = %25
+  %37 = load ptr, ptr %3, align 8, !tbaa !17
+  %38 = icmp eq ptr %37, null
+  %39 = load ptr, ptr %4, align 8
+  %40 = icmp eq ptr %39, null
+  %or.cond.not46 = select i1 %38, i1 %40, i1 false
+  %41 = and i16 %27, 96
+  %or.cond38 = icmp eq i16 %41, 0
   %or.cond43 = or i1 %or.cond38, %or.cond.not46
-  br i1 %or.cond43, label %41, label %39
+  br i1 %or.cond43, label %44, label %42
 
-39:                                               ; preds = %33
-  %40 = select i1 %35, i32 2, i32 1
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef %40, ptr noundef nonnull @.str.109) #20
+42:                                               ; preds = %36
+  %43 = select i1 %38, i32 2, i32 1
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef %43, ptr noundef nonnull @.str.109) #20
   br label %zend_string_free.exit
 
-41:                                               ; preds = %33
-  %42 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 192), align 8, !tbaa !108, !range !19, !noundef !20
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %44, label %47
+44:                                               ; preds = %36
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 192), align 8, !tbaa !108, !range !19, !noundef !20
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %47, label %50
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !25
-  %46 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %45, i64 noundef 0, ptr noundef nonnull @.str.110) #20
+47:                                               ; preds = %44
+  %48 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !25
+  %49 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %48, i64 noundef 0, ptr noundef nonnull @.str.110) #20
   br label %zend_string_free.exit
 
-47:                                               ; preds = %41
-  br i1 %or.cond38, label %48, label %63
+50:                                               ; preds = %44
+  br i1 %or.cond38, label %51, label %66
 
-48:                                               ; preds = %47
-  %49 = call ptr @phar_create_default_stub(ptr noundef %34, ptr noundef %36, ptr noundef nonnull %5) #20
-  %50 = load ptr, ptr %5, align 8, !tbaa !17
-  %.not31 = icmp eq ptr %50, null
-  br i1 %.not31, label %._crit_edge, label %51
+51:                                               ; preds = %50
+  %52 = call ptr @phar_create_default_stub(ptr noundef %37, ptr noundef %39, ptr noundef nonnull %5) #20
+  %53 = load ptr, ptr %5, align 8, !tbaa !17
+  %.not31 = icmp eq ptr %53, null
+  br i1 %.not31, label %._crit_edge, label %54
 
-._crit_edge:                                      ; preds = %48
+._crit_edge:                                      ; preds = %51
   %.pre = load ptr, ptr %20, align 8, !tbaa !8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 316
   %.pre47 = load i16, ptr %.phi.trans.insert, align 4
-  br label %63
+  br label %66
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !25
-  %53 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %52, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %50) #20
-  %54 = load ptr, ptr %5, align 8, !tbaa !17
-  call void @_efree(ptr noundef %54) #20
-  %.not32 = icmp eq ptr %49, null
-  br i1 %.not32, label %zend_string_free.exit, label %55
+54:                                               ; preds = %51
+  %55 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !25
+  %56 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %55, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %53) #20
+  %57 = load ptr, ptr %5, align 8, !tbaa !17
+  call void @_efree(ptr noundef %57) #20
+  %.not32 = icmp eq ptr %52, null
+  br i1 %.not32, label %zend_string_free.exit, label %58
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %57 = load i32, ptr %56, align 4, !tbaa !8
-  %58 = and i32 %57, 64
-  %.not.i = icmp eq i32 %58, 0
-  br i1 %.not.i, label %59, label %zend_string_free.exit
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %60 = load i32, ptr %59, align 4, !tbaa !8
+  %61 = and i32 %60, 64
+  %.not.i = icmp eq i32 %61, 0
+  br i1 %.not.i, label %62, label %zend_string_free.exit
 
-59:                                               ; preds = %55
-  %60 = and i32 %57, 128
-  %.not4.i = icmp eq i32 %60, 0
-  br i1 %.not4.i, label %62, label %61
+62:                                               ; preds = %58
+  %63 = and i32 %60, 128
+  %.not4.i = icmp eq i32 %63, 0
+  br i1 %.not4.i, label %65, label %64
 
-61:                                               ; preds = %59
-  call void @free(ptr noundef nonnull %49) #20
+64:                                               ; preds = %62
+  call void @free(ptr noundef nonnull %52) #20
   br label %zend_string_free.exit
 
-62:                                               ; preds = %59
-  call void @_efree(ptr noundef nonnull %49) #20
+65:                                               ; preds = %62
+  call void @_efree(ptr noundef nonnull %52) #20
   br label %zend_string_free.exit
 
-63:                                               ; preds = %._crit_edge, %47
-  %64 = phi i16 [ %27, %47 ], [ %.pre47, %._crit_edge ]
-  %65 = phi ptr [ %21, %47 ], [ %.pre, %._crit_edge ]
-  %.0 = phi ptr [ null, %47 ], [ %49, %._crit_edge ]
-  %66 = and i16 %64, 256
-  %.not33 = icmp eq i16 %66, 0
-  br i1 %.not33, label %74, label %67
+66:                                               ; preds = %._crit_edge, %50
+  %67 = phi i16 [ %27, %50 ], [ %.pre47, %._crit_edge ]
+  %68 = phi ptr [ %21, %50 ], [ %.pre, %._crit_edge ]
+  %.0 = phi ptr [ null, %50 ], [ %52, %._crit_edge ]
+  %69 = and i16 %67, 256
+  %.not33 = icmp eq i16 %69, 0
+  br i1 %.not33, label %77, label %70
 
-67:                                               ; preds = %63
-  %68 = call i32 @phar_copy_on_write(ptr noundef nonnull %20) #20
-  %69 = icmp eq i32 %68, -1
+70:                                               ; preds = %66
+  %71 = call i32 @phar_copy_on_write(ptr noundef nonnull %20) #20
+  %72 = icmp eq i32 %71, -1
   %.pre48 = load ptr, ptr %20, align 8, !tbaa !8
-  br i1 %69, label %70, label %74
+  br i1 %72, label %73, label %77
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
-  %72 = load ptr, ptr %.pre48, align 8, !tbaa !117
-  %73 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %71, i64 noundef 0, ptr noundef nonnull @.str.77, ptr noundef %72) #20
+73:                                               ; preds = %70
+  %74 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
+  %75 = load ptr, ptr %.pre48, align 8, !tbaa !117
+  %76 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %74, i64 noundef 0, ptr noundef nonnull @.str.77, ptr noundef %75) #20
   br label %zend_string_free.exit
 
-74:                                               ; preds = %67, %63
-  %75 = phi ptr [ %.pre48, %67 ], [ %65, %63 ]
-  call void @phar_flush_ex(ptr noundef %75, ptr noundef %.0, i1 noundef zeroext true, ptr noundef nonnull %5) #20
-  br i1 %or.cond38, label %76, label %zend_string_free.exit42
+77:                                               ; preds = %70, %66
+  %78 = phi ptr [ %.pre48, %70 ], [ %68, %66 ]
+  call void @phar_flush_ex(ptr noundef %78, ptr noundef %.0, i1 noundef zeroext true, ptr noundef nonnull %5) #20
+  br i1 %or.cond38, label %79, label %zend_string_free.exit42
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  %78 = load i32, ptr %77, align 4, !tbaa !8
-  %79 = and i32 %78, 64
-  %.not.i40 = icmp eq i32 %79, 0
-  br i1 %.not.i40, label %80, label %zend_string_free.exit42
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  %81 = load i32, ptr %80, align 4, !tbaa !8
+  %82 = and i32 %81, 64
+  %.not.i40 = icmp eq i32 %82, 0
+  br i1 %.not.i40, label %83, label %zend_string_free.exit42
 
-80:                                               ; preds = %76
-  %81 = and i32 %78, 128
-  %.not4.i41 = icmp eq i32 %81, 0
-  br i1 %.not4.i41, label %83, label %82
+83:                                               ; preds = %79
+  %84 = and i32 %81, 128
+  %.not4.i41 = icmp eq i32 %84, 0
+  br i1 %.not4.i41, label %86, label %85
 
-82:                                               ; preds = %80
+85:                                               ; preds = %83
   call void @free(ptr noundef nonnull %.0) #20
   br label %zend_string_free.exit42
 
-83:                                               ; preds = %80
+86:                                               ; preds = %83
   call void @_efree(ptr noundef nonnull %.0) #20
   br label %zend_string_free.exit42
 
-zend_string_free.exit42:                          ; preds = %83, %82, %76, %74
-  %84 = load ptr, ptr %5, align 8, !tbaa !17
-  %.not35 = icmp eq ptr %84, null
-  br i1 %.not35, label %89, label %85
+zend_string_free.exit42:                          ; preds = %86, %85, %79, %77
+  %87 = load ptr, ptr %5, align 8, !tbaa !17
+  %.not35 = icmp eq ptr %87, null
+  br i1 %.not35, label %92, label %88
 
-85:                                               ; preds = %zend_string_free.exit42
-  %86 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
-  %87 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %86, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %84) #20
-  %88 = load ptr, ptr %5, align 8, !tbaa !17
-  call void @_efree(ptr noundef %88) #20
+88:                                               ; preds = %zend_string_free.exit42
+  %89 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
+  %90 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %89, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %87) #20
+  %91 = load ptr, ptr %5, align 8, !tbaa !17
+  call void @_efree(ptr noundef %91) #20
   br label %zend_string_free.exit
 
-89:                                               ; preds = %zend_string_free.exit42
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %90, align 8, !tbaa !8
+92:                                               ; preds = %zend_string_free.exit42
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 3, ptr %93, align 8, !tbaa !8
   br label %zend_string_free.exit
 
-zend_string_free.exit:                            ; preds = %51, %55, %61, %62, %2, %22, %29, %39, %44, %70, %85, %89
+zend_string_free.exit:                            ; preds = %65, %64, %58, %22, %42, %47, %73, %88, %92, %32, %34, %54, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7603,7 +7620,7 @@ define hidden void @zim_Phar_setSignatureAlgorithm(ptr noundef readonly captures
   %67 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %66, i64 noundef 0, ptr noundef nonnull @.str.113) #20
   br label %68
 
-68:                                               ; preds = %2, %20, %30, %43, %47, %61, %65
+68:                                               ; preds = %20, %30, %43, %47, %61, %65, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -7709,7 +7726,7 @@ define hidden void @zim_Phar_getSignature(ptr noundef readonly captures(none) %0
   store i32 2, ptr %43, align 8, !tbaa !8
   br label %44
 
-44:                                               ; preds = %15, %42, %40, %39, %38, %37, %36, %35, %34, %33, %5
+44:                                               ; preds = %5, %15, %42, %40, %39, %38, %37, %36, %35, %34, %33
   ret void
 }
 
@@ -7754,7 +7771,7 @@ define hidden void @zim_Phar_getModified(ptr noundef readonly captures(none) %0,
   store i32 %22, ptr %23, align 8, !tbaa !8
   br label %24
 
-24:                                               ; preds = %15, %18, %5
+24:                                               ; preds = %5, %15, %18
   ret void
 }
 
@@ -7871,7 +7888,7 @@ define hidden void @zim_Phar_compress(ptr noundef readonly captures(none) %0, pt
   store i32 1, ptr %60, align 8, !tbaa !8
   br label %61
 
-61:                                               ; preds = %2, %20, %29, %33, %41, %47, %50, %57, %59
+61:                                               ; preds = %20, %29, %33, %41, %47, %50, %57, %59, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7955,7 +7972,7 @@ define hidden void @zim_Phar_decompress(ptr noundef readonly captures(none) %0, 
   store i32 1, ptr %42, align 8, !tbaa !8
   br label %43
 
-43:                                               ; preds = %2, %19, %28, %32, %39, %41
+43:                                               ; preds = %19, %28, %32, %39, %41, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -7973,7 +7990,7 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
   %8 = load i32, ptr %7, align 4, !tbaa !8
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.81, ptr noundef nonnull %6) #20
   %10 = icmp eq i32 %9, -1
-  br i1 %10, label %89, label %11
+  br i1 %10, label %93, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7991,7 +8008,7 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
 21:                                               ; preds = %11
   %22 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !25
   %23 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %22, i64 noundef 0, ptr noundef nonnull @.str.72) #20
-  br label %89
+  br label %93
 
 24:                                               ; preds = %11
   %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 192), align 8, !tbaa !108, !range !19, !noundef !20
@@ -8008,7 +8025,7 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
 31:                                               ; preds = %27
   %32 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !25
   %33 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %32, i64 noundef 0, ptr noundef nonnull @.str.122) #20
-  br label %89
+  br label %93
 
 34:                                               ; preds = %27, %24
   %35 = load i64, ptr %6, align 8, !tbaa !21
@@ -8025,7 +8042,7 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
 39:                                               ; preds = %36
   %40 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !25
   %41 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %40, i64 noundef 0, ptr noundef nonnull @.str.123) #20
-  br label %89
+  br label %93
 
 42:                                               ; preds = %34
   %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 196), align 4, !tbaa !107, !range !19, !noundef !20
@@ -8035,88 +8052,95 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
 45:                                               ; preds = %42
   %46 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !25
   %47 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %46, i64 noundef 0, ptr noundef nonnull @.str.124) #20
-  br label %89
+  br label %93
 
 48:                                               ; preds = %34
   %49 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !25
   %50 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %49, i64 noundef 0, ptr noundef nonnull @.str.90) #20
-  br label %89
+  br label %93
 
 51:                                               ; preds = %42, %36
-  %.str.126..str.127 = phi ptr [ @.str.126, %36 ], [ @.str.127, %42 ]
+  %52 = phi i1 [ true, %36 ], [ false, %42 ]
   %.0 = phi i32 [ 4096, %36 ], [ 8192, %42 ]
-  %52 = getelementptr inbounds nuw i8, ptr %20, i64 316
-  %53 = load i16, ptr %52, align 4
-  %54 = and i16 %53, 64
-  %.not18 = icmp eq i16 %54, 0
-  br i1 %.not18, label %58, label %55
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 316
+  %54 = load i16, ptr %53, align 4
+  %55 = and i16 %54, 64
+  %.not18 = icmp eq i16 %55, 0
+  br i1 %.not18, label %59, label %56
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !25
-  %57 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %56, i64 noundef 0, ptr noundef nonnull @.str.125) #20
-  br label %89
+56:                                               ; preds = %51
+  %57 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !25
+  %58 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %57, i64 noundef 0, ptr noundef nonnull @.str.125) #20
+  br label %93
 
-58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %20, i64 64
+59:                                               ; preds = %51
+  %60 = getelementptr inbounds nuw i8, ptr %20, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !168
-  call void @zend_hash_apply_with_argument(ptr noundef nonnull %59, ptr noundef nonnull @phar_test_compression, ptr noundef nonnull %4) #20
-  %60 = load i32, ptr %4, align 4, !tbaa !168
+  call void @zend_hash_apply_with_argument(ptr noundef nonnull %60, ptr noundef nonnull @phar_test_compression, ptr noundef nonnull %4) #20
+  %61 = load i32, ptr %4, align 4, !tbaa !168
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not19 = icmp eq i32 %60, 0
-  br i1 %.not19, label %61, label %64
+  %.not19 = icmp eq i32 %61, 0
+  br i1 %.not19, label %62, label %68
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !25
-  %63 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %62, i64 noundef 0, ptr noundef nonnull %.str.126..str.127) #20
-  br label %89
+62:                                               ; preds = %59
+  %63 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !25
+  br i1 %52, label %64, label %66
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %19, align 8, !tbaa !8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 316
-  %67 = load i16, ptr %66, align 4
-  %68 = and i16 %67, 256
-  %.not20 = icmp eq i16 %68, 0
-  br i1 %.not20, label %76, label %69
+64:                                               ; preds = %62
+  %65 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %63, i64 noundef 0, ptr noundef nonnull @.str.126) #20
+  br label %93
 
-69:                                               ; preds = %64
-  %70 = call i32 @phar_copy_on_write(ptr noundef nonnull %19) #20
-  %71 = icmp eq i32 %70, -1
+66:                                               ; preds = %62
+  %67 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %63, i64 noundef 0, ptr noundef nonnull @.str.127) #20
+  br label %93
+
+68:                                               ; preds = %59
+  %69 = load ptr, ptr %19, align 8, !tbaa !8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 316
+  %71 = load i16, ptr %70, align 4
+  %72 = and i16 %71, 256
+  %.not20 = icmp eq i16 %72, 0
+  br i1 %.not20, label %80, label %73
+
+73:                                               ; preds = %68
+  %74 = call i32 @phar_copy_on_write(ptr noundef nonnull %19) #20
+  %75 = icmp eq i32 %74, -1
   %.pre = load ptr, ptr %19, align 8, !tbaa !8
-  br i1 %71, label %72, label %76
+  br i1 %75, label %76, label %80
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
-  %74 = load ptr, ptr %.pre, align 8, !tbaa !117
-  %75 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %73, i64 noundef 0, ptr noundef nonnull @.str.77, ptr noundef %74) #20
-  br label %89
+76:                                               ; preds = %73
+  %77 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
+  %78 = load ptr, ptr %.pre, align 8, !tbaa !117
+  %79 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %77, i64 noundef 0, ptr noundef nonnull @.str.77, ptr noundef %78) #20
+  br label %93
 
-76:                                               ; preds = %69, %64
-  %77 = phi ptr [ %.pre, %69 ], [ %65, %64 ]
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
+80:                                               ; preds = %73, %68
+  %81 = phi ptr [ %.pre, %73 ], [ %69, %68 ]
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.0, ptr %3, align 4, !tbaa !168
-  call void @zend_hash_apply_with_argument(ptr noundef nonnull %78, ptr noundef nonnull @phar_set_compression, ptr noundef nonnull %3) #20
+  call void @zend_hash_apply_with_argument(ptr noundef nonnull %82, ptr noundef nonnull @phar_set_compression, ptr noundef nonnull %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %79 = load ptr, ptr %19, align 8, !tbaa !8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 316
-  %81 = load i16, ptr %80, align 4
-  %82 = or i16 %81, 2
-  store i16 %82, ptr %80, align 4
   %83 = load ptr, ptr %19, align 8, !tbaa !8
-  call void @phar_flush(ptr noundef %83, ptr noundef nonnull %5) #20
-  %84 = load ptr, ptr %5, align 8, !tbaa !17
-  %.not21 = icmp eq ptr %84, null
-  br i1 %.not21, label %89, label %85
-
-85:                                               ; preds = %76
-  %86 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !25
-  %87 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %86, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %84) #20
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 316
+  %85 = load i16, ptr %84, align 4
+  %86 = or i16 %85, 2
+  store i16 %86, ptr %84, align 4
+  %87 = load ptr, ptr %19, align 8, !tbaa !8
+  call void @phar_flush(ptr noundef %87, ptr noundef nonnull %5) #20
   %88 = load ptr, ptr %5, align 8, !tbaa !17
-  call void @_efree(ptr noundef %88) #20
-  br label %89
+  %.not21 = icmp eq ptr %88, null
+  br i1 %.not21, label %93, label %89
 
-89:                                               ; preds = %2, %21, %31, %39, %45, %48, %55, %61, %72, %85, %76
+89:                                               ; preds = %80
+  %90 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !25
+  %91 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %90, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %88) #20
+  %92 = load ptr, ptr %5, align 8, !tbaa !17
+  call void @_efree(ptr noundef %92) #20
+  br label %93
+
+93:                                               ; preds = %21, %31, %39, %45, %48, %56, %76, %64, %66, %89, %80, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -8247,7 +8271,7 @@ define hidden void @zim_Phar_decompressFiles(ptr noundef readonly captures(none)
   store i32 3, ptr %67, align 8, !tbaa !8
   br label %68
 
-68:                                               ; preds = %18, %28, %34, %42, %49, %66, %8
+68:                                               ; preds = %8, %18, %28, %34, %42, %49, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -8602,7 +8626,7 @@ zend_hash_add_mem.exit:                           ; preds = %167, %182
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %197
 
-197:                                              ; preds = %2, %25, %35, %47, %57, %zend_hash_find_ptr.exit42.thread, %87, %196
+197:                                              ; preds = %25, %35, %47, %57, %zend_hash_find_ptr.exit42.thread, %87, %196, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -8723,7 +8747,7 @@ instanceof_function.exit.thread:                  ; preds = %44, %instanceof_fun
   store i32 %56, ptr %57, align 8, !tbaa !8
   br label %58
 
-58:                                               ; preds = %2, %18, %35, %41, %zend_string_starts_with_cstr.exit.thread, %50, %instanceof_function.exit.thread
+58:                                               ; preds = %18, %35, %41, %zend_string_starts_with_cstr.exit.thread, %50, %instanceof_function.exit.thread, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -8881,7 +8905,7 @@ zend_string_release_ex.exit:                      ; preds = %64, %77, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %83
 
-83:                                               ; preds = %zend_string_release_ex.exit, %2, %20, %42, %48, %55, %29
+83:                                               ; preds = %zend_string_release_ex.exit, %20, %42, %48, %55, %29, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -9003,7 +9027,7 @@ zend_string_starts_with_cstr.exit.thread:         ; preds = %51, %zend_string_st
   call fastcc void @phar_add_file(ptr noundef nonnull %22, ptr noundef nonnull %38, ptr noundef %56, ptr noundef %57)
   br label %58
 
-58:                                               ; preds = %11, %24, %34, %42, %47, %53, %zend_string_starts_with_cstr.exit.thread
+58:                                               ; preds = %24, %34, %42, %47, %53, %zend_string_starts_with_cstr.exit.thread, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -9305,8 +9329,7 @@ define hidden void @zim_Phar_offsetUnset(ptr noundef readonly captures(none) %0,
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %62 = load ptr, ptr %4, align 8, !tbaa !9
   %63 = call ptr @zend_hash_find(ptr noundef nonnull %61, ptr noundef %62) #20
-  %.not.i = icmp ne ptr %63, null
-  call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
   %64 = load ptr, ptr %63, align 8, !tbaa !8, !nonnull !20, !noundef !20
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %64, i64 146
   %.pre = load i16, ptr %.phi.trans.insert, align 2
@@ -9332,7 +9355,7 @@ zend_hash_find_ptr.exit:                          ; preds = %59, %46
   call void @_efree(ptr noundef %74) #20
   br label %zend_hash_find_ptr.exit26.thread
 
-zend_hash_find_ptr.exit26.thread:                 ; preds = %2, %36, %19, %29, %54, %41, %71, %zend_hash_find_ptr.exit, %32
+zend_hash_find_ptr.exit26.thread:                 ; preds = %36, %19, %29, %54, %41, %71, %zend_hash_find_ptr.exit, %32, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -9448,7 +9471,7 @@ phar_mkdir.exit:                                  ; preds = %39, %42, %50, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %57
 
-57:                                               ; preds = %2, %19, %27, %phar_mkdir.exit
+57:                                               ; preds = %19, %27, %phar_mkdir.exit, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -9547,7 +9570,7 @@ define hidden void @zim_Phar_addFile(ptr noundef readonly captures(none) %0, ptr
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #20
   br label %53
 
-53:                                               ; preds = %2, %20, %29, %37, %45
+53:                                               ; preds = %20, %29, %37, %45, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -9596,7 +9619,7 @@ define hidden void @zim_Phar_addFromString(ptr noundef readonly captures(none) %
   call fastcc void @phar_add_file(ptr noundef nonnull %17, ptr noundef %23, ptr noundef %24, ptr noundef null)
   br label %25
 
-25:                                               ; preds = %2, %19, %22
+25:                                               ; preds = %19, %22, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -9841,7 +9864,7 @@ zend_string_alloc.exit:                           ; preds = %65, %.thread106
   store i32 %126, ptr %127, align 8, !tbaa !8
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %111, %106, %101, %.thread103, %15, %41, %71, %83, %122, %5
+zend_string_release_ex.exit:                      ; preds = %111, %106, %101, %.thread103, %5, %15, %41, %71, %83, %122
   ret void
 }
 
@@ -9900,7 +9923,7 @@ define hidden void @zim_Phar_hasMetadata(ptr noundef readonly captures(none) %0,
   store i32 %25, ptr %26, align 8, !tbaa !8
   br label %27
 
-27:                                               ; preds = %15, %18, %5
+27:                                               ; preds = %5, %15, %18
   ret void
 }
 
@@ -10087,7 +10110,7 @@ define hidden void @zim_Phar_setMetadata(ptr noundef readonly captures(none) %0,
   call void @_efree(ptr noundef %58) #20
   br label %59
 
-59:                                               ; preds = %39, %2, %19, %28, %35, %55, %48
+59:                                               ; preds = %19, %28, %35, %39, %55, %48, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -10302,7 +10325,7 @@ define hidden void @zim_Phar_delMetadata(ptr noundef readonly captures(none) %0,
   store i32 3, ptr %52, align 8, !tbaa !8
   br label %53
 
-53:                                               ; preds = %16, %25, %32, %47, %51, %6
+53:                                               ; preds = %6, %16, %25, %32, %47, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -11044,7 +11067,7 @@ define hidden void @zim_PharFileInfo___destruct(ptr noundef readonly captures(no
   store ptr null, ptr %10, align 8, !tbaa !8
   br label %34
 
-34:                                               ; preds = %.critedge, %33, %13
+34:                                               ; preds = %13, %.critedge, %33
   ret void
 }
 
@@ -11086,7 +11109,7 @@ define hidden void @zim_PharFileInfo_getCompressedSize(ptr noundef readonly capt
   store i32 4, ptr %22, align 8, !tbaa !8
   br label %23
 
-23:                                               ; preds = %15, %18, %5
+23:                                               ; preds = %5, %15, %18
   ret void
 }
 
@@ -11179,7 +11202,7 @@ define hidden void @zim_PharFileInfo_isCompressed(ptr noundef readonly captures(
   %53 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %52, i64 noundef 0, ptr noundef nonnull @.str.176) #20
   br label %54
 
-54:                                               ; preds = %2, %19, %25, %33, %39, %45, %51
+54:                                               ; preds = %19, %25, %33, %39, %45, %51, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -11245,7 +11268,7 @@ define hidden void @zim_PharFileInfo_getCRC32(ptr noundef readonly captures(none
   %34 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %33, i64 noundef 0, ptr noundef nonnull @.str.178) #20
   br label %35
 
-35:                                               ; preds = %15, %22, %27, %32, %5
+35:                                               ; preds = %5, %15, %22, %27, %32
   ret void
 }
 
@@ -11288,7 +11311,7 @@ define hidden void @zim_PharFileInfo_isCRCChecked(ptr noundef readonly captures(
   store i32 %22, ptr %23, align 8, !tbaa !8
   br label %24
 
-24:                                               ; preds = %15, %18, %5
+24:                                               ; preds = %5, %15, %18
   ret void
 }
 
@@ -11331,7 +11354,7 @@ define hidden void @zim_PharFileInfo_getPharFlags(ptr noundef readonly captures(
   store i32 4, ptr %23, align 8, !tbaa !8
   br label %24
 
-24:                                               ; preds = %15, %18, %5
+24:                                               ; preds = %5, %15, %18
   ret void
 }
 
@@ -11562,7 +11585,7 @@ zend_string_release.exit:                         ; preds = %122, %121, %114, %1
   call void @_efree(ptr noundef %130) #20
   br label %131
 
-131:                                              ; preds = %2, %.thread, %20, %27, %42, %127, %zend_string_release.exit
+131:                                              ; preds = %.thread, %20, %27, %42, %127, %zend_string_release.exit, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -11609,7 +11632,7 @@ define hidden void @zim_PharFileInfo_hasMetadata(ptr noundef readonly captures(n
   store i32 %25, ptr %26, align 8, !tbaa !8
   br label %27
 
-27:                                               ; preds = %15, %18, %5
+27:                                               ; preds = %5, %15, %18
   ret void
 }
 
@@ -11837,7 +11860,7 @@ define hidden void @zim_PharFileInfo_setMetadata(ptr noundef readonly captures(n
   call void @_efree(ptr noundef %92) #20
   br label %93
 
-93:                                               ; preds = %65, %2, %.thread, %20, %32, %39, %89, %74
+93:                                               ; preds = %.thread, %20, %32, %39, %65, %89, %74, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -11945,8 +11968,7 @@ define hidden void @zim_PharFileInfo_delMetadata(ptr noundef readonly captures(n
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %62 = load ptr, ptr %61, align 8, !tbaa !174
   %63 = call ptr @zend_hash_find(ptr noundef nonnull %59, ptr noundef %62) #20
-  %.not.i = icmp ne ptr %63, null
-  call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
   %64 = load ptr, ptr %63, align 8, !tbaa !8, !nonnull !20, !noundef !20
   store ptr %64, ptr %15, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -11998,7 +12020,7 @@ define hidden void @zim_PharFileInfo_delMetadata(ptr noundef readonly captures(n
   store i32 3, ptr %90, align 8, !tbaa !8
   br label %91
 
-91:                                               ; preds = %.thread, %17, %29, %36, %83, %87, %89, %7
+91:                                               ; preds = %.thread, %7, %17, %29, %36, %83, %87, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -12125,7 +12147,7 @@ define hidden void @zim_PharFileInfo_getContent(ptr noundef readonly captures(no
   store i32 6, ptr %75, align 8, !tbaa !8
   br label %76
 
-76:                                               ; preds = %16, %23, %38, %52, %67, %73, %6
+76:                                               ; preds = %6, %16, %23, %38, %52, %67, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -12438,7 +12460,7 @@ define hidden void @zim_PharFileInfo_compress(ptr noundef readonly captures(none
   store i32 3, ptr %178, align 8, !tbaa !8
   br label %179
 
-179:                                              ; preds = %2, %.thread, %20, %27, %32, %44, %49, %79, %86, %91, %106, %113, %120, %125, %140, %143, %173, %177
+179:                                              ; preds = %.thread, %20, %27, %32, %44, %49, %79, %86, %91, %106, %113, %120, %125, %140, %143, %173, %177, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -12584,8 +12606,7 @@ define hidden void @zim_PharFileInfo_decompress(ptr noundef readonly captures(no
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %82 = load ptr, ptr %81, align 8, !tbaa !174
   %83 = call ptr @zend_hash_find(ptr noundef nonnull %79, ptr noundef %82) #20
-  %.not.i = icmp ne ptr %83, null
-  call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
   %84 = load ptr, ptr %83, align 8, !tbaa !8, !nonnull !20, !noundef !20
   store ptr %84, ptr %15, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -12675,7 +12696,7 @@ define hidden void @zim_PharFileInfo_decompress(ptr noundef readonly captures(no
   store i32 3, ptr %135, align 8, !tbaa !8
   br label %136
 
-136:                                              ; preds = %.thread, %17, %24, %32, %43, %48, %56, %64, %90, %95, %130, %134, %7
+136:                                              ; preds = %.thread, %7, %17, %24, %32, %43, %48, %56, %64, %90, %95, %130, %134
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

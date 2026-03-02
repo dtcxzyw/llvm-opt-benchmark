@@ -4713,7 +4713,7 @@ define linkonce_odr void @_ZN5folly3f146detail16F14VectorMapImplINS_5RangeIPKcEE
   %13 = load i64, ptr %12, align 8, !tbaa !18
   %14 = lshr i64 %13, 8
   %.not = icmp eq i64 %14, %10
-  br i1 %.not, label %59, label %15
+  br i1 %.not, label %58, label %15
 
 15:                                               ; preds = %4
   %16 = trunc i64 %14 to i32
@@ -4785,13 +4785,12 @@ define linkonce_odr void @_ZN5folly3f146detail16F14VectorMapImplINS_5RangeIPKcEE
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit: ; preds = %46
   %56 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %45, i64 %50
   store i32 %9, ptr %56, align 4, !tbaa !114
-  %57 = icmp ne ptr %8, null
-  call void @llvm.assume(i1 %57)
-  %58 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i64 %14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(24) %58, i64 24, i1 false)
-  br label %59
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
+  %57 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i64 %14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(24) %57, i64 24, i1 false)
+  br label %58
 
-59:                                               ; preds = %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit, %4
+58:                                               ; preds = %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit, %4
   ret void
 }
 

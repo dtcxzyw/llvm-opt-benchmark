@@ -2255,91 +2255,88 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN91_$LT$core..s
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1ba2c90ca355acefE.llvm.15236414416081531888"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %0, %1
-  br i1 %5, label %.loopexit, label %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %4 = icmp eq ptr %0, %1
+  br i1 %4, label %.loopexit, label %5
 
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub nuw i64 %7, %8
-  br label %10
+5:                                                ; preds = %3
+  %6 = ptrtoint ptr %1 to i64
+  %7 = ptrtoint ptr %0 to i64
+  %8 = sub nuw i64 %6, %7
+  br label %9
 
-10:                                               ; preds = %10, %6
-  %.sroa.07.0 = phi i64 [ %2, %6 ], [ %14, %10 ]
-  %.sroa.09.0 = phi i64 [ 0, %6 ], [ %15, %10 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 %.sroa.09.0
-  %.val = load i8, ptr %11, align 1, !alias.scope !187, !noundef !7
-  %12 = icmp slt i8 %.val, -64
-  %13 = zext i1 %12 to i64
-  %14 = add i64 %.sroa.07.0, %13
-  %15 = add nuw i64 %.sroa.09.0, 1
-  %16 = icmp eq i64 %15, %9
-  br i1 %16, label %.loopexit, label %10
+9:                                                ; preds = %9, %5
+  %.sroa.07.0 = phi i64 [ %2, %5 ], [ %13, %9 ]
+  %.sroa.09.0 = phi i64 [ 0, %5 ], [ %14, %9 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 %.sroa.09.0
+  %.val = load i8, ptr %10, align 1, !alias.scope !187, !noundef !7
+  %11 = icmp slt i8 %.val, -64
+  %12 = zext i1 %11 to i64
+  %13 = add i64 %.sroa.07.0, %12
+  %14 = add nuw i64 %.sroa.09.0, 1
+  %15 = icmp eq i64 %14, %8
+  br i1 %15, label %.loopexit, label %9
 
-.loopexit:                                        ; preds = %10, %3
-  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %14, %10 ]
+.loopexit:                                        ; preds = %9, %3
+  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %13, %9 ]
   ret i64 %.sroa.04.0
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.llvm.15236414416081531888"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %0, %1
-  br i1 %5, label %.loopexit, label %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %4 = icmp eq ptr %0, %1
+  br i1 %4, label %.loopexit, label %5
 
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub nuw i64 %7, %8
-  br label %10
+5:                                                ; preds = %3
+  %6 = ptrtoint ptr %1 to i64
+  %7 = ptrtoint ptr %0 to i64
+  %8 = sub nuw i64 %6, %7
+  br label %9
 
-10:                                               ; preds = %10, %6
-  %.sroa.07.0 = phi i64 [ %2, %6 ], [ %14, %10 ]
-  %.sroa.09.0 = phi i64 [ 0, %6 ], [ %15, %10 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 %.sroa.09.0
-  %.val = load i8, ptr %11, align 1, !alias.scope !190, !noundef !7
-  %12 = icmp slt i8 %.val, -64
-  %13 = zext i1 %12 to i64
-  %14 = add i64 %.sroa.07.0, %13
-  %15 = add nuw i64 %.sroa.09.0, 1
-  %16 = icmp eq i64 %15, %9
-  br i1 %16, label %.loopexit, label %10
+9:                                                ; preds = %9, %5
+  %.sroa.07.0 = phi i64 [ %2, %5 ], [ %13, %9 ]
+  %.sroa.09.0 = phi i64 [ 0, %5 ], [ %14, %9 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 %.sroa.09.0
+  %.val = load i8, ptr %10, align 1, !alias.scope !190, !noundef !7
+  %11 = icmp slt i8 %.val, -64
+  %12 = zext i1 %11 to i64
+  %13 = add i64 %.sroa.07.0, %12
+  %14 = add nuw i64 %.sroa.09.0, 1
+  %15 = icmp eq i64 %14, %8
+  br i1 %15, label %.loopexit, label %9
 
-.loopexit:                                        ; preds = %10, %3
-  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %14, %10 ]
+.loopexit:                                        ; preds = %9, %3
+  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %13, %9 ]
   ret i64 %.sroa.04.0
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbeaae77c068fbe97E.llvm.15236414416081531888"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %0, %1
-  br i1 %5, label %.loopexit, label %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %4 = icmp eq ptr %0, %1
+  br i1 %4, label %.loopexit, label %5
 
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub nuw i64 %7, %8
-  br label %10
+5:                                                ; preds = %3
+  %6 = ptrtoint ptr %1 to i64
+  %7 = ptrtoint ptr %0 to i64
+  %8 = sub nuw i64 %6, %7
+  br label %9
 
-10:                                               ; preds = %10, %6
-  %.sroa.07.0 = phi i64 [ %2, %6 ], [ %14, %10 ]
-  %.sroa.09.0 = phi i64 [ 0, %6 ], [ %15, %10 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 %.sroa.09.0
-  %.val = load i8, ptr %11, align 1, !noundef !7
-  %12 = icmp sgt i8 %.val, -65
-  %13 = zext i1 %12 to i64
-  %14 = add i64 %.sroa.07.0, %13
-  %15 = add nuw i64 %.sroa.09.0, 1
-  %16 = icmp eq i64 %15, %9
-  br i1 %16, label %.loopexit, label %10
+9:                                                ; preds = %9, %5
+  %.sroa.07.0 = phi i64 [ %2, %5 ], [ %13, %9 ]
+  %.sroa.09.0 = phi i64 [ 0, %5 ], [ %14, %9 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 %.sroa.09.0
+  %.val = load i8, ptr %10, align 1, !noundef !7
+  %11 = icmp sgt i8 %.val, -65
+  %12 = zext i1 %11 to i64
+  %13 = add i64 %.sroa.07.0, %12
+  %14 = add nuw i64 %.sroa.09.0, 1
+  %15 = icmp eq i64 %14, %8
+  br i1 %15, label %.loopexit, label %9
 
-.loopexit:                                        ; preds = %10, %3
-  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %14, %10 ]
+.loopexit:                                        ; preds = %9, %3
+  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %13, %9 ]
   ret i64 %.sroa.04.0
 }
 
@@ -7591,18 +7588,16 @@ _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit: ; pr
 38:                                               ; preds = %_ZN5ropey4tree13node_children12NodeChildren9nodes_mut17h1d9d40aadd47c1ebE.exit
   %39 = getelementptr ptr, ptr %4, i64 %.pre-phi27
   %40 = getelementptr i8, ptr %39, i64 -8
-  %41 = icmp ne ptr %40, null
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E.llvm.15236414416081531888"(ptr noalias noundef nonnull align 8 dereferenceable(8) %40)
-  %43 = tail call noundef zeroext i1 @_ZN5ropey4tree4node4Node13zip_fix_right17h8692b3b832156182E(ptr noalias noundef nonnull align 8 dereferenceable(1008) %42)
-  br i1 %43, label %7, label %.loopexit.loopexit
+  %41 = tail call noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E.llvm.15236414416081531888"(ptr noalias noundef align 8 dereferenceable(8) %40)
+  %42 = tail call noundef zeroext i1 @_ZN5ropey4tree4node4Node13zip_fix_right17h8692b3b832156182E(ptr noalias noundef nonnull align 8 dereferenceable(1008) %41)
+  br i1 %42, label %7, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %38
-  %44 = trunc nuw i8 %.sroa.0.228 to i1
+  %43 = trunc nuw i8 %.sroa.0.228 to i1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %1
-  %.sroa.0.1 = phi i1 [ false, %1 ], [ %44, %.loopexit.loopexit ]
+  %.sroa.0.1 = phi i1 [ false, %1 ], [ %43, %.loopexit.loopexit ]
   ret i1 %.sroa.0.1
 }
 

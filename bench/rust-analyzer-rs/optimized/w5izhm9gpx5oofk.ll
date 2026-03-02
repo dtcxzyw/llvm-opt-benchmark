@@ -52,82 +52,78 @@ define hidden { i64, i64 } @_ZN4core5slice5index5range17hff8bce715b2e363cE(ptr n
   %.val23 = load ptr, ptr %4, align 8
   switch i64 %.val, label %default.unreachable27 [
     i64 0, label %5
-    i64 1, label %8
-    i64 2, label %14
+    i64 1, label %7
+    i64 2, label %12
   ]
 
-default.unreachable27:                            ; preds = %14, %3
+default.unreachable27:                            ; preds = %12, %3
   unreachable
 
 5:                                                ; preds = %3
-  %6 = icmp ne ptr %.val23, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = load i64, ptr %.val23, align 8, !noundef !15
-  br label %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val23) ]
+  %6 = load i64, ptr %.val23, align 8, !noundef !15
+  br label %12
 
-8:                                                ; preds = %3
-  %9 = icmp ne ptr %.val23, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = load i64, ptr %.val23, align 8, !noundef !15
-  %11 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 1)
-  %12 = extractvalue { i64, i1 } %11, 0
-  %13 = extractvalue { i64, i1 } %11, 1
-  br i1 %13, label %17, label %14
+7:                                                ; preds = %3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val23) ]
+  %8 = load i64, ptr %.val23, align 8, !noundef !15
+  %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 1)
+  %10 = extractvalue { i64, i1 } %9, 0
+  %11 = extractvalue { i64, i1 } %9, 1
+  br i1 %11, label %15, label %12
 
-14:                                               ; preds = %8, %3, %5
-  %.020 = phi i64 [ %7, %5 ], [ 0, %3 ], [ %12, %8 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val24 = load i64, ptr %15, align 8, !range !16, !noundef !15
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val25 = load ptr, ptr %16, align 8
+12:                                               ; preds = %7, %3, %5
+  %.020 = phi i64 [ %6, %5 ], [ 0, %3 ], [ %10, %7 ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val24 = load i64, ptr %13, align 8, !range !16, !noundef !15
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val25 = load ptr, ptr %14, align 8
   switch i64 %.val24, label %default.unreachable27 [
-    i64 0, label %18
-    i64 1, label %24
-    i64 2, label %28
+    i64 0, label %16
+    i64 1, label %21
+    i64 2, label %24
   ]
 
-17:                                               ; preds = %8
+15:                                               ; preds = %7
   tail call void @_ZN4core5slice5index31slice_start_index_overflow_fail17h19aded8e44765e48E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94d1474cb3d461c144a60781f1921fff.2) #9
   unreachable
 
-18:                                               ; preds = %14
-  %19 = icmp ne ptr %.val25, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = load i64, ptr %.val25, align 8, !noundef !15
-  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %20, i64 1)
-  %22 = extractvalue { i64, i1 } %21, 0
-  %23 = extractvalue { i64, i1 } %21, 1
-  br i1 %23, label %27, label %28
+16:                                               ; preds = %12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val25) ]
+  %17 = load i64, ptr %.val25, align 8, !noundef !15
+  %18 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 1)
+  %19 = extractvalue { i64, i1 } %18, 0
+  %20 = extractvalue { i64, i1 } %18, 1
+  br i1 %20, label %23, label %24
 
-24:                                               ; preds = %14
-  %25 = icmp ne ptr %.val25, null
-  tail call void @llvm.assume(i1 %25)
-  %26 = load i64, ptr %.val25, align 8, !noundef !15
-  br label %28
+21:                                               ; preds = %12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val25) ]
+  %22 = load i64, ptr %.val25, align 8, !noundef !15
+  br label %24
 
-27:                                               ; preds = %18
+23:                                               ; preds = %16
   tail call void @_ZN4core5slice5index29slice_end_index_overflow_fail17heef64b12073e1de3E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94d1474cb3d461c144a60781f1921fff.3) #9
   unreachable
 
-28:                                               ; preds = %18, %14, %24
-  %.0 = phi i64 [ %1, %14 ], [ %26, %24 ], [ %22, %18 ]
-  %29 = icmp ugt i64 %.020, %.0
-  br i1 %29, label %32, label %30
+24:                                               ; preds = %16, %12, %21
+  %.0 = phi i64 [ %1, %12 ], [ %22, %21 ], [ %19, %16 ]
+  %25 = icmp ugt i64 %.020, %.0
+  br i1 %25, label %28, label %26
 
-30:                                               ; preds = %28
-  %31 = icmp ugt i64 %.0, %1
-  br i1 %31, label %36, label %33
+26:                                               ; preds = %24
+  %27 = icmp ugt i64 %.0, %1
+  br i1 %27, label %32, label %29
 
-32:                                               ; preds = %28
+28:                                               ; preds = %24
   tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %.020, i64 noundef %.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #9
   unreachable
 
-33:                                               ; preds = %30
-  %34 = insertvalue { i64, i64 } poison, i64 %.020, 0
-  %35 = insertvalue { i64, i64 } %34, i64 %.0, 1
-  ret { i64, i64 } %35
+29:                                               ; preds = %26
+  %30 = insertvalue { i64, i64 } poison, i64 %.020, 0
+  %31 = insertvalue { i64, i64 } %30, i64 %.0, 1
+  ret { i64, i64 } %31
 
-36:                                               ; preds = %30
+32:                                               ; preds = %26
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %.0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #9
   unreachable
 }

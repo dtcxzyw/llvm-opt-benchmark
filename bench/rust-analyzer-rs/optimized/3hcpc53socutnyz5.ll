@@ -70,23 +70,22 @@ define hidden void @"_ZN111_$LT$jod_thread..JoinHandle$LT$T$GT$$u20$as$u20$core.
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17he28661ce71dea41fE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.05 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.05, i64 1
+  %.sroa.0.05 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.05, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.05, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17hc00462d3bca2dc3aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a9d44a67333e7ab1b48f983f1522c5df.1.llvm.1874857069127499908)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17hc00462d3bca2dc3aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a9d44a67333e7ab1b48f983f1522c5df.1.llvm.1874857069127499908)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1038,10 +1037,10 @@ _ZN3std6thread7Builder15spawn_unchecked17hf375345262e3da35E.exit:
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !149
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !149
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %10, label %16, label %13
 
 13:                                               ; preds = %_ZN3std6thread7Builder15spawn_unchecked17hf375345262e3da35E.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %15 = load i8, ptr %14, align 1, !range !33, !noundef !12
   %.sroa.05.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1050,19 +1049,17 @@ _ZN3std6thread7Builder15spawn_unchecked17hf375345262e3da35E.exit:
   store i64 %.sroa.5.0.copyload.i, ptr %.sroa.05.sroa.5.sroa.4.0..sroa.05.sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %15, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %18
+  br label %17
 
 16:                                               ; preds = %_ZN3std6thread7Builder15spawn_unchecked17hf375345262e3da35E.exit
-  %17 = icmp ne ptr %12, null
-  tail call void @llvm.assume(i1 %17)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %18
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
+  br label %17
 
-18:                                               ; preds = %16, %13
+17:                                               ; preds = %16, %13
   %.sink31 = phi ptr [ %12, %16 ], [ %9, %13 ]
   %.sink = phi i64 [ 2, %16 ], [ 1, %13 ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink31, ptr %19, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink31, ptr %18, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -1349,7 +1346,7 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noun
 .critedge:                                        ; preds = %.thread74, %104, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h6e9e80736e236803E.exit", %121
   %102 = add nsw i32 %.sroa.4.0.i.ph78, -65
   %or.cond3 = icmp ult i32 %102, 26
-  br i1 %or.cond3, label %.critedge.thread100, label %.critedge.thread
+  br i1 %or.cond3, label %.critedge.thread101, label %.critedge.thread
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h6e9e80736e236803E.exit": ; preds = %.thread74
   %.val = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !nonnull !12, !noundef !12
@@ -1376,7 +1373,7 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noun
   br i1 %110, label %.critedge.thread.thread, label %112
 
 111:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h6e9e80736e236803E.exit.thread"
-  br i1 %.04387, label %.critedge.thread100, label %112
+  br i1 %.04387, label %.critedge.thread101, label %112
 
 112:                                              ; preds = %108, %111
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1422,19 +1419,19 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noun
 
 .critedge.thread:                                 ; preds = %.critedge
   %127 = icmp samesign ugt i32 %.sroa.4.0.i.ph78, 127
-  br i1 %127, label %.critedge.thread.thread, label %.critedge.thread100
+  br i1 %127, label %.critedge.thread.thread, label %.critedge.thread101
 
 .critedge.thread.thread:                          ; preds = %108, %.critedge.thread
   %128 = invoke noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17hab8a4d41837a3618E(i32 noundef %.sroa.4.0.i.ph78)
-          to label %.critedge.thread100 unwind label %140
+          to label %.critedge.thread101 unwind label %140
 
-.critedge.thread100:                              ; preds = %111, %.critedge.thread.thread, %.critedge.thread, %.critedge
+.critedge.thread101:                              ; preds = %111, %.critedge.thread.thread, %.critedge.thread, %.critedge
   %.144 = phi i1 [ true, %.critedge ], [ false, %.critedge.thread ], [ %128, %.critedge.thread.thread ], [ true, %111 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !187
   invoke void @_ZN4core7unicode12unicode_data11conversions8to_upper17h3d15e8f6bc4279a0E(ptr noalias noundef nonnull sret([3 x i32]) align 4 captures(none) dereferenceable(12) %5, i32 noundef range(i32 0, 1114112) %.sroa.4.0.i.ph78)
           to label %129 unwind label %140
 
-129:                                              ; preds = %.critedge.thread100
+129:                                              ; preds = %.critedge.thread101
   %130 = load i32, ptr %25, align 8, !range !192, !noalias !187, !noundef !12
   %131 = icmp eq i32 %130, 0
   %.sroa.0.0.i.i = load i64, ptr %5, align 8
@@ -1468,7 +1465,7 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noun
   %139 = icmp eq ptr %.sroa.0.1.ph77, %48
   br i1 %139, label %.thread71, label %.lr.ph
 
-140:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf654195efe1d1849E.exit.i", %137, %.critedge.thread100, %.critedge.thread.thread, %106
+140:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf654195efe1d1849E.exit.i", %137, %.critedge.thread101, %.critedge.thread.thread, %106
   %141 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h77fb59a6323ae084E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #18
@@ -1763,7 +1760,7 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noun
 .critedge:                                        ; preds = %.thread74, %104, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h6e9e80736e236803E.exit", %121
   %102 = add nsw i32 %.sroa.4.0.i.ph78, -65
   %or.cond3 = icmp ult i32 %102, 26
-  br i1 %or.cond3, label %.critedge.thread100, label %.critedge.thread
+  br i1 %or.cond3, label %.critedge.thread101, label %.critedge.thread
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h6e9e80736e236803E.exit": ; preds = %.thread74
   %.val = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !nonnull !12, !noundef !12
@@ -1790,7 +1787,7 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noun
   br i1 %110, label %.critedge.thread.thread, label %112
 
 111:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h6e9e80736e236803E.exit.thread"
-  br i1 %.04387, label %.critedge.thread100, label %112
+  br i1 %.04387, label %.critedge.thread101, label %112
 
 112:                                              ; preds = %108, %111
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1836,19 +1833,19 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noun
 
 .critedge.thread:                                 ; preds = %.critedge
   %127 = icmp samesign ugt i32 %.sroa.4.0.i.ph78, 127
-  br i1 %127, label %.critedge.thread.thread, label %.critedge.thread100
+  br i1 %127, label %.critedge.thread.thread, label %.critedge.thread101
 
 .critedge.thread.thread:                          ; preds = %108, %.critedge.thread
   %128 = invoke noundef zeroext i1 @_ZN4core7unicode12unicode_data9uppercase6lookup17hab8a4d41837a3618E(i32 noundef %.sroa.4.0.i.ph78)
-          to label %.critedge.thread100 unwind label %140
+          to label %.critedge.thread101 unwind label %140
 
-.critedge.thread100:                              ; preds = %111, %.critedge.thread.thread, %.critedge.thread, %.critedge
+.critedge.thread101:                              ; preds = %111, %.critedge.thread.thread, %.critedge.thread, %.critedge
   %.144 = phi i1 [ true, %.critedge ], [ false, %.critedge.thread ], [ %128, %.critedge.thread.thread ], [ true, %111 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !234
   invoke void @_ZN4core7unicode12unicode_data11conversions8to_lower17hbf523ba439237d7bE(ptr noalias noundef nonnull sret([3 x i32]) align 4 captures(none) dereferenceable(12) %5, i32 noundef range(i32 0, 1114112) %.sroa.4.0.i.ph78)
           to label %129 unwind label %140
 
-129:                                              ; preds = %.critedge.thread100
+129:                                              ; preds = %.critedge.thread101
   %130 = load i32, ptr %25, align 8, !range !192, !noalias !234, !noundef !12
   %131 = icmp eq i32 %130, 0
   %.sroa.0.0.i.i = load i64, ptr %5, align 8
@@ -1882,7 +1879,7 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noun
   %139 = icmp eq ptr %.sroa.0.1.ph77, %48
   br i1 %139, label %.thread71, label %.lr.ph
 
-140:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf654195efe1d1849E.exit.i", %137, %.critedge.thread100, %.critedge.thread.thread, %106
+140:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf654195efe1d1849E.exit.i", %137, %.critedge.thread101, %.critedge.thread.thread, %106
   %141 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h77fb59a6323ae084E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #18

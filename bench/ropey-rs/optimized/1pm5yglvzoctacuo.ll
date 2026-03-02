@@ -1116,6 +1116,7 @@ common.resume:                                    ; preds = %124, %115
   %.sroa.20.0 = phi ptr [ inttoptr (i64 1 to ptr), %55 ], [ %44, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h5bf8989fb42c6dcbE.exit" ]
   %.sroa.17.1 = phi i64 [ %.sroa.3.0, %55 ], [ %30, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h5bf8989fb42c6dcbE.exit" ]
   store i64 %.sroa.31.0, ptr %12, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.48)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5ropey4tree9node_text8NodeText8from_str17hc1c263ad3b1886bcE(ptr noalias noundef nonnull sret([1000 x i8]) align 8 captures(none) dereferenceable(1000) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.17.1)

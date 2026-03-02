@@ -855,26 +855,25 @@ define linkonce_odr void @_ZN5folly17AsyncServerSocket14AcceptCallback11acceptEr
 
 6:                                                ; preds = %4
   %7 = tail call noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef null) #40
-  %8 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = icmp eq ptr %5, @_ZTISt9exception
-  br i1 %9, label %_ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit.thread, label %_ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %8 = icmp eq ptr %5, @_ZTISt9exception
+  br i1 %8, label %_ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit.thread, label %_ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit
 
 _ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit: ; preds = %2, %4, %6
-  %10 = tail call noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZTISt9exception) #40
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %11, label %_ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit.thread
+  %9 = tail call noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZTISt9exception) #40
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %10, label %_ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit.thread
 
-11:                                               ; preds = %_ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit
+10:                                               ; preds = %_ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit
   tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly17AsyncServerSocket14AcceptCallback11acceptErrorENS_17exception_wrapperEE30__folly_detail_safe_assert_arg, ptr noundef nonnull @.str.111) #53
   unreachable
 
 _ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit.thread: ; preds = %6, %_ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit
-  %12 = phi ptr [ %10, %_ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit ], [ %7, %6 ]
-  %13 = load ptr, ptr %0, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %12) #40
+  %11 = phi ptr [ %9, %_ZN5folly17exception_wrapper13get_exceptionISt9exceptionEEPT_v.exit ], [ %7, %6 ]
+  %12 = load ptr, ptr %0, align 8, !tbaa !12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %11) #40
   ret void
 }
 

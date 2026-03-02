@@ -659,6 +659,7 @@ _ZNK12_GLOBAL__N_129X86IndirectBranchTrackingPass8addENDBRERN4llvm17MachineBasic
 
 _ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit.thread: ; preds = %93, %87, %77, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit, %84, %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit, %_ZNK12_GLOBAL__N_129X86IndirectBranchTrackingPass8addENDBRERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit
   %.4 = phi i1 [ %147, %_ZNK12_GLOBAL__N_129X86IndirectBranchTrackingPass8addENDBRERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit ], [ %.3155, %_ZL17IsCallReturnTwiceRN4llvm14MachineOperandE.exit ], [ %.3155, %84 ], [ %.3155, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.3155, %77 ], [ %.3155, %87 ], [ %.3155, %93 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0116.0156) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0116.0156, align 8
   %148 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %148, 0
@@ -742,6 +743,7 @@ _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1E
   br i1 %.not3.i.i.i.i.i.i70, label %.loopexit.sink.split.sink.split, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i.i68, !llvm.loop !478
 
 .thread:                                          ; preds = %165, %163, %162
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0111.0164) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i73 = load i64, ptr %.sroa.0111.0164, align 8
   %182 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i73, 4
   %.not.i.i.i74 = icmp eq i64 %182, 0

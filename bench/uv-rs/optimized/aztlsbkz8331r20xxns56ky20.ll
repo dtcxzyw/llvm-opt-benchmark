@@ -494,7 +494,7 @@ define hidden void @_ZN16uv_install_wheel5wheel13copy_and_hash17h5e3faf3297e279c
   %.sroa.07.0.ph = phi i64 [ %145, %144 ], [ 0, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h3ad458404e5e0a4eE.exit" ]
   br label %38
 
-38:                                               ; preds = %.outer, %159
+38:                                               ; preds = %.outer, %158
   %39 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %40 = load i64, ptr %35, align 8, !noundef !4
   %41 = invoke { i64, ptr } @"_ZN61_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..Read$GT$4read17h02696e97edb94b14E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 1 %39, i64 noundef %40)
@@ -503,9 +503,9 @@ define hidden void @_ZN16uv_install_wheel5wheel13copy_and_hash17h5e3faf3297e279c
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.loopexit.split-lp, %.loopexit.loopexit, %97, %67
   %.pn16.pn = phi { ptr, i32 } [ %.pn16, %97 ], [ %.pn, %67 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit45, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp46, %.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h6591a91da5e3bf72E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #17
-          to label %160 unwind label %108
+          to label %159 unwind label %108
 
-.loopexit.loopexit:                               ; preds = %158, %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread43, %38
+.loopexit.loopexit:                               ; preds = %157, %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread43, %38
   %lpad.loopexit45 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -532,6 +532,7 @@ define hidden void @_ZN16uv_install_wheel5wheel13copy_and_hash17h5e3faf3297e279c
   br i1 %48, label %62, label %63
 
 49:                                               ; preds = %42
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %44) ]
   %50 = and i64 %45, 3
   switch i64 %50, label %default.unreachable [
     i64 2, label %51
@@ -848,25 +849,23 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit: ; preds = %59, %56, %52
 
 _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread43: ; preds = %51, %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !251
-  %155 = icmp ne ptr %44, null
-  call void @llvm.assume(i1 %155)
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h15a8ab063be4a23cE.llvm.1596346608044946416(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %44)
           to label %.noexc35 unwind label %.loopexit.loopexit
 
 .noexc35:                                         ; preds = %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread43
-  %156 = load i8, ptr %5, align 8, !range !258, !alias.scope !259, !noalias !251, !noundef !4
-  %157 = icmp eq i8 %156, 3
-  br i1 %157, label %158, label %159
+  %155 = load i8, ptr %5, align 8, !range !258, !alias.scope !259, !noalias !251, !noundef !4
+  %156 = icmp eq i8 %155, 3
+  br i1 %156, label %157, label %158
 
-158:                                              ; preds = %.noexc35
+157:                                              ; preds = %.noexc35
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h7fffb51736e245b7E.llvm.1596346608044946416"(ptr noalias noundef nonnull align 8 dereferenceable(8) %36)
-          to label %159 unwind label %.loopexit.loopexit
+          to label %158 unwind label %.loopexit.loopexit
 
-159:                                              ; preds = %158, %.noexc35
+158:                                              ; preds = %157, %.noexc35
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !251
   br label %38
 
-160:                                              ; preds = %.loopexit
+159:                                              ; preds = %.loopexit
   resume { ptr, i32 } %.pn16.pn
 }
 

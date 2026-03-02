@@ -2711,7 +2711,7 @@ define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_infer
 19:                                               ; preds = %13
   %20 = extractvalue { ptr, ptr } %14, 0
   %21 = extractvalue { ptr, ptr } %14, 1
-  br label %29
+  br label %27
 
 22:                                               ; preds = %15
   %.fca.0.extract = extractvalue { ptr, ptr } %16, 0
@@ -2720,20 +2720,18 @@ define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_infer
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %23 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17h0d7b13199588c6d7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
-          to label %24 unwind label %52
+          to label %24 unwind label %50
 
 24:                                               ; preds = %22
   %25 = extractvalue { ptr, ptr } %23, 0
   %26 = extractvalue { ptr, ptr } %23, 1
-  %27 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %27)
-  %28 = icmp ne ptr %26, null
-  tail call void @llvm.assume(i1 %28)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %25) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.sroa.4, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %29
+  br label %27
 
-29:                                               ; preds = %19, %24
+27:                                               ; preds = %19, %24
   %.sroa.8.sroa.0.0 = phi ptr [ undef, %19 ], [ %.fca.1.extract, %24 ]
   %.sroa.7.0 = phi ptr [ %1, %19 ], [ %.fca.0.extract, %24 ]
   %.sroa.6.0 = phi ptr [ %21, %19 ], [ %26, %24 ]
@@ -2765,95 +2763,95 @@ define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_infer
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 392
   store ptr %1, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !399
   invoke void @"_ZN105_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17hc81faca7989f7d91E.llvm.5761680391814234304"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(400) %6)
-          to label %"_ZN111_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h39000679b7423edeE.exit" unwind label %30, !noalias !395
+          to label %"_ZN111_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h39000679b7423edeE.exit" unwind label %28, !noalias !395
 
-30:                                               ; preds = %29
-  %31 = landingpad { ptr, i32 }
+28:                                               ; preds = %27
+  %29 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr102drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..GenericArgument$C$syn..token..Comma$GT$$GT$17h6ca78ddba36a527bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #18
-          to label %common.resume unwind label %32, !noalias !395
+          to label %common.resume unwind label %30, !noalias !395
 
-32:                                               ; preds = %30
-  %33 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #19, !noalias !395
   unreachable
 
-common.resume:                                    ; preds = %35, %56, %"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17heb4982e3e08cf22aE.exit", %30
-  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %36, %35 ], [ %.pn, %56 ], [ %.pn, %"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17heb4982e3e08cf22aE.exit" ]
+common.resume:                                    ; preds = %33, %54, %"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17heb4982e3e08cf22aE.exit", %28
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %34, %33 ], [ %.pn, %54 ], [ %.pn, %"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17heb4982e3e08cf22aE.exit" ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN111_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h39000679b7423edeE.exit": ; preds = %29
+"_ZN111_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h39000679b7423edeE.exit": ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !395
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !400
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !395
-  %34 = invoke i32 @"_ZN57_$LT$syn..token..Lt$u20$as$u20$core..default..Default$GT$7default17h01d17b3c179e8da1E"()
-          to label %37 unwind label %35
+  %32 = invoke i32 @"_ZN57_$LT$syn..token..Lt$u20$as$u20$core..default..Default$GT$7default17h01d17b3c179e8da1E"()
+          to label %35 unwind label %33
 
-35:                                               ; preds = %37, %"_ZN111_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h39000679b7423edeE.exit"
-  %36 = landingpad { ptr, i32 }
+33:                                               ; preds = %35, %"_ZN111_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h39000679b7423edeE.exit"
+  %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr102drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..GenericArgument$C$syn..token..Comma$GT$$GT$17h6ca78ddba36a527bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #18
-          to label %common.resume unwind label %50
+          to label %common.resume unwind label %48
 
-37:                                               ; preds = %"_ZN111_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h39000679b7423edeE.exit"
-  %38 = invoke i32 @"_ZN57_$LT$syn..token..Gt$u20$as$u20$core..default..Default$GT$7default17h15afa9746ed3e076E"()
-          to label %39 unwind label %35
+35:                                               ; preds = %"_ZN111_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h39000679b7423edeE.exit"
+  %36 = invoke i32 @"_ZN57_$LT$syn..token..Gt$u20$as$u20$core..default..Default$GT$7default17h15afa9746ed3e076E"()
+          to label %37 unwind label %33
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %11, i64 44
-  store i32 %34, ptr %41, align 4
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i32 0, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 44
+  store i32 %32, ptr %39, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
-  %42 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i32 %38, ptr %42, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  store i32 %36, ptr %40, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %44 = load i64, ptr %43, align 8, !noundef !5
-  %45 = icmp eq i64 %44, 0
-  %46 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %.not = icmp eq ptr %47, null
-  %.025 = select i1 %45, i1 %.not, i1 false
-  br i1 %.025, label %.critedge, label %48
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %42 = load i64, ptr %41, align 8, !noundef !5
+  %43 = icmp eq i64 %42, 0
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %45 = load ptr, ptr %44, align 8
+  %.not = icmp eq ptr %45, null
+  %.025 = select i1 %43, i1 %.not, i1 false
+  br i1 %.025, label %.critedge, label %46
 
-48:                                               ; preds = %39
+46:                                               ; preds = %37
   store i64 -9223372036854775807, ptr %0, align 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.515.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
-  br label %49
+  br label %47
 
-49:                                               ; preds = %48, %.critedge
+47:                                               ; preds = %46, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
-.critedge:                                        ; preds = %39
+.critedge:                                        ; preds = %37
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr102drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..GenericArgument$C$syn..token..Comma$GT$$GT$17h6ca78ddba36a527bE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11)
-  br label %49
+  br label %47
 
-50:                                               ; preds = %56, %52, %35
-  %51 = landingpad { ptr, i32 }
+48:                                               ; preds = %54, %50, %33
+  %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #19
   unreachable
 
-52:                                               ; preds = %22
-  %53 = landingpad { ptr, i32 }
+50:                                               ; preds = %22
+  %51 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha94e11b21137c58cE.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-          to label %"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17heb4982e3e08cf22aE.exit" unwind label %50
+          to label %"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17heb4982e3e08cf22aE.exit" unwind label %48
 
-"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17heb4982e3e08cf22aE.exit": ; preds = %52, %17
-  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %53, %52 ]
-  %54 = load i64, ptr %9, align 8, !range !104, !alias.scope !401, !noundef !5
-  %55 = icmp eq i64 %54, 23
-  br i1 %55, label %common.resume, label %56
+"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17heb4982e3e08cf22aE.exit": ; preds = %50, %17
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %51, %50 ]
+  %52 = load i64, ptr %9, align 8, !range !104, !alias.scope !401, !noundef !5
+  %53 = icmp eq i64 %52, 23
+  br i1 %53, label %common.resume, label %54
 
-56:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17heb4982e3e08cf22aE.exit"
+54:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17heb4982e3e08cf22aE.exit"
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$GT$17h3ddb8359966adf44E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(328) %9)
-          to label %common.resume unwind label %50
+          to label %common.resume unwind label %48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

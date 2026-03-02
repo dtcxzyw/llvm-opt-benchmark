@@ -6871,7 +6871,7 @@ _ZN4rope4Rope6chunks17h035c60fcb173acb5E.exit:    ; preds = %2, %"_ZN8sum_tree6c
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val = load ptr, ptr %26, align 8, !nonnull !7
+  %.val = load ptr, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val9 = load ptr, ptr %27, align 8, !nonnull !7
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6933,6 +6933,7 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit: ; preds = %45, %46, %
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h70bc1ff794ac7049E", ptr %.sroa.46.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1376
   store ptr @anon.5150c66fcde2fb7b571b90378eb2eb01.105, ptr %4, align 8
   store i64 1, ptr %.sroa.520.0..sroa_idx, align 8

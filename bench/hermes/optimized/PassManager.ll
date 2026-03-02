@@ -390,8 +390,8 @@ if.end:
   %0 = load ptr, ptr %pipeline_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not39 = icmp eq ptr %0, %1
-  br i1 %cmp.i.not39, label %_ZN4llvh11SmallVectorIN6hermes5TimerELj32EED2Ev.exit, label %cond.end.lr.ph
+  %cmp.i.not38 = icmp eq ptr %0, %1
+  br i1 %cmp.i.not38, label %_ZN4llvh11SmallVectorIN6hermes5TimerELj32EED2Ev.exit, label %cond.end.lr.ph
 
 cond.end.lr.ph:                                   ; preds = %if.end
   %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %M, i64 72
@@ -399,8 +399,8 @@ cond.end.lr.ph:                                   ; preds = %if.end
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.end.lr.ph, %for.inc45
-  %__begin1.sroa.0.040 = phi ptr [ %0, %cond.end.lr.ph ], [ %incdec.ptr.i, %for.inc45 ]
-  %2 = load ptr, ptr %__begin1.sroa.0.040, align 8
+  %__begin1.sroa.0.039 = phi ptr [ %0, %cond.end.lr.ph ], [ %incdec.ptr.i, %for.inc45 ]
+  %2 = load ptr, ptr %__begin1.sroa.0.039, align 8
   %kind.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i32, ptr %kind.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %3, 0
@@ -409,13 +409,13 @@ cond.end:                                         ; preds = %cond.end.lr.ph, %fo
   br i1 %tobool.not, label %if.end33, label %do.end
 
 do.end:                                           ; preds = %cond.end
-  %__begin3.sroa.0.036 = load ptr, ptr %Next.i.i.i.i.i, align 8
-  %cmp.i15.not37 = icmp eq ptr %__begin3.sroa.0.036, %FunctionList.i
-  br i1 %cmp.i15.not37, label %for.inc45, label %for.body23
+  %__begin3.sroa.0.035 = load ptr, ptr %Next.i.i.i.i.i, align 8
+  %cmp.i15.not36 = icmp eq ptr %__begin3.sroa.0.035, %FunctionList.i
+  br i1 %cmp.i15.not36, label %for.inc45, label %for.body23
 
 for.body23:                                       ; preds = %do.end, %for.inc
-  %__begin3.sroa.0.038 = phi ptr [ %__begin3.sroa.0.0, %for.inc ], [ %__begin3.sroa.0.036, %do.end ]
-  %lazySource_.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.038, i64 248
+  %__begin3.sroa.0.037 = phi ptr [ %__begin3.sroa.0.0, %for.inc ], [ %__begin3.sroa.0.035, %do.end ]
+  %lazySource_.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.037, i64 248
   %4 = load i32, ptr %lazySource_.i, align 8
   %cmp.i16.not = icmp eq i32 %4, 0
   br i1 %cmp.i16.not, label %do.end30, label %for.inc
@@ -424,18 +424,16 @@ do.end30:                                         ; preds = %for.body23
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
-  %call31 = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %__begin3.sroa.0.038) #14
+  %call31 = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %__begin3.sroa.0.037) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body23, %do.end30
-  %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.038, i64 8
+  %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.037, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i15.not = icmp eq ptr %__begin3.sroa.0.0, %FunctionList.i
   br i1 %cmp.i15.not, label %for.inc45, label %for.body23
 
 if.end33:                                         ; preds = %cond.end
-  %cmp.i.i.i.i.i.i.i18 = icmp eq i32 %3, 1
-  call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i18)
   %vtable41 = load ptr, ptr %2, align 8
   %vfn42 = getelementptr inbounds nuw i8, ptr %vtable41, i64 16
   %6 = load ptr, ptr %vfn42, align 8
@@ -443,7 +441,7 @@ if.end33:                                         ; preds = %cond.end
   br label %for.inc45
 
 for.inc45:                                        ; preds = %for.inc, %do.end, %if.end33
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.040, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.039, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %_ZNSt10unique_ptrIN6hermes10TimerGroupESt14default_deleteIS1_EED2Ev.exit, label %cond.end
 

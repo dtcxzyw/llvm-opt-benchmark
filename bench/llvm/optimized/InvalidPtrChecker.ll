@@ -2576,8 +2576,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento9MemRegionENS_17ImutContainerInfoIS5_EEED2E
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(72) %1) #21
-  %.not.i.i.i17 = icmp ne ptr %56, null
-  call void @llvm.assume(i1 %.not.i.i.i17)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %56) ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load i64, ptr %57, align 8, !tbaa !275
   %59 = and i64 %58, -8

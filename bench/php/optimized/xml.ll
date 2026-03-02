@@ -259,8 +259,7 @@ define hidden noundef i32 @zm_startup_xml(i32 %0, i32 noundef %1) #0 {
   call void @zend_register_string_constant(ptr noundef nonnull @.str.129, i64 noundef 12, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef %1) #16
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !38
   %13 = call ptr @zend_hash_str_find(ptr noundef %12, ptr noundef nonnull @.str.52, i64 noundef 14) #16
-  %.not.i57.i = icmp ne ptr %13, null
-  call void @llvm.assume(i1 %.not.i57.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   %14 = load ptr, ptr %13, align 8, !tbaa !28, !nonnull !54, !noundef !54
   %15 = load ptr, ptr @zend_known_strings, align 8, !tbaa !55
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 600
@@ -5086,7 +5085,7 @@ define hidden void @zif_xml_set_object(ptr noundef readonly captures(none) %0, p
   %7 = load ptr, ptr @xml_parser_ce, align 8, !tbaa !29
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %3, ptr noundef %7, ptr noundef nonnull %4) #16
   %9 = icmp eq i32 %8, -1
-  br i1 %9, label %zend_fcc_addref.exit, label %10
+  br i1 %9, label %zend_string_release.exit.thread, label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %3, align 8, !tbaa !103
@@ -5102,19 +5101,19 @@ define hidden void @zif_xml_set_object(ptr noundef readonly captures(none) %0, p
   %18 = getelementptr inbounds i8, ptr %12, i64 -480
   %19 = load ptr, ptr %18, align 8, !tbaa !84
   %.not186 = icmp eq ptr %19, null
-  br i1 %.not186, label %zend_fcc_addref.exit.thread, label %20
+  br i1 %.not186, label %zend_string_release.exit, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %12, i64 -456
   %22 = load ptr, ptr %21, align 8, !tbaa !125
   %23 = icmp eq ptr %22, %16
-  br i1 %23, label %24, label %zend_fcc_addref.exit.thread
+  br i1 %23, label %24, label %zend_string_release.exit
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %12, i64 -472
   %26 = load ptr, ptr %25, align 8, !tbaa !126
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %zend_fcc_addref.exit.thread
+  br i1 %27, label %28, label %zend_string_release.exit
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -5188,8 +5187,7 @@ zend_object_release.exit346:                      ; preds = %47, %42, %41
 
 zend_fcc_dtor.exit:                               ; preds = %61, %56, %55, %zend_object_release.exit346
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
-  %.not.i348 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %.not.i348)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %62 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !127
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
@@ -5218,7 +5216,7 @@ php_xml_check_string_method_arg.exit:             ; preds = %zend_fcc_dtor.exit
   %75 = load i32, ptr %31, align 4, !tbaa !28
   %76 = and i32 %75, 64
   %.not.i242 = icmp eq i32 %76, 0
-  br i1 %.not.i242, label %77, label %zend_fcc_addref.exit
+  br i1 %.not.i242, label %77, label %zend_string_release.exit.thread
 
 77:                                               ; preds = %php_xml_check_string_method_arg.exit
   %78 = load i32, ptr %30, align 4, !tbaa !58
@@ -5227,7 +5225,7 @@ php_xml_check_string_method_arg.exit:             ; preds = %zend_fcc_dtor.exit
   %80 = add i32 %78, -1
   store i32 %80, ptr %30, align 4, !tbaa !58
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %zend_fcc_addref.exit
+  br i1 %81, label %82, label %zend_string_release.exit.thread
 
 82:                                               ; preds = %77
   %83 = and i32 %75, 128
@@ -5236,11 +5234,11 @@ php_xml_check_string_method_arg.exit:             ; preds = %zend_fcc_dtor.exit
 
 84:                                               ; preds = %82
   call void @free(ptr noundef nonnull %30) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 85:                                               ; preds = %82
   call void @_efree(ptr noundef nonnull %30) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 86:                                               ; preds = %66
   %87 = load i32, ptr %30, align 4, !tbaa !58
@@ -5292,32 +5290,32 @@ zend_string_release.exit245:                      ; preds = %66, %86, %93, %94
 106:                                              ; preds = %103, %101
   %107 = load ptr, ptr %48, align 8, !tbaa !87
   %.not12.i = icmp eq ptr %107, null
-  br i1 %.not12.i, label %zend_fcc_addref.exit.thread, label %108
+  br i1 %.not12.i, label %zend_string_release.exit, label %108
 
 108:                                              ; preds = %106
   %109 = load i32, ptr %107, align 4, !tbaa !58
   %110 = add i32 %109, 1
   store i32 %110, ptr %107, align 4, !tbaa !58
-  br label %zend_fcc_addref.exit.thread
+  br label %zend_string_release.exit
 
-zend_fcc_addref.exit.thread:                      ; preds = %108, %106, %24, %20, %17
+zend_string_release.exit:                         ; preds = %106, %108, %24, %20, %17
   %111 = getelementptr inbounds i8, ptr %12, i64 -440
   %112 = load ptr, ptr %111, align 8, !tbaa !88
   %.not187 = icmp eq ptr %112, null
-  br i1 %.not187, label %zend_fcc_addref.exit303.thread, label %113
+  br i1 %.not187, label %zend_string_release.exit248, label %113
 
-113:                                              ; preds = %zend_fcc_addref.exit.thread
+113:                                              ; preds = %zend_string_release.exit
   %114 = getelementptr inbounds i8, ptr %12, i64 -416
   %115 = load ptr, ptr %114, align 8, !tbaa !129
   %116 = load ptr, ptr %15, align 8, !tbaa !98
   %117 = icmp eq ptr %115, %116
-  br i1 %117, label %118, label %zend_fcc_addref.exit303.thread
+  br i1 %117, label %118, label %zend_string_release.exit248
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds i8, ptr %12, i64 -432
   %120 = load ptr, ptr %119, align 8, !tbaa !130
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %122, label %zend_fcc_addref.exit303.thread
+  br i1 %121, label %122, label %zend_string_release.exit248
 
 122:                                              ; preds = %118
   %123 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -5395,8 +5393,7 @@ zend_object_release.exit344:                      ; preds = %142, %137, %136, %z
 
 zend_fcc_dtor.exit217:                            ; preds = %156, %151, %150, %zend_object_release.exit344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %111, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
-  %.not.i349 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %.not.i349)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %157 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %158 = load ptr, ptr %157, align 8, !tbaa !127
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 64
@@ -5425,7 +5422,7 @@ php_xml_check_string_method_arg.exit352:          ; preds = %zend_fcc_dtor.exit2
   %170 = load i32, ptr %125, align 4, !tbaa !28
   %171 = and i32 %170, 64
   %.not.i246 = icmp eq i32 %171, 0
-  br i1 %.not.i246, label %172, label %zend_fcc_addref.exit
+  br i1 %.not.i246, label %172, label %zend_string_release.exit.thread
 
 172:                                              ; preds = %php_xml_check_string_method_arg.exit352
   %173 = load i32, ptr %124, align 4, !tbaa !58
@@ -5434,7 +5431,7 @@ php_xml_check_string_method_arg.exit352:          ; preds = %zend_fcc_dtor.exit2
   %175 = add i32 %173, -1
   store i32 %175, ptr %124, align 4, !tbaa !58
   %176 = icmp eq i32 %175, 0
-  br i1 %176, label %177, label %zend_fcc_addref.exit
+  br i1 %176, label %177, label %zend_string_release.exit.thread
 
 177:                                              ; preds = %172
   %178 = and i32 %170, 128
@@ -5443,11 +5440,11 @@ php_xml_check_string_method_arg.exit352:          ; preds = %zend_fcc_dtor.exit2
 
 179:                                              ; preds = %177
   call void @free(ptr noundef nonnull %124) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 180:                                              ; preds = %177
   call void @_efree(ptr noundef nonnull %124) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 181:                                              ; preds = %161
   %182 = load i32, ptr %124, align 4, !tbaa !58
@@ -5499,32 +5496,32 @@ zend_string_release.exit251:                      ; preds = %161, %181, %188, %1
 201:                                              ; preds = %198, %196
   %202 = load ptr, ptr %143, align 8, !tbaa !87
   %.not12.i302 = icmp eq ptr %202, null
-  br i1 %.not12.i302, label %zend_fcc_addref.exit303.thread, label %203
+  br i1 %.not12.i302, label %zend_string_release.exit248, label %203
 
 203:                                              ; preds = %201
   %204 = load i32, ptr %202, align 4, !tbaa !58
   %205 = add i32 %204, 1
   store i32 %205, ptr %202, align 4, !tbaa !58
-  br label %zend_fcc_addref.exit303.thread
+  br label %zend_string_release.exit248
 
-zend_fcc_addref.exit303.thread:                   ; preds = %203, %201, %118, %113, %zend_fcc_addref.exit.thread
+zend_string_release.exit248:                      ; preds = %201, %203, %118, %113, %zend_string_release.exit
   %206 = getelementptr inbounds i8, ptr %12, i64 -400
   %207 = load ptr, ptr %206, align 8, !tbaa !89
   %.not188 = icmp eq ptr %207, null
-  br i1 %.not188, label %zend_fcc_addref.exit306.thread, label %208
+  br i1 %.not188, label %zend_string_release.exit254, label %208
 
-208:                                              ; preds = %zend_fcc_addref.exit303.thread
+208:                                              ; preds = %zend_string_release.exit248
   %209 = getelementptr inbounds i8, ptr %12, i64 -376
   %210 = load ptr, ptr %209, align 8, !tbaa !131
   %211 = load ptr, ptr %15, align 8, !tbaa !98
   %212 = icmp eq ptr %210, %211
-  br i1 %212, label %213, label %zend_fcc_addref.exit306.thread
+  br i1 %212, label %213, label %zend_string_release.exit254
 
 213:                                              ; preds = %208
   %214 = getelementptr inbounds i8, ptr %12, i64 -392
   %215 = load ptr, ptr %214, align 8, !tbaa !132
   %216 = icmp eq ptr %215, null
-  br i1 %216, label %217, label %zend_fcc_addref.exit306.thread
+  br i1 %216, label %217, label %zend_string_release.exit254
 
 217:                                              ; preds = %213
   %218 = getelementptr inbounds nuw i8, ptr %207, i64 8
@@ -5602,8 +5599,7 @@ zend_object_release.exit342:                      ; preds = %237, %232, %231, %z
 
 zend_fcc_dtor.exit220:                            ; preds = %251, %246, %245, %zend_object_release.exit342
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %206, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
-  %.not.i353 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %.not.i353)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %252 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %253 = load ptr, ptr %252, align 8, !tbaa !127
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 64
@@ -5632,7 +5628,7 @@ php_xml_check_string_method_arg.exit356:          ; preds = %zend_fcc_dtor.exit2
   %265 = load i32, ptr %220, align 4, !tbaa !28
   %266 = and i32 %265, 64
   %.not.i252 = icmp eq i32 %266, 0
-  br i1 %.not.i252, label %267, label %zend_fcc_addref.exit
+  br i1 %.not.i252, label %267, label %zend_string_release.exit.thread
 
 267:                                              ; preds = %php_xml_check_string_method_arg.exit356
   %268 = load i32, ptr %219, align 4, !tbaa !58
@@ -5641,7 +5637,7 @@ php_xml_check_string_method_arg.exit356:          ; preds = %zend_fcc_dtor.exit2
   %270 = add i32 %268, -1
   store i32 %270, ptr %219, align 4, !tbaa !58
   %271 = icmp eq i32 %270, 0
-  br i1 %271, label %272, label %zend_fcc_addref.exit
+  br i1 %271, label %272, label %zend_string_release.exit.thread
 
 272:                                              ; preds = %267
   %273 = and i32 %265, 128
@@ -5650,11 +5646,11 @@ php_xml_check_string_method_arg.exit356:          ; preds = %zend_fcc_dtor.exit2
 
 274:                                              ; preds = %272
   call void @free(ptr noundef nonnull %219) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 275:                                              ; preds = %272
   call void @_efree(ptr noundef nonnull %219) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 276:                                              ; preds = %256
   %277 = load i32, ptr %219, align 4, !tbaa !58
@@ -5706,32 +5702,32 @@ zend_string_release.exit257:                      ; preds = %256, %276, %283, %2
 296:                                              ; preds = %293, %291
   %297 = load ptr, ptr %238, align 8, !tbaa !87
   %.not12.i305 = icmp eq ptr %297, null
-  br i1 %.not12.i305, label %zend_fcc_addref.exit306.thread, label %298
+  br i1 %.not12.i305, label %zend_string_release.exit254, label %298
 
 298:                                              ; preds = %296
   %299 = load i32, ptr %297, align 4, !tbaa !58
   %300 = add i32 %299, 1
   store i32 %300, ptr %297, align 4, !tbaa !58
-  br label %zend_fcc_addref.exit306.thread
+  br label %zend_string_release.exit254
 
-zend_fcc_addref.exit306.thread:                   ; preds = %298, %296, %213, %208, %zend_fcc_addref.exit303.thread
+zend_string_release.exit254:                      ; preds = %296, %298, %213, %208, %zend_string_release.exit248
   %301 = getelementptr inbounds i8, ptr %12, i64 -360
   %302 = load ptr, ptr %301, align 8, !tbaa !90
   %.not189 = icmp eq ptr %302, null
-  br i1 %.not189, label %zend_fcc_addref.exit309.thread, label %303
+  br i1 %.not189, label %zend_string_release.exit260, label %303
 
-303:                                              ; preds = %zend_fcc_addref.exit306.thread
+303:                                              ; preds = %zend_string_release.exit254
   %304 = getelementptr inbounds i8, ptr %12, i64 -336
   %305 = load ptr, ptr %304, align 8, !tbaa !133
   %306 = load ptr, ptr %15, align 8, !tbaa !98
   %307 = icmp eq ptr %305, %306
-  br i1 %307, label %308, label %zend_fcc_addref.exit309.thread
+  br i1 %307, label %308, label %zend_string_release.exit260
 
 308:                                              ; preds = %303
   %309 = getelementptr inbounds i8, ptr %12, i64 -352
   %310 = load ptr, ptr %309, align 8, !tbaa !134
   %311 = icmp eq ptr %310, null
-  br i1 %311, label %312, label %zend_fcc_addref.exit309.thread
+  br i1 %311, label %312, label %zend_string_release.exit260
 
 312:                                              ; preds = %308
   %313 = getelementptr inbounds nuw i8, ptr %302, i64 8
@@ -5809,8 +5805,7 @@ zend_object_release.exit340:                      ; preds = %332, %327, %326, %z
 
 zend_fcc_dtor.exit223:                            ; preds = %346, %341, %340, %zend_object_release.exit340
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %301, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
-  %.not.i357 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %.not.i357)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %347 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %348 = load ptr, ptr %347, align 8, !tbaa !127
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 64
@@ -5839,7 +5834,7 @@ php_xml_check_string_method_arg.exit360:          ; preds = %zend_fcc_dtor.exit2
   %360 = load i32, ptr %315, align 4, !tbaa !28
   %361 = and i32 %360, 64
   %.not.i258 = icmp eq i32 %361, 0
-  br i1 %.not.i258, label %362, label %zend_fcc_addref.exit
+  br i1 %.not.i258, label %362, label %zend_string_release.exit.thread
 
 362:                                              ; preds = %php_xml_check_string_method_arg.exit360
   %363 = load i32, ptr %314, align 4, !tbaa !58
@@ -5848,7 +5843,7 @@ php_xml_check_string_method_arg.exit360:          ; preds = %zend_fcc_dtor.exit2
   %365 = add i32 %363, -1
   store i32 %365, ptr %314, align 4, !tbaa !58
   %366 = icmp eq i32 %365, 0
-  br i1 %366, label %367, label %zend_fcc_addref.exit
+  br i1 %366, label %367, label %zend_string_release.exit.thread
 
 367:                                              ; preds = %362
   %368 = and i32 %360, 128
@@ -5857,11 +5852,11 @@ php_xml_check_string_method_arg.exit360:          ; preds = %zend_fcc_dtor.exit2
 
 369:                                              ; preds = %367
   call void @free(ptr noundef nonnull %314) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 370:                                              ; preds = %367
   call void @_efree(ptr noundef nonnull %314) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 371:                                              ; preds = %351
   %372 = load i32, ptr %314, align 4, !tbaa !58
@@ -5913,32 +5908,32 @@ zend_string_release.exit263:                      ; preds = %351, %371, %378, %3
 391:                                              ; preds = %388, %386
   %392 = load ptr, ptr %333, align 8, !tbaa !87
   %.not12.i308 = icmp eq ptr %392, null
-  br i1 %.not12.i308, label %zend_fcc_addref.exit309.thread, label %393
+  br i1 %.not12.i308, label %zend_string_release.exit260, label %393
 
 393:                                              ; preds = %391
   %394 = load i32, ptr %392, align 4, !tbaa !58
   %395 = add i32 %394, 1
   store i32 %395, ptr %392, align 4, !tbaa !58
-  br label %zend_fcc_addref.exit309.thread
+  br label %zend_string_release.exit260
 
-zend_fcc_addref.exit309.thread:                   ; preds = %393, %391, %308, %303, %zend_fcc_addref.exit306.thread
+zend_string_release.exit260:                      ; preds = %391, %393, %308, %303, %zend_string_release.exit254
   %396 = getelementptr inbounds i8, ptr %12, i64 -320
   %397 = load ptr, ptr %396, align 8, !tbaa !91
   %.not190 = icmp eq ptr %397, null
-  br i1 %.not190, label %zend_fcc_addref.exit312.thread, label %398
+  br i1 %.not190, label %zend_string_release.exit266, label %398
 
-398:                                              ; preds = %zend_fcc_addref.exit309.thread
+398:                                              ; preds = %zend_string_release.exit260
   %399 = getelementptr inbounds i8, ptr %12, i64 -296
   %400 = load ptr, ptr %399, align 8, !tbaa !135
   %401 = load ptr, ptr %15, align 8, !tbaa !98
   %402 = icmp eq ptr %400, %401
-  br i1 %402, label %403, label %zend_fcc_addref.exit312.thread
+  br i1 %402, label %403, label %zend_string_release.exit266
 
 403:                                              ; preds = %398
   %404 = getelementptr inbounds i8, ptr %12, i64 -312
   %405 = load ptr, ptr %404, align 8, !tbaa !136
   %406 = icmp eq ptr %405, null
-  br i1 %406, label %407, label %zend_fcc_addref.exit312.thread
+  br i1 %406, label %407, label %zend_string_release.exit266
 
 407:                                              ; preds = %403
   %408 = getelementptr inbounds nuw i8, ptr %397, i64 8
@@ -6016,8 +6011,7 @@ zend_object_release.exit338:                      ; preds = %427, %422, %421, %z
 
 zend_fcc_dtor.exit226:                            ; preds = %441, %436, %435, %zend_object_release.exit338
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %396, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
-  %.not.i361 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %.not.i361)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %442 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %443 = load ptr, ptr %442, align 8, !tbaa !127
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 64
@@ -6046,7 +6040,7 @@ php_xml_check_string_method_arg.exit364:          ; preds = %zend_fcc_dtor.exit2
   %455 = load i32, ptr %410, align 4, !tbaa !28
   %456 = and i32 %455, 64
   %.not.i264 = icmp eq i32 %456, 0
-  br i1 %.not.i264, label %457, label %zend_fcc_addref.exit
+  br i1 %.not.i264, label %457, label %zend_string_release.exit.thread
 
 457:                                              ; preds = %php_xml_check_string_method_arg.exit364
   %458 = load i32, ptr %409, align 4, !tbaa !58
@@ -6055,7 +6049,7 @@ php_xml_check_string_method_arg.exit364:          ; preds = %zend_fcc_dtor.exit2
   %460 = add i32 %458, -1
   store i32 %460, ptr %409, align 4, !tbaa !58
   %461 = icmp eq i32 %460, 0
-  br i1 %461, label %462, label %zend_fcc_addref.exit
+  br i1 %461, label %462, label %zend_string_release.exit.thread
 
 462:                                              ; preds = %457
   %463 = and i32 %455, 128
@@ -6064,11 +6058,11 @@ php_xml_check_string_method_arg.exit364:          ; preds = %zend_fcc_dtor.exit2
 
 464:                                              ; preds = %462
   call void @free(ptr noundef nonnull %409) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 465:                                              ; preds = %462
   call void @_efree(ptr noundef nonnull %409) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 466:                                              ; preds = %446
   %467 = load i32, ptr %409, align 4, !tbaa !58
@@ -6120,32 +6114,32 @@ zend_string_release.exit269:                      ; preds = %446, %466, %473, %4
 486:                                              ; preds = %483, %481
   %487 = load ptr, ptr %428, align 8, !tbaa !87
   %.not12.i311 = icmp eq ptr %487, null
-  br i1 %.not12.i311, label %zend_fcc_addref.exit312.thread, label %488
+  br i1 %.not12.i311, label %zend_string_release.exit266, label %488
 
 488:                                              ; preds = %486
   %489 = load i32, ptr %487, align 4, !tbaa !58
   %490 = add i32 %489, 1
   store i32 %490, ptr %487, align 4, !tbaa !58
-  br label %zend_fcc_addref.exit312.thread
+  br label %zend_string_release.exit266
 
-zend_fcc_addref.exit312.thread:                   ; preds = %488, %486, %403, %398, %zend_fcc_addref.exit309.thread
+zend_string_release.exit266:                      ; preds = %486, %488, %403, %398, %zend_string_release.exit260
   %491 = getelementptr inbounds i8, ptr %12, i64 -280
   %492 = load ptr, ptr %491, align 8, !tbaa !92
   %.not191 = icmp eq ptr %492, null
-  br i1 %.not191, label %zend_fcc_addref.exit315.thread, label %493
+  br i1 %.not191, label %zend_string_release.exit272, label %493
 
-493:                                              ; preds = %zend_fcc_addref.exit312.thread
+493:                                              ; preds = %zend_string_release.exit266
   %494 = getelementptr inbounds i8, ptr %12, i64 -256
   %495 = load ptr, ptr %494, align 8, !tbaa !137
   %496 = load ptr, ptr %15, align 8, !tbaa !98
   %497 = icmp eq ptr %495, %496
-  br i1 %497, label %498, label %zend_fcc_addref.exit315.thread
+  br i1 %497, label %498, label %zend_string_release.exit272
 
 498:                                              ; preds = %493
   %499 = getelementptr inbounds i8, ptr %12, i64 -272
   %500 = load ptr, ptr %499, align 8, !tbaa !138
   %501 = icmp eq ptr %500, null
-  br i1 %501, label %502, label %zend_fcc_addref.exit315.thread
+  br i1 %501, label %502, label %zend_string_release.exit272
 
 502:                                              ; preds = %498
   %503 = getelementptr inbounds nuw i8, ptr %492, i64 8
@@ -6223,8 +6217,7 @@ zend_object_release.exit336:                      ; preds = %522, %517, %516, %z
 
 zend_fcc_dtor.exit229:                            ; preds = %536, %531, %530, %zend_object_release.exit336
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %491, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
-  %.not.i365 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %.not.i365)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %537 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %538 = load ptr, ptr %537, align 8, !tbaa !127
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 64
@@ -6253,7 +6246,7 @@ php_xml_check_string_method_arg.exit368:          ; preds = %zend_fcc_dtor.exit2
   %550 = load i32, ptr %505, align 4, !tbaa !28
   %551 = and i32 %550, 64
   %.not.i270 = icmp eq i32 %551, 0
-  br i1 %.not.i270, label %552, label %zend_fcc_addref.exit
+  br i1 %.not.i270, label %552, label %zend_string_release.exit.thread
 
 552:                                              ; preds = %php_xml_check_string_method_arg.exit368
   %553 = load i32, ptr %504, align 4, !tbaa !58
@@ -6262,7 +6255,7 @@ php_xml_check_string_method_arg.exit368:          ; preds = %zend_fcc_dtor.exit2
   %555 = add i32 %553, -1
   store i32 %555, ptr %504, align 4, !tbaa !58
   %556 = icmp eq i32 %555, 0
-  br i1 %556, label %557, label %zend_fcc_addref.exit
+  br i1 %556, label %557, label %zend_string_release.exit.thread
 
 557:                                              ; preds = %552
   %558 = and i32 %550, 128
@@ -6271,11 +6264,11 @@ php_xml_check_string_method_arg.exit368:          ; preds = %zend_fcc_dtor.exit2
 
 559:                                              ; preds = %557
   call void @free(ptr noundef nonnull %504) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 560:                                              ; preds = %557
   call void @_efree(ptr noundef nonnull %504) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 561:                                              ; preds = %541
   %562 = load i32, ptr %504, align 4, !tbaa !58
@@ -6327,32 +6320,32 @@ zend_string_release.exit275:                      ; preds = %541, %561, %568, %5
 581:                                              ; preds = %578, %576
   %582 = load ptr, ptr %523, align 8, !tbaa !87
   %.not12.i314 = icmp eq ptr %582, null
-  br i1 %.not12.i314, label %zend_fcc_addref.exit315.thread, label %583
+  br i1 %.not12.i314, label %zend_string_release.exit272, label %583
 
 583:                                              ; preds = %581
   %584 = load i32, ptr %582, align 4, !tbaa !58
   %585 = add i32 %584, 1
   store i32 %585, ptr %582, align 4, !tbaa !58
-  br label %zend_fcc_addref.exit315.thread
+  br label %zend_string_release.exit272
 
-zend_fcc_addref.exit315.thread:                   ; preds = %583, %581, %498, %493, %zend_fcc_addref.exit312.thread
+zend_string_release.exit272:                      ; preds = %581, %583, %498, %493, %zend_string_release.exit266
   %586 = getelementptr inbounds i8, ptr %12, i64 -240
   %587 = load ptr, ptr %586, align 8, !tbaa !93
   %.not192 = icmp eq ptr %587, null
-  br i1 %.not192, label %zend_fcc_addref.exit318.thread, label %588
+  br i1 %.not192, label %zend_string_release.exit278, label %588
 
-588:                                              ; preds = %zend_fcc_addref.exit315.thread
+588:                                              ; preds = %zend_string_release.exit272
   %589 = getelementptr inbounds i8, ptr %12, i64 -216
   %590 = load ptr, ptr %589, align 8, !tbaa !139
   %591 = load ptr, ptr %15, align 8, !tbaa !98
   %592 = icmp eq ptr %590, %591
-  br i1 %592, label %593, label %zend_fcc_addref.exit318.thread
+  br i1 %592, label %593, label %zend_string_release.exit278
 
 593:                                              ; preds = %588
   %594 = getelementptr inbounds i8, ptr %12, i64 -232
   %595 = load ptr, ptr %594, align 8, !tbaa !140
   %596 = icmp eq ptr %595, null
-  br i1 %596, label %597, label %zend_fcc_addref.exit318.thread
+  br i1 %596, label %597, label %zend_string_release.exit278
 
 597:                                              ; preds = %593
   %598 = getelementptr inbounds nuw i8, ptr %587, i64 8
@@ -6430,8 +6423,7 @@ zend_object_release.exit334:                      ; preds = %617, %612, %611, %z
 
 zend_fcc_dtor.exit232:                            ; preds = %631, %626, %625, %zend_object_release.exit334
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %586, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
-  %.not.i369 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %.not.i369)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %632 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %633 = load ptr, ptr %632, align 8, !tbaa !127
   %634 = getelementptr inbounds nuw i8, ptr %633, i64 64
@@ -6460,7 +6452,7 @@ php_xml_check_string_method_arg.exit372:          ; preds = %zend_fcc_dtor.exit2
   %645 = load i32, ptr %600, align 4, !tbaa !28
   %646 = and i32 %645, 64
   %.not.i276 = icmp eq i32 %646, 0
-  br i1 %.not.i276, label %647, label %zend_fcc_addref.exit
+  br i1 %.not.i276, label %647, label %zend_string_release.exit.thread
 
 647:                                              ; preds = %php_xml_check_string_method_arg.exit372
   %648 = load i32, ptr %599, align 4, !tbaa !58
@@ -6469,7 +6461,7 @@ php_xml_check_string_method_arg.exit372:          ; preds = %zend_fcc_dtor.exit2
   %650 = add i32 %648, -1
   store i32 %650, ptr %599, align 4, !tbaa !58
   %651 = icmp eq i32 %650, 0
-  br i1 %651, label %652, label %zend_fcc_addref.exit
+  br i1 %651, label %652, label %zend_string_release.exit.thread
 
 652:                                              ; preds = %647
   %653 = and i32 %645, 128
@@ -6478,11 +6470,11 @@ php_xml_check_string_method_arg.exit372:          ; preds = %zend_fcc_dtor.exit2
 
 654:                                              ; preds = %652
   call void @free(ptr noundef nonnull %599) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 655:                                              ; preds = %652
   call void @_efree(ptr noundef nonnull %599) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 656:                                              ; preds = %636
   %657 = load i32, ptr %599, align 4, !tbaa !58
@@ -6534,32 +6526,32 @@ zend_string_release.exit281:                      ; preds = %636, %656, %663, %6
 676:                                              ; preds = %673, %671
   %677 = load ptr, ptr %618, align 8, !tbaa !87
   %.not12.i317 = icmp eq ptr %677, null
-  br i1 %.not12.i317, label %zend_fcc_addref.exit318.thread, label %678
+  br i1 %.not12.i317, label %zend_string_release.exit278, label %678
 
 678:                                              ; preds = %676
   %679 = load i32, ptr %677, align 4, !tbaa !58
   %680 = add i32 %679, 1
   store i32 %680, ptr %677, align 4, !tbaa !58
-  br label %zend_fcc_addref.exit318.thread
+  br label %zend_string_release.exit278
 
-zend_fcc_addref.exit318.thread:                   ; preds = %678, %676, %593, %588, %zend_fcc_addref.exit315.thread
+zend_string_release.exit278:                      ; preds = %676, %678, %593, %588, %zend_string_release.exit272
   %681 = getelementptr inbounds i8, ptr %12, i64 -200
   %682 = load ptr, ptr %681, align 8, !tbaa !94
   %.not193 = icmp eq ptr %682, null
-  br i1 %.not193, label %zend_fcc_addref.exit321.thread, label %683
+  br i1 %.not193, label %zend_string_release.exit284, label %683
 
-683:                                              ; preds = %zend_fcc_addref.exit318.thread
+683:                                              ; preds = %zend_string_release.exit278
   %684 = getelementptr inbounds i8, ptr %12, i64 -176
   %685 = load ptr, ptr %684, align 8, !tbaa !141
   %686 = load ptr, ptr %15, align 8, !tbaa !98
   %687 = icmp eq ptr %685, %686
-  br i1 %687, label %688, label %zend_fcc_addref.exit321.thread
+  br i1 %687, label %688, label %zend_string_release.exit284
 
 688:                                              ; preds = %683
   %689 = getelementptr inbounds i8, ptr %12, i64 -192
   %690 = load ptr, ptr %689, align 8, !tbaa !142
   %691 = icmp eq ptr %690, null
-  br i1 %691, label %692, label %zend_fcc_addref.exit321.thread
+  br i1 %691, label %692, label %zend_string_release.exit284
 
 692:                                              ; preds = %688
   %693 = getelementptr inbounds nuw i8, ptr %682, i64 8
@@ -6637,8 +6629,7 @@ zend_object_release.exit332:                      ; preds = %712, %707, %706, %z
 
 zend_fcc_dtor.exit235:                            ; preds = %726, %721, %720, %zend_object_release.exit332
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %681, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
-  %.not.i373 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %.not.i373)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %727 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %728 = load ptr, ptr %727, align 8, !tbaa !127
   %729 = getelementptr inbounds nuw i8, ptr %728, i64 64
@@ -6667,7 +6658,7 @@ php_xml_check_string_method_arg.exit376:          ; preds = %zend_fcc_dtor.exit2
   %740 = load i32, ptr %695, align 4, !tbaa !28
   %741 = and i32 %740, 64
   %.not.i282 = icmp eq i32 %741, 0
-  br i1 %.not.i282, label %742, label %zend_fcc_addref.exit
+  br i1 %.not.i282, label %742, label %zend_string_release.exit.thread
 
 742:                                              ; preds = %php_xml_check_string_method_arg.exit376
   %743 = load i32, ptr %694, align 4, !tbaa !58
@@ -6676,7 +6667,7 @@ php_xml_check_string_method_arg.exit376:          ; preds = %zend_fcc_dtor.exit2
   %745 = add i32 %743, -1
   store i32 %745, ptr %694, align 4, !tbaa !58
   %746 = icmp eq i32 %745, 0
-  br i1 %746, label %747, label %zend_fcc_addref.exit
+  br i1 %746, label %747, label %zend_string_release.exit.thread
 
 747:                                              ; preds = %742
   %748 = and i32 %740, 128
@@ -6685,11 +6676,11 @@ php_xml_check_string_method_arg.exit376:          ; preds = %zend_fcc_dtor.exit2
 
 749:                                              ; preds = %747
   call void @free(ptr noundef nonnull %694) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 750:                                              ; preds = %747
   call void @_efree(ptr noundef nonnull %694) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 751:                                              ; preds = %731
   %752 = load i32, ptr %694, align 4, !tbaa !58
@@ -6741,32 +6732,32 @@ zend_string_release.exit287:                      ; preds = %731, %751, %758, %7
 771:                                              ; preds = %768, %766
   %772 = load ptr, ptr %713, align 8, !tbaa !87
   %.not12.i320 = icmp eq ptr %772, null
-  br i1 %.not12.i320, label %zend_fcc_addref.exit321.thread, label %773
+  br i1 %.not12.i320, label %zend_string_release.exit284, label %773
 
 773:                                              ; preds = %771
   %774 = load i32, ptr %772, align 4, !tbaa !58
   %775 = add i32 %774, 1
   store i32 %775, ptr %772, align 4, !tbaa !58
-  br label %zend_fcc_addref.exit321.thread
+  br label %zend_string_release.exit284
 
-zend_fcc_addref.exit321.thread:                   ; preds = %773, %771, %688, %683, %zend_fcc_addref.exit318.thread
+zend_string_release.exit284:                      ; preds = %771, %773, %688, %683, %zend_string_release.exit278
   %776 = getelementptr inbounds i8, ptr %12, i64 -160
   %777 = load ptr, ptr %776, align 8, !tbaa !95
   %.not194 = icmp eq ptr %777, null
-  br i1 %.not194, label %zend_fcc_addref.exit324.thread, label %778
+  br i1 %.not194, label %zend_string_release.exit290, label %778
 
-778:                                              ; preds = %zend_fcc_addref.exit321.thread
+778:                                              ; preds = %zend_string_release.exit284
   %779 = getelementptr inbounds i8, ptr %12, i64 -136
   %780 = load ptr, ptr %779, align 8, !tbaa !143
   %781 = load ptr, ptr %15, align 8, !tbaa !98
   %782 = icmp eq ptr %780, %781
-  br i1 %782, label %783, label %zend_fcc_addref.exit324.thread
+  br i1 %782, label %783, label %zend_string_release.exit290
 
 783:                                              ; preds = %778
   %784 = getelementptr inbounds i8, ptr %12, i64 -152
   %785 = load ptr, ptr %784, align 8, !tbaa !144
   %786 = icmp eq ptr %785, null
-  br i1 %786, label %787, label %zend_fcc_addref.exit324.thread
+  br i1 %786, label %787, label %zend_string_release.exit290
 
 787:                                              ; preds = %783
   %788 = getelementptr inbounds nuw i8, ptr %777, i64 8
@@ -6844,8 +6835,7 @@ zend_object_release.exit330:                      ; preds = %807, %802, %801, %z
 
 zend_fcc_dtor.exit238:                            ; preds = %821, %816, %815, %zend_object_release.exit330
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %776, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
-  %.not.i377 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %.not.i377)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %822 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %823 = load ptr, ptr %822, align 8, !tbaa !127
   %824 = getelementptr inbounds nuw i8, ptr %823, i64 64
@@ -6874,7 +6864,7 @@ php_xml_check_string_method_arg.exit380:          ; preds = %zend_fcc_dtor.exit2
   %835 = load i32, ptr %790, align 4, !tbaa !28
   %836 = and i32 %835, 64
   %.not.i288 = icmp eq i32 %836, 0
-  br i1 %.not.i288, label %837, label %zend_fcc_addref.exit
+  br i1 %.not.i288, label %837, label %zend_string_release.exit.thread
 
 837:                                              ; preds = %php_xml_check_string_method_arg.exit380
   %838 = load i32, ptr %789, align 4, !tbaa !58
@@ -6883,7 +6873,7 @@ php_xml_check_string_method_arg.exit380:          ; preds = %zend_fcc_dtor.exit2
   %840 = add i32 %838, -1
   store i32 %840, ptr %789, align 4, !tbaa !58
   %841 = icmp eq i32 %840, 0
-  br i1 %841, label %842, label %zend_fcc_addref.exit
+  br i1 %841, label %842, label %zend_string_release.exit.thread
 
 842:                                              ; preds = %837
   %843 = and i32 %835, 128
@@ -6892,11 +6882,11 @@ php_xml_check_string_method_arg.exit380:          ; preds = %zend_fcc_dtor.exit2
 
 844:                                              ; preds = %842
   call void @free(ptr noundef nonnull %789) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 845:                                              ; preds = %842
   call void @_efree(ptr noundef nonnull %789) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 846:                                              ; preds = %826
   %847 = load i32, ptr %789, align 4, !tbaa !58
@@ -6948,32 +6938,32 @@ zend_string_release.exit293:                      ; preds = %826, %846, %853, %8
 866:                                              ; preds = %863, %861
   %867 = load ptr, ptr %808, align 8, !tbaa !87
   %.not12.i323 = icmp eq ptr %867, null
-  br i1 %.not12.i323, label %zend_fcc_addref.exit324.thread, label %868
+  br i1 %.not12.i323, label %zend_string_release.exit290, label %868
 
 868:                                              ; preds = %866
   %869 = load i32, ptr %867, align 4, !tbaa !58
   %870 = add i32 %869, 1
   store i32 %870, ptr %867, align 4, !tbaa !58
-  br label %zend_fcc_addref.exit324.thread
+  br label %zend_string_release.exit290
 
-zend_fcc_addref.exit324.thread:                   ; preds = %868, %866, %783, %778, %zend_fcc_addref.exit321.thread
+zend_string_release.exit290:                      ; preds = %866, %868, %783, %778, %zend_string_release.exit284
   %871 = getelementptr inbounds i8, ptr %12, i64 -120
   %872 = load ptr, ptr %871, align 8, !tbaa !96
   %.not195 = icmp eq ptr %872, null
-  br i1 %.not195, label %zend_fcc_addref.exit327.thread, label %873
+  br i1 %.not195, label %zend_string_release.exit296, label %873
 
-873:                                              ; preds = %zend_fcc_addref.exit324.thread
+873:                                              ; preds = %zend_string_release.exit290
   %874 = getelementptr inbounds i8, ptr %12, i64 -96
   %875 = load ptr, ptr %874, align 8, !tbaa !145
   %876 = load ptr, ptr %15, align 8, !tbaa !98
   %877 = icmp eq ptr %875, %876
-  br i1 %877, label %878, label %zend_fcc_addref.exit327.thread
+  br i1 %877, label %878, label %zend_string_release.exit296
 
 878:                                              ; preds = %873
   %879 = getelementptr inbounds i8, ptr %12, i64 -112
   %880 = load ptr, ptr %879, align 8, !tbaa !146
   %881 = icmp eq ptr %880, null
-  br i1 %881, label %882, label %zend_fcc_addref.exit327.thread
+  br i1 %881, label %882, label %zend_string_release.exit296
 
 882:                                              ; preds = %878
   %883 = getelementptr inbounds nuw i8, ptr %872, i64 8
@@ -7051,8 +7041,7 @@ zend_object_release.exit328:                      ; preds = %902, %897, %896, %z
 
 zend_fcc_dtor.exit241:                            ; preds = %916, %911, %910, %zend_object_release.exit328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %871, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
-  %.not.i381 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %.not.i381)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %917 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %918 = load ptr, ptr %917, align 8, !tbaa !127
   %919 = getelementptr inbounds nuw i8, ptr %918, i64 64
@@ -7081,7 +7070,7 @@ php_xml_check_string_method_arg.exit384:          ; preds = %zend_fcc_dtor.exit2
   %930 = load i32, ptr %885, align 4, !tbaa !28
   %931 = and i32 %930, 64
   %.not.i294 = icmp eq i32 %931, 0
-  br i1 %.not.i294, label %932, label %zend_fcc_addref.exit
+  br i1 %.not.i294, label %932, label %zend_string_release.exit.thread
 
 932:                                              ; preds = %php_xml_check_string_method_arg.exit384
   %933 = load i32, ptr %884, align 4, !tbaa !58
@@ -7090,7 +7079,7 @@ php_xml_check_string_method_arg.exit384:          ; preds = %zend_fcc_dtor.exit2
   %935 = add i32 %933, -1
   store i32 %935, ptr %884, align 4, !tbaa !58
   %936 = icmp eq i32 %935, 0
-  br i1 %936, label %937, label %zend_fcc_addref.exit
+  br i1 %936, label %937, label %zend_string_release.exit.thread
 
 937:                                              ; preds = %932
   %938 = and i32 %930, 128
@@ -7099,11 +7088,11 @@ php_xml_check_string_method_arg.exit384:          ; preds = %zend_fcc_dtor.exit2
 
 939:                                              ; preds = %937
   call void @free(ptr noundef nonnull %884) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 940:                                              ; preds = %937
   call void @_efree(ptr noundef nonnull %884) #16
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
 941:                                              ; preds = %921
   %942 = load i32, ptr %884, align 4, !tbaa !58
@@ -7155,15 +7144,15 @@ zend_string_release.exit299:                      ; preds = %921, %941, %948, %9
 961:                                              ; preds = %958, %956
   %962 = load ptr, ptr %903, align 8, !tbaa !87
   %.not12.i326 = icmp eq ptr %962, null
-  br i1 %.not12.i326, label %zend_fcc_addref.exit327.thread, label %963
+  br i1 %.not12.i326, label %zend_string_release.exit296, label %963
 
 963:                                              ; preds = %961
   %964 = load i32, ptr %962, align 4, !tbaa !58
   %965 = add i32 %964, 1
   store i32 %965, ptr %962, align 4, !tbaa !58
-  br label %zend_fcc_addref.exit327.thread
+  br label %zend_string_release.exit296
 
-zend_fcc_addref.exit327.thread:                   ; preds = %963, %961, %878, %873, %zend_fcc_addref.exit324.thread
+zend_string_release.exit296:                      ; preds = %961, %963, %878, %873, %zend_string_release.exit290
   %966 = load ptr, ptr %15, align 8, !tbaa !98
   %967 = load i32, ptr %966, align 4, !tbaa !58
   %968 = icmp ne i32 %967, 0
@@ -7173,11 +7162,11 @@ zend_fcc_addref.exit327.thread:                   ; preds = %963, %961, %878, %8
   %970 = icmp eq i32 %969, 0
   br i1 %970, label %971, label %972
 
-971:                                              ; preds = %zend_fcc_addref.exit327.thread
+971:                                              ; preds = %zend_string_release.exit296
   call void @zend_objects_store_del(ptr noundef nonnull %966) #16
   br label %zend_object_release.exit347
 
-972:                                              ; preds = %zend_fcc_addref.exit327.thread
+972:                                              ; preds = %zend_string_release.exit296
   %973 = getelementptr inbounds nuw i8, ptr %966, i64 4
   %974 = load i32, ptr %973, align 4, !tbaa !28
   %975 = and i32 %974, -1008
@@ -7195,9 +7184,9 @@ zend_object_release.exit347:                      ; preds = %977, %972, %971, %1
   store i32 %979, ptr %14, align 4, !tbaa !58
   %980 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %980, align 8, !tbaa !28
-  br label %zend_fcc_addref.exit
+  br label %zend_string_release.exit.thread
 
-zend_fcc_addref.exit:                             ; preds = %php_xml_check_string_method_arg.exit384, %932, %939, %940, %php_xml_check_string_method_arg.exit380, %837, %844, %845, %php_xml_check_string_method_arg.exit376, %742, %749, %750, %php_xml_check_string_method_arg.exit372, %647, %654, %655, %php_xml_check_string_method_arg.exit368, %552, %559, %560, %php_xml_check_string_method_arg.exit364, %457, %464, %465, %php_xml_check_string_method_arg.exit360, %362, %369, %370, %php_xml_check_string_method_arg.exit356, %267, %274, %275, %php_xml_check_string_method_arg.exit352, %172, %179, %180, %php_xml_check_string_method_arg.exit, %77, %84, %85, %2, %zend_object_release.exit347
+zend_string_release.exit.thread:                  ; preds = %939, %932, %php_xml_check_string_method_arg.exit384, %940, %844, %837, %php_xml_check_string_method_arg.exit380, %845, %749, %742, %php_xml_check_string_method_arg.exit376, %750, %654, %647, %php_xml_check_string_method_arg.exit372, %655, %559, %552, %php_xml_check_string_method_arg.exit368, %560, %464, %457, %php_xml_check_string_method_arg.exit364, %465, %369, %362, %php_xml_check_string_method_arg.exit360, %370, %274, %267, %php_xml_check_string_method_arg.exit356, %275, %179, %172, %php_xml_check_string_method_arg.exit352, %180, %84, %77, %php_xml_check_string_method_arg.exit, %85, %2, %zend_object_release.exit347
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -7530,7 +7519,7 @@ php_xml_check_string_method_arg.exit33:           ; preds = %80, %74
   store i32 3, ptr %157, align 8, !tbaa !28
   br label %.critedge29
 
-.critedge29:                                      ; preds = %129, %135, %107, %113, %php_xml_check_string_method_arg.exit33, %php_xml_check_string_method_arg.exit, %94, %153, %.critedge, %65, %31
+.critedge29:                                      ; preds = %135, %129, %113, %107, %php_xml_check_string_method_arg.exit33, %php_xml_check_string_method_arg.exit, %94, %153, %.critedge, %65, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -7729,11 +7718,11 @@ define internal fastcc void @php_xml_set_handler_parse_callable(ptr noundef read
   store ptr %17, ptr %1, align 8, !tbaa !4
   %18 = load i64, ptr %5, align 8, !tbaa !168
   %.not11 = icmp eq i64 %18, 0
-  br i1 %.not11, label %.critedge, label %19
+  br i1 %.not11, label %php_xml_check_string_method_arg.exit, label %19
 
 19:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
-  br label %.critedge
+  br label %php_xml_check_string_method_arg.exit
 
 20:                                               ; preds = %3
   %21 = load i32, ptr %9, align 4, !tbaa !28
@@ -7750,7 +7739,7 @@ define internal fastcc void @php_xml_set_handler_parse_callable(ptr noundef read
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.30) #16
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !147
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %30, label %.critedge, !prof !109
+  br i1 %.not, label %30, label %php_xml_check_string_method_arg.exit, !prof !109
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %1, align 8, !tbaa !4
@@ -7760,7 +7749,7 @@ define internal fastcc void @php_xml_set_handler_parse_callable(ptr noundef read
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !61
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %.critedge, label %38
+  br i1 %37, label %php_xml_check_string_method_arg.exit, label %38
 
 38:                                               ; preds = %30
   %.not.i = icmp eq ptr %33, null
@@ -7768,7 +7757,7 @@ define internal fastcc void @php_xml_set_handler_parse_callable(ptr noundef read
 
 39:                                               ; preds = %38
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.139) #16
-  br label %.critedge
+  br label %php_xml_check_string_method_arg.exit
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -7784,7 +7773,7 @@ define internal fastcc void @php_xml_set_handler_parse_callable(ptr noundef read
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %34, i64 24
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.140, ptr noundef nonnull %48, ptr noundef nonnull %49) #16
-  br label %.critedge
+  br label %php_xml_check_string_method_arg.exit
 
 50:                                               ; preds = %40
   store ptr %44, ptr %2, align 8, !tbaa !111
@@ -7794,7 +7783,7 @@ define internal fastcc void @php_xml_set_handler_parse_callable(ptr noundef read
   store ptr %42, ptr %52, align 8, !tbaa !112
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %33, ptr %53, align 8, !tbaa !85
-  br label %.critedge
+  br label %php_xml_check_string_method_arg.exit
 
 54:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -7810,9 +7799,9 @@ define internal fastcc void @php_xml_set_handler_parse_callable(ptr noundef read
 
 60:                                               ; preds = %54, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.critedge
+  br label %php_xml_check_string_method_arg.exit
 
-.critedge:                                        ; preds = %39, %45, %30, %50, %19, %25, %14, %60
+php_xml_check_string_method_arg.exit:             ; preds = %50, %45, %39, %30, %19, %25, %14, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -8390,7 +8379,7 @@ zend_string_alloc.exit:                           ; preds = %8
   store i32 262, ptr %21, align 8, !tbaa !28
   br label %22
 
-22:                                               ; preds = %2, %8, %zend_string_alloc.exit
+22:                                               ; preds = %8, %zend_string_alloc.exit, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -8682,7 +8671,7 @@ xml_get_encoding.exit:                            ; preds = %64
   store i32 3, ptr %76, align 8, !tbaa !28
   br label %.critedge
 
-.critedge:                                        ; preds = %try_convert_to_string.exit, %2, %53, %71, %75, %74, %35
+.critedge:                                        ; preds = %53, %71, %try_convert_to_string.exit, %2, %75, %74, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

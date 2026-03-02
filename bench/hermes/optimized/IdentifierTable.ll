@@ -1283,7 +1283,7 @@ if.then8:                                         ; preds = %if.else
   br label %return
 
 if.else12:                                        ; preds = %if.else
-  tail call void @llvm.assume(i1 %tobool.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   tail call void @llvm.assume(i1 %bf.cast.i)
   %bf.lshr.i18 = lshr i32 %bf.load.i, 2
   %conv.i19 = zext nneg i32 %bf.lshr.i18 to i64

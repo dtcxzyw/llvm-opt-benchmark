@@ -1279,6 +1279,7 @@ define hidden void @_ZN4llvm24AggressiveAntiDepBreaker10StartBlockEPNS_17Machine
   br i1 %13, label %_ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit, label %14
 
 14:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %12, align 8
   %15 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp ne i64 %15, 0
@@ -4944,6 +4945,7 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %._crit_edge408, %15
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0272.0402, align 8
   %154 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %155 = inttoptr i64 %154 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %155) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %155, align 8
   %156 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %156, 0

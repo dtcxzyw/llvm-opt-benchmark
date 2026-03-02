@@ -62,27 +62,26 @@ X509_NAME_get_entry.exit:                         ; preds = %X509_NAME_get_index
   tail call void @llvm.assume(i1 %.not.i)
   %21 = load ptr, ptr %0, align 8, !tbaa !6
   %22 = tail call ptr @sk_value(ptr noundef %21, i64 noundef %20) #7
-  %23 = icmp ne ptr %22, null
-  tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !21
-  %26 = load i32, ptr %25, align 8, !tbaa !22
-  %27 = icmp eq ptr %2, null
-  br i1 %27, label %X509_NAME_get_index_by_OBJ.exit.thread, label %28
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !21
+  %25 = load i32, ptr %24, align 8, !tbaa !22
+  %26 = icmp eq ptr %2, null
+  br i1 %26, label %X509_NAME_get_index_by_OBJ.exit.thread, label %27
 
-28:                                               ; preds = %X509_NAME_get_entry.exit
-  %29 = add nsw i32 %3, -1
-  %30 = tail call i32 @llvm.smin.i32(i32 %26, i32 %29)
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !25
-  %33 = sext i32 %30 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 1 %32, i64 %33, i1 false)
-  %34 = getelementptr inbounds i8, ptr %2, i64 %33
-  store i8 0, ptr %34, align 1, !tbaa !26
+27:                                               ; preds = %X509_NAME_get_entry.exit
+  %28 = add nsw i32 %3, -1
+  %29 = tail call i32 @llvm.smin.i32(i32 %25, i32 %28)
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !25
+  %32 = sext i32 %29 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 1 %31, i64 %32, i1 false)
+  %33 = getelementptr inbounds i8, ptr %2, i64 %32
+  store i8 0, ptr %33, align 1, !tbaa !26
   br label %X509_NAME_get_index_by_OBJ.exit.thread
 
-X509_NAME_get_index_by_OBJ.exit.thread:           ; preds = %11, %4, %X509_NAME_get_entry.exit, %X509_NAME_get_index_by_OBJ.exit, %28
-  %.0 = phi i32 [ %30, %28 ], [ %26, %X509_NAME_get_entry.exit ], [ -1, %X509_NAME_get_index_by_OBJ.exit ], [ -1, %4 ], [ -1, %11 ]
+X509_NAME_get_index_by_OBJ.exit.thread:           ; preds = %11, %4, %X509_NAME_get_entry.exit, %X509_NAME_get_index_by_OBJ.exit, %27
+  %.0 = phi i32 [ %29, %27 ], [ %25, %X509_NAME_get_entry.exit ], [ -1, %X509_NAME_get_index_by_OBJ.exit ], [ -1, %4 ], [ -1, %11 ]
   ret i32 %.0
 }
 

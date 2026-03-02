@@ -59590,8 +59590,7 @@ _ZN5clang8CallExpr15getDirectCalleeEv.exit:
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !1301
   %8 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
-  %.not.i.i.i = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load ptr, ptr %9, align 8, !tbaa !1186
   %11 = load ptr, ptr %10, align 8, !tbaa !1223
@@ -69395,8 +69394,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit39: ; preds = %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL16CheckNonNullExprRN5clang4SemaEPKNS_4ExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17504) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
-  %.not8.i.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not8.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %_ZN5clang43IgnoreElidableImplicitConstructorSingleStepEPNS_4ExprE.exit

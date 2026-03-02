@@ -718,18 +718,17 @@ define void @_ZN6uu_env14native_int_str9NativeStr6native17h53cab9e1d6cf8cb5E(ptr
   %10 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h94b64fd980b0ab3eE"(i64 noundef %8, i1 noundef zeroext false), !noalias !80
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = icmp ne ptr %12, null
-  tail call void @llvm.assume(i1 %13)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %6, i64 %8, i1 false), !noalias !87
   br label %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h494e5d6718bff808E.exit"
 
 "_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h494e5d6718bff808E.exit": ; preds = %2, %9
   %.sink2.i = phi ptr [ %12, %9 ], [ %6, %2 ]
   %.sink.i = phi i64 [ %11, %9 ], [ -9223372036854775808, %2 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink2.i, ptr %14, align 8, !alias.scope !75, !noalias !78
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %8, ptr %15, align 8, !alias.scope !75, !noalias !78
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink2.i, ptr %13, align 8, !alias.scope !75, !noalias !78
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %8, ptr %14, align 8, !alias.scope !75, !noalias !78
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !75, !noalias !78
   ret void
 }

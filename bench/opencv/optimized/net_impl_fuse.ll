@@ -1802,8 +1802,7 @@ _ZNSt12__shared_ptrIN2cv3dnn14dnn4_v2024122315ActivationLayerELN9__gnu_cxx12_Loc
   call void @llvm.experimental.noalias.scope.decl(metadata !166)
   %701 = load ptr, ptr %236, align 8, !tbaa !121, !noalias !169, !nonnull !67, !noundef !67
   %702 = call ptr @__dynamic_cast(ptr nonnull %701, ptr nonnull @_ZTIN2cv3dnn14dnn4_v202412235LayerE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122316ConvolutionLayerE, i64 0) #26, !noalias !169
-  %.not.not.i.i856 = icmp ne ptr %702, null
-  call void @llvm.assume(i1 %.not.not.i.i856)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %702) ]
   %703 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 480
   %704 = load ptr, ptr %703, align 8, !tbaa !122, !noalias !169
   %.not.i.i.i.i.i857 = icmp eq ptr %704, null

@@ -3644,7 +3644,8 @@ _ZN4llvm9MapVectorIPNS_5ValueES2_NS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6de
 699:                                              ; preds = %_ZN12_GLOBAL__N_115PointerReplacer14getReplacementEPN4llvm5ValueE.exit.thread.i._crit_edge, %554, %543, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %540
   %700 = phi ptr [ %.pre, %_ZN12_GLOBAL__N_115PointerReplacer14getReplacementEPN4llvm5ValueE.exit.thread.i._crit_edge ], [ %542, %554 ], [ %542, %543 ], [ %542, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i ], [ %542, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %540 ]
   %701 = icmp eq i8 %137, 79
-  call void @llvm.assume(i1 %701)
+  %spec.select.i.i246.i = select i1 %701, ptr %101, ptr null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i246.i) ]
   call void @llvm.assume(i1 %104)
   %702 = ptrtoint ptr %700 to i64
   %703 = trunc i64 %702 to i32
@@ -3701,7 +3702,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6det
 
 _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i:  ; preds = %732, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i.i
   %736 = phi i32 [ %.pre.i247.i, %732 ], [ %729, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i.i ]
-  %737 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %737 = getelementptr inbounds nuw i8, ptr %spec.select.i.i246.i, i64 8
   %738 = load ptr, ptr %737, align 8, !tbaa !95
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 8
   %740 = load i32, ptr %739, align 8
@@ -3736,7 +3737,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit251.i: ; preds = %743, %_ZNK4llvm4T
   %752 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %753 = call noundef ptr @_ZN4llvm12InstCombiner17InsertNewInstWithEPNS_11InstructionENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsIS1_Lb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(1081) %751, ptr noundef nonnull %749, ptr nonnull %752, i64 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store ptr %101, ptr %9, align 8, !tbaa !248
+  store ptr %spec.select.i.i246.i, ptr %9, align 8, !tbaa !248
   store i32 0, ptr %96, align 8, !tbaa !250
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJRKjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbERKS3_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.193") align 8 %10, ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(4) %96)
@@ -3768,7 +3769,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueES3_ELb1EE9push_backES4_.exi
   %765 = load ptr, ptr %56, align 8, !tbaa !25
   %766 = zext i32 %764 to i64
   %767 = getelementptr inbounds nuw %"struct.std::pair.197", ptr %765, i64 %766
-  store ptr %101, ptr %767, align 1
+  store ptr %spec.select.i.i246.i, ptr %767, align 1
   %.sroa.2.0..sroa_idx.i.i24 = getelementptr inbounds nuw i8, ptr %767, i64 8
   store ptr null, ptr %.sroa.2.0..sroa_idx.i.i24, align 1
   %768 = load i32, ptr %74, align 8, !tbaa !26
@@ -3790,7 +3791,7 @@ _ZN4llvm9MapVectorIPNS_5ValueES2_NS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6de
 
 775:                                              ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit251.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store ptr %101, ptr %11, align 8, !tbaa !248
+  store ptr %spec.select.i.i246.i, ptr %11, align 8, !tbaa !248
   store i32 0, ptr %98, align 8, !tbaa !250
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJRKjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbERKS3_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.193") align 8 %12, ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(4) %98)
@@ -3822,7 +3823,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueES3_ELb1EE9push_backES4_.exi
   %787 = load ptr, ptr %56, align 8, !tbaa !25
   %788 = zext i32 %786 to i64
   %789 = getelementptr inbounds nuw %"struct.std::pair.197", ptr %787, i64 %788
-  store ptr %101, ptr %789, align 1
+  store ptr %spec.select.i.i246.i, ptr %789, align 1
   %.sroa.2.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %789, i64 8
   store ptr null, ptr %.sroa.2.0..sroa_idx.i.i17, align 1
   %790 = load i32, ptr %74, align 8, !tbaa !26

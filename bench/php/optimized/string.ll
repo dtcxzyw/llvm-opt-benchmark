@@ -19827,7 +19827,7 @@ zend_parse_arg_str_ex.exit104:                    ; preds = %41
   store i32 775, ptr %69, align 8, !tbaa !10
   br label %70
 
-70:                                               ; preds = %.critedge.thread173, %.thread148, %68, %52, %50
+70:                                               ; preds = %.thread148, %68, %.critedge.thread173, %52, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -23599,7 +23599,7 @@ define internal fastcc i64 @php_str_replace_in_subject(ptr noundef %0, ptr nound
   store ptr %13, ptr %5, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 6, ptr %14, align 8, !tbaa !10
-  br label %287
+  br label %286
 
 15:                                               ; preds = %7
   %.not = icmp eq ptr %1, null
@@ -24058,7 +24058,7 @@ zend_tmp_string_release.exit213.thread:           ; preds = %41, %171, %170, %14
 
 210:                                              ; preds = %206, %201, %197, %zend_string_release_ex.exit196
   %211 = load i64, ptr %8, align 8, !tbaa !24
-  br label %287
+  br label %286
 
 ._crit_edge:                                      ; preds = %zend_tmp_string_release.exit213.thread, %27
   %.0149.lcssa = phi ptr [ null, %27 ], [ %.1150, %zend_tmp_string_release.exit213.thread ]
@@ -24095,112 +24095,111 @@ zend_tmp_string_release.exit213.thread:           ; preds = %41, %171, %170, %14
   br label %zend_string_release_ex.exit192
 
 227:                                              ; preds = %15
-  %228 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %228)
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %230 = load i64, ptr %229, align 8, !tbaa !16
-  switch i64 %230, label %243 [
-    i64 1, label %231
-    i64 0, label %276
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %229 = load i64, ptr %228, align 8, !tbaa !16
+  switch i64 %229, label %242 [
+    i64 1, label %230
+    i64 0, label %275
   ]
 
-231:                                              ; preds = %227
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %233 = load i8, ptr %232, align 8, !tbaa !10
-  %234 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %235 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %236 = load i64, ptr %235, align 8, !tbaa !16
-  %237 = call fastcc ptr @php_char_to_str_ex(ptr noundef nonnull %4, i8 noundef signext %233, ptr noundef nonnull %234, i64 noundef %236, i1 noundef zeroext %6, ptr noundef nonnull %8)
-  store ptr %237, ptr %5, align 8, !tbaa !10
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 4
-  %239 = load i32, ptr %238, align 4, !tbaa !10
-  %240 = and i32 %239, 64
-  %.not177 = icmp eq i32 %240, 0
-  %241 = select i1 %.not177, i32 262, i32 6
-  %242 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %241, ptr %242, align 8, !tbaa !10
+230:                                              ; preds = %227
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %232 = load i8, ptr %231, align 8, !tbaa !10
+  %233 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %234 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %235 = load i64, ptr %234, align 8, !tbaa !16
+  %236 = call fastcc ptr @php_char_to_str_ex(ptr noundef nonnull %4, i8 noundef signext %232, ptr noundef nonnull %233, i64 noundef %235, i1 noundef zeroext %6, ptr noundef nonnull %8)
+  store ptr %236, ptr %5, align 8, !tbaa !10
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 4
+  %238 = load i32, ptr %237, align 4, !tbaa !10
+  %239 = and i32 %238, 64
+  %.not177 = icmp eq i32 %239, 0
+  %240 = select i1 %.not177, i32 262, i32 6
+  %241 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %240, ptr %241, align 8, !tbaa !10
   br label %zend_string_release_ex.exit192
 
-243:                                              ; preds = %227
-  br i1 %6, label %244, label %255
+242:                                              ; preds = %227
+  br i1 %6, label %243, label %254
 
-244:                                              ; preds = %243
-  %245 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %246 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %247 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %248 = load i64, ptr %247, align 8, !tbaa !16
-  %249 = call fastcc ptr @php_str_to_str_ex(ptr noundef nonnull %4, ptr noundef nonnull %245, i64 noundef %230, ptr noundef nonnull %246, i64 noundef %248, ptr noundef %8)
-  store ptr %249, ptr %5, align 8, !tbaa !10
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 4
-  %251 = load i32, ptr %250, align 4, !tbaa !10
-  %252 = and i32 %251, 64
-  %.not176 = icmp eq i32 %252, 0
-  %253 = select i1 %.not176, i32 262, i32 6
-  %254 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %253, ptr %254, align 8, !tbaa !10
+243:                                              ; preds = %242
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %245 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %246 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %247 = load i64, ptr %246, align 8, !tbaa !16
+  %248 = call fastcc ptr @php_str_to_str_ex(ptr noundef nonnull %4, ptr noundef nonnull %244, i64 noundef %229, ptr noundef nonnull %245, i64 noundef %247, ptr noundef %8)
+  store ptr %248, ptr %5, align 8, !tbaa !10
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
+  %250 = load i32, ptr %249, align 4, !tbaa !10
+  %251 = and i32 %250, 64
+  %.not176 = icmp eq i32 %251, 0
+  %252 = select i1 %.not176, i32 262, i32 6
+  %253 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %252, ptr %253, align 8, !tbaa !10
   br label %zend_string_release_ex.exit192
 
-255:                                              ; preds = %243
-  %256 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %4, i1 noundef zeroext false) #29
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 24
-  %258 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %259 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %260 = load i64, ptr %259, align 8, !tbaa !16
-  %261 = call fastcc ptr @php_str_to_str_i_ex(ptr noundef nonnull %4, ptr noundef nonnull %257, ptr noundef nonnull %0, ptr noundef nonnull %258, i64 noundef %260, ptr noundef %8)
-  store ptr %261, ptr %5, align 8, !tbaa !10
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 4
-  %263 = load i32, ptr %262, align 4, !tbaa !10
-  %264 = and i32 %263, 64
-  %.not175 = icmp eq i32 %264, 0
-  %265 = select i1 %.not175, i32 262, i32 6
-  %266 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %265, ptr %266, align 8, !tbaa !10
-  %267 = getelementptr inbounds nuw i8, ptr %256, i64 4
-  %268 = load i32, ptr %267, align 4, !tbaa !10
-  %269 = and i32 %268, 64
-  %.not.i = icmp eq i32 %269, 0
-  br i1 %.not.i, label %270, label %zend_string_release_ex.exit192
+254:                                              ; preds = %242
+  %255 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %4, i1 noundef zeroext false) #29
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 24
+  %257 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %258 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %259 = load i64, ptr %258, align 8, !tbaa !16
+  %260 = call fastcc ptr @php_str_to_str_i_ex(ptr noundef nonnull %4, ptr noundef nonnull %256, ptr noundef nonnull %0, ptr noundef nonnull %257, i64 noundef %259, ptr noundef %8)
+  store ptr %260, ptr %5, align 8, !tbaa !10
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 4
+  %262 = load i32, ptr %261, align 4, !tbaa !10
+  %263 = and i32 %262, 64
+  %.not175 = icmp eq i32 %263, 0
+  %264 = select i1 %.not175, i32 262, i32 6
+  %265 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %264, ptr %265, align 8, !tbaa !10
+  %266 = getelementptr inbounds nuw i8, ptr %255, i64 4
+  %267 = load i32, ptr %266, align 4, !tbaa !10
+  %268 = and i32 %267, 64
+  %.not.i = icmp eq i32 %268, 0
+  br i1 %.not.i, label %269, label %zend_string_release_ex.exit192
 
-270:                                              ; preds = %255
-  %271 = load i32, ptr %256, align 4, !tbaa !21
-  %272 = icmp ne i32 %271, 0
-  tail call void @llvm.assume(i1 %272)
-  %273 = add i32 %271, -1
-  store i32 %273, ptr %256, align 4, !tbaa !21
-  %274 = icmp eq i32 %273, 0
-  br i1 %274, label %275, label %zend_string_release_ex.exit192
+269:                                              ; preds = %254
+  %270 = load i32, ptr %255, align 4, !tbaa !21
+  %271 = icmp ne i32 %270, 0
+  tail call void @llvm.assume(i1 %271)
+  %272 = add i32 %270, -1
+  store i32 %272, ptr %255, align 4, !tbaa !21
+  %273 = icmp eq i32 %272, 0
+  br i1 %273, label %274, label %zend_string_release_ex.exit192
 
-275:                                              ; preds = %270
-  tail call void @_efree(ptr noundef nonnull %256) #29
+274:                                              ; preds = %269
+  tail call void @_efree(ptr noundef nonnull %255) #29
   br label %zend_string_release_ex.exit192
 
-276:                                              ; preds = %227
+275:                                              ; preds = %227
   store ptr %4, ptr %5, align 8, !tbaa !10
-  %277 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %278 = load i32, ptr %277, align 4, !tbaa !10
-  %279 = and i32 %278, 64
-  %.not174 = icmp eq i32 %279, 0
-  br i1 %.not174, label %282, label %280
+  %276 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %277 = load i32, ptr %276, align 4, !tbaa !10
+  %278 = and i32 %277, 64
+  %.not174 = icmp eq i32 %278, 0
+  br i1 %.not174, label %281, label %279
 
-280:                                              ; preds = %276
-  %281 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 6, ptr %281, align 8, !tbaa !10
+279:                                              ; preds = %275
+  %280 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 6, ptr %280, align 8, !tbaa !10
   br label %zend_string_release_ex.exit192
 
-282:                                              ; preds = %276
-  %283 = load i32, ptr %4, align 4, !tbaa !21
-  %284 = add i32 %283, 1
-  store i32 %284, ptr %4, align 4, !tbaa !21
-  %285 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 262, ptr %285, align 8, !tbaa !10
+281:                                              ; preds = %275
+  %282 = load i32, ptr %4, align 4, !tbaa !21
+  %283 = add i32 %282, 1
+  store i32 %283, ptr %4, align 4, !tbaa !21
+  %284 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 262, ptr %284, align 8, !tbaa !10
   br label %zend_string_release_ex.exit192
 
-zend_string_release_ex.exit192:                   ; preds = %275, %270, %255, %226, %221, %217, %280, %282, %231, %244, %._crit_edge
-  %286 = load i64, ptr %8, align 8, !tbaa !24
-  br label %287
+zend_string_release_ex.exit192:                   ; preds = %274, %269, %254, %226, %221, %217, %279, %281, %230, %243, %._crit_edge
+  %285 = load i64, ptr %8, align 8, !tbaa !24
+  br label %286
 
-287:                                              ; preds = %210, %zend_string_release_ex.exit192, %12
-  %.0 = phi i64 [ 0, %12 ], [ %286, %zend_string_release_ex.exit192 ], [ %211, %210 ]
+286:                                              ; preds = %210, %zend_string_release_ex.exit192, %12
+  %.0 = phi i64 [ 0, %12 ], [ %285, %zend_string_release_ex.exit192 ], [ %211, %210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }

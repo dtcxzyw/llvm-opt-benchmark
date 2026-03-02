@@ -752,6 +752,7 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i: ; preds = %40
 
 128:                                              ; preds = %.lr.ph327
   %129 = sub nuw i64 %.sroa.27.0325, %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.06.0326) ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.06.0326, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !alias.scope !85
   %.not89 = icmp ugt i64 %.val102, %129
   br i1 %.not89, label %130, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h60230e6ca125414aE.exit148", !prof !5
@@ -6201,7 +6202,7 @@ _ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit: ; preds = %2, 
   %11 = call { i64, i64 } @_ZN6quiche3tls9Handshake11set_ex_data17hb45f73e7a951995eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %10, ptr noundef nonnull %1)
   %12 = extractvalue { i64, i64 } %11, 0
   %.not = icmp eq i64 %12, 20
-  br i1 %.not, label %13, label %32
+  br i1 %.not, label %13, label %31
 
 13:                                               ; preds = %_ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit
   %14 = load ptr, ptr %0, align 8, !alias.scope !428, !noundef !3
@@ -6225,7 +6226,7 @@ _ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit19: ; preds = %1
   %20 = call { i64, i64 } @_ZN6quiche3tls9Handshake11set_ex_data17h6fc2068ee2f1a742E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %19, ptr noundef null)
   %21 = extractvalue { i64, i64 } %20, 0
   %.not16 = icmp eq i64 %21, 20
-  br i1 %.not16, label %22, label %32
+  br i1 %.not16, label %22, label %31
 
 22:                                               ; preds = %_ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit19
   %.val17 = load ptr, ptr %0, align 8, !noundef !3
@@ -6236,13 +6237,12 @@ _ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit19: ; preds = %1
   br i1 %25, label %26, label %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit
 
 26:                                               ; preds = %22
-  %27 = icmp ne ptr %.val18, null
-  call void @llvm.assume(i1 %27)
-  %28 = load i64, ptr %.val18, align 8, !range !29, !noundef !3
-  %.not.i = icmp eq i64 %28, -9223372036854775808
-  br i1 %.not.i, label %29, label %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val18) ]
+  %27 = load i64, ptr %.val18, align 8, !range !29, !noundef !3
+  %.not.i = icmp eq i64 %27, -9223372036854775808
+  br i1 %.not.i, label %28, label %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit
 
-29:                                               ; preds = %26
+28:                                               ; preds = %26
   store i64 0, ptr %.val18, align 8
   %.sroa.01.sroa.5.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %.val18, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.01.sroa.5.0..sroa_idx13.i, align 8
@@ -6254,14 +6254,14 @@ _ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit19: ; preds = %1
   store i8 0, ptr %.sroa.65.0..sroa_idx6.i, align 8
   br label %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit
 
-_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit: ; preds = %22, %26, %29
+_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit: ; preds = %22, %26, %28
   %.val = load ptr, ptr %0, align 8
-  %30 = call fastcc { i64, i64 } @_ZN6quiche3tls9Handshake14map_result_ssl17heba108b3248caf69E(ptr %.val, i32 noundef %15)
-  %31 = insertvalue { i64, i64 } %30, i64 undef, 1
-  br label %32
+  %29 = call fastcc { i64, i64 } @_ZN6quiche3tls9Handshake14map_result_ssl17heba108b3248caf69E(ptr %.val, i32 noundef %15)
+  %30 = insertvalue { i64, i64 } %29, i64 undef, 1
+  br label %31
 
-32:                                               ; preds = %_ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit19, %_ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit, %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit
-  %.merged = phi { i64, i64 } [ %31, %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit ], [ %11, %_ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit ], [ %20, %_ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit19 ]
+31:                                               ; preds = %_ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit19, %_ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit, %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit
+  %.merged = phi { i64, i64 } [ %30, %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit ], [ %11, %_ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit ], [ %20, %_ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit19 ]
   ret { i64, i64 } %.merged
 }
 
@@ -6301,7 +6301,7 @@ _ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit: ; preds = %10,
 
 17:                                               ; preds = %2, %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit, %31, %20
   %.sroa.5.0 = phi i64 [ %21, %20 ], [ %32, %31 ], [ undef, %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %16, %20 ], [ %30, %31 ], [ %42, %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit ], [ 20, %2 ]
+  %.sroa.0.0 = phi i64 [ %16, %20 ], [ %30, %31 ], [ %41, %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit ], [ 20, %2 ]
   %18 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %19 = insertvalue { i64, i64 } %18, i64 %.sroa.5.0, 1
   ret { i64, i64 } %19
@@ -6347,13 +6347,12 @@ _ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit19: ; preds = %2
   br i1 %36, label %37, label %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit
 
 37:                                               ; preds = %33
-  %38 = icmp ne ptr %.val18, null
-  call void @llvm.assume(i1 %38)
-  %39 = load i64, ptr %.val18, align 8, !range !29, !noundef !3
-  %.not.i = icmp eq i64 %39, -9223372036854775808
-  br i1 %.not.i, label %40, label %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val18) ]
+  %38 = load i64, ptr %.val18, align 8, !range !29, !noundef !3
+  %.not.i = icmp eq i64 %38, -9223372036854775808
+  br i1 %.not.i, label %39, label %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit
 
-40:                                               ; preds = %37
+39:                                               ; preds = %37
   store i64 0, ptr %.val18, align 8
   %.sroa.01.sroa.5.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %.val18, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.01.sroa.5.0..sroa_idx13.i, align 8
@@ -6365,10 +6364,10 @@ _ZN3std4sync6poison4once4Once9call_once17hb33b8c2c68bb94c3E.exit19: ; preds = %2
   store i8 0, ptr %.sroa.65.0..sroa_idx6.i, align 8
   br label %_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit
 
-_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit: ; preds = %33, %37, %40
+_ZN6quiche3tls9Handshake19set_transport_error17h2dc4e8b5de8b2b2bE.exit: ; preds = %33, %37, %39
   %.val = load ptr, ptr %0, align 8
-  %41 = call fastcc { i64, i64 } @_ZN6quiche3tls9Handshake14map_result_ssl17heba108b3248caf69E(ptr %.val, i32 noundef %24)
-  %42 = extractvalue { i64, i64 } %41, 0
+  %40 = call fastcc { i64, i64 } @_ZN6quiche3tls9Handshake14map_result_ssl17heba108b3248caf69E(ptr %.val, i32 noundef %24)
+  %41 = extractvalue { i64, i64 } %40, 0
   br label %17
 }
 

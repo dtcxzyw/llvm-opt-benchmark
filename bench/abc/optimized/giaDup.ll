@@ -13631,8 +13631,7 @@ Abc_UtilStrsav.exit99:                            ; preds = %Abc_UtilStrsav.exit
   br i1 %83, label %.lr.ph116, label %.critedge4
 
 .lr.ph116:                                        ; preds = %.critedge2
-  %.not73 = icmp ne ptr %.val94.pre, null
-  tail call void @llvm.assume(i1 %.not73)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val94.pre) ]
   %84 = getelementptr i8, ptr %.val91, i64 8
   %.val86.val = load ptr, ptr %84, align 8, !tbaa !10
   %wide.trip.count = zext nneg i32 %82 to i64
@@ -13936,8 +13935,7 @@ Abc_UtilStrsav.exit103:                           ; preds = %Abc_UtilStrsav.exit
   br i1 %83, label %.lr.ph120, label %.critedge4
 
 .lr.ph120:                                        ; preds = %.critedge2
-  %.not77 = icmp ne ptr %.val98.pre, null
-  tail call void @llvm.assume(i1 %.not77)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val98.pre) ]
   %84 = getelementptr i8, ptr %.val95, i64 8
   %.val90.val = load ptr, ptr %84, align 8, !tbaa !10
   %wide.trip.count = zext nneg i32 %82 to i64

@@ -1101,8 +1101,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; 
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %207 = load ptr, ptr %206, align 8
   %208 = select i1 %205, ptr %207, ptr null, !prof !47
-  %.not.i.i.i54.i = icmp ne ptr %208, null
-  call void @llvm.assume(i1 %.not.i.i.i54.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %208) ]
   %209 = load i32, ptr %207, align 4, !tbaa !82
   %210 = zext i32 %209 to i64
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 %210

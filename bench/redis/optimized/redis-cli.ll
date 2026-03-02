@@ -4580,8 +4580,7 @@ getClusterHostFromCmdArgs.exit143:                ; preds = %parseClusterNodeAdd
   %53 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %53, ptr noundef nonnull %3) #34
   %54 = call ptr @listNext(ptr noundef nonnull %3) #34
-  %.not12.i = icmp ne ptr %54, null
-  call void @llvm.assume(i1 %.not12.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %54) ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %52, %._crit_edge15.i
@@ -5075,8 +5074,7 @@ getClusterHostFromCmdArgs.exit:                   ; preds = %parseClusterNodeAdd
   %52 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %52, ptr noundef nonnull %3) #34
   %53 = call ptr @listNext(ptr noundef nonnull %3) #34
-  %.not12.i = icmp ne ptr %53, null
-  call void @llvm.assume(i1 %.not12.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %53) ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %51, %._crit_edge15.i

@@ -2443,6 +2443,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10: ; preds = %.lr.p
   %.us-phi = phi i64 [ %41, %.lr.ph.i.us.us ], [ %56, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10 ]
   %.us-phi15 = phi ptr [ %42, %.lr.ph.i.us.us ], [ %57, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10 ]
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 %.us-phi
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
   br label %.loopexit
 
 64:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10, %.lr.ph.i
@@ -2762,6 +2763,7 @@ define void @_ZN9grpc_core23GrpcXdsTransportFactory16GrpcXdsTransport28StopConne
 
 .thread29.i.i:                                    ; preds = %.lr.ph.i.i
   %61 = getelementptr inbounds nuw i8, ptr %25, i64 %57
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %61) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core13RefCountedPtrINS4_19XdsTransportFactory12XdsTransport26ConnectivityFailureWatcherEEEPNS4_23GrpcXdsTransportFactory16GrpcXdsTransport12StateWatcherEEENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaISt4pairIKS9_SD_EEE12find_non_sooIS9_EENSO_8iteratorERSL_m.exit.i
 
 62:                                               ; preds = %.lr.ph.i.i
@@ -5028,11 +5030,12 @@ define linkonce_odr void @_ZNK4absl12lts_2024072218container_internal12raw_hash_
   %34 = xor i128 %33, %32
   %35 = trunc i128 %34 to i64
   %36 = tail call noundef i64 @_ZN4absl12lts_2024072218container_internal21PrepareInsertAfterSooEmmRNS1_12CommonFieldsE(i64 noundef %35, i64 noundef 16, ptr noundef nonnull align 8 dereferenceable(32) %7), !noalias !288
-  %37 = load ptr, ptr %17, align 8, !tbaa !83, !noalias !288, !nonnull !70, !noundef !70
+  %37 = load ptr, ptr %17, align 8, !tbaa !83, !noalias !288
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %36
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %39, align 8, !tbaa !83, !noalias !288
   %40 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %36
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core13RefCountedPtrINS4_19XdsTransportFactory12XdsTransport26ConnectivityFailureWatcherEEEPNS4_23GrpcXdsTransportFactory16GrpcXdsTransport12StateWatcherEEENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaISt4pairIKS9_SD_EEE26find_or_prepare_insert_sooIS9_EESK_INSO_8iteratorEbERKT_.exit.i
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core13RefCountedPtrINS4_19XdsTransportFactory12XdsTransport26ConnectivityFailureWatcherEEEPNS4_23GrpcXdsTransportFactory16GrpcXdsTransport12StateWatcherEEENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaISt4pairIKS9_SD_EEE26find_or_prepare_insert_sooIS9_EESK_INSO_8iteratorEbERKT_.exit.i: ; preds = %21, %16, %14
@@ -5161,7 +5164,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %49 = add i64 %.sroa.7.0, %48
   %50 = and i64 %49, %20
   %51 = tail call noundef i64 @_ZN4absl12lts_2024072218container_internal19PrepareInsertNonSooERNS1_12CommonFieldsEmNS1_8FindInfoERKNS1_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %19, i64 %50, i64 %.sroa.14.0, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core13RefCountedPtrINS4_19XdsTransportFactory12XdsTransport26ConnectivityFailureWatcherEEEPNS4_23GrpcXdsTransportFactory16GrpcXdsTransport12StateWatcherEEENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaISt4pairIKS9_SD_EEE18GetPolicyFunctionsEvE5value)
-  %52 = load ptr, ptr %4, align 8, !tbaa !83, !nonnull !70, !noundef !70
+  %52 = load ptr, ptr %4, align 8, !tbaa !83
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %51
   %.sroa.0.0.copyload.i.i.i.i22 = load ptr, ptr %29, align 8, !tbaa !83
   %54 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %51
@@ -5177,10 +5180,11 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %59
 
 59:                                               ; preds = %.thread, %.critedge21
-  %.sink74 = phi ptr [ %53, %.thread ], [ %58, %.critedge21 ]
+  %.sink75 = phi ptr [ %53, %.thread ], [ %58, %.critedge21 ]
   %.sink73 = phi ptr [ %54, %.thread ], [ %39, %.critedge21 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge21 ]
-  store ptr %.sink74, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink75) ]
+  store ptr %.sink75, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink73, ptr %.sroa.4.0..sroa_idx, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5724,7 +5728,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %44
   %52 = add i64 %.sroa.7.0, %51
   %53 = and i64 %52, %17
   %54 = tail call noundef i64 @_ZN4absl12lts_2024072218container_internal19PrepareInsertNonSooERNS1_12CommonFieldsEmNS1_8FindInfoERKNS1_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %15, i64 %53, i64 %.sroa.14.0, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core23GrpcXdsTransportFactory16GrpcXdsTransportEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SD_EEE18GetPolicyFunctionsEvE5value)
-  %55 = load ptr, ptr %4, align 8, !tbaa !83, !nonnull !70, !noundef !70
+  %55 = load ptr, ptr %4, align 8, !tbaa !83
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %54
   %.sroa.0.0.copyload.i.i.i.i26 = load ptr, ptr %26, align 8, !tbaa !83
   %57 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.175", ptr %.sroa.0.0.copyload.i.i.i.i26, i64 %54
@@ -5740,10 +5744,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %44
   br label %62
 
 62:                                               ; preds = %.thread, %.critedge23
-  %.sink79 = phi ptr [ %56, %.thread ], [ %61, %.critedge23 ]
+  %.sink80 = phi ptr [ %56, %.thread ], [ %61, %.critedge23 ]
   %.sink78 = phi ptr [ %57, %.thread ], [ %39, %.critedge23 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge23 ]
-  store ptr %.sink79, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink80) ]
+  store ptr %.sink80, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink78, ptr %.sroa.4.0..sroa_idx, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16

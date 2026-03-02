@@ -619,32 +619,30 @@ _ZNK4llvm11Instruction7isEHPadEv.exit.thread276:  ; preds = %271
   br label %_ZNK4llvm11Instruction7isEHPadEv.exit
 
 _ZN4llvm10successorsEPNS_11InstructionE.exit:     ; preds = %282
-  %287 = icmp eq i8 %266, 40
-  call void @llvm.assume(i1 %287)
-  %288 = call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #9, !noalias !146
-  %.not284307 = icmp eq i32 %288, 0
+  %287 = call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #9, !noalias !146
+  %.not284307 = icmp eq i32 %287, 0
   br i1 %.not284307, label %.loopexit, label %.lr.ph309
 
 .lr.ph309:                                        ; preds = %_ZN4llvm10successorsEPNS_11InstructionE.exit, %.lr.ph309
-  %.sroa.4.0308 = phi i32 [ %293, %.lr.ph309 ], [ 0, %_ZN4llvm10successorsEPNS_11InstructionE.exit ]
-  %289 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %.sroa.4.0308) #9
-  %290 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 80, i32 2) #8
-  %291 = call { ptr, i64 } @_ZNK4llvm10BasicBlock19getFirstInsertionPtEv(ptr noundef nonnull align 8 dereferenceable(80) %289) #8
-  %.fca.0.extract1.i210 = extractvalue { ptr, i64 } %291, 0
-  %.fca.1.extract2.i211 = extractvalue { ptr, i64 } %291, 1
+  %.sroa.4.0308 = phi i32 [ %292, %.lr.ph309 ], [ 0, %_ZN4llvm10successorsEPNS_11InstructionE.exit ]
+  %288 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %.sroa.4.0308) #9
+  %289 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 80, i32 2) #8
+  %290 = call { ptr, i64 } @_ZNK4llvm10BasicBlock19getFirstInsertionPtEv(ptr noundef nonnull align 8 dereferenceable(80) %288) #8
+  %.fca.0.extract1.i210 = extractvalue { ptr, i64 } %290, 0
+  %.fca.1.extract2.i211 = extractvalue { ptr, i64 } %290, 1
   %.not.i.i212 = icmp eq ptr %.fca.0.extract1.i210, null
-  %292 = and i64 %.fca.1.extract2.i211, 65535
-  %.sroa.4.0.i.i213 = select i1 %.not.i.i212, i64 0, i64 %292
-  call void @_ZN4llvm9StoreInstC1EPNS_5ValueES2_NS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(73) %290, ptr noundef nonnull %0, ptr noundef nonnull %32, ptr %.fca.0.extract1.i210, i64 %.sroa.4.0.i.i213) #8
-  %293 = add nuw nsw i32 %.sroa.4.0308, 1
-  %.not284 = icmp eq i32 %293, %288
+  %291 = and i64 %.fca.1.extract2.i211, 65535
+  %.sroa.4.0.i.i213 = select i1 %.not.i.i212, i64 0, i64 %291
+  call void @_ZN4llvm9StoreInstC1EPNS_5ValueES2_NS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(73) %289, ptr noundef nonnull %0, ptr noundef nonnull %32, ptr %.fca.0.extract1.i210, i64 %.sroa.4.0.i.i213) #8
+  %292 = add nuw nsw i32 %.sroa.4.0308, 1
+  %.not284 = icmp eq i32 %292, %287
   br i1 %.not284, label %.loopexit, label %.lr.ph309
 
 _ZNK4llvm11Instruction7isEHPadEv.exit:            ; preds = %271, %.thread
   %.sroa.0246.1 = phi ptr [ %.fca.0.extract1.i190, %.thread ], [ %.sroa.0246.0, %271 ]
   %.sroa.13.1 = phi i64 [ %.sroa.13.8.insert.ext, %.thread ], [ 0, %271 ]
-  %294 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 80, i32 2) #8
-  call void @_ZN4llvm9StoreInstC1EPNS_5ValueES2_NS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(73) %294, ptr noundef nonnull %0, ptr noundef nonnull %32, ptr %.sroa.0246.1, i64 %.sroa.13.1) #8
+  %293 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 80, i32 2) #8
+  call void @_ZN4llvm9StoreInstC1EPNS_5ValueES2_NS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(73) %293, ptr noundef nonnull %0, ptr noundef nonnull %32, ptr %.sroa.0246.1, i64 %.sroa.13.1) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph306, %.lr.ph309, %_ZNK4llvm11Instruction7isEHPadEv.exit.thread276, %_ZN4llvm10successorsEPNS_11InstructionE.exit, %_ZNK4llvm11Instruction7isEHPadEv.exit, %21

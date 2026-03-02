@@ -7034,8 +7034,7 @@ _ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit:
   %5 = alloca %"class.Luau::DenseHashSet.33", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.Luau::DenseHashSet.33", align 8
-  %.not.i.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !123
   tail call void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %9)

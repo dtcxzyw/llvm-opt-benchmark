@@ -5269,8 +5269,7 @@ _ZN4Luau10getMutableINS_24TypeFunctionInstanceTypeEEEPT_PKNS_4TypeE.exit:
   %23 = alloca %"class.std::optional.189", align 8
   %24 = alloca %"class.std::__cxx11::basic_string", align 8
   %25 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %1)
-  %.not.i.i = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %25) ]
   %26 = load i32, ptr %25, align 8, !tbaa !62
   %27 = icmp eq i32 %26, 20
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -13609,8 +13608,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit124.thread222: ; preds
           to label %.noexc128 unwind label %324
 
 .noexc128:                                        ; preds = %304
-  %.not.i.i127 = icmp ne ptr %305, null
-  call void @llvm.assume(i1 %.not.i.i127)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %305) ]
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
   %307 = load ptr, ptr %306, align 8, !tbaa !35
   %308 = getelementptr inbounds nuw i8, ptr %305, i64 16
@@ -28973,8 +28971,7 @@ _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %188
           to label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit135 unwind label %227
 
 _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit135: ; preds = %.lr.ph
-  %.not.i.i134 = icmp ne ptr %213, null
-  call void @llvm.assume(i1 %.not.i.i134)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %213) ]
   %214 = load i32, ptr %213, align 8, !tbaa !62
   %215 = icmp eq i32 %214, 11
   %216 = getelementptr inbounds nuw i8, ptr %213, i64 8

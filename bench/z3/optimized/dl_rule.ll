@@ -6287,8 +6287,8 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZNK15ref_vector_co
           to label %_ZN11ast_manager9mk_existsEjPKP4sortPK6symbolP4expriRS5_S9_jPKS8_jSB_.exit unwind label %544
 
 _ZN11ast_manager9mk_existsEjPKP4sortPK6symbolP4expriRS5_S9_jPKS8_jSB_.exit: ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
-  %.not.i190 = icmp ne ptr %517, null
-  br i1 %.not.i190, label %_ZN11ast_manager7inc_refEP3ast.exit.i, label %521
+  %.not.i190.not = icmp eq ptr %517, null
+  br i1 %.not.i190.not, label %521, label %_ZN11ast_manager7inc_refEP3ast.exit.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_ZN11ast_manager9mk_existsEjPKP4sortPK6symbolP4expriRS5_S9_jPKS8_jSB_.exit
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 8
@@ -6422,7 +6422,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %528, %530, %536
 
 _ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i: ; preds = %559, %553, %552
   store ptr %517, ptr %19, align 8, !tbaa !332
-  call void @llvm.assume(i1 %.not.i190)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %517) ]
   %560 = getelementptr inbounds nuw i8, ptr %517, i64 8
   %561 = load i32, ptr %560, align 4, !tbaa !246
   %562 = add i32 %561, 1
@@ -6663,7 +6663,7 @@ _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %660, %665
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(545) %21) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %.not.i190, label %670, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit228
+  br i1 %.not.i190.not, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit228, label %670
 
 670:                                              ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit
   %671 = getelementptr inbounds nuw i8, ptr %517, i64 8

@@ -3418,7 +3418,7 @@ decode_context_param.exit:                        ; preds = %43
   store i32 3, ptr %74, align 8, !tbaa !4
   br label %75
 
-75:                                               ; preds = %62, %zend_parse_arg_resource.exit, %8, %71, %70, %68, %65, %61, %59, %decode_context_param.exit
+75:                                               ; preds = %zend_parse_arg_resource.exit, %62, %8, %71, %70, %68, %65, %61, %59, %decode_context_param.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -3626,7 +3626,7 @@ decode_context_param.exit:                        ; preds = %21
   store i32 3, ptr %39, align 8, !tbaa !4
   br label %40
 
-40:                                               ; preds = %35, %16, %38, %decode_context_param.exit
+40:                                               ; preds = %16, %35, %38, %decode_context_param.exit
   ret void
 }
 
@@ -3711,7 +3711,7 @@ decode_context_param.exit:                        ; preds = %21
   store i32 3, ptr %39, align 8, !tbaa !4
   br label %40
 
-40:                                               ; preds = %35, %16, %38, %decode_context_param.exit
+40:                                               ; preds = %16, %35, %38, %decode_context_param.exit
   ret void
 }
 
@@ -4060,7 +4060,7 @@ zend_parse_arg_array_ht.exit:                     ; preds = %9, %6
   store i32 %30, ptr %28, align 4, !tbaa !51
   br label %31
 
-31:                                               ; preds = %21, %zend_parse_arg_array_ht.exit, %24
+31:                                               ; preds = %zend_parse_arg_array_ht.exit, %21, %24
   ret void
 }
 
@@ -4119,7 +4119,7 @@ define hidden void @zif_stream_context_set_default(ptr noundef %0, ptr noundef w
   store i32 %27, ptr %25, align 4, !tbaa !51
   br label %28
 
-28:                                               ; preds = %17, %11, %21
+28:                                               ; preds = %11, %17, %21
   ret void
 }
 
@@ -4210,7 +4210,7 @@ define hidden void @zif_stream_context_create(ptr noundef %0, ptr noundef writeo
   store i32 265, ptr %36, align 8, !tbaa !4
   br label %37
 
-37:                                               ; preds = %29, %25, %23, %32
+37:                                               ; preds = %23, %29, %25, %32
   ret void
 }
 
@@ -4523,7 +4523,7 @@ define hidden void @zif_stream_filter_remove(ptr noundef %0, ptr noundef writeon
   store i32 3, ptr %23, align 8, !tbaa !4
   br label %24
 
-24:                                               ; preds = %.critedge, %11, %20, %18
+24:                                               ; preds = %11, %.critedge, %20, %18
   ret void
 }
 
@@ -5461,7 +5461,7 @@ try_convert_to_string.exit.thread:                ; preds = %.critedge.critedge,
   store i32 %28, ptr %29, align 8, !tbaa !4
   br label %30
 
-30:                                               ; preds = %try_convert_to_string.exit, %5, %9, %24, %22
+30:                                               ; preds = %5, %try_convert_to_string.exit, %9, %24, %22
   ret void
 }
 

@@ -965,7 +965,7 @@ define dso_local void @_ZN4llvm19PseudoProbeVerifier17registerCallbacksERNS_28Pa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19PseudoProbeVerifier12runAfterPassENS_9StringRefENS_3AnyE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19PseudoProbeVerifier12runAfterPassENS_9StringRefENS_3AnyE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1131,8 +1131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN
   %66 = load ptr, ptr %6, align 8, !tbaa !66
   %67 = load i64, ptr %55, align 8, !tbaa !92
   %68 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef %66, i64 noundef %67) #24
-  %.not.i20 = icmp ne ptr %3, null
-  call void @llvm.assume(i1 %.not.i20)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %69 = load ptr, ptr %3, align 8, !tbaa !115, !nonnull !49, !noundef !49
   %70 = load ptr, ptr %69, align 8, !tbaa !3
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24

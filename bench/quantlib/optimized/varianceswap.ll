@@ -1045,13 +1045,12 @@ unreachable:                                      ; preds = %invoke.cont13
 define void @_ZNK8QuantLib12VarianceSwap12fetchResultsEPKNS_13PricingEngine7resultsE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %r) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZNK8QuantLib10Instrument12fetchResultsEPKNS_13PricingEngine7resultsE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %r)
-  %0 = icmp ne ptr %r, null
-  tail call void @llvm.assume(i1 %0)
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %r, ptr nonnull @_ZTIN8QuantLib13PricingEngine7resultsE, ptr nonnull @_ZTIN8QuantLib12VarianceSwap7resultsE, i64 -1) #25
-  %variance = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %2 = load double, ptr %variance, align 8, !tbaa !62
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %r) ]
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull %r, ptr nonnull @_ZTIN8QuantLib13PricingEngine7resultsE, ptr nonnull @_ZTIN8QuantLib12VarianceSwap7resultsE, i64 -1) #25
+  %variance = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1 = load double, ptr %variance, align 8, !tbaa !62
   %variance_ = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store double %2, ptr %variance_, align 8, !tbaa !57
+  store double %1, ptr %variance_, align 8, !tbaa !57
   ret void
 }
 

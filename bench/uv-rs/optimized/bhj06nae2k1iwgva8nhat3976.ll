@@ -245,8 +245,7 @@ define hidden void @"_ZN4core4iter5range125_$LT$impl$u20$core..iter..traits..dou
 
 "_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$14spec_try_rfold17h1804ec0199e35e7cE.llvm.8769610265116901195.exit": ; preds = %2, %.thread.i
   %storemerge = phi i64 [ %6, %.thread.i ], [ %.sroa.5.0.copyload, %2 ]
-  %13 = icmp ne ptr %.sroa.03.0.copyload, null
-  tail call void @llvm.assume(i1 %13)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.0.copyload) ]
   store i64 %storemerge, ptr %.sroa.03.0.copyload, align 8, !noalias !75
   ret void
 }
@@ -583,8 +582,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
 
 "_ZN4core4iter5range125_$LT$impl$u20$core..iter..traits..double_ended..DoubleEndedIterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$5rfold17h5c54e7d01f717871E.llvm.8769610265116901195.exit": ; preds = %2, %.thread.i.i
   %storemerge.i = phi i64 [ %6, %.thread.i.i ], [ %.sroa.5.0.copyload.i, %2 ]
-  %13 = icmp ne ptr %.sroa.03.0.copyload.i, null
-  tail call void @llvm.assume(i1 %13)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.0.copyload.i) ]
   store i64 %storemerge.i, ptr %.sroa.03.0.copyload.i, align 8, !noalias !126
   ret void
 }

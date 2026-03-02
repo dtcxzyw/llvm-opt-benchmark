@@ -4468,8 +4468,7 @@ entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #22
-  %cmp.i.i.i.i = icmp ne ptr %call1.i, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1.i) ]
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #22
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
@@ -4976,8 +4975,7 @@ entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #22
-  %cmp.i.i.i.i = icmp ne ptr %call1.i, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1.i) ]
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #22
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
@@ -9926,8 +9924,7 @@ entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #22
-  %cmp.i.i.i.i = icmp ne ptr %call1.i, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1.i) ]
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #22
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
@@ -10433,8 +10430,7 @@ entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #22
-  %cmp.i.i.i.i = icmp ne ptr %call1.i, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1.i) ]
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #22
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
@@ -12566,8 +12562,7 @@ entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #22
-  %cmp.i.i.i.i = icmp ne ptr %call1.i, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1.i) ]
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #22
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
@@ -13073,8 +13068,7 @@ entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #22
-  %cmp.i.i.i.i = icmp ne ptr %call1.i, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1.i) ]
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #22
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47

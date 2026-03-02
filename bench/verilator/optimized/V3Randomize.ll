@@ -6056,11 +6056,10 @@ _ZN7AstNode9privateAsI9AstVarRefP11AstNodeExprEEPT_PS_.exit244: ; preds = %_ZN7A
   br i1 %363, label %.thread321, label %_ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit.preheader
 
 _ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit.preheader: ; preds = %362
-  %.not127337417 = icmp ne ptr %.082, null
-  call void @llvm.assume(i1 %.not127337417)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.082) ]
   %364 = getelementptr inbounds nuw i8, ptr %.082, i64 64
-  %.sroa.0.0.copyload.i.i.i246418 = load i16, ptr %364, align 8, !tbaa !117
-  %365 = icmp eq i16 %.sroa.0.0.copyload.i.i.i246418, 328
+  %.sroa.0.0.copyload.i.i.i246417 = load i16, ptr %364, align 8, !tbaa !117
+  %365 = icmp eq i16 %.sroa.0.0.copyload.i.i.i246417, 328
   br i1 %365, label %_ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit._crit_edge, label %_ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit
 
 _ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit._crit_edge: ; preds = %_ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit, %_ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit.preheader
@@ -6089,8 +6088,8 @@ _ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit._crit_edge: ; preds = %_ZN7AstNod
   unreachable
 
 _ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit:   ; preds = %_ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit.preheader, %_ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit
-  %.082.sink419 = phi ptr [ %380, %_ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit ], [ %.082, %_ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit.preheader ]
-  %379 = getelementptr inbounds nuw i8, ptr %.082.sink419, i64 16
+  %.082.sink418 = phi ptr [ %380, %_ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit ], [ %.082, %_ZN7AstNode9privateIsI8AstClassPS_EEbPKS_.exit.preheader ]
+  %379 = getelementptr inbounds nuw i8, ptr %.082.sink418, i64 16
   %380 = load ptr, ptr %379, align 8, !tbaa !217, !nonnull !56, !noundef !56
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 64
   %.sroa.0.0.copyload.i.i.i246 = load i16, ptr %381, align 8, !tbaa !117

@@ -714,76 +714,75 @@ define dso_local void @phpdbg_param_debug(ptr noundef readonly captures(address_
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @phpdbg_stack_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
-  %2 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !26
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %23, label %.preheader
+define dso_local void @phpdbg_stack_free(ptr noundef captures(none) %0) local_unnamed_addr #1 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %22, label %.preheader
 
-.preheader:                                       ; preds = %1, %21
-  %.020 = phi ptr [ %6, %21 ], [ %4, %1 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.020, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !26
-  %.not28 = icmp eq ptr %6, null
-  %7 = load i32, ptr %.020, align 8, !tbaa !4
-  switch i32 %7, label %21 [
-    i32 8, label %8
-    i32 4, label %8
-    i32 7, label %15
-    i32 5, label %15
-    i32 13, label %15
-    i32 10, label %15
-    i32 11, label %15
-    i32 12, label %15
-    i32 15, label %15
-    i32 3, label %18
-    i32 2, label %18
+.preheader:                                       ; preds = %1, %20
+  %.020 = phi ptr [ %5, %20 ], [ %3, %1 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.020, i64 72
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %.not28 = icmp eq ptr %5, null
+  %6 = load i32, ptr %.020, align 8, !tbaa !4
+  switch i32 %6, label %20 [
+    i32 8, label %7
+    i32 4, label %7
+    i32 7, label %14
+    i32 5, label %14
+    i32 13, label %14
+    i32 10, label %14
+    i32 11, label %14
+    i32 12, label %14
+    i32 15, label %14
+    i32 3, label %17
+    i32 2, label %17
   ]
 
-8:                                                ; preds = %.preheader, %.preheader
-  %9 = getelementptr inbounds nuw i8, ptr %.020, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !15
-  %.not31 = icmp eq ptr %10, null
-  br i1 %.not31, label %12, label %11
+7:                                                ; preds = %.preheader, %.preheader
+  %8 = getelementptr inbounds nuw i8, ptr %.020, i64 40
+  %9 = load ptr, ptr %8, align 8, !tbaa !15
+  %.not31 = icmp eq ptr %9, null
+  br i1 %.not31, label %11, label %10
 
-11:                                               ; preds = %8
-  tail call void @_efree(ptr noundef nonnull %10) #22
-  br label %12
+10:                                               ; preds = %7
+  tail call void @_efree(ptr noundef nonnull %9) #22
+  br label %11
 
-12:                                               ; preds = %11, %8
-  %13 = getelementptr inbounds nuw i8, ptr %.020, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !20
-  %.not32 = icmp eq ptr %14, null
-  br i1 %.not32, label %21, label %.sink.split
+11:                                               ; preds = %10, %7
+  %12 = getelementptr inbounds nuw i8, ptr %.020, i64 48
+  %13 = load ptr, ptr %12, align 8, !tbaa !20
+  %.not32 = icmp eq ptr %13, null
+  br i1 %.not32, label %20, label %.sink.split
 
-15:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
-  %16 = getelementptr inbounds nuw i8, ptr %.020, i64 56
-  %17 = load ptr, ptr %16, align 8, !tbaa !17
-  %.not30 = icmp eq ptr %17, null
-  br i1 %.not30, label %21, label %.sink.split
+14:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
+  %15 = getelementptr inbounds nuw i8, ptr %.020, i64 56
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
+  %.not30 = icmp eq ptr %16, null
+  br i1 %.not30, label %20, label %.sink.split
 
-18:                                               ; preds = %.preheader, %.preheader
-  %19 = getelementptr inbounds nuw i8, ptr %.020, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !21
-  %.not29 = icmp eq ptr %20, null
-  br i1 %.not29, label %21, label %.sink.split
+17:                                               ; preds = %.preheader, %.preheader
+  %18 = getelementptr inbounds nuw i8, ptr %.020, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !21
+  %.not29 = icmp eq ptr %19, null
+  br i1 %.not29, label %20, label %.sink.split
 
-.sink.split:                                      ; preds = %18, %15, %12
-  %.sink = phi ptr [ %17, %15 ], [ %14, %12 ], [ %20, %18 ]
+.sink.split:                                      ; preds = %17, %14, %11
+  %.sink = phi ptr [ %16, %14 ], [ %13, %11 ], [ %19, %17 ]
   tail call void @_efree(ptr noundef nonnull %.sink) #22
-  br label %21
+  br label %20
 
-21:                                               ; preds = %.sink.split, %.preheader, %18, %15, %12
+20:                                               ; preds = %.sink.split, %.preheader, %17, %14, %11
   tail call void @free(ptr noundef nonnull %.020) #22
-  br i1 %.not28, label %22, label %.preheader
+  br i1 %.not28, label %21, label %.preheader
 
-22:                                               ; preds = %21
-  store ptr null, ptr %3, align 8, !tbaa !26
-  br label %23
+21:                                               ; preds = %20
+  store ptr null, ptr %2, align 8, !tbaa !26
+  br label %22
 
-23:                                               ; preds = %22, %1
+22:                                               ; preds = %21, %1
   ret void
 }
 

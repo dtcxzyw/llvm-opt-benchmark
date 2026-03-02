@@ -1569,33 +1569,32 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
   %3 = icmp ult i64 %1, 30
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %15, %2
-  %4 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %4)
+._crit_edge:                                      ; preds = %14, %2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 752, i64 noundef 8) #16
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %2, %15
-  %.sroa.01.09 = phi i64 [ %5, %15 ], [ %1, %2 ]
-  %5 = add nuw nsw i64 %.sroa.01.09, 1
-  %6 = getelementptr inbounds nuw { { i64, i32 }, { i64 } }, ptr %0, i64 %.sroa.01.09
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load atomic i64, ptr %7 acquire, align 8
-  %9 = and i64 %8, 2
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %15
+.lr.ph:                                           ; preds = %2, %14
+  %.sroa.01.09 = phi i64 [ %4, %14 ], [ %1, %2 ]
+  %4 = add nuw nsw i64 %.sroa.01.09, 1
+  %5 = getelementptr inbounds nuw { { i64, i32 }, { i64 } }, ptr %0, i64 %.sroa.01.09
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = load atomic i64, ptr %6 acquire, align 8
+  %8 = and i64 %7, 2
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %14
 
-.loopexit:                                        ; preds = %11, %._crit_edge
+.loopexit:                                        ; preds = %10, %._crit_edge
   ret void
 
-11:                                               ; preds = %.lr.ph
-  %12 = atomicrmw or ptr %7, i64 4 acq_rel, align 8
-  %13 = and i64 %12, 2
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %.loopexit, label %15
+10:                                               ; preds = %.lr.ph
+  %11 = atomicrmw or ptr %6, i64 4 acq_rel, align 8
+  %12 = and i64 %11, 2
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %.loopexit, label %14
 
-15:                                               ; preds = %11, %.lr.ph
-  %exitcond.not = icmp eq i64 %5, 30
+14:                                               ; preds = %10, %.lr.ph
+  %exitcond.not = icmp eq i64 %4, 30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
@@ -1606,35 +1605,34 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %6
+  br label %5
 
-._crit_edge:                                      ; preds = %16, %2
-  %5 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %5)
+._crit_edge:                                      ; preds = %15, %2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 256, i64 noundef 8) #16
   br label %.loopexit
 
-6:                                                ; preds = %.lr.ph, %16
-  %.sroa.01.09 = phi i64 [ %1, %.lr.ph ], [ %7, %16 ]
-  %7 = add nuw nsw i64 %.sroa.01.09, 1
-  %8 = getelementptr inbounds nuw { { i64 }, { { [0 x i8] } } }, ptr %4, i64 %.sroa.01.09
-  %9 = load atomic i64, ptr %8 acquire, align 8
-  %10 = and i64 %9, 2
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %16
+5:                                                ; preds = %.lr.ph, %15
+  %.sroa.01.09 = phi i64 [ %1, %.lr.ph ], [ %6, %15 ]
+  %6 = add nuw nsw i64 %.sroa.01.09, 1
+  %7 = getelementptr inbounds nuw { { i64 }, { { [0 x i8] } } }, ptr %4, i64 %.sroa.01.09
+  %8 = load atomic i64, ptr %7 acquire, align 8
+  %9 = and i64 %8, 2
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %15
 
-.loopexit:                                        ; preds = %12, %._crit_edge
+.loopexit:                                        ; preds = %11, %._crit_edge
   ret void
 
-12:                                               ; preds = %6
-  %13 = atomicrmw or ptr %8, i64 4 acq_rel, align 8
-  %14 = and i64 %13, 2
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %.loopexit, label %16
+11:                                               ; preds = %5
+  %12 = atomicrmw or ptr %7, i64 4 acq_rel, align 8
+  %13 = and i64 %12, 2
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %.loopexit, label %15
 
-16:                                               ; preds = %12, %6
-  %exitcond.not = icmp eq i64 %7, 30
-  br i1 %exitcond.not, label %._crit_edge, label %6
+15:                                               ; preds = %11, %5
+  %exitcond.not = icmp eq i64 %6, 30
+  br i1 %exitcond.not, label %._crit_edge, label %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4325,6 +4323,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.14580040072
 "_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$9wait_next17h010643a13cbf335bE.exit": ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.14580040072198541846.exit.i, %31
   %42 = load atomic i64, ptr %32 acquire, align 8
   %.0.i36 = inttoptr i64 %42 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.158) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.158, i64 noundef 1000, i64 noundef 8) #16
   br label %"_ZN4core3ptr136drop_in_place$LT$moka..common..concurrent..ReadOp$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$17h3d67188b300143fdE.llvm.14580040072198541846.exit"
 
@@ -7836,7 +7835,7 @@ define hidden noundef zeroext i1 @"_ZN13mini_lsm_mvcc9iterators18two_merge_itera
   br i1 %11, label %12, label %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread"
 
 "_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread": ; preds = %5, %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit", %2, %12
-  %.0 = phi i1 [ %22, %12 ], [ false, %2 ], [ true, %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit" ], [ true, %5 ]
+  %.0 = phi i1 [ %20, %12 ], [ false, %2 ], [ true, %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit" ], [ true, %5 ]
   ret i1 %.0
 
 12:                                               ; preds = %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit"
@@ -7845,17 +7844,15 @@ define hidden noundef zeroext i1 @"_ZN13mini_lsm_mvcc9iterators18two_merge_itera
   %15 = tail call { ptr, i64 } @"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17hc439b48371900679E"(ptr noundef nonnull align 8 %1)
   %.fca.0.extract1 = extractvalue { ptr, i64 } %15, 0
   %.fca.1.extract3 = extractvalue { ptr, i64 } %15, 1
-  %16 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %16)
-  %17 = icmp ne ptr %.fca.0.extract1, null
-  tail call void @llvm.assume(i1 %17)
-  %18 = sub i64 %4, %.fca.1.extract3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract1) ]
+  %16 = sub i64 %4, %.fca.1.extract3
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %.fca.1.extract3)
-  %19 = tail call i32 @memcmp(ptr nonnull readonly align 1 %14, ptr nonnull readonly align 1 %.fca.0.extract1, i64 %..i.i.i.i.i), !alias.scope !654, !noalias !667
-  %20 = sext i32 %19 to i64
-  %21 = icmp eq i32 %19, 0
-  %spec.store.select.i.i.i.i.i = select i1 %21, i64 %18, i64 %20
-  %22 = icmp slt i64 %spec.store.select.i.i.i.i.i, 0
+  %17 = tail call i32 @memcmp(ptr nonnull readonly align 1 %14, ptr nonnull readonly align 1 %.fca.0.extract1, i64 %..i.i.i.i.i), !alias.scope !654, !noalias !667
+  %18 = sext i32 %17 to i64
+  %19 = icmp eq i32 %17, 0
+  %spec.store.select.i.i.i.i.i = select i1 %19, i64 %16, i64 %18
+  %20 = icmp slt i64 %spec.store.select.i.i.i.i.i, 0
   br label %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread"
 }
 
@@ -8428,58 +8425,56 @@ define hidden noundef ptr @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29Tw
 
 12:                                               ; preds = %5
   %13 = tail call { ptr, i64 } @"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17hc439b48371900679E"(ptr noundef nonnull align 8 %0)
-  %.fca.0.extract = extractvalue { ptr, i64 } %13, 0
   %.fca.1.extract = extractvalue { ptr, i64 } %13, 1
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = load i64, ptr %3, align 8, !noundef !4
-  %17 = icmp ne ptr %.fca.0.extract, null
-  tail call void @llvm.assume(i1 %17)
-  %.not.i.i.i = icmp eq i64 %.fca.1.extract, %16
+  %14 = load i64, ptr %3, align 8, !noundef !4
+  %.not.i.i.i = icmp eq i64 %.fca.1.extract, %14
   br i1 %.not.i.i.i, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb155c7fa620722ecE.exit", label %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread"
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb155c7fa620722ecE.exit": ; preds = %12
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.fca.0.extract, ptr nonnull readonly align 1 %15, i64 %.fca.1.extract), !alias.scope !1078
-  %18 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %18, label %19, label %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread"
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
+  %.fca.0.extract = extractvalue { ptr, i64 } %13, 0
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.fca.0.extract, ptr nonnull readonly align 1 %16, i64 %.fca.1.extract), !alias.scope !1078
+  %17 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %17, label %18, label %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread"
 
-19:                                               ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb155c7fa620722ecE.exit"
+18:                                               ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb155c7fa620722ecE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1085)
-  %20 = load i8, ptr %6, align 8, !range !344, !alias.scope !1085, !noundef !4
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %25, label %22
+  %19 = load i8, ptr %6, align 8, !range !344, !alias.scope !1085, !noundef !4
+  %20 = trunc nuw i8 %19 to i1
+  br i1 %20, label %24, label %21
 
-22:                                               ; preds = %19
-  %23 = load i8, ptr %9, align 8, !range !344, !alias.scope !1085, !noundef !4
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %31, label %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread"
+21:                                               ; preds = %18
+  %22 = load i8, ptr %9, align 8, !range !344, !alias.scope !1085, !noundef !4
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %30, label %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread"
 
-25:                                               ; preds = %19
+24:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1085
   store ptr @anon.2d959d102d7682cc7cbcc0dd1a59e417.79.llvm.7682092217504716512, ptr %2, align 8, !noalias !1085
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 1, ptr %26, align 8, !noalias !1085
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %27, align 8, !noalias !1085
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr @anon.2d959d102d7682cc7cbcc0dd1a59e417.13.llvm.7682092217504716512, ptr %28, align 8, !noalias !1085
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 0, ptr %29, align 8, !noalias !1085
-  %30 = call noundef nonnull ptr @_ZN6anyhow9__private10format_err17h249a834d293792c1E.llvm.7682092217504716512(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !1085
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 1, ptr %25, align 8, !noalias !1085
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr null, ptr %26, align 8, !noalias !1085
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr @anon.2d959d102d7682cc7cbcc0dd1a59e417.13.llvm.7682092217504716512, ptr %27, align 8, !noalias !1085
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 0, ptr %28, align 8, !noalias !1085
+  %29 = call noundef nonnull ptr @_ZN6anyhow9__private10format_err17h249a834d293792c1E.llvm.7682092217504716512(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !1085
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1085
   br label %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread"
 
-31:                                               ; preds = %22
-  %32 = tail call noundef ptr @"_ZN102_$LT$mini_lsm_mvcc..lsm_iterator..LsmIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17hf0bf2b2459443a71E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %0)
-  %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread", label %33
+30:                                               ; preds = %21
+  %31 = tail call noundef ptr @"_ZN102_$LT$mini_lsm_mvcc..lsm_iterator..LsmIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17hf0bf2b2459443a71E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %0)
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread", label %32
 
-33:                                               ; preds = %31
+32:                                               ; preds = %30
   store i8 1, ptr %6, align 8, !alias.scope !1085
   br label %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread"
 
-"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread": ; preds = %33, %31, %25, %22, %12, %5, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb155c7fa620722ecE.exit", %1
-  %.0 = phi ptr [ null, %5 ], [ null, %12 ], [ null, %1 ], [ null, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb155c7fa620722ecE.exit" ], [ %30, %25 ], [ %32, %33 ], [ null, %22 ], [ null, %31 ]
+"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h8eea8344cad9b18eE.exit.thread": ; preds = %32, %30, %24, %21, %12, %5, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb155c7fa620722ecE.exit", %1
+  %.0 = phi ptr [ null, %5 ], [ null, %12 ], [ null, %1 ], [ null, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb155c7fa620722ecE.exit" ], [ %29, %24 ], [ %31, %32 ], [ null, %21 ], [ null, %30 ]
   ret ptr %.0
 }
 
@@ -8563,11 +8558,11 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeI
   %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr261drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$mini_lsm_mvcc..lsm_iterator..LsmIterator$GT$$GT$$GT$17h1746c8ccb2c366eaE"(ptr noalias noundef nonnull align 8 dereferenceable(424) %4) #35
-          to label %common.resume unwind label %40
+          to label %common.resume unwind label %38
 
 10:                                               ; preds = %3
   %11 = icmp eq ptr %7, null
-  br i1 %11, label %12, label %33
+  br i1 %11, label %12, label %31
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 360
@@ -8595,59 +8590,57 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeI
 .noexc:                                           ; preds = %22
   %.fca.0.extract1.i = extractvalue { ptr, i64 } %25, 0
   %.fca.1.extract3.i = extractvalue { ptr, i64 } %25, 1
-  %26 = icmp ne ptr %24, null
-  call void @llvm.assume(i1 %26)
-  %27 = icmp ne ptr %.fca.0.extract1.i, null
-  call void @llvm.assume(i1 %27)
-  %28 = sub i64 %14, %.fca.1.extract3.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %24) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract1.i) ]
+  %26 = sub i64 %14, %.fca.1.extract3.i
   %..i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %14, i64 %.fca.1.extract3.i)
-  %29 = call i32 @memcmp(ptr nonnull readonly align 1 %24, ptr nonnull readonly align 1 %.fca.0.extract1.i, i64 %..i.i.i.i.i.i), !alias.scope !1135, !noalias !1148
-  %30 = sext i32 %29 to i64
-  %31 = icmp eq i32 %29, 0
-  %spec.store.select.i.i.i.i.i.i = select i1 %31, i64 %28, i64 %30
+  %27 = call i32 @memcmp(ptr nonnull readonly align 1 %24, ptr nonnull readonly align 1 %.fca.0.extract1.i, i64 %..i.i.i.i.i.i), !alias.scope !1135, !noalias !1148
+  %28 = sext i32 %27 to i64
+  %29 = icmp eq i32 %27, 0
+  %spec.store.select.i.i.i.i.i.i = select i1 %29, i64 %26, i64 %28
   %spec.store.select.i.i.i.i.i.i.lobit = lshr i64 %spec.store.select.i.i.i.i.i.i, 63
-  %32 = trunc nuw nsw i64 %spec.store.select.i.i.i.i.i.i.lobit to i8
+  %30 = trunc nuw nsw i64 %spec.store.select.i.i.i.i.i.i.lobit to i8
   br label %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17h0c8a8ae819c72f98E.llvm.14580040072198541846.exit"
 
-33:                                               ; preds = %10
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %7, ptr %34, align 8
+31:                                               ; preds = %10
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %7, ptr %32, align 8
   store i64 3, ptr %0, align 8
   invoke void @"_ZN4core3ptr106drop_in_place$LT$mini_lsm_mvcc..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIteratorInternal$GT$17hf83659d5429214d0E.llvm.14689451251361528239"(ptr noalias noundef nonnull align 8 dereferenceable(192) %5)
-          to label %"_ZN4core3ptr261drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$mini_lsm_mvcc..lsm_iterator..LsmIterator$GT$$GT$$GT$17h1746c8ccb2c366eaE.exit" unwind label %35
+          to label %"_ZN4core3ptr261drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$mini_lsm_mvcc..lsm_iterator..LsmIterator$GT$$GT$$GT$17h1746c8ccb2c366eaE.exit" unwind label %33
+
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$mini_lsm_mvcc..lsm_iterator..LsmIterator$GT$17h62daf41af29a1bacE"(ptr noalias noundef nonnull align 8 dereferenceable(424) %4)
+          to label %common.resume unwind label %35
 
 35:                                               ; preds = %33
   %36 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$mini_lsm_mvcc..lsm_iterator..LsmIterator$GT$17h62daf41af29a1bacE"(ptr noalias noundef nonnull align 8 dereferenceable(424) %4)
-          to label %common.resume unwind label %37
-
-37:                                               ; preds = %35
-  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable
 
-common.resume:                                    ; preds = %8, %35
-  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %9, %8 ]
+common.resume:                                    ; preds = %8, %33
+  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %9, %8 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr261drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$mini_lsm_mvcc..lsm_iterator..LsmIterator$GT$$GT$$GT$17h1746c8ccb2c366eaE.exit": ; preds = %33
+"_ZN4core3ptr261drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$mini_lsm_mvcc..lsm_iterator..LsmIterator$GT$$GT$$GT$17h1746c8ccb2c366eaE.exit": ; preds = %31
   call void @"_ZN4core3ptr61drop_in_place$LT$mini_lsm_mvcc..lsm_iterator..LsmIterator$GT$17h62daf41af29a1bacE"(ptr noalias noundef nonnull align 8 dereferenceable(424) %4)
-  br label %39
+  br label %37
 
 "_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17h0c8a8ae819c72f98E.llvm.14580040072198541846.exit": ; preds = %.noexc, %15, %12
-  %.0.i = phi i8 [ %32, %.noexc ], [ 0, %12 ], [ 1, %15 ]
+  %.0.i = phi i8 [ %30, %.noexc ], [ 0, %12 ], [ 1, %15 ]
   store i8 %.0.i, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(424) %4, i64 424, i1 false)
-  br label %39
+  br label %37
 
-39:                                               ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17h0c8a8ae819c72f98E.llvm.14580040072198541846.exit", %"_ZN4core3ptr261drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$mini_lsm_mvcc..lsm_iterator..LsmIterator$GT$$GT$$GT$17h1746c8ccb2c366eaE.exit"
+37:                                               ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17h0c8a8ae819c72f98E.llvm.14580040072198541846.exit", %"_ZN4core3ptr261drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$mini_lsm_mvcc..lsm_iterator..LsmIterator$GT$$GT$$GT$17h1746c8ccb2c366eaE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-40:                                               ; preds = %8
-  %41 = landingpad { ptr, i32 }
+38:                                               ; preds = %8
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable
@@ -10479,22 +10472,20 @@ define hidden noundef ptr @"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_itera
   %76 = tail call { ptr, i64 } @"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17hc439b48371900679E"(ptr noundef nonnull align 8 %0)
   %.fca.0.extract1.i = extractvalue { ptr, i64 } %76, 0
   %.fca.1.extract3.i = extractvalue { ptr, i64 } %76, 1
-  %77 = icmp ne ptr %75, null
-  tail call void @llvm.assume(i1 %77)
-  %78 = icmp ne ptr %.fca.0.extract1.i, null
-  tail call void @llvm.assume(i1 %78)
-  %79 = sub i64 %65, %.fca.1.extract3.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %75) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract1.i) ]
+  %77 = sub i64 %65, %.fca.1.extract3.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %65, i64 %.fca.1.extract3.i)
-  %80 = tail call i32 @memcmp(ptr nonnull readonly align 1 %75, ptr nonnull readonly align 1 %.fca.0.extract1.i, i64 %..i.i.i.i.i.i), !alias.scope !1883, !noalias !1896
-  %81 = sext i32 %80 to i64
-  %82 = icmp eq i32 %80, 0
-  %spec.store.select.i.i.i.i.i.i = select i1 %82, i64 %79, i64 %81
+  %78 = tail call i32 @memcmp(ptr nonnull readonly align 1 %75, ptr nonnull readonly align 1 %.fca.0.extract1.i, i64 %..i.i.i.i.i.i), !alias.scope !1883, !noalias !1896
+  %79 = sext i32 %78 to i64
+  %80 = icmp eq i32 %78, 0
+  %spec.store.select.i.i.i.i.i.i = select i1 %80, i64 %77, i64 %79
   %spec.store.select.i.i.i.i.i.i.lobit = lshr i64 %spec.store.select.i.i.i.i.i.i, 63
-  %83 = trunc nuw nsw i64 %spec.store.select.i.i.i.i.i.i.lobit to i8
+  %81 = trunc nuw nsw i64 %spec.store.select.i.i.i.i.i.i.lobit to i8
   br label %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17h0c8a8ae819c72f98E.llvm.14580040072198541846.exit"
 
 "_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17h0c8a8ae819c72f98E.llvm.14580040072198541846.exit": ; preds = %63, %66, %73
-  %.0.i25 = phi i8 [ %83, %73 ], [ 0, %63 ], [ 1, %66 ]
+  %.0.i25 = phi i8 [ %81, %73 ], [ 0, %63 ], [ 1, %66 ]
   store i8 %.0.i25, ptr %3, align 8
   br label %"_ZN113_$LT$mini_lsm_mvcc..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17h80c015973b93c4d5E.exit"
 

@@ -484,7 +484,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %22, %34
   call void @xmlXPathFreeObject(ptr noundef nonnull %58) #14
   br label %156
 
-156:                                              ; preds = %2, %php_sxe_get_first_node_non_destructive.exit.thread, %php_sxe_get_first_node_non_destructive.exit, %10, %.loopexit, %65
+156:                                              ; preds = %php_sxe_get_first_node_non_destructive.exit.thread, %php_sxe_get_first_node_non_destructive.exit, %10, %2, %.loopexit, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -935,7 +935,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %17, %29
   store i32 262, ptr %88, align 8, !tbaa !9
   br label %89
 
-89:                                               ; preds = %2, %63, %62, %87, %85, %31
+89:                                               ; preds = %63, %62, %87, %85, %2, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1047,7 +1047,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %18, %30
   call fastcc void @sxe_add_namespace_name_raw(ptr noundef nonnull readonly %1, ptr noundef nonnull %spec.select.i, ptr noundef readonly %.val)
   br label %44
 
-44:                                               ; preds = %2, %php_sxe_get_first_node_non_destructive.exit.thread, %php_sxe_get_first_node_non_destructive.exit, %38, %41, %35, %32
+44:                                               ; preds = %php_sxe_get_first_node_non_destructive.exit.thread, %php_sxe_get_first_node_non_destructive.exit, %38, %41, %35, %32, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1405,7 +1405,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %21, %32
   call fastcc void @node_as_zval(ptr noundef nonnull %12, ptr noundef nonnull %.0.i, ptr noundef %1, i32 noundef 2, ptr noundef null, ptr noundef %35, i32 noundef %37)
   br label %38
 
-38:                                               ; preds = %2, %php_sxe_get_first_node_non_destructive.exit.thread, %php_sxe_get_first_node_non_destructive.exit, %9, %34
+38:                                               ; preds = %php_sxe_get_first_node_non_destructive.exit.thread, %php_sxe_get_first_node_non_destructive.exit, %9, %2, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1515,7 +1515,7 @@ zend_string_alloc.exit:                           ; preds = %php_sxe_get_first_n
   store i32 6, ptr %43, align 8, !tbaa !9
   br label %44
 
-44:                                               ; preds = %41, %zend_string_alloc.exit, %5
+44:                                               ; preds = %5, %41, %zend_string_alloc.exit
   ret void
 }
 
@@ -1610,7 +1610,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %17, %29
   call fastcc void @node_as_zval(ptr noundef nonnull %12, ptr noundef nonnull %.0.i, ptr noundef %1, i32 noundef 3, ptr noundef null, ptr noundef %35, i32 noundef %37)
   br label %38
 
-38:                                               ; preds = %2, %php_sxe_get_first_node_non_destructive.exit.thread, %31, %php_sxe_get_first_node_non_destructive.exit, %34
+38:                                               ; preds = %php_sxe_get_first_node_non_destructive.exit.thread, %31, %php_sxe_get_first_node_non_destructive.exit, %2, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1812,7 +1812,7 @@ php_libxml_invalidate_node_list_cache_from_doc.exit: ; preds = %52, %49, %41, %4
   call void %86(ptr noundef nonnull %84) #14
   br label %87
 
-87:                                               ; preds = %2, %83, %85, %40, %29, %18
+87:                                               ; preds = %83, %85, %2, %40, %29, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2037,7 +2037,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %26, %38
   call void %85(ptr noundef nonnull %83) #14
   br label %86
 
-86:                                               ; preds = %2, %55, %84, %82, %.thread, %18
+86:                                               ; preds = %55, %84, %82, %2, %.thread, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2069,7 +2069,7 @@ define hidden void @zim_SimpleXMLElement___toString(ptr noundef readonly capture
   %8 = tail call fastcc i32 @sxe_object_cast_ex(ptr noundef %7, ptr noundef %1, i32 noundef 6)
   br label %9
 
-9:                                                ; preds = %.critedge, %5
+9:                                                ; preds = %5, %.critedge
   ret void
 }
 
@@ -2812,7 +2812,7 @@ php_sxe_count_elements_helper.exit:               ; preds = %.lr.ph.i, %php_sxe_
   store i32 4, ptr %24, align 8, !tbaa !9
   br label %25
 
-25:                                               ; preds = %php_sxe_count_elements_helper.exit, %8
+25:                                               ; preds = %8, %php_sxe_count_elements_helper.exit
   ret void
 }
 
@@ -2951,7 +2951,7 @@ define hidden void @zim_SimpleXMLElement_valid(ptr noundef readonly captures(non
   store i32 %10, ptr %11, align 8, !tbaa !9
   br label %12
 
-12:                                               ; preds = %.critedge, %5
+12:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -3021,7 +3021,7 @@ define hidden void @zim_SimpleXMLElement_current(ptr noundef readonly captures(n
   store i32 %32, ptr %33, align 8, !tbaa !9
   br label %34
 
-34:                                               ; preds = %29, %12, %5
+34:                                               ; preds = %5, %29, %12
   ret void
 }
 
@@ -3085,7 +3085,7 @@ zend_string_alloc.exit:                           ; preds = %12
   store i32 262, ptr %32, align 8, !tbaa !9
   br label %33
 
-33:                                               ; preds = %zend_string_alloc.exit, %18, %11, %5
+33:                                               ; preds = %5, %zend_string_alloc.exit, %18, %11
   ret void
 }
 
@@ -3250,7 +3250,7 @@ define hidden void @zim_SimpleXMLElement_hasChildren(ptr noundef readonly captur
   store i32 %32, ptr %33, align 8, !tbaa !9
   br label %34
 
-34:                                               ; preds = %.critedge, %16, %7
+34:                                               ; preds = %7, %.critedge, %16
   ret void
 }
 
@@ -3322,7 +3322,7 @@ define hidden void @zim_SimpleXMLElement_getChildren(ptr noundef readonly captur
   store i32 %35, ptr %36, align 8, !tbaa !9
   br label %37
 
-37:                                               ; preds = %.critedge, %12, %32, %7
+37:                                               ; preds = %7, %.critedge, %12, %32
   ret void
 }
 
@@ -3349,8 +3349,7 @@ zend_hash_find_ptr.exit.i:                        ; preds = %.lr.ph.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 576
   %10 = load ptr, ptr %9, align 8, !tbaa !112
   %11 = tail call ptr @zend_hash_find(ptr noundef nonnull %7, ptr noundef %10) #14
-  %.not.i.i = icmp ne ptr %11, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   %12 = load ptr, ptr %11, align 8, !tbaa !9, !nonnull !106, !noundef !106
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !9
@@ -3479,8 +3478,7 @@ zend_hash_find_ptr.exit.i:                        ; preds = %.lr.ph.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 576
   %54 = load ptr, ptr %53, align 8, !tbaa !112
   %55 = call ptr @zend_hash_find(ptr noundef nonnull %51, ptr noundef %54) #14
-  %.not.i.i = icmp ne ptr %55, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %55) ]
   %56 = load ptr, ptr %55, align 8, !tbaa !9, !nonnull !106, !noundef !106
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !9
@@ -3545,7 +3543,7 @@ zend_string_copy.exit:                            ; preds = %81, %77, %php_sxe_f
   store i32 776, ptr %92, align 8, !tbaa !9
   br label %93
 
-93:                                               ; preds = %2, %40, %zend_string_copy.exit, %18
+93:                                               ; preds = %40, %zend_string_copy.exit, %2, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3695,8 +3693,7 @@ zend_hash_find_ptr.exit.i:                        ; preds = %.lr.ph.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 576
   %66 = load ptr, ptr %65, align 8, !tbaa !112
   %67 = call ptr @zend_hash_find(ptr noundef nonnull %63, ptr noundef %66) #14
-  %.not.i.i = icmp ne ptr %67, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %67) ]
   %68 = load ptr, ptr %67, align 8, !tbaa !9, !nonnull !106, !noundef !106
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !9
@@ -3761,7 +3758,7 @@ zend_string_copy.exit:                            ; preds = %93, %89, %php_sxe_f
   store i32 776, ptr %104, align 8, !tbaa !9
   br label %105
 
-105:                                              ; preds = %2, %52, %zend_string_copy.exit, %28, %24, %18
+105:                                              ; preds = %52, %zend_string_copy.exit, %2, %28, %24, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3918,7 +3915,7 @@ zend_string_copy.exit:                            ; preds = %77, %73, %69
   %87 = call i32 @php_libxml_increment_node_ptr(ptr noundef nonnull %11, ptr noundef %86, ptr noundef null) #14
   br label %88
 
-88:                                               ; preds = %2, %66, %zend_string_copy.exit, %32, %27, %20
+88:                                               ; preds = %66, %zend_string_copy.exit, %2, %32, %27, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4595,8 +4592,7 @@ zend_hash_find_ptr.exit.i:                        ; preds = %.lr.ph.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 576
   %39 = load ptr, ptr %38, align 8, !tbaa !112
   %40 = call ptr @zend_hash_find(ptr noundef nonnull %36, ptr noundef %39) #14
-  %.not.i.i = icmp ne ptr %40, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %40) ]
   %41 = load ptr, ptr %40, align 8, !tbaa !9, !nonnull !106, !noundef !106
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !9

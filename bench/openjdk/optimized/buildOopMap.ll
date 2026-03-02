@@ -1851,92 +1851,91 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i100: ; preds = %55
 _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit10.i104: ; preds = %558, %556
   %.0.i.i9.i105 = phi ptr [ %553, %556 ], [ %559, %558 ]
   %560 = call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 40, ptr noundef nonnull %15) #11
-  %561 = icmp ne ptr %560, null
-  call void @llvm.assume(i1 %561)
-  %562 = getelementptr inbounds nuw i8, ptr %.0.i.i.i102, i64 2
-  %563 = getelementptr inbounds nuw i8, ptr %.0.i.i9.i105, i64 8
-  store ptr %562, ptr %560, align 8
-  %564 = getelementptr inbounds nuw i8, ptr %560, i64 8
-  store ptr %563, ptr %564, align 8
-  %565 = getelementptr inbounds nuw i8, ptr %560, i64 16
-  %566 = getelementptr inbounds nuw i8, ptr %560, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %565, i8 0, i64 16, i1 false)
-  store ptr %486, ptr %566, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %560) ]
+  %561 = getelementptr inbounds nuw i8, ptr %.0.i.i.i102, i64 2
+  %562 = getelementptr inbounds nuw i8, ptr %.0.i.i9.i105, i64 8
+  store ptr %561, ptr %560, align 8
+  %563 = getelementptr inbounds nuw i8, ptr %560, i64 8
+  store ptr %562, ptr %563, align 8
+  %564 = getelementptr inbounds nuw i8, ptr %560, i64 16
+  %565 = getelementptr inbounds nuw i8, ptr %560, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %564, i8 0, i64 16, i1 false)
+  store ptr %486, ptr %565, align 8
   br label %_ZN7OopFlow4makeEP5ArenaiP7Compile.exit109
 
 _ZN7OopFlow4makeEP5ArenaiP7Compile.exit109:       ; preds = %.thread._ZN7OopFlow4makeEP5ArenaiP7Compile.exit109_crit_edge, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit10.i104
-  %567 = phi ptr [ %.pre176, %.thread._ZN7OopFlow4makeEP5ArenaiP7Compile.exit109_crit_edge ], [ %562, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit10.i104 ]
+  %566 = phi ptr [ %.pre176, %.thread._ZN7OopFlow4makeEP5ArenaiP7Compile.exit109_crit_edge ], [ %561, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit10.i104 ]
   %.2 = phi ptr [ %.075.ph148, %.thread._ZN7OopFlow4makeEP5ArenaiP7Compile.exit109_crit_edge ], [ %560, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit10.i104 ]
-  %568 = getelementptr inbounds nuw i8, ptr %.2, i64 24
-  %569 = load ptr, ptr %568, align 8
-  store ptr null, ptr %568, align 8
-  %570 = getelementptr inbounds nuw i8, ptr %.077.lcssa, i64 76
-  %571 = load i32, ptr %570, align 4
-  %572 = zext i32 %571 to i64
-  %573 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %572
-  %574 = load ptr, ptr %573, align 8
-  %575 = getelementptr inbounds nuw i8, ptr %574, i64 16
-  %576 = load ptr, ptr %575, align 8
-  %577 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  store ptr %576, ptr %577, align 8
-  %578 = load ptr, ptr %574, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %567, ptr align 2 %578, i64 %456, i1 false)
-  %579 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %580 = load ptr, ptr %579, align 8
-  %581 = getelementptr inbounds nuw i8, ptr %574, i64 8
-  %582 = load ptr, ptr %581, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %580, ptr align 8 %582, i64 %459, i1 false)
+  %567 = getelementptr inbounds nuw i8, ptr %.2, i64 24
+  %568 = load ptr, ptr %567, align 8
+  store ptr null, ptr %567, align 8
+  %569 = getelementptr inbounds nuw i8, ptr %.077.lcssa, i64 76
+  %570 = load i32, ptr %569, align 4
+  %571 = zext i32 %570 to i64
+  %572 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %571
+  %573 = load ptr, ptr %572, align 8
+  %574 = getelementptr inbounds nuw i8, ptr %573, i64 16
+  %575 = load ptr, ptr %574, align 8
+  %576 = getelementptr inbounds nuw i8, ptr %.2, i64 16
+  store ptr %575, ptr %576, align 8
+  %577 = load ptr, ptr %573, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %566, ptr align 2 %577, i64 %456, i1 false)
+  %578 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  %579 = load ptr, ptr %578, align 8
+  %580 = getelementptr inbounds nuw i8, ptr %573, i64 8
+  %581 = load ptr, ptr %580, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %579, ptr align 8 %581, i64 %459, i1 false)
   br label %.loopexit117
 
 .loopexit117:                                     ; preds = %.preheader, %._crit_edge134, %539, %_ZN7OopFlow4makeEP5ArenaiP7Compile.exit109
   %.181 = phi ptr [ %.2, %_ZN7OopFlow4makeEP5ArenaiP7Compile.exit109 ], [ %526, %539 ], [ %526, %._crit_edge134 ], [ %526, %.preheader ]
-  %.1 = phi ptr [ %569, %_ZN7OopFlow4makeEP5ArenaiP7Compile.exit109 ], [ %.075.ph148, %539 ], [ %.075.ph148, %._crit_edge134 ], [ %.075.ph148, %.preheader ]
-  %583 = getelementptr inbounds nuw i8, ptr %.181, i64 16
-  store ptr null, ptr %583, align 8
-  %584 = load i32, ptr %503, align 4
-  %585 = zext i32 %584 to i64
-  %586 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %585
-  store ptr %.181, ptr %586, align 8
-  store ptr %494, ptr %583, align 8
-  %587 = load ptr, ptr %6, align 8
-  %588 = getelementptr inbounds nuw i8, ptr %587, i64 2160
-  %589 = load ptr, ptr %588, align 8
-  call void @_ZN7OopFlow13compute_reachEP13PhaseRegAllociP4Dict(ptr noundef nonnull align 8 dereferenceable(40) %.181, ptr noundef %589, i32 noundef %11, ptr noundef nonnull %35)
-  %590 = getelementptr inbounds nuw i8, ptr %494, i64 72
-  %591 = load i32, ptr %590, align 8
-  %.not152 = icmp eq i32 %591, 0
+  %.1 = phi ptr [ %568, %_ZN7OopFlow4makeEP5ArenaiP7Compile.exit109 ], [ %.075.ph148, %539 ], [ %.075.ph148, %._crit_edge134 ], [ %.075.ph148, %.preheader ]
+  %582 = getelementptr inbounds nuw i8, ptr %.181, i64 16
+  store ptr null, ptr %582, align 8
+  %583 = load i32, ptr %503, align 4
+  %584 = zext i32 %583 to i64
+  %585 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %584
+  store ptr %.181, ptr %585, align 8
+  store ptr %494, ptr %582, align 8
+  %586 = load ptr, ptr %6, align 8
+  %587 = getelementptr inbounds nuw i8, ptr %586, i64 2160
+  %588 = load ptr, ptr %587, align 8
+  call void @_ZN7OopFlow13compute_reachEP13PhaseRegAllociP4Dict(ptr noundef nonnull align 8 dereferenceable(40) %.181, ptr noundef %588, i32 noundef %11, ptr noundef nonnull %35)
+  %589 = getelementptr inbounds nuw i8, ptr %494, i64 72
+  %590 = load i32, ptr %589, align 8
+  %.not152 = icmp eq i32 %590, 0
   br i1 %.not152, label %.loopexit, label %.lr.ph145, !llvm.loop !33
 
 .lr.ph145:                                        ; preds = %.loopexit117
-  %592 = getelementptr inbounds nuw i8, ptr %494, i64 64
-  br label %593, !llvm.loop !33
+  %591 = getelementptr inbounds nuw i8, ptr %494, i64 64
+  br label %592, !llvm.loop !33
 
-593:                                              ; preds = %.lr.ph145, %_ZN10Block_List4pushEP5Block.exit111
+592:                                              ; preds = %.lr.ph145, %_ZN10Block_List4pushEP5Block.exit111
   %indvars.iv172 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next173, %_ZN10Block_List4pushEP5Block.exit111 ]
-  %594 = load ptr, ptr %592, align 8
-  %595 = getelementptr inbounds nuw ptr, ptr %594, i64 %indvars.iv172
-  %596 = load ptr, ptr %595, align 8
-  %597 = load i32, ptr %32, align 8
-  %598 = add i32 %597, 1
-  store i32 %598, ptr %32, align 8
-  %599 = load i32, ptr %5, align 8
-  %.not.i.i110 = icmp ult i32 %597, %599
-  br i1 %.not.i.i110, label %_ZN10Block_List4pushEP5Block.exit111, label %600
+  %593 = load ptr, ptr %591, align 8
+  %594 = getelementptr inbounds nuw ptr, ptr %593, i64 %indvars.iv172
+  %595 = load ptr, ptr %594, align 8
+  %596 = load i32, ptr %32, align 8
+  %597 = add i32 %596, 1
+  store i32 %597, ptr %32, align 8
+  %598 = load i32, ptr %5, align 8
+  %.not.i.i110 = icmp ult i32 %596, %598
+  br i1 %.not.i.i110, label %_ZN10Block_List4pushEP5Block.exit111, label %599
 
-600:                                              ; preds = %593
-  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %597) #11
+599:                                              ; preds = %592
+  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %596) #11
   br label %_ZN10Block_List4pushEP5Block.exit111
 
-_ZN10Block_List4pushEP5Block.exit111:             ; preds = %593, %600
-  %601 = load ptr, ptr %28, align 8
-  %602 = zext i32 %597 to i64
-  %603 = getelementptr inbounds nuw ptr, ptr %601, i64 %602
-  store ptr %596, ptr %603, align 8
+_ZN10Block_List4pushEP5Block.exit111:             ; preds = %592, %599
+  %600 = load ptr, ptr %28, align 8
+  %601 = zext i32 %596 to i64
+  %602 = getelementptr inbounds nuw ptr, ptr %600, i64 %601
+  store ptr %595, ptr %602, align 8
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %604 = load i32, ptr %590, align 8
-  %605 = zext i32 %604 to i64
-  %606 = icmp samesign ult i64 %indvars.iv.next173, %605
-  br i1 %606, label %593, label %..loopexit_crit_edge, !llvm.loop !36
+  %603 = load i32, ptr %589, align 8
+  %604 = zext i32 %603 to i64
+  %605 = icmp samesign ult i64 %indvars.iv.next173, %604
+  br i1 %605, label %592, label %..loopexit_crit_edge, !llvm.loop !36
 
 .outer._crit_edge:                                ; preds = %.loopexit, %.backedge, %.preheader118
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %4) #11

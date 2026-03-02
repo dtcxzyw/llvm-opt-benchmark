@@ -13147,8 +13147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2742: ; preds = %5
   %5657 = load ptr, ptr %5656, align 8, !tbaa !18
   %5658 = call fastcc noundef ptr @_ZL10checkRangePN5Yosys3AST7AstNodeES2_(ptr noundef %5655, ptr noundef %5657)
   store ptr %5658, ptr %162, align 8, !tbaa !101
-  %.not2234 = icmp ne ptr %5658, null
-  call void @llvm.assume(i1 %.not2234)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5658) ]
   %5659 = load ptr, ptr %161, align 8, !tbaa !101
   %5660 = getelementptr inbounds nuw i8, ptr %5659, i64 8
   call void @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %5660, ptr noundef nonnull align 8 dereferenceable(8) %162)

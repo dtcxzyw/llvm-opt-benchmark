@@ -4047,28 +4047,27 @@ define internal fastcc void @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u
   br i1 %2, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h5c4ed68500e1e060E.exit", label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %6 = load i64, ptr %5, align 8, !alias.scope !2574, !noalias !2585, !noundef !36
-  %7 = load i64, ptr %.0.val, align 8, !alias.scope !2574, !noalias !2585, !noundef !36
-  %8 = icmp eq i64 %7, %6
-  br i1 %8, label %9, label %_ZN10serde_json3ser9Formatter10end_object17hdc8ea3eb63864028E.exit.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %5 = load i64, ptr %4, align 8, !alias.scope !2574, !noalias !2585, !noundef !36
+  %6 = load i64, ptr %.0.val, align 8, !alias.scope !2574, !noalias !2585, !noundef !36
+  %7 = icmp eq i64 %6, %5
+  br i1 %7, label %8, label %_ZN10serde_json3ser9Formatter10end_object17hdc8ea3eb63864028E.exit.i
 
-9:                                                ; preds = %3
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h8cfea285f73d90eeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.0.val, i64 noundef %6, i64 noundef 1), !noalias !2585
-  %.pre.i.i.i.i.i.i.i = load i64, ptr %5, align 8, !alias.scope !2588, !noalias !2585
+8:                                                ; preds = %3
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h8cfea285f73d90eeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.0.val, i64 noundef %5, i64 noundef 1), !noalias !2585
+  %.pre.i.i.i.i.i.i.i = load i64, ptr %4, align 8, !alias.scope !2588, !noalias !2585
   br label %_ZN10serde_json3ser9Formatter10end_object17hdc8ea3eb63864028E.exit.i
 
-_ZN10serde_json3ser9Formatter10end_object17hdc8ea3eb63864028E.exit.i: ; preds = %9, %3
-  %10 = phi i64 [ %6, %3 ], [ %.pre.i.i.i.i.i.i.i, %9 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %12 = load ptr, ptr %11, align 8, !alias.scope !2588, !noalias !2585, !nonnull !36, !noundef !36
-  %13 = getelementptr inbounds i8, ptr %12, i64 %10
-  store i8 125, ptr %13, align 1, !noalias !2589
-  %14 = load i64, ptr %5, align 8, !alias.scope !2588, !noalias !2585, !noundef !36
-  %15 = add i64 %14, 1
-  store i64 %15, ptr %5, align 8, !alias.scope !2588, !noalias !2585
+_ZN10serde_json3ser9Formatter10end_object17hdc8ea3eb63864028E.exit.i: ; preds = %8, %3
+  %9 = phi i64 [ %5, %3 ], [ %.pre.i.i.i.i.i.i.i, %8 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %11 = load ptr, ptr %10, align 8, !alias.scope !2588, !noalias !2585, !nonnull !36, !noundef !36
+  %12 = getelementptr inbounds i8, ptr %11, i64 %9
+  store i8 125, ptr %12, align 1, !noalias !2589
+  %13 = load i64, ptr %4, align 8, !alias.scope !2588, !noalias !2585, !noundef !36
+  %14 = add i64 %13, 1
+  store i64 %14, ptr %4, align 8, !alias.scope !2588, !noalias !2585
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h5c4ed68500e1e060E.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h5c4ed68500e1e060E.exit": ; preds = %1, %_ZN10serde_json3ser9Formatter10end_object17hdc8ea3eb63864028E.exit.i

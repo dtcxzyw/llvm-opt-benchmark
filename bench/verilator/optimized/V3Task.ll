@@ -51959,8 +51959,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode11privateCastI9AstVarRefKP
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN11TaskVisitor23connectPortMakeInAssignEP11AstNodeExprP11AstVarScopeb(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.not.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %5, align 8, !tbaa !44
   %6 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 296
@@ -52162,8 +52161,7 @@ _ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i:      ; preds = %22, %19, %.noexc
   store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV9AstVarRef, i64 16), ptr %6, align 8, !tbaa !83
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store ptr %3, ptr %33, align 8, !tbaa !732
-  %.not.i = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %34, align 8, !tbaa !44
   %35 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 296

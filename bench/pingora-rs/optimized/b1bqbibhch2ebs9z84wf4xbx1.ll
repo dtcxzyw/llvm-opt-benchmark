@@ -219,30 +219,29 @@ define internal void @"_ZN4core3ptr66drop_in_place$LT$alloc..boxed..Box$LT$pingo
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$pingora_core..protocols..http..server..Session$GT$$GT$17h1a521226c66f48a8E"(ptr %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = load i64, ptr %.0.val, align 8, !range !18, !alias.scope !19, !noundef !3
-  %3 = icmp eq i64 %2, 3
-  br i1 %3, label %4, label %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  %1 = load i64, ptr %.0.val, align 8, !range !18, !alias.scope !19, !noundef !3
+  %2 = icmp eq i64 %1, 3
+  br i1 %2, label %3, label %5
 
-4:                                                ; preds = %0
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$pingora_core..protocols..http..v1..server..HttpSession$GT$17h313de21206a6df98E"(ptr noalias noundef nonnull align 8 dereferenceable(416) %5)
-          to label %"_ZN4core3ptr67drop_in_place$LT$pingora_core..protocols..http..server..Session$GT$17hc88dce013f61c6eaE.exit" unwind label %7
+3:                                                ; preds = %0
+  %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$pingora_core..protocols..http..v1..server..HttpSession$GT$17h313de21206a6df98E"(ptr noalias noundef nonnull align 8 dereferenceable(416) %4)
+          to label %"_ZN4core3ptr67drop_in_place$LT$pingora_core..protocols..http..server..Session$GT$17hc88dce013f61c6eaE.exit" unwind label %6
 
-6:                                                ; preds = %0
+5:                                                ; preds = %0
   invoke void @"_ZN4core3ptr75drop_in_place$LT$pingora_core..protocols..http..v2..server..HttpSession$GT$17hecb62f32428cbff2E"(ptr noalias noundef nonnull align 8 dereferenceable(520) %.0.val)
-          to label %"_ZN4core3ptr67drop_in_place$LT$pingora_core..protocols..http..server..Session$GT$17hc88dce013f61c6eaE.exit" unwind label %7
+          to label %"_ZN4core3ptr67drop_in_place$LT$pingora_core..protocols..http..server..Session$GT$17hc88dce013f61c6eaE.exit" unwind label %6
 
-"_ZN4core3ptr67drop_in_place$LT$pingora_core..protocols..http..server..Session$GT$17hc88dce013f61c6eaE.exit": ; preds = %4, %6
+"_ZN4core3ptr67drop_in_place$LT$pingora_core..protocols..http..server..Session$GT$17hc88dce013f61c6eaE.exit": ; preds = %3, %5
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 520, i64 noundef 8) #13
   ret void
 
-7:                                                ; preds = %4, %6
-  %8 = landingpad { ptr, i32 }
+6:                                                ; preds = %3, %5
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 520, i64 noundef 8) #13
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

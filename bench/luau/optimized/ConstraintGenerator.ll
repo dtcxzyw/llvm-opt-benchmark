@@ -3689,8 +3689,7 @@ _ZNSt8optionalISt6vectorIPKN4Luau4TypeESaIS4_EEEaSIS6_EENSt9enable_ifIX7__and_vI
           to label %.noexc73 unwind label %.loopexit.split-lp
 
 .noexc73:                                         ; preds = %_ZNSt8optionalISt6vectorIPKN4Luau4TypeESaIS4_EEEaSIS6_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS7_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIS6_ESB_IS6_NSt5decayISE_E4typeEEEEESt16is_constructibleIS6_JSE_EESt13is_assignableIRS6_SE_EEERS7_E4typeEOSE_.exit
-  %.not.i.i = icmp ne ptr %261, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %261) ]
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   invoke void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %262, ptr noundef %209)
           to label %263 unwind label %.loopexit.split-lp
@@ -22527,8 +22526,7 @@ _ZNSt6vectorIN4Luau7NotNullINS0_10ConstraintEEESaIS3_EE17_M_realloc_insertIJPS2_
           to label %.noexc349 unwind label %640
 
 .noexc349:                                        ; preds = %.lr.ph1086
-  %.not.i.i348 = icmp ne ptr %636, null
-  call void @llvm.assume(i1 %.not.i.i348)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %636) ]
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 8
   invoke void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %637, ptr noundef %581)
           to label %638 unwind label %640
@@ -23186,8 +23184,7 @@ _ZNSt6vectorIN4Luau7NotNullINS0_10ConstraintEEESaIS3_EE17_M_realloc_insertIJS3_E
           to label %.noexc422 unwind label %888
 
 .noexc422:                                        ; preds = %.lr.ph1054
-  %.not.i.i421 = icmp ne ptr %884, null
-  call void @llvm.assume(i1 %.not.i.i421)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %884) ]
   %885 = getelementptr inbounds nuw i8, ptr %884, i64 8
   invoke void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %885, ptr noundef %827)
           to label %886 unwind label %888
@@ -25433,8 +25430,7 @@ _ZN4Luau18IterableConstraintD2Ev.exit101:         ; preds = %279, %281
           to label %.noexc103 unwind label %295
 
 .noexc103:                                        ; preds = %.lr.ph214
-  %.not.i.i102 = icmp ne ptr %291, null
-  call void @llvm.assume(i1 %.not.i.i102)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %291) ]
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   invoke void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %292, ptr noundef %265)
           to label %293 unwind label %295
@@ -26018,8 +26014,7 @@ _ZN4Luau16UnpackConstraintD2Ev.exit.preheader:    ; preds = %112
           to label %.noexc63 unwind label %135
 
 .noexc63:                                         ; preds = %.lr.ph144
-  %.not.i.i62 = icmp ne ptr %132, null
-  call void @llvm.assume(i1 %.not.i.i62)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %132) ]
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   invoke void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef %111)
           to label %_ZN4Luau16UnpackConstraintD2Ev.exit unwind label %135
@@ -26461,8 +26456,7 @@ _ZN4Luau24GeneralizationConstraintD2Ev.exit:      ; preds = %143
           to label %.noexc unwind label %237
 
 .noexc:                                           ; preds = %_ZN4Luau24GeneralizationConstraintD2Ev.exit
-  %.not.i.i = icmp ne ptr %152, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %152) ]
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   invoke void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef %142)
           to label %154 unwind label %237
@@ -40181,8 +40175,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZN4Luau20AssignPropConstraintD2Ev.exit:          ; preds = %_ZN4Luau7VariantIJNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24GeneralizationConstraintENS_18IterableConstraintENS_14NameConstraintENS_28TypeAliasExpansionConstraintENS_22FunctionCallConstraintENS_23FunctionCheckConstraintENS_23PrimitiveTypeConstraintENS_17HasPropConstraintENS_20HasIndexerConstraintENS_20AssignPropConstraintENS_21AssignIndexConstraintENS_16UnpackConstraintENS_16ReduceConstraintENS_20ReducePackConstraintENS_18EqualityConstraintENS_20TableCheckConstraintEEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %79 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %19)
-  %.not.i.i = icmp ne ptr %79, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   call void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef %66)
   ret void
@@ -43838,8 +43831,7 @@ _ZN4Luau16UnpackConstraintD2Ev.exit:              ; preds = %558
           to label %.noexc385 unwind label %589
 
 .noexc385:                                        ; preds = %_ZN4Luau16UnpackConstraintD2Ev.exit
-  %.not.i.i384 = icmp ne ptr %566, null
-  call void @llvm.assume(i1 %.not.i.i384)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %566) ]
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 8
   invoke void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %567, ptr noundef %557)
           to label %568 unwind label %589
@@ -44998,8 +44990,7 @@ _ZN4Luau22FunctionCallConstraintD2Ev.exit:        ; preds = %1037
           to label %.noexc460 unwind label %.loopexit.split-lp811
 
 .noexc460:                                        ; preds = %_ZN4Luau22FunctionCallConstraintD2Ev.exit
-  %.not.i.i459 = icmp ne ptr %1045, null
-  call void @llvm.assume(i1 %.not.i.i459)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1045) ]
   %1046 = getelementptr inbounds nuw i8, ptr %1045, i64 16
   store ptr %1036, ptr %1046, align 8, !tbaa !1021
   %1047 = getelementptr inbounds nuw i8, ptr %1036, i64 128
@@ -47536,8 +47527,7 @@ define dso_local { ptr, ptr } @_ZN4Luau19ConstraintGenerator11flattenPackERKSt10
 
 _ZN4Luau16UnpackConstraintD2Ev.exit:              ; preds = %37
   %45 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %28)
-  %.not.i.i = icmp ne ptr %45, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %45) ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef %36)
   br label %56
@@ -47941,8 +47931,7 @@ _ZNSt8optionalISt6vectorIPKN4Luau4TypeESaIS4_EEEaSIS6_EENSt9enable_ifIX7__and_vI
           to label %.noexc31 unwind label %189
 
 .noexc31:                                         ; preds = %_ZNSt8optionalISt6vectorIPKN4Luau4TypeESaIS4_EEEaSIS6_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS7_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIS6_ESB_IS6_NSt5decayISE_E4typeEEEEESt16is_constructibleIS6_JSE_EESt13is_assignableIRS6_SE_EEERS7_E4typeEOSE_.exit
-  %.not.i.i30 = icmp ne ptr %191, null
-  call void @llvm.assume(i1 %.not.i.i30)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %191) ]
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   invoke void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef %128)
           to label %193 unwind label %189
@@ -48648,8 +48637,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 _ZN4Luau7VariantIJNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24GeneralizationConstraintENS_18IterableConstraintENS_14NameConstraintENS_28TypeAliasExpansionConstraintENS_22FunctionCallConstraintENS_23FunctionCheckConstraintENS_23PrimitiveTypeConstraintENS_17HasPropConstraintENS_20HasIndexerConstraintENS_20AssignPropConstraintENS_21AssignIndexConstraintENS_16UnpackConstraintENS_16ReduceConstraintENS_20ReducePackConstraintENS_18EqualityConstraintENS_20TableCheckConstraintEEED2Ev.exit: ; preds = %106
   %114 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %79)
-  %.not.i.i = icmp ne ptr %114, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %114) ]
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   call void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef %105)
   br i1 %.not48, label %132, label %116
@@ -50786,8 +50774,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZN4Luau17HasPropConstraintD2Ev.exit:             ; preds = %_ZN4Luau7VariantIJNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24GeneralizationConstraintENS_18IterableConstraintENS_14NameConstraintENS_28TypeAliasExpansionConstraintENS_22FunctionCallConstraintENS_23FunctionCheckConstraintENS_23PrimitiveTypeConstraintENS_17HasPropConstraintENS_20HasIndexerConstraintENS_20AssignPropConstraintENS_21AssignIndexConstraintENS_16UnpackConstraintENS_16ReduceConstraintENS_20ReducePackConstraintENS_18EqualityConstraintENS_20TableCheckConstraintEEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i51
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %138 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %86)
-  %.not.i.i52 = icmp ne ptr %138, null
-  call void @llvm.assume(i1 %.not.i.i52)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %138) ]
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   call void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef %125)
   br label %157
@@ -52219,8 +52206,7 @@ _ZN4Luau20AssignPropConstraintD2Ev.exit:          ; preds = %_ZN4Luau7VariantIJN
           to label %.noexc51 unwind label %133
 
 .noexc51:                                         ; preds = %_ZN4Luau20AssignPropConstraintD2Ev.exit
-  %.not.i.i = icmp ne ptr %109, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   invoke void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef %96)
           to label %111 unwind label %133
@@ -52353,8 +52339,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 _ZN4Luau7VariantIJNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24GeneralizationConstraintENS_18IterableConstraintENS_14NameConstraintENS_28TypeAliasExpansionConstraintENS_22FunctionCallConstraintENS_23FunctionCheckConstraintENS_23PrimitiveTypeConstraintENS_17HasPropConstraintENS_20HasIndexerConstraintENS_20AssignPropConstraintENS_21AssignIndexConstraintENS_16UnpackConstraintENS_16ReduceConstraintENS_20ReducePackConstraintENS_18EqualityConstraintENS_20TableCheckConstraintEEED2Ev.exit59: ; preds = %157
   %165 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %149)
-  %.not.i.i60 = icmp ne ptr %165, null
-  call void @llvm.assume(i1 %.not.i.i60)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %165) ]
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   call void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef %156)
   br label %167

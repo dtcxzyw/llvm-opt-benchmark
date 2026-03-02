@@ -956,8 +956,7 @@ entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call1 = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #14
-  %cmp.i.i.i.i = icmp ne ptr %call1, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1) ]
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1) #14
   %2 = load i64, ptr %call1, align 8
   %sub.i.i.i.i.i = add i64 %2, 47

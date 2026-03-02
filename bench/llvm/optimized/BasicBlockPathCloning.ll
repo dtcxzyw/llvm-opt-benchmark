@@ -894,6 +894,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit105.i.i: ; preds = %378, %377, %375
   br i1 %399, label %479, label %400
 
 400:                                              ; preds = %395
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %398) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %398, align 8
   %401 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i = icmp ne i64 %401, 0

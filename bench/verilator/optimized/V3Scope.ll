@@ -3511,8 +3511,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %21,
 
 33:                                               ; preds = %28
   %34 = call noundef ptr @_ZN7AstNode9cloneTreeEbb(ptr noundef nonnull align 8 dereferenceable(240) %1, i1 noundef zeroext false, i1 noundef zeroext false)
-  %.not.i.i = icmp ne ptr %34, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   br label %_ZN8AstScope10addBlockspEP7AstNode.exit
 
 _ZN8AstScope10addBlockspEP7AstNode.exit:          ; preds = %33, %.thread

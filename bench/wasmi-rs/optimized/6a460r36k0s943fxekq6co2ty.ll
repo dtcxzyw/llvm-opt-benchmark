@@ -357,7 +357,7 @@ _ZN10wasmi_core6memory6Memory17max_size_in_bytes17h217f3cde2f0bfd79E.exit: ; pre
   %76 = extractvalue { i64, i1 } %75, 1
   br i1 %76, label %83, label %78, !prof !3
 
-77:                                               ; preds = %162, %_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit37, %_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit, %119, %101, %97, %90, %83, %27
+77:                                               ; preds = %159, %_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit37, %_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit, %118, %101, %97, %90, %83, %27
   ret void
 
 78:                                               ; preds = %_ZN10wasmi_core6memory6Memory17max_size_in_bytes17h217f3cde2f0bfd79E.exit
@@ -406,7 +406,7 @@ _ZN10wasmi_core6memory6Memory17max_size_in_bytes17h217f3cde2f0bfd79E.exit: ; pre
   %99 = tail call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %100 = extractvalue { ptr, ptr } %99, 0
   %.not = icmp eq ptr %100, null
-  br i1 %.not, label %109, label %102
+  br i1 %.not, label %108, label %102
 
 101:                                              ; preds = %91
   store i64 1, ptr %0, align 8
@@ -414,141 +414,138 @@ _ZN10wasmi_core6memory6Memory17max_size_in_bytes17h217f3cde2f0bfd79E.exit: ; pre
 
 102:                                              ; preds = %98
   %103 = extractvalue { ptr, ptr } %99, 1
-  %104 = icmp ne ptr %103, null
-  tail call void @llvm.assume(i1 %104)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %103) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %106 = load ptr, ptr %105, align 8, !invariant.load !25, !nonnull !25
-  call void %106(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %23, ptr noundef nonnull align 1 %100, i64 noundef %52, i64 noundef %95, i64 noundef %54, i64 %.sroa.3.0)
-  %107 = load i64, ptr %23, align 8, !range !43, !noundef !25
-  %.not32 = icmp eq i64 %107, 4
-  %108 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  br i1 %.not32, label %115, label %110
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  %105 = load ptr, ptr %104, align 8, !invariant.load !25, !nonnull !25
+  call void %105(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %23, ptr noundef nonnull align 1 %100, i64 noundef %52, i64 noundef %95, i64 noundef %54, i64 %.sroa.3.0)
+  %106 = load i64, ptr %23, align 8, !range !43, !noundef !25
+  %.not32 = icmp eq i64 %106, 4
+  %107 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  br i1 %.not32, label %114, label %109
 
-109:                                              ; preds = %118, %98
+108:                                              ; preds = %117, %98
   %.not33 = icmp eq ptr %3, null
-  br i1 %.not33, label %124, label %121
+  br i1 %.not33, label %123, label %120
 
-110:                                              ; preds = %102
-  %111 = load i64, ptr %108, align 8
-  %112 = tail call { i64, i64 } @"_ZN119_$LT$wasmi_core..memory..error..MemoryError$u20$as$u20$core..convert..From$LT$wasmi_core..limiter..LimiterError$GT$$GT$4from17ha122ed68272ae48cE"(i64 noundef %107, i64 %111)
-  %113 = extractvalue { i64, i64 } %112, 0
-  %114 = extractvalue { i64, i64 } %112, 1
-  br label %119
+109:                                              ; preds = %102
+  %110 = load i64, ptr %107, align 8
+  %111 = tail call { i64, i64 } @"_ZN119_$LT$wasmi_core..memory..error..MemoryError$u20$as$u20$core..convert..From$LT$wasmi_core..limiter..LimiterError$GT$$GT$4from17ha122ed68272ae48cE"(i64 noundef %106, i64 %110)
+  %112 = extractvalue { i64, i64 } %111, 0
+  %113 = extractvalue { i64, i64 } %111, 1
+  br label %118
 
-115:                                              ; preds = %102
-  %116 = load i8, ptr %108, align 8, !range !44, !noundef !25
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %119
+114:                                              ; preds = %102
+  %115 = load i8, ptr %107, align 8, !range !44, !noundef !25
+  %116 = trunc nuw i8 %115 to i1
+  br i1 %116, label %117, label %118
 
-118:                                              ; preds = %115
+117:                                              ; preds = %114
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %109
+  br label %108
 
-119:                                              ; preds = %115, %110
-  %.sroa.016.0 = phi i64 [ %113, %110 ], [ 1, %115 ]
-  %.sroa.617.0 = phi i64 [ %114, %110 ], [ undef, %115 ]
+118:                                              ; preds = %114, %109
+  %.sroa.016.0 = phi i64 [ %112, %109 ], [ 1, %114 ]
+  %.sroa.617.0 = phi i64 [ %113, %109 ], [ undef, %114 ]
   store i64 %.sroa.016.0, ptr %0, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.617.0, ptr %120, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.617.0, ptr %119, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %77
 
-121:                                              ; preds = %109
+120:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %122 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 %93)
-  %123 = extractvalue { i64, i1 } %122, 1
-  br i1 %123, label %132, label %127, !prof !3
+  %121 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 %93)
+  %122 = extractvalue { i64, i1 } %121, 1
+  br i1 %122, label %131, label %126, !prof !3
 
-124:                                              ; preds = %133, %109
-  %125 = call { i64, i64 } @_ZN10wasmi_core6memory6buffer10ByteBuffer4grow17h133f1b5be1b46061E(ptr noalias noundef nonnull align 8 dereferenceable(32) %36, i64 noundef %95)
-  %126 = extractvalue { i64, i64 } %125, 0
-  %.not34 = icmp eq i64 %126, 9
-  br i1 %.not34, label %162, label %148
+123:                                              ; preds = %132, %108
+  %124 = call { i64, i64 } @_ZN10wasmi_core6memory6buffer10ByteBuffer4grow17h133f1b5be1b46061E(ptr noalias noundef nonnull align 8 dereferenceable(32) %36, i64 noundef %95)
+  %125 = extractvalue { i64, i64 } %124, 0
+  %.not34 = icmp eq i64 %125, 9
+  br i1 %.not34, label %159, label %146
 
-127:                                              ; preds = %121
-  %128 = extractvalue { i64, i1 } %122, 0
-  store i64 %128, ptr %22, align 8
-  %129 = call { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17hb9fa32869ae797abE(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %22)
-  %130 = extractvalue { i64, i64 } %129, 0
-  %131 = and i64 %130, 1
-  %or.cond.not = icmp eq i64 %131, 0
-  br i1 %or.cond.not, label %133, label %134
+126:                                              ; preds = %120
+  %127 = extractvalue { i64, i1 } %121, 0
+  store i64 %127, ptr %22, align 8
+  %128 = call { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17hb9fa32869ae797abE(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %22)
+  %129 = extractvalue { i64, i64 } %128, 0
+  %130 = and i64 %129, 1
+  %or.cond.not = icmp eq i64 %130, 0
+  br i1 %or.cond.not, label %132, label %133
 
-132:                                              ; preds = %121
+131:                                              ; preds = %120
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.ac2a6688c16f161c99cfb5a93c1b8fd2.17, i64 noundef 48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac2a6688c16f161c99cfb5a93c1b8fd2.18) #14
   unreachable
 
-133:                                              ; preds = %127
+132:                                              ; preds = %126
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %124
+  br label %123
 
-134:                                              ; preds = %127
-  %135 = extractvalue { i64, i64 } %129, 1
+133:                                              ; preds = %126
+  %134 = extractvalue { i64, i64 } %128, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %136 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !45
-  %137 = extractvalue { ptr, ptr } %136, 0
-  %.not.i = icmp eq ptr %137, null
-  br i1 %.not.i, label %_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit, label %138
+  %135 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !45
+  %136 = extractvalue { ptr, ptr } %135, 0
+  %.not.i = icmp eq ptr %136, null
+  br i1 %.not.i, label %_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit, label %137
 
-138:                                              ; preds = %134
-  %139 = extractvalue { ptr, ptr } %136, 1
-  %140 = icmp ne ptr %139, null
-  call void @llvm.assume(i1 %140)
+137:                                              ; preds = %133
+  %138 = extractvalue { ptr, ptr } %135, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %138) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !48
-  %141 = call { i64, i64 } @"_ZN119_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..memory..error..MemoryError$GT$$GT$4from17hd5018d1817876793E"(i64 noundef 8, i64 %135), !noalias !45
-  %142 = extractvalue { i64, i64 } %141, 0
-  %143 = extractvalue { i64, i64 } %141, 1
-  store i64 %142, ptr %7, align 8, !noalias !48
-  %144 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %143, ptr %144, align 8, !noalias !48
-  %145 = getelementptr inbounds nuw i8, ptr %139, i64 40
-  %146 = load ptr, ptr %145, align 8, !invariant.load !25, !noalias !45, !nonnull !25
-  call void %146(ptr noundef nonnull align 1 %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7), !noalias !45
+  %139 = call { i64, i64 } @"_ZN119_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..memory..error..MemoryError$GT$$GT$4from17hd5018d1817876793E"(i64 noundef 8, i64 %134), !noalias !45
+  %140 = extractvalue { i64, i64 } %139, 0
+  %141 = extractvalue { i64, i64 } %139, 1
+  store i64 %140, ptr %7, align 8, !noalias !48
+  %142 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %141, ptr %142, align 8, !noalias !48
+  %143 = getelementptr inbounds nuw i8, ptr %138, i64 40
+  %144 = load ptr, ptr %143, align 8, !invariant.load !25, !noalias !45, !nonnull !25
+  call void %144(ptr noundef nonnull align 1 %136, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7), !noalias !45
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !48
   br label %_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit
 
-_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit: ; preds = %134, %138
+_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit: ; preds = %133, %137
   store i64 8, ptr %0, align 8, !alias.scope !45, !noalias !50
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %135, ptr %147, align 8, !alias.scope !45, !noalias !50
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %134, ptr %145, align 8, !alias.scope !45, !noalias !50
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %77
 
-148:                                              ; preds = %124
-  %149 = extractvalue { i64, i64 } %125, 1
+146:                                              ; preds = %123
+  %147 = extractvalue { i64, i64 } %124, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %150 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !51
-  %151 = extractvalue { ptr, ptr } %150, 0
-  %.not.i36 = icmp eq ptr %151, null
-  br i1 %.not.i36, label %_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit37, label %152
+  %148 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !51
+  %149 = extractvalue { ptr, ptr } %148, 0
+  %.not.i36 = icmp eq ptr %149, null
+  br i1 %.not.i36, label %_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit37, label %150
 
-152:                                              ; preds = %148
-  %153 = extractvalue { ptr, ptr } %150, 1
-  %154 = icmp ne ptr %153, null
-  call void @llvm.assume(i1 %154)
+150:                                              ; preds = %146
+  %151 = extractvalue { ptr, ptr } %148, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %151) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !54
-  %155 = call { i64, i64 } @"_ZN119_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..memory..error..MemoryError$GT$$GT$4from17hd5018d1817876793E"(i64 noundef range(i64 0, 9) %126, i64 %149), !noalias !51
-  %156 = extractvalue { i64, i64 } %155, 0
-  %157 = extractvalue { i64, i64 } %155, 1
-  store i64 %156, ptr %6, align 8, !noalias !54
-  %158 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %157, ptr %158, align 8, !noalias !54
-  %159 = getelementptr inbounds nuw i8, ptr %153, i64 40
-  %160 = load ptr, ptr %159, align 8, !invariant.load !25, !noalias !51, !nonnull !25
-  call void %160(ptr noundef nonnull align 1 %151, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !51
+  %152 = call { i64, i64 } @"_ZN119_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..memory..error..MemoryError$GT$$GT$4from17hd5018d1817876793E"(i64 noundef range(i64 0, 9) %125, i64 %147), !noalias !51
+  %153 = extractvalue { i64, i64 } %152, 0
+  %154 = extractvalue { i64, i64 } %152, 1
+  store i64 %153, ptr %6, align 8, !noalias !54
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %154, ptr %155, align 8, !noalias !54
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 40
+  %157 = load ptr, ptr %156, align 8, !invariant.load !25, !noalias !51, !nonnull !25
+  call void %157(ptr noundef nonnull align 1 %149, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !51
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !54
   br label %_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit37
 
-_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit37: ; preds = %148, %152
-  store i64 %126, ptr %0, align 8, !alias.scope !51, !noalias !56
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %149, ptr %161, align 8, !alias.scope !51, !noalias !56
+_ZN10wasmi_core6memory6Memory4grow14notify_limiter17hdad0331880587ffeE.exit37: ; preds = %146, %150
+  store i64 %125, ptr %0, align 8, !alias.scope !51, !noalias !56
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %147, ptr %158, align 8, !alias.scope !51, !noalias !56
   br label %77
 
-162:                                              ; preds = %124
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %74, ptr %163, align 8
+159:                                              ; preds = %123
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %74, ptr %160, align 8
   store i64 9, ptr %0, align 8
   br label %77
 }
@@ -590,21 +587,20 @@ define { i64, i64 } @_ZN10wasmi_core6memory6Memory4read17h6bf077757877e327E(ptr 
   %9 = extractvalue { ptr, i64 } %6, 1
   %.not = icmp ugt i64 %7, %9
   %or.cond = select i1 %8, i1 true, i1 %.not
-  br i1 %or.cond, label %14, label %10
+  br i1 %or.cond, label %13, label %10
 
 10:                                               ; preds = %4
   %11 = extractvalue { ptr, i64 } %6, 0
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %1
-  %13 = icmp ne ptr %11, null
-  tail call void @llvm.assume(i1 %13)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 1 %12, i64 %3, i1 false), !alias.scope !57, !noalias !61
-  br label %14
+  br label %13
 
-14:                                               ; preds = %4, %10
+13:                                               ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ 9, %10 ], [ 2, %4 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, i64 } %15, i64 undef, 1
-  ret { i64, i64 } %16
+  %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %15 = insertvalue { i64, i64 } %14, i64 undef, 1
+  ret { i64, i64 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -616,21 +612,20 @@ define { i64, i64 } @_ZN10wasmi_core6memory6Memory5write17h37fefa9a420fa2bcE(ptr
   %9 = extractvalue { ptr, i64 } %6, 1
   %.not = icmp ugt i64 %7, %9
   %or.cond = select i1 %8, i1 true, i1 %.not
-  br i1 %or.cond, label %14, label %10
+  br i1 %or.cond, label %13, label %10
 
 10:                                               ; preds = %4
   %11 = extractvalue { ptr, i64 } %6, 0
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %1
-  %13 = icmp ne ptr %11, null
-  tail call void @llvm.assume(i1 %13)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %2, i64 %3, i1 false), !alias.scope !63, !noalias !67
-  br label %14
+  br label %13
 
-14:                                               ; preds = %4, %10
+13:                                               ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ 9, %10 ], [ 2, %4 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, i64 } %15, i64 undef, 1
-  ret { i64, i64 } %16
+  %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %15 = insertvalue { i64, i64 } %14, i64 undef, 1
+  ret { i64, i64 } %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

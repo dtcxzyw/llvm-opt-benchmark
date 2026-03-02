@@ -2312,8 +2312,7 @@ _ZNK5clang14MacroDirective12getMacroInfoEv.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %2) #21
   %.fca.0.extract.i = extractvalue { ptr, i64 } %4, 0
-  %.not.i.i.i.i = icmp ne ptr %.fca.0.extract.i, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract.i) ]
   %5 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !202
   store ptr %6, ptr %3, align 8, !tbaa !171

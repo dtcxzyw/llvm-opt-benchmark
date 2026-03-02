@@ -35030,8 +35030,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2
 .preheader.i.i:                                   ; preds = %._crit_edge711, %._crit_edge87.i.i
   %.061.i.i = phi ptr [ %.263.us.i.i.ph, %._crit_edge87.i.i ], [ %3580, %._crit_edge711 ]
   %.058.i.i = phi i64 [ %3609, %._crit_edge87.i.i ], [ 1, %._crit_edge711 ]
-  %.not6880.i.i = icmp ne ptr %.061.i.i, null
-  call void @llvm.assume(i1 %.not6880.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.061.i.i) ]
   %.not92.i.i = icmp ne i64 %.058.i.i, 0
   call void @llvm.assume(i1 %.not92.i.i)
   br label %.lr.ph.us.i.i

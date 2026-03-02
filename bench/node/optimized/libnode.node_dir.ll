@@ -3057,8 +3057,7 @@ if.end13:                                         ; preds = %do.end
   %21 = load ptr, ptr %vfn.i.i18, align 8
   %call2.i.i = call ptr %21(ptr noundef nonnull align 8 dereferenceable(872) %20) #20
   %call12.i = call ptr @_ZN2v814ObjectTemplate11NewInstanceENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr %call2.i.i) #20
-  %cmp.i.i.i = icmp ne ptr %call12.i, null
-  call void @llvm.assume(i1 %cmp.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call12.i) ]
   %call18.i = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #21
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(90) %call18.i, ptr noundef nonnull %16, ptr nonnull %call12.i, i32 noundef 1, double noundef -1.000000e+00) #20
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6fs_dir9DirHandleE, i64 16), ptr %call18.i, align 8
@@ -3690,8 +3689,7 @@ if.end131:                                        ; preds = %if.end128
   %94 = load ptr, ptr %vfn.i.i144, align 8
   %call2.i.i145 = call ptr %94(ptr noundef nonnull align 8 dereferenceable(872) %93) #20
   %call12.i = call ptr @_ZN2v814ObjectTemplate11NewInstanceENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %92, ptr %call2.i.i145) #20
-  %cmp.i.i.i146 = icmp ne ptr %call12.i, null
-  call void @llvm.assume(i1 %cmp.i.i.i146)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call12.i) ]
   %call18.i = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #21
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(90) %call18.i, ptr noundef nonnull %retval.0.i.i, ptr nonnull %call12.i, i32 noundef 1, double noundef -1.000000e+00) #20
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6fs_dir9DirHandleE, i64 16), ptr %call18.i, align 8
@@ -4091,8 +4089,7 @@ if.end78:                                         ; preds = %if.end75
   %50 = load ptr, ptr %vfn.i.i82, align 8
   %call2.i.i = call ptr %50(ptr noundef nonnull align 8 dereferenceable(872) %49) #20
   %call12.i = call ptr @_ZN2v814ObjectTemplate11NewInstanceENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %48, ptr %call2.i.i) #20
-  %cmp.i.i.i83 = icmp ne ptr %call12.i, null
-  call void @llvm.assume(i1 %cmp.i.i.i83)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call12.i) ]
   %call18.i = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #21
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(90) %call18.i, ptr noundef nonnull %retval.0.i.i, ptr nonnull %call12.i, i32 noundef 1, double noundef -1.000000e+00) #20
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6fs_dir9DirHandleE, i64 16), ptr %call18.i, align 8

@@ -569,17 +569,17 @@ _ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang24TemplateTemplateParm
   br i1 %122, label %_ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit.thread.sink.split, label %_ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit.thread
 
 123:                                              ; preds = %19
-  %124 = icmp eq i32 %26, 65
-  tail call void @llvm.assume(i1 %124)
-  br i1 %23, label %_ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang20TemplateTypeParmDeclEEbRKT_.exit.thread, label %125
+  br i1 %23, label %_ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang20TemplateTypeParmDeclEEbRKT_.exit.thread, label %124
 
-125:                                              ; preds = %123
-  %126 = getelementptr inbounds nuw i8, ptr %21, i64 72
+124:                                              ; preds = %123
+  %125 = icmp eq i32 %26, 65
+  %spec.select.i.i53 = select i1 %125, ptr %21, ptr null
+  %126 = getelementptr inbounds nuw i8, ptr %spec.select.i.i53, i64 72
   %.0.copyload.i.i.i.i.i.i.i54 = load i64, ptr %126, align 8
   %.not.i.i.i.i55 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i54, 7
   br i1 %.not.i.i.i.i55, label %127, label %_ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang20TemplateTypeParmDeclEEbRKT_.exit.thread
 
-127:                                              ; preds = %125
+127:                                              ; preds = %124
   %128 = load atomic i8, ptr @_ZGVZNK5clang20TemplateTypeParmDecl18getDefaultArgumentEvE7NoneLoc acquire, align 8
   %129 = icmp eq i8 %128, 0
   br i1 %129, label %130, label %134, !prof !21
@@ -630,7 +630,7 @@ _ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang20TemplateTypeParmDecl
   %149 = tail call noundef zeroext i1 @_ZNK5clang16TemplateArgument31containsUnexpandedParameterPackEv(ptr noundef nonnull align 8 dereferenceable(24) %148) #22
   br i1 %149, label %.sink.split, label %_ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang20TemplateTypeParmDeclEEbRKT_.exit.thread
 
-_ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang20TemplateTypeParmDeclEEbRKT_.exit.thread: ; preds = %125, %_ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang20TemplateTypeParmDeclEEbRKT_.exit, %123
+_ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang20TemplateTypeParmDeclEEbRKT_.exit.thread: ; preds = %124, %_ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang20TemplateTypeParmDeclEEbRKT_.exit, %123
   %150 = getelementptr inbounds nuw i8, ptr %21, i64 60
   %151 = load i8, ptr %150, align 4
   %152 = and i8 %151, 4

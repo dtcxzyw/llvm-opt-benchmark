@@ -16156,8 +16156,8 @@ _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i223: ; preds = %411,
 .thread372:                                       ; preds = %331
   %430 = icmp eq i32 %336, 35
   %spec.select.i.i229 = select i1 %430, ptr %333, ptr null
-  %.not176 = icmp ne ptr %spec.select.i.i229, null
-  br i1 %.not176, label %431, label %447
+  %.not176.not.not = icmp eq ptr %spec.select.i.i229, null
+  br i1 %.not176.not.not, label %447, label %431
 
 431:                                              ; preds = %.thread372
   %432 = getelementptr inbounds nuw i8, ptr %332, i64 48
@@ -16185,7 +16185,7 @@ _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i223: ; preds = %411,
 
 447:                                              ; preds = %.thread372, %431
   %.10 = phi i32 [ %330, %431 ], [ 1, %.thread372 ]
-  call void @llvm.assume(i1 %.not176)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i229) ]
   br label %448
 
 448:                                              ; preds = %.loopexit, %422, %.thread378, %.thread376, %447
@@ -52293,8 +52293,8 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL29isBetterMultiversionCan
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 82
   %10 = load i32, ptr %9, align 2
   %11 = and i32 %10, 4194304
-  %.not78 = icmp eq i32 %11, 0
-  br i1 %.not78, label %164, label %12
+  %.not76 = icmp eq i32 %11, 0
+  br i1 %.not76, label %164, label %12
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %1, align 8, !tbaa !1491
@@ -52309,19 +52309,19 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL29isBetterMultiversionCan
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 82
   %20 = load i32, ptr %19, align 2
   %21 = and i32 %20, 4194304
-  %.not79 = icmp eq i32 %21, 0
-  br i1 %.not79, label %164, label %22
+  %.not77 = icmp eq i32 %21, 0
+  br i1 %.not77, label %164, label %22
 
 22:                                               ; preds = %14
   %23 = load ptr, ptr %0, align 8, !tbaa !1491
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 128
-  %.not80 = icmp eq i32 %26, 0
+  %.not78 = icmp eq i32 %26, 0
   %27 = load ptr, ptr %1, align 8, !tbaa !1491
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 28
   %29 = load i32, ptr %28, align 4
-  br i1 %.not80, label %33, label %30
+  br i1 %.not78, label %33, label %30
 
 30:                                               ; preds = %22
   %31 = lshr i32 %29, 6
@@ -52331,8 +52331,8 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL29isBetterMultiversionCan
 
 33:                                               ; preds = %22
   %34 = and i32 %29, 128
-  %.not81 = icmp eq i32 %34, 0
-  br i1 %.not81, label %35, label %164
+  %.not79 = icmp eq i32 %34, 0
+  br i1 %.not79, label %35, label %164
 
 35:                                               ; preds = %33
   %36 = and i32 %25, 256
@@ -52515,8 +52515,8 @@ _ZN5clangneENS_22specific_attr_iteratorINS_15CPUSpecificAttrEN4llvm11SmallVector
 _ZNK5clang4Decl7getAttrINS_15CPUSpecificAttrEEEPT_v.exit72: ; preds = %115, %_ZNK5clang4Decl7getAttrINS_15CPUSpecificAttrEEEPT_v.exit, %104, %_ZN5clangneENS_22specific_attr_iteratorINS_15CPUSpecificAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i69
   %128 = icmp ne ptr %99, null
   %129 = or i1 %70, %128
-  %or.cond3 = or i1 %129, %51
-  br i1 %or.cond3, label %_ZNK5clang4Decl7getAttrINS_15CPUSpecificAttrEEEPT_v.exit72.thread, label %164
+  %or.cond5 = or i1 %51, %129
+  br i1 %or.cond5, label %_ZNK5clang4Decl7getAttrINS_15CPUSpecificAttrEEEPT_v.exit72.thread, label %164
 
 _ZNK5clang4Decl7getAttrINS_15CPUSpecificAttrEEEPT_v.exit72.thread: ; preds = %.lr.ph.i.i.i.i71, %117, %_ZNK5clang4Decl7getAttrINS_15CPUSpecificAttrEEEPT_v.exit72
   %130 = phi ptr [ null, %_ZNK5clang4Decl7getAttrINS_15CPUSpecificAttrEEEPT_v.exit72 ], [ %118, %117 ], [ %124, %.lr.ph.i.i.i.i71 ]
@@ -52530,6 +52530,8 @@ _ZNK5clang4Decl7getAttrINS_15CPUSpecificAttrEEEPT_v.exit72.thread: ; preds = %.l
   br i1 %or.cond10, label %132, label %164
 
 132:                                              ; preds = %131
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %99) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %130) ]
   %133 = getelementptr inbounds nuw i8, ptr %99, i64 36
   %134 = load i32, ptr %133, align 4, !tbaa !1963
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 36

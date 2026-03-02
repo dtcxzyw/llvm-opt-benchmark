@@ -18768,145 +18768,143 @@ define range(i32 0, 256) i32 @SSL_get_negotiated_server_cert_type(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_set1_client_cert_type(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = load i32, ptr %0, align 8, !tbaa !19
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %10, label %7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %4 = load i32, ptr %0, align 8, !tbaa !19
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %9, label %6
 
-7:                                                ; preds = %3
-  %8 = and i32 %5, 128
-  %.not = icmp ne i32 %8, 0
+6:                                                ; preds = %3
+  %7 = and i32 %4, 128
+  %.not = icmp ne i32 %7, 0
   tail call void @llvm.assume(i1 %.not)
-  %9 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #20
-  br label %10
+  %8 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #20
+  br label %9
 
-10:                                               ; preds = %3, %7
-  %11 = phi ptr [ %0, %3 ], [ %9, %7 ]
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 5528
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 5536
-  %14 = icmp eq ptr %1, null
-  %15 = icmp eq i64 %2, 0
-  %or.cond.i.i = and i1 %14, %15
-  br i1 %or.cond.i.i, label %validate_cert_type.exit.thread16.i, label %16
+9:                                                ; preds = %3, %6
+  %10 = phi ptr [ %0, %3 ], [ %8, %6 ]
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 5528
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 5536
+  %13 = icmp eq ptr %1, null
+  %14 = icmp eq i64 %2, 0
+  %or.cond.i.i = and i1 %13, %14
+  br i1 %or.cond.i.i, label %validate_cert_type.exit.thread16.i, label %15
 
-16:                                               ; preds = %10
-  %or.cond3.i.i = or i1 %14, %15
+15:                                               ; preds = %9
+  %or.cond3.i.i = or i1 %13, %14
   br i1 %or.cond3.i.i, label %set_cert_type.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %16, %21
-  %.023.i.i = phi i32 [ %.1.i.i, %21 ], [ 0, %16 ]
-  %.01422.i.i = phi i32 [ %.115.i.i, %21 ], [ 0, %16 ]
-  %.01621.i.i = phi i64 [ %22, %21 ], [ 0, %16 ]
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.01621.i.i
-  %18 = load i8, ptr %17, align 1, !tbaa !261
-  switch i8 %18, label %set_cert_type.exit [
-    i8 2, label %19
-    i8 0, label %20
+.preheader.i.i:                                   ; preds = %15, %20
+  %.023.i.i = phi i32 [ %.1.i.i, %20 ], [ 0, %15 ]
+  %.01422.i.i = phi i32 [ %.115.i.i, %20 ], [ 0, %15 ]
+  %.01621.i.i = phi i64 [ %21, %20 ], [ 0, %15 ]
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.01621.i.i
+  %17 = load i8, ptr %16, align 1, !tbaa !261
+  switch i8 %17, label %set_cert_type.exit [
+    i8 2, label %18
+    i8 0, label %19
   ]
 
-19:                                               ; preds = %.preheader.i.i
+18:                                               ; preds = %.preheader.i.i
   %.not20.i.i = icmp eq i32 %.01422.i.i, 0
-  br i1 %.not20.i.i, label %21, label %set_cert_type.exit
+  br i1 %.not20.i.i, label %20, label %set_cert_type.exit
 
-20:                                               ; preds = %.preheader.i.i
+19:                                               ; preds = %.preheader.i.i
   %.not.i.i = icmp eq i32 %.023.i.i, 0
-  br i1 %.not.i.i, label %21, label %set_cert_type.exit
+  br i1 %.not.i.i, label %20, label %set_cert_type.exit
 
-21:                                               ; preds = %20, %19
-  %.115.i.i = phi i32 [ 1, %19 ], [ %.01422.i.i, %20 ]
-  %.1.i.i = phi i32 [ %.023.i.i, %19 ], [ 1, %20 ]
-  %22 = add nuw i64 %.01621.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %22, %2
+20:                                               ; preds = %19, %18
+  %.115.i.i = phi i32 [ 1, %18 ], [ %.01422.i.i, %19 ]
+  %.1.i.i = phi i32 [ %.023.i.i, %18 ], [ 1, %19 ]
+  %21 = add nuw i64 %.01621.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %21, %2
   br i1 %exitcond.not.i.i, label %validate_cert_type.exit.i, label %.preheader.i.i, !llvm.loop !537
 
-validate_cert_type.exit.i:                        ; preds = %21
-  %23 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 8210) #20
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %set_cert_type.exit, label %validate_cert_type.exit.thread16.i
+validate_cert_type.exit.i:                        ; preds = %20
+  %22 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 8210) #20
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %set_cert_type.exit, label %validate_cert_type.exit.thread16.i
 
-validate_cert_type.exit.thread16.i:               ; preds = %validate_cert_type.exit.i, %10
-  %.0.i = phi ptr [ %23, %validate_cert_type.exit.i ], [ null, %10 ]
-  %25 = load ptr, ptr %12, align 8, !tbaa !283
-  tail call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 8213) #20
-  store ptr %.0.i, ptr %12, align 8, !tbaa !283
-  store i64 %2, ptr %13, align 8, !tbaa !285
+validate_cert_type.exit.thread16.i:               ; preds = %validate_cert_type.exit.i, %9
+  %.0.i = phi ptr [ %22, %validate_cert_type.exit.i ], [ null, %9 ]
+  %24 = load ptr, ptr %11, align 8, !tbaa !283
+  tail call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str, i32 noundef 8213) #20
+  store ptr %.0.i, ptr %11, align 8, !tbaa !283
+  store i64 %2, ptr %12, align 8, !tbaa !285
   br label %set_cert_type.exit
 
-set_cert_type.exit:                               ; preds = %.preheader.i.i, %19, %20, %16, %validate_cert_type.exit.i, %validate_cert_type.exit.thread16.i
-  %.010.i = phi i32 [ 0, %validate_cert_type.exit.i ], [ 1, %validate_cert_type.exit.thread16.i ], [ 0, %16 ], [ 0, %20 ], [ 0, %19 ], [ 0, %.preheader.i.i ]
+set_cert_type.exit:                               ; preds = %.preheader.i.i, %18, %19, %15, %validate_cert_type.exit.i, %validate_cert_type.exit.thread16.i
+  %.010.i = phi i32 [ 0, %validate_cert_type.exit.i ], [ 1, %validate_cert_type.exit.thread16.i ], [ 0, %15 ], [ 0, %19 ], [ 0, %18 ], [ 0, %.preheader.i.i ]
   ret i32 %.010.i
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_set1_server_cert_type(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = load i32, ptr %0, align 8, !tbaa !19
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %10, label %7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %4 = load i32, ptr %0, align 8, !tbaa !19
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %9, label %6
 
-7:                                                ; preds = %3
-  %8 = and i32 %5, 128
-  %.not = icmp ne i32 %8, 0
+6:                                                ; preds = %3
+  %7 = and i32 %4, 128
+  %.not = icmp ne i32 %7, 0
   tail call void @llvm.assume(i1 %.not)
-  %9 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #20
-  br label %10
+  %8 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #20
+  br label %9
 
-10:                                               ; preds = %3, %7
-  %11 = phi ptr [ %0, %3 ], [ %9, %7 ]
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 5544
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 5552
-  %14 = icmp eq ptr %1, null
-  %15 = icmp eq i64 %2, 0
-  %or.cond.i.i = and i1 %14, %15
-  br i1 %or.cond.i.i, label %validate_cert_type.exit.thread16.i, label %16
+9:                                                ; preds = %3, %6
+  %10 = phi ptr [ %0, %3 ], [ %8, %6 ]
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 5544
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 5552
+  %13 = icmp eq ptr %1, null
+  %14 = icmp eq i64 %2, 0
+  %or.cond.i.i = and i1 %13, %14
+  br i1 %or.cond.i.i, label %validate_cert_type.exit.thread16.i, label %15
 
-16:                                               ; preds = %10
-  %or.cond3.i.i = or i1 %14, %15
+15:                                               ; preds = %9
+  %or.cond3.i.i = or i1 %13, %14
   br i1 %or.cond3.i.i, label %set_cert_type.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %16, %21
-  %.023.i.i = phi i32 [ %.1.i.i, %21 ], [ 0, %16 ]
-  %.01422.i.i = phi i32 [ %.115.i.i, %21 ], [ 0, %16 ]
-  %.01621.i.i = phi i64 [ %22, %21 ], [ 0, %16 ]
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.01621.i.i
-  %18 = load i8, ptr %17, align 1, !tbaa !261
-  switch i8 %18, label %set_cert_type.exit [
-    i8 2, label %19
-    i8 0, label %20
+.preheader.i.i:                                   ; preds = %15, %20
+  %.023.i.i = phi i32 [ %.1.i.i, %20 ], [ 0, %15 ]
+  %.01422.i.i = phi i32 [ %.115.i.i, %20 ], [ 0, %15 ]
+  %.01621.i.i = phi i64 [ %21, %20 ], [ 0, %15 ]
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.01621.i.i
+  %17 = load i8, ptr %16, align 1, !tbaa !261
+  switch i8 %17, label %set_cert_type.exit [
+    i8 2, label %18
+    i8 0, label %19
   ]
 
-19:                                               ; preds = %.preheader.i.i
+18:                                               ; preds = %.preheader.i.i
   %.not20.i.i = icmp eq i32 %.01422.i.i, 0
-  br i1 %.not20.i.i, label %21, label %set_cert_type.exit
+  br i1 %.not20.i.i, label %20, label %set_cert_type.exit
 
-20:                                               ; preds = %.preheader.i.i
+19:                                               ; preds = %.preheader.i.i
   %.not.i.i = icmp eq i32 %.023.i.i, 0
-  br i1 %.not.i.i, label %21, label %set_cert_type.exit
+  br i1 %.not.i.i, label %20, label %set_cert_type.exit
 
-21:                                               ; preds = %20, %19
-  %.115.i.i = phi i32 [ 1, %19 ], [ %.01422.i.i, %20 ]
-  %.1.i.i = phi i32 [ %.023.i.i, %19 ], [ 1, %20 ]
-  %22 = add nuw i64 %.01621.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %22, %2
+20:                                               ; preds = %19, %18
+  %.115.i.i = phi i32 [ 1, %18 ], [ %.01422.i.i, %19 ]
+  %.1.i.i = phi i32 [ %.023.i.i, %18 ], [ 1, %19 ]
+  %21 = add nuw i64 %.01621.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %21, %2
   br i1 %exitcond.not.i.i, label %validate_cert_type.exit.i, label %.preheader.i.i, !llvm.loop !537
 
-validate_cert_type.exit.i:                        ; preds = %21
-  %23 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 8210) #20
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %set_cert_type.exit, label %validate_cert_type.exit.thread16.i
+validate_cert_type.exit.i:                        ; preds = %20
+  %22 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 8210) #20
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %set_cert_type.exit, label %validate_cert_type.exit.thread16.i
 
-validate_cert_type.exit.thread16.i:               ; preds = %validate_cert_type.exit.i, %10
-  %.0.i = phi ptr [ %23, %validate_cert_type.exit.i ], [ null, %10 ]
-  %25 = load ptr, ptr %12, align 8, !tbaa !283
-  tail call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 8213) #20
-  store ptr %.0.i, ptr %12, align 8, !tbaa !283
-  store i64 %2, ptr %13, align 8, !tbaa !285
+validate_cert_type.exit.thread16.i:               ; preds = %validate_cert_type.exit.i, %9
+  %.0.i = phi ptr [ %22, %validate_cert_type.exit.i ], [ null, %9 ]
+  %24 = load ptr, ptr %11, align 8, !tbaa !283
+  tail call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str, i32 noundef 8213) #20
+  store ptr %.0.i, ptr %11, align 8, !tbaa !283
+  store i64 %2, ptr %12, align 8, !tbaa !285
   br label %set_cert_type.exit
 
-set_cert_type.exit:                               ; preds = %.preheader.i.i, %19, %20, %16, %validate_cert_type.exit.i, %validate_cert_type.exit.thread16.i
-  %.010.i = phi i32 [ 0, %validate_cert_type.exit.i ], [ 1, %validate_cert_type.exit.thread16.i ], [ 0, %16 ], [ 0, %20 ], [ 0, %19 ], [ 0, %.preheader.i.i ]
+set_cert_type.exit:                               ; preds = %.preheader.i.i, %18, %19, %15, %validate_cert_type.exit.i, %validate_cert_type.exit.thread16.i
+  %.010.i = phi i32 [ 0, %validate_cert_type.exit.i ], [ 1, %validate_cert_type.exit.thread16.i ], [ 0, %15 ], [ 0, %19 ], [ 0, %18 ], [ 0, %.preheader.i.i ]
   ret i32 %.010.i
 }
 

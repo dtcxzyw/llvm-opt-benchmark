@@ -180,26 +180,25 @@ _RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCs8mTrBI1stz4_15turbo
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef i64 @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBb_4iter6traits8iterator8Iterator4foldjQQNCINvNvXs_NtNtB1E_8adapters9enumerateINtB2v_9EnumeratepEB1y_4fold9enumerateRBQ_jNCNvMNtBU_4gridNtB3I_4Grid18size_with_contents0E0EBU_.llvm.10109814100354086291(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca [16 x i8], align 8
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = icmp eq ptr %0, %1
-  br i1 %7, label %.loopexit, label %8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %6 = icmp eq ptr %0, %1
+  br i1 %6, label %.loopexit, label %7
 
-8:                                                ; preds = %4
-  %9 = ptrtoint ptr %1 to i64
-  %10 = ptrtoint ptr %0 to i64
-  %11 = sub nuw i64 %9, %10
-  %12 = lshr exact i64 %11, 5
-  %13 = load ptr, ptr %3, align 8, !alias.scope !76, !noalias !79, !nonnull !5, !align !84, !noundef !5
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.promoted = load i64, ptr %13, align 8, !alias.scope !85, !noalias !88
-  br label %15
+7:                                                ; preds = %4
+  %8 = ptrtoint ptr %1 to i64
+  %9 = ptrtoint ptr %0 to i64
+  %10 = sub nuw i64 %8, %9
+  %11 = lshr exact i64 %10, 5
+  %12 = load ptr, ptr %3, align 8, !alias.scope !76, !noalias !79, !nonnull !5, !align !84, !noundef !5
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.promoted = load i64, ptr %12, align 8, !alias.scope !85, !noalias !88
+  br label %14
 
-15:                                               ; preds = %15, %8
-  %16 = phi i64 [ %.promoted, %8 ], [ %24, %15 ]
-  %.sroa.07.0 = phi i64 [ %2, %8 ], [ %spec.select.i.i.i.i, %15 ]
-  %.sroa.09.0 = phi i64 [ 0, %8 ], [ %25, %15 ]
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %0, i64 %.sroa.09.0
+14:                                               ; preds = %14, %7
+  %15 = phi i64 [ %.promoted, %7 ], [ %23, %14 ]
+  %.sroa.07.0 = phi i64 [ %2, %7 ], [ %spec.select.i.i.i.i, %14 ]
+  %.sroa.09.0 = phi i64 [ 0, %7 ], [ %24, %14 ]
+  %16 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %0, i64 %.sroa.09.0
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
@@ -208,24 +207,24 @@ define hidden noundef i64 @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4It
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !99
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8, !alias.scope !100, !noalias !103, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %21 = load i64, ptr %20, align 8, !alias.scope !100, !noalias !103, !noundef !5
-  %22 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %19, i64 %21
-  store ptr %19, ptr %5, align 8, !noalias !99
-  store ptr %22, ptr %14, align 8, !noalias !99
-  %23 = call noundef zeroext i1 @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellENtNtNtNtBb_4iter6traits8iterator8Iterator3allNCNvMNtBU_3rowNtB2o_3Row8is_blank0EBU_.llvm.4083057626633162689(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !99
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8, !alias.scope !100, !noalias !103, !nonnull !5, !noundef !5
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %20 = load i64, ptr %19, align 8, !alias.scope !100, !noalias !103, !noundef !5
+  %21 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %18, i64 %20
+  store ptr %18, ptr %5, align 8, !noalias !99
+  store ptr %21, ptr %13, align 8, !noalias !99
+  %22 = call noundef zeroext i1 @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellENtNtNtNtBb_4iter6traits8iterator8Iterator3allNCNvMNtBU_3rowNtB2o_3Row8is_blank0EBU_.llvm.4083057626633162689(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !99
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !99
-  %spec.select.i.i.i.i = select i1 %23, i64 %.sroa.07.0, i64 %16
-  %24 = add i64 %16, 1
-  store i64 %24, ptr %13, align 8, !alias.scope !85, !noalias !88
-  %25 = add nuw i64 %.sroa.09.0, 1
-  %26 = icmp eq i64 %25, %12
-  br i1 %26, label %.loopexit, label %15
+  %spec.select.i.i.i.i = select i1 %22, i64 %.sroa.07.0, i64 %15
+  %23 = add i64 %15, 1
+  store i64 %23, ptr %12, align 8, !alias.scope !85, !noalias !88
+  %24 = add nuw i64 %.sroa.09.0, 1
+  %25 = icmp eq i64 %24, %11
+  br i1 %25, label %.loopexit, label %14
 
-.loopexit:                                        ; preds = %15, %4
-  %.sroa.04.0 = phi i64 [ %2, %4 ], [ %spec.select.i.i.i.i, %15 ]
+.loopexit:                                        ; preds = %14, %4
+  %.sroa.04.0 = phi i64 [ %2, %4 ], [ %spec.select.i.i.i.i, %14 ]
   ret i64 %.sroa.04.0
 }
 

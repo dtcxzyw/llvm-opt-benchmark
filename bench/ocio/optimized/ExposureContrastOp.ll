@@ -2997,8 +2997,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ExposureContrastOp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %7 = tail call ptr @__dynamic_cast(ptr nonnull %.val, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev22ExposureContrastOpDataE, i64 0) #18, !noalias !121
-  %.not.not.i.i.i = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %.not.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   store ptr %7, ptr %4, align 8, !tbaa !27, !alias.scope !121
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.val4, ptr %8, align 8, !tbaa !22, !alias.scope !121
@@ -3152,8 +3151,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ExposureContrastOp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %5 = tail call ptr @__dynamic_cast(ptr nonnull %.val, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev22ExposureContrastOpDataE, i64 0) #18, !noalias !131
-  %.not.not.i.i.i = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %.not.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   store ptr %5, ptr %2, align 8, !tbaa !27, !alias.scope !131
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.val2, ptr %6, align 8, !tbaa !22, !alias.scope !131

@@ -1123,6 +1123,7 @@ define linkonce_odr noundef i64 @_ZN4absl12lts_2024072218container_internal12raw
 .thread29.i.i:                                    ; preds = %.lr.ph.i.i
   %52 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 %48
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %53) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE12find_non_sooISB_EENSG_8iteratorERKT_m.exit.i
 
 54:                                               ; preds = %.lr.ph.i.i
@@ -2577,11 +2578,12 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %30 = xor i128 %29, %28
   %31 = trunc i128 %30 to i64
   %32 = tail call noundef i64 @_ZN4absl12lts_2024072218container_internal21PrepareInsertAfterSooEmmRNS1_12CommonFieldsE(i64 noundef %31, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !92
-  %33 = load ptr, ptr %13, align 8, !tbaa !34, !noalias !92, !nonnull !41, !noundef !41
+  %33 = load ptr, ptr %13, align 8, !tbaa !34, !noalias !92
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %35, align 8, !tbaa !34, !noalias !92
   %36 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %32
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE26find_or_prepare_insert_sooIS8_EESt4pairINSG_8iteratorEbERKT_.exit.i.i
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE26find_or_prepare_insert_sooIS8_EESt4pairINSG_8iteratorEbERKT_.exit.i.i: ; preds = %17, %12, %10
@@ -2692,7 +2694,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %49 = add i64 %.sroa.7.0, %48
   %50 = and i64 %49, %20
   %51 = tail call noundef i64 @_ZN4absl12lts_2024072218container_internal19PrepareInsertNonSooERNS1_12CommonFieldsEmNS1_8FindInfoERKNS1_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %19, i64 %50, i64 %.sroa.14.0, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE18GetPolicyFunctionsEvE5value)
-  %52 = load ptr, ptr %4, align 8, !tbaa !34, !nonnull !41, !noundef !41
+  %52 = load ptr, ptr %4, align 8, !tbaa !34
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %51
   %.sroa.0.0.copyload.i.i.i.i22 = load ptr, ptr %29, align 8, !tbaa !34
   %54 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %51
@@ -2709,10 +2711,11 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %60
 
 60:                                               ; preds = %.thread, %.critedge21
-  %.sink74 = phi ptr [ %53, %.thread ], [ %59, %.critedge21 ]
+  %.sink75 = phi ptr [ %53, %.thread ], [ %59, %.critedge21 ]
   %.sink73 = phi ptr [ %54, %.thread ], [ %58, %.critedge21 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge21 ]
-  store ptr %.sink74, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink75) ]
+  store ptr %.sink75, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink73, ptr %.sroa.4.0..sroa_idx, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16

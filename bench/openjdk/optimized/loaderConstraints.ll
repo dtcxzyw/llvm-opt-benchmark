@@ -440,7 +440,7 @@ _ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit:      ; preds = %4, %7
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %0, %36
-  br i1 %37, label %71, label %38
+  br i1 %37, label %70, label %38
 
 38:                                               ; preds = %34, %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -477,81 +477,80 @@ _ZN21ResourceHashtableNodeI16SymbolHandleBaseILb0EE13ConstraintSetEC2EjRKS1_PS3_
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #12
   %52 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 1) #12
-  %53 = icmp ne ptr %52, null
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 5, i32 noundef 8, i8 noundef zeroext 1) #12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %52) ]
+  %53 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 5, i32 noundef 8, i8 noundef zeroext 1) #12
   store i32 0, ptr %52, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  store i32 5, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %54, ptr %56, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %54, i8 0, i64 40, i1 false)
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i64 3, ptr %57, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  store i32 5, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store ptr %53, ptr %55, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, i8 0, i64 40, i1 false)
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  store i64 3, ptr %56, align 8
   store ptr %52, ptr %51, align 8
-  %58 = load i32, ptr %52, align 8
-  %59 = load i32, ptr %55, align 4
-  %60 = icmp eq i32 %58, %59
-  br i1 %60, label %61, label %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit
+  %57 = load i32, ptr %52, align 8
+  %58 = load i32, ptr %54, align 4
+  %59 = icmp eq i32 %57, %58
+  br i1 %59, label %60, label %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit
 
-61:                                               ; preds = %46
-  %62 = add nsw i32 %58, 1
-  %63 = icmp sgt i32 %58, -1
-  %64 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %62)
-  %65 = icmp samesign ult i32 %64, 2
-  %or.cond.i.i.i.i.i.i = select i1 %63, i1 %65, i1 false
-  %66 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %62, i1 true)
-  %67 = sub nuw nsw i32 32, %66
-  %68 = shl nuw i32 1, %67
-  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %62, i32 %68
+60:                                               ; preds = %46
+  %61 = add nsw i32 %57, 1
+  %62 = icmp sgt i32 %57, -1
+  %63 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %61)
+  %64 = icmp samesign ult i32 %63, 2
+  %or.cond.i.i.i.i.i.i = select i1 %62, i1 %64, i1 false
+  %65 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %61, i1 true)
+  %66 = sub nuw nsw i32 32, %65
+  %67 = shl nuw i32 1, %66
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %61, i32 %67
   tail call void @_ZN26GrowableArrayWithAllocatorIP16LoaderConstraint13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %52, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %52, align 8
   br label %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit
 
-_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit: ; preds = %46, %61
-  %69 = phi i32 [ %.pre.i.i.i, %61 ], [ %58, %46 ]
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %52, align 8
-  br label %89
+_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit: ; preds = %46, %60
+  %68 = phi i32 [ %.pre.i.i.i, %60 ], [ %57, %46 ]
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %52, align 8
+  br label %88
 
-71:                                               ; preds = %34
-  %72 = getelementptr inbounds nuw i8, ptr %31, i64 16
+70:                                               ; preds = %34
+  %71 = getelementptr inbounds nuw i8, ptr %31, i64 16
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #12
-  %73 = load ptr, ptr %72, align 8
-  %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %76 = load i32, ptr %75, align 4
-  %77 = icmp eq i32 %74, %76
-  br i1 %77, label %78, label %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit
+  %72 = load ptr, ptr %71, align 8
+  %73 = load i32, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = icmp eq i32 %73, %75
+  br i1 %76, label %77, label %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit
 
-78:                                               ; preds = %71
-  %79 = add nsw i32 %74, 1
-  %80 = icmp sgt i32 %74, -1
-  %81 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %79)
-  %82 = icmp samesign ult i32 %81, 2
-  %or.cond.i.i.i.i.i.i12 = select i1 %80, i1 %82, i1 false
-  %83 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %79, i1 true)
-  %84 = sub nuw nsw i32 32, %83
-  %85 = shl nuw i32 1, %84
-  %.0.i.i.i.i.i.i13 = select i1 %or.cond.i.i.i.i.i.i12, i32 %79, i32 %85
-  tail call void @_ZN26GrowableArrayWithAllocatorIP16LoaderConstraint13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %73, i32 noundef %.0.i.i.i.i.i.i13)
-  %.pre.i.i.i14 = load i32, ptr %73, align 8
+77:                                               ; preds = %70
+  %78 = add nsw i32 %73, 1
+  %79 = icmp sgt i32 %73, -1
+  %80 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %78)
+  %81 = icmp samesign ult i32 %80, 2
+  %or.cond.i.i.i.i.i.i12 = select i1 %79, i1 %81, i1 false
+  %82 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %78, i1 true)
+  %83 = sub nuw nsw i32 32, %82
+  %84 = shl nuw i32 1, %83
+  %.0.i.i.i.i.i.i13 = select i1 %or.cond.i.i.i.i.i.i12, i32 %78, i32 %84
+  tail call void @_ZN26GrowableArrayWithAllocatorIP16LoaderConstraint13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %72, i32 noundef %.0.i.i.i.i.i.i13)
+  %.pre.i.i.i14 = load i32, ptr %72, align 8
   br label %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit
 
-_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit: ; preds = %71, %78
-  %86 = phi i32 [ %.pre.i.i.i14, %78 ], [ %74, %71 ]
-  %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %73, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  br label %89
+_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit: ; preds = %70, %77
+  %85 = phi i32 [ %.pre.i.i.i14, %77 ], [ %73, %70 ]
+  %86 = add nsw i32 %85, 1
+  store i32 %86, ptr %72, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  br label %88
 
-89:                                               ; preds = %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit
-  %.sink = phi i32 [ %86, %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit ], [ %69, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit ]
-  %.sink31.in = phi ptr [ %88, %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit ], [ %56, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit ]
+88:                                               ; preds = %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit
+  %.sink = phi i32 [ %85, %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit ], [ %68, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit ]
+  %.sink31.in = phi ptr [ %87, %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit ], [ %55, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit ]
   %.sink31 = load ptr, ptr %.sink31.in, align 8
-  %90 = sext i32 %.sink to i64
-  %91 = getelementptr inbounds ptr, ptr %.sink31, i64 %90
-  store ptr %5, ptr %91, align 8
+  %89 = sext i32 %.sink to i64
+  %90 = getelementptr inbounds ptr, ptr %.sink31, i64 %89
+  store ptr %5, ptr %90, align 8
   ret void
 }
 

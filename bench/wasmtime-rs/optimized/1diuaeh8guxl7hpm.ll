@@ -1102,9 +1102,9 @@ define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Pa
   %8 = load i64, ptr %6, align 8, !range !7, !noundef !3
   %9 = icmp eq i64 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %9, label %11, label %30
+  br i1 %9, label %11, label %28
 
-.thread22:                                        ; preds = %24, %11
+.thread22:                                        ; preds = %22, %11
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -1118,7 +1118,7 @@ define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Pa
   %13 = load i64, ptr %4, align 8, !range !4, !noundef !3
   %.not = icmp eq i64 %13, -9223372036854775808
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br i1 %.not, label %32, label %15
+  br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %12
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1131,58 +1131,56 @@ define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Pa
   %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..lit..LitStr$C$syn..token..Comma$GT$$GT$17hf02e6ff4336768e7E"(ptr nonnull align 8 %5) #11
-          to label %.thread unwind label %28
+          to label %.thread unwind label %26
 
 19:                                               ; preds = %15
   %20 = extractvalue { ptr, ptr } %16, 0
   %21 = extractvalue { ptr, ptr } %16, 1
-  %22 = icmp ne ptr %20, null
-  call void @llvm.assume(i1 %22)
-  %23 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %23)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %21) ]
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8b4544afaee45d59E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %3, ptr nonnull align 1 %20, ptr nonnull align 8 %21)
-          to label %24 unwind label %17
+          to label %22 unwind label %17
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 0, ptr %0, align 8
   invoke void @"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..lit..LitStr$C$syn..token..Comma$GT$$GT$17hf02e6ff4336768e7E"(ptr nonnull align 8 %5)
-          to label %26 unwind label %.thread22
+          to label %24 unwind label %.thread22
 
-26:                                               ; preds = %24
+24:                                               ; preds = %22
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %7)
-  br label %27
+  br label %25
 
-27:                                               ; preds = %30, %32, %26
+25:                                               ; preds = %28, %30, %24
   ret void
 
-28:                                               ; preds = %.thread, %17
-  %29 = landingpad { ptr, i32 }
+26:                                               ; preds = %.thread, %17
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
-30:                                               ; preds = %2
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+28:                                               ; preds = %2
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %27
+  br label %25
 
-32:                                               ; preds = %12
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+30:                                               ; preds = %12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %7)
-  br label %27
+  br label %25
 
-34:                                               ; preds = %.thread
+32:                                               ; preds = %.thread
   resume { ptr, i32 } %.pn21
 
 .thread:                                          ; preds = %17, %.thread22
   %.pn21 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread22 ], [ %18, %17 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %7) #11
-          to label %34 unwind label %28
+          to label %32 unwind label %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2426,15 +2424,15 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %85
+  br label %83
 
 25:                                               ; preds = %.thread99
-  br i1 %.3103, label %93, label %92
+  br i1 %.3103, label %91, label %90
 
 .thread:                                          ; preds = %63, %22
   %lpad.thr_comm148 = landingpad { ptr, i32 }
           cleanup
-  br label %93
+  br label %91
 
 26:                                               ; preds = %22
   %27 = load i64, ptr %16, align 8, !range !4, !noundef !3
@@ -2473,10 +2471,10 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   %.sroa.365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.051.sroa.3.0.copyload, ptr %.sroa.365.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %91
+  br label %89
 
-.thread106:                                       ; preds = %83, %89, %48, %43, %29
-  %.282.ph = phi i1 [ true, %29 ], [ true, %43 ], [ true, %48 ], [ true, %89 ], [ false, %83 ]
+.thread106:                                       ; preds = %81, %87, %48, %43, %29
+  %.282.ph = phi i1 [ true, %29 ], [ true, %43 ], [ true, %48 ], [ true, %87 ], [ false, %81 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread99
@@ -2484,7 +2482,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
 .thread139:                                       ; preds = %47
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %93
+  br label %91
 
 42:                                               ; preds = %29
   br i1 %38, label %45, label %43
@@ -2503,7 +2501,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
 47:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %15, i64 56, i1 false)
   invoke void @_ZN3syn9lookahead10Lookahead15error17h0826ec1e0da3cb59E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %4, ptr nonnull align 8 %3)
-          to label %86 unwind label %.thread139
+          to label %84 unwind label %.thread139
 
 48:                                               ; preds = %46
   invoke void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$proc_macro2..Ident$GT$5parse17h73d9b304c5aa06ffE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %7, ptr nonnull align 8 %1)
@@ -2542,9 +2540,9 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.035, i64 56, i1 false)
   %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %19, ptr %.sroa.336.0..sroa_idx, align 8
-  br label %84
+  br label %82
 
-58:                                               ; preds = %93, %.thread99, %.thread119, %88, %75, %61, %54
+58:                                               ; preds = %91, %.thread99, %.thread119, %86, %75, %61, %54
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
@@ -2564,12 +2562,12 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   store i64 -9223372036854775808, ptr %0, align 8
   br label %63
 
-63:                                               ; preds = %.sink.split, %89
+63:                                               ; preds = %.sink.split, %87
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %15)
-          to label %91 unwind label %.thread
+          to label %89 unwind label %.thread
 
-.thread129:                                       ; preds = %82, %69
-  %.4.ph = phi i1 [ true, %69 ], [ false, %82 ]
+.thread129:                                       ; preds = %80, %69
+  %.4.ph = phi i1 [ true, %69 ], [ false, %80 ]
   %lpad.thr_comm127 = landingpad { ptr, i32 }
           cleanup
   br label %.thread119
@@ -2594,7 +2592,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   %71 = load i64, ptr %11, align 8, !range !4, !noundef !3
   %.not90 = icmp eq i64 %71, -9223372036854775808
   %72 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  br i1 %.not90, label %89, label %73
+  br i1 %.not90, label %87, label %73
 
 73:                                               ; preds = %70
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -2608,19 +2606,17 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   %76 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %10) #11
-          to label %88 unwind label %58
+          to label %86 unwind label %58
 
 77:                                               ; preds = %73
   %78 = extractvalue { ptr, ptr } %74, 0
   %79 = extractvalue { ptr, ptr } %74, 1
-  %80 = icmp ne ptr %78, null
-  call void @llvm.assume(i1 %80)
-  %81 = icmp ne ptr %79, null
-  call void @llvm.assume(i1 %81)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %78) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h924f3f7a40db7401E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %9, ptr nonnull align 1 %78, ptr nonnull align 8 %79)
-          to label %82 unwind label %75
+          to label %80 unwind label %75
 
-82:                                               ; preds = %77
+80:                                               ; preds = %77
   %.sroa.023.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.023, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.023, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
@@ -2628,44 +2624,44 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   %.sroa.324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %19, ptr %.sroa.324.0..sroa_idx, align 8
   invoke void @"_ZN4core3ptr94drop_in_place$LT$syn..punctuated..Punctuated$LT$proc_macro2..Ident$C$syn..token..Comma$GT$$GT$17h980db70f8aa297eaE"(ptr nonnull align 8 %12)
-          to label %83 unwind label %.thread129
+          to label %81 unwind label %.thread129
 
-83:                                               ; preds = %82
+81:                                               ; preds = %80
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %14)
-          to label %84 unwind label %.thread106
+          to label %82 unwind label %.thread106
 
-84:                                               ; preds = %83, %57
+82:                                               ; preds = %81, %57
   call void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %15)
-  br label %85
+  br label %83
 
-85:                                               ; preds = %84, %91, %86, %23
+83:                                               ; preds = %82, %89, %84, %23
   ret void
 
-86:                                               ; preds = %47
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+84:                                               ; preds = %47
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %18)
-  br label %85
+  br label %83
 
-88:                                               ; preds = %75
+86:                                               ; preds = %75
   invoke void @"_ZN4core3ptr94drop_in_place$LT$syn..punctuated..Punctuated$LT$proc_macro2..Ident$C$syn..token..Comma$GT$$GT$17h980db70f8aa297eaE"(ptr nonnull align 8 %12) #11
           to label %.thread119 unwind label %58
 
-89:                                               ; preds = %70
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false)
+87:                                               ; preds = %70
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %14)
           to label %63 unwind label %.thread106
 
-91:                                               ; preds = %63, %39
+89:                                               ; preds = %63, %39
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %18)
-  br label %85
+  br label %83
 
-.thread119:                                       ; preds = %88, %.thread129
-  %.pn124 = phi { ptr, i32 } [ %lpad.thr_comm127, %.thread129 ], [ %76, %88 ]
-  %.6123 = phi i1 [ %.4.ph, %.thread129 ], [ false, %88 ]
+.thread119:                                       ; preds = %86, %.thread129
+  %.pn124 = phi { ptr, i32 } [ %lpad.thr_comm127, %.thread129 ], [ %76, %86 ]
+  %.6123 = phi i1 [ %.4.ph, %.thread129 ], [ false, %86 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %14) #11
           to label %.thread99 unwind label %58
 
@@ -2675,14 +2671,14 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %15) #11
           to label %25 unwind label %58
 
-92:                                               ; preds = %93, %25
-  %.pn95142 = phi { ptr, i32 } [ %.pn95143, %93 ], [ %.pn93104, %25 ]
+90:                                               ; preds = %91, %25
+  %.pn95142 = phi { ptr, i32 } [ %.pn95143, %91 ], [ %.pn93104, %25 ]
   resume { ptr, i32 } %.pn95142
 
-93:                                               ; preds = %.thread, %.thread139, %25
+91:                                               ; preds = %.thread, %.thread139, %25
   %.pn95143 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.thread139 ], [ %.pn93104, %25 ], [ %lpad.thr_comm148, %.thread ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %18) #11
-          to label %92 unwind label %58
+          to label %90 unwind label %58
 }
 
 ; Function Attrs: nonlazybind uwtable

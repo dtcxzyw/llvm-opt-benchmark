@@ -180261,11 +180261,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %18
   %24 = mul i64 %23, -2543921745674291987
   %25 = tail call noundef i64 @llvm.bswap.i64(i64 %24)
   %26 = tail call noundef i64 @_ZN4absl18container_internal21PrepareInsertAfterSooEmmRNS0_12CommonFieldsE(i64 noundef %25, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(32) %0), !noalias !4411
-  %27 = load ptr, ptr %15, align 8, !tbaa !27, !noalias !4411, !nonnull !39, !noundef !39
+  %27 = load ptr, ptr %15, align 8, !tbaa !27, !noalias !4411
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %29, align 8, !tbaa !27, !noalias !4411
   %30 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %26
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %28) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES6_EENS0_10StringHashENS0_8StringEqESaISt4pairIKS6_S6_EEE26find_or_prepare_insert_sooIS6_EESA_INSE_8iteratorEbERKT_.exit
 
 _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES6_EENS0_10StringHashENS0_8StringEqESaISt4pairIKS6_S6_EEE26find_or_prepare_insert_sooIS6_EESA_INSE_8iteratorEbERKT_.exit: ; preds = %12, %18, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i, %21
@@ -180390,7 +180391,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %34
   %43 = add i64 %.sroa.7.0, %42
   %44 = and i64 %43, %11
   %45 = tail call noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %9, i64 %44, i64 %.sroa.14.0, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES6_EENS0_10StringHashENS0_8StringEqESaISt4pairIKS6_S6_EEE18GetPolicyFunctionsEvE5value)
-  %46 = load ptr, ptr %4, align 8, !tbaa !27, !nonnull !39, !noundef !39
+  %46 = load ptr, ptr %4, align 8, !tbaa !27
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %45
   %.sroa.0.0.copyload.i.i.i.i24 = load ptr, ptr %20, align 8, !tbaa !27
   %48 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i24, i64 %45
@@ -180407,10 +180408,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %34
   br label %54
 
 54:                                               ; preds = %.thread, %.critedge23
-  %.sink76 = phi ptr [ %47, %.thread ], [ %53, %.critedge23 ]
+  %.sink77 = phi ptr [ %47, %.thread ], [ %53, %.critedge23 ]
   %.sink75 = phi ptr [ %48, %.thread ], [ %52, %.critedge23 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge23 ]
-  store ptr %.sink76, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink77) ]
+  store ptr %.sink77, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %.sroa.4.0..sroa_idx, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -183885,11 +183887,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %18
   %24 = mul i64 %23, -2543921745674291987
   %25 = tail call noundef i64 @llvm.bswap.i64(i64 %24)
   %26 = tail call noundef i64 @_ZN4absl18container_internal21PrepareInsertAfterSooEmmRNS0_12CommonFieldsE(i64 noundef %25, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(32) %0), !noalias !4524
-  %27 = load ptr, ptr %15, align 8, !tbaa !27, !noalias !4524, !nonnull !39, !noundef !39
+  %27 = load ptr, ptr %15, align 8, !tbaa !27, !noalias !4524
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %29, align 8, !tbaa !27, !noalias !4524
   %30 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %26
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %28) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS5_SaIcEEEEENS0_10StringHashENS0_8StringEqESaISt4pairIKS6_SA_EEE26find_or_prepare_insert_sooIS6_EESE_INSI_8iteratorEbERKT_.exit
 
 _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS5_SaIcEEEEENS0_10StringHashENS0_8StringEqESaISt4pairIKS6_SA_EEE26find_or_prepare_insert_sooIS6_EESE_INSI_8iteratorEbERKT_.exit: ; preds = %12, %18, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i, %21
@@ -184018,7 +184021,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %34
   %43 = add i64 %.sroa.7.0, %42
   %44 = and i64 %43, %11
   %45 = tail call noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %9, i64 %44, i64 %.sroa.14.0, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS5_SaIcEEEEENS0_10StringHashENS0_8StringEqESaISt4pairIKS6_SA_EEE18GetPolicyFunctionsEvE5value)
-  %46 = load ptr, ptr %4, align 8, !tbaa !27, !nonnull !39, !noundef !39
+  %46 = load ptr, ptr %4, align 8, !tbaa !27
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %45
   %.sroa.0.0.copyload.i.i.i.i24 = load ptr, ptr %20, align 8, !tbaa !27
   %48 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i24, i64 %45
@@ -184035,10 +184038,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %34
   br label %54
 
 54:                                               ; preds = %.thread, %.critedge23
-  %.sink76 = phi ptr [ %47, %.thread ], [ %53, %.critedge23 ]
+  %.sink77 = phi ptr [ %47, %.thread ], [ %53, %.critedge23 ]
   %.sink75 = phi ptr [ %48, %.thread ], [ %52, %.critedge23 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge23 ]
-  store ptr %.sink76, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink77) ]
+  store ptr %.sink77, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %.sroa.4.0..sroa_idx, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -187117,11 +187121,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %15
   %21 = mul i64 %20, -2543921745674291987
   %22 = tail call noundef i64 @llvm.bswap.i64(i64 %21)
   %23 = tail call noundef i64 @_ZN4absl18container_internal21PrepareInsertAfterSooEmmRNS0_12CommonFieldsE(i64 noundef %22, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %24 = load ptr, ptr %9, align 8, !tbaa !27, !nonnull !39, !noundef !39
+  %24 = load ptr, ptr %9, align 8, !tbaa !27
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %23
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %26, align 8, !tbaa !27
   %27 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %23
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %25) ]
   br label %_ZN4absl18container_internal18hash_policy_traitsINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_EEEvE5applyINS0_12raw_hash_setISB_NS0_10StringHashENS0_8StringEqESaISt4pairIKS8_SA_EEE12EqualElementISA_EEJRSJ_ESB_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSQ_DpOSR_.exit
 
 _ZN4absl18container_internal18hash_policy_traitsINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_EEEvE5applyINS0_12raw_hash_setISB_NS0_10StringHashENS0_8StringEqESaISt4pairIKS8_SA_EEE12EqualElementISA_EEJRSJ_ESB_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOSQ_DpOSR_.exit: ; preds = %15, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i, %18, %6
@@ -187218,7 +187223,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %37
   %46 = add i64 %.sroa.7.0, %45
   %47 = and i64 %46, %11
   %48 = tail call noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %9, i64 %47, i64 %.sroa.14.0, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_EEENS0_10StringHashENS0_8StringEqESaISt4pairIKS8_SA_EEE18GetPolicyFunctionsEvE5value)
-  %49 = load ptr, ptr %4, align 8, !tbaa !27, !nonnull !39, !noundef !39
+  %49 = load ptr, ptr %4, align 8, !tbaa !27
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %48
   %.sroa.0.0.copyload.i.i.i.i24 = load ptr, ptr %20, align 8, !tbaa !27
   %51 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i24, i64 %48
@@ -187235,10 +187240,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %37
   br label %57
 
 57:                                               ; preds = %.thread, %.critedge23
-  %.sink76 = phi ptr [ %50, %.thread ], [ %56, %.critedge23 ]
+  %.sink77 = phi ptr [ %50, %.thread ], [ %56, %.critedge23 ]
   %.sink75 = phi ptr [ %51, %.thread ], [ %55, %.critedge23 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge23 ]
-  store ptr %.sink76, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink77) ]
+  store ptr %.sink77, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %.sroa.4.0..sroa_idx, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -190241,7 +190247,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %33
   %41 = add i64 %.sroa.7.0, %40
   %42 = and i64 %41, %11
   %43 = tail call noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %9, i64 %42, i64 %.sroa.14.0, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES6_EENS0_10StringHashENS0_8StringEqESaISt4pairIKS6_S6_EEE18GetPolicyFunctionsEvE5value)
-  %44 = load ptr, ptr %4, align 8, !tbaa !27, !nonnull !39, !noundef !39
+  %44 = load ptr, ptr %4, align 8, !tbaa !27
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %43
   %.sroa.0.0.copyload.i.i.i.i24 = load ptr, ptr %20, align 8, !tbaa !27
   %46 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i24, i64 %43
@@ -190257,10 +190263,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %33
   br label %51
 
 51:                                               ; preds = %.thread, %.critedge23
-  %.sink76 = phi ptr [ %45, %.thread ], [ %50, %.critedge23 ]
+  %.sink77 = phi ptr [ %45, %.thread ], [ %50, %.critedge23 ]
   %.sink75 = phi ptr [ %46, %.thread ], [ %31, %.critedge23 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge23 ]
-  store ptr %.sink76, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink77) ]
+  store ptr %.sink77, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %.sroa.4.0..sroa_idx, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -193441,7 +193448,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %33
   %41 = add i64 %.sroa.7.0, %40
   %42 = and i64 %41, %11
   %43 = tail call noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %9, i64 %42, i64 %.sroa.14.0, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS5_SaIcEEEEENS0_10StringHashENS0_8StringEqESaISt4pairIKS6_SA_EEE18GetPolicyFunctionsEvE5value)
-  %44 = load ptr, ptr %4, align 8, !tbaa !27, !nonnull !39, !noundef !39
+  %44 = load ptr, ptr %4, align 8, !tbaa !27
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %43
   %.sroa.0.0.copyload.i.i.i.i24 = load ptr, ptr %20, align 8, !tbaa !27
   %46 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.1209", ptr %.sroa.0.0.copyload.i.i.i.i24, i64 %43
@@ -193457,10 +193464,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %33
   br label %51
 
 51:                                               ; preds = %.thread, %.critedge23
-  %.sink76 = phi ptr [ %45, %.thread ], [ %50, %.critedge23 ]
+  %.sink77 = phi ptr [ %45, %.thread ], [ %50, %.critedge23 ]
   %.sink75 = phi ptr [ %46, %.thread ], [ %31, %.critedge23 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge23 ]
-  store ptr %.sink76, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink77) ]
+  store ptr %.sink77, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %.sroa.4.0..sroa_idx, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -196668,7 +196676,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %36
   %44 = add i64 %.sroa.7.0, %43
   %45 = and i64 %44, %11
   %46 = tail call noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %9, i64 %45, i64 %.sroa.14.0, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_EEENS0_10StringHashENS0_8StringEqESaISt4pairIKS8_SA_EEE18GetPolicyFunctionsEvE5value)
-  %47 = load ptr, ptr %4, align 8, !tbaa !27, !nonnull !39, !noundef !39
+  %47 = load ptr, ptr %4, align 8, !tbaa !27
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %46
   %.sroa.0.0.copyload.i.i.i.i24 = load ptr, ptr %20, align 8, !tbaa !27
   %49 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.1272", ptr %.sroa.0.0.copyload.i.i.i.i24, i64 %46
@@ -196684,10 +196692,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %36
   br label %54
 
 54:                                               ; preds = %.thread, %.critedge23
-  %.sink76 = phi ptr [ %48, %.thread ], [ %53, %.critedge23 ]
+  %.sink77 = phi ptr [ %48, %.thread ], [ %53, %.critedge23 ]
   %.sink75 = phi ptr [ %49, %.thread ], [ %31, %.critedge23 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge23 ]
-  store ptr %.sink76, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink77) ]
+  store ptr %.sink77, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %.sroa.4.0..sroa_idx, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16

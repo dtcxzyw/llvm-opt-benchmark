@@ -849,8 +849,7 @@ zend_hash_index_update_mem.exit:                  ; preds = %65, %67
 
 92:                                               ; preds = %83
   %93 = call ptr @zend_hash_index_find(ptr noundef nonnull %90, i64 noundef %2) #15
-  %.not.i67 = icmp ne ptr %93, null
-  call void @llvm.assume(i1 %.not.i67)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %93) ]
   %94 = load ptr, ptr %93, align 8, !tbaa !12, !nonnull !51, !noundef !51
   %.sroa.0.0.copyload = load i32, ptr %94, align 8, !tbaa !91
   %.sroa.1276.0..0.i68.sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 24
@@ -1639,8 +1638,7 @@ zend_hash_find_ptr.exit50:                        ; preds = %17, %13
 zend_hash_get_current_data_ptr_ex.exit:           ; preds = %28
   tail call void @zend_hash_internal_pointer_end_ex(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 168), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 204)) #15
   %32 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 168), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 204)) #15
-  %.not.i54 = icmp ne ptr %32, null
-  tail call void @llvm.assume(i1 %.not.i54)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
   %33 = load ptr, ptr %32, align 8, !tbaa !12, !nonnull !51, !noundef !51
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !20
   %35 = load i32, ptr %33, align 8, !tbaa !127

@@ -1568,6 +1568,7 @@ define dso_local ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noun
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.015.026, align 8
   %5 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %6 = inttoptr i64 %5 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp ne i64 %7, 0
@@ -2015,6 +2016,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock18isLegalToHois
   br i1 %5, label %_ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit.thread, label %6
 
 6:                                                ; preds = %1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %4, align 8
   %7 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp ne i64 %7, 0
@@ -8872,6 +8874,7 @@ _ZNK4llvm17MachineBasicBlock11isSuccessorEPKS0_.exit: ; preds = %21, %_ZNK4llvm1
   br i1 %73, label %110, label %74
 
 74:                                               ; preds = %69
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %72) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %72, align 8
   %75 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp ne i64 %75, 0
@@ -8924,6 +8927,7 @@ _ZNK4llvm12MachineInstr9isBarrierENS0_9QueryTypeE.exit._crit_edge: ; preds = %_Z
 
 96:                                               ; preds = %_ZNK4llvm12MachineInstr9isBarrierENS0_9QueryTypeE.exit._crit_edge, %89
   %.pre-phi54 = phi ptr [ %.pre53, %_ZNK4llvm12MachineInstr9isBarrierENS0_9QueryTypeE.exit._crit_edge ], [ %72, %89 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre-phi54) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i9 = load i64, ptr %.pre-phi54, align 8
   %97 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i9, 4
   %.not.i.i.i.i10 = icmp eq i64 %97, 0
@@ -9121,6 +9125,7 @@ _ZN4llvm12LivePhysRegs4initERKNS_18TargetRegisterInfoE.exit: ; preds = %28, %_ZN
   %.0.copyload.i.i.i.i.i.i.i.i.i24 = load i64, ptr %17, align 8
   %52 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i24, -8
   %53 = inttoptr i64 %52 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %53) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %53, align 8
   %54 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i25 = icmp eq i64 %54, 0
@@ -9155,6 +9160,7 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit:        ; preds = %_ZNK4llvm14ilist_it
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.042.051, align 8
   %63 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %64 = inttoptr i64 %63 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %64) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i27 = load i64, ptr %64, align 8
   %65 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i27, 4
   %.not.i.i.i.i28 = icmp eq i64 %65, 0
@@ -13004,6 +13010,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread159.us: ;
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0144.2, align 8
   %67 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %68 = inttoptr i64 %67 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %68) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i88 = load i64, ptr %68, align 8
   %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i88, 4
   %.not.i.i.i89 = icmp eq i64 %69, 0
@@ -13093,6 +13100,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEmmEv.exit: ; preds 
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0144.3205, align 8
   %97 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %98 = inttoptr i64 %97 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %98) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i = load i64, ptr %98, align 8
   %99 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i, 4
   %.not.i.i.i9.i.i.i = icmp eq i64 %99, 0
@@ -13244,6 +13252,7 @@ define dso_local noundef ptr @_ZNK4llvm17MachineBasicBlock17getEndClobberMaskEPK
   br i1 %6, label %_ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit.thread, label %7
 
 7:                                                ; preds = %2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %5, align 8
   %8 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp ne i64 %8, 0
@@ -15765,6 +15774,7 @@ _ZNK4llvm11SlotIndexes13getIndexAfterERKNS_12MachineInstrE.exit: ; preds = %_ZNK
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.08.0.i16, align 8
   %77 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %78 = inttoptr i64 %77 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %78) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i17 = load i64, ptr %78, align 8
   %79 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i17, 4
   %.not.i.i.i.i18 = icmp eq i64 %79, 0

@@ -2942,7 +2942,7 @@ define noundef zeroext i1 @"_ZN57_$LT$jiff..error..Error$u20$as$u20$core..fmt..D
   %3 = alloca [48 x i8], align 8
   %4 = alloca [16 x i8], align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.val10 = load ptr, ptr %1, align 8, !nonnull !3
+  %.val10 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val11 = load ptr, ptr %5, align 8, !nonnull !3
   %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2963,6 +2963,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %9, ptr %4, align 8
   store ptr @"_ZN61_$LT$jiff..error..ErrorKind$u20$as$u20$core..fmt..Display$GT$3fmt17hec8486d064485436E", ptr %.sroa.46.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val10) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !304
   store ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.63, ptr %3, align 8
   store i64 1, ptr %.sroa.523.0..sroa_idx, align 8
@@ -3012,7 +3013,7 @@ define noundef zeroext i1 @"_ZN55_$LT$jiff..error..Error$u20$as$u20$core..fmt..D
 11:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.val10.i = load ptr, ptr %1, align 8, !alias.scope !313, !noalias !316, !nonnull !3
+  %.val10.i = load ptr, ptr %1, align 8, !alias.scope !313, !noalias !316
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val11.i = load ptr, ptr %12, align 8, !alias.scope !313, !noalias !316, !nonnull !3
   %.sroa.523.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3033,6 +3034,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit.i: ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %16, ptr %4, align 8, !noalias !318
   store ptr @"_ZN61_$LT$jiff..error..ErrorKind$u20$as$u20$core..fmt..Display$GT$3fmt17hec8486d064485436E", ptr %.sroa.46.0..sroa_idx.i, align 8, !noalias !318
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val10.i) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !319
   store ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.63, ptr %3, align 8, !noalias !318
   store i64 1, ptr %.sroa.523.0..sroa_idx.i, align 8, !noalias !318

@@ -5023,6 +5023,7 @@ _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb1ELb1ELb1ELb0ELb0EEppE
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %57, align 8
   %278 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %279 = inttoptr i64 %278 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %279) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i = load i64, ptr %279, align 8
   %280 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i, 4
   %.not.i.i.i9.i.i.i = icmp eq i64 %280, 0
@@ -5068,6 +5069,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEmmEv.exit.i.i.i: ; 
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.03.08.i, align 8
   %291 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %292 = inttoptr i64 %291 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %292) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %292, align 8
   %293 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i132 = icmp eq i64 %293, 0

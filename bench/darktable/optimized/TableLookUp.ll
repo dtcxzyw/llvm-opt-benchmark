@@ -150,7 +150,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !21, !nonnull !24, !noundef !24
+  %20 = load ptr, ptr %19, align 8, !tbaa !21
   %21 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %21)
   %22 = icmp sgt i32 %1, -1
@@ -161,30 +161,30 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds nuw i16, ptr %20, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %28 = load i8, ptr %27, align 8, !tbaa !18, !range !25, !noundef !24
+  %28 = load i8, ptr %27, align 8, !tbaa !18, !range !24, !noundef !25
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %.preheader92, label %.preheader93
+  br i1 %29, label %.preheader83, label %.preheader84
 
-.preheader93:                                     ; preds = %18
+.preheader84:                                     ; preds = %18
   %30 = shl i64 %9, 31
   %sext = add i64 %30, -4294967296
   %31 = ashr i64 %sext, 32
-  %sext112 = shl i64 %9, 31
-  %32 = ashr i64 %sext112, 32
+  %sext103 = shl i64 %9, 31
+  %32 = ashr i64 %sext103, 32
   br label %36
 
-.preheader92:                                     ; preds = %18
+.preheader83:                                     ; preds = %18
   %33 = icmp sgt i32 %11, 0
-  br i1 %33, label %.lr.ph, label %.lr.ph98
+  br i1 %33, label %.lr.ph, label %.lr.ph89
 
-.lr.ph:                                           ; preds = %.preheader92
+.lr.ph:                                           ; preds = %.preheader83
   %34 = add nuw i64 %10, 4294967295
   %35 = and i64 %34, 4294967295
   %wide.trip.count = and i64 %10, 2147483647
   br label %46
 
-36:                                               ; preds = %.preheader93, %36
-  %indvars.iv = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next, %36 ]
+36:                                               ; preds = %.preheader84, %36
+  %indvars.iv = phi i64 [ 0, %.preheader84 ], [ %indvars.iv.next, %36 ]
   %37 = icmp slt i64 %indvars.iv, %32
   %.in.v = select i1 %37, i64 %indvars.iv, i64 %31
   %.in = getelementptr inbounds nuw i16, ptr %6, i64 %.in.v
@@ -196,13 +196,13 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !26
 
 .preheader:                                       ; preds = %62
-  %.not99 = icmp eq i32 %11, 65536
-  br i1 %.not99, label %.loopexit, label %.lr.ph98
+  %.not90 = icmp eq i32 %11, 65536
+  br i1 %.not90, label %.loopexit, label %.lr.ph89
 
-.lr.ph98:                                         ; preds = %.preheader92, %.preheader
+.lr.ph89:                                         ; preds = %.preheader83, %.preheader
   %40 = shl i64 %9, 31
-  %sext91 = add i64 %40, -4294967296
-  %41 = ashr i64 %sext91, 32
+  %sext82 = add i64 %40, -4294967296
+  %41 = ashr i64 %sext82, 32
   %42 = getelementptr inbounds nuw i16, ptr %6, i64 %41
   %43 = and i64 %10, 2147483647
   %umax = tail call i32 @llvm.umax.i32(i32 %11, i32 65535)
@@ -212,11 +212,11 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   br label %73
 
 46:                                               ; preds = %.lr.ph, %62
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next103, %62 ]
-  %47 = getelementptr i16, ptr %6, i64 %indvars.iv102
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next94, %62 ]
+  %47 = getelementptr i16, ptr %6, i64 %indvars.iv93
   %48 = load i16, ptr %47, align 2, !tbaa !19
   %49 = zext i16 %48 to i32
-  %.not = icmp eq i64 %indvars.iv102, 0
+  %.not = icmp eq i64 %indvars.iv93, 0
   br i1 %.not, label %55, label %50
 
 50:                                               ; preds = %46
@@ -228,7 +228,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
 
 55:                                               ; preds = %46, %50
   %.sroa.speculated45 = phi i32 [ %54, %50 ], [ %49, %46 ]
-  %56 = icmp samesign ult i64 %indvars.iv102, %35
+  %56 = icmp samesign ult i64 %indvars.iv93, %35
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %55
@@ -248,30 +248,30 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %67 = sub nsw i32 %49, %66
   %.sroa.speculate.load.false.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %67, i32 0)
   %68 = trunc nuw i32 %.sroa.speculate.load.false.sroa.speculated.i to i16
-  %69 = icmp samesign ult i64 %indvars.iv102, 65536
+  %69 = icmp samesign ult i64 %indvars.iv93, 65536
   tail call void @llvm.assume(i1 %69)
-  %.idx = shl nuw nsw i64 %indvars.iv102, 2
+  %.idx = shl nuw nsw i64 %indvars.iv93, 2
   %70 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
   store i16 %68, ptr %70, align 2, !tbaa !19
   %71 = trunc nuw i32 %63 to i16
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 2
   store i16 %71, ptr %72, align 2, !tbaa !19
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count
-  br i1 %exitcond105.not, label %.preheader, label %46, !llvm.loop !28
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count
+  br i1 %exitcond96.not, label %.preheader, label %46, !llvm.loop !28
 
-73:                                               ; preds = %.lr.ph98, %73
-  %indvars.iv106 = phi i64 [ %43, %.lr.ph98 ], [ %indvars.iv.next107, %73 ]
+73:                                               ; preds = %.lr.ph89, %73
+  %indvars.iv97 = phi i64 [ %43, %.lr.ph89 ], [ %indvars.iv.next98, %73 ]
   %74 = load i16, ptr %42, align 2, !tbaa !19
-  %.idx113 = shl nuw nsw i64 %indvars.iv106, 2
-  %75 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx113
+  %.idx104 = shl nuw nsw i64 %indvars.iv97, 2
+  %75 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx104
   store i16 %74, ptr %75, align 2, !tbaa !19
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 2
   store i16 0, ptr %76, align 2, !tbaa !19
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next107 to i32
-  %exitcond109.not = icmp eq i32 %44, %lftr.wideiv
-  br i1 %exitcond109.not, label %.loopexit, label %73, !llvm.loop !29
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next98 to i32
+  %exitcond100.not = icmp eq i32 %44, %lftr.wideiv
+  br i1 %exitcond100.not, label %.loopexit, label %73, !llvm.loop !29
 
 .loopexit:                                        ; preds = %36, %73, %.preheader
   ret void
@@ -292,7 +292,7 @@ define hidden { ptr, i32 } @_ZN8rawspeed11TableLookUp8getTableEi(ptr noundef non
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !21, !nonnull !24, !noundef !24
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = icmp sgt i32 %3, -1
   tail call void @llvm.assume(i1 %9)
   %10 = icmp sgt i32 %1, -1
@@ -643,8 +643,8 @@ attributes #22 = { cold }
 !21 = !{!14, !15, i64 0}
 !22 = !{!14, !15, i64 16}
 !23 = !{!14, !15, i64 8}
-!24 = !{}
-!25 = !{i8 0, i8 2}
+!24 = !{i8 0, i8 2}
+!25 = !{}
 !26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
 !28 = distinct !{!28, !27}

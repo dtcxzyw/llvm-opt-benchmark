@@ -3269,6 +3269,7 @@ _ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoES
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.0.i.i.i101618.i.i.i, align 8
   %365 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %366 = inttoptr i64 %365 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %366) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i = load i64, ptr %366, align 8
   %367 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i, 4
   %.not.i.i.i9.i.i.i = icmp eq i64 %367, 0
@@ -6923,6 +6924,7 @@ _ZN4llvm8DebugLocaSERKS0_.exit:                   ; preds = %59, %_ZN4llvm13Trac
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0317.1360, align 8
   %64 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %65 = inttoptr i64 %64 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %65) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i = load i64, ptr %65, align 8
   %66 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i, 4
   %.not.i.i.i9.i.i.i = icmp eq i64 %66, 0
@@ -12948,6 +12950,7 @@ _ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFuncti
   br i1 %51, label %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit.thread, label %52
 
 52:                                               ; preds = %47
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %50, align 8
   %53 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp ne i64 %53, 0

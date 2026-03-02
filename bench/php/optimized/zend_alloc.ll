@@ -10145,7 +10145,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #35
 ; Function Attrs: nounwind uwtable
 define internal void @tracked_free(ptr noundef %0) #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %15, label %2
+  br i1 %.not, label %14, label %2
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @alloc_globals.0, align 8, !tbaa !72
@@ -10154,19 +10154,18 @@ define internal void @tracked_free(ptr noundef %0) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %7 = load ptr, ptr %6, align 8, !tbaa !51
   %8 = tail call ptr @zend_hash_index_find(ptr noundef %7, i64 noundef %5) #41
-  %9 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = load i64, ptr %8, align 8, !tbaa !55
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %12 = load i64, ptr %11, align 16, !tbaa !61
-  %13 = sub i64 %12, %10
-  store i64 %13, ptr %11, align 16, !tbaa !61
-  %14 = load ptr, ptr %6, align 8, !tbaa !51
-  tail call void @zend_hash_del_bucket(ptr noundef %14, ptr noundef nonnull %8) #41
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
+  %9 = load i64, ptr %8, align 8, !tbaa !55
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 16, !tbaa !61
+  %12 = sub i64 %11, %9
+  store i64 %12, ptr %10, align 16, !tbaa !61
+  %13 = load ptr, ptr %6, align 8, !tbaa !51
+  tail call void @zend_hash_del_bucket(ptr noundef %13, ptr noundef nonnull %8) #41
   tail call void @free(ptr noundef nonnull %0) #41
-  br label %15
+  br label %14
 
-15:                                               ; preds = %1, %2
+14:                                               ; preds = %1, %2
   ret void
 }
 
@@ -10175,7 +10174,7 @@ define internal noundef ptr @tracked_realloc(ptr noundef %0, i64 noundef %1) #0 
   %3 = alloca %struct._zval_struct, align 8
   %4 = load ptr, ptr @alloc_globals.0, align 8, !tbaa !72
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %13, label %5
+  br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %0 to i64
@@ -10183,79 +10182,78 @@ define internal noundef ptr @tracked_realloc(ptr noundef %0, i64 noundef %1) #0 
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %9 = load ptr, ptr %8, align 8, !tbaa !51
   %10 = tail call ptr @zend_hash_index_find(ptr noundef %9, i64 noundef %7) #41
-  %11 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = load i64, ptr %10, align 8, !tbaa !55
-  br label %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
+  %11 = load i64, ptr %10, align 8, !tbaa !55
+  br label %12
 
-13:                                               ; preds = %5, %2
+12:                                               ; preds = %5, %2
   %.020 = phi ptr [ %10, %5 ], [ null, %2 ]
-  %.0 = phi i64 [ %12, %5 ], [ 0, %2 ]
-  %14 = icmp ugt i64 %1, %.0
-  br i1 %14, label %15, label %tracked_check_limit.exit
+  %.0 = phi i64 [ %11, %5 ], [ 0, %2 ]
+  %13 = icmp ugt i64 %1, %.0
+  br i1 %13, label %14, label %tracked_check_limit.exit
 
-15:                                               ; preds = %13
-  %16 = sub nuw i64 %1, %.0
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 296
-  %18 = load i64, ptr %17, align 8, !tbaa !74
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %20 = load i64, ptr %19, align 16, !tbaa !61
-  %21 = sub i64 %18, %20
-  %22 = icmp ugt i64 %16, %21
-  br i1 %22, label %23, label %tracked_check_limit.exit
+14:                                               ; preds = %12
+  %15 = sub nuw i64 %1, %.0
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 296
+  %17 = load i64, ptr %16, align 8, !tbaa !74
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %19 = load i64, ptr %18, align 16, !tbaa !61
+  %20 = sub i64 %17, %19
+  %21 = icmp ugt i64 %15, %20
+  br i1 %21, label %22, label %tracked_check_limit.exit
 
-23:                                               ; preds = %15
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 304
-  %25 = load i32, ptr %24, align 16, !tbaa !75
-  %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %26, label %tracked_check_limit.exit
+22:                                               ; preds = %14
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 304
+  %24 = load i32, ptr %23, align 16, !tbaa !75
+  %.not.i = icmp eq i32 %24, 0
+  br i1 %.not.i, label %25, label %tracked_check_limit.exit
 
-26:                                               ; preds = %23
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i64 noundef %18, i64 noundef %16) #42
+25:                                               ; preds = %22
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i64 noundef %17, i64 noundef %15) #42
   unreachable
 
-tracked_check_limit.exit:                         ; preds = %23, %15, %13
+tracked_check_limit.exit:                         ; preds = %22, %14, %12
   %.not23 = icmp eq ptr %.020, null
-  br i1 %.not23, label %30, label %27
+  br i1 %.not23, label %29, label %26
 
-27:                                               ; preds = %tracked_check_limit.exit
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 408
-  %29 = load ptr, ptr %28, align 8, !tbaa !51
-  tail call void @zend_hash_del_bucket(ptr noundef %29, ptr noundef nonnull %.020) #41
-  br label %30
+26:                                               ; preds = %tracked_check_limit.exit
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 408
+  %28 = load ptr, ptr %27, align 8, !tbaa !51
+  tail call void @zend_hash_del_bucket(ptr noundef %28, ptr noundef nonnull %.020) #41
+  br label %29
 
-30:                                               ; preds = %27, %tracked_check_limit.exit
-  %31 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #50
-  %32 = icmp ne ptr %31, null
+29:                                               ; preds = %26, %tracked_check_limit.exit
+  %30 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #50
+  %31 = icmp ne ptr %30, null
   %.not.i24 = icmp eq i64 %1, 0
-  %33 = or i1 %.not.i24, %32
-  br i1 %33, label %__zend_realloc.exit, label %34, !prof !23
+  %32 = or i1 %.not.i24, %31
+  br i1 %32, label %__zend_realloc.exit, label %33, !prof !23
 
-34:                                               ; preds = %30
+33:                                               ; preds = %29
   tail call fastcc void @zend_out_of_memory() #42
   unreachable
 
-__zend_realloc.exit:                              ; preds = %30
+__zend_realloc.exit:                              ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %35 = ptrtoint ptr %31 to i64
-  %36 = lshr i64 %35, 3
-  %37 = and i64 %35, -8
-  %38 = inttoptr i64 %37 to ptr
-  %39 = icmp eq ptr %31, %38
-  tail call void @llvm.assume(i1 %39)
+  %34 = ptrtoint ptr %30 to i64
+  %35 = lshr i64 %34, 3
+  %36 = and i64 %34, -8
+  %37 = inttoptr i64 %36 to ptr
+  %38 = icmp eq ptr %30, %37
+  tail call void @llvm.assume(i1 %38)
   store i64 %1, ptr %3, align 8, !tbaa !55
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 4, ptr %40, align 8, !tbaa !55
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 408
-  %42 = load ptr, ptr %41, align 8, !tbaa !51
-  %43 = call ptr @zend_hash_index_add_new(ptr noundef %42, i64 noundef %36, ptr noundef nonnull %3) #41
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 4, ptr %39, align 8, !tbaa !55
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 408
+  %41 = load ptr, ptr %40, align 8, !tbaa !51
+  %42 = call ptr @zend_hash_index_add_new(ptr noundef %41, i64 noundef %35, ptr noundef nonnull %3) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %44 = sub i64 %1, %.0
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %46 = load i64, ptr %45, align 16, !tbaa !61
-  %47 = add i64 %44, %46
-  store i64 %47, ptr %45, align 16, !tbaa !61
-  ret ptr %31
+  %43 = sub i64 %1, %.0
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %45 = load i64, ptr %44, align 16, !tbaa !61
+  %46 = add i64 %43, %45
+  store i64 %46, ptr %44, align 16, !tbaa !61
+  ret ptr %30
 }
 
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3

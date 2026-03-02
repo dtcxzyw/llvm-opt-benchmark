@@ -455,61 +455,60 @@ define noundef range(i64 0, -1) i64 @"_ZN117_$LT$statrs..distribution..categoric
   unreachable
 
 _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit: ; preds = %6
-  %10 = icmp ne ptr %.val, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr double, ptr %.val, i64 %.val1
-  %12 = getelementptr i8, ptr %11, i64 -8
-  %13 = load double, ptr %12, align 8, !noundef !4
-  %14 = fmul double %1, %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  %10 = getelementptr double, ptr %.val, i64 %.val1
+  %11 = getelementptr i8, ptr %10, i64 -8
+  %12 = load double, ptr %11, align 8, !noundef !4
+  %13 = fmul double %1, %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %15 = add i64 %.val1, -1
-  %.not16.i = icmp slt i64 %15, 0
+  %14 = add i64 %.val1, -1
+  %.not16.i = icmp slt i64 %14, 0
   br i1 %.not16.i, label %_ZN6statrs12distribution11categorical12binary_index17h4f996a2b526e59c5E.exit, label %.lr.ph.i
 
-._crit_edge.loopexit.i:                           ; preds = %32
-  %16 = tail call range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %.sroa.06.1.i, i64 0)
-  %17 = tail call i64 @llvm.umin.i64(i64 %.val1, i64 %16)
+._crit_edge.loopexit.i:                           ; preds = %31
+  %15 = tail call range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %.sroa.06.1.i, i64 0)
+  %16 = tail call i64 @llvm.umin.i64(i64 %.val1, i64 %15)
   br label %_ZN6statrs12distribution11categorical12binary_index17h4f996a2b526e59c5E.exit
 
-.lr.ph.i:                                         ; preds = %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit, %32
-  %.sroa.02.018.i = phi i64 [ %.sroa.02.1.i, %32 ], [ %15, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit ]
-  %.sroa.06.017.i = phi i64 [ %.sroa.06.1.i, %32 ], [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit ]
-  %18 = sub i64 %.sroa.02.018.i, %.sroa.06.017.i
-  %19 = sdiv i64 %18, 2
-  %20 = add i64 %19, %.sroa.06.017.i
-  %.not12.i = icmp ult i64 %20, %.val1
-  br i1 %.not12.i, label %22, label %21
+.lr.ph.i:                                         ; preds = %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit, %31
+  %.sroa.02.018.i = phi i64 [ %.sroa.02.1.i, %31 ], [ %14, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit ]
+  %.sroa.06.017.i = phi i64 [ %.sroa.06.1.i, %31 ], [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit ]
+  %17 = sub i64 %.sroa.02.018.i, %.sroa.06.017.i
+  %18 = sdiv i64 %17, 2
+  %19 = add i64 %18, %.sroa.06.017.i
+  %.not12.i = icmp ult i64 %19, %.val1
+  br i1 %.not12.i, label %21, label %20
 
-21:                                               ; preds = %.lr.ph.i
+20:                                               ; preds = %.lr.ph.i
   tail call void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4768d052527bd36a73bfd89d5da159b4.18) #19, !noalias !51
   unreachable
 
-22:                                               ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds double, ptr %.val, i64 %20
-  %24 = load double, ptr %23, align 8, !alias.scope !51, !noundef !4
-  %25 = fcmp ogt double %24, %14
-  br i1 %25, label %28, label %26
+21:                                               ; preds = %.lr.ph.i
+  %22 = getelementptr inbounds double, ptr %.val, i64 %19
+  %23 = load double, ptr %22, align 8, !alias.scope !51, !noundef !4
+  %24 = fcmp ogt double %23, %13
+  br i1 %24, label %27, label %25
 
-26:                                               ; preds = %22
-  %27 = fcmp olt double %24, %14
-  br i1 %27, label %30, label %_ZN6statrs12distribution11categorical12binary_index17h4f996a2b526e59c5E.exit
+25:                                               ; preds = %21
+  %26 = fcmp olt double %23, %13
+  br i1 %26, label %29, label %_ZN6statrs12distribution11categorical12binary_index17h4f996a2b526e59c5E.exit
 
-28:                                               ; preds = %22
-  %29 = add i64 %20, -1
-  br label %32
+27:                                               ; preds = %21
+  %28 = add i64 %19, -1
+  br label %31
 
-30:                                               ; preds = %26
-  %31 = tail call i64 @llvm.sadd.sat.i64(i64 %20, i64 1)
-  br label %32
+29:                                               ; preds = %25
+  %30 = tail call i64 @llvm.sadd.sat.i64(i64 %19, i64 1)
+  br label %31
 
-32:                                               ; preds = %30, %28
-  %.sroa.06.1.i = phi i64 [ %.sroa.06.017.i, %28 ], [ %31, %30 ]
-  %.sroa.02.1.i = phi i64 [ %29, %28 ], [ %.sroa.02.018.i, %30 ]
+31:                                               ; preds = %29, %27
+  %.sroa.06.1.i = phi i64 [ %.sroa.06.017.i, %27 ], [ %30, %29 ]
+  %.sroa.02.1.i = phi i64 [ %28, %27 ], [ %.sroa.02.018.i, %29 ]
   %.not.i2 = icmp sgt i64 %.sroa.06.1.i, %.sroa.02.1.i
   br i1 %.not.i2, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
-_ZN6statrs12distribution11categorical12binary_index17h4f996a2b526e59c5E.exit: ; preds = %26, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit, %._crit_edge.loopexit.i
-  %.sroa.0.0.i = phi i64 [ %17, %._crit_edge.loopexit.i ], [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit ], [ %20, %26 ]
+_ZN6statrs12distribution11categorical12binary_index17h4f996a2b526e59c5E.exit: ; preds = %25, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit, %._crit_edge.loopexit.i
+  %.sroa.0.0.i = phi i64 [ %16, %._crit_edge.loopexit.i ], [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit ], [ %19, %25 ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -646,63 +645,62 @@ define noundef double @"_ZN112_$LT$statrs..distribution..categorical..Categorica
   unreachable
 
 _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i: ; preds = %1
-  %5 = icmp ne ptr %.val.i, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr double, ptr %.val.i, i64 %.val1.i
-  %7 = getelementptr i8, ptr %6, i64 -8
-  %8 = load double, ptr %7, align 8, !noalias !63, !noundef !4
-  %9 = fmul double %8, 5.000000e-01
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
+  %5 = getelementptr double, ptr %.val.i, i64 %.val1.i
+  %6 = getelementptr i8, ptr %5, i64 -8
+  %7 = load double, ptr %6, align 8, !noalias !63, !noundef !4
+  %8 = fmul double %7, 5.000000e-01
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %10 = add i64 %.val1.i, -1
-  %.not16.i.i = icmp slt i64 %10, 0
+  %9 = add i64 %.val1.i, -1
+  %.not16.i.i = icmp slt i64 %9, 0
   br i1 %.not16.i.i, label %"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$11inverse_cdf17h0a08886c322dbd23E.exit", label %.lr.ph.i.i
 
-._crit_edge.loopexit.i.i:                         ; preds = %27
-  %11 = tail call range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %.sroa.06.1.i.i, i64 0)
-  %12 = tail call i64 @llvm.umin.i64(i64 %.val1.i, i64 %11)
+._crit_edge.loopexit.i.i:                         ; preds = %26
+  %10 = tail call range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %.sroa.06.1.i.i, i64 0)
+  %11 = tail call i64 @llvm.umin.i64(i64 %.val1.i, i64 %10)
   br label %"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$11inverse_cdf17h0a08886c322dbd23E.exit"
 
-.lr.ph.i.i:                                       ; preds = %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i, %27
-  %.sroa.02.018.i.i = phi i64 [ %.sroa.02.1.i.i, %27 ], [ %10, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i ]
-  %.sroa.06.017.i.i = phi i64 [ %.sroa.06.1.i.i, %27 ], [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i ]
-  %13 = sub i64 %.sroa.02.018.i.i, %.sroa.06.017.i.i
-  %14 = sdiv i64 %13, 2
-  %15 = add i64 %14, %.sroa.06.017.i.i
-  %.not12.i.i = icmp ult i64 %15, %.val1.i
-  br i1 %.not12.i.i, label %17, label %16
+.lr.ph.i.i:                                       ; preds = %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i, %26
+  %.sroa.02.018.i.i = phi i64 [ %.sroa.02.1.i.i, %26 ], [ %9, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i ]
+  %.sroa.06.017.i.i = phi i64 [ %.sroa.06.1.i.i, %26 ], [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i ]
+  %12 = sub i64 %.sroa.02.018.i.i, %.sroa.06.017.i.i
+  %13 = sdiv i64 %12, 2
+  %14 = add i64 %13, %.sroa.06.017.i.i
+  %.not12.i.i = icmp ult i64 %14, %.val1.i
+  br i1 %.not12.i.i, label %16, label %15
 
-16:                                               ; preds = %.lr.ph.i.i
+15:                                               ; preds = %.lr.ph.i.i
   tail call void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4768d052527bd36a73bfd89d5da159b4.18) #19, !noalias !69
   unreachable
 
-17:                                               ; preds = %.lr.ph.i.i
-  %18 = getelementptr inbounds double, ptr %.val.i, i64 %15
-  %19 = load double, ptr %18, align 8, !alias.scope !66, !noalias !63, !noundef !4
-  %20 = fcmp ogt double %19, %9
-  br i1 %20, label %23, label %21
+16:                                               ; preds = %.lr.ph.i.i
+  %17 = getelementptr inbounds double, ptr %.val.i, i64 %14
+  %18 = load double, ptr %17, align 8, !alias.scope !66, !noalias !63, !noundef !4
+  %19 = fcmp ogt double %18, %8
+  br i1 %19, label %22, label %20
 
-21:                                               ; preds = %17
-  %22 = fcmp olt double %19, %9
-  br i1 %22, label %25, label %"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$11inverse_cdf17h0a08886c322dbd23E.exit"
+20:                                               ; preds = %16
+  %21 = fcmp olt double %18, %8
+  br i1 %21, label %24, label %"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$11inverse_cdf17h0a08886c322dbd23E.exit"
 
-23:                                               ; preds = %17
-  %24 = add i64 %15, -1
-  br label %27
+22:                                               ; preds = %16
+  %23 = add i64 %14, -1
+  br label %26
 
-25:                                               ; preds = %21
-  %26 = tail call i64 @llvm.sadd.sat.i64(i64 %15, i64 1)
-  br label %27
+24:                                               ; preds = %20
+  %25 = tail call i64 @llvm.sadd.sat.i64(i64 %14, i64 1)
+  br label %26
 
-27:                                               ; preds = %25, %23
-  %.sroa.06.1.i.i = phi i64 [ %.sroa.06.017.i.i, %23 ], [ %26, %25 ]
-  %.sroa.02.1.i.i = phi i64 [ %24, %23 ], [ %.sroa.02.018.i.i, %25 ]
+26:                                               ; preds = %24, %22
+  %.sroa.06.1.i.i = phi i64 [ %.sroa.06.017.i.i, %22 ], [ %25, %24 ]
+  %.sroa.02.1.i.i = phi i64 [ %23, %22 ], [ %.sroa.02.018.i.i, %24 ]
   %.not.i2.i = icmp sgt i64 %.sroa.06.1.i.i, %.sroa.02.1.i.i
   br i1 %.not.i2.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i
 
-"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$11inverse_cdf17h0a08886c322dbd23E.exit": ; preds = %21, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i, %._crit_edge.loopexit.i.i
-  %.sroa.0.0.i.i = phi i64 [ %12, %._crit_edge.loopexit.i.i ], [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i ], [ %15, %21 ]
-  %28 = uitofp i64 %.sroa.0.0.i.i to double
-  ret double %28
+"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$11inverse_cdf17h0a08886c322dbd23E.exit": ; preds = %20, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i, %._crit_edge.loopexit.i.i
+  %.sroa.0.0.i.i = phi i64 [ %11, %._crit_edge.loopexit.i.i ], [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i ], [ %14, %20 ]
+  %27 = uitofp i64 %.sroa.0.0.i.i to double
+  ret double %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

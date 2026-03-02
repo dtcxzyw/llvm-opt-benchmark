@@ -218,10 +218,9 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings6Preset13setting_na
   store ptr %5, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %11, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %2, ptr %10, align 8
   ret void
 }
 

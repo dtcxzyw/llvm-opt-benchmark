@@ -4753,31 +4753,30 @@ define hidden noundef i64 @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef range(i16 0, 16384) i16 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$10value_type17h7b6a63310212520dE"(ptr readonly captures(address_is_null) %.0.val, i32 noundef %0) unnamed_addr #0 {
-  %2 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = load ptr, ptr %.0.val, align 8, !nonnull !5, !align !63, !noundef !5
+define internal fastcc noundef range(i16 0, 16384) i16 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$10value_type17h7b6a63310212520dE"(ptr readonly captures(none) %.0.val, i32 noundef %0) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  %2 = load ptr, ptr %.0.val, align 8, !nonnull !5, !align !63, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !874)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !877)
-  %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %6 = load i64, ptr %5, align 8, !alias.scope !880, !noalias !881, !noundef !5
-  %7 = icmp ugt i64 %6, %4
-  br i1 %7, label %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit, label %8, !prof !23
+  %3 = zext i32 %0 to i64
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
+  %5 = load i64, ptr %4, align 8, !alias.scope !880, !noalias !881, !noundef !5
+  %6 = icmp ugt i64 %5, %3
+  br i1 %6, label %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit, label %7, !prof !23
 
-8:                                                ; preds = %1
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %4, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.339.llvm.15230283897121687862) #33, !noalias !880
+7:                                                ; preds = %1
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %3, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4fb00eed5659504e0ec1f2ac65c1d3.339.llvm.15230283897121687862) #33, !noalias !880
   unreachable
 
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %10 = load ptr, ptr %9, align 8, !alias.scope !880, !noalias !881, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %4
-  %12 = load i64, ptr %11, align 8, !noalias !874, !noundef !5
-  %13 = lshr i64 %12, 48
-  %14 = trunc nuw i64 %13 to i16
-  %15 = and i16 %14, 16383
-  ret i16 %15
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %9 = load ptr, ptr %8, align 8, !alias.scope !880, !noalias !881, !nonnull !5, !noundef !5
+  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %3
+  %11 = load i64, ptr %10, align 8, !noalias !874, !noundef !5
+  %12 = lshr i64 %11, 48
+  %13 = trunc nuw i64 %12 to i16
+  %14 = and i16 %13, 16383
+  ret i16 %14
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

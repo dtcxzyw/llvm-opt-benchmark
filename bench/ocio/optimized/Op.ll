@@ -2612,8 +2612,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev14ExponentOpDataELN9__gnu_cxx12_Lock_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %197 = load ptr, ptr %1, align 8, !tbaa !73, !noalias !95, !nonnull !98, !noundef !98
   %198 = tail call ptr @__dynamic_cast(ptr nonnull %197, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev22ExposureContrastOpDataE, i64 0) #26, !noalias !95
-  %.not.not.i99 = icmp ne ptr %198, null
-  tail call void @llvm.assume(i1 %.not.not.i99)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %198) ]
   store ptr %198, ptr %10, align 8, !tbaa !99, !alias.scope !95
   %199 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 8

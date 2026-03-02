@@ -436,23 +436,23 @@ _ZN4llvm16dyn_cast_or_nullIN5clang17CoroutineBodyStmtENS1_4StmtEEEDaPT0_.exit.th
   %.030 = phi ptr [ %20, %_ZN4llvm16dyn_cast_or_nullIN5clang17CoroutineBodyStmtENS1_4StmtEEEDaPT0_.exit ], [ %14, %15 ], [ null, %10 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !3
   %.not53 = icmp eq ptr %21, null
-  br i1 %.not53, label %61, label %22
+  br i1 %.not53, label %60, label %22
 
 22:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang17CoroutineBodyStmtENS1_4StmtEEEDaPT0_.exit.thread
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 168
   %24 = load i8, ptr %23, align 8, !tbaa !78, !range !118, !noundef !119
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %26, label %61
+  br i1 %25, label %26, label %60
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %28 = tail call noundef ptr @_ZN5clang8BodyFarm7getBodyEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull %4) #26
   %.not54 = icmp eq ptr %28, null
-  br i1 %.not54, label %61, label %29
+  br i1 %.not54, label %60, label %29
 
 29:                                               ; preds = %26
   store i8 1, ptr %1, align 1, !tbaa !113
-  br label %61
+  br label %60
 
 30:                                               ; preds = %2
   %31 = and i32 %6, 127
@@ -467,23 +467,23 @@ _ZN4llvm16dyn_cast_or_nullIN5clang17CoroutineBodyStmtENS1_4StmtEEEDaPT0_.exit.th
   %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(136) %4) #26
   %38 = load ptr, ptr %0, align 8, !tbaa !3
   %.not50 = icmp eq ptr %38, null
-  br i1 %.not50, label %61, label %39
+  br i1 %.not50, label %60, label %39
 
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 168
   %41 = load i8, ptr %40, align 8, !tbaa !78, !range !118, !noundef !119
   %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %61
+  br i1 %42, label %43, label %60
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 128
   %45 = tail call noundef ptr @_ZN5clang8BodyFarm7getBodyEPKNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull %4) #26
   %.not51 = icmp eq ptr %45, null
-  br i1 %.not51, label %61, label %46
+  br i1 %.not51, label %60, label %46
 
 46:                                               ; preds = %43
   store i8 1, ptr %1, align 1, !tbaa !113
-  br label %61
+  br label %60
 
 47:                                               ; preds = %30
   %48 = icmp ne i32 %31, 8
@@ -495,21 +495,19 @@ _ZN4llvm16dyn_cast_or_nullIN5clang17CoroutineBodyStmtENS1_4StmtEEEDaPT0_.exit.th
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(128) %4) #26
-  br label %61
+  br label %60
 
 _ZN4llvm16dyn_cast_or_nullIN5clang20FunctionTemplateDeclEKNS1_4DeclEEEDaPT0_.exit: ; preds = %47
-  %54 = icmp eq i32 %31, 69
-  tail call void @llvm.assume(i1 %54)
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %56 = load ptr, ptr %55, align 8, !tbaa !120
-  %57 = load ptr, ptr %56, align 8, !tbaa !114
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(168) %56) #26
-  br label %61
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %55 = load ptr, ptr %54, align 8, !tbaa !120
+  %56 = load ptr, ptr %55, align 8, !tbaa !114
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call noundef ptr %58(ptr noundef nonnull align 8 dereferenceable(168) %55) #26
+  br label %60
 
-61:                                               ; preds = %43, %46, %39, %33, %_ZN4llvm16dyn_cast_or_nullIN5clang20FunctionTemplateDeclEKNS1_4DeclEEEDaPT0_.exit, %49, %_ZN4llvm16dyn_cast_or_nullIN5clang17CoroutineBodyStmtENS1_4StmtEEEDaPT0_.exit.thread, %22, %29, %26
-  %.0 = phi ptr [ %.030, %26 ], [ %.030, %_ZN4llvm16dyn_cast_or_nullIN5clang17CoroutineBodyStmtENS1_4StmtEEEDaPT0_.exit.thread ], [ %.030, %22 ], [ %28, %29 ], [ %37, %43 ], [ %37, %33 ], [ %37, %39 ], [ %45, %46 ], [ %53, %49 ], [ %60, %_ZN4llvm16dyn_cast_or_nullIN5clang20FunctionTemplateDeclEKNS1_4DeclEEEDaPT0_.exit ]
+60:                                               ; preds = %43, %46, %39, %33, %_ZN4llvm16dyn_cast_or_nullIN5clang20FunctionTemplateDeclEKNS1_4DeclEEEDaPT0_.exit, %49, %_ZN4llvm16dyn_cast_or_nullIN5clang17CoroutineBodyStmtENS1_4StmtEEEDaPT0_.exit.thread, %22, %29, %26
+  %.0 = phi ptr [ %.030, %26 ], [ %.030, %_ZN4llvm16dyn_cast_or_nullIN5clang17CoroutineBodyStmtENS1_4StmtEEEDaPT0_.exit.thread ], [ %.030, %22 ], [ %28, %29 ], [ %37, %43 ], [ %37, %33 ], [ %37, %39 ], [ %45, %46 ], [ %53, %49 ], [ %59, %_ZN4llvm16dyn_cast_or_nullIN5clang20FunctionTemplateDeclEKNS1_4DeclEEEDaPT0_.exit ]
   ret ptr %.0
 }
 

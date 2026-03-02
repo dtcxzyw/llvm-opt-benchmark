@@ -8503,7 +8503,7 @@ define dso_local ptr @LLVMGlobalGetValueType(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local i32 @LLVMGetAlignment(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define dso_local i32 @LLVMGetAlignment(ptr noundef readonly captures(address) %0) local_unnamed_addr #18 {
   %2 = load i8, ptr %0, align 8, !tbaa !207
   switch i8 %2, label %43 [
     i8 3, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit
@@ -8572,7 +8572,9 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit: ; preds = %1, %1, %
 
 43:                                               ; preds = %1
   %44 = icmp eq i8 %2, 65
-  br i1 %44, label %45, label %53
+  %spec.select.i.i53 = select i1 %44, ptr %0, ptr null
+  %.not47.not = icmp eq ptr %spec.select.i.i53, null
+  br i1 %.not47.not, label %53, label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -8586,7 +8588,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit: ; preds = %1, %1, %
 
 53:                                               ; preds = %43, %45
   %.6 = phi i32 [ %52, %45 ], [ undef, %43 ]
-  tail call void @llvm.assume(i1 %44)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i53) ]
   br label %.thread
 
 .thread:                                          ; preds = %7, %_ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit, %35, %27, %19, %12, %53
@@ -8673,11 +8675,12 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit: ; preds = %2, %2, %
 
 48:                                               ; preds = %2
   %49 = icmp eq i8 %3, 65
-  tail call void @llvm.assume(i1 %49)
+  %spec.select.i.i37 = select i1 %49, ptr %0, ptr null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i37) ]
   %50 = zext i32 %1 to i64
   %51 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %50, i1 false)
   %52 = trunc nuw nsw i64 %51 to i16
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %spec.select.i.i37, i64 2
   %54 = load i16, ptr %53, align 2, !tbaa !294
   %55 = and i16 %54, -16129
   %56 = shl nuw nsw i16 %52, 8
@@ -11966,47 +11969,62 @@ define dso_local ptr @LLVMGetIncomingBlock(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local i32 @LLVMGetNumIndices(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define dso_local i32 @LLVMGetNumIndices(ptr noundef readonly captures(address) %0) local_unnamed_addr #18 {
   %2 = load i8, ptr %0, align 8, !tbaa !207
   %3 = icmp ugt i8 %2, 28
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %1
-  switch i8 %2, label %.thread37 [
-    i8 63, label %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i
-    i8 93, label %10
+  switch i8 %2, label %17 [
+    i8 63, label %9
+    i8 93, label %14
   ]
 
 5:                                                ; preds = %1
   %cond = icmp eq i8 %2, 5
-  br i1 %cond, label %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i, label %.thread37
+  br i1 %cond, label %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i, label %17
 
-_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i: ; preds = %5, %4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
-  %8 = and i32 %7, 134217727
-  %9 = add nsw i32 %8, -1
-  br label %16
+_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i: ; preds = %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %7 = load i16, ptr %6, align 2, !tbaa !294
+  %8 = icmp eq i16 %7, 34
+  br i1 %8, label %9, label %17
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %12 = load i32, ptr %11, align 8, !tbaa !41
-  br label %16
+9:                                                ; preds = %4, %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = and i32 %11, 134217727
+  %13 = add nsw i32 %12, -1
+  br label %23
 
-.thread37:                                        ; preds = %5, %4
-  %13 = icmp eq i8 %2, 94
-  tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %15 = load i32, ptr %14, align 8, !tbaa !41
-  br label %16
+14:                                               ; preds = %4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %16 = load i32, ptr %15, align 8, !tbaa !41
+  br label %23
 
-16:                                               ; preds = %10, %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i, %.thread37
-  %.1 = phi i32 [ %15, %.thread37 ], [ %12, %10 ], [ %9, %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i ]
+17:                                               ; preds = %5, %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i, %4
+  %18 = icmp eq i8 %2, 94
+  %spec.select.i.i23 = select i1 %18, ptr %0, ptr null
+  %.not22.not = icmp eq ptr %spec.select.i.i23, null
+  br i1 %.not22.not, label %22, label %19
+
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %21 = load i32, ptr %20, align 8, !tbaa !41
+  br label %22
+
+22:                                               ; preds = %17, %19
+  %.3 = phi i32 [ %21, %19 ], [ undef, %17 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i23) ]
+  br label %23
+
+23:                                               ; preds = %14, %9, %22
+  %.1 = phi i32 [ %.3, %22 ], [ %16, %14 ], [ %13, %9 ]
   ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local ptr @LLVMGetIndices(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define dso_local ptr @LLVMGetIndices(ptr noundef readonly captures(address) %0) local_unnamed_addr #18 {
   %2 = load i8, ptr %0, align 8, !tbaa !207
   %.not = icmp eq i8 %2, 93
   br i1 %.not, label %3, label %6
@@ -12018,7 +12036,9 @@ define dso_local ptr @LLVMGetIndices(ptr noundef readonly captures(none) %0) loc
 
 6:                                                ; preds = %1
   %7 = icmp eq i8 %2, 94
-  br i1 %7, label %8, label %11
+  %spec.select.i.i15 = select i1 %7, ptr %0, ptr null
+  %.not14.not = icmp eq ptr %spec.select.i.i15, null
+  br i1 %.not14.not, label %11, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -12027,7 +12047,7 @@ define dso_local ptr @LLVMGetIndices(ptr noundef readonly captures(none) %0) loc
 
 11:                                               ; preds = %6, %8
   %.2 = phi ptr [ %10, %8 ], [ undef, %6 ]
-  tail call void @llvm.assume(i1 %7)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i15) ]
   br label %12
 
 12:                                               ; preds = %3, %11
@@ -19709,30 +19729,16 @@ _ZN4llvm20getAtomicSyncScopeIDEPKNS_11InstructionE.exit: ; preds = %.sink.split.
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @LLVMSetAtomicSingleThread(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #23 {
   %3 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #41
-  br i1 %3, label %4, label %10
+  br i1 %3, label %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit, label %6
 
-4:                                                ; preds = %2
+_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit: ; preds = %2
   %.not = icmp eq i32 %1, 0
-  %5 = zext i1 %.not to i8
-  %6 = load i8, ptr %0, align 8, !tbaa !207
-  switch i8 %6, label %7 [
-    i8 61, label %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit
-    i8 62, label %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit
-    i8 64, label %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit
-    i8 65, label %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit
-  ]
+  %4 = zext i1 %.not to i8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 %4, ptr %5, align 8, !tbaa !10
+  br label %6
 
-7:                                                ; preds = %4
-  %8 = icmp eq i8 %6, 66
-  tail call void @llvm.assume(i1 %8)
-  br label %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit
-
-_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit: ; preds = %4, %4, %4, %4, %7
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 %5, ptr %9, align 8, !tbaa !10
-  br label %10
-
-10:                                               ; preds = %2, %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit
+6:                                                ; preds = %2, %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit
   ret void
 }
 
@@ -19763,24 +19769,11 @@ _ZN4llvm20getAtomicSyncScopeIDEPKNS_11InstructionE.exit: ; preds = %1, %3, %.sin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @LLVMSetAtomicSyncScopeID(ptr noundef captures(none) initializes((72, 73)) %0, i32 noundef %1) local_unnamed_addr #24 {
-  %3 = load i8, ptr %0, align 8, !tbaa !207
-  switch i8 %3, label %4 [
-    i8 61, label %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit
-    i8 62, label %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit
-    i8 64, label %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit
-    i8 65, label %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit
-  ]
-
-4:                                                ; preds = %2
-  %5 = icmp eq i8 %3, 66
-  tail call void @llvm.assume(i1 %5)
-  br label %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit
-
-_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit: ; preds = %2, %2, %2, %2, %4
-  %6 = trunc i32 %1 to i8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 %6, ptr %7, align 8, !tbaa !10
+define dso_local void @LLVMSetAtomicSyncScopeID(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #24 {
+_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit:
+  %2 = trunc i32 %1 to i8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 %2, ptr %3, align 8, !tbaa !10
   ret void
 }
 

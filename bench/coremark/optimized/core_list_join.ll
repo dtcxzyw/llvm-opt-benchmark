@@ -143,24 +143,23 @@ define dso_local zeroext i16 @core_bench_list(ptr noundef %0, i16 noundef signex
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %44
-  %.0146 = phi i16 [ %46, %44 ], [ 0, %2 ]
-  %.048145 = phi i16 [ %.149, %44 ], [ 0, %2 ]
-  %.051144 = phi i16 [ %.152, %44 ], [ 0, %2 ]
-  %.053143 = phi ptr [ %.07.lcssa.i, %44 ], [ %4, %2 ]
-  %.055142 = phi i16 [ %.156, %44 ], [ 0, %2 ]
-  %.sroa.6.0141 = phi i16 [ %spec.select, %44 ], [ %1, %2 ]
-  %8 = icmp sgt i16 %.sroa.6.0141, -1
-  %.not1625.i = icmp ne ptr %.053143, null
-  tail call void @llvm.assume(i1 %.not1625.i)
+  %.0145 = phi i16 [ %46, %44 ], [ 0, %2 ]
+  %.048144 = phi i16 [ %.149, %44 ], [ 0, %2 ]
+  %.051143 = phi i16 [ %.152, %44 ], [ 0, %2 ]
+  %.053142 = phi ptr [ %.010.i, %44 ], [ %4, %2 ]
+  %.055141 = phi i16 [ %.156, %44 ], [ 0, %2 ]
+  %.sroa.6.0140 = phi i16 [ %spec.select, %44 ], [ %1, %2 ]
+  %8 = icmp sgt i16 %.sroa.6.0140, -1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.053142) ]
   br i1 %8, label %.lr.ph27.i, label %.lr.ph.i
 
 .lr.ph27.i:                                       ; preds = %.lr.ph, %13
-  %.01426.i = phi ptr [ %14, %13 ], [ %.053143, %.lr.ph ]
+  %.01426.i = phi ptr [ %14, %13 ], [ %.053142, %.lr.ph ]
   %9 = getelementptr inbounds nuw i8, ptr %.01426.i, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %12 = load i16, ptr %11, align 2, !tbaa !25
-  %.not17.i = icmp eq i16 %12, %.sroa.6.0141
+  %.not17.i = icmp eq i16 %12, %.sroa.6.0140
   br i1 %.not17.i, label %core_list_find.exit, label %13
 
 13:                                               ; preds = %.lr.ph27.i
@@ -169,11 +168,11 @@ define dso_local zeroext i16 @core_bench_list(ptr noundef %0, i16 noundef signex
   br i1 %.not16.i, label %core_list_find.exit, label %.lr.ph27.i, !llvm.loop !32
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %20
-  %.122.i = phi ptr [ %21, %20 ], [ %.053143, %.lr.ph ]
+  %.122.i = phi ptr [ %21, %20 ], [ %.053142, %.lr.ph ]
   %15 = getelementptr inbounds nuw i8, ptr %.122.i, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = load i16, ptr %16, align 2, !tbaa !23
-  %18 = xor i16 %17, %.0146
+  %18 = xor i16 %17, %.0145
   %19 = and i16 %18, 255
   %.not15.i = icmp eq i16 %19, 0
   br i1 %.not15.i, label %core_list_find.exit, label %20
@@ -185,24 +184,23 @@ define dso_local zeroext i16 @core_bench_list(ptr noundef %0, i16 noundef signex
 
 core_list_find.exit:                              ; preds = %.lr.ph.i, %20, %.lr.ph27.i, %13
   %.0.i = phi ptr [ %.01426.i, %.lr.ph27.i ], [ null, %13 ], [ null, %20 ], [ %.122.i, %.lr.ph.i ]
-  br i1 %.not1625.i, label %.lr.ph.i65, label %core_list_reverse.exit
+  br label %.lr.ph.i65
 
 .lr.ph.i65:                                       ; preds = %core_list_find.exit, %.lr.ph.i65
-  %.010.i = phi ptr [ %22, %.lr.ph.i65 ], [ %.053143, %core_list_find.exit ]
+  %.010.i = phi ptr [ %22, %.lr.ph.i65 ], [ %.053142, %core_list_find.exit ]
   %.079.i = phi ptr [ %.010.i, %.lr.ph.i65 ], [ null, %core_list_find.exit ]
   %22 = load ptr, ptr %.010.i, align 8, !tbaa !31
   store ptr %.079.i, ptr %.010.i, align 8, !tbaa !31
   %.not.i66 = icmp eq ptr %22, null
   br i1 %.not.i66, label %core_list_reverse.exit, label %.lr.ph.i65, !llvm.loop !35
 
-core_list_reverse.exit:                           ; preds = %.lr.ph.i65, %core_list_find.exit
-  %.07.lcssa.i = phi ptr [ null, %core_list_find.exit ], [ %.010.i, %.lr.ph.i65 ]
+core_list_reverse.exit:                           ; preds = %.lr.ph.i65
   %23 = icmp eq ptr %.0.i, null
   br i1 %23, label %core_list_reverse.exit.thread, label %31
 
 core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.exit
-  %24 = add i16 %.055142, 1
-  %25 = load ptr, ptr %.07.lcssa.i, align 8, !tbaa !31
+  %24 = add i16 %.055141, 1
+  %25 = load ptr, ptr %.010.i, align 8, !tbaa !31
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !28
   %28 = load i16, ptr %27, align 2, !tbaa !23
@@ -211,7 +209,7 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
   br label %44
 
 31:                                               ; preds = %core_list_reverse.exit
-  %32 = add i16 %.051144, 1
+  %32 = add i16 %.051143, 1
   %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = load i16, ptr %34, align 2, !tbaa !23
@@ -227,19 +225,19 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
 41:                                               ; preds = %31
   %42 = load ptr, ptr %40, align 8, !tbaa !31
   store ptr %42, ptr %.0.i, align 8, !tbaa !31
-  %43 = load ptr, ptr %.07.lcssa.i, align 8, !tbaa !31
+  %43 = load ptr, ptr %.010.i, align 8, !tbaa !31
   store ptr %43, ptr %40, align 8, !tbaa !31
-  store ptr %40, ptr %.07.lcssa.i, align 8, !tbaa !31
+  store ptr %40, ptr %.010.i, align 8, !tbaa !31
   br label %44
 
 44:                                               ; preds = %31, %41, %core_list_reverse.exit.thread
-  %.156 = phi i16 [ %24, %core_list_reverse.exit.thread ], [ %.055142, %41 ], [ %.055142, %31 ]
-  %.152 = phi i16 [ %.051144, %core_list_reverse.exit.thread ], [ %32, %41 ], [ %32, %31 ]
+  %.156 = phi i16 [ %24, %core_list_reverse.exit.thread ], [ %.055141, %41 ], [ %.055141, %31 ]
+  %.152 = phi i16 [ %.051143, %core_list_reverse.exit.thread ], [ %32, %41 ], [ %32, %31 ]
   %.pn = phi i16 [ %30, %core_list_reverse.exit.thread ], [ %39, %41 ], [ %39, %31 ]
-  %.149 = add i16 %.pn, %.048145
+  %.149 = add i16 %.pn, %.048144
   %45 = zext i1 %8 to i16
-  %spec.select = add nuw i16 %.sroa.6.0141, %45
-  %46 = add nuw nsw i16 %.0146, 1
+  %spec.select = add nuw i16 %.sroa.6.0140, %45
+  %46 = add nuw nsw i16 %.0145, 1
   %exitcond.not = icmp eq i16 %46, %6
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !36
 
@@ -254,7 +252,7 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.sroa.6.0.lcssa = phi i16 [ %1, %2 ], [ %spec.select, %._crit_edge.loopexit ]
   %.sroa.0.0.lcssa = phi i16 [ 0, %2 ], [ %48, %._crit_edge.loopexit ]
-  %.053.lcssa = phi ptr [ %4, %2 ], [ %.07.lcssa.i, %._crit_edge.loopexit ]
+  %.053.lcssa = phi ptr [ %4, %2 ], [ %.010.i, %._crit_edge.loopexit ]
   %52 = phi i16 [ 0, %2 ], [ %51, %._crit_edge.loopexit ]
   %53 = icmp sgt i16 %1, 0
   br i1 %53, label %.lr.ph79.i.preheader, label %core_list_mergesort.exit
@@ -272,8 +270,7 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
 .lr.ph79.i:                                       ; preds = %.lr.ph79.i.preheader, %._crit_edge80.i
   %.058.i = phi ptr [ %.260.us.i.ph, %._crit_edge80.i ], [ %.053.lcssa, %.lr.ph79.i.preheader ]
   %.047.i = phi i32 [ %158, %._crit_edge80.i ], [ 1, %.lr.ph79.i.preheader ]
-  %.not73.i = icmp ne ptr %.058.i, null
-  tail call void @llvm.assume(i1 %.not73.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.058.i) ]
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.loopexit.us.i, %.lr.ph79.i
@@ -305,7 +302,7 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
   %.156.us.i.ph = phi ptr [ %.05575.us.i, %._crit_edge.us.i.preheader ], [ %.257.us.i, %155 ]
   %.253.us.i.ph = phi ptr [ %65, %._crit_edge.us.i.preheader ], [ %.354.us.i, %155 ]
   %.149.us.i.ph = phi ptr [ %.04876.us.i, %._crit_edge.us.i.preheader ], [ %.050.us.i, %155 ]
-  %.2.us.i.ph214 = phi i32 [ %.2.us.i.ph, %._crit_edge.us.i.preheader ], [ %.3.us.i, %155 ]
+  %.2.us.i.ph213 = phi i32 [ %.2.us.i.ph, %._crit_edge.us.i.preheader ], [ %.3.us.i, %155 ]
   %.043.us.i.ph = phi i32 [ %.047.i, %._crit_edge.us.i.preheader ], [ %.1.us.i, %155 ]
   br label %._crit_edge.us.i
 
@@ -313,7 +310,7 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
   %.156.us.i = phi ptr [ %.257.us.i, %156 ], [ %.156.us.i.ph, %._crit_edge.us.i.outer ]
   %.253.us.i = phi ptr [ %.354.us.i, %156 ], [ %.253.us.i.ph, %._crit_edge.us.i.outer ]
   %.149.us.i = phi ptr [ %.050.us.i, %156 ], [ %.149.us.i.ph, %._crit_edge.us.i.outer ]
-  %.2.us.i = phi i32 [ %.3.us.i, %156 ], [ %.2.us.i.ph214, %._crit_edge.us.i.outer ]
+  %.2.us.i = phi i32 [ %.3.us.i, %156 ], [ %.2.us.i.ph213, %._crit_edge.us.i.outer ]
   %.043.us.i = phi i32 [ %.1.us.i, %156 ], [ %.043.us.i.ph, %._crit_edge.us.i.outer ]
   %66 = icmp sgt i32 %.2.us.i, 0
   br i1 %66, label %.critedge.thread.us.i, label %67
@@ -351,12 +348,12 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
   %84 = load ptr, ptr %83, align 8, !tbaa !28
   %85 = load i16, ptr %82, align 2, !tbaa !4
   %86 = and i16 %85, 128
-  %.not.i117 = icmp eq i16 %86, 0
-  br i1 %.not.i117, label %89, label %87
+  %.not.i116 = icmp eq i16 %86, 0
+  br i1 %.not.i116, label %89, label %87
 
 87:                                               ; preds = %80
   %88 = and i16 %85, 127
-  br label %calc_func.exit121
+  br label %calc_func.exit120
 
 89:                                               ; preds = %80
   %90 = and i16 %85, 7
@@ -369,13 +366,13 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
   ]
 
 94:                                               ; preds = %89
-  %spec.store.select.i120 = tail call i16 @llvm.umax.i16(i16 %93, i16 34)
+  %spec.store.select.i119 = tail call i16 @llvm.umax.i16(i16 %93, i16 34)
   %95 = load i32, ptr %57, align 8, !tbaa !8
   %96 = load ptr, ptr %58, align 8, !tbaa !17
   %97 = load i16, ptr %0, align 8, !tbaa !18
   %98 = load i16, ptr %59, align 2, !tbaa !19
   %99 = load i16, ptr %55, align 8, !tbaa !20
-  %100 = tail call zeroext i16 @core_bench_state(i32 noundef %95, ptr noundef %96, i16 noundef signext %97, i16 noundef signext %98, i16 noundef signext %spec.store.select.i120, i16 noundef zeroext %99) #9
+  %100 = tail call zeroext i16 @core_bench_state(i32 noundef %95, ptr noundef %96, i16 noundef signext %97, i16 noundef signext %98, i16 noundef signext %spec.store.select.i119, i16 noundef zeroext %99) #9
   %101 = load i16, ptr %60, align 2, !tbaa !21
   %102 = icmp eq i16 %101, 0
   br i1 %102, label %103, label %110
@@ -396,29 +393,29 @@ core_list_reverse.exit.thread:                    ; preds = %core_list_reverse.e
   br label %110
 
 110:                                              ; preds = %109, %104, %103, %94, %89
-  %.034.i119 = phi i16 [ %106, %104 ], [ %100, %103 ], [ %100, %94 ], [ %106, %109 ], [ %85, %89 ]
+  %.034.i118 = phi i16 [ %106, %104 ], [ %100, %103 ], [ %100, %94 ], [ %106, %109 ], [ %85, %89 ]
   %111 = load i16, ptr %55, align 8, !tbaa !20
-  %112 = tail call zeroext i16 @crcu16(i16 noundef zeroext %.034.i119, i16 noundef zeroext %111) #9
+  %112 = tail call zeroext i16 @crcu16(i16 noundef zeroext %.034.i118, i16 noundef zeroext %111) #9
   store i16 %112, ptr %55, align 8, !tbaa !20
-  %113 = and i16 %.034.i119, 127
+  %113 = and i16 %.034.i118, 127
   %114 = and i16 %85, -256
   %115 = or disjoint i16 %114, %113
   %116 = or disjoint i16 %115, 128
   store i16 %116, ptr %82, align 2, !tbaa !4
-  br label %calc_func.exit121
+  br label %calc_func.exit120
 
-calc_func.exit121:                                ; preds = %87, %110
-  %.0.i118 = phi i16 [ %88, %87 ], [ %113, %110 ]
+calc_func.exit120:                                ; preds = %87, %110
+  %.0.i117 = phi i16 [ %88, %87 ], [ %113, %110 ]
   %117 = load i16, ptr %84, align 2, !tbaa !4
   %118 = and i16 %117, 128
-  %.not.i115 = icmp eq i16 %118, 0
-  br i1 %.not.i115, label %121, label %119
+  %.not.i114 = icmp eq i16 %118, 0
+  br i1 %.not.i114, label %121, label %119
 
-119:                                              ; preds = %calc_func.exit121
+119:                                              ; preds = %calc_func.exit120
   %120 = and i16 %117, 127
   br label %calc_func.exit
 
-121:                                              ; preds = %calc_func.exit121
+121:                                              ; preds = %calc_func.exit120
   %122 = and i16 %117, 7
   %123 = lshr i16 %117, 3
   %124 = and i16 %123, 15
@@ -468,9 +465,9 @@ calc_func.exit121:                                ; preds = %87, %110
   br label %calc_func.exit
 
 calc_func.exit:                                   ; preds = %119, %142
-  %.0.i116 = phi i16 [ %120, %119 ], [ %145, %142 ]
-  %.not133 = icmp samesign ugt i16 %.0.i118, %.0.i116
-  br i1 %.not133, label %149, label %152
+  %.0.i115 = phi i16 [ %120, %119 ], [ %145, %142 ]
+  %.not132 = icmp samesign ugt i16 %.0.i117, %.0.i115
+  br i1 %.not132, label %149, label %152
 
 149:                                              ; preds = %calc_func.exit
   %150 = load ptr, ptr %.253.us.i, align 8, !tbaa !31
@@ -528,7 +525,7 @@ core_list_mergesort.exit:                         ; preds = %._crit_edge80.i, %.
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 2
   %170 = load i16, ptr %169, align 2, !tbaa !25
   %.not17.i77 = icmp eq i16 %170, %.sroa.6.0.lcssa
-  br i1 %.not17.i77, label %.lr.ph155, label %171
+  br i1 %.not17.i77, label %.lr.ph154, label %171
 
 171:                                              ; preds = %.lr.ph27.i75
   %172 = load ptr, ptr %.01426.i76, align 8, !tbaa !31
@@ -542,7 +539,7 @@ core_list_mergesort.exit:                         ; preds = %._crit_edge80.i, %.
   %175 = load i16, ptr %174, align 2, !tbaa !23
   %176 = and i16 %175, 255
   %.not15.i71 = icmp eq i16 %176, %.sroa.0.0.lcssa
-  br i1 %.not15.i71, label %.lr.ph155, label %177
+  br i1 %.not15.i71, label %.lr.ph154, label %177
 
 177:                                              ; preds = %.lr.ph.i69
   %178 = load ptr, ptr %.122.i70, align 8, !tbaa !31
@@ -551,31 +548,31 @@ core_list_mergesort.exit:                         ; preds = %._crit_edge80.i, %.
 
 core_list_find.exit79:                            ; preds = %177, %171
   %179 = load ptr, ptr %.154, align 8, !tbaa !31
-  %.not61152 = icmp eq ptr %179, null
-  br i1 %.not61152, label %._crit_edge156, label %.lr.ph155
+  %.not61151 = icmp eq ptr %179, null
+  br i1 %.not61151, label %._crit_edge155, label %.lr.ph154
 
-.lr.ph155:                                        ; preds = %.lr.ph.i69, %.lr.ph27.i75, %core_list_find.exit79
-  %.047186 = phi ptr [ %179, %core_list_find.exit79 ], [ %.01426.i76, %.lr.ph27.i75 ], [ %.122.i70, %.lr.ph.i69 ]
+.lr.ph154:                                        ; preds = %.lr.ph.i69, %.lr.ph27.i75, %core_list_find.exit79
+  %.047185 = phi ptr [ %179, %core_list_find.exit79 ], [ %.01426.i76, %.lr.ph27.i75 ], [ %.122.i70, %.lr.ph.i69 ]
   %180 = getelementptr inbounds nuw i8, ptr %.154, i64 8
   br label %181
 
-181:                                              ; preds = %.lr.ph155, %181
-  %.1154 = phi ptr [ %.047186, %.lr.ph155 ], [ %185, %181 ]
-  %.3153 = phi i16 [ %52, %.lr.ph155 ], [ %184, %181 ]
+181:                                              ; preds = %.lr.ph154, %181
+  %.1153 = phi ptr [ %.047185, %.lr.ph154 ], [ %185, %181 ]
+  %.3152 = phi i16 [ %52, %.lr.ph154 ], [ %184, %181 ]
   %182 = load ptr, ptr %180, align 8, !tbaa !28
   %183 = load i16, ptr %182, align 2, !tbaa !23
-  %184 = tail call zeroext i16 @crc16(i16 noundef signext %183, i16 noundef zeroext %.3153) #9
-  %185 = load ptr, ptr %.1154, align 8, !tbaa !31
+  %184 = tail call zeroext i16 @crc16(i16 noundef signext %183, i16 noundef zeroext %.3152) #9
+  %185 = load ptr, ptr %.1153, align 8, !tbaa !31
   %.not61 = icmp eq ptr %185, null
-  br i1 %.not61, label %._crit_edge156.loopexit, label %181, !llvm.loop !40
+  br i1 %.not61, label %._crit_edge155.loopexit, label %181, !llvm.loop !40
 
-._crit_edge156.loopexit:                          ; preds = %181
+._crit_edge155.loopexit:                          ; preds = %181
   %.pre = load ptr, ptr %163, align 8, !tbaa !28
-  br label %._crit_edge156
+  br label %._crit_edge155
 
-._crit_edge156:                                   ; preds = %._crit_edge156.loopexit, %core_list_find.exit79
-  %186 = phi ptr [ %162, %core_list_find.exit79 ], [ %.pre, %._crit_edge156.loopexit ]
-  %.3.lcssa = phi i16 [ %52, %core_list_find.exit79 ], [ %184, %._crit_edge156.loopexit ]
+._crit_edge155:                                   ; preds = %._crit_edge155.loopexit, %core_list_find.exit79
+  %186 = phi ptr [ %162, %core_list_find.exit79 ], [ %.pre, %._crit_edge155.loopexit ]
+  %.3.lcssa = phi i16 [ %52, %core_list_find.exit79 ], [ %184, %._crit_edge155.loopexit ]
   %187 = load ptr, ptr %.154, align 8, !tbaa !31
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8, !tbaa !28
@@ -586,85 +583,84 @@ core_list_find.exit79:                            ; preds = %177, %171
   store ptr %160, ptr %187, align 8, !tbaa !31
   br label %.lr.ph79.i80
 
-.lr.ph79.i80:                                     ; preds = %._crit_edge80.i103, %._crit_edge156
-  %.058.i81 = phi ptr [ %.154, %._crit_edge156 ], [ %.260.us.i95.ph, %._crit_edge80.i103 ]
-  %.047.i82 = phi i32 [ 1, %._crit_edge156 ], [ %236, %._crit_edge80.i103 ]
-  %.not73.i83 = icmp ne ptr %.058.i81, null
-  tail call void @llvm.assume(i1 %.not73.i83)
-  br label %.lr.ph.us.i84
+.lr.ph79.i80:                                     ; preds = %._crit_edge80.i102, %._crit_edge155
+  %.058.i81 = phi ptr [ %.154, %._crit_edge155 ], [ %.260.us.i94.ph, %._crit_edge80.i102 ]
+  %.047.i82 = phi i32 [ 1, %._crit_edge155 ], [ %236, %._crit_edge80.i102 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.058.i81) ]
+  br label %.lr.ph.us.i83
 
-.lr.ph.us.i84:                                    ; preds = %.loopexit.us.i101, %.lr.ph79.i80
-  %.04677.us.i85 = phi i32 [ %191, %.loopexit.us.i101 ], [ 0, %.lr.ph79.i80 ]
-  %.04876.us.i86 = phi ptr [ %.149.us.i98, %.loopexit.us.i101 ], [ null, %.lr.ph79.i80 ]
-  %.05575.us.i87 = phi ptr [ %.253.us.i97, %.loopexit.us.i101 ], [ %.058.i81, %.lr.ph79.i80 ]
-  %.15974.us.i88 = phi ptr [ %.260.us.i95.ph, %.loopexit.us.i101 ], [ null, %.lr.ph79.i80 ]
-  %191 = add nuw nsw i32 %.04677.us.i85, 1
+.lr.ph.us.i83:                                    ; preds = %.loopexit.us.i100, %.lr.ph79.i80
+  %.04677.us.i84 = phi i32 [ %191, %.loopexit.us.i100 ], [ 0, %.lr.ph79.i80 ]
+  %.04876.us.i85 = phi ptr [ %.149.us.i97, %.loopexit.us.i100 ], [ null, %.lr.ph79.i80 ]
+  %.05575.us.i86 = phi ptr [ %.253.us.i96, %.loopexit.us.i100 ], [ %.058.i81, %.lr.ph79.i80 ]
+  %.15974.us.i87 = phi ptr [ %.260.us.i94.ph, %.loopexit.us.i100 ], [ null, %.lr.ph79.i80 ]
+  %191 = add nuw nsw i32 %.04677.us.i84, 1
   br label %193
 
 192:                                              ; preds = %193
-  %exitcond.not.i92 = icmp eq i32 %194, %.047.i82
-  br i1 %exitcond.not.i92, label %._crit_edge.us.i93.preheader, label %193, !llvm.loop !37
+  %exitcond.not.i91 = icmp eq i32 %194, %.047.i82
+  br i1 %exitcond.not.i91, label %._crit_edge.us.i92.preheader, label %193, !llvm.loop !37
 
-193:                                              ; preds = %192, %.lr.ph.us.i84
-  %.068.us.i89 = phi i32 [ 0, %.lr.ph.us.i84 ], [ %194, %192 ]
-  %.05166.us.i90 = phi ptr [ %.05575.us.i87, %.lr.ph.us.i84 ], [ %195, %192 ]
-  %194 = add nuw nsw i32 %.068.us.i89, 1
-  %195 = load ptr, ptr %.05166.us.i90, align 8, !tbaa !31
-  %.not64.us.i91 = icmp eq ptr %195, null
-  br i1 %.not64.us.i91, label %._crit_edge.us.i93.preheader, label %192
+193:                                              ; preds = %192, %.lr.ph.us.i83
+  %.068.us.i88 = phi i32 [ 0, %.lr.ph.us.i83 ], [ %194, %192 ]
+  %.05166.us.i89 = phi ptr [ %.05575.us.i86, %.lr.ph.us.i83 ], [ %195, %192 ]
+  %194 = add nuw nsw i32 %.068.us.i88, 1
+  %195 = load ptr, ptr %.05166.us.i89, align 8, !tbaa !31
+  %.not64.us.i90 = icmp eq ptr %195, null
+  br i1 %.not64.us.i90, label %._crit_edge.us.i92.preheader, label %192
 
-._crit_edge.us.i93.preheader:                     ; preds = %193, %192
-  %.2.us.i99.ph = phi i32 [ %194, %193 ], [ %.047.i82, %192 ]
-  br label %._crit_edge.us.i93.outer
+._crit_edge.us.i92.preheader:                     ; preds = %193, %192
+  %.2.us.i98.ph = phi i32 [ %194, %193 ], [ %.047.i82, %192 ]
+  br label %._crit_edge.us.i92.outer
 
-._crit_edge.us.i93.outer:                         ; preds = %233, %._crit_edge.us.i93.preheader
-  %.260.us.i95.ph = phi ptr [ %.15974.us.i88, %._crit_edge.us.i93.preheader ], [ %.050.us.i109, %233 ]
-  %.156.us.i96.ph = phi ptr [ %.05575.us.i87, %._crit_edge.us.i93.preheader ], [ %.257.us.i107, %233 ]
-  %.253.us.i97.ph = phi ptr [ %195, %._crit_edge.us.i93.preheader ], [ %.354.us.i108, %233 ]
-  %.149.us.i98.ph = phi ptr [ %.04876.us.i86, %._crit_edge.us.i93.preheader ], [ %.050.us.i109, %233 ]
-  %.2.us.i99.ph205 = phi i32 [ %.2.us.i99.ph, %._crit_edge.us.i93.preheader ], [ %.3.us.i110, %233 ]
-  %.043.us.i100.ph = phi i32 [ %.047.i82, %._crit_edge.us.i93.preheader ], [ %.1.us.i111, %233 ]
-  br label %._crit_edge.us.i93
+._crit_edge.us.i92.outer:                         ; preds = %233, %._crit_edge.us.i92.preheader
+  %.260.us.i94.ph = phi ptr [ %.15974.us.i87, %._crit_edge.us.i92.preheader ], [ %.050.us.i108, %233 ]
+  %.156.us.i95.ph = phi ptr [ %.05575.us.i86, %._crit_edge.us.i92.preheader ], [ %.257.us.i106, %233 ]
+  %.253.us.i96.ph = phi ptr [ %195, %._crit_edge.us.i92.preheader ], [ %.354.us.i107, %233 ]
+  %.149.us.i97.ph = phi ptr [ %.04876.us.i85, %._crit_edge.us.i92.preheader ], [ %.050.us.i108, %233 ]
+  %.2.us.i98.ph204 = phi i32 [ %.2.us.i98.ph, %._crit_edge.us.i92.preheader ], [ %.3.us.i109, %233 ]
+  %.043.us.i99.ph = phi i32 [ %.047.i82, %._crit_edge.us.i92.preheader ], [ %.1.us.i110, %233 ]
+  br label %._crit_edge.us.i92
 
-._crit_edge.us.i93:                               ; preds = %._crit_edge.us.i93.outer, %234
-  %.156.us.i96 = phi ptr [ %.257.us.i107, %234 ], [ %.156.us.i96.ph, %._crit_edge.us.i93.outer ]
-  %.253.us.i97 = phi ptr [ %.354.us.i108, %234 ], [ %.253.us.i97.ph, %._crit_edge.us.i93.outer ]
-  %.149.us.i98 = phi ptr [ %.050.us.i109, %234 ], [ %.149.us.i98.ph, %._crit_edge.us.i93.outer ]
-  %.2.us.i99 = phi i32 [ %.3.us.i110, %234 ], [ %.2.us.i99.ph205, %._crit_edge.us.i93.outer ]
-  %.043.us.i100 = phi i32 [ %.1.us.i111, %234 ], [ %.043.us.i100.ph, %._crit_edge.us.i93.outer ]
-  %196 = icmp sgt i32 %.2.us.i99, 0
-  br i1 %196, label %.critedge.thread.us.i105, label %197
+._crit_edge.us.i92:                               ; preds = %._crit_edge.us.i92.outer, %234
+  %.156.us.i95 = phi ptr [ %.257.us.i106, %234 ], [ %.156.us.i95.ph, %._crit_edge.us.i92.outer ]
+  %.253.us.i96 = phi ptr [ %.354.us.i107, %234 ], [ %.253.us.i96.ph, %._crit_edge.us.i92.outer ]
+  %.149.us.i97 = phi ptr [ %.050.us.i108, %234 ], [ %.149.us.i97.ph, %._crit_edge.us.i92.outer ]
+  %.2.us.i98 = phi i32 [ %.3.us.i109, %234 ], [ %.2.us.i98.ph204, %._crit_edge.us.i92.outer ]
+  %.043.us.i99 = phi i32 [ %.1.us.i110, %234 ], [ %.043.us.i99.ph, %._crit_edge.us.i92.outer ]
+  %196 = icmp sgt i32 %.2.us.i98, 0
+  br i1 %196, label %.critedge.thread.us.i104, label %197
 
-197:                                              ; preds = %._crit_edge.us.i93
-  %198 = icmp sgt i32 %.043.us.i100, 0
-  %199 = icmp ne ptr %.253.us.i97, null
+197:                                              ; preds = %._crit_edge.us.i92
+  %198 = icmp sgt i32 %.043.us.i99, 0
+  %199 = icmp ne ptr %.253.us.i96, null
   %200 = select i1 %198, i1 %199, i1 false
-  br i1 %200, label %.critedge.us.i104, label %.loopexit.us.i101
+  br i1 %200, label %.critedge.us.i103, label %.loopexit.us.i100
 
-.critedge.us.i104:                                ; preds = %197
-  %201 = icmp eq i32 %.2.us.i99, 0
-  br i1 %201, label %202, label %.critedge.thread.us.i105
+.critedge.us.i103:                                ; preds = %197
+  %201 = icmp eq i32 %.2.us.i98, 0
+  br i1 %201, label %202, label %.critedge.thread.us.i104
 
-202:                                              ; preds = %.critedge.us.i104
-  %203 = load ptr, ptr %.253.us.i97, align 8, !tbaa !31
-  %204 = add nsw i32 %.043.us.i100, -1
+202:                                              ; preds = %.critedge.us.i103
+  %203 = load ptr, ptr %.253.us.i96, align 8, !tbaa !31
+  %204 = add nsw i32 %.043.us.i99, -1
   br label %233
 
-.critedge.thread.us.i105:                         ; preds = %.critedge.us.i104, %._crit_edge.us.i93
-  %205 = icmp ne i32 %.043.us.i100, 0
-  %206 = icmp ne ptr %.253.us.i97, null
-  %or.cond.us.i106 = select i1 %205, i1 %206, i1 false
-  br i1 %or.cond.us.i106, label %210, label %207
+.critedge.thread.us.i104:                         ; preds = %.critedge.us.i103, %._crit_edge.us.i92
+  %205 = icmp ne i32 %.043.us.i99, 0
+  %206 = icmp ne ptr %.253.us.i96, null
+  %or.cond.us.i105 = select i1 %205, i1 %206, i1 false
+  br i1 %or.cond.us.i105, label %210, label %207
 
-207:                                              ; preds = %.critedge.thread.us.i105
-  %208 = load ptr, ptr %.156.us.i96, align 8, !tbaa !31
-  %209 = add nsw i32 %.2.us.i99, -1
+207:                                              ; preds = %.critedge.thread.us.i104
+  %208 = load ptr, ptr %.156.us.i95, align 8, !tbaa !31
+  %209 = add nsw i32 %.2.us.i98, -1
   br label %233
 
-210:                                              ; preds = %.critedge.thread.us.i105
-  %211 = getelementptr inbounds nuw i8, ptr %.156.us.i96, i64 8
+210:                                              ; preds = %.critedge.thread.us.i104
+  %211 = getelementptr inbounds nuw i8, ptr %.156.us.i95, i64 8
   %212 = load ptr, ptr %211, align 8, !tbaa !28
-  %213 = getelementptr inbounds nuw i8, ptr %.253.us.i97, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %.253.us.i96, i64 8
   %214 = load ptr, ptr %213, align 8, !tbaa !28
   %215 = load i16, ptr %212, align 2, !tbaa !23
   %216 = and i16 %215, -256
@@ -684,59 +680,59 @@ core_list_find.exit79:                            ; preds = %177, %171
   br i1 %.not, label %227, label %230
 
 227:                                              ; preds = %210
-  %228 = load ptr, ptr %.253.us.i97, align 8, !tbaa !31
-  %229 = add nsw i32 %.043.us.i100, -1
+  %228 = load ptr, ptr %.253.us.i96, align 8, !tbaa !31
+  %229 = add nsw i32 %.043.us.i99, -1
   br label %233
 
 230:                                              ; preds = %210
-  %231 = load ptr, ptr %.156.us.i96, align 8, !tbaa !31
-  %232 = add nsw i32 %.2.us.i99, -1
+  %231 = load ptr, ptr %.156.us.i95, align 8, !tbaa !31
+  %232 = add nsw i32 %.2.us.i98, -1
   br label %233
 
 233:                                              ; preds = %230, %227, %207, %202
-  %.257.us.i107 = phi ptr [ %.156.us.i96, %202 ], [ %231, %230 ], [ %.156.us.i96, %227 ], [ %208, %207 ]
-  %.354.us.i108 = phi ptr [ %203, %202 ], [ %.253.us.i97, %230 ], [ %228, %227 ], [ %.253.us.i97, %207 ]
-  %.050.us.i109 = phi ptr [ %.253.us.i97, %202 ], [ %.156.us.i96, %230 ], [ %.253.us.i97, %227 ], [ %.156.us.i96, %207 ]
-  %.3.us.i110 = phi i32 [ 0, %202 ], [ %232, %230 ], [ %.2.us.i99, %227 ], [ %209, %207 ]
-  %.1.us.i111 = phi i32 [ %204, %202 ], [ %.043.us.i100, %230 ], [ %229, %227 ], [ %.043.us.i100, %207 ]
-  %.not65.us.i112 = icmp eq ptr %.149.us.i98, null
-  br i1 %.not65.us.i112, label %._crit_edge.us.i93.outer, label %234, !llvm.loop !38
+  %.257.us.i106 = phi ptr [ %.156.us.i95, %202 ], [ %231, %230 ], [ %.156.us.i95, %227 ], [ %208, %207 ]
+  %.354.us.i107 = phi ptr [ %203, %202 ], [ %.253.us.i96, %230 ], [ %228, %227 ], [ %.253.us.i96, %207 ]
+  %.050.us.i108 = phi ptr [ %.253.us.i96, %202 ], [ %.156.us.i95, %230 ], [ %.253.us.i96, %227 ], [ %.156.us.i95, %207 ]
+  %.3.us.i109 = phi i32 [ 0, %202 ], [ %232, %230 ], [ %.2.us.i98, %227 ], [ %209, %207 ]
+  %.1.us.i110 = phi i32 [ %204, %202 ], [ %.043.us.i99, %230 ], [ %229, %227 ], [ %.043.us.i99, %207 ]
+  %.not65.us.i111 = icmp eq ptr %.149.us.i97, null
+  br i1 %.not65.us.i111, label %._crit_edge.us.i92.outer, label %234, !llvm.loop !38
 
 234:                                              ; preds = %233
-  store ptr %.050.us.i109, ptr %.149.us.i98, align 8, !tbaa !31
-  br label %._crit_edge.us.i93, !llvm.loop !38
+  store ptr %.050.us.i108, ptr %.149.us.i97, align 8, !tbaa !31
+  br label %._crit_edge.us.i92, !llvm.loop !38
 
-.loopexit.us.i101:                                ; preds = %197
-  %.not.us.i102 = icmp eq ptr %.253.us.i97, null
-  br i1 %.not.us.i102, label %._crit_edge80.i103, label %.lr.ph.us.i84, !llvm.loop !39
+.loopexit.us.i100:                                ; preds = %197
+  %.not.us.i101 = icmp eq ptr %.253.us.i96, null
+  br i1 %.not.us.i101, label %._crit_edge80.i102, label %.lr.ph.us.i83, !llvm.loop !39
 
-._crit_edge80.i103:                               ; preds = %.loopexit.us.i101
-  store ptr null, ptr %.149.us.i98, align 8, !tbaa !31
-  %235 = icmp eq i32 %.04677.us.i85, 0
+._crit_edge80.i102:                               ; preds = %.loopexit.us.i100
+  store ptr null, ptr %.149.us.i97, align 8, !tbaa !31
+  %235 = icmp eq i32 %.04677.us.i84, 0
   %236 = shl nuw nsw i32 %.047.i82, 1
-  br i1 %235, label %core_list_mergesort.exit114.preheader, label %.lr.ph79.i80
+  br i1 %235, label %core_list_mergesort.exit113.preheader, label %.lr.ph79.i80
 
-core_list_mergesort.exit114.preheader:            ; preds = %._crit_edge80.i103
-  %.2158 = load ptr, ptr %.260.us.i95.ph, align 8, !tbaa !31
-  %.not62159 = icmp eq ptr %.2158, null
-  br i1 %.not62159, label %core_list_mergesort.exit114._crit_edge, label %.lr.ph162
+core_list_mergesort.exit113.preheader:            ; preds = %._crit_edge80.i102
+  %.2157 = load ptr, ptr %.260.us.i94.ph, align 8, !tbaa !31
+  %.not62158 = icmp eq ptr %.2157, null
+  br i1 %.not62158, label %core_list_mergesort.exit113._crit_edge, label %.lr.ph161
 
-.lr.ph162:                                        ; preds = %core_list_mergesort.exit114.preheader
-  %237 = getelementptr inbounds nuw i8, ptr %.260.us.i95.ph, i64 8
-  br label %core_list_mergesort.exit114
+.lr.ph161:                                        ; preds = %core_list_mergesort.exit113.preheader
+  %237 = getelementptr inbounds nuw i8, ptr %.260.us.i94.ph, i64 8
+  br label %core_list_mergesort.exit113
 
-core_list_mergesort.exit114:                      ; preds = %.lr.ph162, %core_list_mergesort.exit114
-  %.2161 = phi ptr [ %.2158, %.lr.ph162 ], [ %.2, %core_list_mergesort.exit114 ]
-  %.4160 = phi i16 [ %.3.lcssa, %.lr.ph162 ], [ %240, %core_list_mergesort.exit114 ]
+core_list_mergesort.exit113:                      ; preds = %.lr.ph161, %core_list_mergesort.exit113
+  %.2160 = phi ptr [ %.2157, %.lr.ph161 ], [ %.2, %core_list_mergesort.exit113 ]
+  %.4159 = phi i16 [ %.3.lcssa, %.lr.ph161 ], [ %240, %core_list_mergesort.exit113 ]
   %238 = load ptr, ptr %237, align 8, !tbaa !28
   %239 = load i16, ptr %238, align 2, !tbaa !23
-  %240 = tail call zeroext i16 @crc16(i16 noundef signext %239, i16 noundef zeroext %.4160) #9
-  %.2 = load ptr, ptr %.2161, align 8, !tbaa !31
+  %240 = tail call zeroext i16 @crc16(i16 noundef signext %239, i16 noundef zeroext %.4159) #9
+  %.2 = load ptr, ptr %.2160, align 8, !tbaa !31
   %.not62 = icmp eq ptr %.2, null
-  br i1 %.not62, label %core_list_mergesort.exit114._crit_edge, label %core_list_mergesort.exit114, !llvm.loop !41
+  br i1 %.not62, label %core_list_mergesort.exit113._crit_edge, label %core_list_mergesort.exit113, !llvm.loop !41
 
-core_list_mergesort.exit114._crit_edge:           ; preds = %core_list_mergesort.exit114, %core_list_mergesort.exit114.preheader
-  %.4.lcssa = phi i16 [ %.3.lcssa, %core_list_mergesort.exit114.preheader ], [ %240, %core_list_mergesort.exit114 ]
+core_list_mergesort.exit113._crit_edge:           ; preds = %core_list_mergesort.exit113, %core_list_mergesort.exit113.preheader
+  %.4.lcssa = phi i16 [ %.3.lcssa, %core_list_mergesort.exit113.preheader ], [ %240, %core_list_mergesort.exit113 ]
   ret i16 %.4.lcssa
 }
 
@@ -816,8 +812,7 @@ define dso_local ptr @core_list_mergesort(ptr noundef %0, ptr noundef readonly c
 .lr.ph79:                                         ; preds = %._crit_edge80, %3
   %.058 = phi ptr [ %0, %3 ], [ %.260.us.ph, %._crit_edge80 ]
   %.047 = phi i32 [ 1, %3 ], [ %39, %._crit_edge80 ]
-  %.not73 = icmp ne ptr %.058, null
-  tail call void @llvm.assume(i1 %.not73)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.058) ]
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph79, %.loopexit.us
@@ -1087,8 +1082,7 @@ core_list_insert_new.exit42:                      ; preds = %.lr.ph, %30, %32
 .lr.ph79.i:                                       ; preds = %.lr.ph79.i.preheader, %._crit_edge80.i
   %.058.i = phi ptr [ %.260.us.i.ph, %._crit_edge80.i ], [ %1, %.lr.ph79.i.preheader ]
   %.047.i = phi i32 [ %97, %._crit_edge80.i ], [ 1, %.lr.ph79.i.preheader ]
-  %.not73.i = icmp ne ptr %.058.i, null
-  tail call void @llvm.assume(i1 %.not73.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.058.i) ]
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.loopexit.us.i, %.lr.ph79.i

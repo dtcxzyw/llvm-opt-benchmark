@@ -28478,8 +28478,7 @@ define hidden void @_ZNK5osgeo4proj3crs3CRS11promoteTo3DERKNSt7__cxx1112basic_st
   %76 = load ptr, ptr %75, align 8, !tbaa !10, !noalias !622
   %77 = load ptr, ptr %76, align 8, !tbaa !18, !noalias !625, !nonnull !277, !noundef !277
   %78 = call ptr @__dynamic_cast(ptr nonnull %77, ptr nonnull @_ZTIN5osgeo4proj3crs9SingleCRSE, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, i64 -1) #42, !noalias !625
-  %.not.i.i = icmp ne ptr %78, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %78) ]
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !23, !noalias !625
   %.not.i.i.i.i.i = icmp eq ptr %80, null
@@ -32319,8 +32318,7 @@ define void @_ZNK5osgeo4proj3crs20DerivedGeographicCRS10demoteTo2DERKNSt7__cxx11
   %32 = load ptr, ptr %31, align 8, !tbaa !10, !noalias !683
   %33 = load ptr, ptr %32, align 8, !tbaa !18, !noalias !686, !nonnull !277, !noundef !277
   %34 = call ptr @__dynamic_cast(ptr nonnull %33, ptr nonnull @_ZTIN5osgeo4proj3crs9SingleCRSE, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, i64 -1) #42, !noalias !686
-  %.not.i.i = icmp ne ptr %34, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !23, !noalias !686
   %.not.i.i.i.i.i = icmp eq ptr %36, null
@@ -87751,8 +87749,7 @@ _ZNK5osgeo4proj3crs18DerivedGeodeticCRS7baseCRSEv.exit: ; preds = %10, %22, %24,
   %47 = load ptr, ptr %18, align 8, !tbaa !10, !noalias !1327
   %48 = load ptr, ptr %47, align 8, !tbaa !18, !noalias !1330, !nonnull !277, !noundef !277
   %49 = tail call ptr @__dynamic_cast(ptr nonnull %48, ptr nonnull @_ZTIN5osgeo4proj3crs9SingleCRSE, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, i64 -1) #42, !noalias !1330
-  %.not.i.i27 = icmp ne ptr %49, null
-  tail call void @llvm.assume(i1 %.not.i.i27)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !23, !noalias !1330
   %.not.i.i.i.i.i28 = icmp eq ptr %51, null

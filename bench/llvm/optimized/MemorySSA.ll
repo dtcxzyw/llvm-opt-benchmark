@@ -13335,8 +13335,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_113ClobberWalker14TerminatedPath
   br i1 %.not64.i, label %.preheader.i, label %.lr.ph362.preheader.i
 
 .preheader.i:                                     ; preds = %645
-  %.not331355.i = icmp ne ptr %.2.i.i, null
-  call void @llvm.assume(i1 %.not331355.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.2.i.i) ]
   br label %.lr.ph357.i
 
 .lr.ph357.i:                                      ; preds = %_ZN4llvm18def_chain_iteratorIPNS_12MemoryAccessELb0EEppEv.exit.i27, %.preheader.i

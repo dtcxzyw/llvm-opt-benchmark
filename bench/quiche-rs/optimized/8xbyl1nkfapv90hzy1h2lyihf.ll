@@ -76,7 +76,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit" unwind label %61
+          to label %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17hd639b03cba57cbdbE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -105,19 +105,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a7ad3e189eb9f14E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -127,38 +126,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.0, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split", label %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split", label %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14", !prof !9
 
-"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14"
 
-"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14": ; preds = %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split" ]
+"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14": ; preds = %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split", label %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split", label %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -217,7 +216,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit" unwind label %61
+          to label %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17h30485412a7cefc06E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -246,19 +245,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d68ee07601386beE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -268,38 +266,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.1, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN104_$LT$prometools..histogram..TimeHistogram$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17h3150dc82e451ce70E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN104_$LT$prometools..histogram..TimeHistogram$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17h3150dc82e451ce70E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split", label %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split", label %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14", !prof !9
 
-"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14"
 
-"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14": ; preds = %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split" ]
+"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14": ; preds = %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split", label %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split", label %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -358,7 +356,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit" unwind label %61
+          to label %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17hc35a9500770a6e4cE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -387,19 +385,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19cef4bb153cfbf9E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -409,38 +406,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.2, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split", label %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split", label %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14", !prof !9
 
-"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14"
 
-"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14": ; preds = %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split" ]
+"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14": ; preds = %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split", label %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split", label %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -499,7 +496,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit" unwind label %61
+          to label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17h989c9ec5157935bbE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -528,19 +525,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h72f4e214cb1c7adbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -550,38 +546,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.3, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split", label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split", label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14", !prof !9
 
-"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14"
 
-"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14": ; preds = %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split" ]
+"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14": ; preds = %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split", label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split", label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -640,7 +636,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit" unwind label %61
+          to label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17h7409f68354edd7a3E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -669,19 +665,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h27b702f25dd39c3eE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -691,38 +686,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.4, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split", label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split", label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14", !prof !9
 
-"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14"
 
-"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14": ; preds = %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split" ]
+"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14": ; preds = %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split", label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split", label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -781,7 +776,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit" unwind label %61
+          to label %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17h7dc5e78d90b53565E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -810,19 +805,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3623e5fea1b727fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -832,38 +826,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.5, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN104_$LT$prometools..histogram..TimeHistogram$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17h3150dc82e451ce70E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN104_$LT$prometools..histogram..TimeHistogram$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17h3150dc82e451ce70E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split", label %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split", label %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14", !prof !9
 
-"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14"
 
-"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14": ; preds = %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split" ]
+"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14": ; preds = %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split", label %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split", label %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -922,7 +916,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit" unwind label %61
+          to label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17h4a232b5970e84f77E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -951,19 +945,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3124c92a478debc4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -973,38 +966,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.6, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split", label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split", label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14", !prof !9
 
-"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14"
 
-"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14": ; preds = %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split" ]
+"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14": ; preds = %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split", label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split", label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -1063,7 +1056,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit" unwind label %61
+          to label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17hd25f9f96db4ae0b3E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1092,19 +1085,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa39bd9218356b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -1114,38 +1106,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.7, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split", label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split", label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14", !prof !9
 
-"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14"
 
-"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14": ; preds = %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split" ]
+"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14": ; preds = %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split", label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split", label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -1204,7 +1196,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit" unwind label %61
+          to label %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17h663f2ab1a3c93cf7E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1233,19 +1225,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he8843818cfa3403fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -1255,38 +1246,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.8, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split", label %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split", label %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14", !prof !9
 
-"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14"
 
-"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14": ; preds = %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split" ]
+"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14": ; preds = %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split", label %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split", label %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -1345,7 +1336,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit" unwind label %61
+          to label %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17h59c7c79b7b39ea12E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1374,19 +1365,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd4f406bd0a825b7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -1396,38 +1386,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.9, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split", label %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split", label %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14", !prof !9
 
-"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14"
 
-"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14": ; preds = %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split" ]
+"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14": ; preds = %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split", label %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split", label %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -1486,7 +1476,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit" unwind label %61
+          to label %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17h4f4b14786262cd3aE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1515,19 +1505,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f04fdb7b7ddefedE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -1537,38 +1526,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.10, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split", label %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split", label %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14", !prof !9
 
-"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14"
 
-"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14": ; preds = %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split" ]
+"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14": ; preds = %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split", label %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split", label %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -1627,7 +1616,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit" unwind label %61
+          to label %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17h697fa25150eae1d4E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1656,19 +1645,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb8337187a543ee3cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -1678,38 +1666,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.11, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split", label %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split", label %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14", !prof !9
 
-"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14"
 
-"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14": ; preds = %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split" ]
+"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14": ; preds = %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split", label %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split", label %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -1768,7 +1756,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit" unwind label %61
+          to label %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17h306d73c359c4cc44E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1797,19 +1785,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4315b15dfed998eE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -1819,38 +1806,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.12, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN104_$LT$prometools..histogram..TimeHistogram$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17h3150dc82e451ce70E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN104_$LT$prometools..histogram..TimeHistogram$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17h3150dc82e451ce70E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split", label %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split", label %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14", !prof !9
 
-"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14"
 
-"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14": ; preds = %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split" ]
+"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14": ; preds = %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split", label %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split", label %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -1909,7 +1896,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 21:                                               ; preds = %17
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
-          to label %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit" unwind label %61
+          to label %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit" unwind label %60
 
 22:                                               ; preds = %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$4read17hd09c8f871cce3091E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1938,19 +1925,18 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %44
 
-44:                                               ; preds = %56, %22
+44:                                               ; preds = %55, %22
   %45 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41be51b4dbcc8da4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
           to label %46 unwind label %.loopexit
 
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %45, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %52, label %48
+  br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %46
   %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %23, ptr %4, align 8
   store ptr %25, ptr %36, align 8
   store ptr %27, ptr %37, align 8
@@ -1960,38 +1946,38 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   store i64 %35, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr @anon.92eba67921eebae2b50e8003297c2a4c.13, ptr %43, align 8
-  %51 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
-          to label %56 unwind label %.loopexit
+  %50 = invoke noundef ptr @"_ZN134_$LT$prometools..nonstandard..NonstandardUnsuffixedCounter$LT$N$C$A$GT$$u20$as$u20$prometheus_client..encoding..text..EncodeMetric$GT$6encode17hb106d645c4c2c3d8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %4)
+          to label %55 unwind label %.loopexit
 
-52:                                               ; preds = %46
+51:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %54 = and i64 %53, -14
-  %55 = icmp eq i64 %54, 18
-  br i1 %55, label %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split", label %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14", !prof !9
+  %52 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %53 = and i64 %52, -14
+  %54 = icmp eq i64 %53, 18
+  br i1 %54, label %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split", label %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14", !prof !9
 
-"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split": ; preds = %52, %57
-  %.sroa.0.0.ph = phi ptr [ %51, %57 ], [ null, %52 ]
+"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split": ; preds = %51, %56
+  %.sroa.0.0.ph = phi ptr [ %50, %56 ], [ null, %51 ]
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %7)
   br label %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14"
 
-"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14": ; preds = %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split" ]
+"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14": ; preds = %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split", %56, %51
+  %.sroa.0.0 = phi ptr [ %50, %56 ], [ null, %51 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
-56:                                               ; preds = %48
-  %.not11 = icmp eq ptr %51, null
-  br i1 %.not11, label %44, label %57
+55:                                               ; preds = %48
+  %.not11 = icmp eq ptr %50, null
+  br i1 %.not11, label %44, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = atomicrmw sub ptr %7, i64 16 release, align 8
-  %59 = and i64 %58, -14
-  %60 = icmp eq i64 %59, 18
-  br i1 %60, label %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split", label %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14", !prof !9
+  %57 = atomicrmw sub ptr %7, i64 16 release, align 8
+  %58 = and i64 %57, -14
+  %59 = icmp eq i64 %58, 18
+  br i1 %59, label %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split", label %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14", !prof !9
 
-61:                                               ; preds = %21
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -2119,8 +2105,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15, !noalias !62
   unreachable
 
-common.resume:                                    ; preds = %109, %113, %119, %116, %50, %54
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %50 ], [ %lpad.phi.i, %54 ], [ %lpad.thr_comm, %116 ], [ %lpad.phi.i14, %113 ], [ %lpad.phi.i14, %109 ], [ %lpad.thr_comm, %119 ]
+common.resume:                                    ; preds = %108, %112, %118, %115, %50, %54
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %50 ], [ %lpad.phi.i, %54 ], [ %lpad.thr_comm, %115 ], [ %lpad.phi.i14, %112 ], [ %lpad.phi.i14, %108 ], [ %lpad.thr_comm, %118 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit63:                                      ; preds = %._crit_edge.i.i.i.i, %16
@@ -2139,10 +2125,10 @@ common.resume:                                    ; preds = %109, %113, %119, %1
   br i1 %61, label %64, label %62, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn60 = phi ptr [ %75, %.noexc1.i ], [ %7, %.noexc3.i ]
-  %.pn61 = phi ptr [ %97, %.noexc1.i ], [ %38, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %74, %.noexc1.i ], [ %7, %.noexc3.i ]
+  %.pn61 = phi ptr [ %96, %.noexc1.i ], [ %38, %.noexc3.i ]
   %.pn58 = getelementptr inbounds i8, ptr %.pn61, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn60, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn58, 1
   ret { ptr, ptr } %.merged
 
@@ -2156,13 +2142,13 @@ common.resume:                                    ; preds = %109, %113, %119, %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %5, ptr noundef nonnull readonly align 1 dereferenceable(17) %1, i64 17, i1 false), !alias.scope !76
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h3c735426350df054E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %17, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(17) %5)
-          to label %65 unwind label %116
+          to label %65 unwind label %115
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %67 = load i8, ptr %66, align 8, !range !80, !noundef !6
   %.not3 = icmp eq i8 %67, 2
-  br i1 %.not3, label %74, label %68
+  br i1 %.not3, label %73, label %68
 
 68:                                               ; preds = %65
   %.sroa.035.0.copyload = load ptr, ptr %4, align 8
@@ -2179,93 +2165,92 @@ common.resume:                                    ; preds = %109, %113, %119, %1
   %.sroa.11.16..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.11.16..sroa_idx, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.11, i64 16, i1 false)
   %70 = invoke noundef nonnull ptr %.val5()
-          to label %.noexc unwind label %116
+          to label %.noexc unwind label %115
 
 .noexc:                                           ; preds = %68
-  %71 = icmp ne ptr %.sroa.035.0.copyload, null
-  tail call void @llvm.assume(i1 %71)
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %70, ptr %72, align 8, !noalias !81
-  %73 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17hf1dd0b79f69cd6fdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.035.0.copyload, i64 noundef %.sroa.436.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
-          to label %.noexc11 unwind label %116
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.035.0.copyload) ]
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %70, ptr %71, align 8, !noalias !81
+  %72 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17hf1dd0b79f69cd6fdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.035.0.copyload, i64 noundef %.sroa.436.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
+          to label %.noexc11 unwind label %115
 
 .noexc11:                                         ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !81
   br label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17ha2783f297a686f36E.exit"
 
-74:                                               ; preds = %65
+73:                                               ; preds = %65
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17ha2783f297a686f36E.exit"
 
-"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17ha2783f297a686f36E.exit": ; preds = %74, %.noexc11
+"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17ha2783f297a686f36E.exit": ; preds = %73, %.noexc11
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
-  %75 = tail call noundef nonnull align 8 ptr @"_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$9downgrade17h10d2b66205322e48E"(ptr noundef nonnull align 8 %7)
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %78 = load i64, ptr %77, align 8, !alias.scope !84, !noalias !89, !noundef !6
-  %79 = icmp eq i64 %78, 0
-  br i1 %79, label %select.unfold.i.i, label %80
+  %74 = tail call noundef nonnull align 8 ptr @"_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$9downgrade17h10d2b66205322e48E"(ptr noundef nonnull align 8 %7)
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  %77 = load i64, ptr %76, align 8, !alias.scope !84, !noalias !89, !noundef !6
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %select.unfold.i.i, label %79
 
-80:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17ha2783f297a686f36E.exit"
-  %81 = getelementptr inbounds nuw i8, ptr %75, i64 40
-  %82 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hf403354d36f80935E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %81, ptr noalias noundef nonnull readonly align 1 dereferenceable(17) %1)
+79:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17ha2783f297a686f36E.exit"
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 40
+  %81 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hf403354d36f80935E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %80, ptr noalias noundef nonnull readonly align 1 dereferenceable(17) %1)
           to label %.noexc.i16 unwind label %.loopexit.split-lp.i12
 
-.noexc.i16:                                       ; preds = %80
+.noexc.i16:                                       ; preds = %79
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  %83 = lshr i64 %82, 57
-  %84 = trunc nuw nsw i64 %83 to i8
-  %85 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %86 = load i64, ptr %85, align 8, !alias.scope !100, !noalias !101, !noundef !6
-  %87 = load ptr, ptr %76, align 8, !alias.scope !100, !noalias !101, !nonnull !6, !noundef !6
-  %.sroa.01.0.vec.insert.i.i.i.i.i.i17 = insertelement <16 x i8> poison, i8 %84, i64 0
+  %82 = lshr i64 %81, 57
+  %83 = trunc nuw nsw i64 %82 to i8
+  %84 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %85 = load i64, ptr %84, align 8, !alias.scope !100, !noalias !101, !noundef !6
+  %86 = load ptr, ptr %75, align 8, !alias.scope !100, !noalias !101, !nonnull !6, !noundef !6
+  %.sroa.01.0.vec.insert.i.i.i.i.i.i17 = insertelement <16 x i8> poison, i8 %83, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i.i.i18 = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i.i17, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %88
+  br label %87
 
-88:                                               ; preds = %106, %.noexc.i16
-  %.sroa.9.0.i.i.i.i.i19 = phi i64 [ 0, %.noexc.i16 ], [ %107, %106 ]
-  %.pn.i.i.i.i20 = phi i64 [ %82, %.noexc.i16 ], [ %108, %106 ]
-  %.sroa.01.0.i.i.i.i.i21 = and i64 %.pn.i.i.i.i20, %86
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 %.sroa.01.0.i.i.i.i.i21
-  %.sroa.0.0.copyload.i5.i.i.i.i22 = load <16 x i8>, ptr %89, align 1, !noalias !104
-  %90 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i22, %.sroa.01.15.vec.insert.i.i.i.i.i.i18
-  %91 = bitcast <16 x i1> %90 to i16
-  %.not.i.not11.i.i.i.i23 = icmp eq i16 %91, 0
+87:                                               ; preds = %105, %.noexc.i16
+  %.sroa.9.0.i.i.i.i.i19 = phi i64 [ 0, %.noexc.i16 ], [ %106, %105 ]
+  %.pn.i.i.i.i20 = phi i64 [ %81, %.noexc.i16 ], [ %107, %105 ]
+  %.sroa.01.0.i.i.i.i.i21 = and i64 %.pn.i.i.i.i20, %85
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %.sroa.01.0.i.i.i.i.i21
+  %.sroa.0.0.copyload.i5.i.i.i.i22 = load <16 x i8>, ptr %88, align 1, !noalias !104
+  %89 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i22, %.sroa.01.15.vec.insert.i.i.i.i.i.i18
+  %90 = bitcast <16 x i1> %89 to i16
+  %.not.i.not11.i.i.i.i23 = icmp eq i16 %90, 0
   br i1 %.not.i.not11.i.i.i.i23, label %._crit_edge.i.i.i.i29, label %.lr.ph.i.i.i.i24
 
-.lr.ph.i.i.i.i24:                                 ; preds = %88, %103
-  %.sroa.06.0.i12.i.i.i.i25 = phi i16 [ %105, %103 ], [ %91, %88 ]
-  %92 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i12.i.i.i.i25, i1 true)
-  %93 = zext nneg i16 %92 to i64
-  %94 = add i64 %.sroa.01.0.i.i.i.i.i21, %93
-  %95 = and i64 %94, %86
-  %96 = sub nsw i64 0, %95
-  %97 = getelementptr inbounds { { { { i8, [16 x i8] } } }, [7 x i8], ptr }, ptr %87, i64 %96
-  %98 = getelementptr inbounds i8, ptr %97, i64 -32
-  %99 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h0481981fa9ce181eE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(17) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %98)
+.lr.ph.i.i.i.i24:                                 ; preds = %87, %102
+  %.sroa.06.0.i12.i.i.i.i25 = phi i16 [ %104, %102 ], [ %90, %87 ]
+  %91 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i12.i.i.i.i25, i1 true)
+  %92 = zext nneg i16 %91 to i64
+  %93 = add i64 %.sroa.01.0.i.i.i.i.i21, %92
+  %94 = and i64 %93, %85
+  %95 = sub nsw i64 0, %94
+  %96 = getelementptr inbounds { { { { i8, [16 x i8] } } }, [7 x i8], ptr }, ptr %86, i64 %95
+  %97 = getelementptr inbounds i8, ptr %96, i64 -32
+  %98 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h0481981fa9ce181eE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(17) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %97)
           to label %.noexc1.i unwind label %.loopexit.i26
 
 .noexc1.i:                                        ; preds = %.lr.ph.i.i.i.i24
-  br i1 %99, label %.loopexit, label %103, !prof !74
+  br i1 %98, label %.loopexit, label %102, !prof !74
 
-._crit_edge.i.i.i.i29:                            ; preds = %103, %88
-  %100 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i22, splat (i8 -1)
-  %101 = bitcast <16 x i1> %100 to i16
-  %102 = icmp eq i16 %101, 0
-  br i1 %102, label %106, label %select.unfold.i.i, !prof !9
+._crit_edge.i.i.i.i29:                            ; preds = %102, %87
+  %99 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i22, splat (i8 -1)
+  %100 = bitcast <16 x i1> %99 to i16
+  %101 = icmp eq i16 %100, 0
+  br i1 %101, label %105, label %select.unfold.i.i, !prof !9
 
-103:                                              ; preds = %.noexc1.i
-  %104 = add i16 %.sroa.06.0.i12.i.i.i.i25, -1
-  %105 = and i16 %104, %.sroa.06.0.i12.i.i.i.i25
-  %.not.i.not.i.i.i.i28 = icmp eq i16 %105, 0
+102:                                              ; preds = %.noexc1.i
+  %103 = add i16 %.sroa.06.0.i12.i.i.i.i25, -1
+  %104 = and i16 %103, %.sroa.06.0.i12.i.i.i.i25
+  %.not.i.not.i.i.i.i28 = icmp eq i16 %104, 0
   br i1 %.not.i.not.i.i.i.i28, label %._crit_edge.i.i.i.i29, label %.lr.ph.i.i.i.i24
 
-106:                                              ; preds = %._crit_edge.i.i.i.i29
-  %107 = add i64 %.sroa.9.0.i.i.i.i.i19, 16
-  %108 = add i64 %.sroa.01.0.i.i.i.i.i21, %107
-  br label %88
+105:                                              ; preds = %._crit_edge.i.i.i.i29
+  %106 = add i64 %.sroa.9.0.i.i.i.i.i19, 16
+  %107 = add i64 %.sroa.01.0.i.i.i.i.i21, %106
+  br label %87
 
 select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i29, %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17ha2783f297a686f36E.exit"
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.92eba67921eebae2b50e8003297c2a4c.15, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.92eba67921eebae2b50e8003297c2a4c.17) #16
@@ -2277,43 +2262,43 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
 .loopexit.i26:                                    ; preds = %.lr.ph.i.i.i.i24
   %lpad.loopexit.i27 = landingpad { ptr, i32 }
           cleanup
-  br label %109
+  br label %108
 
-.loopexit.split-lp.i12:                           ; preds = %select.unfold.i.i, %80
+.loopexit.split-lp.i12:                           ; preds = %select.unfold.i.i, %79
   %lpad.loopexit.split-lp.i13 = landingpad { ptr, i32 }
           cleanup
-  br label %109
+  br label %108
 
-109:                                              ; preds = %.loopexit.split-lp.i12, %.loopexit.i26
+108:                                              ; preds = %.loopexit.split-lp.i12, %.loopexit.i26
   %lpad.phi.i14 = phi { ptr, i32 } [ %lpad.loopexit.i27, %.loopexit.i26 ], [ %lpad.loopexit.split-lp.i13, %.loopexit.split-lp.i12 ]
-  %110 = atomicrmw sub ptr %75, i64 16 release, align 8, !noalias !105
-  %111 = and i64 %110, -14
-  %112 = icmp eq i64 %111, 18
-  br i1 %112, label %113, label %common.resume, !prof !9
+  %109 = atomicrmw sub ptr %74, i64 16 release, align 8, !noalias !105
+  %110 = and i64 %109, -14
+  %111 = icmp eq i64 %110, 18
+  br i1 %111, label %112, label %common.resume, !prof !9
 
-113:                                              ; preds = %109
-  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %75)
-          to label %common.resume unwind label %114
+112:                                              ; preds = %108
+  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %74)
+          to label %common.resume unwind label %113
 
-114:                                              ; preds = %113
-  %115 = landingpad { ptr, i32 }
+113:                                              ; preds = %112
+  %114 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-116:                                              ; preds = %68, %.noexc, %64
+115:                                              ; preds = %68, %.noexc, %64
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %117 = cmpxchg ptr %7, i64 8, i64 0 release monotonic, align 8
-  %118 = extractvalue { i64, i1 } %117, 1
-  br i1 %118, label %common.resume, label %119, !prof !74
+  %116 = cmpxchg ptr %7, i64 8, i64 0 release monotonic, align 8
+  %117 = extractvalue { i64, i1 } %116, 1
+  br i1 %117, label %common.resume, label %118, !prof !74
 
-119:                                              ; preds = %116
+118:                                              ; preds = %115
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17hd55f380220c48fd7E(ptr noundef nonnull align 8 %7, i1 noundef zeroext false)
-          to label %common.resume unwind label %120
+          to label %common.resume unwind label %119
 
-120:                                              ; preds = %119
-  %121 = landingpad { ptr, i32 }
+119:                                              ; preds = %118
+  %120 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -2435,8 +2420,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15, !noalias !117
   unreachable
 
-common.resume:                                    ; preds = %105, %109, %115, %112, %48, %52
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %112 ], [ %lpad.phi.i15, %109 ], [ %lpad.phi.i15, %105 ], [ %lpad.thr_comm, %115 ]
+common.resume:                                    ; preds = %104, %108, %114, %111, %48, %52
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %111 ], [ %lpad.phi.i15, %108 ], [ %lpad.phi.i15, %104 ], [ %lpad.thr_comm, %114 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit64:                                      ; preds = %._crit_edge.i.i.i.i, %14
@@ -2455,10 +2440,10 @@ common.resume:                                    ; preds = %105, %109, %115, %1
   br i1 %59, label %62, label %60, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn61 = phi ptr [ %71, %.noexc1.i ], [ %5, %.noexc3.i ]
-  %.pn62 = phi ptr [ %93, %.noexc1.i ], [ %36, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %70, %.noexc1.i ], [ %5, %.noexc3.i ]
+  %.pn62 = phi ptr [ %92, %.noexc1.i ], [ %36, %.noexc3.i ]
   %.pn59 = getelementptr inbounds i8, ptr %.pn62, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn61, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn59, 1
   ret { ptr, ptr } %.merged
 
@@ -2470,7 +2455,7 @@ common.resume:                                    ; preds = %105, %109, %115, %1
   %.val5 = load i8, ptr %1, align 1, !range !130, !noundef !6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h3d090048c59c88e1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %15, i8 noundef %.val5)
-          to label %63 unwind label %112
+          to label %63 unwind label %111
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2490,81 +2475,80 @@ common.resume:                                    ; preds = %105, %109, %115, %1
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %67, align 8, !nonnull !6, !noundef !6
   %68 = invoke noundef nonnull ptr %.val6()
-          to label %.noexc unwind label %112
+          to label %.noexc unwind label %111
 
 .noexc:                                           ; preds = %66
-  %69 = icmp ne ptr %.sroa.037.0.copyload, null
-  tail call void @llvm.assume(i1 %69)
-  %70 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h3082e8cc0cc610a4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.copyload, i64 noundef %.sroa.438.0.copyload, i8 noundef %65, ptr noundef nonnull %68)
-          to label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h209e83c7d8aa5cecE.exit" unwind label %112
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.037.0.copyload) ]
+  %69 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h3082e8cc0cc610a4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.copyload, i64 noundef %.sroa.438.0.copyload, i8 noundef %65, ptr noundef nonnull %68)
+          to label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h209e83c7d8aa5cecE.exit" unwind label %111
 
 "_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h209e83c7d8aa5cecE.exit": ; preds = %.thread, %.noexc
-  %71 = tail call noundef nonnull align 8 ptr @"_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$9downgrade17h6148db0fa82aa479E"(ptr noundef nonnull align 8 %5)
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  %74 = load i64, ptr %73, align 8, !alias.scope !132, !noalias !137, !noundef !6
-  %75 = icmp eq i64 %74, 0
-  br i1 %75, label %select.unfold.i.i, label %76
+  %70 = tail call noundef nonnull align 8 ptr @"_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$9downgrade17h6148db0fa82aa479E"(ptr noundef nonnull align 8 %5)
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 32
+  %73 = load i64, ptr %72, align 8, !alias.scope !132, !noalias !137, !noundef !6
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %select.unfold.i.i, label %75
 
-76:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h209e83c7d8aa5cecE.exit"
-  %77 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  %78 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17haf7726d8f37142bfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %77, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1)
+75:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h209e83c7d8aa5cecE.exit"
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 40
+  %77 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17haf7726d8f37142bfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %76, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1)
           to label %.noexc.i17 unwind label %.loopexit.split-lp.i13
 
-.noexc.i17:                                       ; preds = %76
+.noexc.i17:                                       ; preds = %75
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  %79 = lshr i64 %78, 57
-  %80 = trunc nuw nsw i64 %79 to i8
-  %81 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %82 = load i64, ptr %81, align 8, !alias.scope !148, !noalias !149, !noundef !6
-  %83 = load ptr, ptr %72, align 8, !alias.scope !148, !noalias !149, !nonnull !6, !noundef !6
-  %.sroa.01.0.vec.insert.i.i.i.i.i.i18 = insertelement <16 x i8> poison, i8 %80, i64 0
+  %78 = lshr i64 %77, 57
+  %79 = trunc nuw nsw i64 %78 to i8
+  %80 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %81 = load i64, ptr %80, align 8, !alias.scope !148, !noalias !149, !noundef !6
+  %82 = load ptr, ptr %71, align 8, !alias.scope !148, !noalias !149, !nonnull !6, !noundef !6
+  %.sroa.01.0.vec.insert.i.i.i.i.i.i18 = insertelement <16 x i8> poison, i8 %79, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i.i.i19 = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i.i18, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %84
+  br label %83
 
-84:                                               ; preds = %102, %.noexc.i17
-  %.sroa.9.0.i.i.i.i.i20 = phi i64 [ 0, %.noexc.i17 ], [ %103, %102 ]
-  %.pn.i.i.i.i21 = phi i64 [ %78, %.noexc.i17 ], [ %104, %102 ]
-  %.sroa.01.0.i.i.i.i.i22 = and i64 %.pn.i.i.i.i21, %82
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %.sroa.01.0.i.i.i.i.i22
-  %.sroa.0.0.copyload.i5.i.i.i.i23 = load <16 x i8>, ptr %85, align 1, !noalias !152
-  %86 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i23, %.sroa.01.15.vec.insert.i.i.i.i.i.i19
-  %87 = bitcast <16 x i1> %86 to i16
-  %.not.i.not11.i.i.i.i24 = icmp eq i16 %87, 0
+83:                                               ; preds = %101, %.noexc.i17
+  %.sroa.9.0.i.i.i.i.i20 = phi i64 [ 0, %.noexc.i17 ], [ %102, %101 ]
+  %.pn.i.i.i.i21 = phi i64 [ %77, %.noexc.i17 ], [ %103, %101 ]
+  %.sroa.01.0.i.i.i.i.i22 = and i64 %.pn.i.i.i.i21, %81
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %.sroa.01.0.i.i.i.i.i22
+  %.sroa.0.0.copyload.i5.i.i.i.i23 = load <16 x i8>, ptr %84, align 1, !noalias !152
+  %85 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i23, %.sroa.01.15.vec.insert.i.i.i.i.i.i19
+  %86 = bitcast <16 x i1> %85 to i16
+  %.not.i.not11.i.i.i.i24 = icmp eq i16 %86, 0
   br i1 %.not.i.not11.i.i.i.i24, label %._crit_edge.i.i.i.i30, label %.lr.ph.i.i.i.i25
 
-.lr.ph.i.i.i.i25:                                 ; preds = %84, %99
-  %.sroa.06.0.i12.i.i.i.i26 = phi i16 [ %101, %99 ], [ %87, %84 ]
-  %88 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i12.i.i.i.i26, i1 true)
-  %89 = zext nneg i16 %88 to i64
-  %90 = add i64 %.sroa.01.0.i.i.i.i.i22, %89
-  %91 = and i64 %90, %82
-  %92 = sub nsw i64 0, %91
-  %93 = getelementptr inbounds { i8, [7 x i8], ptr }, ptr %83, i64 %92
-  %94 = getelementptr inbounds i8, ptr %93, i64 -16
-  %95 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h56f815b9d5e0032cE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %94)
+.lr.ph.i.i.i.i25:                                 ; preds = %83, %98
+  %.sroa.06.0.i12.i.i.i.i26 = phi i16 [ %100, %98 ], [ %86, %83 ]
+  %87 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i12.i.i.i.i26, i1 true)
+  %88 = zext nneg i16 %87 to i64
+  %89 = add i64 %.sroa.01.0.i.i.i.i.i22, %88
+  %90 = and i64 %89, %81
+  %91 = sub nsw i64 0, %90
+  %92 = getelementptr inbounds { i8, [7 x i8], ptr }, ptr %82, i64 %91
+  %93 = getelementptr inbounds i8, ptr %92, i64 -16
+  %94 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h56f815b9d5e0032cE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %93)
           to label %.noexc1.i unwind label %.loopexit.i27
 
 .noexc1.i:                                        ; preds = %.lr.ph.i.i.i.i25
-  br i1 %95, label %.loopexit, label %99, !prof !74
+  br i1 %94, label %.loopexit, label %98, !prof !74
 
-._crit_edge.i.i.i.i30:                            ; preds = %99, %84
-  %96 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i23, splat (i8 -1)
-  %97 = bitcast <16 x i1> %96 to i16
-  %98 = icmp eq i16 %97, 0
-  br i1 %98, label %102, label %select.unfold.i.i, !prof !9
+._crit_edge.i.i.i.i30:                            ; preds = %98, %83
+  %95 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i23, splat (i8 -1)
+  %96 = bitcast <16 x i1> %95 to i16
+  %97 = icmp eq i16 %96, 0
+  br i1 %97, label %101, label %select.unfold.i.i, !prof !9
 
-99:                                               ; preds = %.noexc1.i
-  %100 = add i16 %.sroa.06.0.i12.i.i.i.i26, -1
-  %101 = and i16 %100, %.sroa.06.0.i12.i.i.i.i26
-  %.not.i.not.i.i.i.i29 = icmp eq i16 %101, 0
+98:                                               ; preds = %.noexc1.i
+  %99 = add i16 %.sroa.06.0.i12.i.i.i.i26, -1
+  %100 = and i16 %99, %.sroa.06.0.i12.i.i.i.i26
+  %.not.i.not.i.i.i.i29 = icmp eq i16 %100, 0
   br i1 %.not.i.not.i.i.i.i29, label %._crit_edge.i.i.i.i30, label %.lr.ph.i.i.i.i25
 
-102:                                              ; preds = %._crit_edge.i.i.i.i30
-  %103 = add i64 %.sroa.9.0.i.i.i.i.i20, 16
-  %104 = add i64 %.sroa.01.0.i.i.i.i.i22, %103
-  br label %84
+101:                                              ; preds = %._crit_edge.i.i.i.i30
+  %102 = add i64 %.sroa.9.0.i.i.i.i.i20, 16
+  %103 = add i64 %.sroa.01.0.i.i.i.i.i22, %102
+  br label %83
 
 select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i30, %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h209e83c7d8aa5cecE.exit"
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.92eba67921eebae2b50e8003297c2a4c.15, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.92eba67921eebae2b50e8003297c2a4c.17) #16
@@ -2576,43 +2560,43 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
 .loopexit.i27:                                    ; preds = %.lr.ph.i.i.i.i25
   %lpad.loopexit.i28 = landingpad { ptr, i32 }
           cleanup
-  br label %105
+  br label %104
 
-.loopexit.split-lp.i13:                           ; preds = %select.unfold.i.i, %76
+.loopexit.split-lp.i13:                           ; preds = %select.unfold.i.i, %75
   %lpad.loopexit.split-lp.i14 = landingpad { ptr, i32 }
           cleanup
-  br label %105
+  br label %104
 
-105:                                              ; preds = %.loopexit.split-lp.i13, %.loopexit.i27
+104:                                              ; preds = %.loopexit.split-lp.i13, %.loopexit.i27
   %lpad.phi.i15 = phi { ptr, i32 } [ %lpad.loopexit.i28, %.loopexit.i27 ], [ %lpad.loopexit.split-lp.i14, %.loopexit.split-lp.i13 ]
-  %106 = atomicrmw sub ptr %71, i64 16 release, align 8, !noalias !153
-  %107 = and i64 %106, -14
-  %108 = icmp eq i64 %107, 18
-  br i1 %108, label %109, label %common.resume, !prof !9
+  %105 = atomicrmw sub ptr %70, i64 16 release, align 8, !noalias !153
+  %106 = and i64 %105, -14
+  %107 = icmp eq i64 %106, 18
+  br i1 %107, label %108, label %common.resume, !prof !9
 
-109:                                              ; preds = %105
-  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %71)
-          to label %common.resume unwind label %110
+108:                                              ; preds = %104
+  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %70)
+          to label %common.resume unwind label %109
 
-110:                                              ; preds = %109
-  %111 = landingpad { ptr, i32 }
+109:                                              ; preds = %108
+  %110 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-112:                                              ; preds = %66, %.noexc, %62
+111:                                              ; preds = %66, %.noexc, %62
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %113 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
-  %114 = extractvalue { i64, i1 } %113, 1
-  br i1 %114, label %common.resume, label %115, !prof !74
+  %112 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
+  %113 = extractvalue { i64, i1 } %112, 1
+  br i1 %113, label %common.resume, label %114, !prof !74
 
-115:                                              ; preds = %112
+114:                                              ; preds = %111
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17hd55f380220c48fd7E(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %common.resume unwind label %116
+          to label %common.resume unwind label %115
 
-116:                                              ; preds = %115
-  %117 = landingpad { ptr, i32 }
+115:                                              ; preds = %114
+  %116 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -2734,8 +2718,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15, !noalias !165
   unreachable
 
-common.resume:                                    ; preds = %113, %117, %123, %120, %48, %52
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %120 ], [ %lpad.phi.i15, %117 ], [ %lpad.phi.i15, %113 ], [ %lpad.thr_comm, %123 ]
+common.resume:                                    ; preds = %112, %116, %122, %119, %48, %52
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %119 ], [ %lpad.phi.i15, %116 ], [ %lpad.phi.i15, %112 ], [ %lpad.thr_comm, %122 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit64:                                      ; preds = %._crit_edge.i.i.i.i, %14
@@ -2754,10 +2738,10 @@ common.resume:                                    ; preds = %113, %117, %123, %1
   br i1 %59, label %62, label %60, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn61 = phi ptr [ %79, %.noexc1.i ], [ %5, %.noexc3.i ]
-  %.pn62 = phi ptr [ %101, %.noexc1.i ], [ %36, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %78, %.noexc1.i ], [ %5, %.noexc3.i ]
+  %.pn62 = phi ptr [ %100, %.noexc1.i ], [ %36, %.noexc3.i ]
   %.pn59 = getelementptr inbounds i8, ptr %.pn62, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn61, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn59, 1
   ret { ptr, ptr } %.merged
 
@@ -2799,7 +2783,7 @@ common.resume:                                    ; preds = %113, %117, %123, %1
   %.sroa.0.0.i.i.i = phi i8 [ 10, %70 ], [ 7, %67 ], [ %.val5, %68 ], [ 9, %69 ], [ 6, %62 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hfd1b48571f5e0afcE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %15, i8 noundef %.sroa.0.0.i.i.i)
-          to label %71 unwind label %120
+          to label %71 unwind label %119
 
 71:                                               ; preds = %"_ZN73_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h330694510465029fE.exit"
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2819,81 +2803,80 @@ common.resume:                                    ; preds = %113, %117, %123, %1
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %75, align 8, !nonnull !6, !noundef !6
   %76 = invoke noundef nonnull ptr %.val6()
-          to label %.noexc unwind label %120
+          to label %.noexc unwind label %119
 
 .noexc:                                           ; preds = %74
-  %77 = icmp ne ptr %.sroa.037.0.copyload, null
-  tail call void @llvm.assume(i1 %77)
-  %78 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h14231b918d301f22E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.copyload, i64 noundef %.sroa.438.0.copyload, i8 noundef %73, ptr noundef nonnull %76)
-          to label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h5788748bd026f0ceE.exit" unwind label %120
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.037.0.copyload) ]
+  %77 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h14231b918d301f22E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.copyload, i64 noundef %.sroa.438.0.copyload, i8 noundef %73, ptr noundef nonnull %76)
+          to label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h5788748bd026f0ceE.exit" unwind label %119
 
 "_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h5788748bd026f0ceE.exit": ; preds = %.thread, %.noexc
-  %79 = tail call noundef nonnull align 8 ptr @"_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$9downgrade17h2f6422177373d8aaE"(ptr noundef nonnull align 8 %5)
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %82 = load i64, ptr %81, align 8, !alias.scope !180, !noalias !185, !noundef !6
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %select.unfold.i.i, label %84
+  %78 = tail call noundef nonnull align 8 ptr @"_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$9downgrade17h2f6422177373d8aaE"(ptr noundef nonnull align 8 %5)
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %81 = load i64, ptr %80, align 8, !alias.scope !180, !noalias !185, !noundef !6
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %select.unfold.i.i, label %83
 
-84:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h5788748bd026f0ceE.exit"
-  %85 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  %86 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h1ad0e864dbef2a1aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %85, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1)
+83:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h5788748bd026f0ceE.exit"
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 40
+  %85 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h1ad0e864dbef2a1aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %84, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1)
           to label %.noexc.i17 unwind label %.loopexit.split-lp.i13
 
-.noexc.i17:                                       ; preds = %84
+.noexc.i17:                                       ; preds = %83
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
-  %87 = lshr i64 %86, 57
-  %88 = trunc nuw nsw i64 %87 to i8
-  %89 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %90 = load i64, ptr %89, align 8, !alias.scope !196, !noalias !197, !noundef !6
-  %91 = load ptr, ptr %80, align 8, !alias.scope !196, !noalias !197, !nonnull !6, !noundef !6
-  %.sroa.01.0.vec.insert.i.i.i.i.i.i18 = insertelement <16 x i8> poison, i8 %88, i64 0
+  %86 = lshr i64 %85, 57
+  %87 = trunc nuw nsw i64 %86 to i8
+  %88 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %89 = load i64, ptr %88, align 8, !alias.scope !196, !noalias !197, !noundef !6
+  %90 = load ptr, ptr %79, align 8, !alias.scope !196, !noalias !197, !nonnull !6, !noundef !6
+  %.sroa.01.0.vec.insert.i.i.i.i.i.i18 = insertelement <16 x i8> poison, i8 %87, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i.i.i19 = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i.i18, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %92
+  br label %91
 
-92:                                               ; preds = %110, %.noexc.i17
-  %.sroa.9.0.i.i.i.i.i20 = phi i64 [ 0, %.noexc.i17 ], [ %111, %110 ]
-  %.pn.i.i.i.i21 = phi i64 [ %86, %.noexc.i17 ], [ %112, %110 ]
-  %.sroa.01.0.i.i.i.i.i22 = and i64 %.pn.i.i.i.i21, %90
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 %.sroa.01.0.i.i.i.i.i22
-  %.sroa.0.0.copyload.i5.i.i.i.i23 = load <16 x i8>, ptr %93, align 1, !noalias !200
-  %94 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i23, %.sroa.01.15.vec.insert.i.i.i.i.i.i19
-  %95 = bitcast <16 x i1> %94 to i16
-  %.not.i.not11.i.i.i.i24 = icmp eq i16 %95, 0
+91:                                               ; preds = %109, %.noexc.i17
+  %.sroa.9.0.i.i.i.i.i20 = phi i64 [ 0, %.noexc.i17 ], [ %110, %109 ]
+  %.pn.i.i.i.i21 = phi i64 [ %85, %.noexc.i17 ], [ %111, %109 ]
+  %.sroa.01.0.i.i.i.i.i22 = and i64 %.pn.i.i.i.i21, %89
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 %.sroa.01.0.i.i.i.i.i22
+  %.sroa.0.0.copyload.i5.i.i.i.i23 = load <16 x i8>, ptr %92, align 1, !noalias !200
+  %93 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i23, %.sroa.01.15.vec.insert.i.i.i.i.i.i19
+  %94 = bitcast <16 x i1> %93 to i16
+  %.not.i.not11.i.i.i.i24 = icmp eq i16 %94, 0
   br i1 %.not.i.not11.i.i.i.i24, label %._crit_edge.i.i.i.i30, label %.lr.ph.i.i.i.i25
 
-.lr.ph.i.i.i.i25:                                 ; preds = %92, %107
-  %.sroa.06.0.i12.i.i.i.i26 = phi i16 [ %109, %107 ], [ %95, %92 ]
-  %96 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i12.i.i.i.i26, i1 true)
-  %97 = zext nneg i16 %96 to i64
-  %98 = add i64 %.sroa.01.0.i.i.i.i.i22, %97
-  %99 = and i64 %98, %90
-  %100 = sub nsw i64 0, %99
-  %101 = getelementptr inbounds { i8, [7 x i8], ptr }, ptr %91, i64 %100
-  %102 = getelementptr inbounds i8, ptr %101, i64 -16
-  %103 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h5e8cc5036a6e1810E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %102)
+.lr.ph.i.i.i.i25:                                 ; preds = %91, %106
+  %.sroa.06.0.i12.i.i.i.i26 = phi i16 [ %108, %106 ], [ %94, %91 ]
+  %95 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i12.i.i.i.i26, i1 true)
+  %96 = zext nneg i16 %95 to i64
+  %97 = add i64 %.sroa.01.0.i.i.i.i.i22, %96
+  %98 = and i64 %97, %89
+  %99 = sub nsw i64 0, %98
+  %100 = getelementptr inbounds { i8, [7 x i8], ptr }, ptr %90, i64 %99
+  %101 = getelementptr inbounds i8, ptr %100, i64 -16
+  %102 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h5e8cc5036a6e1810E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %101)
           to label %.noexc1.i unwind label %.loopexit.i27
 
 .noexc1.i:                                        ; preds = %.lr.ph.i.i.i.i25
-  br i1 %103, label %.loopexit, label %107, !prof !74
+  br i1 %102, label %.loopexit, label %106, !prof !74
 
-._crit_edge.i.i.i.i30:                            ; preds = %107, %92
-  %104 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i23, splat (i8 -1)
-  %105 = bitcast <16 x i1> %104 to i16
-  %106 = icmp eq i16 %105, 0
-  br i1 %106, label %110, label %select.unfold.i.i, !prof !9
+._crit_edge.i.i.i.i30:                            ; preds = %106, %91
+  %103 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i23, splat (i8 -1)
+  %104 = bitcast <16 x i1> %103 to i16
+  %105 = icmp eq i16 %104, 0
+  br i1 %105, label %109, label %select.unfold.i.i, !prof !9
 
-107:                                              ; preds = %.noexc1.i
-  %108 = add i16 %.sroa.06.0.i12.i.i.i.i26, -1
-  %109 = and i16 %108, %.sroa.06.0.i12.i.i.i.i26
-  %.not.i.not.i.i.i.i29 = icmp eq i16 %109, 0
+106:                                              ; preds = %.noexc1.i
+  %107 = add i16 %.sroa.06.0.i12.i.i.i.i26, -1
+  %108 = and i16 %107, %.sroa.06.0.i12.i.i.i.i26
+  %.not.i.not.i.i.i.i29 = icmp eq i16 %108, 0
   br i1 %.not.i.not.i.i.i.i29, label %._crit_edge.i.i.i.i30, label %.lr.ph.i.i.i.i25
 
-110:                                              ; preds = %._crit_edge.i.i.i.i30
-  %111 = add i64 %.sroa.9.0.i.i.i.i.i20, 16
-  %112 = add i64 %.sroa.01.0.i.i.i.i.i22, %111
-  br label %92
+109:                                              ; preds = %._crit_edge.i.i.i.i30
+  %110 = add i64 %.sroa.9.0.i.i.i.i.i20, 16
+  %111 = add i64 %.sroa.01.0.i.i.i.i.i22, %110
+  br label %91
 
 select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i30, %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h5788748bd026f0ceE.exit"
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.92eba67921eebae2b50e8003297c2a4c.15, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.92eba67921eebae2b50e8003297c2a4c.17) #16
@@ -2905,43 +2888,43 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
 .loopexit.i27:                                    ; preds = %.lr.ph.i.i.i.i25
   %lpad.loopexit.i28 = landingpad { ptr, i32 }
           cleanup
-  br label %113
+  br label %112
 
-.loopexit.split-lp.i13:                           ; preds = %select.unfold.i.i, %84
+.loopexit.split-lp.i13:                           ; preds = %select.unfold.i.i, %83
   %lpad.loopexit.split-lp.i14 = landingpad { ptr, i32 }
           cleanup
-  br label %113
+  br label %112
 
-113:                                              ; preds = %.loopexit.split-lp.i13, %.loopexit.i27
+112:                                              ; preds = %.loopexit.split-lp.i13, %.loopexit.i27
   %lpad.phi.i15 = phi { ptr, i32 } [ %lpad.loopexit.i28, %.loopexit.i27 ], [ %lpad.loopexit.split-lp.i14, %.loopexit.split-lp.i13 ]
-  %114 = atomicrmw sub ptr %79, i64 16 release, align 8, !noalias !201
-  %115 = and i64 %114, -14
-  %116 = icmp eq i64 %115, 18
-  br i1 %116, label %117, label %common.resume, !prof !9
+  %113 = atomicrmw sub ptr %78, i64 16 release, align 8, !noalias !201
+  %114 = and i64 %113, -14
+  %115 = icmp eq i64 %114, 18
+  br i1 %115, label %116, label %common.resume, !prof !9
 
-117:                                              ; preds = %113
-  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %79)
-          to label %common.resume unwind label %118
+116:                                              ; preds = %112
+  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %78)
+          to label %common.resume unwind label %117
 
-118:                                              ; preds = %117
-  %119 = landingpad { ptr, i32 }
+117:                                              ; preds = %116
+  %118 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-120:                                              ; preds = %74, %.noexc, %"_ZN73_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h330694510465029fE.exit"
+119:                                              ; preds = %74, %.noexc, %"_ZN73_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h330694510465029fE.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %121 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
-  %122 = extractvalue { i64, i1 } %121, 1
-  br i1 %122, label %common.resume, label %123, !prof !74
+  %120 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
+  %121 = extractvalue { i64, i1 } %120, 1
+  br i1 %121, label %common.resume, label %122, !prof !74
 
-123:                                              ; preds = %120
+122:                                              ; preds = %119
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17hd55f380220c48fd7E(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %common.resume unwind label %124
+          to label %common.resume unwind label %123
 
-124:                                              ; preds = %123
-  %125 = landingpad { ptr, i32 }
+123:                                              ; preds = %122
+  %124 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -3085,10 +3068,10 @@ common.resume:                                    ; preds = %118, %122, %127, %.
   br i1 %61, label %64, label %62, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn73 = phi ptr [ %84, %.noexc1.i ], [ %7, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %84, %.noexc1.i ], [ %7, %.noexc3.i ]
   %.pn74 = phi ptr [ %106, %.noexc1.i ], [ %38, %.noexc3.i ]
   %.pn71 = getelementptr inbounds i8, ptr %.pn74, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn73, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn71, 1
   ret { ptr, ptr } %.merged
 
@@ -3430,10 +3413,10 @@ common.resume:                                    ; preds = %104, %108, %114, %1
   br i1 %59, label %62, label %60, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn60 = phi ptr [ %70, %.noexc1.i ], [ %5, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %70, %.noexc1.i ], [ %5, %.noexc3.i ]
   %.pn61 = phi ptr [ %92, %.noexc1.i ], [ %36, %.noexc3.i ]
   %.pn58 = getelementptr inbounds i8, ptr %.pn61, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn60, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn58, 1
   ret { ptr, ptr } %.merged
 
@@ -3729,10 +3712,10 @@ common.resume:                                    ; preds = %118, %122, %127, %.
   br i1 %61, label %64, label %62, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn75 = phi ptr [ %84, %.noexc1.i ], [ %7, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %84, %.noexc1.i ], [ %7, %.noexc3.i ]
   %.pn76 = phi ptr [ %106, %.noexc1.i ], [ %38, %.noexc3.i ]
   %.pn73 = getelementptr inbounds i8, ptr %.pn76, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn75, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn73, 1
   ret { ptr, ptr } %.merged
 
@@ -4075,10 +4058,10 @@ common.resume:                                    ; preds = %104, %108, %114, %1
   br i1 %59, label %62, label %60, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn60 = phi ptr [ %70, %.noexc1.i ], [ %5, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %70, %.noexc1.i ], [ %5, %.noexc3.i ]
   %.pn61 = phi ptr [ %92, %.noexc1.i ], [ %36, %.noexc3.i ]
   %.pn58 = getelementptr inbounds i8, ptr %.pn61, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn60, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn58, 1
   ret { ptr, ptr } %.merged
 
@@ -4372,10 +4355,10 @@ common.resume:                                    ; preds = %104, %108, %114, %1
   br i1 %59, label %62, label %60, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn60 = phi ptr [ %70, %.noexc1.i ], [ %5, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %70, %.noexc1.i ], [ %5, %.noexc3.i ]
   %.pn61 = phi ptr [ %92, %.noexc1.i ], [ %36, %.noexc3.i ]
   %.pn58 = getelementptr inbounds i8, ptr %.pn61, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn60, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn58, 1
   ret { ptr, ptr } %.merged
 
@@ -4672,10 +4655,10 @@ common.resume:                                    ; preds = %115, %119, %124, %.
   br i1 %62, label %65, label %63, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn76 = phi ptr [ %81, %.noexc1.i ], [ %8, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %81, %.noexc1.i ], [ %8, %.noexc3.i ]
   %.pn77 = phi ptr [ %103, %.noexc1.i ], [ %39, %.noexc3.i ]
   %.pn74 = getelementptr inbounds i8, ptr %.pn77, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn76, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn74, 1
   ret { ptr, ptr } %.merged
 
@@ -4996,8 +4979,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15, !noalias !502
   unreachable
 
-common.resume:                                    ; preds = %105, %109, %115, %112, %48, %52
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %112 ], [ %lpad.phi.i14, %109 ], [ %lpad.phi.i14, %105 ], [ %lpad.thr_comm, %115 ]
+common.resume:                                    ; preds = %104, %108, %114, %111, %48, %52
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %111 ], [ %lpad.phi.i14, %108 ], [ %lpad.phi.i14, %104 ], [ %lpad.thr_comm, %114 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit62:                                      ; preds = %._crit_edge.i.i.i.i, %14
@@ -5016,10 +4999,10 @@ common.resume:                                    ; preds = %105, %109, %115, %1
   br i1 %59, label %62, label %60, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn59 = phi ptr [ %71, %.noexc1.i ], [ %5, %.noexc3.i ]
-  %.pn60 = phi ptr [ %93, %.noexc1.i ], [ %36, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %70, %.noexc1.i ], [ %5, %.noexc3.i ]
+  %.pn60 = phi ptr [ %92, %.noexc1.i ], [ %36, %.noexc3.i ]
   %.pn57 = getelementptr inbounds i8, ptr %.pn60, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn59, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn57, 1
   ret { ptr, ptr } %.merged
 
@@ -5031,7 +5014,7 @@ common.resume:                                    ; preds = %105, %109, %115, %1
   %.val5 = load i8, ptr %1, align 1, !range !80, !noundef !6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hc70008dbf96afc96E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %15, i8 noundef %.val5)
-          to label %63 unwind label %112
+          to label %63 unwind label %111
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5050,81 +5033,80 @@ common.resume:                                    ; preds = %105, %109, %115, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = invoke noundef nonnull ptr @"_ZN167_$LT$foundations..telemetry..metrics..HistogramBuilder$u20$as$u20$prometheus_client..metrics..family..MetricConstructor$LT$prometools..histogram..TimeHistogram$GT$$GT$10new_metric17h5e811096a51b3c5bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %67)
-          to label %.noexc unwind label %112
+          to label %.noexc unwind label %111
 
 .noexc:                                           ; preds = %66
-  %69 = icmp ne ptr %.sroa.036.0.copyload, null
-  tail call void @llvm.assume(i1 %69)
-  %70 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17hd64d99cc4bf5bf26E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.036.0.copyload, i64 noundef %.sroa.437.0.copyload, i8 noundef %65, ptr noundef nonnull %68)
-          to label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h929a30d7bc07b3ceE.exit" unwind label %112
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.036.0.copyload) ]
+  %69 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17hd64d99cc4bf5bf26E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.036.0.copyload, i64 noundef %.sroa.437.0.copyload, i8 noundef %65, ptr noundef nonnull %68)
+          to label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h929a30d7bc07b3ceE.exit" unwind label %111
 
 "_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h929a30d7bc07b3ceE.exit": ; preds = %.thread, %.noexc
-  %71 = tail call noundef nonnull align 8 ptr @"_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$9downgrade17h069f7314d99a0d61E"(ptr noundef nonnull align 8 %5)
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  %74 = load i64, ptr %73, align 8, !alias.scope !516, !noalias !521, !noundef !6
-  %75 = icmp eq i64 %74, 0
-  br i1 %75, label %select.unfold.i.i, label %76
+  %70 = tail call noundef nonnull align 8 ptr @"_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$9downgrade17h069f7314d99a0d61E"(ptr noundef nonnull align 8 %5)
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 32
+  %73 = load i64, ptr %72, align 8, !alias.scope !516, !noalias !521, !noundef !6
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %select.unfold.i.i, label %75
 
-76:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h929a30d7bc07b3ceE.exit"
-  %77 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  %78 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h9b0b8cc6f8ab2ebcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %77, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1)
+75:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h929a30d7bc07b3ceE.exit"
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 40
+  %77 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h9b0b8cc6f8ab2ebcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %76, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1)
           to label %.noexc.i16 unwind label %.loopexit.split-lp.i12
 
-.noexc.i16:                                       ; preds = %76
+.noexc.i16:                                       ; preds = %75
   tail call void @llvm.experimental.noalias.scope.decl(metadata !526)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !529)
-  %79 = lshr i64 %78, 57
-  %80 = trunc nuw nsw i64 %79 to i8
-  %81 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %82 = load i64, ptr %81, align 8, !alias.scope !532, !noalias !533, !noundef !6
-  %83 = load ptr, ptr %72, align 8, !alias.scope !532, !noalias !533, !nonnull !6, !noundef !6
-  %.sroa.01.0.vec.insert.i.i.i.i.i.i17 = insertelement <16 x i8> poison, i8 %80, i64 0
+  %78 = lshr i64 %77, 57
+  %79 = trunc nuw nsw i64 %78 to i8
+  %80 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %81 = load i64, ptr %80, align 8, !alias.scope !532, !noalias !533, !noundef !6
+  %82 = load ptr, ptr %71, align 8, !alias.scope !532, !noalias !533, !nonnull !6, !noundef !6
+  %.sroa.01.0.vec.insert.i.i.i.i.i.i17 = insertelement <16 x i8> poison, i8 %79, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i.i.i18 = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i.i17, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %84
+  br label %83
 
-84:                                               ; preds = %102, %.noexc.i16
-  %.sroa.9.0.i.i.i.i.i19 = phi i64 [ 0, %.noexc.i16 ], [ %103, %102 ]
-  %.pn.i.i.i.i20 = phi i64 [ %78, %.noexc.i16 ], [ %104, %102 ]
-  %.sroa.01.0.i.i.i.i.i21 = and i64 %.pn.i.i.i.i20, %82
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %.sroa.01.0.i.i.i.i.i21
-  %.sroa.0.0.copyload.i5.i.i.i.i22 = load <16 x i8>, ptr %85, align 1, !noalias !536
-  %86 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i22, %.sroa.01.15.vec.insert.i.i.i.i.i.i18
-  %87 = bitcast <16 x i1> %86 to i16
-  %.not.i.not11.i.i.i.i23 = icmp eq i16 %87, 0
+83:                                               ; preds = %101, %.noexc.i16
+  %.sroa.9.0.i.i.i.i.i19 = phi i64 [ 0, %.noexc.i16 ], [ %102, %101 ]
+  %.pn.i.i.i.i20 = phi i64 [ %77, %.noexc.i16 ], [ %103, %101 ]
+  %.sroa.01.0.i.i.i.i.i21 = and i64 %.pn.i.i.i.i20, %81
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %.sroa.01.0.i.i.i.i.i21
+  %.sroa.0.0.copyload.i5.i.i.i.i22 = load <16 x i8>, ptr %84, align 1, !noalias !536
+  %85 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i22, %.sroa.01.15.vec.insert.i.i.i.i.i.i18
+  %86 = bitcast <16 x i1> %85 to i16
+  %.not.i.not11.i.i.i.i23 = icmp eq i16 %86, 0
   br i1 %.not.i.not11.i.i.i.i23, label %._crit_edge.i.i.i.i29, label %.lr.ph.i.i.i.i24
 
-.lr.ph.i.i.i.i24:                                 ; preds = %84, %99
-  %.sroa.06.0.i12.i.i.i.i25 = phi i16 [ %101, %99 ], [ %87, %84 ]
-  %88 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i12.i.i.i.i25, i1 true)
-  %89 = zext nneg i16 %88 to i64
-  %90 = add i64 %.sroa.01.0.i.i.i.i.i21, %89
-  %91 = and i64 %90, %82
-  %92 = sub nsw i64 0, %91
-  %93 = getelementptr inbounds { i8, [7 x i8], ptr }, ptr %83, i64 %92
-  %94 = getelementptr inbounds i8, ptr %93, i64 -16
-  %95 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd53b1449a7ff9903E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %94)
+.lr.ph.i.i.i.i24:                                 ; preds = %83, %98
+  %.sroa.06.0.i12.i.i.i.i25 = phi i16 [ %100, %98 ], [ %86, %83 ]
+  %87 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i12.i.i.i.i25, i1 true)
+  %88 = zext nneg i16 %87 to i64
+  %89 = add i64 %.sroa.01.0.i.i.i.i.i21, %88
+  %90 = and i64 %89, %81
+  %91 = sub nsw i64 0, %90
+  %92 = getelementptr inbounds { i8, [7 x i8], ptr }, ptr %82, i64 %91
+  %93 = getelementptr inbounds i8, ptr %92, i64 -16
+  %94 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd53b1449a7ff9903E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %93)
           to label %.noexc1.i unwind label %.loopexit.i26
 
 .noexc1.i:                                        ; preds = %.lr.ph.i.i.i.i24
-  br i1 %95, label %.loopexit, label %99, !prof !74
+  br i1 %94, label %.loopexit, label %98, !prof !74
 
-._crit_edge.i.i.i.i29:                            ; preds = %99, %84
-  %96 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i22, splat (i8 -1)
-  %97 = bitcast <16 x i1> %96 to i16
-  %98 = icmp eq i16 %97, 0
-  br i1 %98, label %102, label %select.unfold.i.i, !prof !9
+._crit_edge.i.i.i.i29:                            ; preds = %98, %83
+  %95 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i22, splat (i8 -1)
+  %96 = bitcast <16 x i1> %95 to i16
+  %97 = icmp eq i16 %96, 0
+  br i1 %97, label %101, label %select.unfold.i.i, !prof !9
 
-99:                                               ; preds = %.noexc1.i
-  %100 = add i16 %.sroa.06.0.i12.i.i.i.i25, -1
-  %101 = and i16 %100, %.sroa.06.0.i12.i.i.i.i25
-  %.not.i.not.i.i.i.i28 = icmp eq i16 %101, 0
+98:                                               ; preds = %.noexc1.i
+  %99 = add i16 %.sroa.06.0.i12.i.i.i.i25, -1
+  %100 = and i16 %99, %.sroa.06.0.i12.i.i.i.i25
+  %.not.i.not.i.i.i.i28 = icmp eq i16 %100, 0
   br i1 %.not.i.not.i.i.i.i28, label %._crit_edge.i.i.i.i29, label %.lr.ph.i.i.i.i24
 
-102:                                              ; preds = %._crit_edge.i.i.i.i29
-  %103 = add i64 %.sroa.9.0.i.i.i.i.i19, 16
-  %104 = add i64 %.sroa.01.0.i.i.i.i.i21, %103
-  br label %84
+101:                                              ; preds = %._crit_edge.i.i.i.i29
+  %102 = add i64 %.sroa.9.0.i.i.i.i.i19, 16
+  %103 = add i64 %.sroa.01.0.i.i.i.i.i21, %102
+  br label %83
 
 select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i29, %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h929a30d7bc07b3ceE.exit"
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.92eba67921eebae2b50e8003297c2a4c.15, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.92eba67921eebae2b50e8003297c2a4c.17) #16
@@ -5136,43 +5118,43 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
 .loopexit.i26:                                    ; preds = %.lr.ph.i.i.i.i24
   %lpad.loopexit.i27 = landingpad { ptr, i32 }
           cleanup
-  br label %105
+  br label %104
 
-.loopexit.split-lp.i12:                           ; preds = %select.unfold.i.i, %76
+.loopexit.split-lp.i12:                           ; preds = %select.unfold.i.i, %75
   %lpad.loopexit.split-lp.i13 = landingpad { ptr, i32 }
           cleanup
-  br label %105
+  br label %104
 
-105:                                              ; preds = %.loopexit.split-lp.i12, %.loopexit.i26
+104:                                              ; preds = %.loopexit.split-lp.i12, %.loopexit.i26
   %lpad.phi.i14 = phi { ptr, i32 } [ %lpad.loopexit.i27, %.loopexit.i26 ], [ %lpad.loopexit.split-lp.i13, %.loopexit.split-lp.i12 ]
-  %106 = atomicrmw sub ptr %71, i64 16 release, align 8, !noalias !537
-  %107 = and i64 %106, -14
-  %108 = icmp eq i64 %107, 18
-  br i1 %108, label %109, label %common.resume, !prof !9
+  %105 = atomicrmw sub ptr %70, i64 16 release, align 8, !noalias !537
+  %106 = and i64 %105, -14
+  %107 = icmp eq i64 %106, 18
+  br i1 %107, label %108, label %common.resume, !prof !9
 
-109:                                              ; preds = %105
-  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %71)
-          to label %common.resume unwind label %110
+108:                                              ; preds = %104
+  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %70)
+          to label %common.resume unwind label %109
 
-110:                                              ; preds = %109
-  %111 = landingpad { ptr, i32 }
+109:                                              ; preds = %108
+  %110 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-112:                                              ; preds = %66, %.noexc, %62
+111:                                              ; preds = %66, %.noexc, %62
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %113 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
-  %114 = extractvalue { i64, i1 } %113, 1
-  br i1 %114, label %common.resume, label %115, !prof !74
+  %112 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
+  %113 = extractvalue { i64, i1 } %112, 1
+  br i1 %113, label %common.resume, label %114, !prof !74
 
-115:                                              ; preds = %112
+114:                                              ; preds = %111
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17hd55f380220c48fd7E(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %common.resume unwind label %116
+          to label %common.resume unwind label %115
 
-116:                                              ; preds = %115
-  %117 = landingpad { ptr, i32 }
+115:                                              ; preds = %114
+  %116 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -5297,8 +5279,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15, !noalias !549
   unreachable
 
-common.resume:                                    ; preds = %120, %124, %130, %127, %50, %54
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %50 ], [ %lpad.phi.i, %54 ], [ %lpad.thr_comm, %127 ], [ %lpad.phi.i14, %124 ], [ %lpad.phi.i14, %120 ], [ %lpad.thr_comm, %130 ]
+common.resume:                                    ; preds = %119, %123, %129, %126, %50, %54
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %50 ], [ %lpad.phi.i, %54 ], [ %lpad.thr_comm, %126 ], [ %lpad.phi.i14, %123 ], [ %lpad.phi.i14, %119 ], [ %lpad.thr_comm, %129 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit63:                                      ; preds = %._crit_edge.i.i.i.i, %16
@@ -5317,10 +5299,10 @@ common.resume:                                    ; preds = %120, %124, %130, %1
   br i1 %61, label %64, label %62, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn60 = phi ptr [ %86, %.noexc1.i ], [ %7, %.noexc3.i ]
-  %.pn61 = phi ptr [ %108, %.noexc1.i ], [ %38, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %85, %.noexc1.i ], [ %7, %.noexc3.i ]
+  %.pn61 = phi ptr [ %107, %.noexc1.i ], [ %38, %.noexc3.i ]
   %.pn58 = getelementptr inbounds i8, ptr %.pn61, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn60, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn58, 1
   ret { ptr, ptr } %.merged
 
@@ -5370,13 +5352,13 @@ common.resume:                                    ; preds = %120, %124, %130, %1
   store i8 %.sroa.0.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !562, !noalias !565
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hd6c0f29dc76b4080E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %17, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(18) %5)
-          to label %76 unwind label %127
+          to label %76 unwind label %126
 
 76:                                               ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %78 = load i8, ptr %77, align 8, !range !80, !noundef !6
   %.not3 = icmp eq i8 %78, 2
-  br i1 %.not3, label %85, label %79
+  br i1 %.not3, label %84, label %79
 
 79:                                               ; preds = %76
   %.sroa.035.0.copyload = load ptr, ptr %4, align 8
@@ -5393,93 +5375,92 @@ common.resume:                                    ; preds = %120, %124, %130, %1
   %.sroa.11.16..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.11.16..sroa_idx, ptr noundef nonnull align 1 dereferenceable(17) %.sroa.11, i64 17, i1 false)
   %81 = invoke noundef nonnull ptr %.val5()
-          to label %.noexc unwind label %127
+          to label %.noexc unwind label %126
 
 .noexc:                                           ; preds = %79
-  %82 = icmp ne ptr %.sroa.035.0.copyload, null
-  tail call void @llvm.assume(i1 %82)
-  %83 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %81, ptr %83, align 8, !noalias !573
-  %84 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h678cdcd72be1659dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.035.0.copyload, i64 noundef %.sroa.436.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
-          to label %.noexc11 unwind label %127
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.035.0.copyload) ]
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %81, ptr %82, align 8, !noalias !573
+  %83 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h678cdcd72be1659dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.035.0.copyload, i64 noundef %.sroa.436.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
+          to label %.noexc11 unwind label %126
 
 .noexc11:                                         ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !573
   br label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17hd9f0bf03828387c5E.exit"
 
-85:                                               ; preds = %76
+84:                                               ; preds = %76
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17hd9f0bf03828387c5E.exit"
 
-"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17hd9f0bf03828387c5E.exit": ; preds = %85, %.noexc11
+"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17hd9f0bf03828387c5E.exit": ; preds = %84, %.noexc11
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
-  %86 = tail call noundef nonnull align 8 ptr @"_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$9downgrade17h3e40bed914d9b1a9E"(ptr noundef nonnull align 8 %7)
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %89 = load i64, ptr %88, align 8, !alias.scope !576, !noalias !581, !noundef !6
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %select.unfold.i.i, label %91
+  %85 = tail call noundef nonnull align 8 ptr @"_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$9downgrade17h3e40bed914d9b1a9E"(ptr noundef nonnull align 8 %7)
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %88 = load i64, ptr %87, align 8, !alias.scope !576, !noalias !581, !noundef !6
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %select.unfold.i.i, label %90
 
-91:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17hd9f0bf03828387c5E.exit"
-  %92 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  %93 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h58a2140040606246E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %92, ptr noalias noundef nonnull readonly align 1 dereferenceable(18) %1)
+90:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17hd9f0bf03828387c5E.exit"
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 40
+  %92 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h58a2140040606246E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %91, ptr noalias noundef nonnull readonly align 1 dereferenceable(18) %1)
           to label %.noexc.i16 unwind label %.loopexit.split-lp.i12
 
-.noexc.i16:                                       ; preds = %91
+.noexc.i16:                                       ; preds = %90
   tail call void @llvm.experimental.noalias.scope.decl(metadata !586)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !589)
-  %94 = lshr i64 %93, 57
-  %95 = trunc nuw nsw i64 %94 to i8
-  %96 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %97 = load i64, ptr %96, align 8, !alias.scope !592, !noalias !593, !noundef !6
-  %98 = load ptr, ptr %87, align 8, !alias.scope !592, !noalias !593, !nonnull !6, !noundef !6
-  %.sroa.01.0.vec.insert.i.i.i.i.i.i17 = insertelement <16 x i8> poison, i8 %95, i64 0
+  %93 = lshr i64 %92, 57
+  %94 = trunc nuw nsw i64 %93 to i8
+  %95 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %96 = load i64, ptr %95, align 8, !alias.scope !592, !noalias !593, !noundef !6
+  %97 = load ptr, ptr %86, align 8, !alias.scope !592, !noalias !593, !nonnull !6, !noundef !6
+  %.sroa.01.0.vec.insert.i.i.i.i.i.i17 = insertelement <16 x i8> poison, i8 %94, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i.i.i18 = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i.i17, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %99
+  br label %98
 
-99:                                               ; preds = %117, %.noexc.i16
-  %.sroa.9.0.i.i.i.i.i19 = phi i64 [ 0, %.noexc.i16 ], [ %118, %117 ]
-  %.pn.i.i.i.i20 = phi i64 [ %93, %.noexc.i16 ], [ %119, %117 ]
-  %.sroa.01.0.i.i.i.i.i21 = and i64 %.pn.i.i.i.i20, %97
-  %100 = getelementptr inbounds nuw i8, ptr %98, i64 %.sroa.01.0.i.i.i.i.i21
-  %.sroa.0.0.copyload.i5.i.i.i.i22 = load <16 x i8>, ptr %100, align 1, !noalias !596
-  %101 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i22, %.sroa.01.15.vec.insert.i.i.i.i.i.i18
-  %102 = bitcast <16 x i1> %101 to i16
-  %.not.i.not11.i.i.i.i23 = icmp eq i16 %102, 0
+98:                                               ; preds = %116, %.noexc.i16
+  %.sroa.9.0.i.i.i.i.i19 = phi i64 [ 0, %.noexc.i16 ], [ %117, %116 ]
+  %.pn.i.i.i.i20 = phi i64 [ %92, %.noexc.i16 ], [ %118, %116 ]
+  %.sroa.01.0.i.i.i.i.i21 = and i64 %.pn.i.i.i.i20, %96
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 %.sroa.01.0.i.i.i.i.i21
+  %.sroa.0.0.copyload.i5.i.i.i.i22 = load <16 x i8>, ptr %99, align 1, !noalias !596
+  %100 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i22, %.sroa.01.15.vec.insert.i.i.i.i.i.i18
+  %101 = bitcast <16 x i1> %100 to i16
+  %.not.i.not11.i.i.i.i23 = icmp eq i16 %101, 0
   br i1 %.not.i.not11.i.i.i.i23, label %._crit_edge.i.i.i.i29, label %.lr.ph.i.i.i.i24
 
-.lr.ph.i.i.i.i24:                                 ; preds = %99, %114
-  %.sroa.06.0.i12.i.i.i.i25 = phi i16 [ %116, %114 ], [ %102, %99 ]
-  %103 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i12.i.i.i.i25, i1 true)
-  %104 = zext nneg i16 %103 to i64
-  %105 = add i64 %.sroa.01.0.i.i.i.i.i21, %104
-  %106 = and i64 %105, %97
-  %107 = sub nsw i64 0, %106
-  %108 = getelementptr inbounds { { { { i8, [16 x i8] }, i8 } }, [6 x i8], ptr }, ptr %98, i64 %107
-  %109 = getelementptr inbounds i8, ptr %108, i64 -32
-  %110 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h2ce63b8e2db5b728E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(18) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %109)
+.lr.ph.i.i.i.i24:                                 ; preds = %98, %113
+  %.sroa.06.0.i12.i.i.i.i25 = phi i16 [ %115, %113 ], [ %101, %98 ]
+  %102 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i12.i.i.i.i25, i1 true)
+  %103 = zext nneg i16 %102 to i64
+  %104 = add i64 %.sroa.01.0.i.i.i.i.i21, %103
+  %105 = and i64 %104, %96
+  %106 = sub nsw i64 0, %105
+  %107 = getelementptr inbounds { { { { i8, [16 x i8] }, i8 } }, [6 x i8], ptr }, ptr %97, i64 %106
+  %108 = getelementptr inbounds i8, ptr %107, i64 -32
+  %109 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h2ce63b8e2db5b728E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(18) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %108)
           to label %.noexc1.i unwind label %.loopexit.i26
 
 .noexc1.i:                                        ; preds = %.lr.ph.i.i.i.i24
-  br i1 %110, label %.loopexit, label %114, !prof !74
+  br i1 %109, label %.loopexit, label %113, !prof !74
 
-._crit_edge.i.i.i.i29:                            ; preds = %114, %99
-  %111 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i22, splat (i8 -1)
-  %112 = bitcast <16 x i1> %111 to i16
-  %113 = icmp eq i16 %112, 0
-  br i1 %113, label %117, label %select.unfold.i.i, !prof !9
+._crit_edge.i.i.i.i29:                            ; preds = %113, %98
+  %110 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i22, splat (i8 -1)
+  %111 = bitcast <16 x i1> %110 to i16
+  %112 = icmp eq i16 %111, 0
+  br i1 %112, label %116, label %select.unfold.i.i, !prof !9
 
-114:                                              ; preds = %.noexc1.i
-  %115 = add i16 %.sroa.06.0.i12.i.i.i.i25, -1
-  %116 = and i16 %115, %.sroa.06.0.i12.i.i.i.i25
-  %.not.i.not.i.i.i.i28 = icmp eq i16 %116, 0
+113:                                              ; preds = %.noexc1.i
+  %114 = add i16 %.sroa.06.0.i12.i.i.i.i25, -1
+  %115 = and i16 %114, %.sroa.06.0.i12.i.i.i.i25
+  %.not.i.not.i.i.i.i28 = icmp eq i16 %115, 0
   br i1 %.not.i.not.i.i.i.i28, label %._crit_edge.i.i.i.i29, label %.lr.ph.i.i.i.i24
 
-117:                                              ; preds = %._crit_edge.i.i.i.i29
-  %118 = add i64 %.sroa.9.0.i.i.i.i.i19, 16
-  %119 = add i64 %.sroa.01.0.i.i.i.i.i21, %118
-  br label %99
+116:                                              ; preds = %._crit_edge.i.i.i.i29
+  %117 = add i64 %.sroa.9.0.i.i.i.i.i19, 16
+  %118 = add i64 %.sroa.01.0.i.i.i.i.i21, %117
+  br label %98
 
 select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i29, %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17hd9f0bf03828387c5E.exit"
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.92eba67921eebae2b50e8003297c2a4c.15, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.92eba67921eebae2b50e8003297c2a4c.17) #16
@@ -5491,43 +5472,43 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
 .loopexit.i26:                                    ; preds = %.lr.ph.i.i.i.i24
   %lpad.loopexit.i27 = landingpad { ptr, i32 }
           cleanup
-  br label %120
+  br label %119
 
-.loopexit.split-lp.i12:                           ; preds = %select.unfold.i.i, %91
+.loopexit.split-lp.i12:                           ; preds = %select.unfold.i.i, %90
   %lpad.loopexit.split-lp.i13 = landingpad { ptr, i32 }
           cleanup
-  br label %120
+  br label %119
 
-120:                                              ; preds = %.loopexit.split-lp.i12, %.loopexit.i26
+119:                                              ; preds = %.loopexit.split-lp.i12, %.loopexit.i26
   %lpad.phi.i14 = phi { ptr, i32 } [ %lpad.loopexit.i27, %.loopexit.i26 ], [ %lpad.loopexit.split-lp.i13, %.loopexit.split-lp.i12 ]
-  %121 = atomicrmw sub ptr %86, i64 16 release, align 8, !noalias !597
-  %122 = and i64 %121, -14
-  %123 = icmp eq i64 %122, 18
-  br i1 %123, label %124, label %common.resume, !prof !9
+  %120 = atomicrmw sub ptr %85, i64 16 release, align 8, !noalias !597
+  %121 = and i64 %120, -14
+  %122 = icmp eq i64 %121, 18
+  br i1 %122, label %123, label %common.resume, !prof !9
 
-124:                                              ; preds = %120
-  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %86)
-          to label %common.resume unwind label %125
+123:                                              ; preds = %119
+  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %85)
+          to label %common.resume unwind label %124
 
-125:                                              ; preds = %124
-  %126 = landingpad { ptr, i32 }
+124:                                              ; preds = %123
+  %125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-127:                                              ; preds = %79, %.noexc, %75
+126:                                              ; preds = %79, %.noexc, %75
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %128 = cmpxchg ptr %7, i64 8, i64 0 release monotonic, align 8
-  %129 = extractvalue { i64, i1 } %128, 1
-  br i1 %129, label %common.resume, label %130, !prof !74
+  %127 = cmpxchg ptr %7, i64 8, i64 0 release monotonic, align 8
+  %128 = extractvalue { i64, i1 } %127, 1
+  br i1 %128, label %common.resume, label %129, !prof !74
 
-130:                                              ; preds = %127
+129:                                              ; preds = %126
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17hd55f380220c48fd7E(ptr noundef nonnull align 8 %7, i1 noundef zeroext false)
-          to label %common.resume unwind label %131
+          to label %common.resume unwind label %130
 
-131:                                              ; preds = %130
-  %132 = landingpad { ptr, i32 }
+130:                                              ; preds = %129
+  %131 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -5649,8 +5630,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15, !noalias !609
   unreachable
 
-common.resume:                                    ; preds = %107, %111, %117, %114, %48, %52
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %114 ], [ %lpad.phi.i15, %111 ], [ %lpad.phi.i15, %107 ], [ %lpad.thr_comm, %117 ]
+common.resume:                                    ; preds = %106, %110, %116, %113, %48, %52
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %113 ], [ %lpad.phi.i15, %110 ], [ %lpad.phi.i15, %106 ], [ %lpad.thr_comm, %116 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit64:                                      ; preds = %._crit_edge.i.i.i.i, %14
@@ -5669,10 +5650,10 @@ common.resume:                                    ; preds = %107, %111, %117, %1
   br i1 %59, label %62, label %60, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn61 = phi ptr [ %73, %.noexc1.i ], [ %5, %.noexc3.i ]
-  %.pn62 = phi ptr [ %95, %.noexc1.i ], [ %36, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %72, %.noexc1.i ], [ %5, %.noexc3.i ]
+  %.pn62 = phi ptr [ %94, %.noexc1.i ], [ %36, %.noexc3.i ]
   %.pn59 = getelementptr inbounds i8, ptr %.pn62, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn61, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn59, 1
   ret { ptr, ptr } %.merged
 
@@ -5685,7 +5666,7 @@ common.resume:                                    ; preds = %107, %111, %117, %1
   %63 = trunc nuw i8 %.val5 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2a8a04f1834e67a3E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %15, i1 noundef zeroext %63)
-          to label %64 unwind label %114
+          to label %64 unwind label %113
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5705,82 +5686,81 @@ common.resume:                                    ; preds = %107, %111, %117, %1
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %68, align 8, !nonnull !6, !noundef !6
   %69 = invoke noundef nonnull ptr %.val6()
-          to label %.noexc unwind label %114
+          to label %.noexc unwind label %113
 
 .noexc:                                           ; preds = %67
   %70 = trunc nuw i8 %66 to i1
-  %71 = icmp ne ptr %.sroa.037.0.copyload, null
-  tail call void @llvm.assume(i1 %71)
-  %72 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h5da28a573c40a19bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.copyload, i64 noundef %.sroa.438.0.copyload, i1 noundef zeroext %70, ptr noundef nonnull %69)
-          to label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h8363bd31a3e956baE.exit" unwind label %114
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.037.0.copyload) ]
+  %71 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h5da28a573c40a19bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.copyload, i64 noundef %.sroa.438.0.copyload, i1 noundef zeroext %70, ptr noundef nonnull %69)
+          to label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h8363bd31a3e956baE.exit" unwind label %113
 
 "_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h8363bd31a3e956baE.exit": ; preds = %.thread, %.noexc
-  %73 = tail call noundef nonnull align 8 ptr @"_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$9downgrade17h8b3ca1463c46b1b2E"(ptr noundef nonnull align 8 %5)
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %76 = load i64, ptr %75, align 8, !alias.scope !623, !noalias !628, !noundef !6
-  %77 = icmp eq i64 %76, 0
-  br i1 %77, label %select.unfold.i.i, label %78
+  %72 = tail call noundef nonnull align 8 ptr @"_ZN8lock_api6rwlock29RwLockWriteGuard$LT$R$C$T$GT$9downgrade17h8b3ca1463c46b1b2E"(ptr noundef nonnull align 8 %5)
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %75 = load i64, ptr %74, align 8, !alias.scope !623, !noalias !628, !noundef !6
+  %76 = icmp eq i64 %75, 0
+  br i1 %76, label %select.unfold.i.i, label %77
 
-78:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h8363bd31a3e956baE.exit"
-  %79 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %80 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h5a0d8effeefcad57E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %79, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1)
+77:                                               ; preds = %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h8363bd31a3e956baE.exit"
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  %79 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h5a0d8effeefcad57E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %78, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1)
           to label %.noexc.i17 unwind label %.loopexit.split-lp.i13
 
-.noexc.i17:                                       ; preds = %78
+.noexc.i17:                                       ; preds = %77
   tail call void @llvm.experimental.noalias.scope.decl(metadata !633)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !636)
-  %81 = lshr i64 %80, 57
-  %82 = trunc nuw nsw i64 %81 to i8
-  %83 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %84 = load i64, ptr %83, align 8, !alias.scope !639, !noalias !640, !noundef !6
-  %85 = load ptr, ptr %74, align 8, !alias.scope !639, !noalias !640, !nonnull !6, !noundef !6
-  %.sroa.01.0.vec.insert.i.i.i.i.i.i18 = insertelement <16 x i8> poison, i8 %82, i64 0
+  %80 = lshr i64 %79, 57
+  %81 = trunc nuw nsw i64 %80 to i8
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %83 = load i64, ptr %82, align 8, !alias.scope !639, !noalias !640, !noundef !6
+  %84 = load ptr, ptr %73, align 8, !alias.scope !639, !noalias !640, !nonnull !6, !noundef !6
+  %.sroa.01.0.vec.insert.i.i.i.i.i.i18 = insertelement <16 x i8> poison, i8 %81, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i.i.i19 = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i.i18, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %86
+  br label %85
 
-86:                                               ; preds = %104, %.noexc.i17
-  %.sroa.9.0.i.i.i.i.i20 = phi i64 [ 0, %.noexc.i17 ], [ %105, %104 ]
-  %.pn.i.i.i.i21 = phi i64 [ %80, %.noexc.i17 ], [ %106, %104 ]
-  %.sroa.01.0.i.i.i.i.i22 = and i64 %.pn.i.i.i.i21, %84
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 %.sroa.01.0.i.i.i.i.i22
-  %.sroa.0.0.copyload.i5.i.i.i.i23 = load <16 x i8>, ptr %87, align 1, !noalias !643
-  %88 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i23, %.sroa.01.15.vec.insert.i.i.i.i.i.i19
-  %89 = bitcast <16 x i1> %88 to i16
-  %.not.i.not11.i.i.i.i24 = icmp eq i16 %89, 0
+85:                                               ; preds = %103, %.noexc.i17
+  %.sroa.9.0.i.i.i.i.i20 = phi i64 [ 0, %.noexc.i17 ], [ %104, %103 ]
+  %.pn.i.i.i.i21 = phi i64 [ %79, %.noexc.i17 ], [ %105, %103 ]
+  %.sroa.01.0.i.i.i.i.i22 = and i64 %.pn.i.i.i.i21, %83
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 %.sroa.01.0.i.i.i.i.i22
+  %.sroa.0.0.copyload.i5.i.i.i.i23 = load <16 x i8>, ptr %86, align 1, !noalias !643
+  %87 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i23, %.sroa.01.15.vec.insert.i.i.i.i.i.i19
+  %88 = bitcast <16 x i1> %87 to i16
+  %.not.i.not11.i.i.i.i24 = icmp eq i16 %88, 0
   br i1 %.not.i.not11.i.i.i.i24, label %._crit_edge.i.i.i.i30, label %.lr.ph.i.i.i.i25
 
-.lr.ph.i.i.i.i25:                                 ; preds = %86, %101
-  %.sroa.06.0.i12.i.i.i.i26 = phi i16 [ %103, %101 ], [ %89, %86 ]
-  %90 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i12.i.i.i.i26, i1 true)
-  %91 = zext nneg i16 %90 to i64
-  %92 = add i64 %.sroa.01.0.i.i.i.i.i22, %91
-  %93 = and i64 %92, %84
-  %94 = sub nsw i64 0, %93
-  %95 = getelementptr inbounds { i8, [7 x i8], ptr }, ptr %85, i64 %94
-  %96 = getelementptr inbounds i8, ptr %95, i64 -16
-  %97 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17haa9415d4d57070d5E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %96)
+.lr.ph.i.i.i.i25:                                 ; preds = %85, %100
+  %.sroa.06.0.i12.i.i.i.i26 = phi i16 [ %102, %100 ], [ %88, %85 ]
+  %89 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i12.i.i.i.i26, i1 true)
+  %90 = zext nneg i16 %89 to i64
+  %91 = add i64 %.sroa.01.0.i.i.i.i.i22, %90
+  %92 = and i64 %91, %83
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds { i8, [7 x i8], ptr }, ptr %84, i64 %93
+  %95 = getelementptr inbounds i8, ptr %94, i64 -16
+  %96 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17haa9415d4d57070d5E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %95)
           to label %.noexc1.i unwind label %.loopexit.i27
 
 .noexc1.i:                                        ; preds = %.lr.ph.i.i.i.i25
-  br i1 %97, label %.loopexit, label %101, !prof !74
+  br i1 %96, label %.loopexit, label %100, !prof !74
 
-._crit_edge.i.i.i.i30:                            ; preds = %101, %86
-  %98 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i23, splat (i8 -1)
-  %99 = bitcast <16 x i1> %98 to i16
-  %100 = icmp eq i16 %99, 0
-  br i1 %100, label %104, label %select.unfold.i.i, !prof !9
+._crit_edge.i.i.i.i30:                            ; preds = %100, %85
+  %97 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i23, splat (i8 -1)
+  %98 = bitcast <16 x i1> %97 to i16
+  %99 = icmp eq i16 %98, 0
+  br i1 %99, label %103, label %select.unfold.i.i, !prof !9
 
-101:                                              ; preds = %.noexc1.i
-  %102 = add i16 %.sroa.06.0.i12.i.i.i.i26, -1
-  %103 = and i16 %102, %.sroa.06.0.i12.i.i.i.i26
-  %.not.i.not.i.i.i.i29 = icmp eq i16 %103, 0
+100:                                              ; preds = %.noexc1.i
+  %101 = add i16 %.sroa.06.0.i12.i.i.i.i26, -1
+  %102 = and i16 %101, %.sroa.06.0.i12.i.i.i.i26
+  %.not.i.not.i.i.i.i29 = icmp eq i16 %102, 0
   br i1 %.not.i.not.i.i.i.i29, label %._crit_edge.i.i.i.i30, label %.lr.ph.i.i.i.i25
 
-104:                                              ; preds = %._crit_edge.i.i.i.i30
-  %105 = add i64 %.sroa.9.0.i.i.i.i.i20, 16
-  %106 = add i64 %.sroa.01.0.i.i.i.i.i22, %105
-  br label %86
+103:                                              ; preds = %._crit_edge.i.i.i.i30
+  %104 = add i64 %.sroa.9.0.i.i.i.i.i20, 16
+  %105 = add i64 %.sroa.01.0.i.i.i.i.i22, %104
+  br label %85
 
 select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i30, %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14or_insert_with17h8363bd31a3e956baE.exit"
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.92eba67921eebae2b50e8003297c2a4c.15, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.92eba67921eebae2b50e8003297c2a4c.17) #16
@@ -5792,43 +5772,43 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
 .loopexit.i27:                                    ; preds = %.lr.ph.i.i.i.i25
   %lpad.loopexit.i28 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %106
 
-.loopexit.split-lp.i13:                           ; preds = %select.unfold.i.i, %78
+.loopexit.split-lp.i13:                           ; preds = %select.unfold.i.i, %77
   %lpad.loopexit.split-lp.i14 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %106
 
-107:                                              ; preds = %.loopexit.split-lp.i13, %.loopexit.i27
+106:                                              ; preds = %.loopexit.split-lp.i13, %.loopexit.i27
   %lpad.phi.i15 = phi { ptr, i32 } [ %lpad.loopexit.i28, %.loopexit.i27 ], [ %lpad.loopexit.split-lp.i14, %.loopexit.split-lp.i13 ]
-  %108 = atomicrmw sub ptr %73, i64 16 release, align 8, !noalias !644
-  %109 = and i64 %108, -14
-  %110 = icmp eq i64 %109, 18
-  br i1 %110, label %111, label %common.resume, !prof !9
+  %107 = atomicrmw sub ptr %72, i64 16 release, align 8, !noalias !644
+  %108 = and i64 %107, -14
+  %109 = icmp eq i64 %108, 18
+  br i1 %109, label %110, label %common.resume, !prof !9
 
-111:                                              ; preds = %107
-  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %73)
-          to label %common.resume unwind label %112
+110:                                              ; preds = %106
+  invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hbce86e6ea058e957E(ptr noundef nonnull align 8 %72)
+          to label %common.resume unwind label %111
 
-112:                                              ; preds = %111
-  %113 = landingpad { ptr, i32 }
+111:                                              ; preds = %110
+  %112 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-114:                                              ; preds = %67, %.noexc, %62
+113:                                              ; preds = %67, %.noexc, %62
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %115 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
-  %116 = extractvalue { i64, i1 } %115, 1
-  br i1 %116, label %common.resume, label %117, !prof !74
+  %114 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
+  %115 = extractvalue { i64, i1 } %114, 1
+  br i1 %115, label %common.resume, label %116, !prof !74
 
-117:                                              ; preds = %114
+116:                                              ; preds = %113
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17hd55f380220c48fd7E(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %common.resume unwind label %118
+          to label %common.resume unwind label %117
 
-118:                                              ; preds = %117
-  %119 = landingpad { ptr, i32 }
+117:                                              ; preds = %116
+  %118 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -5972,10 +5952,10 @@ common.resume:                                    ; preds = %118, %122, %127, %.
   br i1 %61, label %64, label %62, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn73 = phi ptr [ %84, %.noexc1.i ], [ %7, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %84, %.noexc1.i ], [ %7, %.noexc3.i ]
   %.pn74 = phi ptr [ %106, %.noexc1.i ], [ %38, %.noexc3.i ]
   %.pn71 = getelementptr inbounds i8, ptr %.pn74, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn73, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn71, 1
   ret { ptr, ptr } %.merged
 
@@ -6317,10 +6297,10 @@ common.resume:                                    ; preds = %104, %108, %114, %1
   br i1 %59, label %62, label %60, !prof !74
 
 .loopexit:                                        ; preds = %.noexc3.i, %.noexc1.i
-  %.pn60 = phi ptr [ %70, %.noexc1.i ], [ %5, %.noexc3.i ]
+  %.sroa.0.0 = phi ptr [ %70, %.noexc1.i ], [ %5, %.noexc3.i ]
   %.pn61 = phi ptr [ %92, %.noexc1.i ], [ %36, %.noexc3.i ]
   %.pn58 = getelementptr inbounds i8, ptr %.pn61, i64 -8
-  %.pn = insertvalue { ptr, ptr } poison, ptr %.pn60, 0
+  %.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.pn58, 1
   ret { ptr, ptr } %.merged
 

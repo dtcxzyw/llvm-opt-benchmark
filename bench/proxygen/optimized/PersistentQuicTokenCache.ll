@@ -6060,8 +6060,7 @@ while.end.i:                                      ; preds = %while.cond.i
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPNS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_NS_23HeterogeneousAccessHashISA_vEENS_26HeterogeneousAccessEqualToISA_vEEE4NodeEvNSF_9KeyHasherENSF_13KeyValueEqualEvSt17integral_constantIbLb0EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSN_8PrefetchE.exit: ; preds = %while.body.i
   %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
   store i32 %1, ptr %arrayidx.i.i.i.i.le, align 4
-  %cmp12 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %cmp12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %arrayidx14 = getelementptr inbounds nuw ptr, ptr %0, i64 %shr.i.i.i.i
   %14 = load i64, ptr %arrayidx14, align 1
   store i64 %14, ptr %arrayidx, align 1

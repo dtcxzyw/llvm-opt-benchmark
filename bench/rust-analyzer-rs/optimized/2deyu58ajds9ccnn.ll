@@ -114,81 +114,80 @@ define hidden noundef ptr @"_ZN115_$LT$core..iter..adapters..filter_map..FilterM
   ]
 
 9:                                                ; preds = %4
-  %10 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %12 = load i32, ptr %11, align 4, !noalias !10, !noundef !19
-  %13 = add i32 %12, -1
-  store i32 %13, ptr %11, align 4, !noalias !10
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i", label %.backedge
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %11 = load i32, ptr %10, align 4, !noalias !10, !noundef !19
+  %12 = add i32 %11, -1
+  store i32 %12, ptr %10, align 4, !noalias !10
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i", label %.backedge
 
 "_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i.i": ; preds = %4
-  %15 = icmp eq ptr %spec.select.i.i, null
-  br i1 %15, label %.backedge, label %16
+  %14 = icmp eq ptr %spec.select.i.i, null
+  br i1 %14, label %.backedge, label %15
 
-16:                                               ; preds = %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i.i"
-  %17 = load i64, ptr %spec.select.i.i, align 8, !range !20, !noalias !21, !noundef !19
+15:                                               ; preds = %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i.i"
+  %16 = load i64, ptr %spec.select.i.i, align 8, !range !20, !noalias !21, !noundef !19
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !21, !nonnull !19, !noundef !19
-  %18 = icmp eq i64 %17, 0
-  %.0.in.idx.i.i.i.i.i = select i1 %18, i64 4, i64 0
+  %17 = icmp eq i64 %16, 0
+  %.0.in.idx.i.i.i.i.i = select i1 %17, i64 4, i64 0
   %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
   %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !21, !noundef !19
-  %19 = icmp ult i16 %.0.i.i.i.i.i, 273
-  br i1 %19, label %28, label %20
+  %18 = icmp ult i16 %.0.i.i.i.i.i, 273
+  br i1 %18, label %27, label %19
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.68.llvm.16164356047720175345, i64 noundef 50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.70.llvm.16164356047720175345) #17
-          to label %.noexc.i.i.i unwind label %21, !noalias !4
+          to label %.noexc.i.i.i unwind label %20, !noalias !4
 
-.noexc.i.i.i:                                     ; preds = %20
+.noexc.i.i.i:                                     ; preds = %19
   unreachable
 
-21:                                               ; preds = %20
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %19
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %23 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 48
-  %24 = load i32, ptr %23, align 4, !noalias !24, !noundef !19
-  %25 = add i32 %24, -1
-  store i32 %25, ptr %23, align 4, !noalias !24
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i.i.i"
+  %22 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 48
+  %23 = load i32, ptr %22, align 4, !noalias !24, !noundef !19
+  %24 = add i32 %23, -1
+  store i32 %24, ptr %22, align 4, !noalias !24
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i.i.i"
 
-27:                                               ; preds = %21
+26:                                               ; preds = %20
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i.i)
-          to label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i.i.i" unwind label %35, !noalias !4
+          to label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i.i.i" unwind label %34, !noalias !4
 
-28:                                               ; preds = %16
-  %29 = icmp eq i16 %.0.i.i.i.i.i, %3
-  br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h09455b4c3c8e8891E.llvm.13962917913251662315.exit, label %30
+27:                                               ; preds = %15
+  %28 = icmp eq i16 %.0.i.i.i.i.i, %3
+  br i1 %28, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h09455b4c3c8e8891E.llvm.13962917913251662315.exit, label %29
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 48
-  %32 = load i32, ptr %31, align 4, !noalias !31, !noundef !19
-  %33 = add i32 %32, -1
-  store i32 %33, ptr %31, align 4, !noalias !31
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i", label %.backedge
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 48
+  %31 = load i32, ptr %30, align 4, !noalias !31, !noundef !19
+  %32 = add i32 %31, -1
+  store i32 %32, ptr %30, align 4, !noalias !31
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i", label %.backedge
 
-35:                                               ; preds = %27
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %26
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18, !noalias !4
   unreachable
 
-"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i.i.i": ; preds = %27, %21
-  resume { ptr, i32 } %22
+"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i.i.i": ; preds = %26, %20
+  resume { ptr, i32 } %21
 
-"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i": ; preds = %30, %9
+"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i": ; preds = %29, %9
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i.i), !noalias !4
   br label %.backedge
 
-.backedge:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i", %30, %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i.i", %9
+.backedge:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i", %29, %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i.i", %9
   br label %4
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h09455b4c3c8e8891E.llvm.13962917913251662315.exit: ; preds = %4, %28
-  %.0.i = phi ptr [ null, %4 ], [ %spec.select.i.i, %28 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h09455b4c3c8e8891E.llvm.13962917913251662315.exit: ; preds = %4, %27
+  %.0.i = phi ptr [ null, %4 ], [ %spec.select.i.i, %27 ]
   ret ptr %.0.i
 }
 
@@ -501,81 +500,80 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h094
   ]
 
 10:                                               ; preds = %5
-  %11 = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %13 = load i32, ptr %12, align 4, !noalias !152, !noundef !19
-  %14 = add i32 %13, -1
-  store i32 %14, ptr %12, align 4, !noalias !152
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i", label %.backedge
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %12 = load i32, ptr %11, align 4, !noalias !152, !noundef !19
+  %13 = add i32 %12, -1
+  store i32 %13, ptr %11, align 4, !noalias !152
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i", label %.backedge
 
 "_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i": ; preds = %5
-  %16 = icmp eq ptr %spec.select.i, null
-  br i1 %16, label %.backedge, label %17
+  %15 = icmp eq ptr %spec.select.i, null
+  br i1 %15, label %.backedge, label %16
 
-.backedge:                                        ; preds = %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i", %10, %31, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i"
+.backedge:                                        ; preds = %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i", %10, %30, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i"
   br label %5
 
-17:                                               ; preds = %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i"
-  %18 = load i64, ptr %spec.select.i, align 8, !range !20, !noalias !161, !noundef !19
+16:                                               ; preds = %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i"
+  %17 = load i64, ptr %spec.select.i, align 8, !range !20, !noalias !161, !noundef !19
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !161, !nonnull !19, !noundef !19
-  %19 = icmp eq i64 %18, 0
-  %.0.in.idx.i.i.i.i = select i1 %19, i64 4, i64 0
+  %18 = icmp eq i64 %17, 0
+  %.0.in.idx.i.i.i.i = select i1 %18, i64 4, i64 0
   %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
   %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !161, !noundef !19
-  %20 = icmp ult i16 %.0.i.i.i.i, 273
-  br i1 %20, label %29, label %21
+  %19 = icmp ult i16 %.0.i.i.i.i, 273
+  br i1 %19, label %28, label %20
 
-21:                                               ; preds = %17
+20:                                               ; preds = %16
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.68.llvm.16164356047720175345, i64 noundef 50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.70.llvm.16164356047720175345) #17
-          to label %.noexc.i.i unwind label %22
+          to label %.noexc.i.i unwind label %21
 
-.noexc.i.i:                                       ; preds = %21
+.noexc.i.i:                                       ; preds = %20
   unreachable
 
-22:                                               ; preds = %21
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %24 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 48
-  %25 = load i32, ptr %24, align 4, !noalias !164, !noundef !19
-  %26 = add i32 %25, -1
-  store i32 %26, ptr %24, align 4, !noalias !164
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i.i"
+  %23 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 48
+  %24 = load i32, ptr %23, align 4, !noalias !164, !noundef !19
+  %25 = add i32 %24, -1
+  store i32 %25, ptr %23, align 4, !noalias !164
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i.i"
 
-28:                                               ; preds = %22
+27:                                               ; preds = %21
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i)
-          to label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i.i" unwind label %36
+          to label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i.i" unwind label %35
 
-29:                                               ; preds = %17
-  %30 = icmp eq i16 %.0.i.i.i.i, %4
-  br i1 %30, label %"_ZN4core3ptr220drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hcc7765bed365900eE.exit", label %31
+28:                                               ; preds = %16
+  %29 = icmp eq i16 %.0.i.i.i.i, %4
+  br i1 %29, label %"_ZN4core3ptr220drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hcc7765bed365900eE.exit", label %30
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 48
-  %33 = load i32, ptr %32, align 4, !noalias !171, !noundef !19
-  %34 = add i32 %33, -1
-  store i32 %34, ptr %32, align 4, !noalias !171
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i", label %.backedge
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 48
+  %32 = load i32, ptr %31, align 4, !noalias !171, !noundef !19
+  %33 = add i32 %32, -1
+  store i32 %33, ptr %31, align 4, !noalias !171
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i", label %.backedge
 
-36:                                               ; preds = %28
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %27
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i.i": ; preds = %28, %22
-  resume { ptr, i32 } %23
+"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i.i": ; preds = %27, %21
+  resume { ptr, i32 } %22
 
-"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i": ; preds = %31, %10
+"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i": ; preds = %30, %10
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i), !noalias !19
   br label %.backedge
 
-"_ZN4core3ptr220drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hcc7765bed365900eE.exit": ; preds = %5, %29
-  %.0 = phi ptr [ null, %5 ], [ %spec.select.i, %29 ]
+"_ZN4core3ptr220drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hcc7765bed365900eE.exit": ; preds = %5, %28
+  %.0 = phi ptr [ null, %5 ], [ %spec.select.i, %28 ]
   ret ptr %.0
 }
 
@@ -4408,9 +4406,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17h56
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !941, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !941, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !941, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -4475,9 +4473,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17h5a
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !958, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !958, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !958, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -4542,9 +4540,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb5
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !975, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !975, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !975, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -4609,9 +4607,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb6
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !992, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !992, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !992, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -4676,9 +4674,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb8
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1009, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1009, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1009, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -4743,9 +4741,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hba
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1026, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1026, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1026, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -4810,9 +4808,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hd9
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1043, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1043, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1043, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -4877,9 +4875,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hf0
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1060, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1060, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1060, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -4944,9 +4942,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h08086
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1077, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1077, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1077, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5011,9 +5009,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0abbe
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1094, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1094, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1094, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5078,9 +5076,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0d4ea
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1111, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1111, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1111, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5145,9 +5143,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0dbea
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1128, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1128, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1128, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5212,9 +5210,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0ec06
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1145, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1145, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1145, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5279,9 +5277,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0fd10
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1162, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1162, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1162, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5346,9 +5344,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h11687
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1179, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1179, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1179, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5413,9 +5411,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h11ea9
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1196, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1196, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1196, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5480,9 +5478,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h150c0
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1213, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1213, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1213, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5547,9 +5545,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h172b9
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1230, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1230, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1230, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5614,9 +5612,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h1c30e
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1247, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1247, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1247, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5681,9 +5679,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h1c902
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1264, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1264, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1264, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5748,9 +5746,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h21198
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1281, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1281, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1281, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5815,9 +5813,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h216b0
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1298, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1298, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1298, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5882,9 +5880,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h2c53e
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1315, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1315, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1315, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -5949,9 +5947,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h41fed
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1332, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1332, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1332, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6016,9 +6014,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h4242f
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1349, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1349, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1349, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6083,9 +6081,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h48071
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1366, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1366, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1366, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6150,9 +6148,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h48d70
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1383, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1383, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1383, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6217,9 +6215,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h5779d
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1400, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1400, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1400, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6284,9 +6282,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h59b29
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1417, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1417, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1417, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6351,9 +6349,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h62f6c
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1434, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1434, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1434, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6418,9 +6416,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h64cec
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1451, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1451, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1451, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6485,9 +6483,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h6dc81
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1468, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1468, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1468, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6552,9 +6550,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h79f20
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1485, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1485, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1485, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6619,9 +6617,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7cacb
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1502, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1502, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1502, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6686,9 +6684,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7cbcf
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1519, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1519, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1519, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6753,9 +6751,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7d06e
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1536, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1536, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1536, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6820,9 +6818,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h818dd
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1553, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1553, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1553, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6887,9 +6885,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h8bb8f
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1570, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1570, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1570, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -6988,9 +6986,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h94cce
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1587, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1587, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1587, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7055,9 +7053,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h96079
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1604, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1604, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1604, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7122,9 +7120,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h9a6f6
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1621, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1621, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1621, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7189,9 +7187,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h9cdec
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1638, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1638, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1638, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7256,9 +7254,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17ha923f
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1655, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1655, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1655, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7323,9 +7321,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb217c
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1672, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1672, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1672, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7390,9 +7388,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb29bb
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1689, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1689, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1689, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7457,9 +7455,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb4865
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1706, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1706, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1706, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7524,9 +7522,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hba880
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1723, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1723, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1723, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7608,9 +7606,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hc4ad7
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1740, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1740, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1740, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7675,9 +7673,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hcaf9a
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1757, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1757, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1757, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7742,9 +7740,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hcfb17
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1774, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1774, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1774, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7809,9 +7807,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hd028f
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1791, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1791, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1791, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7876,9 +7874,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hd336c
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1808, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1808, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1808, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -7943,9 +7941,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17he1fab
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1825, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1825, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1825, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -8010,9 +8008,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17he3cb0
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1842, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1842, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1842, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -8077,9 +8075,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17heaf48
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1859, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1859, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1859, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -8144,9 +8142,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hee9e1
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1876, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1876, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1876, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -8211,9 +8209,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf36d1
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1893, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1893, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1893, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -8278,9 +8276,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf398e
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1910, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1910, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1910, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -8345,9 +8343,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf5c90
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1927, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1927, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1927, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -8412,9 +8410,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf9086
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1944, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1944, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1944, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -8479,9 +8477,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfc0eb
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1961, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1961, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1961, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -8546,9 +8544,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfc8ed
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1978, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1978, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1978, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -8613,9 +8611,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfe064
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1995, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1995, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !1995, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -8680,9 +8678,9 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfecd7
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !2012, !nonnull !19, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !2012, !noundef !19
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !2012, !noundef !19
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -8769,7 +8767,7 @@ define noundef ptr @_ZN6syntax3ast7support5token17h4bb8f4a16ba5c3e6E(ptr noalias
 
 .noexc1:                                          ; preds = %.noexc1.backedge, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$20children_with_tokens17h5026d1eddff04c71E.exit"
   %15 = invoke { i64, ptr } @"_ZN95_$LT$rowan..cursor..SyntaxElementChildren$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bfc46e37b2e7d2cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
-          to label %.noexc unwind label %47
+          to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %.noexc1
   %16 = extractvalue { i64, ptr } %15, 0
@@ -8782,139 +8780,138 @@ define noundef ptr @_ZN6syntax3ast7support5token17h4bb8f4a16ba5c3e6E(ptr noalias
   ]
 
 19:                                               ; preds = %.noexc
-  %20 = icmp ne ptr %18, null
-  call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %22 = load i32, ptr %21, align 4, !noalias !2032, !noundef !19
-  %23 = add i32 %22, -1
-  store i32 %23, ptr %21, align 4, !noalias !2032
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i.i", label %.noexc1.backedge
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %21 = load i32, ptr %20, align 4, !noalias !2032, !noundef !19
+  %22 = add i32 %21, -1
+  store i32 %22, ptr %20, align 4, !noalias !2032
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i.i", label %.noexc1.backedge
 
 "_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i.i.i": ; preds = %.noexc
-  %25 = icmp eq ptr %spec.select.i.i.i, null
-  br i1 %25, label %.noexc1.backedge, label %26
+  %24 = icmp eq ptr %spec.select.i.i.i, null
+  br i1 %24, label %.noexc1.backedge, label %25
 
-26:                                               ; preds = %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i.i.i"
-  %27 = load i64, ptr %spec.select.i.i.i, align 8, !range !20, !noalias !2045, !noundef !19
+25:                                               ; preds = %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i.i.i"
+  %26 = load i64, ptr %spec.select.i.i.i, align 8, !range !20, !noalias !2045, !noundef !19
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !2045, !nonnull !19, !noundef !19
-  %28 = icmp eq i64 %27, 0
-  %.0.in.idx.i.i.i.i.i.i = select i1 %28, i64 4, i64 0
+  %27 = icmp eq i64 %26, 0
+  %.0.in.idx.i.i.i.i.i.i = select i1 %27, i64 4, i64 0
   %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
   %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !2045, !noundef !19
-  %29 = icmp ult i16 %.0.i.i.i.i.i.i, 273
-  br i1 %29, label %38, label %30
+  %28 = icmp ult i16 %.0.i.i.i.i.i.i, 273
+  br i1 %28, label %37, label %29
 
-30:                                               ; preds = %26
+29:                                               ; preds = %25
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.68.llvm.16164356047720175345, i64 noundef 50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.70.llvm.16164356047720175345) #17
-          to label %.noexc.i.i.i.i unwind label %31, !noalias !2048
+          to label %.noexc.i.i.i.i unwind label %30, !noalias !2048
 
-.noexc.i.i.i.i:                                   ; preds = %30
+.noexc.i.i.i.i:                                   ; preds = %29
   unreachable
 
-31:                                               ; preds = %30
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %29
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %33 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 48
-  %34 = load i32, ptr %33, align 4, !noalias !2049, !noundef !19
-  %35 = add i32 %34, -1
-  store i32 %35, ptr %33, align 4, !noalias !2049
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %.body
+  %32 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 48
+  %33 = load i32, ptr %32, align 4, !noalias !2049, !noundef !19
+  %34 = add i32 %33, -1
+  store i32 %34, ptr %32, align 4, !noalias !2049
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %.body
 
-37:                                               ; preds = %31
+36:                                               ; preds = %30
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i.i.i)
-          to label %.body unwind label %45, !noalias !2048
+          to label %.body unwind label %44, !noalias !2048
 
-38:                                               ; preds = %26
-  %39 = icmp eq i16 %.0.i.i.i.i.i.i, %1
-  br i1 %39, label %_ZN4core4iter6traits8iterator8Iterator4find17h1c77a297b5fca01dE.llvm.13962917913251662315.exit, label %40
+37:                                               ; preds = %25
+  %38 = icmp eq i16 %.0.i.i.i.i.i.i, %1
+  br i1 %38, label %_ZN4core4iter6traits8iterator8Iterator4find17h1c77a297b5fca01dE.llvm.13962917913251662315.exit, label %39
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 48
-  %42 = load i32, ptr %41, align 4, !noalias !2056, !noundef !19
-  %43 = add i32 %42, -1
-  store i32 %43, ptr %41, align 4, !noalias !2056
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i.i", label %.noexc1.backedge
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 48
+  %41 = load i32, ptr %40, align 4, !noalias !2056, !noundef !19
+  %42 = add i32 %41, -1
+  store i32 %42, ptr %40, align 4, !noalias !2056
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i.i", label %.noexc1.backedge
 
-45:                                               ; preds = %37
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %36
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18, !noalias !2048
   unreachable
 
-"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i.i": ; preds = %40, %19
+"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i.i": ; preds = %39, %19
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i.i.i)
-          to label %.noexc1.backedge unwind label %47
+          to label %.noexc1.backedge unwind label %46
 
-.noexc1.backedge:                                 ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i.i", %40, %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i.i.i", %19
+.noexc1.backedge:                                 ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i.i", %39, %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i.i.i", %19
   br label %.noexc1
 
-47:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i.i", %.noexc1
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h42d01132c0abca18E.exit.sink.split.i.i.i", %.noexc1
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %31, %37, %47
-  %eh.lpad-body = phi { ptr, i32 } [ %48, %47 ], [ %32, %37 ], [ %32, %31 ]
+.body:                                            ; preds = %30, %36, %46
+  %eh.lpad-body = phi { ptr, i32 } [ %47, %46 ], [ %31, %36 ], [ %31, %30 ]
   invoke void @"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$syntax..ast..support..token..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc0d5f6ded52ef9a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #19
-          to label %67 unwind label %65
+          to label %66 unwind label %64
 
-_ZN4core4iter6traits8iterator8Iterator4find17h1c77a297b5fca01dE.llvm.13962917913251662315.exit: ; preds = %.noexc, %38
-  %.0.i.i = phi ptr [ null, %.noexc ], [ %spec.select.i.i.i, %38 ]
+_ZN4core4iter6traits8iterator8Iterator4find17h1c77a297b5fca01dE.llvm.13962917913251662315.exit: ; preds = %.noexc, %37
+  %.0.i.i = phi ptr [ null, %.noexc ], [ %spec.select.i.i.i, %37 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2063)
   call void @llvm.experimental.noalias.scope.decl(metadata !2066)
   call void @llvm.experimental.noalias.scope.decl(metadata !2069)
   call void @llvm.experimental.noalias.scope.decl(metadata !2072)
-  %49 = load i64, ptr %3, align 8, !range !2075, !alias.scope !2076, !noundef !19
-  %50 = icmp eq i64 %49, 2
-  br i1 %50, label %"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$syntax..ast..support..token..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc0d5f6ded52ef9a0E.exit", label %51
+  %48 = load i64, ptr %3, align 8, !range !2075, !alias.scope !2076, !noundef !19
+  %49 = icmp eq i64 %48, 2
+  br i1 %49, label %"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$syntax..ast..support..token..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc0d5f6ded52ef9a0E.exit", label %50
 
-51:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4find17h1c77a297b5fca01dE.llvm.13962917913251662315.exit
+50:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4find17h1c77a297b5fca01dE.llvm.13962917913251662315.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !2077)
-  %52 = icmp eq i64 %49, 0
-  br i1 %52, label %53, label %59
+  %51 = icmp eq i64 %48, 0
+  br i1 %51, label %52, label %58
 
-53:                                               ; preds = %51
+52:                                               ; preds = %50
   call void @llvm.experimental.noalias.scope.decl(metadata !2080)
   call void @llvm.experimental.noalias.scope.decl(metadata !2083)
-  %54 = load ptr, ptr %14, align 8, !alias.scope !2086, !nonnull !19, !noundef !19
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %56 = load i32, ptr %55, align 4, !noalias !2086, !noundef !19
-  %57 = add i32 %56, -1
-  store i32 %57, ptr %55, align 4, !noalias !2086
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.llvm.13346703328537446882.exit.sink.split.i.i.i.i.i", label %"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$syntax..ast..support..token..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc0d5f6ded52ef9a0E.exit"
+  %53 = load ptr, ptr %14, align 8, !alias.scope !2086, !nonnull !19, !noundef !19
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  %55 = load i32, ptr %54, align 4, !noalias !2086, !noundef !19
+  %56 = add i32 %55, -1
+  store i32 %56, ptr %54, align 4, !noalias !2086
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.llvm.13346703328537446882.exit.sink.split.i.i.i.i.i", label %"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$syntax..ast..support..token..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc0d5f6ded52ef9a0E.exit"
 
-59:                                               ; preds = %51
+58:                                               ; preds = %50
   call void @llvm.experimental.noalias.scope.decl(metadata !2087)
   call void @llvm.experimental.noalias.scope.decl(metadata !2090)
-  %60 = load ptr, ptr %14, align 8, !alias.scope !2093, !nonnull !19, !noundef !19
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  %62 = load i32, ptr %61, align 4, !noalias !2093, !noundef !19
-  %63 = add i32 %62, -1
-  store i32 %63, ptr %61, align 4, !noalias !2093
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.llvm.13346703328537446882.exit.sink.split.i.i.i.i.i", label %"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$syntax..ast..support..token..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc0d5f6ded52ef9a0E.exit"
+  %59 = load ptr, ptr %14, align 8, !alias.scope !2093, !nonnull !19, !noundef !19
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
+  %61 = load i32, ptr %60, align 4, !noalias !2093, !noundef !19
+  %62 = add i32 %61, -1
+  store i32 %62, ptr %60, align 4, !noalias !2093
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.llvm.13346703328537446882.exit.sink.split.i.i.i.i.i", label %"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$syntax..ast..support..token..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc0d5f6ded52ef9a0E.exit"
 
-"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.llvm.13346703328537446882.exit.sink.split.i.i.i.i.i": ; preds = %59, %53
-  %.sink.i.i.i.i.i = phi ptr [ %54, %53 ], [ %60, %59 ]
+"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.llvm.13346703328537446882.exit.sink.split.i.i.i.i.i": ; preds = %58, %52
+  %.sink.i.i.i.i.i = phi ptr [ %53, %52 ], [ %59, %58 ]
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sink.i.i.i.i.i), !noalias !2094
   br label %"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$syntax..ast..support..token..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc0d5f6ded52ef9a0E.exit"
 
-"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$syntax..ast..support..token..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc0d5f6ded52ef9a0E.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator4find17h1c77a297b5fca01dE.llvm.13962917913251662315.exit, %53, %59, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.llvm.13346703328537446882.exit.sink.split.i.i.i.i.i"
+"_ZN4core3ptr205drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$syntax..ast..support..token..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc0d5f6ded52ef9a0E.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator4find17h1c77a297b5fca01dE.llvm.13962917913251662315.exit, %52, %58, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.llvm.13346703328537446882.exit.sink.split.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i.i
 
-65:                                               ; preds = %.body
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %.body
+  %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-67:                                               ; preds = %.body
+66:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

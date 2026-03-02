@@ -3029,110 +3029,109 @@ define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$7or_else17h5a016a9
   br label %"_ZN4core3ptr558drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hfb93f53283929112E.exit7"
 
 9:                                                ; preds = %2
-  %10 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  %10 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !159
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !159
-  %12 = load ptr, ptr %11, align 8, !alias.scope !165, !noalias !167, !align !25, !noundef !3
-  %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %17, label %13
+  %11 = load ptr, ptr %10, align 8, !alias.scope !165, !noalias !167, !align !25, !noundef !3
+  %.not.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i, label %16, label %12
 
-13:                                               ; preds = %9
+12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !168
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1768
-  invoke void @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12current_span17h888f4858c5cd31f1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 8 %14)
-          to label %.noexc unwind label %29
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 1768
+  invoke void @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12current_span17h888f4858c5cd31f1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 8 %13)
+          to label %.noexc unwind label %28
 
-.noexc:                                           ; preds = %13
-  %15 = load i64, ptr %6, align 8, !range !36, !noalias !168, !noundef !3
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %18, label %21
+.noexc:                                           ; preds = %12
+  %14 = load i64, ptr %6, align 8, !range !36, !noalias !168, !noundef !3
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %17, label %20
 
-17:                                               ; preds = %9
+16:                                               ; preds = %9
   store ptr null, ptr %0, align 8, !alias.scope !167, !noalias !165
-  br label %34
+  br label %33
 
-18:                                               ; preds = %.noexc
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  invoke void @_ZN18tracing_subscriber8registry10LookupSpan4span17h0b2fc37f91ac88b3E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noundef nonnull align 8 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %19)
-          to label %.noexc3 unwind label %29
+17:                                               ; preds = %.noexc
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  invoke void @_ZN18tracing_subscriber8registry10LookupSpan4span17h0b2fc37f91ac88b3E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noundef nonnull align 8 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %18)
+          to label %.noexc3 unwind label %28
 
-.noexc3:                                          ; preds = %18
+.noexc3:                                          ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !168
-  %20 = load ptr, ptr %5, align 8, !noalias !168, !noundef !3
-  %.not6.i.i = icmp eq ptr %20, null
-  br i1 %.not6.i.i, label %26, label %22
+  %19 = load ptr, ptr %5, align 8, !noalias !168, !noundef !3
+  %.not6.i.i = icmp eq ptr %19, null
+  br i1 %.not6.i.i, label %25, label %21
 
-21:                                               ; preds = %.noexc
+20:                                               ; preds = %.noexc
   store ptr null, ptr %0, align 8, !alias.scope !167, !noalias !165
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !168
-  br label %34
+  br label %33
 
-22:                                               ; preds = %.noexc3
+21:                                               ; preds = %.noexc3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !168
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %24 = load i64, ptr %23, align 8, !alias.scope !165, !noalias !167, !noundef !3
-  invoke void @"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h55a86711b71468f4E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3, i64 noundef %24)
-          to label %.noexc4 unwind label %29
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %23 = load i64, ptr %22, align 8, !alias.scope !165, !noalias !167, !noundef !3
+  invoke void @"_ZN18tracing_subscriber8registry16SpanRef$LT$R$GT$15try_with_filter17h55a86711b71468f4E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3, i64 noundef %23)
+          to label %.noexc4 unwind label %28
 
-.noexc4:                                          ; preds = %22
-  %25 = load ptr, ptr %4, align 8, !noalias !168, !noundef !3
-  %.not7.i.i = icmp eq ptr %25, null
-  br i1 %.not7.i.i, label %28, label %27
+.noexc4:                                          ; preds = %21
+  %24 = load ptr, ptr %4, align 8, !noalias !168, !noundef !3
+  %.not7.i.i = icmp eq ptr %24, null
+  br i1 %.not7.i.i, label %27, label %26
 
-26:                                               ; preds = %.noexc3
+25:                                               ; preds = %.noexc3
   store ptr null, ptr %0, align 8, !alias.scope !167, !noalias !165
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !168
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !168
-  br label %34
+  br label %33
 
-27:                                               ; preds = %.noexc4
+26:                                               ; preds = %.noexc4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !165
   br label %.noexc5
 
-28:                                               ; preds = %.noexc4
-  invoke void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_current_filtered17h9f9631b05883acf8E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 %12)
-          to label %.noexc5 unwind label %29
+27:                                               ; preds = %.noexc4
+  invoke void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_current_filtered17h9f9631b05883acf8E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 %11)
+          to label %.noexc5 unwind label %28
 
-.noexc5:                                          ; preds = %28, %27
+.noexc5:                                          ; preds = %27, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !168
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !168
-  br label %34
+  br label %33
 
-29:                                               ; preds = %28, %22, %18, %13
-  %30 = landingpad { ptr, i32 }
+28:                                               ; preds = %27, %21, %17, %12
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %1, align 8, !alias.scope !169, !noundef !3
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3ptr558drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hfb93f53283929112E.exit", label %33
+  %30 = load ptr, ptr %1, align 8, !alias.scope !169, !noundef !3
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %"_ZN4core3ptr558drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hfb93f53283929112E.exit", label %32
 
-33:                                               ; preds = %29
+32:                                               ; preds = %28
   invoke void @"_ZN4core3ptr530drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17hdd2243290d5cab45E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
-          to label %"_ZN4core3ptr558drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hfb93f53283929112E.exit" unwind label %38
+          to label %"_ZN4core3ptr558drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hfb93f53283929112E.exit" unwind label %37
 
-"_ZN4core3ptr558drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hfb93f53283929112E.exit7": ; preds = %37, %34, %8
+"_ZN4core3ptr558drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hfb93f53283929112E.exit7": ; preds = %36, %33, %8
   ret void
 
-34:                                               ; preds = %.noexc5, %26, %21, %17
+33:                                               ; preds = %.noexc5, %25, %20, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !159
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !159
-  %35 = load ptr, ptr %1, align 8, !alias.scope !172, !noundef !3
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %"_ZN4core3ptr558drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hfb93f53283929112E.exit7", label %37
+  %34 = load ptr, ptr %1, align 8, !alias.scope !172, !noundef !3
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %"_ZN4core3ptr558drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hfb93f53283929112E.exit7", label %36
 
-37:                                               ; preds = %34
+36:                                               ; preds = %33
   call void @"_ZN4core3ptr530drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17hdd2243290d5cab45E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   br label %"_ZN4core3ptr558drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hfb93f53283929112E.exit7"
 
-"_ZN4core3ptr558drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hfb93f53283929112E.exit": ; preds = %29, %33
-  resume { ptr, i32 } %30
+"_ZN4core3ptr558drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hfb93f53283929112E.exit": ; preds = %28, %32
+  resume { ptr, i32 } %29
 
-38:                                               ; preds = %33
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %32
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #23
   unreachable
@@ -5463,16 +5462,14 @@ _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.ex
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h9ee3eb3835841528E.exit
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h9ee3eb3835841528E.exit: ; preds = %2, %32, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i
-  %.sroa.11.0 = phi i64 [ %35, %32 ], [ %.sroa.12.09.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
-  %.sroa.8.0 = phi i64 [ %34, %32 ], [ %.sroa.7.010.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %37, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
+  %.sroa.10.0 = phi i64 [ %35, %32 ], [ %.sroa.12.09.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
+  %.sroa.7.0 = phi i64 [ %34, %32 ], [ %.sroa.7.010.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %37, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
   %.sroa.0.0 = phi ptr [ null, %32 ], [ null, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %40, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ @anon.30a1774b27b7d63f437ccdec0c62d3f4.13, %2 ]
-  %41 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %41)
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.8.0, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.10.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
@@ -5556,16 +5553,14 @@ _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.ex
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h9ee3eb3835841528E.exit
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h9ee3eb3835841528E.exit: ; preds = %2, %32, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i
-  %.sroa.11.0 = phi i64 [ %35, %32 ], [ %.sroa.12.09.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
-  %.sroa.8.0 = phi i64 [ %34, %32 ], [ %.sroa.7.010.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %37, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
+  %.sroa.10.0 = phi i64 [ %35, %32 ], [ %.sroa.12.09.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
+  %.sroa.7.0 = phi i64 [ %34, %32 ], [ %.sroa.7.010.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %37, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
   %.sroa.0.0 = phi ptr [ null, %32 ], [ null, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %40, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ @anon.30a1774b27b7d63f437ccdec0c62d3f4.13, %2 ]
-  %41 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %41)
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.8.0, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.10.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
@@ -5649,16 +5644,14 @@ _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.ex
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h9ee3eb3835841528E.exit
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h9ee3eb3835841528E.exit: ; preds = %2, %32, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i
-  %.sroa.11.0 = phi i64 [ %35, %32 ], [ %.sroa.12.09.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
-  %.sroa.8.0 = phi i64 [ %34, %32 ], [ %.sroa.7.010.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %37, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
+  %.sroa.10.0 = phi i64 [ %35, %32 ], [ %.sroa.12.09.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
+  %.sroa.7.0 = phi i64 [ %34, %32 ], [ %.sroa.7.010.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %37, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
   %.sroa.0.0 = phi ptr [ null, %32 ], [ null, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %40, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ @anon.30a1774b27b7d63f437ccdec0c62d3f4.13, %2 ]
-  %41 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %41)
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.8.0, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.10.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
@@ -5744,16 +5737,14 @@ _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.ex
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h9ee3eb3835841528E.exit
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h9ee3eb3835841528E.exit: ; preds = %2, %33, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i
-  %.sroa.11.0 = phi i64 [ %36, %33 ], [ %.sroa.12.09.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
-  %.sroa.8.0 = phi i64 [ %35, %33 ], [ %.sroa.7.010.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %38, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
+  %.sroa.10.0 = phi i64 [ %36, %33 ], [ %.sroa.12.09.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %.sroa.03.0.i.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
+  %.sroa.7.0 = phi i64 [ %35, %33 ], [ %.sroa.7.010.i, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %38, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ 0, %2 ]
   %.sroa.0.0 = phi ptr [ null, %33 ], [ null, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.thread.i ], [ %41, %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h3addd9f5a2ae65faE.exit.i ], [ @anon.30a1774b27b7d63f437ccdec0c62d3f4.13, %2 ]
-  %42 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %42)
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.8.0, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.10.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void

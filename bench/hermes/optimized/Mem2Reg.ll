@@ -6258,8 +6258,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes13LoadStackInstELb1EE9push_backERKS3_
 if.end114.i:                                      ; preds = %for.body109.i
   %cmp.i.i.i.i.i.i.i.i263.i = icmp eq i8 %656, 50
   %spec.select.i264.i = select i1 %cmp.i.i.i.i.i.i.i.i263.i, ptr %655, ptr null
-  %tobool116.i = icmp ne ptr %spec.select.i264.i, null
-  call void @llvm.assume(i1 %tobool116.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i264.i) ]
   %Parent.i265.i = getelementptr inbounds nuw i8, ptr %655, i64 56
   %663 = load ptr, ptr %Parent.i265.i, align 8
   %664 = load ptr, ptr %stores.i, align 8

@@ -7939,8 +7939,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.i.i: ; preds = %72, %72, 
   %78 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 -32
   %79 = load ptr, ptr %78, align 8, !tbaa !118
   %80 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %79) #29
-  %.not.i.i.i = icmp ne ptr %80, null
-  tail call void @llvm.assume(i1 %.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %80) ]
   br label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit.i
 
 _ZN4llvm19dyn_cast_if_presentINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i: ; preds = %72, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit.i.i
@@ -8455,8 +8454,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.i.i: ; preds = %72, %72, 
   %78 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 -32
   %79 = load ptr, ptr %78, align 8, !tbaa !118
   %80 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %79) #29
-  %.not.i.i.i = icmp ne ptr %80, null
-  tail call void @llvm.assume(i1 %.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %80) ]
   br label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit.i
 
 _ZN4llvm19dyn_cast_if_presentINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i: ; preds = %72, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit.i.i
@@ -8858,8 +8856,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.i.i: ; preds = %72, %72, 
   %78 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 -32
   %79 = load ptr, ptr %78, align 8, !tbaa !118
   %80 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %79) #29
-  %.not.i.i.i = icmp ne ptr %80, null
-  tail call void @llvm.assume(i1 %.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %80) ]
   br label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit.i
 
 _ZN4llvm19dyn_cast_if_presentINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i: ; preds = %72, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit.i.i
@@ -19071,8 +19068,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.i: ; preds = %21, %21, %2
   %27 = getelementptr inbounds i8, ptr %.0.i.i7, i64 -32
   %28 = load ptr, ptr %27, align 8, !tbaa !118
   %29 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #29
-  %.not.i.i = icmp ne ptr %29, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   br label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit
 
 _ZN4llvm19dyn_cast_if_presentINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %21, %_ZNK4llvm10IRPosition14getAnchorValueEv.exit.i
@@ -37677,8 +37673,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.i: ; preds = %16, %16, %1
   %22 = getelementptr inbounds i8, ptr %14, i64 -32
   %23 = load ptr, ptr %22, align 8, !tbaa !118
   %24 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #29
-  %.not.i.i = icmp ne ptr %24, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %24) ]
   br label %_ZNK4llvm10IRPosition21getAssociatedFunctionEv.exit
 
 _ZNK4llvm10IRPosition14getAnchorValueEv.exit.i.i: ; preds = %_ZNK4llvm10IRPosition14getAnchorValueEv.exit.i, %16

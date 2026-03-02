@@ -2292,8 +2292,7 @@ _ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.i:  ; preds = %54
   br i1 %76, label %77, label %"_ZZN3euf9bv_plugin17propagate_extractEPNS_5enodeEENK3$_2clES2_.exit"
 
 77:                                               ; preds = %69
-  %.not.i17.not.i = icmp ne ptr %73, null
-  call void @llvm.assume(i1 %.not.i17.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %73) ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %77, %_ZN3euf11enode_class8iteratorppEv.exit.i

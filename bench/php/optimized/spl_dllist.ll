@@ -265,7 +265,7 @@ define hidden void @zim_SplDoublyLinkedList_pop(ptr noundef readonly captures(no
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  br label %.sink.split
+  br label %39
 
 .critedge:                                        ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -326,14 +326,14 @@ spl_ptr_llist_pop.exit:                           ; preds = %13, %20, %32
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load i8, ptr %33, align 8, !tbaa !4
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %36, label %.sink.split
+  br i1 %35, label %36, label %39
 
 36:                                               ; preds = %spl_ptr_llist_pop.exit
   %37 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !31
   %38 = tail call ptr @zend_throw_exception(ptr noundef %37, ptr noundef nonnull @.str.1, i64 noundef 0) #13
-  br label %.sink.split
+  br label %39
 
-.sink.split:                                      ; preds = %36, %5, %spl_ptr_llist_pop.exit
+39:                                               ; preds = %5, %spl_ptr_llist_pop.exit, %36
   ret void
 }
 
@@ -350,7 +350,7 @@ define hidden void @zim_SplDoublyLinkedList_shift(ptr noundef readonly captures(
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  br label %.sink.split
+  br label %39
 
 .critedge:                                        ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -411,14 +411,14 @@ spl_ptr_llist_shift.exit:                         ; preds = %12, %20, %32
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load i8, ptr %33, align 8, !tbaa !4
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %36, label %.sink.split
+  br i1 %35, label %36, label %39
 
 36:                                               ; preds = %spl_ptr_llist_shift.exit
   %37 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !31
   %38 = tail call ptr @zend_throw_exception(ptr noundef %37, ptr noundef nonnull @.str.2, i64 noundef 0) #13
-  br label %.sink.split
+  br label %39
 
-.sink.split:                                      ; preds = %36, %5, %spl_ptr_llist_shift.exit
+39:                                               ; preds = %5, %spl_ptr_llist_shift.exit, %36
   ret void
 }
 
@@ -497,7 +497,7 @@ define hidden void @zim_SplDoublyLinkedList_top(ptr noundef readonly captures(no
   store i32 %39, ptr %40, align 8, !tbaa !4
   br label %41
 
-41:                                               ; preds = %36, %17, %5
+41:                                               ; preds = %5, %36, %17
   ret void
 }
 
@@ -575,7 +575,7 @@ define hidden void @zim_SplDoublyLinkedList_bottom(ptr noundef readonly captures
   store i32 %38, ptr %39, align 8, !tbaa !4
   br label %40
 
-40:                                               ; preds = %35, %16, %5
+40:                                               ; preds = %5, %35, %16
   ret void
 }
 
@@ -603,7 +603,7 @@ define hidden void @zim_SplDoublyLinkedList_count(ptr noundef readonly captures(
   store i32 4, ptr %12, align 8, !tbaa !4
   br label %13
 
-13:                                               ; preds = %.critedge, %5
+13:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -673,7 +673,7 @@ spl_dllist_object_count_elements.exit:            ; preds = %22, %23
   store i32 %29, ptr %30, align 8, !tbaa !4
   br label %31
 
-31:                                               ; preds = %spl_dllist_object_count_elements.exit, %6
+31:                                               ; preds = %6, %spl_dllist_object_count_elements.exit
   ret void
 }
 
@@ -804,7 +804,7 @@ define hidden void @zim_SplDoublyLinkedList_getIteratorMode(ptr noundef readonly
   store i32 4, ptr %11, align 8, !tbaa !4
   br label %12
 
-12:                                               ; preds = %.critedge, %5
+12:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1127,7 +1127,7 @@ spl_ptr_llist_offset.exit:                        ; preds = %58, %51
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %79, i32 noundef 1, ptr noundef nonnull @.str.7) #13
   br label %.critedge
 
-.critedge:                                        ; preds = %2, %49, %77, %spl_ptr_llist_push.exit, %76
+.critedge:                                        ; preds = %49, %77, %spl_ptr_llist_push.exit, %76, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1285,7 +1285,7 @@ spl_ptr_llist_offset.exit:                        ; preds = %28, %21
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %66, i32 noundef 1, ptr noundef nonnull @.str.7) #13
   br label %67
 
-67:                                               ; preds = %2, %64, %58, %65, %19
+67:                                               ; preds = %64, %58, %2, %65, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1314,7 +1314,7 @@ define hidden void @zim_SplDoublyLinkedList_key(ptr noundef readonly captures(no
   store i32 4, ptr %11, align 8, !tbaa !4
   br label %12
 
-12:                                               ; preds = %.critedge, %5
+12:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1342,7 +1342,7 @@ define hidden void @zim_SplDoublyLinkedList_prev(ptr noundef readonly captures(n
   tail call fastcc void @spl_dllist_it_helper_move_forward(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %11, i32 noundef %14)
   br label %15
 
-15:                                               ; preds = %.critedge, %5
+15:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1548,7 +1548,7 @@ define hidden void @zim_SplDoublyLinkedList_next(ptr noundef readonly captures(n
   tail call fastcc void @spl_dllist_it_helper_move_forward(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %11, i32 noundef %13)
   br label %14
 
-14:                                               ; preds = %.critedge, %5
+14:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1574,7 +1574,7 @@ define hidden void @zim_SplDoublyLinkedList_valid(ptr noundef readonly captures(
   store i32 %10, ptr %11, align 8, !tbaa !4
   br label %12
 
-12:                                               ; preds = %.critedge, %5
+12:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1720,7 +1720,7 @@ define hidden void @zim_SplDoublyLinkedList_current(ptr noundef readonly capture
   store i32 %37, ptr %38, align 8, !tbaa !4
   br label %39
 
-39:                                               ; preds = %34, %16, %9
+39:                                               ; preds = %9, %34, %16
   ret void
 }
 
@@ -1927,7 +1927,7 @@ smart_str_extract_ex.exit:                        ; preds = %smart_str_trim_to_s
   store i32 %95, ptr %96, align 8, !tbaa !4
   br label %97
 
-97:                                               ; preds = %smart_str_extract_ex.exit, %13
+97:                                               ; preds = %13, %smart_str_extract_ex.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2097,8 +2097,8 @@ spl_ptr_llist_pop.exit:                           ; preds = %28, %34, %44
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store i32 %80, ptr %81, align 8, !tbaa !4
   %82 = and i32 %80, 65280
-  %.not.i17 = icmp eq i32 %82, 0
-  br i1 %.not.i17, label %86, label %83
+  %.not.i18 = icmp eq i32 %82, 0
+  br i1 %.not.i18, label %86, label %83
 
 83:                                               ; preds = %71
   %84 = load i32, ptr %78, align 4, !tbaa !27
@@ -2109,8 +2109,8 @@ spl_ptr_llist_pop.exit:                           ; preds = %28, %34, %44
 86:                                               ; preds = %83, %71
   %87 = getelementptr inbounds nuw i8, ptr %73, i64 28
   store i32 1, ptr %87, align 4, !tbaa !4
-  %.not21.i18 = icmp eq ptr %75, null
-  br i1 %.not21.i18, label %90, label %88
+  %.not21.i19 = icmp eq ptr %75, null
+  br i1 %.not21.i19, label %90, label %88
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -2240,7 +2240,7 @@ define hidden void @zim_SplDoublyLinkedList___serialize(ptr noundef readonly cap
   %40 = call ptr @zend_hash_next_index_insert(ptr noundef %39, ptr noundef nonnull %3) #13
   br label %41
 
-41:                                               ; preds = %._crit_edge, %11
+41:                                               ; preds = %11, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2413,7 +2413,7 @@ define hidden void @zim_SplDoublyLinkedList_add(ptr noundef readonly captures(no
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.13, ptr noundef nonnull %4, ptr noundef nonnull %3) #13
   %8 = icmp eq i32 %7, -1
-  br i1 %8, label %84, label %9
+  br i1 %8, label %83, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2434,7 +2434,7 @@ define hidden void @zim_SplDoublyLinkedList_add(ptr noundef readonly captures(no
 21:                                               ; preds = %15, %9
   %22 = load ptr, ptr @spl_ce_OutOfRangeException, align 8, !tbaa !31
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %22, i32 noundef 1, ptr noundef nonnull @.str.6) #13
-  br label %84
+  br label %83
 
 23:                                               ; preds = %15
   %24 = icmp eq i64 %13, %19
@@ -2485,7 +2485,7 @@ spl_ptr_llist_push.exit:                          ; preds = %42, %44
   %45 = load i32, ptr %17, align 8, !tbaa !29
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %17, align 8, !tbaa !29
-  br label %84
+  br label %83
 
 47:                                               ; preds = %23
   %48 = call noalias ptr @_emalloc_32() #13
@@ -2520,54 +2520,53 @@ spl_ptr_llist_push.exit:                          ; preds = %42, %44
 
 spl_ptr_llist_offset.exit:                        ; preds = %57, %47
   %.1.lcssa.i = phi ptr [ %.111.i, %47 ], [ %.1.i, %57 ]
-  %61 = icmp ne ptr %.1.lcssa.i, null
-  call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %63 = load ptr, ptr %3, align 8, !tbaa !19
-  %64 = load ptr, ptr %63, align 8, !tbaa !4
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %66 = load i32, ptr %65, align 8, !tbaa !4
-  store ptr %64, ptr %62, align 8, !tbaa !4
-  %67 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store i32 %66, ptr %67, align 8, !tbaa !4
-  %68 = and i32 %66, 65280
-  %.not = icmp eq i32 %68, 0
-  br i1 %.not, label %72, label %69
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.1.lcssa.i) ]
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %62 = load ptr, ptr %3, align 8, !tbaa !19
+  %63 = load ptr, ptr %62, align 8, !tbaa !4
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %65 = load i32, ptr %64, align 8, !tbaa !4
+  store ptr %63, ptr %61, align 8, !tbaa !4
+  %66 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  store i32 %65, ptr %66, align 8, !tbaa !4
+  %67 = and i32 %65, 65280
+  %.not = icmp eq i32 %67, 0
+  br i1 %.not, label %71, label %68
 
-69:                                               ; preds = %spl_ptr_llist_offset.exit
-  %70 = load i32, ptr %64, align 4, !tbaa !27
-  %71 = add i32 %70, 1
-  store i32 %71, ptr %64, align 4, !tbaa !27
-  br label %72
+68:                                               ; preds = %spl_ptr_llist_offset.exit
+  %69 = load i32, ptr %63, align 4, !tbaa !27
+  %70 = add i32 %69, 1
+  store i32 %70, ptr %63, align 4, !tbaa !27
+  br label %71
 
-72:                                               ; preds = %69, %spl_ptr_llist_offset.exit
-  %73 = getelementptr inbounds nuw i8, ptr %48, i64 28
-  store i32 1, ptr %73, align 4, !tbaa !4
-  %74 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store ptr %.1.lcssa.i, ptr %74, align 8, !tbaa !26
-  %75 = load ptr, ptr %.1.lcssa.i, align 8, !tbaa !23
-  store ptr %75, ptr %48, align 8, !tbaa !23
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %78
+71:                                               ; preds = %68, %spl_ptr_llist_offset.exit
+  %72 = getelementptr inbounds nuw i8, ptr %48, i64 28
+  store i32 1, ptr %72, align 4, !tbaa !4
+  %73 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store ptr %.1.lcssa.i, ptr %73, align 8, !tbaa !26
+  %74 = load ptr, ptr %.1.lcssa.i, align 8, !tbaa !23
+  store ptr %74, ptr %48, align 8, !tbaa !23
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %76, label %77
 
-77:                                               ; preds = %72
+76:                                               ; preds = %71
   store ptr %48, ptr %49, align 8, !tbaa !28
-  br label %80
+  br label %79
 
-78:                                               ; preds = %72
-  %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store ptr %48, ptr %79, align 8, !tbaa !26
-  br label %80
+77:                                               ; preds = %71
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store ptr %48, ptr %78, align 8, !tbaa !26
+  br label %79
 
-80:                                               ; preds = %78, %77
+79:                                               ; preds = %77, %76
   store ptr %48, ptr %.1.lcssa.i, align 8, !tbaa !23
-  %81 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %82 = load i32, ptr %81, align 8, !tbaa !29
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %81, align 8, !tbaa !29
-  br label %84
+  %80 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %81 = load i32, ptr %80, align 8, !tbaa !29
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %80, align 8, !tbaa !29
+  br label %83
 
-84:                                               ; preds = %2, %spl_ptr_llist_push.exit, %80, %21
+83:                                               ; preds = %spl_ptr_llist_push.exit, %79, %2, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -2672,7 +2671,7 @@ spl_dllist_object_get_debug_info.exit:            ; preds = %45, %zend_std_get_p
   store i32 775, ptr %48, align 8, !tbaa !4
   br label %49
 
-49:                                               ; preds = %spl_dllist_object_get_debug_info.exit, %7
+49:                                               ; preds = %7, %spl_dllist_object_get_debug_info.exit
   ret void
 }
 
@@ -3284,7 +3283,7 @@ define internal fastcc noundef nonnull ptr @spl_dllist_object_new_ex(ptr noundef
 spl_ptr_llist_copy.exit.thread:                   ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %26, align 8, !tbaa !44
-  br label %.thread118
+  br label %.thread115
 
 .lr.ph.i:                                         ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -3338,19 +3337,19 @@ spl_ptr_llist_push.exit.i:                        ; preds = %49, %47
   %50 = load i32, ptr %28, align 8, !tbaa !29
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %28, align 8, !tbaa !29
-  %.not.i92 = icmp eq ptr %31, null
-  br i1 %.not.i92, label %spl_ptr_llist_copy.exit, label %29
+  %.not.i93 = icmp eq ptr %31, null
+  br i1 %.not.i93, label %spl_ptr_llist_copy.exit, label %29
 
 spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.exit.i
   %.pre = load ptr, ptr %14, align 8, !tbaa !7
-  %.pre103 = load ptr, ptr %.pre, align 8, !tbaa !28
+  %.pre101 = load ptr, ptr %.pre, align 8, !tbaa !28
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %.pre103, ptr %52, align 8, !tbaa !44
-  %.not75 = icmp eq ptr %.pre103, null
+  store ptr %.pre101, ptr %52, align 8, !tbaa !44
+  %.not75 = icmp eq ptr %.pre101, null
   br i1 %.not75, label %69, label %53
 
 53:                                               ; preds = %spl_ptr_llist_copy.exit
-  %54 = getelementptr inbounds nuw i8, ptr %.pre103, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.pre101, i64 28
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = add i32 %55, 1
   store i32 %56, ptr %54, align 4, !tbaa !4
@@ -3363,14 +3362,14 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %59, ptr %60, align 8, !tbaa !44
   %.not74 = icmp eq ptr %59, null
-  br i1 %.not74, label %.thread118, label %61
+  br i1 %.not74, label %.thread115, label %61
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %63 = load i32, ptr %62, align 4, !tbaa !4
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 4, !tbaa !4
-  br label %.thread118
+  br label %.thread115
 
 .thread:                                          ; preds = %3
   %65 = tail call noalias noundef ptr @_emalloc_24() #13
@@ -3380,7 +3379,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   store ptr null, ptr %66, align 8, !tbaa !44
   br label %.lr.ph
 
-.thread118:                                       ; preds = %61, %57, %spl_ptr_llist_copy.exit.thread
+.thread115:                                       ; preds = %61, %57, %spl_ptr_llist_copy.exit.thread
   %67 = getelementptr inbounds i8, ptr %1, i64 -52
   %68 = load i32, ptr %67, align 4, !tbaa !38
   store i32 %68, ptr %16, align 4, !tbaa !38
@@ -3390,46 +3389,52 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   %70 = getelementptr inbounds i8, ptr %1, i64 -52
   %71 = load i32, ptr %70, align 4, !tbaa !38
   store i32 %71, ptr %16, align 4, !tbaa !38
-  %.not101 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not101)
-  br label %.lr.ph
+  %.not7694 = icmp eq ptr %0, null
+  br i1 %.not7694, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %69, %.thread118, %.thread
+.lr.ph:                                           ; preds = %.thread115, %.thread, %69
   %72 = load ptr, ptr @spl_ce_SplStack, align 8, !tbaa !31
   %73 = load ptr, ptr @spl_ce_SplQueue, align 8
   %74 = load ptr, ptr @spl_ce_SplDoublyLinkedList, align 8, !tbaa !31
   br label %75
 
-75:                                               ; preds = %83, %.lr.ph
-  %.094 = phi ptr [ %0, %.lr.ph ], [ %85, %83 ]
-  %.not7693 = phi i1 [ true, %.lr.ph ], [ false, %83 ]
-  %76 = icmp eq ptr %.094, %72
+75:                                               ; preds = %.lr.ph, %83
+  %.096 = phi ptr [ %0, %.lr.ph ], [ %85, %83 ]
+  %.not7795 = phi i1 [ true, %.lr.ph ], [ false, %83 ]
+  %76 = icmp eq ptr %.096, %72
   br i1 %76, label %.sink.split, label %77
 
 77:                                               ; preds = %75
-  %78 = icmp eq ptr %.094, %73
+  %78 = icmp eq ptr %.096, %73
   br i1 %78, label %.sink.split, label %81
 
 .sink.split:                                      ; preds = %77, %75
-  %.sink126 = phi i32 [ 6, %75 ], [ 4, %77 ]
+  %.sink123 = phi i32 [ 6, %75 ], [ 4, %77 ]
   %79 = load i32, ptr %16, align 4, !tbaa !38
-  %80 = or i32 %79, %.sink126
+  %80 = or i32 %79, %.sink123
   store i32 %80, ptr %16, align 4, !tbaa !38
   br label %81
 
 81:                                               ; preds = %.sink.split, %77
-  %82 = icmp eq ptr %.094, %74
+  %82 = icmp eq ptr %.096, %74
   br i1 %82, label %._crit_edge, label %83
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw i8, ptr %.094, i64 16
-  %85 = load ptr, ptr %84, align 8, !tbaa !4, !nonnull !43, !noundef !43
-  br label %75
+  %84 = getelementptr inbounds nuw i8, ptr %.096, i64 16
+  %85 = load ptr, ptr %84, align 8, !tbaa !4
+  %.not76 = icmp eq ptr %85, null
+  br i1 %.not76, label %._crit_edge.thread, label %75
+
+._crit_edge.thread:                               ; preds = %83
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr null) ]
+  br label %86
 
 ._crit_edge:                                      ; preds = %81
-  br i1 %.not7693, label %126, label %86
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.096) ]
+  br i1 %.not7795, label %.critedge, label %86
 
-86:                                               ; preds = %._crit_edge
+86:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.0.lcssa119 = phi ptr [ null, %._crit_edge.thread ], [ %.096, %._crit_edge ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %88 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %87, ptr noundef nonnull @.str.66, i64 noundef 9) #13
   %.not.i = icmp eq ptr %88, null
@@ -3445,83 +3450,83 @@ zend_hash_str_find_ptr.exit:                      ; preds = %86, %89
   store ptr %.0.i, ptr %91, align 8, !tbaa !104
   %92 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !4
-  %94 = icmp eq ptr %93, %74
+  %94 = icmp eq ptr %93, %.0.lcssa119
   %spec.store.select = select i1 %94, ptr null, ptr %.0.i
   store ptr %spec.store.select, ptr %91, align 8
   %95 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %87, ptr noundef nonnull @.str.67, i64 noundef 9) #13
-  %.not.i81 = icmp eq ptr %95, null
-  br i1 %.not.i81, label %zend_hash_str_find_ptr.exit83, label %96
+  %.not.i82 = icmp eq ptr %95, null
+  br i1 %.not.i82, label %zend_hash_str_find_ptr.exit84, label %96
 
 96:                                               ; preds = %zend_hash_str_find_ptr.exit
   %97 = load ptr, ptr %95, align 8, !tbaa !4, !nonnull !43, !noundef !43
-  br label %zend_hash_str_find_ptr.exit83
+  br label %zend_hash_str_find_ptr.exit84
 
-zend_hash_str_find_ptr.exit83:                    ; preds = %zend_hash_str_find_ptr.exit, %96
-  %.0.i82 = phi ptr [ %97, %96 ], [ null, %zend_hash_str_find_ptr.exit ]
+zend_hash_str_find_ptr.exit84:                    ; preds = %zend_hash_str_find_ptr.exit, %96
+  %.0.i83 = phi ptr [ %97, %96 ], [ null, %zend_hash_str_find_ptr.exit ]
   %98 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %.0.i82, ptr %98, align 8, !tbaa !105
-  %99 = getelementptr inbounds nuw i8, ptr %.0.i82, i64 16
+  store ptr %.0.i83, ptr %98, align 8, !tbaa !105
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i83, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !4
-  %101 = icmp eq ptr %100, %74
-  %spec.store.select79 = select i1 %101, ptr null, ptr %.0.i82
-  store ptr %spec.store.select79, ptr %98, align 8
+  %101 = icmp eq ptr %100, %.0.lcssa119
+  %spec.store.select80 = select i1 %101, ptr null, ptr %.0.i83
+  store ptr %spec.store.select80, ptr %98, align 8
   %102 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %87, ptr noundef nonnull @.str.68, i64 noundef 12) #13
-  %.not.i84 = icmp eq ptr %102, null
-  br i1 %.not.i84, label %zend_hash_str_find_ptr.exit86, label %103
+  %.not.i85 = icmp eq ptr %102, null
+  br i1 %.not.i85, label %zend_hash_str_find_ptr.exit87, label %103
 
-103:                                              ; preds = %zend_hash_str_find_ptr.exit83
+103:                                              ; preds = %zend_hash_str_find_ptr.exit84
   %104 = load ptr, ptr %102, align 8, !tbaa !4, !nonnull !43, !noundef !43
-  br label %zend_hash_str_find_ptr.exit86
+  br label %zend_hash_str_find_ptr.exit87
 
-zend_hash_str_find_ptr.exit86:                    ; preds = %zend_hash_str_find_ptr.exit83, %103
-  %.0.i85 = phi ptr [ %104, %103 ], [ null, %zend_hash_str_find_ptr.exit83 ]
+zend_hash_str_find_ptr.exit87:                    ; preds = %zend_hash_str_find_ptr.exit84, %103
+  %.0.i86 = phi ptr [ %104, %103 ], [ null, %zend_hash_str_find_ptr.exit84 ]
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr %.0.i85, ptr %105, align 8, !tbaa !106
-  %106 = getelementptr inbounds nuw i8, ptr %.0.i85, i64 16
+  store ptr %.0.i86, ptr %105, align 8, !tbaa !106
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i86, i64 16
   %107 = load ptr, ptr %106, align 8, !tbaa !4
-  %108 = icmp eq ptr %107, %74
-  %spec.store.select77 = select i1 %108, ptr null, ptr %.0.i85
-  store ptr %spec.store.select77, ptr %105, align 8
+  %108 = icmp eq ptr %107, %.0.lcssa119
+  %spec.store.select78 = select i1 %108, ptr null, ptr %.0.i86
+  store ptr %spec.store.select78, ptr %105, align 8
   %109 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %87, ptr noundef nonnull @.str.69, i64 noundef 11) #13
-  %.not.i87 = icmp eq ptr %109, null
-  br i1 %.not.i87, label %zend_hash_str_find_ptr.exit89, label %110
+  %.not.i88 = icmp eq ptr %109, null
+  br i1 %.not.i88, label %zend_hash_str_find_ptr.exit90, label %110
 
-110:                                              ; preds = %zend_hash_str_find_ptr.exit86
+110:                                              ; preds = %zend_hash_str_find_ptr.exit87
   %111 = load ptr, ptr %109, align 8, !tbaa !4, !nonnull !43, !noundef !43
-  br label %zend_hash_str_find_ptr.exit89
+  br label %zend_hash_str_find_ptr.exit90
 
-zend_hash_str_find_ptr.exit89:                    ; preds = %zend_hash_str_find_ptr.exit86, %110
-  %.0.i88 = phi ptr [ %111, %110 ], [ null, %zend_hash_str_find_ptr.exit86 ]
+zend_hash_str_find_ptr.exit90:                    ; preds = %zend_hash_str_find_ptr.exit87, %110
+  %.0.i89 = phi ptr [ %111, %110 ], [ null, %zend_hash_str_find_ptr.exit87 ]
   %112 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store ptr %.0.i88, ptr %112, align 8, !tbaa !107
-  %113 = getelementptr inbounds nuw i8, ptr %.0.i88, i64 16
+  store ptr %.0.i89, ptr %112, align 8, !tbaa !107
+  %113 = getelementptr inbounds nuw i8, ptr %.0.i89, i64 16
   %114 = load ptr, ptr %113, align 8, !tbaa !4
-  %115 = icmp eq ptr %114, %74
-  %spec.store.select80 = select i1 %115, ptr null, ptr %.0.i88
-  store ptr %spec.store.select80, ptr %112, align 8
+  %115 = icmp eq ptr %114, %.0.lcssa119
+  %spec.store.select81 = select i1 %115, ptr null, ptr %.0.i89
+  store ptr %spec.store.select81, ptr %112, align 8
   %116 = load ptr, ptr @zend_known_strings, align 8, !tbaa !108
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 576
   %118 = load ptr, ptr %117, align 8, !tbaa !56
   %119 = tail call ptr @zend_hash_find(ptr noundef nonnull %87, ptr noundef %118) #13
-  %.not.i90 = icmp eq ptr %119, null
-  br i1 %.not.i90, label %zend_hash_find_ptr.exit, label %120
+  %.not.i91 = icmp eq ptr %119, null
+  br i1 %.not.i91, label %zend_hash_find_ptr.exit, label %120
 
-120:                                              ; preds = %zend_hash_str_find_ptr.exit89
+120:                                              ; preds = %zend_hash_str_find_ptr.exit90
   %121 = load ptr, ptr %119, align 8, !tbaa !4, !nonnull !43, !noundef !43
   br label %zend_hash_find_ptr.exit
 
-zend_hash_find_ptr.exit:                          ; preds = %zend_hash_str_find_ptr.exit89, %120
-  %.0.i91 = phi ptr [ %121, %120 ], [ null, %zend_hash_str_find_ptr.exit89 ]
+zend_hash_find_ptr.exit:                          ; preds = %zend_hash_str_find_ptr.exit90, %120
+  %.0.i92 = phi ptr [ %121, %120 ], [ null, %zend_hash_str_find_ptr.exit90 ]
   %122 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store ptr %.0.i91, ptr %122, align 8, !tbaa !33
-  %123 = getelementptr inbounds nuw i8, ptr %.0.i91, i64 16
+  store ptr %.0.i92, ptr %122, align 8, !tbaa !33
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 16
   %124 = load ptr, ptr %123, align 8, !tbaa !4
-  %125 = icmp eq ptr %124, %74
-  %spec.store.select78 = select i1 %125, ptr null, ptr %.0.i91
-  store ptr %spec.store.select78, ptr %122, align 8
-  br label %126
+  %125 = icmp eq ptr %124, %.0.lcssa119
+  %spec.store.select79 = select i1 %125, ptr null, ptr %.0.i92
+  store ptr %spec.store.select79, ptr %122, align 8
+  br label %.critedge
 
-126:                                              ; preds = %zend_hash_find_ptr.exit, %._crit_edge
+.critedge:                                        ; preds = %69, %zend_hash_find_ptr.exit, %._crit_edge
   ret ptr %15
 }
 

@@ -28,61 +28,60 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
-  %8 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %8)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN3syn3lit6LitStr5value17h81f302d0ba02fb28E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %5, ptr nonnull align 8 %2), !noalias !3
   invoke void @_ZN11shellexpand16env_with_context17h9ef4ded570c439edE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr nonnull align 8 %5)
-          to label %12 unwind label %10, !noalias !3
+          to label %11 unwind label %9, !noalias !3
 
-9:                                                ; preds = %15, %10
-  %.pn.i = phi { ptr, i32 } [ %11, %10 ], [ %16, %15 ]
+8:                                                ; preds = %14, %9
+  %.pn.i = phi { ptr, i32 } [ %10, %9 ], [ %15, %14 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %5) #6
-          to label %23 unwind label %21, !noalias !3
+          to label %22 unwind label %20, !noalias !3
 
-10:                                               ; preds = %20, %12, %3
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %19, %11, %3
+  %10 = landingpad { ptr, i32 }
           cleanup
-  br label %9
+  br label %8
 
-12:                                               ; preds = %3
+11:                                               ; preds = %3
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h863f29230839dc7dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %7, ptr nonnull align 8 %6, ptr nonnull align 1 @anon.21000207f2688d89f8a4d64a0b8cf040.13, i64 15, ptr nonnull align 8 @anon.21000207f2688d89f8a4d64a0b8cf040.15)
-          to label %13 unwind label %10, !noalias !3
+          to label %12 unwind label %9, !noalias !3
 
-13:                                               ; preds = %12
-  %14 = invoke { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc616353e5d9fcf25E"(ptr nonnull align 8 %7)
-          to label %17 unwind label %15, !noalias !3
+12:                                               ; preds = %11
+  %13 = invoke { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc616353e5d9fcf25E"(ptr nonnull align 8 %7)
+          to label %16 unwind label %14, !noalias !3
 
-15:                                               ; preds = %17, %13
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %16, %12
+  %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ab373d2527ee2deE"(ptr nonnull align 8 %7) #6
-          to label %9 unwind label %21, !noalias !3
+          to label %8 unwind label %20, !noalias !3
 
-17:                                               ; preds = %13
-  %18 = extractvalue { ptr, i64 } %14, 0
-  %19 = extractvalue { ptr, i64 } %14, 1
-  invoke void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %4, ptr align 1 %18, i64 %19)
-          to label %20 unwind label %15, !noalias !3
+16:                                               ; preds = %12
+  %17 = extractvalue { ptr, i64 } %13, 0
+  %18 = extractvalue { ptr, i64 } %13, 1
+  invoke void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %4, ptr align 1 %17, i64 %18)
+          to label %19 unwind label %14, !noalias !3
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4ab373d2527ee2deE"(ptr nonnull align 8 %7)
-          to label %"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Parse$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hf1bd62b76bd74152E.exit" unwind label %10, !noalias !3
+          to label %"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Parse$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hf1bd62b76bd74152E.exit" unwind label %9, !noalias !3
 
-21:                                               ; preds = %15, %9
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %14, %8
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7, !noalias !3
   unreachable
 
-23:                                               ; preds = %9
+22:                                               ; preds = %8
   resume { ptr, i32 } %.pn.i
 
-"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Parse$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hf1bd62b76bd74152E.exit": ; preds = %20
+"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Parse$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hf1bd62b76bd74152E.exit": ; preds = %19
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %5), !noalias !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1156,10 +1155,9 @@ define hidden align 8 ptr @"_ZN15wiggle_generate6config9AsyncConf3get28_$u7b$$u7
   store ptr %5, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h733857f3c3f3dbc3E"(ptr nonnull align 8 %3, ptr nonnull align 8 %0)
-  ret ptr %11
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %10 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h733857f3c3f3dbc3E"(ptr nonnull align 8 %3, ptr nonnull align 8 %0)
+  ret ptr %10
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1416,10 +1414,9 @@ define hidden align 8 ptr @"_ZN15wiggle_generate6config11TracingConf11enabled_fo
   store ptr %5, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h12833fdfab7a5799E"(ptr nonnull align 8 %3, ptr nonnull align 8 %0)
-  ret ptr %11
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %10 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h12833fdfab7a5799E"(ptr nonnull align 8 %3, ptr nonnull align 8 %0)
+  ret ptr %10
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -8808,100 +8808,99 @@ define internal i32 @each_hash_iv(i64 noundef %0, i64 noundef %1, i64 noundef %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @iterate_over_shapes_with_callback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @iterate_over_shapes_with_callback(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %43, %3
-  %.tr = phi ptr [ %0, %3 ], [ %44, %43 ]
+tailrecurse:                                      ; preds = %42, %3
+  %.tr = phi ptr [ %0, %3 ], [ %43, %42 ]
   %4 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %5 = load i8, ptr %4, align 8, !tbaa !39
-  switch i8 %5, label %45 [
+  switch i8 %5, label %44 [
     i8 0, label %.loopexit
     i8 3, label %.loopexit
     i8 1, label %6
-    i8 2, label %43
+    i8 2, label %42
   ]
 
 6:                                                ; preds = %tailrecurse
-  %7 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call ptr @rb_shape_get_parent(ptr noundef nonnull %.tr) #27
-  %9 = tail call fastcc zeroext i1 @iterate_over_shapes_with_callback(ptr noundef %8, ptr noundef nonnull %1, ptr noundef %2)
-  br i1 %9, label %.loopexit, label %10
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %7 = tail call ptr @rb_shape_get_parent(ptr noundef nonnull %.tr) #27
+  %8 = tail call fastcc zeroext i1 @iterate_over_shapes_with_callback(ptr noundef %7, ptr noundef nonnull %1, ptr noundef %2)
+  br i1 %8, label %.loopexit, label %9
 
-10:                                               ; preds = %6
-  %11 = load i64, ptr %2, align 8, !tbaa !105
-  %12 = inttoptr i64 %11 to ptr
-  %13 = load i64, ptr %12, align 8, !tbaa !28
-  %14 = trunc i64 %13 to i32
-  %15 = and i32 %14, 31
-  switch i32 %15, label %24 [
-    i32 1, label %16
-    i32 2, label %21
-    i32 3, label %21
+9:                                                ; preds = %6
+  %10 = load i64, ptr %2, align 8, !tbaa !105
+  %11 = inttoptr i64 %10 to ptr
+  %12 = load i64, ptr %11, align 8, !tbaa !28
+  %13 = trunc i64 %12 to i32
+  %14 = and i32 %13, 31
+  switch i32 %14, label %23 [
+    i32 1, label %15
+    i32 2, label %20
+    i32 3, label %20
   ]
 
-16:                                               ; preds = %10
-  %17 = and i64 %13, 8192
-  %.not.i = icmp eq i64 %17, 0
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  br i1 %.not.i, label %19, label %ROBJECT_IVPTR.exit
+15:                                               ; preds = %9
+  %16 = and i64 %12, 8192
+  %.not.i = icmp eq i64 %16, 0
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  br i1 %.not.i, label %18, label %ROBJECT_IVPTR.exit
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %18, align 8, !tbaa !32
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %17, align 8, !tbaa !32
   br label %ROBJECT_IVPTR.exit
 
-21:                                               ; preds = %10, %10
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !97
+20:                                               ; preds = %9, %9
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %22 = load ptr, ptr %21, align 8, !tbaa !97
   br label %ROBJECT_IVPTR.exit
 
-24:                                               ; preds = %10
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !109
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+23:                                               ; preds = %9
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !109
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %ROBJECT_IVPTR.exit
 
-ROBJECT_IVPTR.exit:                               ; preds = %19, %16, %24, %21
-  %.019 = phi ptr [ %27, %24 ], [ %23, %21 ], [ %20, %19 ], [ %18, %16 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %29 = load i32, ptr %28, align 8, !tbaa !103
-  %30 = add i32 %29, -1
-  %31 = zext i32 %30 to i64
-  %32 = getelementptr i64, ptr %.019, i64 %31
-  %33 = load i64, ptr %32, align 8, !tbaa !14
-  %34 = icmp eq i64 %33, 36
-  br i1 %34, label %42, label %35
+ROBJECT_IVPTR.exit:                               ; preds = %18, %15, %23, %20
+  %.019 = phi ptr [ %26, %23 ], [ %22, %20 ], [ %19, %18 ], [ %17, %15 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %28 = load i32, ptr %27, align 8, !tbaa !103
+  %29 = add i32 %28, -1
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr i64, ptr %.019, i64 %30
+  %32 = load i64, ptr %31, align 8, !tbaa !14
+  %33 = icmp eq i64 %32, 36
+  br i1 %33, label %41, label %34
 
-35:                                               ; preds = %ROBJECT_IVPTR.exit
-  %36 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !219
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %39 = load i64, ptr %38, align 8, !tbaa !107
-  %40 = tail call i32 %1(i64 noundef %37, i64 noundef %33, i64 noundef %39) #27
-  switch i32 %40, label %41 [
-    i32 3, label %42
-    i32 0, label %42
+34:                                               ; preds = %ROBJECT_IVPTR.exit
+  %35 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %36 = load i64, ptr %35, align 8, !tbaa !219
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %38 = load i64, ptr %37, align 8, !tbaa !107
+  %39 = tail call i32 %1(i64 noundef %36, i64 noundef %32, i64 noundef %38) #27
+  switch i32 %39, label %40 [
+    i32 3, label %41
+    i32 0, label %41
     i32 1, label %.loopexit
   ]
 
-41:                                               ; preds = %35
+40:                                               ; preds = %34
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.18) #35
   unreachable
 
-42:                                               ; preds = %35, %35, %ROBJECT_IVPTR.exit
+41:                                               ; preds = %34, %34, %ROBJECT_IVPTR.exit
   br label %.loopexit
 
-43:                                               ; preds = %tailrecurse
-  %44 = tail call ptr @rb_shape_get_parent(ptr noundef nonnull %.tr) #27
+42:                                               ; preds = %tailrecurse
+  %43 = tail call ptr @rb_shape_get_parent(ptr noundef nonnull %.tr) #27
   br label %tailrecurse
 
-45:                                               ; preds = %tailrecurse
+44:                                               ; preds = %tailrecurse
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.43) #35
   unreachable
 
-.loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %35, %6, %42
-  %.0 = phi i1 [ true, %35 ], [ true, %6 ], [ false, %42 ], [ false, %tailrecurse ], [ false, %tailrecurse ]
+.loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %34, %6, %41
+  %.0 = phi i1 [ true, %34 ], [ true, %6 ], [ false, %41 ], [ false, %tailrecurse ], [ false, %tailrecurse ]
   ret i1 %.0
 }
 

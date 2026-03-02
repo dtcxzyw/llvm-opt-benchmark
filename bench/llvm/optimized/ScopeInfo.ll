@@ -1327,8 +1327,9 @@ define dso_local void @_ZNK5clang4sema15LambdaScopeInfo22visitPotentialCapturesE
 
 23:                                               ; preds = %.lr.ph46
   %24 = icmp eq i16 %12, 61
-  tail call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %spec.select.i.i33 = select i1 %24, ptr %10, ptr null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i33) ]
+  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i.i33, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %27 = load i32, ptr %26, align 4, !tbaa !228
   %28 = zext i32 %27 to i64

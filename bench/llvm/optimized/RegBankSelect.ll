@@ -3284,6 +3284,7 @@ _ZN4llvm13RegBankSelect18RepairingPlacement14addInsertPointERNS_12MachineInstrEb
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %81, align 8
   %111 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %112 = inttoptr i64 %111 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %112) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %112, align 8
   %113 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i55 = icmp eq i64 %113, 0
@@ -3455,6 +3456,7 @@ _ZN4llvm13RegBankSelect18RepairingPlacement14addInsertPointERNS_17MachineBasicBl
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i63 = load i64, ptr %.sroa.0105.0128, align 8
   %206 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i63, -8
   %207 = inttoptr i64 %206 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %207) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i64 = load i64, ptr %207, align 8
   %208 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i64, 4
   %.not.i.i.i65 = icmp eq i64 %208, 0
@@ -3603,6 +3605,7 @@ _ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit79: ; preds = %.lr.ph1
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i81 = load i64, ptr %.sroa.099.0136, align 8
   %277 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i81, -8
   %278 = inttoptr i64 %277 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %278) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %278, align 8
   %279 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %279, 0

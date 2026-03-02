@@ -5265,6 +5265,7 @@ _ZN9grpc_core17MutexLockForGprMuC2EPl.exit.i.i.i.i.i: ; preds = %_ZN9grpc_core7E
 
 .thread29.i.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i.i
   %107 = getelementptr inbounds nuw i8, ptr %78, i64 %103
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %107) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE12find_non_sooIiEENSG_8iteratorERSD_m.exit.i.i.i.i.i.i
 
 108:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -8961,17 +8962,17 @@ _ZNR4absl12lts_202407228StatusOrIiEdeEv.exit.i.i.i.i.i: ; preds = %2
 21:                                               ; preds = %18
   store i64 2, ptr %19, align 8, !tbaa !3, !noalias !311
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 232
-  br label %82
+  br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread.i.i.i.i.i
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 232
   %25 = load i32, ptr %24, align 4, !tbaa !16, !noalias !311
   %26 = icmp eq i32 %25, %9
-  br i1 %26, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.i.i.i.i.i, label %27
+  br i1 %26, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread6.i.i.i.i.i, label %27
 
 27:                                               ; preds = %23
   invoke void @_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleE(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 3)
-          to label %.noexc.i.i.i.i unwind label %93
+          to label %.noexc.i.i.i.i unwind label %92
 
 .noexc.i.i.i.i:                                   ; preds = %27
   %28 = zext i32 %9 to i64
@@ -8982,13 +8983,13 @@ _ZNR4absl12lts_202407228StatusOrIiEdeEv.exit.i.i.i.i.i: ; preds = %2
   %33 = xor i128 %32, %31
   %34 = trunc i128 %33 to i64
   %35 = invoke noundef i64 @_ZN4absl12lts_2024072218container_internal21PrepareInsertAfterSooEmmRNS1_12CommonFieldsE(i64 noundef %34, i64 noundef 12, ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %.noexc4.i.i.i.i unwind label %93
+          to label %.noexc4.i.i.i.i unwind label %92
 
 .noexc4.i.i.i.i:                                  ; preds = %.noexc.i.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %.val, i64 240
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %36, align 8, !tbaa !10, !noalias !311
   %37 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, i64 %35
-  br label %82
+  br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread.i.i.i.i.i
 
 38:                                               ; preds = %_ZNR4absl12lts_202407228StatusOrIiEdeEv.exit.i.i.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 232
@@ -9033,7 +9034,7 @@ _ZNR4absl12lts_202407228StatusOrIiEdeEv.exit.i.i.i.i.i: ; preds = %2
   %66 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !16, !noalias !314
   %68 = icmp eq i32 %67, %9
-  br i1 %68, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i, !prof !142
+  br i1 %68, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread6.i.i.i.i.i, label %.critedge.i.i.i.i.i.i, !prof !142
 
 .critedge.i.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i.i
   %69 = add i16 %.sroa.033.057.i.i.i.i.i.i, -1
@@ -9045,67 +9046,67 @@ _ZNR4absl12lts_202407228StatusOrIiEdeEv.exit.i.i.i.i.i: ; preds = %2
   %71 = icmp eq <16 x i8> %59, splat (i8 -128)
   %72 = bitcast <16 x i1> %71 to i16
   %.not51.i.i.i.i.i.i = icmp eq i16 %72, 0
-  br i1 %.not51.i.i.i.i.i.i, label %79, label %.thread.i.i.i.i.i.i, !prof !8
+  br i1 %.not51.i.i.i.i.i.i, label %79, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread9.i.i.i.i.i, !prof !8
 
-.thread.i.i.i.i.i.i:                              ; preds = %.critedge19.i.i.i.i.i.i
+_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread9.i.i.i.i.i: ; preds = %.critedge19.i.i.i.i.i.i
   %73 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %72, i1 true)
   %74 = zext nneg i16 %73 to i64
   %75 = add i64 %.sroa.7.0.i.i.i.i.i.i, %74
   %76 = and i64 %75, %15
   %77 = invoke noundef i64 @_ZN4absl12lts_2024072218container_internal19PrepareInsertNonSooERNS1_12CommonFieldsEmNS1_8FindInfoERKNS1_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %47, i64 %76, i64 %.sroa.14.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE18GetPolicyFunctionsEvE5value)
-          to label %.noexc5.i.i.i.i unwind label %93
+          to label %.noexc5.i.i.i.i unwind label %92
 
-.noexc5.i.i.i.i:                                  ; preds = %.thread.i.i.i.i.i.i
+.noexc5.i.i.i.i:                                  ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread9.i.i.i.i.i
   %.sroa.0.0.copyload.i.i.i.i22.i.i.i.i.i.i = load ptr, ptr %56, align 8, !tbaa !10, !noalias !314
   %78 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i22.i.i.i.i.i.i, i64 %77
-  br label %82
+  br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread.i.i.i.i.i
 
 79:                                               ; preds = %.critedge19.i.i.i.i.i.i
   %80 = add i64 %.sroa.14.0.i.i.i.i.i.i, 16
   %81 = add i64 %80, %.sroa.7.0.i.i.i.i.i.i
   br label %57
 
-82:                                               ; preds = %.noexc5.i.i.i.i, %.noexc4.i.i.i.i, %21
-  %.sroa.4.0.ph.i.i.i.i.i = phi ptr [ %78, %.noexc5.i.i.i.i ], [ %37, %.noexc4.i.i.i.i ], [ %22, %21 ]
-  store i32 %9, ptr %.sroa.4.0.ph.i.i.i.i.i, align 4, !tbaa !215
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.ph.i.i.i.i.i, i64 4
-  store i32 %12, ptr %83, align 4, !tbaa !16
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.ph.i.i.i.i.i, i64 8
-  store i32 %14, ptr %84, align 4, !tbaa !16
+_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread.i.i.i.i.i: ; preds = %.noexc5.i.i.i.i, %.noexc4.i.i.i.i, %21
+  %.sroa.4.05.i.i.i.i.i = phi ptr [ %78, %.noexc5.i.i.i.i ], [ %37, %.noexc4.i.i.i.i ], [ %22, %21 ]
+  store i32 %9, ptr %.sroa.4.05.i.i.i.i.i, align 4, !tbaa !215
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.4.05.i.i.i.i.i, i64 4
+  store i32 %12, ptr %82, align 4, !tbaa !16
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.4.05.i.i.i.i.i, i64 8
+  store i32 %14, ptr %83, align 4, !tbaa !16
   br label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiE3$_0JNS0_8StatusOrIiEEEvEEvOT0_DpOT1_.exit"
 
-_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %23
-  %.sroa.4.0.i.i.i.i.i = phi ptr [ %24, %23 ], [ %66, %.lr.ph.i.i.i.i.i.i ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.i.i.i.i, i64 4
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.i.i.i.i, i64 8
-  store i32 %14, ptr %86, align 4, !tbaa !16
-  store i32 %12, ptr %85, align 4, !tbaa !16
+_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread6.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %23
+  %.sroa.4.08.i.i.i.i.i = phi ptr [ %24, %23 ], [ %66, %.lr.ph.i.i.i.i.i.i ]
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.4.08.i.i.i.i.i, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.4.08.i.i.i.i.i, i64 8
+  store i32 %14, ptr %85, align 4, !tbaa !16
+  store i32 %12, ptr %84, align 4, !tbaa !16
   br label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiE3$_0JNS0_8StatusOrIiEEEvEEvOT0_DpOT1_.exit"
 
 "_ZZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiENK3$_0clEN4absl12lts_202407228StatusOrIiEE.exit.i.i.i.i": ; preds = %2
   store i64 55, ptr %1, align 8, !tbaa !103
-  %87 = trunc i64 %5 to i1
-  br i1 %87, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiE3$_0JNS0_8StatusOrIiEEEvEEvOT0_DpOT1_.exit", label %88
+  %86 = trunc i64 %5 to i1
+  br i1 %86, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiE3$_0JNS0_8StatusOrIiEEEvEEvOT0_DpOT1_.exit", label %87
 
-88:                                               ; preds = %"_ZZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiENK3$_0clEN4absl12lts_202407228StatusOrIiEE.exit.i.i.i.i"
-  %89 = inttoptr i64 %5 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %89)
-          to label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiE3$_0JNS0_8StatusOrIiEEEvEEvOT0_DpOT1_.exit" unwind label %90
+87:                                               ; preds = %"_ZZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiENK3$_0clEN4absl12lts_202407228StatusOrIiEE.exit.i.i.i.i"
+  %88 = inttoptr i64 %5 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %88)
+          to label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiE3$_0JNS0_8StatusOrIiEEEvEEvOT0_DpOT1_.exit" unwind label %89
 
-90:                                               ; preds = %88
-  %91 = landingpad { ptr, i32 }
+89:                                               ; preds = %87
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %92 = extractvalue { ptr, i32 } %91, 0
-  tail call void @__clang_call_terminate(ptr %92) #37
+  %91 = extractvalue { ptr, i32 } %90, 0
+  tail call void @__clang_call_terminate(ptr %91) #37
   unreachable
 
-93:                                               ; preds = %.thread.i.i.i.i.i.i, %.noexc.i.i.i.i, %27
-  %94 = landingpad { ptr, i32 }
+92:                                               ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread9.i.i.i.i.i, %.noexc.i.i.i.i, %27
+  %93 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIiED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #36
-  resume { ptr, i32 } %94
+  resume { ptr, i32 } %93
 
-"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiE3$_0JNS0_8StatusOrIiEEEvEEvOT0_DpOT1_.exit": ; preds = %82, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.i.i.i.i.i, %"_ZZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiENK3$_0clEN4absl12lts_202407228StatusOrIiEE.exit.i.i.i.i", %88
+"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiE3$_0JNS0_8StatusOrIiEEEvEEvOT0_DpOT1_.exit": ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread.i.i.i.i.i, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt5tupleIJiiEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.i.thread6.i.i.i.i.i, %"_ZZL19tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPiENK3$_0clEN4absl12lts_202407228StatusOrIiEE.exit.i.i.i.i", %87
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

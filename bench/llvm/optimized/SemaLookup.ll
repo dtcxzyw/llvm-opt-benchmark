@@ -18057,7 +18057,7 @@ define internal fastcc noundef zeroext i1 @_ZL35hasAcceptableExplicitSpecializat
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %select.unfold.us.i
   %.01943.us.i = phi i1 [ %.221.ph.us.i, %select.unfold.us.i ], [ false, %.lr.ph.i ]
-  %.sroa.0.042.us.i = phi ptr [ %33, %select.unfold.us.i ], [ %1, %.lr.ph.i ]
+  %.sroa.0.042.us.i = phi ptr [ %31, %select.unfold.us.i ], [ %1, %.lr.ph.i ]
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.us.i, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 127
@@ -18080,144 +18080,138 @@ define internal fastcc noundef zeroext i1 @_ZL35hasAcceptableExplicitSpecializat
   br label %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.us.i"
 
 21:                                               ; preds = %15
-  %22 = add nsw i32 %10, -38
-  %23 = icmp ult i32 %22, 7
-  tail call void @llvm.assume(i1 %23)
-  %24 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.0.042.us.i) #28
+  %22 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.0.042.us.i) #28
   br label %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.us.i"
 
 "_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.us.i": ; preds = %21, %19, %13
-  %.1.in.i.us.i = phi i32 [ %14, %13 ], [ %20, %19 ], [ %24, %21 ]
+  %.1.in.i.us.i = phi i32 [ %14, %13 ], [ %20, %19 ], [ %22, %21 ]
   %.1.i.us.i = icmp eq i32 %.1.in.i.us.i, 2
-  br i1 %.1.i.us.i, label %25, label %select.unfold.us.i
+  br i1 %.1.i.us.i, label %23, label %select.unfold.us.i
 
-25:                                               ; preds = %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.us.i"
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.us.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.us.i = load i64, ptr %26, align 8
-  %27 = and i64 %.0.copyload.i.i.i.i.i.i.i.us.i, 6
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %"_ZL28hasAcceptableDeclarationImplIZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS0_9NamedDeclEPN4llvm15SmallVectorImplIPNS0_6ModuleEEENS1_14AcceptableKindEE3$_0EbS2_S5_SB_T_SC_.exit", label %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.us.i
+23:                                               ; preds = %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.us.i"
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.us.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.us.i = load i64, ptr %24, align 8
+  %25 = and i64 %.0.copyload.i.i.i.i.i.i.i.us.i, 6
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %"_ZL28hasAcceptableDeclarationImplIZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS0_9NamedDeclEPN4llvm15SmallVectorImplIPNS0_6ModuleEEENS1_14AcceptableKindEE3$_0EbS2_S5_SB_T_SC_.exit", label %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.us.i
 
-_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.us.i: ; preds = %25
-  %29 = tail call noundef zeroext i1 @_ZN5clang12LookupResult16isAcceptableSlowERNS_4SemaEPNS_9NamedDeclENS1_14AcceptableKindE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %.sroa.0.042.us.i, i32 noundef range(i32 0, 2) %3) #31
-  br i1 %29, label %"_ZL28hasAcceptableDeclarationImplIZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS0_9NamedDeclEPN4llvm15SmallVectorImplIPNS0_6ModuleEEENS1_14AcceptableKindEE3$_0EbS2_S5_SB_T_SC_.exit", label %select.unfold.us.i
+_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.us.i: ; preds = %23
+  %27 = tail call noundef zeroext i1 @_ZN5clang12LookupResult16isAcceptableSlowERNS_4SemaEPNS_9NamedDeclENS1_14AcceptableKindE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %.sroa.0.042.us.i, i32 noundef range(i32 0, 2) %3) #31
+  br i1 %27, label %"_ZL28hasAcceptableDeclarationImplIZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS0_9NamedDeclEPN4llvm15SmallVectorImplIPNS0_6ModuleEEENS1_14AcceptableKindEE3$_0EbS2_S5_SB_T_SC_.exit", label %select.unfold.us.i
 
 select.unfold.us.i:                               ; preds = %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.us.i, %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.us.i"
   %.221.ph.us.i = phi i1 [ %.01943.us.i, %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.us.i" ], [ true, %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.us.i ]
-  %30 = load ptr, ptr %.sroa.0.042.us.i, align 8, !tbaa !1071
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.0.042.us.i) #28
-  %.not.i30.us.i = icmp eq ptr %33, %1
-  %.not39.us51.i = icmp eq ptr %33, null
+  %28 = load ptr, ptr %.sroa.0.042.us.i, align 8, !tbaa !1071
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.0.042.us.i) #28
+  %.not.i30.us.i = icmp eq ptr %31, %1
+  %.not39.us51.i = icmp eq ptr %31, null
   %.not39.us.i = or i1 %.not.i30.us.i, %.not39.us51.i
   br i1 %.not39.us.i, label %select.unfold._crit_edge.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %select.unfold.i
   %.01943.i = phi i1 [ %.221.ph.i, %select.unfold.i ], [ false, %.lr.ph.i ]
-  %.sroa.0.042.i = phi ptr [ %83, %select.unfold.i ], [ %1, %.lr.ph.i ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.i, i64 28
-  %35 = load i32, ptr %34, align 4
-  %36 = and i32 %35, 127
-  %37 = add nsw i32 %36, -60
-  %38 = icmp ult i32 %37, -3
-  br i1 %38, label %41, label %39
+  %.sroa.0.042.i = phi ptr [ %79, %select.unfold.i ], [ %1, %.lr.ph.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.i, i64 28
+  %33 = load i32, ptr %32, align 4
+  %34 = and i32 %33, 127
+  %35 = add nsw i32 %34, -60
+  %36 = icmp ult i32 %35, -3
+  br i1 %36, label %39, label %37
+
+37:                                               ; preds = %.lr.ph.split.i
+  %38 = tail call noundef i32 @_ZNK5clang13CXXRecordDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.0.042.i) #28
+  br label %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.i"
 
 39:                                               ; preds = %.lr.ph.split.i
-  %40 = tail call noundef i32 @_ZNK5clang13CXXRecordDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.0.042.i) #28
+  %40 = and i32 %33, 126
+  %41 = add nsw i32 %40, -38
+  %42 = icmp ult i32 %41, -6
+  br i1 %42, label %45, label %43
+
+43:                                               ; preds = %39
+  %44 = tail call noundef i32 @_ZNK5clang12FunctionDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.0.042.i) #28
   br label %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.i"
 
-41:                                               ; preds = %.lr.ph.split.i
-  %42 = and i32 %35, 126
-  %43 = add nsw i32 %42, -38
-  %44 = icmp ult i32 %43, -6
-  br i1 %44, label %47, label %45
-
-45:                                               ; preds = %41
-  %46 = tail call noundef i32 @_ZNK5clang12FunctionDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.0.042.i) #28
+45:                                               ; preds = %39
+  %46 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.0.042.i) #28
   br label %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.i"
 
-47:                                               ; preds = %41
-  %48 = add nsw i32 %36, -38
-  %49 = icmp ult i32 %48, 7
-  tail call void @llvm.assume(i1 %49)
-  %50 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.0.042.i) #28
-  br label %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.i"
-
-"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.i": ; preds = %47, %45, %39
-  %.1.in.i.i = phi i32 [ %40, %39 ], [ %46, %45 ], [ %50, %47 ]
+"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.i": ; preds = %45, %43, %37
+  %.1.in.i.i = phi i32 [ %38, %37 ], [ %44, %43 ], [ %46, %45 ]
   %.1.i.i = icmp eq i32 %.1.in.i.i, 2
-  br i1 %.1.i.i, label %51, label %select.unfold.i
+  br i1 %.1.i.i, label %47, label %select.unfold.i
 
-51:                                               ; preds = %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.i"
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %52, align 8
-  %53 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 6
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %"_ZL28hasAcceptableDeclarationImplIZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS0_9NamedDeclEPN4llvm15SmallVectorImplIPNS0_6ModuleEEENS1_14AcceptableKindEE3$_0EbS2_S5_SB_T_SC_.exit", label %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.i
+47:                                               ; preds = %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.i"
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %48, align 8
+  %49 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 6
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %"_ZL28hasAcceptableDeclarationImplIZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS0_9NamedDeclEPN4llvm15SmallVectorImplIPNS0_6ModuleEEENS1_14AcceptableKindEE3$_0EbS2_S5_SB_T_SC_.exit", label %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.i
 
-_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.i: ; preds = %51
-  %55 = tail call noundef zeroext i1 @_ZN5clang12LookupResult16isAcceptableSlowERNS_4SemaEPNS_9NamedDeclENS1_14AcceptableKindE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %.sroa.0.042.i, i32 noundef range(i32 0, 2) %3) #31
-  br i1 %55, label %"_ZL28hasAcceptableDeclarationImplIZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS0_9NamedDeclEPN4llvm15SmallVectorImplIPNS0_6ModuleEEENS1_14AcceptableKindEE3$_0EbS2_S5_SB_T_SC_.exit", label %56
+_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.i: ; preds = %47
+  %51 = tail call noundef zeroext i1 @_ZN5clang12LookupResult16isAcceptableSlowERNS_4SemaEPNS_9NamedDeclENS1_14AcceptableKindE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %.sroa.0.042.i, i32 noundef range(i32 0, 2) %3) #31
+  br i1 %51, label %"_ZL28hasAcceptableDeclarationImplIZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS0_9NamedDeclEPN4llvm15SmallVectorImplIPNS0_6ModuleEEENS1_14AcceptableKindEE3$_0EbS2_S5_SB_T_SC_.exit", label %52
 
-56:                                               ; preds = %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.i
-  %57 = load i32, ptr %34, align 4
-  %58 = and i32 %57, 32768
-  %.not.i.i = icmp eq i32 %58, 0
-  %.0.copyload.i.i.i.i.i.i3.i.i = load i64, ptr %52, align 8
-  %59 = and i64 %.0.copyload.i.i.i.i.i.i3.i.i, 7
-  %.not2.i4.i.i = icmp eq i64 %59, 0
-  br i1 %.not.i.i, label %63, label %60
+52:                                               ; preds = %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.i
+  %53 = load i32, ptr %32, align 4
+  %54 = and i32 %53, 32768
+  %.not.i.i = icmp eq i32 %54, 0
+  %.0.copyload.i.i.i.i.i.i3.i.i = load i64, ptr %48, align 8
+  %55 = and i64 %.0.copyload.i.i.i.i.i.i3.i.i, 7
+  %.not2.i4.i.i = icmp eq i64 %55, 0
+  br i1 %.not.i.i, label %59, label %56
 
-60:                                               ; preds = %56
-  br i1 %.not2.i4.i.i, label %_ZNK5clang4Decl15getOwningModuleEv.exit.i, label %61
+56:                                               ; preds = %52
+  br i1 %.not2.i4.i.i, label %_ZNK5clang4Decl15getOwningModuleEv.exit.i, label %57
 
-61:                                               ; preds = %60
-  %62 = tail call noundef ptr @_ZNK5clang4Decl19getOwningModuleSlowEv(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.0.042.i) #28
+57:                                               ; preds = %56
+  %58 = tail call noundef ptr @_ZNK5clang4Decl19getOwningModuleSlowEv(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.0.042.i) #28
   br label %_ZNK5clang4Decl15getOwningModuleEv.exit.i
 
-63:                                               ; preds = %56
-  br i1 %.not2.i4.i.i, label %_ZNK5clang4Decl15getOwningModuleEv.exit.i, label %64
+59:                                               ; preds = %52
+  br i1 %.not2.i4.i.i, label %_ZNK5clang4Decl15getOwningModuleEv.exit.i, label %60
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %.sroa.0.042.i, i64 -8
-  %66 = load ptr, ptr %65, align 8, !tbaa !1580
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds i8, ptr %.sroa.0.042.i, i64 -8
+  %62 = load ptr, ptr %61, align 8, !tbaa !1580
   br label %_ZNK5clang4Decl15getOwningModuleEv.exit.i
 
-_ZNK5clang4Decl15getOwningModuleEv.exit.i:        ; preds = %64, %63, %61, %60
-  %67 = phi ptr [ null, %60 ], [ %62, %61 ], [ %66, %64 ], [ null, %63 ]
-  %68 = load i32, ptr %5, align 8, !tbaa !1050
-  %69 = load i32, ptr %6, align 4, !tbaa !1063
-  %.not.i.i.not.i.i = icmp ult i32 %68, %69
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.i, label %70, !prof !1107
+_ZNK5clang4Decl15getOwningModuleEv.exit.i:        ; preds = %60, %59, %57, %56
+  %63 = phi ptr [ null, %56 ], [ %58, %57 ], [ %62, %60 ], [ null, %59 ]
+  %64 = load i32, ptr %5, align 8, !tbaa !1050
+  %65 = load i32, ptr %6, align 4, !tbaa !1063
+  %.not.i.i.not.i.i = icmp ult i32 %64, %65
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.i, label %66, !prof !1107
 
-70:                                               ; preds = %_ZNK5clang4Decl15getOwningModuleEv.exit.i
-  %71 = zext i32 %68 to i64
-  %72 = add nuw nsw i64 %71, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef %72, i64 noundef 8) #28
+66:                                               ; preds = %_ZNK5clang4Decl15getOwningModuleEv.exit.i
+  %67 = zext i32 %64 to i64
+  %68 = add nuw nsw i64 %67, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef %68, i64 noundef 8) #28
   %.pre.i.i = load i32, ptr %5, align 8, !tbaa !1050
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.i: ; preds = %70, %_ZNK5clang4Decl15getOwningModuleEv.exit.i
-  %73 = phi i32 [ %68, %_ZNK5clang4Decl15getOwningModuleEv.exit.i ], [ %.pre.i.i, %70 ]
-  %74 = load ptr, ptr %2, align 8, !tbaa !1038
-  %75 = zext i32 %73 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %75
-  %77 = ptrtoint ptr %67 to i64
-  store i64 %77, ptr %76, align 1
-  %78 = load i32, ptr %5, align 8, !tbaa !1050
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %5, align 8, !tbaa !1050
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.i: ; preds = %66, %_ZNK5clang4Decl15getOwningModuleEv.exit.i
+  %69 = phi i32 [ %64, %_ZNK5clang4Decl15getOwningModuleEv.exit.i ], [ %.pre.i.i, %66 ]
+  %70 = load ptr, ptr %2, align 8, !tbaa !1038
+  %71 = zext i32 %69 to i64
+  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %71
+  %73 = ptrtoint ptr %63 to i64
+  store i64 %73, ptr %72, align 1
+  %74 = load i32, ptr %5, align 8, !tbaa !1050
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %5, align 8, !tbaa !1050
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.i, %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.i"
   %.221.ph.i = phi i1 [ %.01943.i, %"_ZZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS_9NamedDeclEPN4llvm15SmallVectorImplIPNS_6ModuleEEENS0_14AcceptableKindEENK3$_0clES4_.exit.i" ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit.i ]
-  %80 = load ptr, ptr %.sroa.0.042.i, align 8, !tbaa !1071
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
-  %82 = load ptr, ptr %81, align 8
-  %83 = tail call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.0.042.i) #28
-  %.not.i30.i = icmp eq ptr %83, %1
-  %.not3950.i = icmp eq ptr %83, null
+  %76 = load ptr, ptr %.sroa.0.042.i, align 8, !tbaa !1071
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
+  %78 = load ptr, ptr %77, align 8
+  %79 = tail call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.0.042.i) #28
+  %.not.i30.i = icmp eq ptr %79, %1
+  %.not3950.i = icmp eq ptr %79, null
   %.not39.i = or i1 %.not.i30.i, %.not3950.i
   br i1 %.not39.i, label %select.unfold._crit_edge.i, label %.lr.ph.split.i
 
@@ -18226,8 +18220,8 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %s
   %not..i = xor i1 %.019.lcssa.i, true
   br label %"_ZL28hasAcceptableDeclarationImplIZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS0_9NamedDeclEPN4llvm15SmallVectorImplIPNS0_6ModuleEEENS1_14AcceptableKindEE3$_0EbS2_S5_SB_T_SC_.exit"
 
-"_ZL28hasAcceptableDeclarationImplIZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS0_9NamedDeclEPN4llvm15SmallVectorImplIPNS0_6ModuleEEENS1_14AcceptableKindEE3$_0EbS2_S5_SB_T_SC_.exit": ; preds = %51, %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.i, %25, %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.us.i, %select.unfold._crit_edge.i
-  %.3.i = phi i1 [ %not..i, %select.unfold._crit_edge.i ], [ true, %25 ], [ true, %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.us.i ], [ true, %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.i ], [ true, %51 ]
+"_ZL28hasAcceptableDeclarationImplIZL35hasAcceptableExplicitSpecializationRN5clang4SemaEPKNS0_9NamedDeclEPN4llvm15SmallVectorImplIPNS0_6ModuleEEENS1_14AcceptableKindEE3$_0EbS2_S5_SB_T_SC_.exit": ; preds = %47, %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.i, %23, %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.us.i, %select.unfold._crit_edge.i
+  %.3.i = phi i1 [ %not..i, %select.unfold._crit_edge.i ], [ true, %23 ], [ true, %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.us.i ], [ true, %_ZN5clang4Sema12isAcceptableEPKNS_9NamedDeclENS0_14AcceptableKindE.exit.i ], [ true, %47 ]
   ret i1 %.3.i
 }
 

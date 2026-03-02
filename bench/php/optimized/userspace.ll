@@ -307,7 +307,7 @@ define hidden void @zif_stream_wrapper_unregister(ptr noundef readonly captures(
   %5 = load i32, ptr %4, align 4, !tbaa !22
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.4, ptr noundef nonnull %3) #12
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %29, label %8
+  br i1 %7, label %28, label %8
 
 8:                                                ; preds = %2
   %9 = call ptr @_php_stream_get_url_stream_wrappers_hash() #12
@@ -334,25 +334,24 @@ zend_hash_find_ptr.exit:                          ; preds = %8, %12
   br label %.sink.split
 
 20:                                               ; preds = %zend_hash_find_ptr.exit
-  %21 = icmp ne ptr %.0.i, null
-  call void @llvm.assume(i1 %21)
-  %22 = load ptr, ptr %.0.i, align 8, !tbaa !48
-  %23 = icmp eq ptr %22, @user_stream_wops
-  br i1 %23, label %24, label %.sink.split
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i) ]
+  %21 = load ptr, ptr %.0.i, align 8, !tbaa !48
+  %22 = icmp eq ptr %21, @user_stream_wops
+  br i1 %22, label %23, label %.sink.split
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !31
-  %27 = call i32 @zend_list_delete(ptr noundef %26) #12
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !31
+  %26 = call i32 @zend_list_delete(ptr noundef %25) #12
   br label %.sink.split
 
-.sink.split:                                      ; preds = %20, %24, %17
-  %.sink = phi i32 [ 2, %17 ], [ 3, %24 ], [ 3, %20 ]
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.sink, ptr %28, align 8, !tbaa !22
-  br label %29
+.sink.split:                                      ; preds = %20, %23, %17
+  %.sink = phi i32 [ 2, %17 ], [ 3, %23 ], [ 3, %20 ]
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %.sink, ptr %27, align 8, !tbaa !22
+  br label %28
 
-29:                                               ; preds = %.sink.split, %2
+28:                                               ; preds = %.sink.split, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

@@ -488,8 +488,9 @@ define void @"_ZN87_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 1, ptr %7, align 1, !noalias !61
-  %13 = load ptr, ptr %11, align 8, !alias.scope !61, !nonnull !20, !noundef !20
-  %14 = load i64, ptr %13, align 8, !noalias !64, !noundef !20
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  %13 = load ptr, ptr %11, align 8, !alias.scope !67, !nonnull !20, !noundef !20
+  %14 = load i64, ptr %13, align 8, !noalias !67, !noundef !20
   %15 = lshr i64 %14, 1
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = icmp ult i64 %14, 18
@@ -501,12 +502,12 @@ define void @"_ZN87_$LT$uv_distribution_filename..build_tag..BuildTag$u20$as$u20
   %21 = sub i64 %8, %20
   %22 = add i64 %21, %19
   %23 = zext i32 %2 to i64
-  tail call void @_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h328aae555c980afeE(ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %15, i64 noundef %23, ptr noundef nonnull %12, i64 noundef %22), !noalias !64
+  tail call void @_ZN4rkyv6string4repr18ArchivedStringRepr23try_emplace_out_of_line17h328aae555c980afeE(ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %15, i64 noundef %23, ptr noundef nonnull %12, i64 noundef %22), !noalias !67
   br label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17h14e431bad8da0b3aE.exit"
 
 24:                                               ; preds = %10
-  store i64 -1, ptr %12, align 1, !noalias !67
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %16, i64 %15, i1 false), !noalias !64
+  store i64 -1, ptr %12, align 1, !noalias !68
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %16, i64 %15, i1 false), !noalias !67
   br label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17h14e431bad8da0b3aE.exit"
 
 "_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17h14e431bad8da0b3aE.exit": ; preds = %9, %18, %24
@@ -649,9 +650,10 @@ attributes #10 = { noreturn }
 !61 = !{!62}
 !62 = distinct !{!62, !63, !"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17h14e431bad8da0b3aE: argument 0"}
 !63 = distinct !{!63, !"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17h14e431bad8da0b3aE"}
-!64 = !{!65, !62}
+!64 = !{!65}
 !65 = distinct !{!65, !66, !"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492: argument 0"}
 !66 = distinct !{!66, !"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$rkyv..traits..Archive$GT$7resolve17hc8ad1149fc78cb87E.llvm.5959762672328116492"}
-!67 = !{!68, !65, !62}
-!68 = distinct !{!68, !69, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492: argument 0"}
-!69 = distinct !{!69, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492"}
+!67 = !{!65, !62}
+!68 = !{!69, !65, !62}
+!69 = distinct !{!69, !70, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492: argument 0"}
+!70 = distinct !{!70, !"_ZN4rkyv6string14ArchivedString16resolve_from_str17h3025dc9b33028dcdE.llvm.5959762672328116492"}

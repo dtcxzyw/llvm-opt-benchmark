@@ -341,22 +341,21 @@ define dso_local noundef nonnull ptr @_ZN5clang17CoroutineBodyStmt6CreateERKNS_1
 
 _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %22, %25
   %.0.i.i.i = phi ptr [ %24, %22 ], [ %26, %25 ]
-  %27 = icmp ne ptr %.0.i.i.i, null
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  tail call void @llvm.assume(i1 %27)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i) ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, i8 0, i64 112, i1 false)
   call void @_ZN5clang17CoroutineBodyStmtC1ERKNS0_8CtorArgsE(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  store i32 %1, ptr %28, align 8, !tbaa !46
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  store i32 %1, ptr %27, align 8, !tbaa !46
   %.not6.i.i.i.i.i = icmp eq i32 %1, 0
   br i1 %.not6.i.i.i.i.i, label %_ZSt18uninitialized_fillIPPN5clang4StmtES2_EvT_S4_RKT0_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %29 = zext i32 %1 to i64
-  %.idx = shl nuw nsw i64 %29, 3
-  %30 = getelementptr i8, ptr %.0.i.i.i, i64 112
-  call void @llvm.memset.p0.i64(ptr align 8 %30, i8 0, i64 %.idx, i1 false), !tbaa !39
+  %28 = zext i32 %1 to i64
+  %.idx = shl nuw nsw i64 %28, 3
+  %29 = getelementptr i8, ptr %.0.i.i.i, i64 112
+  call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 %.idx, i1 false), !tbaa !39
   br label %_ZSt18uninitialized_fillIPPN5clang4StmtES2_EvT_S4_RKT0_.exit
 
 _ZSt18uninitialized_fillIPPN5clang4StmtES2_EvT_S4_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.i.preheader, %_ZNK5clang10ASTContext8AllocateEmj.exit

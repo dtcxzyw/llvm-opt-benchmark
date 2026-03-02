@@ -566,7 +566,7 @@ define hidden void @zim_Pdo_Sqlite_loadExtension(ptr noundef readonly captures(n
   %47 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %37, i32 noundef 1005, i32 noundef 0, ptr noundef null) #11
   br label %48
 
-48:                                               ; preds = %2, %40, %46, %32, %21, %15
+48:                                               ; preds = %40, %46, %2, %32, %21, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -703,7 +703,7 @@ define hidden void @zim_Pdo_Sqlite_openBlob(ptr noundef readonly captures(none) 
   store i32 2, ptr %62, align 8, !tbaa !30
   br label %63
 
-63:                                               ; preds = %23, %40, %61, %54, %17
+63:                                               ; preds = %40, %61, %54, %23, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

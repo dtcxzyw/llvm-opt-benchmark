@@ -1447,7 +1447,7 @@ lxb_selectors_adapted_set_entry_id.exit.i:        ; preds = %13, %10
   br i1 %.not.i.i28, label %lxb_selectors_match_element.exit, label %.lr.ph.i
 
 39:                                               ; preds = %27
-  %40 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str.47) #7
+  %40 = tail call ptr @xmlHasProp(ptr noundef %3, ptr noundef nonnull @.str.47) #7
   %.not17.i.i = icmp eq ptr %40, null
   br i1 %.not17.i.i, label %lxb_selectors_match_element.exit, label %.thread18.i
 
@@ -1524,7 +1524,7 @@ dom_lxb_str_wrapper_release.exit.i:               ; preds = %59, %57
   br i1 %.not.i, label %lxb_selectors_match_element.exit, label %.lr.ph
 
 70:                                               ; preds = %61
-  %71 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef nonnull @.str) #7
+  %71 = tail call ptr @xmlHasProp(ptr noundef %3, ptr noundef nonnull @.str) #7
   %.not17.i = icmp eq ptr %71, null
   br i1 %.not17.i, label %lxb_selectors_match_element.exit, label %.thread60
 
@@ -1616,7 +1616,7 @@ lxb_selectors_adapted_set_entry_id.exit.i30:      ; preds = %95, %91
   br i1 %.not.i.i39, label %lxb_selectors_match_element.exit, label %.lr.ph.i37
 
 107:                                              ; preds = %lxb_selectors_adapted_set_entry_id.exit.i30
-  %108 = tail call ptr @xmlHasProp(ptr noundef nonnull %3, ptr noundef %96) #7
+  %108 = tail call ptr @xmlHasProp(ptr noundef %3, ptr noundef %96) #7
   %.not17.i.i31 = icmp eq ptr %108, null
   br i1 %.not17.i.i31, label %lxb_selectors_match_element.exit, label %.thread25.i
 
@@ -1647,7 +1647,7 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %114
-  %123 = call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef nonnull %3) #7
+  %123 = call zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef %3) #7
   br label %124
 
 124:                                              ; preds = %122, %114
@@ -3806,7 +3806,7 @@ define internal fastcc noundef zeroext i1 @lxb_selectors_pseudo_class_disabled(p
   br i1 %.not.i.i45, label %lxb_selectors_adapted_has_attr.exit46.thread, label %.lr.ph
 
 13:                                               ; preds = %4
-  %14 = tail call ptr @xmlHasProp(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #7
+  %14 = tail call ptr @xmlHasProp(ptr noundef %0, ptr noundef nonnull @.str.17) #7
   %.not17.i.i40 = icmp eq ptr %14, null
   br i1 %.not17.i.i40, label %lxb_selectors_adapted_has_attr.exit46.thread, label %.thread50
 

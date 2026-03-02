@@ -3969,6 +3969,7 @@ common.resume:                                    ; preds = %56, %33
 
 56:                                               ; preds = %54, %40
   %eh.lpad-body.i = phi { ptr, i32 } [ %55, %54 ], [ %41, %40 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 152, i64 noundef 8) #35
   br label %common.resume
 
@@ -4430,6 +4431,7 @@ define internal void @"_ZN4core3ptr64drop_in_place$LT$alloc..boxed..Box$LT$uv_me
 130:                                              ; preds = %128
   %131 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val4.i) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4.i, i64 noundef 104, i64 noundef 8) #35
   br label %134
 
@@ -5621,6 +5623,7 @@ common.resume:                                    ; preds = %171, %180, %98, %11
 176:                                              ; preds = %174
   %177 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val2) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef 104, i64 noundef 8) #35
   br label %common.resume
 
@@ -5652,6 +5655,7 @@ common.resume:                                    ; preds = %171, %180, %98, %11
 185:                                              ; preds = %183
   %186 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val4) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef 104, i64 noundef 8) #35
   br label %common.resume
 
@@ -11072,24 +11076,23 @@ define void @"_ZN98_$LT$uv_distribution..error..Error$u20$as$u20$core..convert..
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN109_$LT$uv_distribution..error..Error$u20$as$u20$core..convert..From$LT$reqwest_middleware..error..Error$GT$$GT$4from17h00e7a430bca920b0E"(ptr dead_on_unwind noalias noundef writable writeonly sret([112 x i8]) align 8 captures(none) dereferenceable(112) initializes((0, 16)) %0, i64 noundef range(i64 0, 2) %1, ptr noundef %2) unnamed_addr #6 {
   %trunc = trunc nuw i64 %1 to i1
-  %4 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %4)
-  br i1 %trunc, label %5, label %11
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  br i1 %trunc, label %4, label %10
 
-5:                                                ; preds = %3
-  %6 = tail call { i64, ptr } @"_ZN106_$LT$uv_client..error..WrappedReqwestError$u20$as$u20$core..convert..From$LT$reqwest..error..Error$GT$$GT$4from17hf0334ffa9611304bE"(ptr noalias noundef nonnull align 8 %2)
-  %7 = extractvalue { i64, ptr } %6, 0
-  %8 = extractvalue { i64, ptr } %6, 1
-  %9 = inttoptr i64 %7 to ptr
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %10, align 8
-  br label %11
+4:                                                ; preds = %3
+  %5 = tail call { i64, ptr } @"_ZN106_$LT$uv_client..error..WrappedReqwestError$u20$as$u20$core..convert..From$LT$reqwest..error..Error$GT$$GT$4from17hf0334ffa9611304bE"(ptr noalias noundef nonnull align 8 %2)
+  %6 = extractvalue { i64, ptr } %5, 0
+  %7 = extractvalue { i64, ptr } %5, 1
+  %8 = inttoptr i64 %6 to ptr
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %7, ptr %9, align 8
+  br label %10
 
-11:                                               ; preds = %3, %5
-  %.sink = phi ptr [ %9, %5 ], [ %2, %3 ]
-  %storemerge = phi i64 [ -9223372036854775802, %5 ], [ -9223372036854775772, %3 ]
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %12, align 8
+10:                                               ; preds = %3, %4
+  %.sink = phi ptr [ %8, %4 ], [ %2, %3 ]
+  %storemerge = phi i64 [ -9223372036854775802, %4 ], [ -9223372036854775772, %3 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %11, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

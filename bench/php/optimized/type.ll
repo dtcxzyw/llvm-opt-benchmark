@@ -650,7 +650,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %8
   store i32 3, ptr %199, align 8, !tbaa !4
   br label %200
 
-200:                                              ; preds = %192, %191, %20, %198
+200:                                              ; preds = %20, %192, %191, %198
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

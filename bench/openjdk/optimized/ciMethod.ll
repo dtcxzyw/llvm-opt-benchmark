@@ -1430,7 +1430,7 @@ define hidden noundef ptr @_ZN8ciMethod17get_flow_analysisEv(ptr noundef nonnull
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %13
+  br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1439,17 +1439,16 @@ define hidden noundef ptr @_ZN8ciMethod17get_flow_analysisEv(ptr noundef nonnull
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 88, ptr noundef %10) #14
-  %12 = icmp ne ptr %11, null
-  tail call void @llvm.assume(i1 %12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   tail call void @_ZN10ciTypeFlowC1EP5ciEnvP8ciMethodi(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull %9, ptr noundef nonnull %0, i32 noundef -1) #14
   store ptr %11, ptr %2, align 8
   tail call void @_ZN10ciTypeFlow7do_flowEv(ptr noundef nonnull align 8 dereferenceable(88) %11) #14
   %.pre = load ptr, ptr %2, align 8
-  br label %13
+  br label %12
 
-13:                                               ; preds = %5, %1
-  %14 = phi ptr [ %.pre, %5 ], [ %3, %1 ]
-  ret ptr %14
+12:                                               ; preds = %5, %1
+  %13 = phi ptr [ %.pre, %5 ], [ %3, %1 ]
+  ret ptr %13
 }
 
 declare void @_ZN10ciTypeFlowC1EP5ciEnvP8ciMethodi(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, ptr noundef, i32 noundef) unnamed_addr #2
@@ -1464,8 +1463,7 @@ define hidden noundef nonnull ptr @_ZN8ciMethod21get_osr_flow_analysisEi(ptr nou
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 88, ptr noundef %7) #14
-  %9 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   tail call void @_ZN10ciTypeFlowC1EP5ciEnvP8ciMethodi(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull %6, ptr noundef nonnull %0, i32 noundef %1) #14
   tail call void @_ZN10ciTypeFlow7do_flowEv(ptr noundef nonnull align 8 dereferenceable(88) %8) #14
   ret ptr %8
@@ -1476,7 +1474,7 @@ define hidden void @_ZN8ciMethod19raw_liveness_at_bciEi(ptr dead_on_unwind noali
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %3
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1485,17 +1483,16 @@ define hidden void @_ZN8ciMethod19raw_liveness_at_bciEi(ptr dead_on_unwind noali
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 80, ptr noundef %12) #14
-  %14 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %14)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   tail call void @_ZN14MethodLivenessC1EP5ArenaP8ciMethod(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef %12, ptr noundef nonnull %1) #14
   store ptr %13, ptr %4, align 8
   tail call void @_ZN14MethodLiveness16compute_livenessEv(ptr noundef nonnull align 8 dereferenceable(80) %13) #14
   %.pre = load ptr, ptr %4, align 8
-  br label %15
+  br label %14
 
-15:                                               ; preds = %7, %3
-  %16 = phi ptr [ %.pre, %7 ], [ %5, %3 ]
-  tail call void @_ZN14MethodLiveness15get_liveness_atEi(ptr dead_on_unwind writable sret(%class.MethodLivenessResult) align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %16, i32 noundef %2) #14
+14:                                               ; preds = %7, %3
+  %15 = phi ptr [ %.pre, %7 ], [ %5, %3 ]
+  tail call void @_ZN14MethodLiveness15get_liveness_atEi(ptr dead_on_unwind writable sret(%class.MethodLivenessResult) align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %15, i32 noundef %2) #14
   ret void
 }
 
@@ -1531,7 +1528,7 @@ define hidden void @_ZN8ciMethod15liveness_at_bciEi(ptr dead_on_unwind noalias w
   %21 = sext i32 %20 to i64
   tail call void @_ZN6BitMap9set_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 0, i64 noundef %21) #14
   store i8 1, ptr %19, align 8
-  br label %31
+  br label %30
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -1542,8 +1539,7 @@ define hidden void @_ZN8ciMethod15liveness_at_bciEi(ptr dead_on_unwind noalias w
 26:                                               ; preds = %22
   %27 = load ptr, ptr %7, align 8, !noalias !13
   %28 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 80, ptr noundef %27) #14, !noalias !13
-  %29 = icmp ne ptr %28, null
-  tail call void @llvm.assume(i1 %29)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %28) ]
   tail call void @_ZN14MethodLivenessC1EP5ArenaP8ciMethod(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(160) %1) #14, !noalias !13
   store ptr %28, ptr %23, align 8, !noalias !13
   tail call void @_ZN14MethodLiveness16compute_livenessEv(ptr noundef nonnull align 8 dereferenceable(80) %28) #14, !noalias !13
@@ -1551,11 +1547,11 @@ define hidden void @_ZN8ciMethod15liveness_at_bciEi(ptr dead_on_unwind noalias w
   br label %_ZN8ciMethod19raw_liveness_at_bciEi.exit
 
 _ZN8ciMethod19raw_liveness_at_bciEi.exit:         ; preds = %22, %26
-  %30 = phi ptr [ %.pre.i, %26 ], [ %24, %22 ]
-  tail call void @_ZN14MethodLiveness15get_liveness_atEi(ptr dead_on_unwind writable sret(%class.MethodLivenessResult) align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %30, i32 noundef %2) #14
-  br label %31
+  %29 = phi ptr [ %.pre.i, %26 ], [ %24, %22 ]
+  tail call void @_ZN14MethodLiveness15get_liveness_atEi(ptr dead_on_unwind writable sret(%class.MethodLivenessResult) align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %29, i32 noundef %2) #14
+  br label %30
 
-31:                                               ; preds = %15, %_ZN8ciMethod19raw_liveness_at_bciEi.exit
+30:                                               ; preds = %15, %_ZN8ciMethod19raw_liveness_at_bciEi.exit
   ret void
 }
 
@@ -1746,7 +1742,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8ciMethod15bci
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %13
+  br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1755,18 +1751,17 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8ciMethod15bci
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 80, ptr noundef %10) #14
-  %12 = icmp ne ptr %11, null
-  tail call void @llvm.assume(i1 %12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   tail call void @_ZN14MethodLivenessC1EP5ArenaP8ciMethod(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef %10, ptr noundef nonnull %0) #14
   store ptr %11, ptr %2, align 8
   tail call void @_ZN14MethodLiveness16compute_livenessEv(ptr noundef nonnull align 8 dereferenceable(80) %11) #14
   %.pre = load ptr, ptr %2, align 8
-  br label %13
+  br label %12
 
-13:                                               ; preds = %5, %1
-  %14 = phi ptr [ %.pre, %5 ], [ %3, %1 ]
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  ret ptr %15
+12:                                               ; preds = %5, %1
+  %13 = phi ptr [ %.pre, %5 ], [ %3, %1 ]
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

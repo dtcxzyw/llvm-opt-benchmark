@@ -622,7 +622,7 @@ scdf_mark_edge_feasible.exit:                     ; preds = %.lr.ph.i145, %194, 
   br i1 %.not12.i.i131, label %.preheader.preheader, label %.lr.ph.preheader.i.i132
 
 .lr.ph.preheader.i.i148:                          ; preds = %.preheader.preheader, %scdf_mark_edge_feasible.exit168
-  %216 = phi i32 [ %451, %scdf_mark_edge_feasible.exit168 ], [ %99, %.preheader.preheader ]
+  %216 = phi i32 [ %450, %scdf_mark_edge_feasible.exit168 ], [ %99, %.preheader.preheader ]
   %217 = load ptr, ptr %9, align 8, !tbaa !27
   %wide.trip.count.i.i149 = zext i32 %216 to i64
   br label %.lr.ph.i.i150
@@ -968,26 +968,25 @@ scdf_edge.exit.i172:                              ; preds = %380
   br i1 %439, label %440, label %scdf_mark_edge_feasible.exit168
 
 440:                                              ; preds = %438
-  %441 = icmp ne ptr %.0101.lcssa, null
-  tail call void @llvm.assume(i1 %441)
-  %442 = getelementptr inbounds nuw i8, ptr %.0101.lcssa, i64 28
-  %443 = load i8, ptr %442, align 4, !tbaa !83
-  %444 = icmp eq i8 %443, -119
-  %.1102.idx = select i1 %444, i64 -32, i64 0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0101.lcssa) ]
+  %441 = getelementptr inbounds nuw i8, ptr %.0101.lcssa, i64 28
+  %442 = load i8, ptr %441, align 4, !tbaa !83
+  %443 = icmp eq i8 %442, -119
+  %.1102.idx = select i1 %443, i64 -32, i64 0
   %.1102 = getelementptr inbounds i8, ptr %.0101.lcssa, i64 %.1102.idx
-  %445 = sext i1 %444 to i32
-  %.1 = add nsw i32 %.0.lcssa, %445
-  %446 = load ptr, ptr %18, align 8, !tbaa !90
-  %447 = load ptr, ptr %16, align 8, !tbaa !82
-  %448 = sext i32 %.1 to i64
-  %449 = getelementptr %struct._zend_ssa_op, ptr %447, i64 %448
-  %450 = getelementptr i8, ptr %449, i64 -36
-  tail call void %446(ptr noundef nonnull %0, i32 noundef %225, ptr noundef nonnull %238, ptr noundef nonnull %.1102, ptr noundef %450) #8
+  %444 = sext i1 %443 to i32
+  %.1 = add nsw i32 %.0.lcssa, %444
+  %445 = load ptr, ptr %18, align 8, !tbaa !90
+  %446 = load ptr, ptr %16, align 8, !tbaa !82
+  %447 = sext i32 %.1 to i64
+  %448 = getelementptr %struct._zend_ssa_op, ptr %446, i64 %447
+  %449 = getelementptr i8, ptr %448, i64 -36
+  tail call void %445(ptr noundef nonnull %0, i32 noundef %225, ptr noundef nonnull %238, ptr noundef nonnull %.1102, ptr noundef %449) #8
   br label %scdf_mark_edge_feasible.exit168
 
 scdf_mark_edge_feasible.exit168:                  ; preds = %.lr.ph.i175, %.lr.ph.i164, %421, %411, %scdf_edge.exit.i172, %319, %309, %scdf_edge.exit.i161, %440, %438
-  %451 = load i32, ptr %10, align 8, !tbaa !61
-  %.not12.i.i147 = icmp eq i32 %451, 0
+  %450 = load i32, ptr %10, align 8, !tbaa !61
+  %.not12.i.i147 = icmp eq i32 %450, 0
   br i1 %.not12.i.i147, label %.loopexit.backedge, label %.lr.ph.preheader.i.i148
 
 .loopexit185:                                     ; preds = %.loopexit187, %36

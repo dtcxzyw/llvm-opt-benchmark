@@ -776,7 +776,7 @@ define internal fastcc ptr @port_make_channel(ptr noundef %0, ptr noundef %1, i3
   store ptr %11, ptr %12, align 8, !tbaa !97
   %13 = call ptr @ossl_quic_channel_alloc(ptr noundef nonnull %4) #11
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %84, label %15
+  br i1 %14, label %83, label %15
 
 15:                                               ; preds = %3
   %.not = icmp eq ptr %1, null
@@ -786,140 +786,139 @@ define internal fastcc ptr @port_make_channel(ptr noundef %0, ptr noundef %1, i3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !30
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %25, label %19
+  br i1 %.not.i, label %24, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !32
   %22 = call ptr %18(ptr noundef nonnull %13, ptr noundef %21) #11
-  %23 = icmp ne ptr %22, null
-  call void @llvm.assume(i1 %23)
-  %24 = load ptr, ptr %20, align 8, !tbaa !32
-  br label %25
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  %23 = load ptr, ptr %20, align 8, !tbaa !32
+  br label %24
 
-25:                                               ; preds = %19, %16
+24:                                               ; preds = %19, %16
   %.034.i = phi ptr [ %22, %19 ], [ null, %16 ]
-  %.0.i = phi ptr [ %24, %19 ], [ null, %16 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !26
-  %28 = call ptr @TLS_method() #11
-  %29 = call ptr @ossl_ssl_connection_new_int(ptr noundef %27, ptr noundef %.034.i, ptr noundef %28) #11
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread.i, label %31
+  %.0.i = phi ptr [ %23, %19 ], [ null, %16 ]
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %26 = load ptr, ptr %25, align 8, !tbaa !26
+  %27 = call ptr @TLS_method() #11
+  %28 = call ptr @ossl_ssl_connection_new_int(ptr noundef %26, ptr noundef %.034.i, ptr noundef %27) #11
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %.thread.i, label %30
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr %29, align 8, !tbaa !98
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.thread48.i, label %34
+30:                                               ; preds = %24
+  %31 = load i32, ptr %28, align 8, !tbaa !98
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %.thread48.i, label %33
 
-34:                                               ; preds = %31
-  %35 = and i32 %32, 128
-  %.not43.i = icmp eq i32 %35, 0
-  br i1 %.not43.i, label %.thread.i, label %36
+33:                                               ; preds = %30
+  %34 = and i32 %31, 128
+  %.not43.i = icmp eq i32 %34, 0
+  br i1 %.not43.i, label %.thread.i, label %35
 
-36:                                               ; preds = %34
-  %37 = call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %29) #11
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread.i, label %.thread48.i
+35:                                               ; preds = %33
+  %36 = call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %28) #11
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %.thread.i, label %.thread48.i
 
-.thread.i:                                        ; preds = %36, %34, %25
+.thread.i:                                        ; preds = %35, %33, %24
   call void @SSL_free(ptr noundef %.034.i) #11
   unreachable
 
-.thread48.i:                                      ; preds = %36, %31
-  %39 = phi ptr [ %37, %36 ], [ %29, %31 ]
+.thread48.i:                                      ; preds = %35, %30
+  %38 = phi ptr [ %36, %35 ], [ %28, %30 ]
   %.not44.i = icmp eq ptr %.034.i, null
-  br i1 %.not44.i, label %42, label %40
+  br i1 %.not44.i, label %41, label %39
 
-40:                                               ; preds = %.thread48.i
-  %41 = getelementptr inbounds nuw i8, ptr %.034.i, i64 120
-  store ptr %29, ptr %41, align 8, !tbaa !104
-  br label %42
+39:                                               ; preds = %.thread48.i
+  %40 = getelementptr inbounds nuw i8, ptr %.034.i, i64 120
+  store ptr %28, ptr %40, align 8, !tbaa !104
+  br label %41
 
-42:                                               ; preds = %40, %.thread48.i
+41:                                               ; preds = %39, %.thread48.i
   %.not45.i = icmp eq ptr %.0.i, null
-  br i1 %.not45.i, label %53, label %43
+  br i1 %.not45.i, label %52, label %42
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !113
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 544
-  %47 = load ptr, ptr %46, align 8, !tbaa !115
-  %.not46.i = icmp eq ptr %47, null
-  br i1 %.not46.i, label %53, label %48
+42:                                               ; preds = %41
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !113
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 544
+  %46 = load ptr, ptr %45, align 8, !tbaa !115
+  %.not46.i = icmp eq ptr %46, null
+  br i1 %.not46.i, label %52, label %47
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 552
-  %50 = load ptr, ptr %49, align 8, !tbaa !143
-  %51 = call i32 %47(ptr noundef nonnull %45, ptr noundef %.034.i, ptr noundef %50) #11
-  %.not47.i = icmp eq i32 %51, 0
-  br i1 %.not47.i, label %52, label %53
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 552
+  %49 = load ptr, ptr %48, align 8, !tbaa !143
+  %50 = call i32 %46(ptr noundef nonnull %44, ptr noundef %.034.i, ptr noundef %49) #11
+  %.not47.i = icmp eq i32 %50, 0
+  br i1 %.not47.i, label %51, label %52
 
-52:                                               ; preds = %48
-  call void @SSL_free(ptr noundef nonnull %29) #11
+51:                                               ; preds = %47
+  call void @SSL_free(ptr noundef nonnull %28) #11
   call void @SSL_free(ptr noundef %.034.i) #11
   unreachable
 
-53:                                               ; preds = %48, %43, %42
-  %54 = getelementptr inbounds nuw i8, ptr %39, i64 352
-  %55 = load i64, ptr %54, align 8, !tbaa !144
-  %56 = or i64 %55, 8192
-  store i64 %56, ptr %54, align 8, !tbaa !144
-  %57 = getelementptr inbounds nuw i8, ptr %39, i64 2480
-  %58 = load i64, ptr %57, align 8, !tbaa !179
-  %59 = and i64 %58, 16633559941
-  store i64 %59, ptr %57, align 8, !tbaa !179
-  %60 = getelementptr inbounds nuw i8, ptr %39, i64 2988
-  store i32 0, ptr %60, align 4, !tbaa !180
+52:                                               ; preds = %47, %42, %41
+  %53 = getelementptr inbounds nuw i8, ptr %38, i64 352
+  %54 = load i64, ptr %53, align 8, !tbaa !144
+  %55 = or i64 %54, 8192
+  store i64 %55, ptr %53, align 8, !tbaa !144
+  %56 = getelementptr inbounds nuw i8, ptr %38, i64 2480
+  %57 = load i64, ptr %56, align 8, !tbaa !179
+  %58 = and i64 %57, 16633559941
+  store i64 %58, ptr %56, align 8, !tbaa !179
+  %59 = getelementptr inbounds nuw i8, ptr %38, i64 2988
+  store i32 0, ptr %59, align 4, !tbaa !180
   br label %port_new_handshake_layer.exit
 
-port_new_handshake_layer.exit:                    ; preds = %53, %15
-  %61 = phi ptr [ %1, %15 ], [ %29, %53 ]
-  %62 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store ptr %61, ptr %62, align 8, !tbaa !181
-  %63 = getelementptr inbounds nuw i8, ptr %13, i64 1568
-  %64 = load i64, ptr %63, align 8
-  %65 = or i64 %64, 2199023255552
-  store i64 %65, ptr %63, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !182
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1768
-  %69 = load ptr, ptr %68, align 8, !tbaa !183
-  %.not24 = icmp eq ptr %69, null
-  br i1 %.not24, label %75, label %70
+port_new_handshake_layer.exit:                    ; preds = %52, %15
+  %60 = phi ptr [ %1, %15 ], [ %28, %52 ]
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  store ptr %60, ptr %61, align 8, !tbaa !181
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 1568
+  %63 = load i64, ptr %62, align 8
+  %64 = or i64 %63, 2199023255552
+  store i64 %64, ptr %62, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !182
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1768
+  %68 = load ptr, ptr %67, align 8, !tbaa !183
+  %.not24 = icmp eq ptr %68, null
+  br i1 %.not24, label %74, label %69
 
-70:                                               ; preds = %port_new_handshake_layer.exit
-  %71 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %69, ptr noundef nonnull @.str, i32 noundef 537) #11
-  %72 = getelementptr inbounds nuw i8, ptr %13, i64 1600
-  store ptr %71, ptr %72, align 8, !tbaa !184
-  %73 = icmp eq ptr %71, null
-  br i1 %73, label %74, label %75
+69:                                               ; preds = %port_new_handshake_layer.exit
+  %70 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %68, ptr noundef nonnull @.str, i32 noundef 537) #11
+  %71 = getelementptr inbounds nuw i8, ptr %13, i64 1600
+  store ptr %70, ptr %71, align 8, !tbaa !184
+  %72 = icmp eq ptr %70, null
+  br i1 %72, label %73, label %74
 
-74:                                               ; preds = %70
+73:                                               ; preds = %69
   call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str, i32 noundef 538) #11
-  br label %84
+  br label %83
 
-75:                                               ; preds = %70, %port_new_handshake_layer.exit
-  %76 = call i32 @ossl_quic_channel_init(ptr noundef nonnull %13) #11
-  %.not25 = icmp eq i32 %76, 0
-  br i1 %.not25, label %77, label %79
+74:                                               ; preds = %69, %port_new_handshake_layer.exit
+  %75 = call i32 @ossl_quic_channel_init(ptr noundef nonnull %13) #11
+  %.not25 = icmp eq i32 %75, 0
+  br i1 %.not25, label %76, label %78
 
-77:                                               ; preds = %75
-  %78 = load ptr, ptr %62, align 8, !tbaa !181
-  call void @SSL_free(ptr noundef %78) #11
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %61, align 8, !tbaa !181
+  call void @SSL_free(ptr noundef %77) #11
   call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str, i32 noundef 549) #11
-  br label %84
+  br label %83
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw i8, ptr %13, i64 1056
-  %81 = load ptr, ptr %80, align 8, !tbaa !62
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %83 = load ptr, ptr %82, align 8, !tbaa !59
-  call void @ossl_qtx_set_bio(ptr noundef %81, ptr noundef %83) #11
-  br label %84
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 1056
+  %80 = load ptr, ptr %79, align 8, !tbaa !62
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %82 = load ptr, ptr %81, align 8, !tbaa !59
+  call void @ossl_qtx_set_bio(ptr noundef %80, ptr noundef %82) #11
+  br label %83
 
-84:                                               ; preds = %3, %79, %77, %74
-  %.0 = phi ptr [ null, %77 ], [ null, %74 ], [ %13, %79 ], [ null, %3 ]
+83:                                               ; preds = %3, %78, %76, %73
+  %.0 = phi ptr [ null, %76 ], [ null, %73 ], [ %13, %78 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1009,8 +1008,8 @@ define void @ossl_quic_port_drop_incoming(ptr noundef captures(none) %0) local_u
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %6
 
-6:                                                ; preds = %.lr.ph, %36
-  %.val.i17 = phi ptr [ %.val.i16, %.lr.ph ], [ %.val.i, %36 ]
+6:                                                ; preds = %.lr.ph, %35
+  %.val.i17 = phi ptr [ %.val.i16, %.lr.ph ], [ %.val.i, %35 ]
   %7 = getelementptr inbounds nuw i8, ptr %.val.i17, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !187
   store ptr %8, ptr %2, align 8, !tbaa !186
@@ -1048,38 +1047,37 @@ define void @ossl_quic_port_drop_incoming(ptr noundef captures(none) %0) local_u
   store i64 %21, ptr %5, align 8, !tbaa !57
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %22 = tail call ptr @ossl_quic_channel_get0_tls(ptr noundef nonnull %.val.i17) #11
-  %23 = icmp ne ptr %22, null
-  tail call void @llvm.assume(i1 %23)
-  %24 = load i32, ptr %22, align 8, !tbaa !98
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %30, label %26
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  %23 = load i32, ptr %22, align 8, !tbaa !98
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %29, label %25
 
-26:                                               ; preds = %19
-  %27 = and i32 %24, 128
-  %28 = icmp ne i32 %27, 0
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %22) #11
-  br label %30
+25:                                               ; preds = %19
+  %26 = and i32 %23, 128
+  %27 = icmp ne i32 %26, 0
+  tail call void @llvm.assume(i1 %27)
+  %28 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %22) #11
+  br label %29
 
-30:                                               ; preds = %19, %26
-  %31 = phi ptr [ %29, %26 ], [ %22, %19 ]
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %33 = load ptr, ptr %32, align 8, !tbaa !190
-  %34 = icmp eq ptr %33, %22
-  br i1 %34, label %35, label %36
+29:                                               ; preds = %19, %25
+  %30 = phi ptr [ %28, %25 ], [ %22, %19 ]
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
+  %32 = load ptr, ptr %31, align 8, !tbaa !190
+  %33 = icmp eq ptr %32, %22
+  br i1 %33, label %34, label %35
 
-35:                                               ; preds = %30
+34:                                               ; preds = %29
   tail call void @ossl_quic_channel_free(ptr noundef nonnull %.val.i17) #11
-  br label %36
+  br label %35
 
-36:                                               ; preds = %30, %35
-  %.sink = phi ptr [ %22, %35 ], [ %33, %30 ]
+35:                                               ; preds = %29, %34
+  %.sink = phi ptr [ %22, %34 ], [ %32, %29 ]
   tail call void @SSL_free(ptr noundef %.sink) #11
   %.val.i = load ptr, ptr %2, align 8, !tbaa !186
-  %37 = icmp eq ptr %.val.i, null
-  br i1 %37, label %._crit_edge, label %6
+  %36 = icmp eq ptr %.val.i, null
+  br i1 %36, label %._crit_edge, label %6
 
-._crit_edge:                                      ; preds = %36, %1
+._crit_edge:                                      ; preds = %35, %1
   ret void
 }
 

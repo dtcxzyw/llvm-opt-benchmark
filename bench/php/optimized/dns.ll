@@ -1077,7 +1077,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %38
   %.0166293 = phi ptr [ null, %14 ], [ %25, %zend_parse_arg_long_ex.exit ], [ %16, %zend_parse_arg_string.exit ], [ %41, %zend_parse_arg_bool_ex.exit ]
   %.0167292 = phi i32 [ 0, %14 ], [ 2, %zend_parse_arg_long_ex.exit ], [ 1, %zend_parse_arg_string.exit ], [ 5, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.0164295, i32 noundef %.0167292, ptr noundef null, i32 noundef %.0165294, ptr noundef %.0166293) #11
-  br label %.loopexit
+  br label %zend_try_array_init_size.exit233
 
 43:                                               ; preds = %zend_parse_arg_bool_ex.exit, %.thread348, %33, %36
   %.2262.ph = phi ptr [ %37, %.thread348 ], [ %37, %36 ], [ null, %33 ], [ %37, %zend_parse_arg_bool_ex.exit ]
@@ -1102,7 +1102,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %38
   %54 = call i32 @zend_try_assign_typed_ref_arr(ptr noundef nonnull %49, ptr noundef %44) #11
   %55 = icmp eq i32 %54, -1
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  br i1 %55, label %.loopexit, label %.critedge215
+  br i1 %55, label %zend_try_array_init_size.exit233, label %.critedge215
 
 57:                                               ; preds = %.thread305, %43
   %.019.i227 = phi ptr [ %52, %.thread305 ], [ %34, %43 ]
@@ -1139,7 +1139,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %38
   %70 = call i32 @zend_try_assign_typed_ref_arr(ptr noundef nonnull %65, ptr noundef %60) #11
   %71 = icmp eq i32 %70, -1
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  br i1 %71, label %.loopexit, label %.critedge215.thread311
+  br i1 %71, label %zend_try_array_init_size.exit233, label %.critedge215.thread311
 
 73:                                               ; preds = %.thread318, %59
   %.019.i = phi ptr [ %68, %.thread318 ], [ %.2262.ph, %59 ]
@@ -1166,7 +1166,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %38
 
 82:                                               ; preds = %78
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.18) #11
-  br label %.loopexit
+  br label %zend_try_array_init_size.exit233
 
 83:                                               ; preds = %.critedge215.thread311
   %84 = add i64 %77, -65536
@@ -1175,7 +1175,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %38
 
 85:                                               ; preds = %83
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.19) #11
-  br label %.loopexit
+  br label %zend_try_array_init_size.exit233
 
 .preheader387:                                    ; preds = %78, %83
   %86 = call ptr @_zend_new_array_0() #11
@@ -1326,7 +1326,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %38
   %152 = load ptr, ptr %1, align 8, !tbaa !4
   call void @zend_array_destroy(ptr noundef %152) #11
   store i32 2, ptr %87, align 8, !tbaa !4
-  br label %.loopexit
+  br label %zend_try_array_init_size.exit233
 
 153:                                              ; preds = %.thread335
   %154 = call i32 @res_nsearch(ptr noundef nonnull %5, ptr noundef nonnull %22, i32 noundef 1, i32 noundef %.0340, ptr noundef nonnull %6, i32 noundef 65536) #11
@@ -1359,23 +1359,23 @@ _php_dns_free_res.exit:                           ; preds = %162
   switch i32 %157, label %163 [
     i32 4, label %_php_dns_free_res.exit247
     i32 1, label %_php_dns_free_res.exit247
-    i32 3, label %.loopexit391
-    i32 2, label %.loopexit394
+    i32 3, label %.loopexit
+    i32 2, label %.loopexit393
   ]
 
-.loopexit391:                                     ; preds = %_php_dns_free_res.exit
+.loopexit:                                        ; preds = %_php_dns_free_res.exit
   br label %163
 
-.loopexit394:                                     ; preds = %_php_dns_free_res.exit
+.loopexit393:                                     ; preds = %_php_dns_free_res.exit
   br label %163
 
-163:                                              ; preds = %_php_dns_free_res.exit, %.loopexit394, %.loopexit391
-  %.str.22.sink = phi ptr [ @.str.21, %.loopexit394 ], [ @.str.20, %.loopexit391 ], [ @.str.22, %_php_dns_free_res.exit ]
+163:                                              ; preds = %_php_dns_free_res.exit, %.loopexit393, %.loopexit
+  %.str.22.sink = phi ptr [ @.str.21, %.loopexit393 ], [ @.str.20, %.loopexit ], [ @.str.22, %_php_dns_free_res.exit ]
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.22.sink) #11
   %164 = load ptr, ptr %1, align 8, !tbaa !4
   call void @zend_array_destroy(ptr noundef %164) #11
   store i32 2, ptr %87, align 8, !tbaa !4
-  br label %.loopexit
+  br label %zend_try_array_init_size.exit233
 
 165:                                              ; preds = %153
   %166 = zext nneg i32 %154 to i64
@@ -1447,7 +1447,7 @@ _php_dns_free_res.exit:                           ; preds = %162
 
 _php_dns_free_res.exit242:                        ; preds = %192
   store i32 2, ptr %87, align 8, !tbaa !4
-  br label %.loopexit
+  br label %zend_try_array_init_size.exit233
 
 193:                                              ; preds = %.lr.ph
   %194 = add nsw i32 %.in, -1
@@ -1586,9 +1586,9 @@ _php_dns_free_res.exit247:                        ; preds = %247, %143, %140, %1
   %.1172 = phi i32 [ %.0171368, %_php_dns_free_res.exit ], [ %.0171368, %_php_dns_free_res.exit ], [ %.0171368, %143 ], [ %.0171368, %149 ], [ 0, %103 ], [ %.0171368, %137 ], [ %.0171368, %134 ], [ %.0171368, %126 ], [ %.0171368, %123 ], [ %.0171368, %120 ], [ %.0171368, %117 ], [ %.0171368, %114 ], [ %.0171368, %146 ], [ %.0171368, %140 ], [ %.0171368, %247 ]
   %248 = add nsw i32 %.3177, 1
   %249 = icmp slt i32 %248, %92
-  br i1 %249, label %103, label %.loopexit
+  br i1 %249, label %103, label %zend_try_array_init_size.exit233
 
-.loopexit:                                        ; preds = %_php_dns_free_res.exit247, %69, %53, %.thread283, %_php_dns_free_res.exit242, %163, %151, %85, %82
+zend_try_array_init_size.exit233:                 ; preds = %_php_dns_free_res.exit247, %69, %53, %.thread283, %_php_dns_free_res.exit242, %163, %151, %85, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

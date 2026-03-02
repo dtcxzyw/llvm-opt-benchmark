@@ -398,162 +398,155 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..p
     i8 10, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
     i8 11, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
     i8 12, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
-    i8 13, label %14
-    i8 14, label %26
-    i8 15, label %38
-    i8 16, label %50
-    i8 17, label %62
-    i8 18, label %74
+    i8 13, label %13
+    i8 14, label %24
+    i8 15, label %35
+    i8 16, label %46
+    i8 17, label %57
+    i8 18, label %68
   ]
 
 1:                                                ; preds = %0
-  %2 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = load i64, ptr %.8.val, align 8, !noalias !79, !noundef !12
-  %4 = and i64 %3, 1
-  %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
+  %2 = load i64, ptr %.8.val, align 8, !noalias !79, !noundef !12
+  %3 = and i64 %2, 1
+  %4 = icmp eq i64 %3, 0
+  br i1 %4, label %5, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %8 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %7, i8 noundef 0), !noalias !79
-  %9 = and i64 %8, 1
-  %.not.i.i.i = icmp eq i64 %9, 0
-  br i1 %.not.i.i.i, label %10, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %7 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %6, i8 noundef 0), !noalias !79
+  %8 = and i64 %7, 1
+  %.not.i.i.i = icmp eq i64 %8, 0
+  br i1 %.not.i.i.i, label %9, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-10:                                               ; preds = %6
-  %11 = atomicrmw sub ptr %7, i64 2 release, align 8, !noalias !79
-  %12 = icmp eq i64 %11, 2
-  br i1 %12, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
+9:                                                ; preds = %5
+  %10 = atomicrmw sub ptr %6, i64 2 release, align 8, !noalias !79
+  %11 = icmp eq i64 %10, 2
+  br i1 %11, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
 
-"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split": ; preds = %10, %83, %71, %59, %47, %35, %23
-  %.sink = phi ptr [ %68, %71 ], [ %56, %59 ], [ %44, %47 ], [ %32, %35 ], [ %20, %23 ], [ %80, %83 ], [ %7, %10 ]
-  %13 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %.sink, i8 noundef 2), !noalias !12
+"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split": ; preds = %9, %76, %65, %54, %43, %32, %21
+  %.sink = phi ptr [ %62, %65 ], [ %51, %54 ], [ %40, %43 ], [ %29, %32 ], [ %18, %21 ], [ %73, %76 ], [ %6, %9 ]
+  %12 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %.sink, i8 noundef 2), !noalias !12
   tail call void @_ZN6arcstr7arc_str9ThinInner12destroy_cold17h28090481e7d68c00E(ptr noundef nonnull %.8.val), !noalias !12
   br label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", %83, %79, %74, %71, %67, %62, %59, %55, %50, %47, %43, %38, %35, %31, %26, %23, %19, %14, %10, %6, %1, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0
+"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", %76, %72, %68, %65, %61, %57, %54, %50, %46, %43, %39, %35, %32, %28, %24, %21, %17, %13, %9, %5, %1, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0
   ret void
 
-14:                                               ; preds = %0
-  %15 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = load i64, ptr %.8.val, align 8, !noalias !86, !noundef !12
-  %17 = and i64 %16, 1
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+13:                                               ; preds = %0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
+  %14 = load i64, ptr %.8.val, align 8, !noalias !86, !noundef !12
+  %15 = and i64 %14, 1
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %17, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %21 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %20, i8 noundef 0), !noalias !86
-  %22 = and i64 %21, 1
-  %.not.i.i.i1 = icmp eq i64 %22, 0
-  br i1 %.not.i.i.i1, label %23, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %19 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %18, i8 noundef 0), !noalias !86
+  %20 = and i64 %19, 1
+  %.not.i.i.i1 = icmp eq i64 %20, 0
+  br i1 %.not.i.i.i1, label %21, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-23:                                               ; preds = %19
-  %24 = atomicrmw sub ptr %20, i64 2 release, align 8, !noalias !86
-  %25 = icmp eq i64 %24, 2
-  br i1 %25, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
+21:                                               ; preds = %17
+  %22 = atomicrmw sub ptr %18, i64 2 release, align 8, !noalias !86
+  %23 = icmp eq i64 %22, 2
+  br i1 %23, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
 
-26:                                               ; preds = %0
-  %27 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %27)
-  %28 = load i64, ptr %.8.val, align 8, !noalias !93, !noundef !12
-  %29 = and i64 %28, 1
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+24:                                               ; preds = %0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
+  %25 = load i64, ptr %.8.val, align 8, !noalias !93, !noundef !12
+  %26 = and i64 %25, 1
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %33 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %32, i8 noundef 0), !noalias !93
-  %34 = and i64 %33, 1
-  %.not.i.i.i3 = icmp eq i64 %34, 0
-  br i1 %.not.i.i.i3, label %35, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %30 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %29, i8 noundef 0), !noalias !93
+  %31 = and i64 %30, 1
+  %.not.i.i.i3 = icmp eq i64 %31, 0
+  br i1 %.not.i.i.i3, label %32, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-35:                                               ; preds = %31
-  %36 = atomicrmw sub ptr %32, i64 2 release, align 8, !noalias !93
-  %37 = icmp eq i64 %36, 2
-  br i1 %37, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
+32:                                               ; preds = %28
+  %33 = atomicrmw sub ptr %29, i64 2 release, align 8, !noalias !93
+  %34 = icmp eq i64 %33, 2
+  br i1 %34, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
 
-38:                                               ; preds = %0
-  %39 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %39)
-  %40 = load i64, ptr %.8.val, align 8, !noalias !100, !noundef !12
-  %41 = and i64 %40, 1
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+35:                                               ; preds = %0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
+  %36 = load i64, ptr %.8.val, align 8, !noalias !100, !noundef !12
+  %37 = and i64 %36, 1
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %39, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %45 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %44, i8 noundef 0), !noalias !100
-  %46 = and i64 %45, 1
-  %.not.i.i.i5 = icmp eq i64 %46, 0
-  br i1 %.not.i.i.i5, label %47, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %41 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %40, i8 noundef 0), !noalias !100
+  %42 = and i64 %41, 1
+  %.not.i.i.i5 = icmp eq i64 %42, 0
+  br i1 %.not.i.i.i5, label %43, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-47:                                               ; preds = %43
-  %48 = atomicrmw sub ptr %44, i64 2 release, align 8, !noalias !100
-  %49 = icmp eq i64 %48, 2
-  br i1 %49, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
+43:                                               ; preds = %39
+  %44 = atomicrmw sub ptr %40, i64 2 release, align 8, !noalias !100
+  %45 = icmp eq i64 %44, 2
+  br i1 %45, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
 
-50:                                               ; preds = %0
-  %51 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %51)
-  %52 = load i64, ptr %.8.val, align 8, !noalias !107, !noundef !12
+46:                                               ; preds = %0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
+  %47 = load i64, ptr %.8.val, align 8, !noalias !107, !noundef !12
+  %48 = and i64 %47, 1
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %50, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %52 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %51, i8 noundef 0), !noalias !107
   %53 = and i64 %52, 1
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %55, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+  %.not.i.i.i7 = icmp eq i64 %53, 0
+  br i1 %.not.i.i.i7, label %54, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %57 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %56, i8 noundef 0), !noalias !107
-  %58 = and i64 %57, 1
-  %.not.i.i.i7 = icmp eq i64 %58, 0
-  br i1 %.not.i.i.i7, label %59, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+54:                                               ; preds = %50
+  %55 = atomicrmw sub ptr %51, i64 2 release, align 8, !noalias !107
+  %56 = icmp eq i64 %55, 2
+  br i1 %56, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
 
-59:                                               ; preds = %55
-  %60 = atomicrmw sub ptr %56, i64 2 release, align 8, !noalias !107
-  %61 = icmp eq i64 %60, 2
-  br i1 %61, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
+57:                                               ; preds = %0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
+  %58 = load i64, ptr %.8.val, align 8, !noalias !114, !noundef !12
+  %59 = and i64 %58, 1
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %61, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-62:                                               ; preds = %0
-  %63 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %63)
-  %64 = load i64, ptr %.8.val, align 8, !noalias !114, !noundef !12
-  %65 = and i64 %64, 1
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %67, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %63 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %62, i8 noundef 0), !noalias !114
+  %64 = and i64 %63, 1
+  %.not.i.i.i9 = icmp eq i64 %64, 0
+  br i1 %.not.i.i.i9, label %65, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-67:                                               ; preds = %62
-  %68 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %69 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %68, i8 noundef 0), !noalias !114
+65:                                               ; preds = %61
+  %66 = atomicrmw sub ptr %62, i64 2 release, align 8, !noalias !114
+  %67 = icmp eq i64 %66, 2
+  br i1 %67, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
+
+68:                                               ; preds = %0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
+  %69 = load i64, ptr %.8.val, align 8, !noalias !121, !noundef !12
   %70 = and i64 %69, 1
-  %.not.i.i.i9 = icmp eq i64 %70, 0
-  br i1 %.not.i.i.i9, label %71, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %72, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-71:                                               ; preds = %67
-  %72 = atomicrmw sub ptr %68, i64 2 release, align 8, !noalias !114
-  %73 = icmp eq i64 %72, 2
-  br i1 %73, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %74 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %73, i8 noundef 0), !noalias !121
+  %75 = and i64 %74, 1
+  %.not.i.i.i11 = icmp eq i64 %75, 0
+  br i1 %.not.i.i.i11, label %76, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
 
-74:                                               ; preds = %0
-  %75 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %75)
-  %76 = load i64, ptr %.8.val, align 8, !noalias !121, !noundef !12
-  %77 = and i64 %76, 1
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %79, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
-
-79:                                               ; preds = %74
-  %80 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %81 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %80, i8 noundef 0), !noalias !121
-  %82 = and i64 %81, 1
-  %.not.i.i.i11 = icmp eq i64 %82, 0
-  br i1 %.not.i.i.i11, label %83, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit"
-
-83:                                               ; preds = %79
-  %84 = atomicrmw sub ptr %80, i64 2 release, align 8, !noalias !121
-  %85 = icmp eq i64 %84, 2
-  br i1 %85, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
+76:                                               ; preds = %72
+  %77 = atomicrmw sub ptr %73, i64 2 release, align 8, !noalias !121
+  %78 = icmp eq i64 %77, 2
+  br i1 %78, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split", label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit", !prof !21
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

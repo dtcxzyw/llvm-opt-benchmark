@@ -875,10 +875,9 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
 
 _ZN4core3ops8function6FnOnce9call_once17h9c8ad491e073d5f3E.exit: ; preds = %1
   %13 = tail call noundef range(i8 0, 4) i8 %6(), !range !279, !noalias !276
-  %14 = icmp ne ptr %.val1, null
-  tail call void @llvm.assume(i1 %14)
-  %15 = load ptr, ptr %.val1, align 8, !noalias !276, !noundef !5
-  store i8 %13, ptr %15, align 1, !noalias !276
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val1) ]
+  %14 = load ptr, ptr %.val1, align 8, !noalias !276, !noundef !5
+  store i8 %13, ptr %14, align 1, !noalias !276
   ret i1 true
 }
 

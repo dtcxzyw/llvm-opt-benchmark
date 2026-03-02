@@ -133,44 +133,43 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @_ZN9itertools9Itertools12position_min17h6dfda8075a43c178E(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = icmp ne ptr %0, %1
-  br i1 %4, label %5, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %3 = icmp ne ptr %0, %1
+  br i1 %3, label %4, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = icmp eq ptr %6, %1
-  br i1 %7, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit, label %8
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = icmp eq ptr %5, %1
+  br i1 %6, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit, label %7
 
-8:                                                ; preds = %5
-  %9 = ptrtoint ptr %1 to i64
-  %10 = ptrtoint ptr %6 to i64
-  %11 = sub nuw i64 %9, %10
-  %12 = lshr exact i64 %11, 3
-  br label %13
+7:                                                ; preds = %4
+  %8 = ptrtoint ptr %1 to i64
+  %9 = ptrtoint ptr %5 to i64
+  %10 = sub nuw i64 %8, %9
+  %11 = lshr exact i64 %10, 3
+  br label %12
 
-13:                                               ; preds = %13, %8
-  %.022.i.i.i = phi i64 [ 1, %8 ], [ %17, %13 ]
-  %.sroa.05.0.i.i.i = phi i64 [ 0, %8 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %13 ]
-  %.sroa.6.0.i.i.i = phi ptr [ %0, %8 ], [ %.sroa.3.0.i.i.i.i.i.i, %13 ]
-  %.0.i.i.i = phi i64 [ 0, %8 ], [ %18, %13 ]
-  %14 = getelementptr inbounds { i32, i16, i16 }, ptr %6, i64 %.0.i.i.i
-  %15 = tail call noundef i8 @"_ZN58_$LT$salsa..DatabaseKeyIndex$u20$as$u20$core..cmp..Ord$GT$3cmp17h561c8876f79b38dcE.llvm.12611796297594801985"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.6.0.i.i.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %14), !range !16, !noalias !36
-  %16 = icmp eq i8 %15, 1
-  %.sroa.3.0.i.i.i.i.i.i = select i1 %16, ptr %14, ptr %.sroa.6.0.i.i.i
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = select i1 %16, i64 %.022.i.i.i, i64 %.sroa.05.0.i.i.i
-  %17 = add i64 %.022.i.i.i, 1
-  %18 = add nuw i64 %.0.i.i.i, 1
-  %19 = icmp eq i64 %18, %12
-  br i1 %19, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit, label %13
+12:                                               ; preds = %12, %7
+  %.022.i.i.i = phi i64 [ 1, %7 ], [ %16, %12 ]
+  %.sroa.05.0.i.i.i = phi i64 [ 0, %7 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %12 ]
+  %.sroa.6.0.i.i.i = phi ptr [ %0, %7 ], [ %.sroa.3.0.i.i.i.i.i.i, %12 ]
+  %.0.i.i.i = phi i64 [ 0, %7 ], [ %17, %12 ]
+  %13 = getelementptr inbounds { i32, i16, i16 }, ptr %5, i64 %.0.i.i.i
+  %14 = tail call noundef i8 @"_ZN58_$LT$salsa..DatabaseKeyIndex$u20$as$u20$core..cmp..Ord$GT$3cmp17h561c8876f79b38dcE.llvm.12611796297594801985"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.6.0.i.i.i, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %13), !range !16, !noalias !36
+  %15 = icmp eq i8 %14, 1
+  %.sroa.3.0.i.i.i.i.i.i = select i1 %15, ptr %13, ptr %.sroa.6.0.i.i.i
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = select i1 %15, i64 %.022.i.i.i, i64 %.sroa.05.0.i.i.i
+  %16 = add i64 %.022.i.i.i, 1
+  %17 = add nuw i64 %.0.i.i.i, 1
+  %18 = icmp eq i64 %17, %11
+  br i1 %18, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit, label %12
 
-_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit: ; preds = %13, %2, %5
-  %.sroa.3.0 = phi i64 [ undef, %2 ], [ 0, %5 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %13 ]
-  %.sroa.0.0 = zext i1 %4 to i64
-  %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %21 = insertvalue { i64, i64 } %20, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %21
+_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit: ; preds = %12, %2, %4
+  %.sroa.3.0 = phi i64 [ undef, %2 ], [ 0, %4 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %12 ]
+  %.sroa.0.0 = zext i1 %3 to i64
+  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable

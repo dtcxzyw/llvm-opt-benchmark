@@ -172,7 +172,7 @@ define internal fastcc void @dom_xpath_construct(ptr noundef readonly captures(n
   %42 = call i32 @php_libxml_increment_doc_ref(ptr noundef nonnull %29, ptr noundef %22) #12
   br label %43
 
-43:                                               ; preds = %2, %25, %33, %15
+43:                                               ; preds = %25, %33, %2, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -279,7 +279,7 @@ define hidden void @zim_DOMXPath_registerNamespace(ptr noundef readonly captures
   store i32 3, ptr %22, align 8, !tbaa !21
   br label %25
 
-25:                                               ; preds = %2, %17, %23, %24
+25:                                               ; preds = %17, %23, %24, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -663,7 +663,7 @@ zend_string_alloc.exit:                           ; preds = %86
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %164
 
-164:                                              ; preds = %3, %24, %163, %51, %39, %30, %29
+164:                                              ; preds = %24, %163, %51, %39, %30, %29, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -441,8 +441,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev12CDLTransformEEC2INS0_9TransformEEERKS_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   %53 = load ptr, ptr %52, align 8, !tbaa !39, !noalias !43, !nonnull !46, !noundef !46
   %54 = tail call ptr @__dynamic_cast(ptr nonnull %53, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev12CDLTransformE, i64 0) #26, !noalias !43
-  %.not.not.i51 = icmp ne ptr %54, null
-  tail call void @llvm.assume(i1 %.not.not.i51)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %54) ]
   store ptr %54, ptr %0, align 8, !tbaa !15, !alias.scope !43
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !20, !noalias !43

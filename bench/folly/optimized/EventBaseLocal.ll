@@ -1691,19 +1691,18 @@ _ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit: ; preds = %57
   %67 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %56, i64 %61
   store i32 %7, ptr %67, align 4, !tbaa !10
-  %68 = icmp ne ptr %6, null
-  call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds nuw %"struct.std::pair.119", ptr %6, i64 %20
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load i64, ptr %69, align 8, !tbaa !35
-  store i64 %71, ptr %9, align 8, !tbaa !90
-  %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %73 = load i64, ptr %70, align 8, !tbaa !69
-  store i64 %73, ptr %72, align 8, !tbaa !69
-  %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %75 = load i64, ptr %74, align 8, !tbaa !69
-  store i64 %75, ptr %10, align 8, !tbaa !69
-  store ptr null, ptr %74, align 8, !tbaa !69
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
+  %68 = getelementptr inbounds nuw %"struct.std::pair.119", ptr %6, i64 %20
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load i64, ptr %68, align 8, !tbaa !35
+  store i64 %70, ptr %9, align 8, !tbaa !90
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %72 = load i64, ptr %69, align 8, !tbaa !69
+  store i64 %72, ptr %71, align 8, !tbaa !69
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %74 = load i64, ptr %73, align 8, !tbaa !69
+  store i64 %74, ptr %10, align 8, !tbaa !69
+  store ptr null, ptr %73, align 8, !tbaa !69
   br label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKmS7_EEPSD_SG_m.exit
 
 _ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKmS7_EEPSD_SG_m.exit: ; preds = %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit
@@ -3064,6 +3063,7 @@ _ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS
   %.019.i.i = phi i64 [ %52, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i.i ], [ 0, %6 ]
   %.01418.i.i = phi ptr [ %53, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i.i ], [ %42, %6 ]
   %.01517.i.i = phi ptr [ %54, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i.i ], [ %44, %6 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.01517.i.i) ]
   %45 = getelementptr inbounds nuw i8, ptr %.01418.i.i, i64 8
   %46 = load i64, ptr %.01418.i.i, align 8, !tbaa !35
   store i64 %46, ptr %.01517.i.i, align 8, !tbaa !90
@@ -3586,26 +3586,25 @@ define linkonce_odr void @_ZN5folly3f146detail21VectorContainerPolicyImSt10uniqu
   br label %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i
 
 _ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i: ; preds = %4, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i
-  %.019.i = phi i64 [ %14, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ 0, %4 ]
-  %.01418.i = phi ptr [ %15, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ %5, %4 ]
-  %.01517.i = phi ptr [ %16, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ %1, %4 ]
-  %6 = icmp ne ptr %.01517.i, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 8
-  %8 = load i64, ptr %.01418.i, align 8, !tbaa !35
-  store i64 %8, ptr %.01517.i, align 8, !tbaa !90
-  %9 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 8
-  %10 = load i64, ptr %7, align 8, !tbaa !69
-  store i64 %10, ptr %9, align 8, !tbaa !69
-  %11 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 16
-  %12 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !69
-  store i64 %13, ptr %11, align 8, !tbaa !69
-  store ptr null, ptr %12, align 8, !tbaa !69
-  %14 = add nuw i64 %.019.i, 1
-  %15 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 24
-  %16 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 24
-  %exitcond.not.i = icmp eq i64 %14, %2
+  %.019.i = phi i64 [ %13, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ 0, %4 ]
+  %.01418.i = phi ptr [ %14, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ %5, %4 ]
+  %.01517.i = phi ptr [ %15, %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ %1, %4 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.01517.i) ]
+  %6 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 8
+  %7 = load i64, ptr %.01418.i, align 8, !tbaa !35
+  store i64 %7, ptr %.01517.i, align 8, !tbaa !90
+  %8 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 8
+  %9 = load i64, ptr %6, align 8, !tbaa !69
+  store i64 %9, ptr %8, align 8, !tbaa !69
+  %10 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 16
+  %12 = load i64, ptr %11, align 8, !tbaa !69
+  store i64 %12, ptr %10, align 8, !tbaa !69
+  store ptr null, ptr %11, align 8, !tbaa !69
+  %13 = add nuw i64 %.019.i, 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 24
+  %exitcond.not.i = icmp eq i64 %13, %2
   br i1 %exitcond.not.i, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKmS7_EEPSD_SG_m.exit, label %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i, !llvm.loop !166
 
 _ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKmS7_EEPSD_SG_m.exit: ; preds = %_ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS8_PT_.exit.i, %3

@@ -478,6 +478,7 @@ define hidden void @_ZN12erased_serde3any3Any3new8ptr_drop17hf8198d3b0c37df1bE.l
 12:                                               ; preds = %7, %1
   %13 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 24, i64 noundef 8) #22
   resume { ptr, i32 } %13
 
@@ -885,16 +886,14 @@ define hidden void @_ZN14serde_untagged3any11ErasedValue3new4drop17hb08fb85cb2af
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN14serde_untagged3any11ErasedValue3new4drop17hd983c41ec164eeeaE(ptr noundef %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %2 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 1, i64 noundef 1) #22
   ret void
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN14serde_untagged3any11ErasedValue3new4drop17he78fa49805f04342E(ptr noundef %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %2 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 4, i64 noundef 2) #22
   ret void
 }
@@ -6076,9 +6075,10 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..d
           to label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$serde..__private..de..content..Content$GT$$GT$17h5921a6b45ba615b1E.exit" unwind label %31, !noalias !917
 
 common.resume:                                    ; preds = %36, %31
-  %.sink = phi ptr [ %35, %36 ], [ %30, %31 ]
+  %.sink5 = phi ptr [ %35, %36 ], [ %30, %31 ]
   %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %32, %31 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 32, i64 noundef 8) #22, !noalias !9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink5) ], !noalias !9
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sink5, i64 noundef 32, i64 noundef 8) #22, !noalias !9
   resume { ptr, i32 } %common.resume.op
 
 31:                                               ; preds = %28

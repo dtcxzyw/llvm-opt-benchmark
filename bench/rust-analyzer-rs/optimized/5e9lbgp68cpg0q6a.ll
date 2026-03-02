@@ -62012,11 +62012,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h02db11db07
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 376
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62029,11 +62028,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h1a3387c4ae
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 344
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62046,11 +62044,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h2090d35d0c
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62063,11 +62060,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h239157790a
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 400
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62080,11 +62076,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h294ad2bb03
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62097,11 +62092,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h31afd4dad4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 416
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62114,11 +62108,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h3b1925bcec
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62131,11 +62124,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h41dd016b50
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 240
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62148,11 +62140,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h475b88b7d0
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62165,11 +62156,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h4aba83b10a
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62182,11 +62172,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h4d28185137
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62199,11 +62188,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h50aec60546
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62216,11 +62204,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h56575fe465
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62233,11 +62220,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h59b6d8555f
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62250,11 +62236,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h5a932b3571
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62267,11 +62252,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h5cba6d2170
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62284,11 +62268,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h5f72dd214f
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62301,11 +62284,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h649a51d3f4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62318,11 +62300,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h6611fe8d7a
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62335,11 +62316,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h6d20b17d43
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 384
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62352,11 +62332,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h6e8fe068de
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 288
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62369,11 +62348,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h752e417d47
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62386,11 +62364,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h75a3823b02
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62403,11 +62380,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h79e68930c6
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62420,11 +62396,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h7fd03ec4d3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 184
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62437,11 +62412,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h80d8ea6d5c
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62454,11 +62428,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h8bf53e68c3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62471,11 +62444,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h8e4f84317c
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62488,11 +62460,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h91ee41afdc
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62505,11 +62476,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17h9dd492a04e
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62522,11 +62492,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17ha0ea968cfd
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62539,11 +62508,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17ha86032fc45
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62556,11 +62524,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17had2edfa22e
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62573,11 +62540,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17haf7a782962
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 352
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62590,11 +62556,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hb5bb8f2713
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 312
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62606,11 +62571,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hba4411f339
   %7 = extractvalue { ptr, ptr } %5, 1
   %8 = load ptr, ptr %6, align 8, !nonnull !12, !noundef !12
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %9, 1
-  ret { ptr, ptr } %12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %10 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
+  ret { ptr, ptr } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62623,11 +62587,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hbc9156d3c3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62640,11 +62603,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hc17482152b
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 368
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62657,11 +62619,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hc608d0cd35
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62674,11 +62635,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hc616838f9c
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62691,11 +62651,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hc7f333e105
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 336
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62708,11 +62667,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hca992efbd1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62725,11 +62683,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hcce5ebd5ab
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 392
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62742,11 +62699,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hccf9d6f8d4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62759,11 +62715,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hce2cdb955e
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62776,11 +62731,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hd1c5c09dab
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 360
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62793,11 +62747,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hd3b0e73e77
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62810,11 +62763,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hdb9648bfb0
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62827,11 +62779,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17he0d91bdeab
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62844,11 +62795,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17he562a5a0de
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 424
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62861,11 +62811,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17he62787354a
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 320
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62878,11 +62827,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hf18d3c10d7
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62895,11 +62843,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hfb7b373d43
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62912,11 +62859,10 @@ define hidden { ptr, ptr } @_ZN5salsa8plumbing19get_query_table_mut17hff9ff6d7be
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 328
   %9 = load ptr, ptr %8, align 8, !nonnull !12, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %10, 1
-  ret { ptr, ptr } %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

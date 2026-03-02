@@ -2338,49 +2338,48 @@ define hidden void @"_ZN88_$LT$ruff_formatter..builders..Text$u20$as$u20$ruff_fo
   %19 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h3e2a2095123e6c89E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b4a8f5032407134e735049333093530.16)
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
-  %22 = icmp ne ptr %20, null
-  tail call void @llvm.assume(i1 %22)
-  %23 = invoke noundef nonnull align 1 ptr @"_ZN14ruff_formatter9formatter24Formatter$LT$Context$GT$7options17h985fb07bdece44e3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
-          to label %28 unwind label %24
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
+  %22 = invoke noundef nonnull align 1 ptr @"_ZN14ruff_formatter9formatter24Formatter$LT$Context$GT$7options17h985fb07bdece44e3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+          to label %27 unwind label %23
 
-24:                                               ; preds = %30, %28, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h11a8b06930bfde55E.exit"
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %29, %27, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h11a8b06930bfde55E.exit"
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %26 = icmp eq i64 %21, 0
-  br i1 %26, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h1ff6b9e6c64b526bE.exit", label %27
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h1ff6b9e6c64b526bE.exit", label %26
 
-27:                                               ; preds = %24
+26:                                               ; preds = %23
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %20, i64 noundef range(i64 1, 0) %21, i64 noundef 1) #20
   br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h1ff6b9e6c64b526bE.exit"
 
-28:                                               ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h11a8b06930bfde55E.exit"
-  %29 = invoke noundef i8 @"_ZN107_$LT$ruff_formatter..format_element..document..IrFormatOptions$u20$as$u20$ruff_formatter..FormatOptions$GT$12indent_width17hc04cf0c5954e32d9E"(ptr noalias noundef nonnull readonly align 1 %23)
-          to label %30 unwind label %24
+27:                                               ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h11a8b06930bfde55E.exit"
+  %28 = invoke noundef i8 @"_ZN107_$LT$ruff_formatter..format_element..document..IrFormatOptions$u20$as$u20$ruff_formatter..FormatOptions$GT$12indent_width17hc04cf0c5954e32d9E"(ptr noalias noundef nonnull readonly align 1 %22)
+          to label %29 unwind label %23
 
-30:                                               ; preds = %28
-  %31 = invoke noundef i32 @_ZN14ruff_formatter14format_element9TextWidth9from_text17h211a3139285dbb8eE(ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9, i8 noundef %29)
-          to label %32 unwind label %24
+29:                                               ; preds = %27
+  %30 = invoke noundef i32 @_ZN14ruff_formatter14format_element9TextWidth9from_text17h211a3139285dbb8eE(ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9, i8 noundef %28)
+          to label %31 unwind label %23
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %20, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %21, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %31, ptr %35, align 4
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %20, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %21, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %30, ptr %34, align 4
   store i8 5, ptr %6, align 8
-  %36 = load ptr, ptr %2, align 8, !nonnull !3, !align !12, !noundef !3
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !27, !noundef !3
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %40 = load ptr, ptr %39, align 8, !invariant.load !3, !nonnull !3
-  call void %40(ptr noundef nonnull align 1 %36, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
+  %35 = load ptr, ptr %2, align 8, !nonnull !3, !align !12, !noundef !3
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %37 = load ptr, ptr %36, align 8, !nonnull !3, !align !27, !noundef !3
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %39 = load ptr, ptr %38, align 8, !invariant.load !3, !nonnull !3
+  call void %39(ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 4, ptr %0, align 8
   ret void
 
-"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h1ff6b9e6c64b526bE.exit": ; preds = %27, %24
-  resume { ptr, i32 } %25
+"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h1ff6b9e6c64b526bE.exit": ; preds = %26, %23
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: nonlazybind uwtable

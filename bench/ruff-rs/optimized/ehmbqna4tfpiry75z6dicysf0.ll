@@ -290,9 +290,9 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h329647942127db6eE.exit.i.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hce73c358be0cede7E.exit.thread.i"
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h329647942127db6eE.exit.i.i": ; preds = %58
-  %63 = add i64 %.sroa.01.0.i.i, 1
   %.val6.i.i = load ptr, ptr %60, align 8, !alias.scope !22, !noalias !25, !nonnull !3, !align !26, !noundef !3
   %.val.i.i = load ptr, ptr %59, align 8, !alias.scope !19, !noalias !24, !nonnull !3, !align !26, !noundef !3
+  %63 = add i64 %.sroa.01.0.i.i, 1
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val6.i.i, i64 %.val5.i.i), !alias.scope !27, !noalias !37
   %.not9.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not9.i.i, label %.preheader.split.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hce73c358be0cede7E.exit.thread.i"
@@ -490,9 +490,9 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   br i1 %.not.i.i.i.i.i79.i, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h329647942127db6eE.exit.i80.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hce73c358be0cede7E.exit.thread.i"
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h329647942127db6eE.exit.i80.i": ; preds = %139
-  %144 = add nuw i64 %.sroa.01.0.i75.i, 1
   %.val6.i81.i = load ptr, ptr %141, align 8, !alias.scope !64, !noalias !67, !nonnull !3, !align !26, !noundef !3
   %.val.i82.i = load ptr, ptr %140, align 8, !alias.scope !61, !noalias !66, !nonnull !3, !align !26, !noundef !3
+  %144 = add nuw i64 %.sroa.01.0.i75.i, 1
   %bcmp.i.i.i.i.i83.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i82.i, ptr nonnull readonly align 1 %.val6.i81.i, i64 %.val5.i77.i), !alias.scope !68, !noalias !78
   %.not9.i84.i = icmp eq i32 %bcmp.i.i.i.i.i83.i, 0
   br i1 %.not9.i84.i, label %.preheader.split.i74.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hce73c358be0cede7E.exit.thread.i"
@@ -1550,9 +1550,9 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   ret i1 %.sroa.0.0
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h329647942127db6eE.exit": ; preds = %5
-  %10 = add i64 %.sroa.01.0, 1
   %.val6 = load ptr, ptr %7, align 8, !nonnull !3, !align !26, !noundef !3
   %.val = load ptr, ptr %6, align 8, !nonnull !3, !align !26, !noundef !3
+  %10 = add i64 %.sroa.01.0, 1
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val6, i64 %.val5), !alias.scope !199
   %.not9 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not9, label %.preheader.split, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h329647942127db6eE.exit.thread"

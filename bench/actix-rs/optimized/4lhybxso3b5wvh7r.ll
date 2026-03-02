@@ -9537,59 +9537,58 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Ente
   %1 = alloca { ptr, i64 }, align 8
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %4 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !581)
-  %5 = load i64, ptr %.0.val, align 8, !range !11, !alias.scope !581, !noalias !584, !noundef !5
-  %6 = icmp eq i64 %5, 2
-  br i1 %6, label %.critedge.i, label %7
+  %4 = load i64, ptr %.0.val, align 8, !range !11, !alias.scope !581, !noalias !584, !noundef !5
+  %5 = icmp eq i64 %4, 2
+  br i1 %5, label %.critedge.i, label %6
 
-7:                                                ; preds = %0
-  %8 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  tail call void @_ZN12tracing_core10dispatcher8Dispatch4exit17hba24640d04dff2bdE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8), !noalias !584
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  tail call void @_ZN12tracing_core10dispatcher8Dispatch4exit17hba24640d04dff2bdE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7), !noalias !584
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %0, %7
-  %9 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !584
-  %10 = icmp eq i8 %9, 0
-  br i1 %10, label %11, label %_ZN7tracing4span4Span7do_exit17h4f552562a4ef1f62E.exit
+.critedge.i:                                      ; preds = %0, %6
+  %8 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1, !noalias !584
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %10, label %_ZN7tracing4span4Span7do_exit17h4f552562a4ef1f62E.exit
 
-11:                                               ; preds = %.critedge.i
-  %12 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %13 = load ptr, ptr %12, align 8, !alias.scope !581, !noalias !584, !noundef !5
-  %.not5.i = icmp eq ptr %13, null
-  br i1 %.not5.i, label %_ZN7tracing4span4Span7do_exit17h4f552562a4ef1f62E.exit, label %14
+10:                                               ; preds = %.critedge.i
+  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %12 = load ptr, ptr %11, align 8, !alias.scope !581, !noalias !584, !noundef !5
+  %.not5.i = icmp eq ptr %12, null
+  br i1 %.not5.i, label %_ZN7tracing4span4Span7do_exit17h4f552562a4ef1f62E.exit, label %13
 
-14:                                               ; preds = %11
+13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !587
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !587
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !587
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %16 = load ptr, ptr %15, align 8, !noalias !584, !nonnull !5, !align !7, !noundef !5
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %18 = load i64, ptr %17, align 8, !noalias !584, !noundef !5
-  store ptr %16, ptr %1, align 8, !noalias !587
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %18, ptr %19, align 8, !noalias !587
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %15 = load ptr, ptr %14, align 8, !noalias !584, !nonnull !5, !align !7, !noundef !5
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %17 = load i64, ptr %16, align 8, !noalias !584, !noundef !5
+  store ptr %15, ptr %1, align 8, !noalias !587
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %17, ptr %18, align 8, !noalias !587
   store ptr %1, ptr %2, align 8, !noalias !587
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h963163620d0448b9E", ptr %20, align 8, !noalias !587
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h963163620d0448b9E", ptr %19, align 8, !noalias !587
   store ptr @anon.1d108ff5e9c548695ac55e3049a1ba70.94, ptr %3, align 8, !alias.scope !588, !noalias !591
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 2, ptr %21, align 8, !alias.scope !588, !noalias !591
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !588, !noalias !591
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %23, align 8, !alias.scope !588, !noalias !591
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !588, !noalias !591
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 2, ptr %20, align 8, !alias.scope !588, !noalias !591
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %21, align 8, !alias.scope !588, !noalias !591
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %22, align 8, !alias.scope !588, !noalias !591
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %23, align 8, !alias.scope !588, !noalias !591
   call fastcc void @_ZN7tracing4span4Span3log17h8de998eae76ae2c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.val, ptr noalias noundef nonnull readonly align 1 @anon.1d108ff5e9c548695ac55e3049a1ba70.95, i64 noundef 21, ptr noalias noundef align 8 captures(none) dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !587
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !587
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !587
   br label %_ZN7tracing4span4Span7do_exit17h4f552562a4ef1f62E.exit
 
-_ZN7tracing4span4Span7do_exit17h4f552562a4ef1f62E.exit: ; preds = %.critedge.i, %11, %14
+_ZN7tracing4span4Span7do_exit17h4f552562a4ef1f62E.exit: ; preds = %.critedge.i, %10, %13
   ret void
 }
 

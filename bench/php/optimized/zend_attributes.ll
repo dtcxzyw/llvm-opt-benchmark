@@ -112,7 +112,7 @@ define hidden range(i32 0, 128) i32 @zend_attribute_attribute_get_flags(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %38, label %6
+  br i1 %.not, label %37, label %6
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -152,49 +152,49 @@ define hidden range(i32 0, 128) i32 @zend_attribute_attribute_get_flags(ptr noun
 23:                                               ; preds = %22, %.critedge.i, %6
   %24 = phi i8 [ %.pre, %22 ], [ %13, %.critedge.i ], [ %13, %6 ]
   %25 = icmp eq i8 %24, 11
-  br i1 %25, label %26, label %29
+  br i1 %25, label %26, label %28
 
 26:                                               ; preds = %23
   %27 = call i32 @zval_update_constant_ex(ptr noundef nonnull %3, ptr noundef %1) #16
   %.not23.i = icmp eq i32 %27, 0
-  br i1 %.not23.i, label %._crit_edge, label %28
+  br i1 %.not23.i, label %._crit_edge, label %zend_get_attribute_value.exit
 
 ._crit_edge:                                      ; preds = %26
   %.pre8 = load i8, ptr %11, align 8, !tbaa !11
-  br label %29
+  br label %28
 
-28:                                               ; preds = %26
+zend_get_attribute_value.exit:                    ; preds = %26
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #16
-  br label %37
+  br label %36
 
-29:                                               ; preds = %._crit_edge, %23
-  %30 = phi i8 [ %.pre8, %._crit_edge ], [ %24, %23 ]
-  %.not5 = icmp eq i8 %30, 4
-  br i1 %.not5, label %33, label %31
+28:                                               ; preds = %._crit_edge, %23
+  %29 = phi i8 [ %.pre8, %._crit_edge ], [ %24, %23 ]
+  %.not5 = icmp eq i8 %29, 4
+  br i1 %.not5, label %32, label %30
 
-31:                                               ; preds = %29
-  %32 = call ptr @zend_zval_value_name(ptr noundef nonnull %3) #16
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef %32) #16
+30:                                               ; preds = %28
+  %31 = call ptr @zend_zval_value_name(ptr noundef nonnull %3) #16
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef %31) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #16
-  br label %37
+  br label %36
 
-33:                                               ; preds = %29
-  %34 = load i64, ptr %3, align 8, !tbaa !11
-  %35 = trunc i64 %34 to i32
-  %.not6 = icmp ult i32 %35, 128
-  br i1 %.not6, label %37, label %36
+32:                                               ; preds = %28
+  %33 = load i64, ptr %3, align 8, !tbaa !11
+  %34 = trunc i64 %33 to i32
+  %.not6 = icmp ult i32 %34, 128
+  br i1 %.not6, label %36, label %35
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #16
+  br label %36
+
+36:                                               ; preds = %zend_get_attribute_value.exit, %35, %32, %30
+  %.0 = phi i32 [ 0, %zend_get_attribute_value.exit ], [ 0, %30 ], [ 0, %35 ], [ %34, %32 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 
-37:                                               ; preds = %36, %33, %31, %28
-  %.0 = phi i32 [ 0, %28 ], [ 0, %31 ], [ 0, %36 ], [ %35, %33 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %38
-
-38:                                               ; preds = %2, %37
-  %.2 = phi i32 [ %.0, %37 ], [ 63, %2 ]
+37:                                               ; preds = %2, %36
+  %.2 = phi i32 [ %.0, %36 ], [ 63, %2 ]
   ret i32 %.2
 }
 

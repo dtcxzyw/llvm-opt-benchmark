@@ -532,8 +532,7 @@ pmix_obj_run_destructors.exit381:                 ; preds = %.lr.ph.i378, %195
   br label %229
 
 229:                                              ; preds = %228, %223
-  %.not22.i389 = icmp ne ptr %225, null
-  call void @llvm.assume(i1 %.not22.i389)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %225) ]
   %230 = call i32 @pthread_mutex_init(ptr noundef nonnull %225, ptr noundef null) #14
   %231 = getelementptr inbounds nuw i8, ptr %225, i64 40
   store ptr @pmix_nodeinfo_t_class, ptr %231, align 8, !tbaa !31

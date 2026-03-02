@@ -716,13 +716,11 @@ define hidden noalias noundef ptr @_ZN2cv12ppf_match_3d13hashtableReadEP8_IO_FIL
 _ZN2cv12ppf_match_3d15hashtableCreateEmPFmjE.exit: ; preds = %16, %11
   %.014.i = phi i64 [ %30, %16 ], [ 16, %11 ]
   %31 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
-  %.not.i = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %31) ]
   %32 = tail call noalias ptr @calloc(i64 noundef %.014.i, i64 noundef 8) #19
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !3
-  %.not18.i = icmp ne ptr %32, null
-  tail call void @llvm.assume(i1 %.not18.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
   store i64 %.014.i, ptr %31, align 8, !tbaa !11
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr @_ZN2cv12ppf_match_3d4hashEj, ptr %34, align 8, !tbaa !12

@@ -452,7 +452,7 @@ define hidden void @zim_ArrayObject_offsetGet(ptr noundef readonly captures(none
   store i32 %38, ptr %39, align 8, !tbaa !4
   br label %40
 
-40:                                               ; preds = %2, %8, %35
+40:                                               ; preds = %8, %2, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -794,7 +794,7 @@ spl_array_is_object.exit.thread.i:                ; preds = %spl_array_is_object
   call fastcc void @spl_array_write_dimension_ex(i32 noundef 1, ptr noundef nonnull %11, ptr noundef null, ptr noundef %10)
   br label %spl_array_iterator_append.exit
 
-spl_array_iterator_append.exit:                   ; preds = %2, %29, %spl_array_is_object.exit.thread.i
+spl_array_iterator_append.exit:                   ; preds = %29, %spl_array_is_object.exit.thread.i, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1048,7 +1048,7 @@ define hidden void @zim_ArrayObject_getArrayCopy(ptr noundef readonly captures(n
   store i32 775, ptr %12, align 8, !tbaa !4
   br label %13
 
-13:                                               ; preds = %.critedge, %5
+13:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1415,7 +1415,7 @@ zend_string_addref.exit:                          ; preds = %.critedge, %15
   store i32 %20, ptr %21, align 8, !tbaa !4
   br label %22
 
-22:                                               ; preds = %zend_string_addref.exit, %5
+22:                                               ; preds = %5, %zend_string_addref.exit
   ret void
 }
 
@@ -1442,7 +1442,7 @@ define hidden void @zim_ArrayObject_getFlags(ptr noundef readonly captures(none)
   store i32 4, ptr %12, align 8, !tbaa !4
   br label %13
 
-13:                                               ; preds = %.critedge, %5
+13:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1536,7 +1536,7 @@ define hidden void @zim_ArrayObject_getIterator(ptr noundef readonly captures(no
   store i32 776, ptr %11, align 8, !tbaa !4
   br label %12
 
-12:                                               ; preds = %.critedge, %5
+12:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1655,9 +1655,9 @@ instanceof_function.exit.thread:                  ; preds = %32, %instanceof_fun
   %.0107 = phi ptr [ %62, %.lr.ph ], [ %0, %54 ]
   %61 = getelementptr inbounds nuw i8, ptr %.0107, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !4
-  %.not123 = icmp eq ptr %62, null
+  %.not81 = icmp eq ptr %62, null
   %63 = icmp eq ptr %62, %55
-  %or.cond = or i1 %63, %.not123
+  %or.cond = or i1 %.not81, %63
   %64 = icmp eq ptr %62, %56
   %or.cond85 = select i1 %or.cond, i1 true, i1 %64
   %65 = icmp eq ptr %62, %57
@@ -1665,6 +1665,7 @@ instanceof_function.exit.thread:                  ; preds = %32, %instanceof_fun
   br i1 %or.cond87, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %62) ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %67 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %66, ptr noundef nonnull @.str.32, i64 noundef 9) #13
   %.not.i = icmp eq ptr %67, null
@@ -1754,11 +1755,15 @@ zend_hash_find_ptr.exit:                          ; preds = %zend_hash_str_find_
   %104 = icmp eq ptr %103, %62
   %spec.store.select89 = select i1 %104, ptr null, ptr %.0.i102
   store ptr %spec.store.select89, ptr %101, align 8
-  br label %.critedge
+  br label %105
 
-.critedge:                                        ; preds = %54, %zend_hash_find_ptr.exit
-  %105 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i32 -1, ptr %105, align 8, !tbaa !52
+.critedge:                                        ; preds = %54
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  br label %105
+
+105:                                              ; preds = %.critedge, %zend_hash_find_ptr.exit
+  %106 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store i32 -1, ptr %106, align 8, !tbaa !52
   ret ptr %15
 }
 
@@ -1783,7 +1788,7 @@ define hidden void @zim_ArrayObject_count(ptr noundef readonly captures(none) %0
   store i32 4, ptr %10, align 8, !tbaa !4
   br label %11
 
-11:                                               ; preds = %.critedge, %5
+11:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -2411,7 +2416,7 @@ smart_str_extract_ex.exit:                        ; preds = %smart_str_trim_to_s
   store i32 %117, ptr %118, align 8, !tbaa !4
   br label %119
 
-119:                                              ; preds = %smart_str_extract_ex.exit, %12
+119:                                              ; preds = %12, %smart_str_extract_ex.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2764,7 +2769,7 @@ define hidden void @zim_ArrayObject___serialize(ptr noundef readonly captures(no
   %51 = call ptr @zend_hash_next_index_insert(ptr noundef %50, ptr noundef nonnull %3) #13
   br label %52
 
-52:                                               ; preds = %49, %9
+52:                                               ; preds = %9, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2918,7 +2923,7 @@ instanceof_function.exit:                         ; preds = %69
   store ptr %63, ptr %78, align 8, !tbaa !81
   br label %79
 
-79:                                               ; preds = %2, %54, %57, %.critedge, %64, %73, %50, %33
+79:                                               ; preds = %54, %57, %.critedge, %64, %73, %2, %50, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3020,7 +3025,7 @@ spl_array_get_debug_info.exit:                    ; preds = %22, %instanceof_fun
   store i32 775, ptr %44, align 8, !tbaa !4
   br label %45
 
-45:                                               ; preds = %spl_array_get_debug_info.exit, %5
+45:                                               ; preds = %5, %spl_array_get_debug_info.exit
   ret void
 }
 
@@ -3238,7 +3243,7 @@ spl_array_get_pos_ptr.exit:                       ; preds = %.critedge12, %64
   %72 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %71, i64 noundef 0, ptr noundef nonnull @.str.23, i64 noundef %14) #13
   br label %73
 
-73:                                               ; preds = %2, %spl_array_get_pos_ptr.exit, %.critedge
+73:                                               ; preds = %spl_array_get_pos_ptr.exit, %2, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3347,7 +3352,7 @@ spl_array_get_pos_ptr.exit:                       ; preds = %.critedge, %14
   store i32 %55, ptr %56, align 8, !tbaa !4
   br label %57
 
-57:                                               ; preds = %52, %33, %22, %10
+57:                                               ; preds = %10, %52, %33, %22
   ret void
 }
 
@@ -3417,7 +3422,7 @@ spl_array_iterator_key.exit:                      ; preds = %.critedge, %14
   tail call void @zend_hash_get_current_key_zval_ex(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %19) #13
   br label %20
 
-20:                                               ; preds = %spl_array_iterator_key.exit, %5
+20:                                               ; preds = %5, %spl_array_iterator_key.exit
   ret void
 }
 
@@ -3536,7 +3541,7 @@ spl_array_get_pos_ptr.exit:                       ; preds = %.critedge, %14
   store i32 %21, ptr %22, align 8, !tbaa !4
   br label %23
 
-23:                                               ; preds = %spl_array_get_pos_ptr.exit, %10
+23:                                               ; preds = %10, %spl_array_get_pos_ptr.exit
   ret void
 }
 
@@ -3630,7 +3635,7 @@ spl_array_get_pos_ptr.exit:                       ; preds = %.critedge, %14
   store i32 %44, ptr %45, align 8, !tbaa !4
   br label %46
 
-46:                                               ; preds = %43, %22, %10
+46:                                               ; preds = %10, %43, %22
   ret void
 }
 
@@ -3771,7 +3776,7 @@ instanceof_function.exit.thread:                  ; preds = %instanceof_function
   call void @zend_call_known_instance_method_with_2_params(ptr noundef %72, ptr noundef %73, ptr noundef null, ptr noundef nonnull %.1, ptr noundef nonnull %3) #13
   br label %74
 
-74:                                               ; preds = %59, %instanceof_function.exit.thread, %44, %23, %11
+74:                                               ; preds = %11, %59, %instanceof_function.exit.thread, %44, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

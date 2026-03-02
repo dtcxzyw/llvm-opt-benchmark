@@ -524,8 +524,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = call ptr @localtime(ptr noundef nonnull %currentWithDST) #17
-  %tobool = icmp ne ptr %call1, null
-  call void @llvm.assume(i1 %tobool)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1) ]
   %tm_gmtoff = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %0 = load i64, ptr %tm_gmtoff, align 8
   %conv = sitofp i64 %0 to double
@@ -689,8 +688,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %call1.i = call ptr @localtime(ptr noundef nonnull %currentWithDST.i) #17
-  %tobool.i = icmp ne ptr %call1.i, null
-  call void @llvm.assume(i1 %tobool.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1.i) ]
   %tm_gmtoff.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   %0 = load i64, ptr %tm_gmtoff.i, align 8
   %conv.i = sitofp i64 %0 to double
@@ -754,8 +752,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %call1.i = call ptr @localtime(ptr noundef nonnull %currentWithDST.i) #17
-  %tobool.i = icmp ne ptr %call1.i, null
-  call void @llvm.assume(i1 %tobool.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1.i) ]
   %tm_gmtoff.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   %0 = load i64, ptr %tm_gmtoff.i, align 8
   %conv.i = sitofp i64 %0 to double

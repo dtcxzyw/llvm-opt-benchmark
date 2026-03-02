@@ -1307,7 +1307,7 @@ define hidden void @zim_SplObjectStorage_rewind(ptr noundef readonly captures(no
   store i64 0, ptr %10, align 8, !tbaa !30
   br label %11
 
-11:                                               ; preds = %.critedge, %5
+11:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1336,7 +1336,7 @@ define hidden void @zim_SplObjectStorage_valid(ptr noundef readonly captures(non
   store i32 %11, ptr %12, align 8, !tbaa !4
   br label %13
 
-13:                                               ; preds = %.critedge, %5
+13:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1361,7 +1361,7 @@ define hidden void @zim_SplObjectStorage_key(ptr noundef readonly captures(none)
   store i32 4, ptr %10, align 8, !tbaa !4
   br label %11
 
-11:                                               ; preds = %.critedge, %5
+11:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1401,7 +1401,7 @@ define hidden void @zim_SplObjectStorage_current(ptr noundef readonly captures(n
   store i32 776, ptr %19, align 8, !tbaa !4
   br label %20
 
-20:                                               ; preds = %14, %11, %5
+20:                                               ; preds = %5, %14, %11
   ret void
 }
 
@@ -1451,7 +1451,7 @@ define hidden void @zim_SplObjectStorage_getInfo(ptr noundef readonly captures(n
   store i32 %23, ptr %16, align 4, !tbaa !25
   br label %24
 
-24:                                               ; preds = %13, %21, %11, %5
+24:                                               ; preds = %5, %13, %21, %11
   ret void
 }
 
@@ -1541,7 +1541,7 @@ define hidden void @zim_SplObjectStorage_next(ptr noundef readonly captures(none
   store i64 %13, ptr %11, align 8, !tbaa !30
   br label %14
 
-14:                                               ; preds = %.critedge, %5
+14:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1640,7 +1640,7 @@ define hidden void @zim_SplObjectStorage_seek(ptr noundef readonly captures(none
   %54 = icmp slt i64 %53, %52
   br i1 %54, label %.preheader27, label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader27, %44, %31, %2, %23, %37, %18
+.loopexit:                                        ; preds = %.preheader27, %44, %31, %23, %37, %2, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1982,7 +1982,7 @@ smart_str_extract_ex.exit:                        ; preds = %smart_str_trim_to_s
   store i32 %155, ptr %156, align 8, !tbaa !4
   br label %157
 
-157:                                              ; preds = %.thread, %smart_str_extract_ex.exit, %15
+157:                                              ; preds = %.thread, %15, %smart_str_extract_ex.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2028,7 +2028,7 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captur
   %18 = load i64, ptr %6, align 8
   %19 = icmp eq i64 %18, 0
   %or.cond = select i1 %17, i1 true, i1 %19
-  br i1 %or.cond, label %136, label %20
+  br i1 %or.cond, label %149, label %20
 
 20:                                               ; preds = %2
   %21 = load ptr, ptr %5, align 8, !tbaa !63
@@ -2038,14 +2038,14 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captur
   %23 = load ptr, ptr %7, align 8, !tbaa !63
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %.not = icmp eq i8 %24, 120
-  br i1 %.not, label %25, label %126
+  br i1 %.not, label %25, label %139
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %26, ptr %7, align 8, !tbaa !63
   %27 = load i8, ptr %26, align 1, !tbaa !4
   %.not34 = icmp eq i8 %27, 58
-  br i1 %.not34, label %28, label %126
+  br i1 %.not34, label %28, label %139
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 2
@@ -2055,13 +2055,13 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captur
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 %31
   %33 = call i32 @php_var_unserialize(ptr noundef %30, ptr noundef nonnull %7, ptr noundef %32, ptr noundef nonnull %8) #10
   %.not35 = icmp eq i32 %33, 0
-  br i1 %.not35, label %126, label %34
+  br i1 %.not35, label %139, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = load i8, ptr %35, align 8, !tbaa !4
   %.not36 = icmp eq i8 %36, 4
-  br i1 %.not36, label %37, label %126
+  br i1 %.not36, label %37, label %139
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr %7, align 8, !tbaa !63
@@ -2069,11 +2069,11 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captur
   store ptr %39, ptr %7, align 8, !tbaa !63
   %40 = load i64, ptr %30, align 8, !tbaa !4
   %41 = icmp slt i64 %40, 0
-  br i1 %41, label %126, label %.preheader
+  br i1 %41, label %139, label %.preheader
 
 .preheader:                                       ; preds = %37
-  %.not67 = icmp eq i64 %40, 0
-  br i1 %.not67, label %._crit_edge, label %.lr.ph
+  %.not119 = icmp eq i64 %40, 0
+  br i1 %.not119, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2084,9 +2084,9 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captur
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %48
 
-48:                                               ; preds = %.lr.ph, %99
-  %.in = phi i64 [ %40, %.lr.ph ], [ %49, %99 ]
-  %.sroa.0.066 = phi i64 [ undef, %.lr.ph ], [ %.sroa.0.257, %99 ]
+48:                                               ; preds = %.lr.ph, %spl_object_storage_free_hash.exit.thread
+  %.in = phi i64 [ %40, %.lr.ph ], [ %49, %spl_object_storage_free_hash.exit.thread ]
+  %.sroa.0.0118 = phi i64 [ undef, %.lr.ph ], [ %.sroa.0.2627284103, %spl_object_storage_free_hash.exit.thread ]
   %49 = add nsw i64 %.in, -1
   %50 = call ptr @var_tmp_var(ptr noundef nonnull %8) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2094,13 +2094,13 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captur
   %51 = load ptr, ptr %7, align 8, !tbaa !63
   %52 = load i8, ptr %51, align 1, !tbaa !4
   %.not42 = icmp eq i8 %52, 59
-  br i1 %.not42, label %53, label %.thread
+  br i1 %.not42, label %53, label %.thread113
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 1
   store ptr %54, ptr %7, align 8, !tbaa !63
   %55 = load i8, ptr %54, align 1, !tbaa !4
-  switch i8 %55, label %.thread [
+  switch i8 %55, label %.thread113 [
     i8 79, label %56
     i8 67, label %56
     i8 114, label %56
@@ -2111,7 +2111,7 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captur
   %58 = getelementptr inbounds nuw i8, ptr %21, i64 %57
   %59 = call i32 @php_var_unserialize(ptr noundef %50, ptr noundef nonnull %7, ptr noundef %58, ptr noundef nonnull %8) #10
   %.not46 = icmp eq i32 %59, 0
-  br i1 %.not46, label %.thread, label %60
+  br i1 %.not46, label %.thread113, label %60
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %7, align 8, !tbaa !63
@@ -2126,19 +2126,19 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captur
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 %66
   %68 = call i32 @php_var_unserialize(ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef %67, ptr noundef nonnull %8) #10
   %.not47 = icmp eq i32 %68, 0
-  br i1 %.not47, label %.thread.sink.split, label %69
+  br i1 %.not47, label %.thread113.sink.split, label %69
 
 69:                                               ; preds = %64, %60
   %70 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %71 = load i8, ptr %70, align 8, !tbaa !4
   %.not48 = icmp eq i8 %71, 8
-  br i1 %.not48, label %72, label %.thread.sink.split
+  br i1 %.not48, label %72, label %.thread113.sink.split
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %50, align 8, !tbaa !4
   %74 = load ptr, ptr %43, align 8, !tbaa !31
   %.not.i = icmp eq ptr %74, null
-  br i1 %.not.i, label %spl_object_storage_get_hash.exit.thread, label %75, !prof !8
+  br i1 %.not.i, label %.thread, label %75, !prof !8
 
 75:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2150,7 +2150,7 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captur
   %78 = load i8, ptr %46, align 8, !tbaa !4
   switch i8 %78, label %79 [
     i8 0, label %.loopexit
-    i8 6, label %spl_object_storage_get_hash.exit
+    i8 6, label %88
   ], !prof !33
 
 79:                                               ; preds = %75
@@ -2163,133 +2163,173 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr noundef readonly captur
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
   br label %.loopexit
 
-spl_object_storage_get_hash.exit.thread:          ; preds = %72
+.thread:                                          ; preds = %72
   %85 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %86 = load i32, ptr %85, align 8, !tbaa !28
   %87 = zext i32 %86 to i64
-  br label %89
-
-spl_object_storage_get_hash.exit:                 ; preds = %75
-  %88 = load ptr, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %89
+  br label %92
 
 .loopexit:                                        ; preds = %75, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread.sink.split
+  br label %.thread113.sink.split
 
-89:                                               ; preds = %spl_object_storage_get_hash.exit, %spl_object_storage_get_hash.exit.thread
-  %.sroa.0.257 = phi i64 [ %87, %spl_object_storage_get_hash.exit.thread ], [ %.sroa.0.066, %spl_object_storage_get_hash.exit ]
-  %.sroa.4.356 = phi ptr [ null, %spl_object_storage_get_hash.exit.thread ], [ %88, %spl_object_storage_get_hash.exit ]
-  %90 = call fastcc ptr @spl_object_storage_get(ptr noundef nonnull %13, i64 %.sroa.0.257, ptr %.sroa.4.356)
-  call fastcc void @spl_object_storage_free_hash(ptr %.sroa.4.356)
-  %.not49 = icmp eq ptr %90, null
-  br i1 %.not49, label %99, label %91
+88:                                               ; preds = %75
+  %89 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %.not.i54 = icmp eq ptr %89, null
+  br i1 %.not.i54, label %92, label %90
 
-91:                                               ; preds = %89
+90:                                               ; preds = %88
+  %91 = call ptr @zend_hash_find(ptr noundef nonnull %13, ptr noundef nonnull %89) #10
+  %.not.i.i = icmp eq ptr %91, null
+  br i1 %.not.i.i, label %spl_object_storage_get.exit.thread86, label %spl_object_storage_get.exit
+
+92:                                               ; preds = %.thread, %88
+  %.sroa.0.26270 = phi i64 [ %87, %.thread ], [ %.sroa.0.0118, %88 ]
+  %93 = call ptr @zend_hash_index_find(ptr noundef nonnull %13, i64 noundef %.sroa.0.26270) #10
+  %.not.i7.i = icmp eq ptr %93, null
+  br i1 %.not.i7.i, label %spl_object_storage_free_hash.exit.thread, label %spl_object_storage_free_hash.exit.thread105
+
+spl_object_storage_free_hash.exit.thread105:      ; preds = %92
+  %94 = load ptr, ptr %93, align 8, !tbaa !4, !nonnull !26, !noundef !26
+  br label %105
+
+spl_object_storage_get.exit:                      ; preds = %90
+  %95 = load ptr, ptr %91, align 8, !tbaa !4, !nonnull !26, !noundef !26
+  br label %spl_object_storage_get.exit.thread86
+
+spl_object_storage_get.exit.thread86:             ; preds = %90, %spl_object_storage_get.exit
+  %.0.i5593 = phi ptr [ %95, %spl_object_storage_get.exit ], [ null, %90 ]
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 4
+  %97 = load i32, ptr %96, align 4, !tbaa !4
+  %98 = and i32 %97, 64
+  %.not.i.i57 = icmp eq i32 %98, 0
+  br i1 %.not.i.i57, label %99, label %spl_object_storage_free_hash.exit
+
+99:                                               ; preds = %spl_object_storage_get.exit.thread86
+  %100 = load i32, ptr %89, align 4, !tbaa !25
+  %101 = icmp ne i32 %100, 0
+  call void @llvm.assume(i1 %101)
+  %102 = add i32 %100, -1
+  store i32 %102, ptr %89, align 4, !tbaa !25
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %104, label %spl_object_storage_free_hash.exit
+
+104:                                              ; preds = %99
+  call void @_efree(ptr noundef nonnull %89) #10
+  br label %spl_object_storage_free_hash.exit
+
+spl_object_storage_free_hash.exit:                ; preds = %spl_object_storage_get.exit.thread86, %99, %104
+  %.not49 = icmp eq ptr %.0.i5593, null
+  br i1 %.not49, label %spl_object_storage_free_hash.exit.thread, label %105
+
+105:                                              ; preds = %spl_object_storage_free_hash.exit.thread105, %spl_object_storage_free_hash.exit
+  %.sroa.0.2627284111 = phi i64 [ %.sroa.0.26270, %spl_object_storage_free_hash.exit.thread105 ], [ %.sroa.0.0118, %spl_object_storage_free_hash.exit ]
+  %.0.i5585110 = phi ptr [ %94, %spl_object_storage_free_hash.exit.thread105 ], [ %.0.i5593, %spl_object_storage_free_hash.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %93 = load i8, ptr %92, align 8, !tbaa !4
-  %94 = icmp eq i8 %93, 0
-  br i1 %94, label %97, label %95
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i5585110, i64 16
+  %107 = load i8, ptr %106, align 8, !tbaa !4
+  %108 = icmp eq i8 %107, 0
+  br i1 %108, label %111, label %109
 
-95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  call void @var_push_dtor(ptr noundef nonnull %8, ptr noundef nonnull %96) #10
-  br label %97
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i5585110, i64 8
+  call void @var_push_dtor(ptr noundef nonnull %8, ptr noundef nonnull %110) #10
+  br label %111
 
-97:                                               ; preds = %91, %95
-  %98 = load ptr, ptr %90, align 8, !tbaa !48
-  store ptr %98, ptr %10, align 8, !tbaa !4
+111:                                              ; preds = %105, %109
+  %112 = load ptr, ptr %.0.i5585110, align 8, !tbaa !48
+  store ptr %112, ptr %10, align 8, !tbaa !4
   store i32 776, ptr %47, align 8, !tbaa !4
   call void @var_push_dtor(ptr noundef nonnull %8, ptr noundef nonnull %10) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %99
+  br label %spl_object_storage_free_hash.exit.thread
 
-.thread.sink.split:                               ; preds = %69, %64, %.loopexit
+.thread113.sink.split:                            ; preds = %69, %64, %.loopexit
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #10
-  br label %.thread
+  br label %.thread113
 
-.thread:                                          ; preds = %53, %48, %56, %.thread.sink.split
+.thread113:                                       ; preds = %53, %48, %56, %.thread113.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %126
+  br label %139
 
-99:                                               ; preds = %89, %97
-  %100 = load ptr, ptr %50, align 8, !tbaa !4
-  %101 = load i8, ptr %42, align 8, !tbaa !4
-  %102 = icmp eq i8 %101, 0
-  %. = select i1 %102, ptr null, ptr %9
-  %103 = call fastcc ptr @spl_object_storage_attach(ptr noundef nonnull %13, ptr noundef %100, ptr noundef %.)
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  call void @var_replace(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %104) #10
+spl_object_storage_free_hash.exit.thread:         ; preds = %92, %spl_object_storage_free_hash.exit, %111
+  %.sroa.0.2627284103 = phi i64 [ %.sroa.0.0118, %spl_object_storage_free_hash.exit ], [ %.sroa.0.2627284111, %111 ], [ %.sroa.0.26270, %92 ]
+  %113 = load ptr, ptr %50, align 8, !tbaa !4
+  %114 = load i8, ptr %42, align 8, !tbaa !4
+  %115 = icmp eq i8 %114, 0
+  %. = select i1 %115, ptr null, ptr %9
+  %116 = call fastcc ptr @spl_object_storage_attach(ptr noundef nonnull %13, ptr noundef %113, ptr noundef %.)
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  call void @var_replace(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %117) #10
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %105 = icmp samesign ugt i64 %.in, 1
-  br i1 %105, label %48, label %._crit_edge.loopexit
+  %118 = icmp samesign ugt i64 %.in, 1
+  br i1 %118, label %48, label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %99
+._crit_edge.loopexit:                             ; preds = %spl_object_storage_free_hash.exit.thread
   %.pre = load ptr, ptr %7, align 8, !tbaa !63
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %106 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %39, %.preheader ]
-  %107 = load i8, ptr %106, align 1, !tbaa !4
-  %.not37 = icmp eq i8 %107, 59
-  br i1 %.not37, label %108, label %126
+  %119 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %39, %.preheader ]
+  %120 = load i8, ptr %119, align 1, !tbaa !4
+  %.not37 = icmp eq i8 %120, 59
+  br i1 %.not37, label %121, label %139
 
-108:                                              ; preds = %._crit_edge
-  %109 = getelementptr inbounds nuw i8, ptr %106, i64 1
-  store ptr %109, ptr %7, align 8, !tbaa !63
-  %110 = load i8, ptr %109, align 1, !tbaa !4
-  %.not38 = icmp eq i8 %110, 109
-  br i1 %.not38, label %111, label %126
+121:                                              ; preds = %._crit_edge
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 1
+  store ptr %122, ptr %7, align 8, !tbaa !63
+  %123 = load i8, ptr %122, align 1, !tbaa !4
+  %.not38 = icmp eq i8 %123, 109
+  br i1 %.not38, label %124, label %139
 
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds nuw i8, ptr %106, i64 2
-  store ptr %112, ptr %7, align 8, !tbaa !63
-  %113 = load i8, ptr %112, align 1, !tbaa !4
-  %.not39 = icmp eq i8 %113, 58
-  br i1 %.not39, label %114, label %126
+124:                                              ; preds = %121
+  %125 = getelementptr inbounds nuw i8, ptr %119, i64 2
+  store ptr %125, ptr %7, align 8, !tbaa !63
+  %126 = load i8, ptr %125, align 1, !tbaa !4
+  %.not39 = icmp eq i8 %126, 58
+  br i1 %.not39, label %127, label %139
 
-114:                                              ; preds = %111
-  %115 = getelementptr inbounds nuw i8, ptr %106, i64 3
-  store ptr %115, ptr %7, align 8, !tbaa !63
-  %116 = call ptr @var_tmp_var(ptr noundef nonnull %8) #10
-  %117 = load i64, ptr %6, align 8, !tbaa !53
-  %118 = getelementptr inbounds nuw i8, ptr %21, i64 %117
-  %119 = call i32 @php_var_unserialize(ptr noundef %116, ptr noundef nonnull %7, ptr noundef %118, ptr noundef nonnull %8) #10
-  %.not40 = icmp eq i32 %119, 0
-  br i1 %.not40, label %126, label %120
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds nuw i8, ptr %119, i64 3
+  store ptr %128, ptr %7, align 8, !tbaa !63
+  %129 = call ptr @var_tmp_var(ptr noundef nonnull %8) #10
+  %130 = load i64, ptr %6, align 8, !tbaa !53
+  %131 = getelementptr inbounds nuw i8, ptr %21, i64 %130
+  %132 = call i32 @php_var_unserialize(ptr noundef %129, ptr noundef nonnull %7, ptr noundef %131, ptr noundef nonnull %8) #10
+  %.not40 = icmp eq i32 %132, 0
+  br i1 %.not40, label %139, label %133
 
-120:                                              ; preds = %114
-  %121 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %122 = load i8, ptr %121, align 8, !tbaa !4
-  %.not41 = icmp eq i8 %122, 7
-  br i1 %.not41, label %123, label %126
+133:                                              ; preds = %127
+  %134 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %135 = load i8, ptr %134, align 8, !tbaa !4
+  %.not41 = icmp eq i8 %135, 7
+  br i1 %.not41, label %136, label %139
 
-123:                                              ; preds = %120
-  %124 = load ptr, ptr %116, align 8, !tbaa !4
-  call void @object_properties_load(ptr noundef nonnull %12, ptr noundef %124) #10
-  %125 = load ptr, ptr %8, align 8, !tbaa !65
-  call void @php_var_unserialize_destroy(ptr noundef %125) #10
-  br label %136
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %129, align 8, !tbaa !4
+  call void @object_properties_load(ptr noundef nonnull %12, ptr noundef %137) #10
+  %138 = load ptr, ptr %8, align 8, !tbaa !65
+  call void @php_var_unserialize_destroy(ptr noundef %138) #10
+  br label %149
 
-126:                                              ; preds = %.thread, %114, %120, %108, %111, %._crit_edge, %37, %28, %34, %20, %25
-  %127 = load ptr, ptr %8, align 8, !tbaa !65
-  call void @php_var_unserialize_destroy(ptr noundef %127) #10
-  %128 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !45
-  %129 = load ptr, ptr %7, align 8, !tbaa !63
-  %130 = load ptr, ptr %5, align 8, !tbaa !63
-  %131 = ptrtoint ptr %129 to i64
-  %132 = ptrtoint ptr %130 to i64
-  %133 = sub i64 %131, %132
-  %134 = load i64, ptr %6, align 8, !tbaa !53
-  %135 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %128, i64 noundef 0, ptr noundef nonnull @.str.10, i64 noundef %133, i64 noundef %134) #10
-  br label %136
+139:                                              ; preds = %.thread113, %127, %133, %121, %124, %._crit_edge, %37, %28, %34, %20, %25
+  %140 = load ptr, ptr %8, align 8, !tbaa !65
+  call void @php_var_unserialize_destroy(ptr noundef %140) #10
+  %141 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8, !tbaa !45
+  %142 = load ptr, ptr %7, align 8, !tbaa !63
+  %143 = load ptr, ptr %5, align 8, !tbaa !63
+  %144 = ptrtoint ptr %142 to i64
+  %145 = ptrtoint ptr %143 to i64
+  %146 = sub i64 %144, %145
+  %147 = load i64, ptr %6, align 8, !tbaa !53
+  %148 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %141, i64 noundef 0, ptr noundef nonnull @.str.10, i64 noundef %146, i64 noundef %147) #10
+  br label %149
 
-136:                                              ; preds = %2, %126, %123
+149:                                              ; preds = %2, %139, %136
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2413,7 +2453,7 @@ define hidden void @zim_SplObjectStorage___serialize(ptr noundef readonly captur
   %59 = call ptr @zend_hash_next_index_insert(ptr noundef %58, ptr noundef nonnull %3) #10
   br label %60
 
-60:                                               ; preds = %._crit_edge, %9
+60:                                               ; preds = %9, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2548,7 +2588,7 @@ define hidden void @zim_SplObjectStorage___unserialize(ptr noundef readonly capt
   call void @object_properties_load(ptr noundef nonnull %5, ptr noundef %69) #10
   br label %70
 
-70:                                               ; preds = %2, %54, %.critedge, %32, %24
+70:                                               ; preds = %54, %2, %.critedge, %32, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2649,7 +2689,7 @@ spl_object_storage_debug_info.exit:               ; preds = %45, %.critedge
   store i32 775, ptr %50, align 8, !tbaa !4
   br label %51
 
-51:                                               ; preds = %spl_object_storage_debug_info.exit, %8
+51:                                               ; preds = %8, %spl_object_storage_debug_info.exit
   ret void
 }
 
@@ -2698,7 +2738,7 @@ define hidden void @zim_MultipleIterator_getFlags(ptr noundef readonly captures(
   store i32 4, ptr %10, align 8, !tbaa !4
   br label %11
 
-11:                                               ; preds = %.critedge, %5
+11:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -3073,7 +3113,7 @@ define hidden void @zim_MultipleIterator_countIterators(ptr noundef readonly cap
   store i32 4, ptr %11, align 8, !tbaa !4
   br label %12
 
-12:                                               ; preds = %.critedge, %5
+12:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -3263,7 +3303,7 @@ zend_hash_get_current_data_ptr_ex.exit.thread:    ; preds = %40, %14
   store i32 %44, ptr %45, align 8, !tbaa !4
   br label %46
 
-46:                                               ; preds = %.thread, %zend_hash_get_current_data_ptr_ex.exit.thread, %12, %9
+46:                                               ; preds = %.thread, %9, %zend_hash_get_current_data_ptr_ex.exit.thread, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3286,7 +3326,7 @@ define hidden void @zim_MultipleIterator_current(ptr noundef readonly captures(n
   tail call fastcc void @spl_multiple_iterator_get_all(ptr noundef nonnull %8, i32 noundef 1, ptr noundef %1)
   br label %9
 
-9:                                                ; preds = %.critedge, %5
+9:                                                ; preds = %5, %.critedge
   ret void
 }
 
@@ -3496,7 +3536,7 @@ define hidden void @zim_MultipleIterator_key(ptr noundef readonly captures(none)
   tail call fastcc void @spl_multiple_iterator_get_all(ptr noundef nonnull %8, i32 noundef 2, ptr noundef %1)
   br label %9
 
-9:                                                ; preds = %.critedge, %5
+9:                                                ; preds = %5, %.critedge
   ret void
 }
 

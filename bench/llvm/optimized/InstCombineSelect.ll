@@ -1735,7 +1735,9 @@ _ZNK4llvm11Instruction11isIntDivRemEv.exit:       ; preds = %574, %587, %583, %5
 
 622:                                              ; preds = %_ZNK4llvm11Instruction11isIntDivRemEv.exit
   %623 = icmp eq i8 %611, 63
-  br i1 %623, label %624, label %633
+  %spec.select.i.i278 = select i1 %623, ptr %610, ptr null
+  %.not168.not = icmp eq ptr %spec.select.i.i278, null
+  br i1 %.not168.not, label %633, label %624
 
 624:                                              ; preds = %622
   %625 = load ptr, ptr %7, align 8, !tbaa !3
@@ -1757,7 +1759,7 @@ _ZNK4llvm11Instruction11isIntDivRemEv.exit:       ; preds = %574, %587, %583, %5
 
 633:                                              ; preds = %622, %624
   %.19 = phi ptr [ %632, %624 ], [ undef, %622 ]
-  call void @llvm.assume(i1 %623)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i278) ]
   br label %634
 
 634:                                              ; preds = %614, %633

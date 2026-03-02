@@ -1483,7 +1483,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.044 = phi ptr [ %1, %4 ], [ %.044.be, %tailrecurse.backedge ]
   %9 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   %10 = load i8, ptr %9, align 8, !tbaa !18
-  switch i8 %10, label %265 [
+  switch i8 %10, label %264 [
     i8 1, label %11
     i8 3, label %26
     i8 2, label %41
@@ -1492,7 +1492,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i8 6, label %142
     i8 8, label %148
     i8 7, label %.loopexit
-    i8 10, label %262
+    i8 10, label %261
   ]
 
 11:                                               ; preds = %tailrecurse
@@ -1804,294 +1804,292 @@ instanceof_function.exit:                         ; preds = %148
   %.pre130 = load ptr, ptr %.044, align 8, !tbaa !18
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre130, i64 16
   %.pre131 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !36
-  br i1 %154, label %instanceof_function.exit.thread, label %219
+  br i1 %154, label %instanceof_function.exit.thread, label %218
 
 instanceof_function.exit.thread:                  ; preds = %148, %instanceof_function.exit
   %155 = phi ptr [ %.pre131, %instanceof_function.exit ], [ %151, %148 ]
   %156 = phi ptr [ %.pre130, %instanceof_function.exit ], [ %149, %148 ]
   %157 = tail call ptr @zend_get_recursion_guard(ptr noundef nonnull %156) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %158 = icmp ne ptr %157, null
-  tail call void @llvm.assume(i1 %158)
-  %159 = load i32, ptr %157, align 4, !tbaa !32
-  %160 = and i32 %159, 128
-  %.not.i78 = icmp eq i32 %160, 0
-  br i1 %.not.i78, label %zend_hash_str_find_ptr.exit.i, label %161
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %157) ]
+  %158 = load i32, ptr %157, align 4, !tbaa !32
+  %159 = and i32 %158, 128
+  %.not.i78 = icmp eq i32 %159, 0
+  br i1 %.not.i78, label %zend_hash_str_find_ptr.exit.i, label %160
 
-161:                                              ; preds = %instanceof_function.exit.thread
-  %162 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 6, ptr %162, align 4, !tbaa !33
-  %163 = and i32 %2, 512
-  %.not28.i = icmp eq i32 %163, 0
-  br i1 %.not28.i, label %php_json_encode_serializable_object.exit, label %164
+160:                                              ; preds = %instanceof_function.exit.thread
+  %161 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 6, ptr %161, align 4, !tbaa !33
+  %162 = and i32 %2, 512
+  %.not28.i = icmp eq i32 %162, 0
+  br i1 %.not28.i, label %php_json_encode_serializable_object.exit, label %163
 
-164:                                              ; preds = %161
-  %165 = load ptr, ptr %0, align 8, !tbaa !4
-  %.not.i.i.i79 = icmp eq ptr %165, null
-  br i1 %.not.i.i.i79, label %172, label %166, !prof !11
+163:                                              ; preds = %160
+  %164 = load ptr, ptr %0, align 8, !tbaa !4
+  %.not.i.i.i79 = icmp eq ptr %164, null
+  br i1 %.not.i.i.i79, label %171, label %165, !prof !11
 
-166:                                              ; preds = %164
-  %167 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  %168 = load i64, ptr %167, align 8, !tbaa !12
-  %169 = add i64 %168, 4
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %171 = load i64, ptr %170, align 8, !tbaa !16
-  %.not12.i.i.i80 = icmp ult i64 %169, %171
-  br i1 %.not12.i.i.i80, label %smart_str_appendl_ex.exit.i, label %172, !prof !17
+165:                                              ; preds = %163
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  %167 = load i64, ptr %166, align 8, !tbaa !12
+  %168 = add i64 %167, 4
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %170 = load i64, ptr %169, align 8, !tbaa !16
+  %.not12.i.i.i80 = icmp ult i64 %168, %170
+  br i1 %.not12.i.i.i80, label %smart_str_appendl_ex.exit.i, label %171, !prof !17
 
-172:                                              ; preds = %166, %164
-  %.0.i.i.i81 = phi i64 [ 4, %164 ], [ %169, %166 ]
+171:                                              ; preds = %165, %163
+  %.0.i.i.i81 = phi i64 [ 4, %163 ], [ %168, %165 ]
   tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i.i81) #9
   %.pre132 = load ptr, ptr %0, align 8, !tbaa !4
   %.phi.trans.insert133 = getelementptr inbounds nuw i8, ptr %.pre132, i64 16
   %.pre134 = load i64, ptr %.phi.trans.insert133, align 8, !tbaa !12
   br label %smart_str_appendl_ex.exit.i
 
-smart_str_appendl_ex.exit.i:                      ; preds = %172, %166
-  %173 = phi i64 [ %168, %166 ], [ %.pre134, %172 ]
-  %174 = phi ptr [ %165, %166 ], [ %.pre132, %172 ]
-  %.1.i.i.i82 = phi i64 [ %169, %166 ], [ %.0.i.i.i81, %172 ]
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 %173
-  store i32 1819047278, ptr %176, align 1
-  %177 = load ptr, ptr %0, align 8, !tbaa !4
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
-  store i64 %.1.i.i.i82, ptr %178, align 8, !tbaa !12
+smart_str_appendl_ex.exit.i:                      ; preds = %171, %165
+  %172 = phi i64 [ %167, %165 ], [ %.pre134, %171 ]
+  %173 = phi ptr [ %164, %165 ], [ %.pre132, %171 ]
+  %.1.i.i.i82 = phi i64 [ %168, %165 ], [ %.0.i.i.i81, %171 ]
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 %172
+  store i32 1819047278, ptr %175, align 1
+  %176 = load ptr, ptr %0, align 8, !tbaa !4
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
+  store i64 %.1.i.i.i82, ptr %177, align 8, !tbaa !12
   br label %php_json_encode_serializable_object.exit
 
 zend_hash_str_find_ptr.exit.i:                    ; preds = %instanceof_function.exit.thread
-  %179 = or disjoint i32 %159, 128
-  store i32 %179, ptr %157, align 4, !tbaa !32
-  %180 = getelementptr inbounds nuw i8, ptr %155, i64 64
-  %181 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %180, ptr noundef nonnull @.str.19, i64 noundef 13) #9
-  %.not.i.i84 = icmp ne ptr %181, null
-  tail call void @llvm.assume(i1 %.not.i.i84)
-  %182 = load ptr, ptr %181, align 8, !tbaa !18, !nonnull !42, !noundef !42
-  call void @zend_call_known_function(ptr noundef nonnull %182, ptr noundef nonnull %156, ptr noundef nonnull %155, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, ptr noundef null) #9
-  %183 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %184 = load i8, ptr %183, align 8, !tbaa !18
-  %185 = icmp eq i8 %184, 0
-  br i1 %185, label %186, label %206
+  %178 = or disjoint i32 %158, 128
+  store i32 %178, ptr %157, align 4, !tbaa !32
+  %179 = getelementptr inbounds nuw i8, ptr %155, i64 64
+  %180 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %179, ptr noundef nonnull @.str.19, i64 noundef 13) #9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %180) ]
+  %181 = load ptr, ptr %180, align 8, !tbaa !18, !nonnull !42, !noundef !42
+  call void @zend_call_known_function(ptr noundef nonnull %181, ptr noundef nonnull %156, ptr noundef nonnull %155, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, ptr noundef null) #9
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %183 = load i8, ptr %182, align 8, !tbaa !18
+  %184 = icmp eq i8 %183, 0
+  br i1 %184, label %185, label %205
 
-186:                                              ; preds = %zend_hash_str_find_ptr.exit.i
-  %187 = and i32 %2, 512
-  %.not27.i = icmp eq i32 %187, 0
-  br i1 %.not27.i, label %203, label %188
+185:                                              ; preds = %zend_hash_str_find_ptr.exit.i
+  %186 = and i32 %2, 512
+  %.not27.i = icmp eq i32 %186, 0
+  br i1 %.not27.i, label %202, label %187
 
-188:                                              ; preds = %186
-  %189 = load ptr, ptr %0, align 8, !tbaa !4
-  %.not.i.i30.i = icmp eq ptr %189, null
-  br i1 %.not.i.i30.i, label %196, label %190, !prof !11
+187:                                              ; preds = %185
+  %188 = load ptr, ptr %0, align 8, !tbaa !4
+  %.not.i.i30.i = icmp eq ptr %188, null
+  br i1 %.not.i.i30.i, label %195, label %189, !prof !11
 
-190:                                              ; preds = %188
-  %191 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  %192 = load i64, ptr %191, align 8, !tbaa !12
-  %193 = add i64 %192, 4
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %195 = load i64, ptr %194, align 8, !tbaa !16
-  %.not12.i.i31.i = icmp ult i64 %193, %195
-  br i1 %.not12.i.i31.i, label %smart_str_appendl_ex.exit34.i, label %196, !prof !17
+189:                                              ; preds = %187
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 16
+  %191 = load i64, ptr %190, align 8, !tbaa !12
+  %192 = add i64 %191, 4
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %194 = load i64, ptr %193, align 8, !tbaa !16
+  %.not12.i.i31.i = icmp ult i64 %192, %194
+  br i1 %.not12.i.i31.i, label %smart_str_appendl_ex.exit34.i, label %195, !prof !17
 
-196:                                              ; preds = %190, %188
-  %.0.i.i32.i = phi i64 [ 4, %188 ], [ %193, %190 ]
+195:                                              ; preds = %189, %187
+  %.0.i.i32.i = phi i64 [ 4, %187 ], [ %192, %189 ]
   call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i32.i) #9
   %.pre135 = load ptr, ptr %0, align 8, !tbaa !4
   %.phi.trans.insert136 = getelementptr inbounds nuw i8, ptr %.pre135, i64 16
   %.pre137 = load i64, ptr %.phi.trans.insert136, align 8, !tbaa !12
   br label %smart_str_appendl_ex.exit34.i
 
-smart_str_appendl_ex.exit34.i:                    ; preds = %196, %190
-  %197 = phi i64 [ %192, %190 ], [ %.pre137, %196 ]
-  %198 = phi ptr [ %189, %190 ], [ %.pre135, %196 ]
-  %.1.i.i33.i = phi i64 [ %193, %190 ], [ %.0.i.i32.i, %196 ]
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 24
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 %197
-  store i32 1819047278, ptr %200, align 1
-  %201 = load ptr, ptr %0, align 8, !tbaa !4
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  store i64 %.1.i.i33.i, ptr %202, align 8, !tbaa !12
-  br label %203
+smart_str_appendl_ex.exit34.i:                    ; preds = %195, %189
+  %196 = phi i64 [ %191, %189 ], [ %.pre137, %195 ]
+  %197 = phi ptr [ %188, %189 ], [ %.pre135, %195 ]
+  %.1.i.i33.i = phi i64 [ %192, %189 ], [ %.0.i.i32.i, %195 ]
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 %196
+  store i32 1819047278, ptr %199, align 1
+  %200 = load ptr, ptr %0, align 8, !tbaa !4
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
+  store i64 %.1.i.i33.i, ptr %201, align 8, !tbaa !12
+  br label %202
 
-203:                                              ; preds = %smart_str_appendl_ex.exit34.i, %186
-  %204 = load i32, ptr %157, align 4, !tbaa !32
-  %205 = and i32 %204, -129
-  store i32 %205, ptr %157, align 4, !tbaa !32
+202:                                              ; preds = %smart_str_appendl_ex.exit34.i, %185
+  %203 = load i32, ptr %157, align 4, !tbaa !32
+  %204 = and i32 %203, -129
+  store i32 %204, ptr %157, align 4, !tbaa !32
   br label %php_json_encode_serializable_object.exit
 
-206:                                              ; preds = %zend_hash_str_find_ptr.exit.i
-  %207 = icmp eq i8 %184, 8
-  %208 = load ptr, ptr %5, align 8
-  %209 = icmp eq ptr %208, %156
-  %or.cond.i86 = select i1 %207, i1 %209, i1 false
-  br i1 %or.cond.i86, label %210, label %214
+205:                                              ; preds = %zend_hash_str_find_ptr.exit.i
+  %206 = icmp eq i8 %183, 8
+  %207 = load ptr, ptr %5, align 8
+  %208 = icmp eq ptr %207, %156
+  %or.cond.i86 = select i1 %206, i1 %208, i1 false
+  br i1 %or.cond.i86, label %209, label %213
 
-210:                                              ; preds = %206
-  %211 = load i32, ptr %157, align 4, !tbaa !32
-  %212 = and i32 %211, -129
-  store i32 %212, ptr %157, align 4, !tbaa !32
-  %213 = call fastcc i32 @php_json_encode_array(ptr noundef %0, ptr noundef %5, i32 noundef %2, ptr noundef %3)
-  br label %218
+209:                                              ; preds = %205
+  %210 = load i32, ptr %157, align 4, !tbaa !32
+  %211 = and i32 %210, -129
+  store i32 %211, ptr %157, align 4, !tbaa !32
+  %212 = call fastcc i32 @php_json_encode_array(ptr noundef %0, ptr noundef %5, i32 noundef %2, ptr noundef %3)
+  br label %217
 
-214:                                              ; preds = %206
-  %215 = call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2, ptr noundef %3)
-  %216 = load i32, ptr %157, align 4, !tbaa !32
-  %217 = and i32 %216, -129
-  store i32 %217, ptr %157, align 4, !tbaa !32
-  br label %218
+213:                                              ; preds = %205
+  %214 = call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2, ptr noundef %3)
+  %215 = load i32, ptr %157, align 4, !tbaa !32
+  %216 = and i32 %215, -129
+  store i32 %216, ptr %157, align 4, !tbaa !32
+  br label %217
 
-218:                                              ; preds = %214, %210
-  %.026.i = phi i32 [ %213, %210 ], [ %215, %214 ]
+217:                                              ; preds = %213, %209
+  %.026.i = phi i32 [ %212, %209 ], [ %214, %213 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #9
   br label %php_json_encode_serializable_object.exit
 
-php_json_encode_serializable_object.exit:         ; preds = %161, %smart_str_appendl_ex.exit.i, %203, %218
-  %.0.i83 = phi i32 [ -1, %161 ], [ -1, %smart_str_appendl_ex.exit.i ], [ -1, %203 ], [ %.026.i, %218 ]
+php_json_encode_serializable_object.exit:         ; preds = %160, %smart_str_appendl_ex.exit.i, %202, %217
+  %.0.i83 = phi i32 [ -1, %160 ], [ -1, %smart_str_appendl_ex.exit.i ], [ -1, %202 ], [ %.026.i, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %php_json_encode_serializable_enum.exit
 
-219:                                              ; preds = %instanceof_function.exit
-  %220 = getelementptr inbounds nuw i8, ptr %.pre131, i64 28
-  %221 = load i32, ptr %220, align 4, !tbaa !43
-  %222 = and i32 %221, 268435456
-  %.not = icmp eq i32 %222, 0
-  br i1 %.not, label %.loopexit, label %223
+218:                                              ; preds = %instanceof_function.exit
+  %219 = getelementptr inbounds nuw i8, ptr %.pre131, i64 28
+  %220 = load i32, ptr %219, align 4, !tbaa !43
+  %221 = and i32 %220, 268435456
+  %.not = icmp eq i32 %221, 0
+  br i1 %.not, label %.loopexit, label %222
 
-223:                                              ; preds = %219
-  %224 = getelementptr inbounds nuw i8, ptr %.pre131, i64 480
-  %225 = load i32, ptr %224, align 8, !tbaa !55
-  %226 = icmp eq i32 %225, 0
-  %227 = getelementptr inbounds nuw i8, ptr %.pre130, i64 56
-  br i1 %226, label %228, label %tailrecurse.backedge
+222:                                              ; preds = %218
+  %223 = getelementptr inbounds nuw i8, ptr %.pre131, i64 480
+  %224 = load i32, ptr %223, align 8, !tbaa !55
+  %225 = icmp eq i32 %224, 0
+  %226 = getelementptr inbounds nuw i8, ptr %.pre130, i64 56
+  br i1 %225, label %227, label %tailrecurse.backedge
 
-228:                                              ; preds = %223
-  %229 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 11, ptr %229, align 4, !tbaa !33
-  %230 = load ptr, ptr %0, align 8, !tbaa !4
-  %.not.i.i.i88 = icmp eq ptr %230, null
-  br i1 %.not.i.i.i88, label %237, label %231, !prof !11
+227:                                              ; preds = %222
+  %228 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 11, ptr %228, align 4, !tbaa !33
+  %229 = load ptr, ptr %0, align 8, !tbaa !4
+  %.not.i.i.i88 = icmp eq ptr %229, null
+  br i1 %.not.i.i.i88, label %236, label %230, !prof !11
 
-231:                                              ; preds = %228
-  %232 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %233 = load i64, ptr %232, align 8, !tbaa !12
-  %234 = add i64 %233, 1
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %236 = load i64, ptr %235, align 8, !tbaa !16
-  %.not12.i.i.i89 = icmp ult i64 %234, %236
-  br i1 %.not12.i.i.i89, label %smart_str_appendc_ex.exit.i, label %237, !prof !17
+230:                                              ; preds = %227
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 16
+  %232 = load i64, ptr %231, align 8, !tbaa !12
+  %233 = add i64 %232, 1
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %235 = load i64, ptr %234, align 8, !tbaa !16
+  %.not12.i.i.i89 = icmp ult i64 %233, %235
+  br i1 %.not12.i.i.i89, label %smart_str_appendc_ex.exit.i, label %236, !prof !17
 
-237:                                              ; preds = %231, %228
-  %.0.i.i.i90 = phi i64 [ 1, %228 ], [ %234, %231 ]
+236:                                              ; preds = %230, %227
+  %.0.i.i.i90 = phi i64 [ 1, %227 ], [ %233, %230 ]
   tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i.i90) #9
   %.pre = load ptr, ptr %0, align 8, !tbaa !4
   br label %smart_str_appendc_ex.exit.i
 
-smart_str_appendc_ex.exit.i:                      ; preds = %237, %231
-  %238 = phi ptr [ %230, %231 ], [ %.pre, %237 ]
-  %.1.i.i.i91 = phi i64 [ %234, %231 ], [ %.0.i.i.i90, %237 ]
-  %239 = getelementptr i8, ptr %238, i64 23
-  %240 = getelementptr i8, ptr %239, i64 %.1.i.i.i91
-  store i8 48, ptr %240, align 1, !tbaa !18
-  %241 = load ptr, ptr %0, align 8, !tbaa !4
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 16
-  store i64 %.1.i.i.i91, ptr %242, align 8, !tbaa !12
+smart_str_appendc_ex.exit.i:                      ; preds = %236, %230
+  %237 = phi ptr [ %229, %230 ], [ %.pre, %236 ]
+  %.1.i.i.i91 = phi i64 [ %233, %230 ], [ %.0.i.i.i90, %236 ]
+  %238 = getelementptr i8, ptr %237, i64 23
+  %239 = getelementptr i8, ptr %238, i64 %.1.i.i.i91
+  store i8 48, ptr %239, align 1, !tbaa !18
+  %240 = load ptr, ptr %0, align 8, !tbaa !4
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
+  store i64 %.1.i.i.i91, ptr %241, align 8, !tbaa !12
   br label %php_json_encode_serializable_enum.exit
 
-.loopexit:                                        ; preds = %219, %tailrecurse
-  %243 = getelementptr inbounds nuw i8, ptr %.044, i64 8
+.loopexit:                                        ; preds = %218, %tailrecurse
+  %242 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %244 = load ptr, ptr %.044, align 8, !tbaa !18
-  %245 = load i32, ptr %243, align 8, !tbaa !18
-  store ptr %244, ptr %8, align 8, !tbaa !18
-  %246 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %245, ptr %246, align 8, !tbaa !18
-  %247 = and i32 %245, 65280
-  %.not45 = icmp eq i32 %247, 0
-  br i1 %.not45, label %251, label %248
+  %243 = load ptr, ptr %.044, align 8, !tbaa !18
+  %244 = load i32, ptr %242, align 8, !tbaa !18
+  store ptr %243, ptr %8, align 8, !tbaa !18
+  %245 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 %244, ptr %245, align 8, !tbaa !18
+  %246 = and i32 %244, 65280
+  %.not45 = icmp eq i32 %246, 0
+  br i1 %.not45, label %250, label %247
 
-248:                                              ; preds = %.loopexit
-  %249 = load i32, ptr %244, align 4, !tbaa !56
-  %250 = add i32 %249, 1
-  store i32 %250, ptr %244, align 4, !tbaa !56
-  br label %251
+247:                                              ; preds = %.loopexit
+  %248 = load i32, ptr %243, align 4, !tbaa !56
+  %249 = add i32 %248, 1
+  store i32 %249, ptr %243, align 4, !tbaa !56
+  br label %250
 
-251:                                              ; preds = %248, %.loopexit
-  %252 = call fastcc i32 @php_json_encode_array(ptr noundef %0, ptr noundef %8, i32 noundef %2, ptr noundef %3)
-  %253 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %254 = load i8, ptr %253, align 1, !tbaa !18
-  %.not.i = icmp eq i8 %254, 0
-  br i1 %.not.i, label %zval_ptr_dtor_nogc.exit, label %255
+250:                                              ; preds = %247, %.loopexit
+  %251 = call fastcc i32 @php_json_encode_array(ptr noundef %0, ptr noundef %8, i32 noundef %2, ptr noundef %3)
+  %252 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %253 = load i8, ptr %252, align 1, !tbaa !18
+  %.not.i = icmp eq i8 %253, 0
+  br i1 %.not.i, label %zval_ptr_dtor_nogc.exit, label %254
 
-255:                                              ; preds = %251
-  %256 = load ptr, ptr %8, align 8, !tbaa !18
-  %257 = load i32, ptr %256, align 4, !tbaa !56
-  %258 = icmp ne i32 %257, 0
-  call void @llvm.assume(i1 %258)
-  %259 = add i32 %257, -1
-  store i32 %259, ptr %256, align 4, !tbaa !56
-  %.not3.i = icmp eq i32 %259, 0
-  br i1 %.not3.i, label %260, label %zval_ptr_dtor_nogc.exit
+254:                                              ; preds = %250
+  %255 = load ptr, ptr %8, align 8, !tbaa !18
+  %256 = load i32, ptr %255, align 4, !tbaa !56
+  %257 = icmp ne i32 %256, 0
+  call void @llvm.assume(i1 %257)
+  %258 = add i32 %256, -1
+  store i32 %258, ptr %255, align 4, !tbaa !56
+  %.not3.i = icmp eq i32 %258, 0
+  br i1 %.not3.i, label %259, label %zval_ptr_dtor_nogc.exit
 
-260:                                              ; preds = %255
-  %261 = load ptr, ptr %8, align 8, !tbaa !18
-  call void @rc_dtor_func(ptr noundef %261) #9
+259:                                              ; preds = %254
+  %260 = load ptr, ptr %8, align 8, !tbaa !18
+  call void @rc_dtor_func(ptr noundef %260) #9
   br label %zval_ptr_dtor_nogc.exit
 
-zval_ptr_dtor_nogc.exit:                          ; preds = %251, %255, %260
+zval_ptr_dtor_nogc.exit:                          ; preds = %250, %254, %259
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %php_json_encode_serializable_enum.exit
 
-262:                                              ; preds = %tailrecurse
-  %263 = load ptr, ptr %.044, align 8, !tbaa !18
-  %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
+261:                                              ; preds = %tailrecurse
+  %262 = load ptr, ptr %.044, align 8, !tbaa !18
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %262, %223
-  %.044.be = phi ptr [ %264, %262 ], [ %227, %223 ]
+tailrecurse.backedge:                             ; preds = %261, %222
+  %.044.be = phi ptr [ %263, %261 ], [ %226, %222 ]
   br label %tailrecurse
 
-265:                                              ; preds = %tailrecurse
-  %266 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 8, ptr %266, align 4, !tbaa !33
-  %267 = and i32 %2, 512
-  %.not46 = icmp eq i32 %267, 0
-  br i1 %.not46, label %php_json_encode_serializable_enum.exit, label %268
+264:                                              ; preds = %tailrecurse
+  %265 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 8, ptr %265, align 4, !tbaa !33
+  %266 = and i32 %2, 512
+  %.not46 = icmp eq i32 %266, 0
+  br i1 %.not46, label %php_json_encode_serializable_enum.exit, label %267
 
-268:                                              ; preds = %265
-  %269 = load ptr, ptr %0, align 8, !tbaa !4
-  %.not.i.i57 = icmp eq ptr %269, null
-  br i1 %.not.i.i57, label %276, label %270, !prof !11
+267:                                              ; preds = %264
+  %268 = load ptr, ptr %0, align 8, !tbaa !4
+  %.not.i.i57 = icmp eq ptr %268, null
+  br i1 %.not.i.i57, label %275, label %269, !prof !11
 
-270:                                              ; preds = %268
-  %271 = getelementptr inbounds nuw i8, ptr %269, i64 16
-  %272 = load i64, ptr %271, align 8, !tbaa !12
-  %273 = add i64 %272, 4
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %275 = load i64, ptr %274, align 8, !tbaa !16
-  %.not12.i.i58 = icmp ult i64 %273, %275
-  br i1 %.not12.i.i58, label %smart_str_appendl_ex.exit61, label %276, !prof !17
+269:                                              ; preds = %267
+  %270 = getelementptr inbounds nuw i8, ptr %268, i64 16
+  %271 = load i64, ptr %270, align 8, !tbaa !12
+  %272 = add i64 %271, 4
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %274 = load i64, ptr %273, align 8, !tbaa !16
+  %.not12.i.i58 = icmp ult i64 %272, %274
+  br i1 %.not12.i.i58, label %smart_str_appendl_ex.exit61, label %275, !prof !17
 
-276:                                              ; preds = %270, %268
-  %.0.i.i59 = phi i64 [ 4, %268 ], [ %273, %270 ]
+275:                                              ; preds = %269, %267
+  %.0.i.i59 = phi i64 [ 4, %267 ], [ %272, %269 ]
   tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i59) #9
   %.pre151 = load ptr, ptr %0, align 8, !tbaa !4
   %.phi.trans.insert152 = getelementptr inbounds nuw i8, ptr %.pre151, i64 16
   %.pre153 = load i64, ptr %.phi.trans.insert152, align 8, !tbaa !12
   br label %smart_str_appendl_ex.exit61
 
-smart_str_appendl_ex.exit61:                      ; preds = %270, %276
-  %277 = phi i64 [ %272, %270 ], [ %.pre153, %276 ]
-  %278 = phi ptr [ %269, %270 ], [ %.pre151, %276 ]
-  %.1.i.i60 = phi i64 [ %273, %270 ], [ %.0.i.i59, %276 ]
-  %279 = getelementptr inbounds nuw i8, ptr %278, i64 24
-  %280 = getelementptr inbounds nuw i8, ptr %279, i64 %277
-  store i32 1819047278, ptr %280, align 1
-  %281 = load ptr, ptr %0, align 8, !tbaa !4
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 16
-  store i64 %.1.i.i60, ptr %282, align 8, !tbaa !12
+smart_str_appendl_ex.exit61:                      ; preds = %269, %275
+  %276 = phi i64 [ %271, %269 ], [ %.pre153, %275 ]
+  %277 = phi ptr [ %268, %269 ], [ %.pre151, %275 ]
+  %.1.i.i60 = phi i64 [ %272, %269 ], [ %.0.i.i59, %275 ]
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 24
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 %276
+  store i32 1819047278, ptr %279, align 1
+  %280 = load ptr, ptr %0, align 8, !tbaa !4
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 16
+  store i64 %.1.i.i60, ptr %281, align 8, !tbaa !12
   br label %php_json_encode_serializable_enum.exit
 
-php_json_encode_serializable_enum.exit:           ; preds = %smart_str_appendc_ex.exit.i, %smart_str_appendl_ex.exit, %smart_str_appendl_ex.exit51, %smart_str_appendl_ex.exit56, %smart_str_append_long_ex.exit, %smart_str_appendc_ex.exit, %php_json_encode_double.exit, %265, %smart_str_appendl_ex.exit61, %zval_ptr_dtor_nogc.exit, %php_json_encode_serializable_object.exit, %142
-  %.0 = phi i32 [ %252, %zval_ptr_dtor_nogc.exit ], [ -1, %265 ], [ %147, %142 ], [ %.0.i83, %php_json_encode_serializable_object.exit ], [ 0, %smart_str_appendl_ex.exit ], [ -1, %smart_str_appendl_ex.exit61 ], [ 0, %php_json_encode_double.exit ], [ 0, %smart_str_appendc_ex.exit ], [ 0, %smart_str_append_long_ex.exit ], [ 0, %smart_str_appendl_ex.exit56 ], [ 0, %smart_str_appendl_ex.exit51 ], [ -1, %smart_str_appendc_ex.exit.i ]
+php_json_encode_serializable_enum.exit:           ; preds = %smart_str_appendc_ex.exit.i, %smart_str_appendl_ex.exit, %smart_str_appendl_ex.exit51, %smart_str_appendl_ex.exit56, %smart_str_append_long_ex.exit, %smart_str_appendc_ex.exit, %php_json_encode_double.exit, %264, %smart_str_appendl_ex.exit61, %zval_ptr_dtor_nogc.exit, %php_json_encode_serializable_object.exit, %142
+  %.0 = phi i32 [ %251, %zval_ptr_dtor_nogc.exit ], [ -1, %264 ], [ %147, %142 ], [ %.0.i83, %php_json_encode_serializable_object.exit ], [ 0, %smart_str_appendl_ex.exit ], [ -1, %smart_str_appendl_ex.exit61 ], [ 0, %php_json_encode_double.exit ], [ 0, %smart_str_appendc_ex.exit ], [ 0, %smart_str_append_long_ex.exit ], [ 0, %smart_str_appendl_ex.exit56 ], [ 0, %smart_str_appendl_ex.exit51 ], [ -1, %smart_str_appendc_ex.exit.i ]
   ret i32 %.0
 }
 

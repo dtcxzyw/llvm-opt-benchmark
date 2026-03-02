@@ -250,7 +250,7 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItem(ptr noundef readonly captur
   store i32 1, ptr %19, align 8, !tbaa !31
   br label %php_dom_named_node_map_get_named_item_into_zval.exit
 
-php_dom_named_node_map_get_named_item_into_zval.exit: ; preds = %2, %18, %15
+php_dom_named_node_map_get_named_item_into_zval.exit: ; preds = %18, %15, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -589,7 +589,7 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr noundef readonly capt
   %44 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.0, ptr noundef %1, ptr noundef %43) #3
   br label %.thread
 
-.thread:                                          ; preds = %2, %11, %34, %19, %26, %41, %42
+.thread:                                          ; preds = %11, %34, %19, %26, %41, %42, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

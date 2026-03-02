@@ -816,15 +816,15 @@ dsn_from_uri.exit.thread:                         ; preds = %65, %dsn_from_uri.e
   br label %create_driver_specific_pdo_object.exit
 
 84:                                               ; preds = %75
-  %85 = load ptr, ptr %80, align 8, !tbaa !73, !nonnull !75, !noundef !75
+  %85 = load ptr, ptr %80, align 8, !tbaa !73
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %87 = load i64, ptr %86, align 8, !tbaa !76
-  %88 = call ptr @zend_hash_str_find(ptr noundef nonnull @pdo_driver_specific_ce_hash, ptr noundef nonnull %85, i64 noundef %87) #13
+  %87 = load i64, ptr %86, align 8, !tbaa !75
+  %88 = call ptr @zend_hash_str_find(ptr noundef nonnull @pdo_driver_specific_ce_hash, ptr noundef %85, i64 noundef %87) #13
   %.not.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i, label %zend_hash_str_find_ptr.exit.i, label %89
 
 89:                                               ; preds = %84
-  %90 = load ptr, ptr %88, align 8, !tbaa !4, !nonnull !75, !noundef !75
+  %90 = load ptr, ptr %88, align 8, !tbaa !4, !nonnull !76, !noundef !76
   br label %zend_hash_str_find_ptr.exit.i
 
 zend_hash_str_find_ptr.exit.i:                    ; preds = %89, %84
@@ -1050,7 +1050,7 @@ zend_hash_index_find_deref.exit:                  ; preds = %185, %183
   br i1 %.not.i272, label %zend_hash_find_ptr.exit.thread, label %193
 
 193:                                              ; preds = %191
-  %194 = load ptr, ptr %192, align 8, !tbaa !4, !nonnull !75, !noundef !75
+  %194 = load ptr, ptr %192, align 8, !tbaa !4, !nonnull !76, !noundef !76
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %196 = load i32, ptr %195, align 8, !tbaa !92
   %197 = call i32 @php_pdo_list_entry() #13
@@ -1467,7 +1467,7 @@ pdo_attr_lval.exit292:                            ; preds = %pdo_attr_lval.exit,
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %create_driver_specific_pdo_object.exit
 
-create_driver_specific_pdo_object.exit:           ; preds = %111, %122, %134, %48, %377, %379, %.critedge260, %.loopexit, %81, %73, %dsn_from_uri.exit.thread
+create_driver_specific_pdo_object.exit:           ; preds = %134, %122, %111, %48, %377, %379, %.critedge260, %.loopexit, %81, %73, %dsn_from_uri.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
@@ -2372,7 +2372,7 @@ zend_string_copy.exit:                            ; preds = %115, %122
   store i32 2, ptr %146, align 8, !tbaa !4
   br label %pdo_stmt_instantiate.exit.thread
 
-pdo_stmt_instantiate.exit.thread:                 ; preds = %pdo_stmt_instantiate.exit, %113, %.sink.split.i, %26, %140, %141, %145, %100, %93, %86, %81, %73, %67, %41, %29
+pdo_stmt_instantiate.exit.thread:                 ; preds = %.sink.split.i, %113, %26, %140, %141, %pdo_stmt_instantiate.exit, %145, %100, %93, %86, %81, %73, %67, %41, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3136,7 +3136,7 @@ zend_object_release.exit:                         ; preds = %27, %28, %33
 zend_string_alloc.exit:                           ; preds = %44
   %69 = load ptr, ptr %36, align 8, !tbaa !73
   %70 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %71 = load i64, ptr %70, align 8, !tbaa !76
+  %71 = load i64, ptr %70, align 8, !tbaa !75
   %72 = and i64 %71, -8
   %73 = add i64 %72, 32
   %74 = call noalias ptr @_emalloc(i64 noundef %73) #16
@@ -3938,7 +3938,7 @@ zend_string_copy.exit:                            ; preds = %zend_string_copy.ex
 92:                                               ; preds = %zend_string_copy.exit
   %93 = getelementptr inbounds i8, ptr %64, i64 -144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %93, ptr noundef nonnull align 1 dereferenceable(6) @.str.25, i64 6, i1 false)
-  %94 = load i8, ptr %5, align 1, !tbaa !131, !range !141, !noundef !75
+  %94 = load i8, ptr %5, align 1, !tbaa !131, !range !141, !noundef !76
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %101, label %96
 
@@ -4041,7 +4041,7 @@ zend_string_copy.exit:                            ; preds = %zend_string_copy.ex
   store i32 2, ptr %140, align 8, !tbaa !4
   br label %pdo_stmt_instantiate.exit.thread
 
-pdo_stmt_instantiate.exit.thread:                 ; preds = %pdo_stmt_instantiate.exit, %61, %.sink.split.i, %2, %125, %123, %139, %31, %19
+pdo_stmt_instantiate.exit.thread:                 ; preds = %.sink.split.i, %61, %125, %123, %pdo_stmt_instantiate.exit, %2, %139, %31, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4263,7 +4263,7 @@ define hidden void @zim_PDO_getAvailableDrivers(ptr noundef readonly captures(no
   %17 = load ptr, ptr %.021, align 8, !tbaa !4
   %18 = load ptr, ptr %17, align 8, !tbaa !73
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !76
+  %20 = load i64, ptr %19, align 8, !tbaa !75
   %21 = tail call i32 @add_next_index_stringl(ptr noundef nonnull %1, ptr noundef %18, i64 noundef %20) #13
   br label %22
 
@@ -7857,9 +7857,8 @@ zend_string_release.exit595:                      ; preds = %zend_string_release
 zend_string_release.exit598:                      ; preds = %zend_string_release.exit595, %1485, %1492, %1493
   %1494 = getelementptr inbounds nuw i8, ptr %155, i64 64
   %1495 = call ptr @zend_hash_str_find(ptr noundef nonnull %1494, ptr noundef nonnull @.str.46, i64 noundef 11) #13
-  %.not.i = icmp ne ptr %1495, null
-  call void @llvm.assume(i1 %.not.i)
-  %1496 = load ptr, ptr %1495, align 8, !tbaa !4, !nonnull !75, !noundef !75
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1495) ]
+  %1496 = load ptr, ptr %1495, align 8, !tbaa !4, !nonnull !76, !noundef !76
   %1497 = load ptr, ptr @zend_known_strings, align 8, !tbaa !187
   %1498 = getelementptr inbounds nuw i8, ptr %1497, i64 584
   %1499 = load ptr, ptr %1498, align 8, !tbaa !120
@@ -7869,9 +7868,8 @@ zend_string_release.exit598:                      ; preds = %zend_string_release
   %1502 = getelementptr inbounds nuw i8, ptr %1496, i64 48
   %1503 = call ptr @zend_add_attribute(ptr noundef nonnull %1502, ptr noundef %1499, i32 noundef 0, i32 noundef %1501, i32 noundef 3, i32 noundef 0) #13
   %1504 = call ptr @zend_hash_str_find(ptr noundef nonnull %1494, ptr noundef nonnull @.str.45, i64 noundef 7) #13
-  %.not.i376 = icmp ne ptr %1504, null
-  call void @llvm.assume(i1 %.not.i376)
-  %1505 = load ptr, ptr %1504, align 8, !tbaa !4, !nonnull !75, !noundef !75
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1504) ]
+  %1505 = load ptr, ptr %1504, align 8, !tbaa !4, !nonnull !76, !noundef !76
   %1506 = load ptr, ptr @zend_known_strings, align 8, !tbaa !187
   %1507 = getelementptr inbounds nuw i8, ptr %1506, i64 584
   %1508 = load ptr, ptr %1507, align 8, !tbaa !120
@@ -8127,7 +8125,7 @@ define internal ptr @dbh_method_get(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i14, label %zend_hash_find_ptr.exit, label %24
 
 24:                                               ; preds = %18
-  %25 = load ptr, ptr %23, align 8, !tbaa !4, !nonnull !75, !noundef !75
+  %25 = load ptr, ptr %23, align 8, !tbaa !4, !nonnull !76, !noundef !76
   br label %zend_hash_find_ptr.exit
 
 zend_hash_find_ptr.exit:                          ; preds = %18, %24
@@ -8614,8 +8612,8 @@ attributes #16 = { nounwind allocsize(0) }
 !72 = !{!21, !21, i64 0}
 !73 = !{!74, !21, i64 0}
 !74 = !{!"", !21, i64 0, !19, i64 8, !19, i64 16, !13, i64 24}
-!75 = !{}
-!76 = !{!74, !19, i64 8}
+!75 = !{!74, !19, i64 8}
+!76 = !{}
 !77 = !{!29, !9, i64 24}
 !78 = !{!"branch_weights", i32 2002, i32 2000}
 !79 = !{!80, !20, i64 8}

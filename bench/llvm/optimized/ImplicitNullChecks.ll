@@ -819,6 +819,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit.i:     ; preds = %_ZNK4llvm10BasicBlo
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %129, align 8
   %130 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %131 = inttoptr i64 %130 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %131) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i47 = load i64, ptr %131, align 8
   %132 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i47, 4
   %.not.i.i.i.i48 = icmp eq i64 %132, 0
@@ -858,6 +859,7 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit:        ; preds = %_ZNK4llvm14ilist_it
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.061.086.i, align 8
   %144 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %145 = inttoptr i64 %144 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %145) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %145, align 8
   %146 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %146, 0
@@ -2543,6 +2545,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_118ImplicitNullChec
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %14, align 8
   %15 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %16 = inttoptr i64 %15 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %16) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %16, align 8
   %17 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %17, 0
@@ -2586,6 +2589,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb1EEppEv.exit.i.i.i: ; 
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.025.038, align 8
   %33 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %34 = inttoptr i64 %33 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %34, align 8
   %35 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %35, 0

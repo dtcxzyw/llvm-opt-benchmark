@@ -177,29 +177,28 @@ _ZN3std6thread7Builder15spawn_unchecked17h6f08628d347e8c15E.llvm.419729925379708
 
 10:                                               ; preds = %_ZN3std6thread7Builder15spawn_unchecked17h6f08628d347e8c15E.llvm.4197299253797082252.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !52
-  %11 = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %11)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   store ptr %9, ptr %2, align 8, !noalias !52
   invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.d3a7a7c9977a532020fd4e50fcef78cf.4.llvm.4197299253797082252, i64 noundef 22, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d3a7a7c9977a532020fd4e50fcef78cf.18.llvm.4197299253797082252, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d3a7a7c9977a532020fd4e50fcef78cf.5.llvm.4197299253797082252) #14
-          to label %14 unwind label %12, !noalias !55
+          to label %13 unwind label %11, !noalias !55
 
-12:                                               ; preds = %10
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %10
+  %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h77a83bea1473771dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #13
-          to label %17 unwind label %15, !noalias !55
+          to label %16 unwind label %14, !noalias !55
 
-14:                                               ; preds = %10
+13:                                               ; preds = %10
   unreachable
 
-15:                                               ; preds = %12
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #15, !noalias !55
   unreachable
 
-17:                                               ; preds = %12
-  resume { ptr, i32 } %13
+16:                                               ; preds = %11
+  resume { ptr, i32 } %12
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h180f44393d793718E.llvm.4197299253797082252.exit": ; preds = %_ZN3std6thread7Builder15spawn_unchecked17h6f08628d347e8c15E.llvm.4197299253797082252.exit
   store ptr %6, ptr %0, align 8, !alias.scope !55, !noalias !56
@@ -877,6 +876,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 63:                                               ; preds = %59
   %64 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i.i.i) ]
   %65 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 8
   %66 = load i64, ptr %65, align 8, !range !176, !invariant.load !4, !noalias !174
   %67 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 16

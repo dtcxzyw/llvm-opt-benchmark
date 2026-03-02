@@ -519,37 +519,37 @@ define void @unum_close_77(ptr noundef %0) local_unnamed_addr #3 {
 define noundef ptr @unum_clone_77(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4, !tbaa !3
   %4 = icmp slt i32 %3, 1
-  br i1 %4, label %5, label %17
+  br i1 %4, label %5, label %16
 
 5:                                                ; preds = %2
-  %6 = icmp ne ptr %0, null
-  br i1 %6, label %7, label %.thread
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.thread, label %6
 
-7:                                                ; preds = %5
-  %8 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_7712NumberFormatE, ptr nonnull @_ZTIN6icu_7713DecimalFormatE, i64 0) #11
-  %.not15 = icmp eq ptr %8, null
-  br i1 %.not15, label %.thread, label %10
+6:                                                ; preds = %5
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_7712NumberFormatE, ptr nonnull @_ZTIN6icu_7713DecimalFormatE, i64 0) #11
+  %.not15 = icmp eq ptr %7, null
+  br i1 %.not15, label %.thread, label %9
 
-.thread:                                          ; preds = %5, %7
-  tail call void @llvm.assume(i1 %6)
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_7712NumberFormatE, ptr nonnull @_ZTIN6icu_7721RuleBasedNumberFormatE, i64 0) #11
-  br label %10
+.thread:                                          ; preds = %5, %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %8 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_7712NumberFormatE, ptr nonnull @_ZTIN6icu_7721RuleBasedNumberFormatE, i64 0) #11
+  br label %9
 
-10:                                               ; preds = %7, %.thread
-  %.sink22 = phi ptr [ %9, %.thread ], [ %8, %7 ]
-  %11 = load ptr, ptr %.sink22, align 8, !tbaa !7
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(72) %.sink22)
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %17
+9:                                                ; preds = %6, %.thread
+  %.sink22 = phi ptr [ %8, %.thread ], [ %7, %6 ]
+  %10 = load ptr, ptr %.sink22, align 8, !tbaa !7
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(72) %.sink22)
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-16:                                               ; preds = %10
+15:                                               ; preds = %9
   store i32 7, ptr %1, align 4, !tbaa !3
-  br label %17
+  br label %16
 
-17:                                               ; preds = %16, %10, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %16 ], [ %14, %10 ]
+16:                                               ; preds = %15, %9, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %15 ], [ %13, %9 ]
   ret ptr %.0
 }
 

@@ -59061,76 +59061,75 @@ _ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_18RegexMatchCacheKeyENS_15RegexMatchC
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEvvvEEE13insertAtBlankIJRKSt21piecewise_construct_tSt5tupleIJRKS4_EESD_IJEEEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairISE_S6_EEEEESK_ImmEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i64 %3, i64 %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %9 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #43
-          to label %11 unwind label %32
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %9 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #43
+          to label %10 unwind label %31
 
-11:                                               ; preds = %8
-  store ptr %10, ptr %1, align 8, !tbaa !102
-  %12 = load i64, ptr %6, align 8, !tbaa !163
-  %13 = inttoptr i64 %12 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !tbaa.struct !251
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance, ptr %15, align 8, !tbaa !80
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i64 0, ptr %16, align 8, !tbaa !56
-  %17 = and i64 %2, 255
-  %18 = icmp samesign ult i64 %17, 16
-  tail call void @llvm.assume(i1 %18)
-  %19 = lshr i64 %17, 1
-  %20 = ptrtoint ptr %1 to i64
-  %21 = or i64 %19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !136
-  %24 = icmp ult i64 %23, %21
-  br i1 %24, label %25, label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEvvvEEE29adjustSizeAndBeginAfterInsertENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS4_S6_EEEEE.exit
+10:                                               ; preds = %8
+  store ptr %9, ptr %1, align 8, !tbaa !102
+  %11 = load i64, ptr %6, align 8, !tbaa !163
+  %12 = inttoptr i64 %11 to ptr
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !tbaa.struct !251
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  store ptr @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance, ptr %14, align 8, !tbaa !80
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store i64 0, ptr %15, align 8, !tbaa !56
+  %16 = and i64 %2, 255
+  %17 = icmp samesign ult i64 %16, 16
+  tail call void @llvm.assume(i1 %17)
+  %18 = lshr i64 %16, 1
+  %19 = ptrtoint ptr %1 to i64
+  %20 = or i64 %18, %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load i64, ptr %21, align 8, !tbaa !136
+  %23 = icmp ult i64 %22, %20
+  br i1 %23, label %24, label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEvvvEEE29adjustSizeAndBeginAfterInsertENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS4_S6_EEEEE.exit
 
-25:                                               ; preds = %11
-  store i64 %21, ptr %22, align 8, !tbaa !36
+24:                                               ; preds = %10
+  store i64 %20, ptr %21, align 8, !tbaa !36
   br label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEvvvEEE29adjustSizeAndBeginAfterInsertENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS4_S6_EEEEE.exit
 
-_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEvvvEEE29adjustSizeAndBeginAfterInsertENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS4_S6_EEEEE.exit: ; preds = %11, %25
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !56
-  %28 = and i64 %27, -256
-  %29 = and i64 %27, 255
-  %30 = add i64 %28, 256
-  %31 = or disjoint i64 %30, %29
-  store i64 %31, ptr %26, align 8, !tbaa !56
+_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEvvvEEE29adjustSizeAndBeginAfterInsertENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS4_S6_EEEEE.exit: ; preds = %10, %24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load i64, ptr %25, align 8, !tbaa !56
+  %27 = and i64 %26, -256
+  %28 = and i64 %26, 255
+  %29 = add i64 %27, 256
+  %30 = or disjoint i64 %29, %28
+  store i64 %30, ptr %25, align 8, !tbaa !56
   ret void
 
-32:                                               ; preds = %8
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %8
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  %35 = tail call ptr @__cxa_begin_catch(ptr %34) #39
+  %33 = extractvalue { ptr, i32 } %32, 0
+  %34 = tail call ptr @__cxa_begin_catch(ptr %33) #39
   invoke void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_18RegexMatchCacheKeyENS_15RegexMatchCache17RegexToMatchEntryEvvvEEE10eraseBlankENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS4_S6_EEEEESB_ImmE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %1, i64 %2, i64 %3, i64 %4)
-          to label %36 unwind label %37
+          to label %35 unwind label %36
 
-36:                                               ; preds = %32
+35:                                               ; preds = %31
   invoke void @__cxa_rethrow() #42
-          to label %43 unwind label %37
+          to label %42 unwind label %36
 
-37:                                               ; preds = %36, %32
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %35, %31
+  %37 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %39 unwind label %40
+          to label %38 unwind label %39
 
-39:                                               ; preds = %37
-  resume { ptr, i32 } %38
+38:                                               ; preds = %36
+  resume { ptr, i32 } %37
 
-40:                                               ; preds = %37
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %36
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #41
+  %41 = extractvalue { ptr, i32 } %40, 0
+  tail call void @__clang_call_terminate(ptr %41) #41
   unreachable
 
-43:                                               ; preds = %36
+42:                                               ; preds = %35
   unreachable
 }
 
@@ -61992,6 +61991,7 @@ _ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMat
   %.019.i.i = phi i64 [ %55, %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i.i ], [ 0, %6 ]
   %.01418.i.i = phi ptr [ %56, %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i.i ], [ %42, %6 ]
   %.01517.i.i = phi ptr [ %57, %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i.i ], [ %44, %6 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.01517.i.i) ]
   %45 = getelementptr inbounds nuw i8, ptr %.01418.i.i, i64 8
   %46 = load ptr, ptr %.01418.i.i, align 8, !tbaa !163
   store ptr %46, ptr %.01517.i.i, align 8, !tbaa !1584
@@ -62476,34 +62476,33 @@ define linkonce_odr void @_ZN5folly3f146detail21VectorContainerPolicyIPKNS_18Reg
   br label %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i
 
 _ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i: ; preds = %4, %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i
-  %.019.i = phi i64 [ %17, %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i ], [ 0, %4 ]
-  %.01418.i = phi ptr [ %18, %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i ], [ %5, %4 ]
-  %.01517.i = phi ptr [ %19, %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i ], [ %1, %4 ]
-  %6 = icmp ne ptr %.01517.i, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 8
-  %8 = load ptr, ptr %.01418.i, align 8, !tbaa !163
-  store ptr %8, ptr %.01517.i, align 8, !tbaa !1584
-  %9 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 8
-  %10 = load ptr, ptr %7, align 8, !tbaa !84
-  store ptr %10, ptr %9, align 8, !tbaa !84
-  store ptr null, ptr %7, align 8, !tbaa !84
-  %11 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 16
-  store ptr @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance, ptr %11, align 8, !tbaa !80
-  %12 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 24
-  store i64 0, ptr %12, align 8, !tbaa !56
-  %13 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !1592
-  store ptr %14, ptr %11, align 8, !tbaa !1592
-  store ptr @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance, ptr %13, align 8, !tbaa !1592
-  %15 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !36
-  store i64 %16, ptr %12, align 8, !tbaa !36
-  store i64 0, ptr %15, align 8, !tbaa !36
-  %17 = add nuw i64 %.019.i, 1
-  %18 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 32
-  %19 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 32
-  %exitcond.not.i = icmp eq i64 %17, %2
+  %.019.i = phi i64 [ %16, %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i ], [ 0, %4 ]
+  %.01418.i = phi ptr [ %17, %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i ], [ %5, %4 ]
+  %.01517.i = phi ptr [ %18, %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i ], [ %1, %4 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.01517.i) ]
+  %6 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 8
+  %7 = load ptr, ptr %.01418.i, align 8, !tbaa !163
+  store ptr %7, ptr %.01517.i, align 8, !tbaa !1584
+  %8 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 8
+  %9 = load ptr, ptr %6, align 8, !tbaa !84
+  store ptr %9, ptr %8, align 8, !tbaa !84
+  store ptr null, ptr %6, align 8, !tbaa !84
+  %10 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 16
+  store ptr @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance, ptr %10, align 8, !tbaa !80
+  %11 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 24
+  store i64 0, ptr %11, align 8, !tbaa !56
+  %12 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !1592
+  store ptr %13, ptr %10, align 8, !tbaa !1592
+  store ptr @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance, ptr %12, align 8, !tbaa !1592
+  %14 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 24
+  %15 = load i64, ptr %14, align 8, !tbaa !36
+  store i64 %15, ptr %11, align 8, !tbaa !36
+  store i64 0, ptr %14, align 8, !tbaa !36
+  %16 = add nuw i64 %.019.i, 1
+  %17 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 32
+  %exitcond.not.i = icmp eq i64 %16, %2
   br i1 %exitcond.not.i, label %_ZN5folly3f146detail21VectorContainerPolicyIPKNS_18RegexMatchCacheKeyENS_15RegexMatchCache23StringQueueReverseEntryEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKS5_S7_EEPSD_SG_m.exit, label %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i, !llvm.loop !1593
 
 _ZN5folly3f146detail21VectorContainerPolicyIPKNS_18RegexMatchCacheKeyENS_15RegexMatchCache23StringQueueReverseEntryEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKS5_S7_EEPSD_SG_m.exit: ; preds = %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit.i, %3
@@ -65553,26 +65552,25 @@ _ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMat
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNS_18RegexMatchCacheKeyENS_15RegexMatchCache23StringQueueReverseEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit: ; preds = %73
   %83 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %72, i64 %77
   store i32 %7, ptr %83, align 4, !tbaa !32
-  %84 = icmp ne ptr %6, null
-  call void @llvm.assume(i1 %84)
-  %85 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %6, i64 %35
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %87 = load ptr, ptr %85, align 8, !tbaa !163
-  store ptr %87, ptr %9, align 8, !tbaa !1584
-  %88 = load ptr, ptr %86, align 8, !tbaa !84
-  store ptr %88, ptr %10, align 8, !tbaa !84
-  store ptr null, ptr %86, align 8, !tbaa !84
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
+  %84 = getelementptr inbounds nuw %"struct.std::pair.89", ptr %6, i64 %35
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = load ptr, ptr %84, align 8, !tbaa !163
+  store ptr %86, ptr %9, align 8, !tbaa !1584
+  %87 = load ptr, ptr %85, align 8, !tbaa !84
+  store ptr %87, ptr %10, align 8, !tbaa !84
+  store ptr null, ptr %85, align 8, !tbaa !84
   store ptr @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance, ptr %11, align 8, !tbaa !80
-  %89 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 0, ptr %89, align 8, !tbaa !56
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !1592
-  store ptr %91, ptr %11, align 8, !tbaa !1592
-  store ptr @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance, ptr %90, align 8, !tbaa !1592
-  %92 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %93 = load i64, ptr %92, align 8, !tbaa !36
-  store i64 %93, ptr %89, align 8, !tbaa !36
-  store i64 0, ptr %92, align 8, !tbaa !36
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 0, ptr %88, align 8, !tbaa !56
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %90 = load ptr, ptr %89, align 8, !tbaa !1592
+  store ptr %90, ptr %11, align 8, !tbaa !1592
+  store ptr @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance, ptr %89, align 8, !tbaa !1592
+  %91 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %92 = load i64, ptr %91, align 8, !tbaa !36
+  store i64 %92, ptr %88, align 8, !tbaa !36
+  store i64 0, ptr %91, align 8, !tbaa !36
   br label %_ZN5folly3f146detail21VectorContainerPolicyIPKNS_18RegexMatchCacheKeyENS_15RegexMatchCache23StringQueueReverseEntryEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKS5_S7_EEPSD_SG_m.exit
 
 _ZN5folly3f146detail21VectorContainerPolicyIPKNS_18RegexMatchCacheKeyENS_15RegexMatchCache23StringQueueReverseEntryEvvvSt17integral_constantIbLb1EEE8transferERSaISt4pairIKS5_S7_EEPSD_SG_m.exit: ; preds = %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNS_18RegexMatchCacheKeyENS_15RegexMatchCache23StringQueueReverseEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit, %_ZNSt16allocator_traitsISaISt4pairIKPKN5folly18RegexMatchCacheKeyENS1_15RegexMatchCache23StringQueueReverseEntryEEEE7destroyIS8_EEvRS9_PT_.exit
@@ -68580,11 +68578,10 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail16F14VectorSetImplIPKNSt7__
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb0EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit.i: ; preds = %98
   %108 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %97, i64 %102
   store i32 %47, ptr %108, align 4, !tbaa !32
-  %109 = icmp ne ptr %29, null
-  tail call void @llvm.assume(i1 %109)
-  %110 = getelementptr inbounds nuw ptr, ptr %29, i64 %61
-  %111 = load i64, ptr %110, align 1
-  store i64 %111, ptr %59, align 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
+  %109 = getelementptr inbounds nuw ptr, ptr %29, i64 %61
+  %110 = load i64, ptr %109, align 1
+  store i64 %110, ptr %59, align 1
   br label %_ZN5folly3f146detail16F14VectorSetImplIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashISA_vEENS_26HeterogeneousAccessEqualToISA_vEESaISA_ESt17integral_constantIbLb0EEE15eraseUnderlyingIRKNS_16variadic_noop_fnEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEOT_.exit
 
 _ZN5folly3f146detail16F14VectorSetImplIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashISA_vEENS_26HeterogeneousAccessEqualToISA_vEESaISA_ESt17integral_constantIbLb0EEE15eraseUnderlyingIRKNS_16variadic_noop_fnEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEOT_.exit: ; preds = %52, %54, %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb0EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSF_8PrefetchE.exit.i, %57

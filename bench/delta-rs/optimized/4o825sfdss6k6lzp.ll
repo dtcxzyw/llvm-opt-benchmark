@@ -164,6 +164,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
 74:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %75 = getelementptr inbounds i8, ptr %.014.i, i64 -16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.014.i) ]
   store ptr %75, ptr %9, align 8
   %76 = atomicrmw sub ptr %75, i64 1 release, align 8, !noalias !7
   %77 = icmp eq i64 %76, 1
@@ -186,6 +187,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 168
   %83 = load i64, ptr %82, align 8, !noalias !12, !noundef !4
   %84 = add i64 %83, -1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.014.i) ]
   %85 = getelementptr inbounds nuw i8, ptr %.014.i, i64 152
   %86 = load atomic i64, ptr %85 monotonic, align 8, !noalias !12
   %.0.i.i40 = inttoptr i64 %86 to ptr
@@ -567,6 +569,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
 74:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %75 = getelementptr inbounds i8, ptr %.014.i, i64 -16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.014.i) ]
   store ptr %75, ptr %9, align 8
   %76 = atomicrmw sub ptr %75, i64 1 release, align 8, !noalias !26
   %77 = icmp eq i64 %76, 1
@@ -589,6 +592,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 168
   %83 = load i64, ptr %82, align 8, !noalias !31, !noundef !4
   %84 = add i64 %83, -1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.014.i) ]
   %85 = getelementptr inbounds nuw i8, ptr %.014.i, i64 152
   %86 = load atomic i64, ptr %85 monotonic, align 8, !noalias !31
   %.0.i.i40 = inttoptr i64 %86 to ptr
@@ -970,6 +974,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
 74:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %75 = getelementptr inbounds i8, ptr %.014.i, i64 -16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.014.i) ]
   store ptr %75, ptr %9, align 8
   %76 = atomicrmw sub ptr %75, i64 1 release, align 8, !noalias !45
   %77 = icmp eq i64 %76, 1
@@ -992,6 +997,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 168
   %83 = load i64, ptr %82, align 8, !noalias !50, !noundef !4
   %84 = add i64 %83, -1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.014.i) ]
   %85 = getelementptr inbounds nuw i8, ptr %.014.i, i64 152
   %86 = load atomic i64, ptr %85 monotonic, align 8, !noalias !50
   %.0.i.i40 = inttoptr i64 %86 to ptr
@@ -1373,6 +1379,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
 74:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %75 = getelementptr inbounds i8, ptr %.014.i, i64 -16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.014.i) ]
   store ptr %75, ptr %9, align 8
   %76 = atomicrmw sub ptr %75, i64 1 release, align 8, !noalias !64
   %77 = icmp eq i64 %76, 1
@@ -1395,6 +1402,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 48
   %83 = load i64, ptr %82, align 8, !noalias !69, !noundef !4
   %84 = add i64 %83, -1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.014.i) ]
   %85 = getelementptr inbounds nuw i8, ptr %.014.i, i64 32
   %86 = load atomic i64, ptr %85 monotonic, align 8, !noalias !69
   %.0.i.i40 = inttoptr i64 %86 to ptr
@@ -1827,6 +1835,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
 74:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %75 = getelementptr inbounds i8, ptr %.014.i, i64 -16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.014.i) ]
   store ptr %75, ptr %9, align 8
   %76 = atomicrmw sub ptr %75, i64 1 release, align 8, !noalias !109
   %77 = icmp eq i64 %76, 1
@@ -1849,6 +1858,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 168
   %83 = load i64, ptr %82, align 8, !noalias !114, !noundef !4
   %84 = add i64 %83, -1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.014.i) ]
   %85 = getelementptr inbounds nuw i8, ptr %.014.i, i64 152
   %86 = load atomic i64, ptr %85 monotonic, align 8, !noalias !114
   %.0.i.i40 = inttoptr i64 %86 to ptr
@@ -2230,6 +2240,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
 74:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %75 = getelementptr inbounds i8, ptr %.014.i, i64 -16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.014.i) ]
   store ptr %75, ptr %9, align 8
   %76 = atomicrmw sub ptr %75, i64 1 release, align 8, !noalias !128
   %77 = icmp eq i64 %76, 1
@@ -2252,6 +2263,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 168
   %83 = load i64, ptr %82, align 8, !noalias !133, !noundef !4
   %84 = add i64 %83, -1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.014.i) ]
   %85 = getelementptr inbounds nuw i8, ptr %.014.i, i64 152
   %86 = load atomic i64, ptr %85 monotonic, align 8, !noalias !133
   %.0.i.i40 = inttoptr i64 %86 to ptr
@@ -4799,333 +4811,327 @@ common.resume:                                    ; preds = %26, %23, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
-define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h156240c25eed8504E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h156240c25eed8504E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(ret: address, provenance) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = add i64 %6, -1
-  %8 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load atomic i64, ptr %9 monotonic, align 8
-  %.0.i = inttoptr i64 %10 to ptr
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %12 = load ptr, ptr %11, align 8, !noundef !4
-  %13 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = ptrtoint ptr %16 to i64
-  store atomic i64 %17, ptr %9 monotonic, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %18, align 8
-  %19 = icmp eq i64 %10, 0
-  br i1 %19, label %22, label %20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %9 = load atomic i64, ptr %8 monotonic, align 8
+  %.0.i = inttoptr i64 %9 to ptr
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %11 = load ptr, ptr %10, align 8, !noundef !4
+  %12 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = ptrtoint ptr %15 to i64
+  store atomic i64 %16, ptr %8 monotonic, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store ptr null, ptr %17, align 8
+  %18 = icmp eq i64 %9, 0
+  br i1 %18, label %21, label %19
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  store ptr %12, ptr %21, align 8
-  br label %22
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
+  store ptr %11, ptr %20, align 8
+  br label %21
 
-22:                                               ; preds = %2, %20
-  %23 = icmp eq ptr %12, null
-  br i1 %23, label %25, label %.thread
+21:                                               ; preds = %2, %19
+  %22 = icmp eq ptr %11, null
+  br i1 %22, label %24, label %.thread
 
-.thread:                                          ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store atomic i64 %10, ptr %24 monotonic, align 8
-  br label %27
+.thread:                                          ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store atomic i64 %9, ptr %23 monotonic, align 8
+  br label %26
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   store ptr %.0.i, ptr %3, align 8
-  %26 = icmp eq i64 %10, 0
-  br i1 %26, label %30, label %27
+  %25 = icmp eq i64 %9, 0
+  br i1 %25, label %29, label %26
 
-27:                                               ; preds = %.thread, %25
-  %28 = phi ptr [ %4, %.thread ], [ %.0.i, %25 ]
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store i64 %7, ptr %29, align 8
-  br label %30
+26:                                               ; preds = %.thread, %24
+  %27 = phi ptr [ %4, %.thread ], [ %.0.i, %24 ]
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  store i64 %7, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %25, %27
-  %31 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %31
+29:                                               ; preds = %24, %26
+  %30 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
-define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h15a74722bf42bc99E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h15a74722bf42bc99E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(ret: address, provenance) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = add i64 %6, -1
-  %8 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %10 = load atomic i64, ptr %9 monotonic, align 8
-  %.0.i = inttoptr i64 %10 to ptr
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %12 = load ptr, ptr %11, align 8, !noundef !4
-  %13 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = ptrtoint ptr %16 to i64
-  store atomic i64 %17, ptr %9 monotonic, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr null, ptr %18, align 8
-  %19 = icmp eq i64 %10, 0
-  br i1 %19, label %22, label %20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %9 = load atomic i64, ptr %8 monotonic, align 8
+  %.0.i = inttoptr i64 %9 to ptr
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %11 = load ptr, ptr %10, align 8, !noundef !4
+  %12 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = ptrtoint ptr %15 to i64
+  store atomic i64 %16, ptr %8 monotonic, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr null, ptr %17, align 8
+  %18 = icmp eq i64 %9, 0
+  br i1 %18, label %21, label %19
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
-  store ptr %12, ptr %21, align 8
-  br label %22
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
+  store ptr %11, ptr %20, align 8
+  br label %21
 
-22:                                               ; preds = %2, %20
-  %23 = icmp eq ptr %12, null
-  br i1 %23, label %25, label %.thread
+21:                                               ; preds = %2, %19
+  %22 = icmp eq ptr %11, null
+  br i1 %22, label %24, label %.thread
 
-.thread:                                          ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  store atomic i64 %10, ptr %24 monotonic, align 8
-  br label %27
+.thread:                                          ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 152
+  store atomic i64 %9, ptr %23 monotonic, align 8
+  br label %26
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   store ptr %.0.i, ptr %3, align 8
-  %26 = icmp eq i64 %10, 0
-  br i1 %26, label %30, label %27
+  %25 = icmp eq i64 %9, 0
+  br i1 %25, label %29, label %26
 
-27:                                               ; preds = %.thread, %25
-  %28 = phi ptr [ %4, %.thread ], [ %.0.i, %25 ]
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 168
-  store i64 %7, ptr %29, align 8
-  br label %30
+26:                                               ; preds = %.thread, %24
+  %27 = phi ptr [ %4, %.thread ], [ %.0.i, %24 ]
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 168
+  store i64 %7, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %25, %27
-  %31 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %31
+29:                                               ; preds = %24, %26
+  %30 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
-define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h1b009b570d45ab28E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h1b009b570d45ab28E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(ret: address, provenance) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = add i64 %6, -1
-  %8 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %10 = load atomic i64, ptr %9 monotonic, align 8
-  %.0.i = inttoptr i64 %10 to ptr
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %12 = load ptr, ptr %11, align 8, !noundef !4
-  %13 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = ptrtoint ptr %16 to i64
-  store atomic i64 %17, ptr %9 monotonic, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr null, ptr %18, align 8
-  %19 = icmp eq i64 %10, 0
-  br i1 %19, label %22, label %20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %9 = load atomic i64, ptr %8 monotonic, align 8
+  %.0.i = inttoptr i64 %9 to ptr
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %11 = load ptr, ptr %10, align 8, !noundef !4
+  %12 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = ptrtoint ptr %15 to i64
+  store atomic i64 %16, ptr %8 monotonic, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr null, ptr %17, align 8
+  %18 = icmp eq i64 %9, 0
+  br i1 %18, label %21, label %19
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
-  store ptr %12, ptr %21, align 8
-  br label %22
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
+  store ptr %11, ptr %20, align 8
+  br label %21
 
-22:                                               ; preds = %2, %20
-  %23 = icmp eq ptr %12, null
-  br i1 %23, label %25, label %.thread
+21:                                               ; preds = %2, %19
+  %22 = icmp eq ptr %11, null
+  br i1 %22, label %24, label %.thread
 
-.thread:                                          ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  store atomic i64 %10, ptr %24 monotonic, align 8
-  br label %27
+.thread:                                          ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 152
+  store atomic i64 %9, ptr %23 monotonic, align 8
+  br label %26
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   store ptr %.0.i, ptr %3, align 8
-  %26 = icmp eq i64 %10, 0
-  br i1 %26, label %30, label %27
+  %25 = icmp eq i64 %9, 0
+  br i1 %25, label %29, label %26
 
-27:                                               ; preds = %.thread, %25
-  %28 = phi ptr [ %4, %.thread ], [ %.0.i, %25 ]
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 168
-  store i64 %7, ptr %29, align 8
-  br label %30
+26:                                               ; preds = %.thread, %24
+  %27 = phi ptr [ %4, %.thread ], [ %.0.i, %24 ]
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 168
+  store i64 %7, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %25, %27
-  %31 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %31
+29:                                               ; preds = %24, %26
+  %30 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
-define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h3a4eef79817ce303E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h3a4eef79817ce303E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(ret: address, provenance) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = add i64 %6, -1
-  %8 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %10 = load atomic i64, ptr %9 monotonic, align 8
-  %.0.i = inttoptr i64 %10 to ptr
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %12 = load ptr, ptr %11, align 8, !noundef !4
-  %13 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = ptrtoint ptr %16 to i64
-  store atomic i64 %17, ptr %9 monotonic, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr null, ptr %18, align 8
-  %19 = icmp eq i64 %10, 0
-  br i1 %19, label %22, label %20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %9 = load atomic i64, ptr %8 monotonic, align 8
+  %.0.i = inttoptr i64 %9 to ptr
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %11 = load ptr, ptr %10, align 8, !noundef !4
+  %12 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = ptrtoint ptr %15 to i64
+  store atomic i64 %16, ptr %8 monotonic, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr null, ptr %17, align 8
+  %18 = icmp eq i64 %9, 0
+  br i1 %18, label %21, label %19
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
-  store ptr %12, ptr %21, align 8
-  br label %22
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
+  store ptr %11, ptr %20, align 8
+  br label %21
 
-22:                                               ; preds = %2, %20
-  %23 = icmp eq ptr %12, null
-  br i1 %23, label %25, label %.thread
+21:                                               ; preds = %2, %19
+  %22 = icmp eq ptr %11, null
+  br i1 %22, label %24, label %.thread
 
-.thread:                                          ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  store atomic i64 %10, ptr %24 monotonic, align 8
-  br label %27
+.thread:                                          ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 152
+  store atomic i64 %9, ptr %23 monotonic, align 8
+  br label %26
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   store ptr %.0.i, ptr %3, align 8
-  %26 = icmp eq i64 %10, 0
-  br i1 %26, label %30, label %27
+  %25 = icmp eq i64 %9, 0
+  br i1 %25, label %29, label %26
 
-27:                                               ; preds = %.thread, %25
-  %28 = phi ptr [ %4, %.thread ], [ %.0.i, %25 ]
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 168
-  store i64 %7, ptr %29, align 8
-  br label %30
+26:                                               ; preds = %.thread, %24
+  %27 = phi ptr [ %4, %.thread ], [ %.0.i, %24 ]
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 168
+  store i64 %7, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %25, %27
-  %31 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %31
+29:                                               ; preds = %24, %26
+  %30 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
-define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h46467b4cb6027894E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h46467b4cb6027894E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(ret: address, provenance) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = add i64 %6, -1
-  %8 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %10 = load atomic i64, ptr %9 monotonic, align 8
-  %.0.i = inttoptr i64 %10 to ptr
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %12 = load ptr, ptr %11, align 8, !noundef !4
-  %13 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = ptrtoint ptr %16 to i64
-  store atomic i64 %17, ptr %9 monotonic, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr null, ptr %18, align 8
-  %19 = icmp eq i64 %10, 0
-  br i1 %19, label %22, label %20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %9 = load atomic i64, ptr %8 monotonic, align 8
+  %.0.i = inttoptr i64 %9 to ptr
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %11 = load ptr, ptr %10, align 8, !noundef !4
+  %12 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = ptrtoint ptr %15 to i64
+  store atomic i64 %16, ptr %8 monotonic, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr null, ptr %17, align 8
+  %18 = icmp eq i64 %9, 0
+  br i1 %18, label %21, label %19
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
-  store ptr %12, ptr %21, align 8
-  br label %22
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
+  store ptr %11, ptr %20, align 8
+  br label %21
 
-22:                                               ; preds = %2, %20
-  %23 = icmp eq ptr %12, null
-  br i1 %23, label %25, label %.thread
+21:                                               ; preds = %2, %19
+  %22 = icmp eq ptr %11, null
+  br i1 %22, label %24, label %.thread
 
-.thread:                                          ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  store atomic i64 %10, ptr %24 monotonic, align 8
-  br label %27
+.thread:                                          ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 152
+  store atomic i64 %9, ptr %23 monotonic, align 8
+  br label %26
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   store ptr %.0.i, ptr %3, align 8
-  %26 = icmp eq i64 %10, 0
-  br i1 %26, label %30, label %27
+  %25 = icmp eq i64 %9, 0
+  br i1 %25, label %29, label %26
 
-27:                                               ; preds = %.thread, %25
-  %28 = phi ptr [ %4, %.thread ], [ %.0.i, %25 ]
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 168
-  store i64 %7, ptr %29, align 8
-  br label %30
+26:                                               ; preds = %.thread, %24
+  %27 = phi ptr [ %4, %.thread ], [ %.0.i, %24 ]
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 168
+  store i64 %7, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %25, %27
-  %31 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %31
+29:                                               ; preds = %24, %26
+  %30 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
-define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17ha9e254214ebdcc40E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17ha9e254214ebdcc40E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(ret: address, provenance) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = add i64 %6, -1
-  %8 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %10 = load atomic i64, ptr %9 monotonic, align 8
-  %.0.i = inttoptr i64 %10 to ptr
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %12 = load ptr, ptr %11, align 8, !noundef !4
-  %13 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = ptrtoint ptr %16 to i64
-  store atomic i64 %17, ptr %9 monotonic, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store ptr null, ptr %18, align 8
-  %19 = icmp eq i64 %10, 0
-  br i1 %19, label %22, label %20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %9 = load atomic i64, ptr %8 monotonic, align 8
+  %.0.i = inttoptr i64 %9 to ptr
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %11 = load ptr, ptr %10, align 8, !noundef !4
+  %12 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = ptrtoint ptr %15 to i64
+  store atomic i64 %16, ptr %8 monotonic, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  store ptr null, ptr %17, align 8
+  %18 = icmp eq i64 %9, 0
+  br i1 %18, label %21, label %19
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
-  store ptr %12, ptr %21, align 8
-  br label %22
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
+  store ptr %11, ptr %20, align 8
+  br label %21
 
-22:                                               ; preds = %2, %20
-  %23 = icmp eq ptr %12, null
-  br i1 %23, label %25, label %.thread
+21:                                               ; preds = %2, %19
+  %22 = icmp eq ptr %11, null
+  br i1 %22, label %24, label %.thread
 
-.thread:                                          ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  store atomic i64 %10, ptr %24 monotonic, align 8
-  br label %27
+.thread:                                          ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 152
+  store atomic i64 %9, ptr %23 monotonic, align 8
+  br label %26
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   store ptr %.0.i, ptr %3, align 8
-  %26 = icmp eq i64 %10, 0
-  br i1 %26, label %30, label %27
+  %25 = icmp eq i64 %9, 0
+  br i1 %25, label %29, label %26
 
-27:                                               ; preds = %.thread, %25
-  %28 = phi ptr [ %4, %.thread ], [ %.0.i, %25 ]
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 168
-  store i64 %7, ptr %29, align 8
-  br label %30
+26:                                               ; preds = %.thread, %24
+  %27 = phi ptr [ %4, %.thread ], [ %.0.i, %24 ]
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 168
+  store i64 %7, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %25, %27
-  %31 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %31
+29:                                               ; preds = %24, %26
+  %30 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %30
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -1864,6 +1864,7 @@ define dso_local void @_ZNK4llvm14RISCVInstrInfo17copyPhysRegVectorERNS_17Machin
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.060.0.i, align 8
   %124 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %125 = inttoptr i64 %124 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %125) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %125, align 8
   %126 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %126, 0
@@ -5813,6 +5814,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14RISCVInstrInfo13analyzeBranchERN
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.058.091, align 8
   %28 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %29 = inttoptr i64 %28 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8
   %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %30, 0
@@ -5923,6 +5925,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i43: ;
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.065.0, align 8
   %68 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %69 = inttoptr i64 %68 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %69) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i = load i64, ptr %69, align 8
   %70 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i, 4
   %.not.i.i.i9.i.i.i = icmp eq i64 %70, 0
@@ -6226,6 +6229,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i: ; pre
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.0.i.i.i101618.i.i, align 8
   %19 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %20 = inttoptr i64 %19 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i = load i64, ptr %20, align 8
   %21 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i, 4
   %.not.i.i.i9.i.i = icmp eq i64 %21, 0
@@ -6309,6 +6313,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK4llvm14RISCVInstrInfo12removeB
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %7, align 8
   %28 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %29 = inttoptr i64 %28 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8
   %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %30, 0
@@ -6782,6 +6787,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %69, align 8
   %73 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %74 = inttoptr i64 %73 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %74) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %74, align 8
   %75 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i49 = icmp eq i64 %75, 0
@@ -6983,6 +6989,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit: ; preds = %.lr.ph.i
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8
   %78 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %79 = inttoptr i64 %78 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %79, align 8
   %80 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i47 = icmp eq i64 %80, 0
@@ -7049,6 +7056,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i: ; preds
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.03.05.i.i.i.i, align 8
   %108 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %109 = inttoptr i64 %108 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %109, align 8
   %110 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %110, 0
@@ -7206,6 +7214,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit71: ; preds = %.lr.ph
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i72 = load i64, ptr %1, align 8
   %181 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i72, -8
   %182 = inttoptr i64 %181 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %182) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i73 = load i64, ptr %182, align 8
   %183 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i73, 4
   %.not.i.i.i.i.i74 = icmp eq i64 %183, 0
@@ -7272,6 +7281,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i75: ; pre
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i83 = load i64, ptr %.sroa.03.05.i.i.i.i79, align 8
   %211 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i83, -8
   %212 = inttoptr i64 %211 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %212) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i84 = load i64, ptr %212, align 8
   %213 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i84, 4
   %.not.i.i.i.i.i.i.i.i85 = icmp eq i64 %213, 0
@@ -15498,6 +15508,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14RISCVInstrInfo23areRVVInstsReass
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.073.0108, align 8
   %68 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %69 = inttoptr i64 %68 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %69) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %69, align 8
   %70 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %70, 0
@@ -19365,6 +19376,7 @@ _ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread: ; preds = %23, %26, %_Z
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %32, align 8
   %33 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %34 = inttoptr i64 %33 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %34, align 8
   %35 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp ne i64 %35, 0
@@ -27187,6 +27199,7 @@ _ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE.exit: ; preds = %_ZN4llvm
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %61, align 8
   %62 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %63 = inttoptr i64 %62 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %63, align 8
   %64 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i5 = icmp eq i64 %64, 0
@@ -27217,6 +27230,7 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit:        ; preds = %_ZNK4llvm14ilist_it
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.0.copyload.i, align 8
   %74 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %75 = inttoptr i64 %74 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %75) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %75, align 8
   %76 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %76, 0
@@ -27251,6 +27265,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEC2ERKNS0_IS1_Lb0EEE.
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i8 = load i64, ptr %.sroa.018.026, align 8
   %85 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i8, -8
   %86 = inttoptr i64 %85 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %86) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i9 = load i64, ptr %86, align 8
   %87 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i9, 4
   %.not.i.i.i.i10 = icmp eq i64 %87, 0

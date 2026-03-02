@@ -625,8 +625,7 @@ _ZN5clang6format9LineStateD2Ev.exit147:           ; preds = %_ZN5clang6format12_
   br i1 %274, label %.preheader, label %.loopexit162
 
 .preheader:                                       ; preds = %.critedge127
-  %.not122165 = icmp ne ptr %.pre184, null
-  call void @llvm.assume(i1 %.not122165)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre184) ]
   br label %.lr.ph167
 
 .lr.ph167:                                        ; preds = %.preheader, %280

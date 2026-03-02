@@ -18174,8 +18174,8 @@ define dso_local { ptr, i8 } @_ZN4Luau10Normalizer16unionOfFunctionsEPKNS_4TypeE
   %4 = alloca %"struct.Luau::FunctionType", align 8
   %5 = alloca %"class.std::optional.225", align 8
   %6 = alloca %"struct.Luau::FunctionType", align 8
-  %.not.i.i = icmp ne ptr %1, null
-  br i1 %.not.i.i, label %7, label %10
+  %.not.i.i.not = icmp eq ptr %1, null
+  br i1 %.not.i.i.not, label %10, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %1, align 8, !tbaa !52
@@ -18188,7 +18188,7 @@ define dso_local { ptr, i8 } @_ZN4Luau10Normalizer16unionOfFunctionsEPKNS_4TypeE
   br i1 %11, label %_ZN4Luau3getINS_9Unifiable5ErrorIPKNS_4TypeEEEEEPKT_S5_.exit, label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit
 
 _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %10
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %12 = load i32, ptr %1, align 8, !tbaa !52
   %13 = icmp eq i32 %12, 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -23573,8 +23573,7 @@ _ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit:  ; preds = %10, %2, %231, %233,
 define dso_local void @_ZN4Luau10Normalizer17subtractPrimitiveERNS_14NormalizedTypeEPKNS_4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(337) %0, ptr noundef nonnull align 8 dereferenceable(401) %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit:
   %3 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %2)
-  %.not.i.i = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !140
   switch i32 %5, label %93 [
@@ -31364,8 +31363,7 @@ define dso_local { ptr, i8 } @_ZN4Luau10Normalizer23intersectionOfFunctionsEPKNS
 
 _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %3, %7
   %12 = phi ptr [ %11, %7 ], [ null, %3 ]
-  %.not.i.i42 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %.not.i.i42)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %13 = load i32, ptr %2, align 8, !tbaa !52
   %14 = icmp eq i32 %13, 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8

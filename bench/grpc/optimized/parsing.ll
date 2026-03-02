@@ -1503,6 +1503,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102.i: ; preds = %
 
 .thread29.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i103.i
   %528 = getelementptr inbounds nuw i8, ptr %499, i64 %524
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %528) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE12find_non_sooIjEENSG_8iteratorERSD_m.exit.i.i.i.i
 
 529:                                              ; preds = %.lr.ph.i.i.i.i103.i
@@ -2196,6 +2197,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit115.i: ; preds = %725,
 
 .thread29.i.i.i.i140.i:                           ; preds = %.lr.ph.i.i.i.i122.i
   %786 = getelementptr inbounds nuw i8, ptr %757, i64 %782
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %786) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE12find_non_sooIjEENSG_8iteratorERSD_m.exit.i.i.i127.i
 
 787:                                              ; preds = %.lr.ph.i.i.i.i122.i
@@ -2671,6 +2673,7 @@ _ZL26init_settings_frame_parserP21grpc_chttp2_transport.exit.i: ; preds = %_ZN4a
 
 .thread29.i.i.i.i177.i:                           ; preds = %.lr.ph.i.i.i.i158.i
   %972 = getelementptr inbounds nuw i8, ptr %943, i64 %968
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %972) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE12find_non_sooIjEENSG_8iteratorERSD_m.exit.i.i.i163.i
 
 973:                                              ; preds = %.lr.ph.i.i.i.i158.i
@@ -5157,6 +5160,7 @@ define internal fastcc void @_ZL24init_header_frame_parserP21grpc_chttp2_transpo
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %98 = getelementptr inbounds nuw i8, ptr %69, i64 %94
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %98) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE12find_non_sooIjEENSG_8iteratorERSD_m.exit.i.i
 
 99:                                               ; preds = %.lr.ph.i.i.i

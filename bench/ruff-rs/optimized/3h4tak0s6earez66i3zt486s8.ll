@@ -67,7 +67,7 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h
   %6 = extractvalue { i64, ptr } %4, 1
   switch i64 %5, label %8 [
     i64 2, label %7
-    i64 0, label %19
+    i64 0, label %18
   ]
 
 7:                                                ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit
@@ -75,30 +75,28 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h
   ret void
 
 8:                                                ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit
-  %9 = icmp ne ptr %6, null
-  call void @llvm.assume(i1 %9)
-  %10 = call { i64, ptr } @"_ZN121_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Keyword$GT$$GT$4from17h2b7126fef7239961E"(ptr noundef nonnull align 8 %6), !noalias !5
-  %11 = call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !5
-  br i1 %11, label %12, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.backedge
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
+  %9 = call { i64, ptr } @"_ZN121_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Keyword$GT$$GT$4from17h2b7126fef7239961E"(ptr noundef nonnull align 8 %6), !noalias !5
+  %10 = call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !5
+  br i1 %10, label %11, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.backedge
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 95
-  %14 = load i8, ptr %13, align 1, !range !10, !noalias !11, !noundef !4
-  %.not.i.i.i = icmp eq i8 %14, -38
-  br i1 %.not.i.i.i, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split, label %15
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 95
+  %13 = load i8, ptr %12, align 1, !range !10, !noalias !11, !noundef !4
+  %.not.i.i.i = icmp eq i8 %13, -38
+  br i1 %.not.i.i.i, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split, label %14
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %17 = call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16), !noalias !11
-  %18 = call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !11
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %16 = call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15), !noalias !11
+  %17 = call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !11
   br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split
 
-19:                                               ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit
-  %20 = icmp ne ptr %6, null
-  call void @llvm.assume(i1 %20)
+18:                                               ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split
 
-_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split: ; preds = %12, %15, %19
+_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split: ; preds = %11, %14, %18
   call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %6)
   br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.backedge
 
@@ -159,7 +157,7 @@ define hidden void @"_ZN15ruff_python_ast4node52_$LT$impl$u20$ruff_python_ast..n
   %7 = extractvalue { i64, ptr } %5, 1
   switch i64 %6, label %9 [
     i64 2, label %8
-    i64 0, label %11
+    i64 0, label %10
   ]
 
 8:                                                ; preds = %4
@@ -167,18 +165,16 @@ define hidden void @"_ZN15ruff_python_ast4node52_$LT$impl$u20$ruff_python_ast..n
   ret void
 
 9:                                                ; preds = %4
-  %10 = icmp ne ptr %7, null
-  call void @llvm.assume(i1 %10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   call void @_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor28visit_parameter_with_default17h031ed203a809a8bcE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %7)
   br label %.backedge
 
-11:                                               ; preds = %4
-  %12 = icmp ne ptr %7, null
-  call void @llvm.assume(i1 %12)
+10:                                               ; preds = %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   call void @_ZN15ruff_python_ast7visitor12source_order14walk_parameter17h4b28ce652143632cE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %7)
   br label %.backedge
 
-.backedge:                                        ; preds = %11, %9
+.backedge:                                        ; preds = %10, %9
   br label %4
 }
 
@@ -388,16 +384,15 @@ define hidden void @"_ZN15ruff_python_ast4node57_$LT$impl$u20$ruff_python_ast..g
   br i1 %13, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit.lr.ph", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit.thread"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit.lr.ph": ; preds = %2
-  %14 = icmp ne ptr %.sroa.43.0.copyload, null
-  tail call void @llvm.assume(i1 %14)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.43.0.copyload) ]
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit.lr.ph", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit"
-  %.sroa.54.09 = phi i64 [ %.sroa.54.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit.lr.ph" ], [ %16, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit" ]
-  %15 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.sroa.43.0.copyload, i64 %.sroa.54.09
-  %16 = add i64 %.sroa.54.09, 1
-  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %15)
-  %exitcond.not = icmp eq i64 %16, %.sroa.7.0.copyload
+  %.sroa.54.09 = phi i64 [ %.sroa.54.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit.lr.ph" ], [ %15, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit" ]
+  %14 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.sroa.43.0.copyload, i64 %.sroa.54.09
+  %15 = add i64 %.sroa.54.09, 1
+  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %14)
+  %exitcond.not = icmp eq i64 %15, %.sroa.7.0.copyload
   br i1 %exitcond.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit.thread", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit.thread": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit", %2
@@ -409,55 +404,51 @@ define hidden void @"_ZN15ruff_python_ast4node57_$LT$impl$u20$ruff_python_ast..g
   %3 = tail call { ptr, ptr } @"_ZN102_$LT$$RF$ruff_python_ast..nodes..FStringValue$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hadd5e1e73b288182E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %7)
-  %8 = icmp eq ptr %4, %5
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  %6 = icmp eq ptr %4, %5
+  br i1 %6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit
-  %.sroa.01.02 = phi ptr [ %9, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit ], [ %4, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 40
-  %10 = load i64, ptr %.sroa.01.02, align 8, !range !16, !noundef !4
-  %.not = icmp eq i64 %10, -9223372036854775808
-  br i1 %.not, label %23, label %11
+  %.sroa.01.02 = phi ptr [ %7, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit ], [ %4, %2 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 40
+  %8 = load i64, ptr %.sroa.01.02, align 8, !range !16, !noundef !4
+  %.not = icmp eq i64 %8, -9223372036854775808
+  br i1 %.not, label %19, label %9
 
 ._crit_edge:                                      ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit, %2
   ret void
 
-11:                                               ; preds = %.lr.ph
-  %12 = tail call { i64, ptr } @"_ZN121_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..FString$GT$$GT$4from17hd38dc24739f945faE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.01.02), !noalias !17
-  %13 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !17
-  br i1 %13, label %14, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit
+9:                                                ; preds = %.lr.ph
+  %10 = tail call { i64, ptr } @"_ZN121_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..FString$GT$$GT$4from17hd38dc24739f945faE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.01.02), !noalias !17
+  %11 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !17
+  br i1 %11, label %12, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit
 
-14:                                               ; preds = %11
-  %15 = tail call { ptr, ptr } @"_ZN105_$LT$$RF$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdc04952ad5f486d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.01.02), !noalias !22
-  %16 = extractvalue { ptr, ptr } %15, 0
-  %17 = extractvalue { ptr, ptr } %15, 1
-  %18 = icmp ne ptr %17, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = icmp eq ptr %16, %17
-  br i1 %20, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit, label %.lr.ph.i.i.i
+12:                                               ; preds = %9
+  %13 = tail call { ptr, ptr } @"_ZN105_$LT$$RF$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdc04952ad5f486d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.01.02), !noalias !22
+  %14 = extractvalue { ptr, ptr } %13, 0
+  %15 = extractvalue { ptr, ptr } %13, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %16 = icmp eq ptr %14, %15
+  br i1 %16, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %14, %.lr.ph.i.i.i
-  %.sroa.01.02.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i ], [ %16, %14 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i.i, i64 80
+.lr.ph.i.i.i:                                     ; preds = %12, %.lr.ph.i.i.i
+  %.sroa.01.02.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %14, %12 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i.i, i64 80
   tail call void @_ZN15ruff_python_ast7visitor12source_order21walk_f_string_element17hdc9133a25f831d3bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %.sroa.01.02.i.i.i)
-  %22 = icmp eq ptr %21, %17
-  br i1 %22, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit, label %.lr.ph.i.i.i
+  %18 = icmp eq ptr %17, %15
+  br i1 %18, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit, label %.lr.ph.i.i.i
 
-23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 8
-  %25 = tail call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..StringLiteral$GT$$GT$4from17h9962197f82fe814fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %24)
-  %26 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+19:                                               ; preds = %.lr.ph
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 8
+  %21 = tail call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..StringLiteral$GT$$GT$4from17h9962197f82fe814fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20)
+  %22 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
   br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit
 
-_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit: ; preds = %.lr.ph.i.i.i, %14, %11, %23
-  %27 = icmp eq ptr %9, %5
-  br i1 %27, label %._crit_edge, label %.lr.ph
+_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor14visit_f_string17h903a35ef42fd1aebE.exit: ; preds = %.lr.ph.i.i.i, %12, %9, %19
+  %23 = icmp eq ptr %7, %5
+  br i1 %23, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -498,53 +489,51 @@ define hidden void @"_ZN15ruff_python_ast4node61_$LT$impl$u20$ruff_python_ast..n
   br i1 %16, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.lr.ph", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.thread"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.lr.ph": ; preds = %2
-  %17 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %17)
-  %18 = icmp ne ptr %.sroa.49.0.copyload, null
-  tail call void @llvm.assume(i1 %18)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.49.0.copyload) ]
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit"
 
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.lr.ph", %32
-  %.sroa.0.116 = phi ptr [ %.sroa.0.0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.lr.ph" ], [ %.sroa.0.2, %32 ]
-  %.sroa.510.015 = phi i64 [ %.sroa.510.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.lr.ph" ], [ %19, %32 ]
-  %19 = add i64 %.sroa.510.015, 1
-  %20 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.sroa.0.0.copyload, i64 %.sroa.510.015
-  %21 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %.sroa.49.0.copyload, i64 %.sroa.510.015
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.lr.ph", %30
+  %.sroa.0.116 = phi ptr [ %.sroa.0.0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.lr.ph" ], [ %.sroa.0.2, %30 ]
+  %.sroa.510.015 = phi i64 [ %.sroa.510.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.lr.ph" ], [ %17, %30 ]
+  %17 = add i64 %.sroa.510.015, 1
+  %18 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.sroa.0.0.copyload, i64 %.sroa.510.015
+  %19 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %.sroa.49.0.copyload, i64 %.sroa.510.015
   %.not8 = icmp eq ptr %.sroa.0.116, null
-  br i1 %.not8, label %32, label %26
+  br i1 %.not8, label %30, label %24
 
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.thread": ; preds = %32, %2
-  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %2 ], [ %.sroa.0.2, %32 ]
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.thread": ; preds = %30, %2
+  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %2 ], [ %.sroa.0.2, %30 ]
   %.not7 = icmp eq ptr %.sroa.0.1.lcssa, null
-  br i1 %.not7, label %25, label %22
+  br i1 %.not7, label %23, label %20
 
-22:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.thread"
-  %23 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.1.lcssa)
-  %24 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
-  br label %25
+20:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.thread"
+  %21 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.1.lcssa)
+  %22 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+  br label %23
 
-25:                                               ; preds = %22, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.thread"
+23:                                               ; preds = %20, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.thread"
   ret void
 
-26:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit"
-  %27 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Identifier$GT$5range17h62bc7d86fb9b07bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.116)
+24:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit"
+  %25 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Identifier$GT$5range17h62bc7d86fb9b07bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.116)
+  %26 = extractvalue { i32, i32 } %25, 0
+  %27 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %18)
   %28 = extractvalue { i32, i32 } %27, 0
-  %29 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %20)
-  %30 = extractvalue { i32, i32 } %29, 0
-  %31 = icmp ult i32 %28, %30
-  br i1 %31, label %33, label %32
+  %29 = icmp ult i32 %26, %28
+  br i1 %29, label %31, label %30
 
-32:                                               ; preds = %26, %33, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit"
-  %.sroa.0.2 = phi ptr [ null, %33 ], [ %.sroa.0.116, %26 ], [ null, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit" ]
-  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %20)
-  tail call void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17hfd90399b3d6bf309E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %21)
-  %exitcond.not = icmp eq i64 %19, %.sroa.7.0.copyload
+30:                                               ; preds = %24, %31, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit"
+  %.sroa.0.2 = phi ptr [ null, %31 ], [ %.sroa.0.116, %24 ], [ null, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit" ]
+  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %18)
+  tail call void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17hfd90399b3d6bf309E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %19)
+  %exitcond.not = icmp eq i64 %17, %.sroa.7.0.copyload
   br i1 %exitcond.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.thread", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit"
 
-33:                                               ; preds = %26
-  %34 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.116)
-  %35 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
-  br label %32
+31:                                               ; preds = %24
+  %32 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.116)
+  %33 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+  br label %30
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -552,20 +541,18 @@ define hidden void @"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..g
   %3 = tail call { ptr, ptr } @"_ZN107_$LT$$RF$ruff_python_ast..nodes..BytesLiteralValue$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h44e5081cdda2bf93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %7)
-  %8 = icmp eq ptr %4, %5
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  %6 = icmp eq ptr %4, %5
+  br i1 %6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.01.02 = phi ptr [ %9, %.lr.ph ], [ %4, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 32
-  %10 = tail call { i64, ptr } @"_ZN126_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..BytesLiteral$GT$$GT$4from17hd371bb3e0f6099bfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.02)
-  %11 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
-  %12 = icmp eq ptr %9, %5
-  br i1 %12, label %._crit_edge, label %.lr.ph
+  %.sroa.01.02 = phi ptr [ %7, %.lr.ph ], [ %4, %2 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 32
+  %8 = tail call { i64, ptr } @"_ZN126_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..BytesLiteral$GT$$GT$4from17hd371bb3e0f6099bfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.02)
+  %9 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+  %10 = icmp eq ptr %7, %5
+  br i1 %10, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -615,20 +602,18 @@ define hidden void @"_ZN15ruff_python_ast4node63_$LT$impl$u20$ruff_python_ast..g
   %3 = tail call { ptr, ptr } @"_ZN108_$LT$$RF$ruff_python_ast..nodes..StringLiteralValue$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h726654c408fee571E"(ptr noundef nonnull align 8 %0)
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %7)
-  %8 = icmp eq ptr %4, %5
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  %6 = icmp eq ptr %4, %5
+  br i1 %6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.01.02 = phi ptr [ %9, %.lr.ph ], [ %4, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 32
-  %10 = tail call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..StringLiteral$GT$$GT$4from17h9962197f82fe814fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.02)
-  %11 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
-  %12 = icmp eq ptr %9, %5
-  br i1 %12, label %._crit_edge, label %.lr.ph
+  %.sroa.01.02 = phi ptr [ %7, %.lr.ph ], [ %4, %2 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 32
+  %8 = tail call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..StringLiteral$GT$$GT$4from17h9962197f82fe814fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.02)
+  %9 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+  %10 = icmp eq ptr %7, %5
+  br i1 %10, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -648,22 +633,20 @@ define hidden void @"_ZN15ruff_python_ast4node66_$LT$impl$u20$ruff_python_ast..n
   %8 = tail call { ptr, ptr } @"_ZN105_$LT$$RF$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdc04952ad5f486d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %9 = extractvalue { ptr, ptr } %8, 0
   %10 = extractvalue { ptr, ptr } %8, 1
-  %11 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %12)
-  %13 = icmp eq ptr %9, %10
-  br i1 %13, label %.loopexit, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  %11 = icmp eq ptr %9, %10
+  br i1 %11, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %2
   ret void
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.sroa.01.02 = phi ptr [ %14, %.lr.ph ], [ %9, %7 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 80
+  %.sroa.01.02 = phi ptr [ %12, %.lr.ph ], [ %9, %7 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 80
   tail call void @_ZN15ruff_python_ast7visitor12source_order21walk_f_string_element17hdc9133a25f831d3bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %.sroa.01.02)
-  %15 = icmp eq ptr %14, %10
-  br i1 %15, label %.loopexit, label %.lr.ph
+  %13 = icmp eq ptr %12, %10
+  br i1 %13, label %.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -859,20 +842,20 @@ define hidden void @_ZN15ruff_python_ast9generated4Stmt18visit_source_order17ha5
     i64 4, label %66
     i64 5, label %74
     i64 6, label %85
-    i64 7, label %89
-    i64 8, label %97
-    i64 9, label %110
-    i64 10, label %121
-    i64 11, label %136
-    i64 12, label %149
-    i64 13, label %160
-    i64 14, label %166
-    i64 15, label %187
-    i64 16, label %191
-    i64 17, label %209
-    i64 18, label %236
-    i64 19, label %245
-    i64 20, label %254
+    i64 7, label %88
+    i64 8, label %96
+    i64 9, label %109
+    i64 10, label %120
+    i64 11, label %135
+    i64 12, label %148
+    i64 13, label %159
+    i64 14, label %165
+    i64 15, label %186
+    i64 16, label %190
+    i64 17, label %208
+    i64 18, label %235
+    i64 19, label %244
+    i64 20, label %253
     i64 21, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
     i64 22, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
     i64 23, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
@@ -987,7 +970,7 @@ _ZN15ruff_python_ast9generated12StmtClassDef18visit_source_order17h7347d6069e5af
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load ptr, ptr %57, align 8, !align !3, !noundef !4
   %.not = icmp eq ptr %58, null
-  br i1 %.not, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %257
+  br i1 %.not, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %256
 
 59:                                               ; preds = %2
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1056,335 +1039,334 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hbc8dc3b2a623f75
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val3 = load ptr, ptr %87, align 8
   tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.val2)
-  %88 = icmp ne ptr %.val3, null
-  tail call void @llvm.assume(i1 %88)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3) ]
   tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.val3)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
 
-89:                                               ; preds = %2
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
+88:                                               ; preds = %2
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %91 = load ptr, ptr %90, align 8, !alias.scope !49, !noalias !52, !nonnull !4, !align !3, !noundef !4
-  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %91), !noalias !49
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %93 = load ptr, ptr %92, align 8, !alias.scope !49, !noalias !52, !nonnull !4, !align !3, !noundef !4
-  tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_annotation17h8ef939f12f533e65E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %93), !noalias !49
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %95 = load ptr, ptr %94, align 8, !alias.scope !49, !noalias !52, !align !3, !noundef !4
-  %.not.i27 = icmp eq ptr %95, null
-  br i1 %.not.i27, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %96
+  %90 = load ptr, ptr %89, align 8, !alias.scope !49, !noalias !52, !nonnull !4, !align !3, !noundef !4
+  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %90), !noalias !49
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %92 = load ptr, ptr %91, align 8, !alias.scope !49, !noalias !52, !nonnull !4, !align !3, !noundef !4
+  tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_annotation17h8ef939f12f533e65E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %92), !noalias !49
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %94 = load ptr, ptr %93, align 8, !alias.scope !49, !noalias !52, !align !3, !noundef !4
+  %.not.i27 = icmp eq ptr %94, null
+  br i1 %.not.i27, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %95
 
-96:                                               ; preds = %89
-  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %95), !noalias !49
+95:                                               ; preds = %88
+  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %94), !noalias !49
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
 
-97:                                               ; preds = %2
+96:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %99 = load ptr, ptr %98, align 8, !alias.scope !54, !noalias !57, !nonnull !4, !align !3, !noundef !4
-  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %99), !noalias !54
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %101 = load ptr, ptr %100, align 8, !alias.scope !54, !noalias !57, !nonnull !4, !align !3, !noundef !4
-  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %101), !noalias !54
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %103 = load ptr, ptr %102, align 8, !alias.scope !54, !noalias !57, !nonnull !4, !noundef !4
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %105 = load i64, ptr %104, align 8, !alias.scope !54, !noalias !57, !noundef !4
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %103, i64 noundef %105), !noalias !54
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %107 = load ptr, ptr %106, align 8, !alias.scope !54, !noalias !57, !nonnull !4, !noundef !4
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %109 = load i64, ptr %108, align 8, !alias.scope !54, !noalias !57, !noundef !4
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %107, i64 noundef %109), !noalias !54
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %98 = load ptr, ptr %97, align 8, !alias.scope !54, !noalias !57, !nonnull !4, !align !3, !noundef !4
+  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %98), !noalias !54
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %100 = load ptr, ptr %99, align 8, !alias.scope !54, !noalias !57, !nonnull !4, !align !3, !noundef !4
+  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %100), !noalias !54
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %102 = load ptr, ptr %101, align 8, !alias.scope !54, !noalias !57, !nonnull !4, !noundef !4
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %104 = load i64, ptr %103, align 8, !alias.scope !54, !noalias !57, !noundef !4
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %102, i64 noundef %104), !noalias !54
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %106 = load ptr, ptr %105, align 8, !alias.scope !54, !noalias !57, !nonnull !4, !noundef !4
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %108 = load i64, ptr %107, align 8, !alias.scope !54, !noalias !57, !noundef !4
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %106, i64 noundef %108), !noalias !54
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
 
-110:                                              ; preds = %2
+109:                                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %112 = load ptr, ptr %111, align 8, !alias.scope !59, !noalias !62, !nonnull !4, !align !3, !noundef !4
-  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %112), !noalias !59
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %114 = load ptr, ptr %113, align 8, !alias.scope !59, !noalias !62, !nonnull !4, !noundef !4
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %116 = load i64, ptr %115, align 8, !alias.scope !59, !noalias !62, !noundef !4
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %114, i64 noundef %116), !noalias !59
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %118 = load ptr, ptr %117, align 8, !alias.scope !59, !noalias !62, !nonnull !4, !noundef !4
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %120 = load i64, ptr %119, align 8, !alias.scope !59, !noalias !62, !noundef !4
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %118, i64 noundef %120), !noalias !59
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %111 = load ptr, ptr %110, align 8, !alias.scope !59, !noalias !62, !nonnull !4, !align !3, !noundef !4
+  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %111), !noalias !59
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %113 = load ptr, ptr %112, align 8, !alias.scope !59, !noalias !62, !nonnull !4, !noundef !4
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %115 = load i64, ptr %114, align 8, !alias.scope !59, !noalias !62, !noundef !4
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %113, i64 noundef %115), !noalias !59
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %117 = load ptr, ptr %116, align 8, !alias.scope !59, !noalias !62, !nonnull !4, !noundef !4
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %119 = load i64, ptr %118, align 8, !alias.scope !59, !noalias !62, !noundef !4
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %117, i64 noundef %119), !noalias !59
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
 
-121:                                              ; preds = %2
+120:                                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %123 = load ptr, ptr %122, align 8, !alias.scope !64, !noalias !67, !nonnull !4, !align !3, !noundef !4
-  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %123), !noalias !64
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %125 = load ptr, ptr %124, align 8, !alias.scope !64, !noalias !67, !nonnull !4, !noundef !4
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %127 = load i64, ptr %126, align 8, !alias.scope !64, !noalias !67, !noundef !4
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %125, i64 noundef %127), !noalias !64
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %129 = load ptr, ptr %128, align 8, !alias.scope !64, !noalias !67, !nonnull !4, !noundef !4
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %131 = load i64, ptr %130, align 8, !alias.scope !64, !noalias !67, !noundef !4
-  %.idx.i28 = mul nuw nsw i64 %131, 96
-  %132 = getelementptr inbounds nuw i8, ptr %129, i64 %.idx.i28
-  %133 = icmp eq i64 %131, 0
-  br i1 %133, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i29
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %122 = load ptr, ptr %121, align 8, !alias.scope !64, !noalias !67, !nonnull !4, !align !3, !noundef !4
+  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %122), !noalias !64
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %124 = load ptr, ptr %123, align 8, !alias.scope !64, !noalias !67, !nonnull !4, !noundef !4
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %126 = load i64, ptr %125, align 8, !alias.scope !64, !noalias !67, !noundef !4
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %124, i64 noundef %126), !noalias !64
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %128 = load ptr, ptr %127, align 8, !alias.scope !64, !noalias !67, !nonnull !4, !noundef !4
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %130 = load i64, ptr %129, align 8, !alias.scope !64, !noalias !67, !noundef !4
+  %.idx.i28 = mul nuw nsw i64 %130, 96
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i28
+  %132 = icmp eq i64 %130, 0
+  br i1 %132, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i29
 
-.lr.ph.i29:                                       ; preds = %121, %.lr.ph.i29
-  %.sroa.01.02.i30 = phi ptr [ %134, %.lr.ph.i29 ], [ %129, %121 ]
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i30, i64 96
+.lr.ph.i29:                                       ; preds = %120, %.lr.ph.i29
+  %.sroa.01.02.i30 = phi ptr [ %133, %.lr.ph.i29 ], [ %128, %120 ]
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i30, i64 96
   tail call void @_ZN15ruff_python_ast7visitor12source_order21walk_elif_else_clause17h816d0097f3eb956aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sroa.01.02.i30), !noalias !64
-  %135 = icmp eq ptr %134, %132
-  br i1 %135, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i29
+  %134 = icmp eq ptr %133, %131
+  br i1 %134, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i29
 
-136:                                              ; preds = %2
+135:                                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %138 = load ptr, ptr %137, align 8, !alias.scope !69, !noalias !72, !nonnull !4, !noundef !4
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %140 = load i64, ptr %139, align 8, !alias.scope !69, !noalias !72, !noundef !4
-  %.idx.i32 = mul nuw nsw i64 %140, 80
-  %141 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx.i32
-  %142 = icmp eq i64 %140, 0
-  br i1 %142, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h4a43e4efa01ae301E.exit, label %.lr.ph.i33
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %137 = load ptr, ptr %136, align 8, !alias.scope !69, !noalias !72, !nonnull !4, !noundef !4
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %139 = load i64, ptr %138, align 8, !alias.scope !69, !noalias !72, !noundef !4
+  %.idx.i32 = mul nuw nsw i64 %139, 80
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 %.idx.i32
+  %141 = icmp eq i64 %139, 0
+  br i1 %141, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h4a43e4efa01ae301E.exit, label %.lr.ph.i33
 
-.lr.ph.i33:                                       ; preds = %136, %.lr.ph.i33
-  %.sroa.01.02.i34 = phi ptr [ %143, %.lr.ph.i33 ], [ %138, %136 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i34, i64 80
+.lr.ph.i33:                                       ; preds = %135, %.lr.ph.i33
+  %.sroa.01.02.i34 = phi ptr [ %142, %.lr.ph.i33 ], [ %137, %135 ]
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i34, i64 80
   tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_with_item17hb9adc32b7076179cE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sroa.01.02.i34), !noalias !69
-  %144 = icmp eq ptr %143, %141
-  br i1 %144, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h4a43e4efa01ae301E.exit, label %.lr.ph.i33
+  %143 = icmp eq ptr %142, %140
+  br i1 %143, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h4a43e4efa01ae301E.exit, label %.lr.ph.i33
 
-_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h4a43e4efa01ae301E.exit: ; preds = %.lr.ph.i33, %136
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %146 = load ptr, ptr %145, align 8, !alias.scope !69, !noalias !72, !nonnull !4, !noundef !4
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %148 = load i64, ptr %147, align 8, !alias.scope !69, !noalias !72, !noundef !4
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %146, i64 noundef %148), !noalias !69
+_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h4a43e4efa01ae301E.exit: ; preds = %.lr.ph.i33, %135
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %145 = load ptr, ptr %144, align 8, !alias.scope !69, !noalias !72, !nonnull !4, !noundef !4
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %147 = load i64, ptr %146, align 8, !alias.scope !69, !noalias !72, !noundef !4
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %145, i64 noundef %147), !noalias !69
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
 
-149:                                              ; preds = %2
+148:                                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %151 = load ptr, ptr %150, align 8, !alias.scope !74, !noalias !77, !nonnull !4, !align !3, !noundef !4
-  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %151), !noalias !74
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %153 = load ptr, ptr %152, align 8, !alias.scope !74, !noalias !77, !nonnull !4, !noundef !4
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %155 = load i64, ptr %154, align 8, !alias.scope !74, !noalias !77, !noundef !4
-  %.idx.i36 = shl nuw nsw i64 %155, 7
-  %156 = getelementptr inbounds nuw i8, ptr %153, i64 %.idx.i36
-  %157 = icmp eq i64 %155, 0
-  br i1 %157, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i37
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %150 = load ptr, ptr %149, align 8, !alias.scope !74, !noalias !77, !nonnull !4, !align !3, !noundef !4
+  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %150), !noalias !74
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %152 = load ptr, ptr %151, align 8, !alias.scope !74, !noalias !77, !nonnull !4, !noundef !4
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %154 = load i64, ptr %153, align 8, !alias.scope !74, !noalias !77, !noundef !4
+  %.idx.i36 = shl nuw nsw i64 %154, 7
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx.i36
+  %156 = icmp eq i64 %154, 0
+  br i1 %156, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i37
 
-.lr.ph.i37:                                       ; preds = %149, %.lr.ph.i37
-  %.sroa.01.02.i38 = phi ptr [ %158, %.lr.ph.i37 ], [ %153, %149 ]
-  %158 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i38, i64 128
+.lr.ph.i37:                                       ; preds = %148, %.lr.ph.i37
+  %.sroa.01.02.i38 = phi ptr [ %157, %.lr.ph.i37 ], [ %152, %148 ]
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i38, i64 128
   tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_match_case17hf1f2a69d2519fef0E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.01.02.i38), !noalias !74
-  %159 = icmp eq ptr %158, %156
-  br i1 %159, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i37
+  %158 = icmp eq ptr %157, %155
+  br i1 %158, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i37
 
-160:                                              ; preds = %2
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val4 = load ptr, ptr %161, align 8, !align !3, !noundef !4
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val5 = load ptr, ptr %162, align 8
+159:                                              ; preds = %2
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val4 = load ptr, ptr %160, align 8, !align !3, !noundef !4
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val5 = load ptr, ptr %161, align 8
   %.not.i40 = icmp eq ptr %.val4, null
-  br i1 %.not.i40, label %164, label %163
+  br i1 %.not.i40, label %163, label %162
 
-163:                                              ; preds = %160
+162:                                              ; preds = %159
   tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.val4)
-  br label %164
+  br label %163
 
-164:                                              ; preds = %163, %160
+163:                                              ; preds = %162, %159
   %.not1.i = icmp eq ptr %.val5, null
-  br i1 %.not1.i, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %165
+  br i1 %.not1.i, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %164
 
-165:                                              ; preds = %164
+164:                                              ; preds = %163
   tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.val5)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
 
-166:                                              ; preds = %2
+165:                                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %168 = load ptr, ptr %167, align 8, !alias.scope !79, !noalias !82, !nonnull !4, !noundef !4
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %170 = load i64, ptr %169, align 8, !alias.scope !79, !noalias !82, !noundef !4
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %168, i64 noundef %170), !noalias !79
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %172 = load ptr, ptr %171, align 8, !alias.scope !79, !noalias !82, !nonnull !4, !noundef !4
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %174 = load i64, ptr %173, align 8, !alias.scope !79, !noalias !82, !noundef !4
-  %.idx.i41 = mul nuw nsw i64 %174, 72
-  %175 = getelementptr inbounds nuw i8, ptr %172, i64 %.idx.i41
-  %176 = icmp eq i64 %174, 0
-  br i1 %176, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h99268bff939cb60cE.exit, label %.lr.ph.i42
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %167 = load ptr, ptr %166, align 8, !alias.scope !79, !noalias !82, !nonnull !4, !noundef !4
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %169 = load i64, ptr %168, align 8, !alias.scope !79, !noalias !82, !noundef !4
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %167, i64 noundef %169), !noalias !79
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %171 = load ptr, ptr %170, align 8, !alias.scope !79, !noalias !82, !nonnull !4, !noundef !4
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %173 = load i64, ptr %172, align 8, !alias.scope !79, !noalias !82, !noundef !4
+  %.idx.i41 = mul nuw nsw i64 %173, 72
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 %.idx.i41
+  %175 = icmp eq i64 %173, 0
+  br i1 %175, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h99268bff939cb60cE.exit, label %.lr.ph.i42
 
-.lr.ph.i42:                                       ; preds = %166, %.lr.ph.i42
-  %.sroa.01.02.i43 = phi ptr [ %177, %.lr.ph.i42 ], [ %172, %166 ]
-  %177 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i43, i64 72
+.lr.ph.i42:                                       ; preds = %165, %.lr.ph.i42
+  %.sroa.01.02.i43 = phi ptr [ %176, %.lr.ph.i42 ], [ %171, %165 ]
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i43, i64 72
   tail call void @_ZN15ruff_python_ast7visitor12source_order19walk_except_handler17h01246289824a8de6E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.02.i43), !noalias !79
-  %178 = icmp eq ptr %177, %175
-  br i1 %178, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h99268bff939cb60cE.exit, label %.lr.ph.i42
+  %177 = icmp eq ptr %176, %174
+  br i1 %177, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h99268bff939cb60cE.exit, label %.lr.ph.i42
 
-_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h99268bff939cb60cE.exit: ; preds = %.lr.ph.i42, %166
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %180 = load ptr, ptr %179, align 8, !alias.scope !79, !noalias !82, !nonnull !4, !noundef !4
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %182 = load i64, ptr %181, align 8, !alias.scope !79, !noalias !82, !noundef !4
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %180, i64 noundef %182), !noalias !79
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %184 = load ptr, ptr %183, align 8, !alias.scope !79, !noalias !82, !nonnull !4, !noundef !4
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %186 = load i64, ptr %185, align 8, !alias.scope !79, !noalias !82, !noundef !4
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %184, i64 noundef %186), !noalias !79
+_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h99268bff939cb60cE.exit: ; preds = %.lr.ph.i42, %165
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %179 = load ptr, ptr %178, align 8, !alias.scope !79, !noalias !82, !nonnull !4, !noundef !4
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %181 = load i64, ptr %180, align 8, !alias.scope !79, !noalias !82, !noundef !4
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %179, i64 noundef %181), !noalias !79
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %183 = load ptr, ptr %182, align 8, !alias.scope !79, !noalias !82, !nonnull !4, !noundef !4
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %185 = load i64, ptr %184, align 8, !alias.scope !79, !noalias !82, !noundef !4
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 %183, i64 noundef %185), !noalias !79
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
 
-187:                                              ; preds = %2
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val6 = load ptr, ptr %188, align 8, !nonnull !4, !align !3, !noundef !4
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val7 = load ptr, ptr %189, align 8
+186:                                              ; preds = %2
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val6 = load ptr, ptr %187, align 8, !nonnull !4, !align !3, !noundef !4
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val7 = load ptr, ptr %188, align 8
   tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.val6)
   %.not.i45 = icmp eq ptr %.val7, null
-  br i1 %.not.i45, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %190
+  br i1 %.not.i45, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %189
 
-190:                                              ; preds = %187
+189:                                              ; preds = %186
   tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.val7)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
 
-191:                                              ; preds = %2
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val8 = load ptr, ptr %192, align 8, !nonnull !4, !noundef !4
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val9 = load i64, ptr %193, align 8, !noundef !4
+190:                                              ; preds = %2
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val8 = load ptr, ptr %191, align 8, !nonnull !4, !noundef !4
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val9 = load i64, ptr %192, align 8, !noundef !4
   %.idx.i46 = mul nuw nsw i64 %.val9, 72
-  %194 = getelementptr inbounds nuw i8, ptr %.val8, i64 %.idx.i46
-  %195 = icmp eq i64 %.val9, 0
-  br i1 %195, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i47
+  %193 = getelementptr inbounds nuw i8, ptr %.val8, i64 %.idx.i46
+  %194 = icmp eq i64 %.val9, 0
+  br i1 %194, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i47
 
-.lr.ph.i47:                                       ; preds = %191, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i
-  %.sroa.01.01.i48 = phi ptr [ %196, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i ], [ %.val8, %191 ]
-  %196 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i48, i64 72
-  %197 = tail call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Alias$GT$$GT$4from17hdcc84f5e05015a96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i48)
-  %198 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
-  br i1 %198, label %199, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i
+.lr.ph.i47:                                       ; preds = %190, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i
+  %.sroa.01.01.i48 = phi ptr [ %195, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i ], [ %.val8, %190 ]
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i48, i64 72
+  %196 = tail call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Alias$GT$$GT$4from17hdcc84f5e05015a96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i48)
+  %197 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+  br i1 %197, label %198, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i
 
-199:                                              ; preds = %.lr.ph.i47
-  %200 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i48, i64 40
-  %201 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %200)
-  %202 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
-  %203 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i48, i64 31
-  %204 = load i8, ptr %203, align 1, !range !10, !alias.scope !84, !noundef !4
-  %.not.i.i.i.i = icmp eq i8 %204, -38
-  br i1 %.not.i.i.i.i, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i, label %205
+198:                                              ; preds = %.lr.ph.i47
+  %199 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i48, i64 40
+  %200 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %199)
+  %201 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+  %202 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i48, i64 31
+  %203 = load i8, ptr %202, align 1, !range !10, !alias.scope !84, !noundef !4
+  %.not.i.i.i.i = icmp eq i8 %203, -38
+  br i1 %.not.i.i.i.i, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i, label %204
 
-205:                                              ; preds = %199
-  %206 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i48)
-  %207 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+204:                                              ; preds = %198
+  %205 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i48)
+  %206 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
   br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i
 
-_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i: ; preds = %205, %199, %.lr.ph.i47
-  %208 = icmp eq ptr %196, %194
-  br i1 %208, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i47
+_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i: ; preds = %204, %198, %.lr.ph.i47
+  %207 = icmp eq ptr %195, %193
+  br i1 %207, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i47
 
-209:                                              ; preds = %2
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 63
-  %211 = load i8, ptr %210, align 1, !range !10, !alias.scope !91, !noundef !4
-  %.not.i50 = icmp eq i8 %211, -38
-  br i1 %.not.i50, label %216, label %212
+208:                                              ; preds = %2
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 63
+  %210 = load i8, ptr %209, align 1, !range !10, !alias.scope !91, !noundef !4
+  %.not.i50 = icmp eq i8 %210, -38
+  br i1 %.not.i50, label %215, label %211
 
-212:                                              ; preds = %209
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %214 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %213)
-  %215 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
-  br label %216
+211:                                              ; preds = %208
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %213 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %212)
+  %214 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+  br label %215
 
-216:                                              ; preds = %212, %209
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %218 = load ptr, ptr %217, align 8, !alias.scope !91, !nonnull !4, !noundef !4
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %220 = load i64, ptr %219, align 8, !alias.scope !91, !noundef !4
-  %.idx.i51 = mul nuw nsw i64 %220, 72
-  %221 = getelementptr inbounds nuw i8, ptr %218, i64 %.idx.i51
-  %222 = icmp eq i64 %220, 0
-  br i1 %222, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i52
+215:                                              ; preds = %211, %208
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %217 = load ptr, ptr %216, align 8, !alias.scope !91, !nonnull !4, !noundef !4
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %219 = load i64, ptr %218, align 8, !alias.scope !91, !noundef !4
+  %.idx.i51 = mul nuw nsw i64 %219, 72
+  %220 = getelementptr inbounds nuw i8, ptr %217, i64 %.idx.i51
+  %221 = icmp eq i64 %219, 0
+  br i1 %221, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i52
 
-.lr.ph.i52:                                       ; preds = %216, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54
-  %.sroa.01.01.i53 = phi ptr [ %223, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54 ], [ %218, %216 ]
-  %223 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i53, i64 72
-  %224 = tail call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Alias$GT$$GT$4from17hdcc84f5e05015a96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i53)
-  %225 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
-  br i1 %225, label %226, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54
+.lr.ph.i52:                                       ; preds = %215, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54
+  %.sroa.01.01.i53 = phi ptr [ %222, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54 ], [ %217, %215 ]
+  %222 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i53, i64 72
+  %223 = tail call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Alias$GT$$GT$4from17hdcc84f5e05015a96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i53)
+  %224 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+  br i1 %224, label %225, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54
 
-226:                                              ; preds = %.lr.ph.i52
-  %227 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i53, i64 40
-  %228 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %227)
-  %229 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
-  %230 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i53, i64 31
-  %231 = load i8, ptr %230, align 1, !range !10, !alias.scope !94, !noundef !4
-  %.not.i.i.i.i56 = icmp eq i8 %231, -38
-  br i1 %.not.i.i.i.i56, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54, label %232
+225:                                              ; preds = %.lr.ph.i52
+  %226 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i53, i64 40
+  %227 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %226)
+  %228 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i53, i64 31
+  %230 = load i8, ptr %229, align 1, !range !10, !alias.scope !94, !noundef !4
+  %.not.i.i.i.i56 = icmp eq i8 %230, -38
+  br i1 %.not.i.i.i.i56, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54, label %231
 
-232:                                              ; preds = %226
-  %233 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i53)
-  %234 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+231:                                              ; preds = %225
+  %232 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i53)
+  %233 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
   br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54
 
-_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54: ; preds = %232, %226, %.lr.ph.i52
-  %235 = icmp eq ptr %223, %221
-  br i1 %235, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i52
+_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54: ; preds = %231, %225, %.lr.ph.i52
+  %234 = icmp eq ptr %222, %220
+  br i1 %234, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i52
 
-236:                                              ; preds = %2
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val10 = load ptr, ptr %237, align 8, !nonnull !4, !noundef !4
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val11 = load i64, ptr %238, align 8, !noundef !4
+235:                                              ; preds = %2
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val10 = load ptr, ptr %236, align 8, !nonnull !4, !noundef !4
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val11 = load i64, ptr %237, align 8, !noundef !4
   %.idx.i57 = shl nuw nsw i64 %.val11, 5
-  %239 = getelementptr inbounds nuw i8, ptr %.val10, i64 %.idx.i57
-  %240 = icmp eq i64 %.val11, 0
-  br i1 %240, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i58
+  %238 = getelementptr inbounds nuw i8, ptr %.val10, i64 %.idx.i57
+  %239 = icmp eq i64 %.val11, 0
+  br i1 %239, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i58
 
-.lr.ph.i58:                                       ; preds = %236, %.lr.ph.i58
-  %.sroa.01.01.i59 = phi ptr [ %241, %.lr.ph.i58 ], [ %.val10, %236 ]
-  %241 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i59, i64 32
-  %242 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i59)
-  %243 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
-  %244 = icmp eq ptr %241, %239
-  br i1 %244, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i58
+.lr.ph.i58:                                       ; preds = %235, %.lr.ph.i58
+  %.sroa.01.01.i59 = phi ptr [ %240, %.lr.ph.i58 ], [ %.val10, %235 ]
+  %240 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i59, i64 32
+  %241 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i59)
+  %242 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+  %243 = icmp eq ptr %240, %238
+  br i1 %243, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i58
 
-245:                                              ; preds = %2
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val12 = load ptr, ptr %246, align 8, !nonnull !4, !noundef !4
-  %247 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val13 = load i64, ptr %247, align 8, !noundef !4
+244:                                              ; preds = %2
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val12 = load ptr, ptr %245, align 8, !nonnull !4, !noundef !4
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val13 = load i64, ptr %246, align 8, !noundef !4
   %.idx.i61 = shl nuw nsw i64 %.val13, 5
-  %248 = getelementptr inbounds nuw i8, ptr %.val12, i64 %.idx.i61
-  %249 = icmp eq i64 %.val13, 0
-  br i1 %249, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i62
+  %247 = getelementptr inbounds nuw i8, ptr %.val12, i64 %.idx.i61
+  %248 = icmp eq i64 %.val13, 0
+  br i1 %248, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i62
 
-.lr.ph.i62:                                       ; preds = %245, %.lr.ph.i62
-  %.sroa.01.01.i63 = phi ptr [ %250, %.lr.ph.i62 ], [ %.val12, %245 ]
-  %250 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i63, i64 32
-  %251 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i63)
-  %252 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
-  %253 = icmp eq ptr %250, %248
-  br i1 %253, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i62
+.lr.ph.i62:                                       ; preds = %244, %.lr.ph.i62
+  %.sroa.01.01.i63 = phi ptr [ %249, %.lr.ph.i62 ], [ %.val12, %244 ]
+  %249 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i63, i64 32
+  %250 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i63)
+  %251 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false)
+  %252 = icmp eq ptr %249, %247
+  br i1 %252, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit, label %.lr.ph.i62
 
-254:                                              ; preds = %2
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %256 = load ptr, ptr %255, align 8, !nonnull !4, !noundef !4
-  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %256)
+253:                                              ; preds = %2
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %255 = load ptr, ptr %254, align 8, !nonnull !4, !noundef !4
+  tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %255)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
 
-_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit: ; preds = %.lr.ph.i62, %.lr.ph.i58, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i, %.lr.ph.i37, %.lr.ph.i29, %.lr.ph.i21, %245, %236, %216, %191, %190, %187, %165, %164, %149, %121, %96, %89, %59, %56, %257, %2, %2, %2, %2, %254, %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h99268bff939cb60cE.exit, %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h4a43e4efa01ae301E.exit, %110, %97, %85, %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hbc8dc3b2a623f759E.exit, %_ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17hc3ef34ff320e6294E.exit, %_ZN15ruff_python_ast9generated12StmtClassDef18visit_source_order17h7347d6069e5af0fdE.exit, %_ZN15ruff_python_ast9generated15StmtFunctionDef18visit_source_order17h8d1665a04547a049E.exit
+_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit: ; preds = %.lr.ph.i62, %.lr.ph.i58, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i54, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha26f0b1c93ca2a5fE.exit.i, %.lr.ph.i37, %.lr.ph.i29, %.lr.ph.i21, %244, %235, %215, %190, %189, %186, %164, %163, %148, %120, %95, %88, %59, %56, %256, %2, %2, %2, %2, %253, %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h99268bff939cb60cE.exit, %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h4a43e4efa01ae301E.exit, %109, %96, %85, %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hbc8dc3b2a623f759E.exit, %_ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17hc3ef34ff320e6294E.exit, %_ZN15ruff_python_ast9generated12StmtClassDef18visit_source_order17h7347d6069e5af0fdE.exit, %_ZN15ruff_python_ast9generated15StmtFunctionDef18visit_source_order17h8d1665a04547a049E.exit
   ret void
 
-257:                                              ; preds = %56
+256:                                              ; preds = %56
   tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %58)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h33060b11357fb2d5E.exit
 }

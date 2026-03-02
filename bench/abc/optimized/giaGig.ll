@@ -3411,8 +3411,7 @@ Abc_UtilStrsav.exit198:                           ; preds = %Abc_UtilStrsav.exit
   %27 = sext i32 %spec.store.select.i.i to i64
   %28 = shl nsw i64 %27, 2
   %29 = tail call noalias ptr @malloc(i64 noundef %28) #25
-  %.not.i199 = icmp ne ptr %29, null
-  tail call void @llvm.assume(i1 %.not.i199)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   %30 = sext i32 %.val to i64
   %31 = shl nsw i64 %30, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %29, i8 -1, i64 %31, i1 false)

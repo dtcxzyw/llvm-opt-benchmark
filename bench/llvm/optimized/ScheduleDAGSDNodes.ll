@@ -4994,6 +4994,7 @@ define internal fastcc noundef ptr @"_ZZN4llvm18ScheduleDAGSDNodes12EmitSchedule
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.0.copyload.i, align 8
   %16 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %17 = inttoptr i64 %16 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i.i = load i64, ptr %17, align 8
   %18 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i.i, 4
   %.not.i.i.i9.i.i.i.i = icmp eq i64 %18, 0
@@ -5048,6 +5049,7 @@ _ZN4llvm12InstrEmitter8EmitNodeEPNS_6SDNodeEbbRNS_13SmallDenseMapINS_7SDValueENS
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38 = load i64, ptr %.sroa.0.0.copyload.i35, align 8
   %37 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38, -8
   %38 = inttoptr i64 %37 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i.i39 = load i64, ptr %38, align 8
   %39 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i.i39, 4
   %.not.i.i.i9.i.i.i.i40 = icmp eq i64 %39, 0

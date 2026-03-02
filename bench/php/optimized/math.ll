@@ -3330,7 +3330,7 @@ zend_parse_arg_long_ex.exit82:                    ; preds = %24
   store i32 %48, ptr %49, align 8, !tbaa !11
   br label %50
 
-50:                                               ; preds = %38, %.thread, %44, %37, %33
+50:                                               ; preds = %.thread, %38, %44, %37, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

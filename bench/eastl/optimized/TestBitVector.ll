@@ -18521,8 +18521,7 @@ if.then.i.i2293:                                  ; preds = %invoke.cont914
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.else21.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i2293
-  %cmp4.i.i = icmp ne ptr %597, null
-  call void @llvm.assume(i1 %cmp4.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %597) ]
   br label %invoke.cont916
 
 if.else21.i.i:                                    ; preds = %if.then.i.i2293

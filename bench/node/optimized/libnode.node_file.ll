@@ -2202,8 +2202,7 @@ do.end18:                                         ; preds = %_ZNK2v820FunctionCa
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %14) #31
-  %cmp.i.i.i.i = icmp ne ptr %call1.i, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1.i) ]
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #31
   %15 = load i64, ptr %call1.i, align 8
   %sub.i.i.i.i.i.i = add i64 %15, 47
@@ -6146,8 +6145,7 @@ entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call1 = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #31
-  %cmp.i.i.i.i = icmp ne ptr %call1, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1) ]
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1) #31
   %2 = load i64, ptr %call1, align 8
   %sub.i.i.i.i.i.i = add i64 %2, 47
@@ -9947,8 +9945,7 @@ do.end18:                                         ; preds = %if.end.i511
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %8) #31
-  %cmp.i.i.i.i = icmp ne ptr %call1.i, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1.i) ]
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #31
   %9 = load i64, ptr %call1.i, align 8
   %sub.i.i.i.i.i.i = add i64 %9, 47

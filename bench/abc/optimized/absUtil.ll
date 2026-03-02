@@ -514,8 +514,7 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef read
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %44, ptr %45, align 8, !tbaa !41
   store i32 %.val, ptr %41, align 4, !tbaa !44
-  %.not.i = icmp ne ptr %44, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %44) ]
   %46 = sext i32 %.val to i64
   %47 = shl nsw i64 %46, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %44, i8 0, i64 %47, i1 false)

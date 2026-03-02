@@ -20429,8 +20429,7 @@ Vec_IntAlloc.exit.i:
   %8 = sext i32 %spec.store.select.i.i to i64
   %9 = shl nsw i64 %8, 2
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #41
-  %.not.i = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   %11 = sext i32 %6 to i64
   %12 = shl nsw i64 %11, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %10, i8 -1, i64 %12, i1 false)
@@ -24743,8 +24742,7 @@ Mini_AigStartSupport.exit:                        ; preds = %.lr.ph.i77, %Mini_A
   %25 = sext i32 %spec.store.select.i.i to i64
   %26 = shl nsw i64 %25, 2
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #41
-  %.not.i81 = icmp ne ptr %27, null
-  tail call void @llvm.assume(i1 %.not.i81)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
   %28 = sext i32 %14 to i64
   %29 = shl nsw i64 %28, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %27, i8 -1, i64 %29, i1 false)

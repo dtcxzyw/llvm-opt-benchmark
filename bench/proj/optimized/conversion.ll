@@ -8668,8 +8668,7 @@ define hidden void @_ZNK5osgeo4proj9operation17InverseConversion13_shallowCloneE
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !33, !noalias !337, !nonnull !340, !noundef !340
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN5osgeo4proj9operation19CoordinateOperationE, ptr nonnull @_ZTIN5osgeo4proj9operation10ConversionE, i64 -1) #32, !noalias !337
-  %.not.i.i = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !20, !noalias !337
   %.not.i.i.i.i.i = icmp eq ptr %11, null

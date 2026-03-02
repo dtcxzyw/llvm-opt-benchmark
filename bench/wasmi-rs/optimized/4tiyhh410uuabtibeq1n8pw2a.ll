@@ -1354,22 +1354,21 @@ define hidden noundef zeroext i1 @"_ZN5wasmi5store14Store$LT$T$GT$22can_create_m
   %20 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %21 = extractvalue { ptr, ptr } %20, 0
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %31, label %22
+  br i1 %.not, label %30, label %22
 
 22:                                               ; preds = %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit"
   %23 = extractvalue { ptr, ptr } %20, 1
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  %25 = call noundef i64 @_ZN5wasmi5store5inner10StoreInner10len_tables17h98bc6e457387cf9bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
-  %26 = call i64 @llvm.uadd.sat.i64(i64 %25, i64 %1)
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %28 = load ptr, ptr %27, align 8, !invariant.load !3, !nonnull !3
-  %29 = call noundef i64 %28(ptr noundef nonnull align 1 %21)
-  %30 = icmp ule i64 %26, %29
-  br label %31
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
+  %24 = call noundef i64 @_ZN5wasmi5store5inner10StoreInner10len_tables17h98bc6e457387cf9bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
+  %25 = call i64 @llvm.uadd.sat.i64(i64 %24, i64 %1)
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  %27 = load ptr, ptr %26, align 8, !invariant.load !3, !nonnull !3
+  %28 = call noundef i64 %27(ptr noundef nonnull align 1 %21)
+  %29 = icmp ule i64 %25, %28
+  br label %30
 
-31:                                               ; preds = %22, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit"
-  %.sroa.0.0 = phi i1 [ true, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit" ], [ %30, %22 ]
+30:                                               ; preds = %22, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit"
+  %.sroa.0.0 = phi i1 [ true, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit" ], [ %29, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.sroa.0.0
 }
@@ -1408,22 +1407,21 @@ define hidden noundef zeroext i1 @"_ZN5wasmi5store14Store$LT$T$GT$24can_create_m
   %20 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %21 = extractvalue { ptr, ptr } %20, 0
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %31, label %22
+  br i1 %.not, label %30, label %22
 
 22:                                               ; preds = %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit"
   %23 = extractvalue { ptr, ptr } %20, 1
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  %25 = call noundef i64 @_ZN5wasmi5store5inner10StoreInner12len_memories17h19b093a349115b39E(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
-  %26 = call i64 @llvm.uadd.sat.i64(i64 %25, i64 %1)
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %28 = load ptr, ptr %27, align 8, !invariant.load !3, !nonnull !3
-  %29 = call noundef i64 %28(ptr noundef nonnull align 1 %21)
-  %30 = icmp ule i64 %26, %29
-  br label %31
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
+  %24 = call noundef i64 @_ZN5wasmi5store5inner10StoreInner12len_memories17h19b093a349115b39E(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
+  %25 = call i64 @llvm.uadd.sat.i64(i64 %24, i64 %1)
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 72
+  %27 = load ptr, ptr %26, align 8, !invariant.load !3, !nonnull !3
+  %28 = call noundef i64 %27(ptr noundef nonnull align 1 %21)
+  %29 = icmp ule i64 %25, %28
+  br label %30
 
-31:                                               ; preds = %22, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit"
-  %.sroa.0.0 = phi i1 [ true, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit" ], [ %30, %22 ]
+30:                                               ; preds = %22, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit"
+  %.sroa.0.0 = phi i1 [ true, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit" ], [ %29, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.sroa.0.0
 }
@@ -1462,22 +1460,21 @@ define hidden noundef zeroext i1 @"_ZN5wasmi5store14Store$LT$T$GT$25can_create_m
   %20 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   %21 = extractvalue { ptr, ptr } %20, 0
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %31, label %22
+  br i1 %.not, label %30, label %22
 
 22:                                               ; preds = %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit"
   %23 = extractvalue { ptr, ptr } %20, 1
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  %25 = call noundef i64 @_ZN5wasmi5store5inner10StoreInner13len_instances17h78c836b44b3073c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
-  %26 = call i64 @llvm.uadd.sat.i64(i64 %25, i64 %1)
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %28 = load ptr, ptr %27, align 8, !invariant.load !3, !nonnull !3
-  %29 = call noundef i64 %28(ptr noundef nonnull align 1 %21)
-  %30 = icmp ule i64 %26, %29
-  br label %31
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
+  %24 = call noundef i64 @_ZN5wasmi5store5inner10StoreInner13len_instances17h78c836b44b3073c4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %0)
+  %25 = call i64 @llvm.uadd.sat.i64(i64 %24, i64 %1)
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %27 = load ptr, ptr %26, align 8, !invariant.load !3, !nonnull !3
+  %28 = call noundef i64 %27(ptr noundef nonnull align 1 %21)
+  %29 = icmp ule i64 %25, %28
+  br label %30
 
-31:                                               ; preds = %22, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit"
-  %.sroa.0.0 = phi i1 [ true, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit" ], [ %30, %22 ]
+30:                                               ; preds = %22, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit"
+  %.sroa.0.0 = phi i1 [ true, %"_ZN5wasmi5store14Store$LT$T$GT$36store_inner_and_resource_limiter_ref17h4b4628c7590d1fafE.exit" ], [ %29, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.sroa.0.0
 }

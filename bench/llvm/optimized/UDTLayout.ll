@@ -977,8 +977,7 @@ define dso_local void @_ZN4llvm3pdb13UDTLayoutBase18initializeChildrenERKNS0_9PD
 
 _ZN4llvm15unique_dyn_castINS_3pdb22PDBSymbolTypeBaseClassENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_.exit: ; preds = %28
   store ptr null, ptr %9, align 8, !tbaa !61, !noalias !144
-  %.not311 = icmp ne ptr %.pre, null
-  call void @llvm.assume(i1 %.not311)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre) ]
   %31 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !44
   %33 = load ptr, ptr %32, align 8, !tbaa !3
@@ -1125,8 +1124,7 @@ _ZN4llvm15unique_dyn_castINS_3pdb22PDBSymbolTypeBaseClassENS1_9PDBSymbolEEENS_8C
 
 _ZN4llvm15unique_dyn_castINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_.exit: ; preds = %_ZN4llvm15unique_dyn_castINS_3pdb22PDBSymbolTypeBaseClassENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_.exit.thread
   store ptr null, ptr %9, align 8, !tbaa !61, !noalias !165
-  %.not312 = icmp ne ptr %.pre345, null
-  call void @llvm.assume(i1 %.not312)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre345) ]
   %89 = getelementptr inbounds nuw i8, ptr %.pre345, i64 24
   %90 = load ptr, ptr %89, align 8, !tbaa !44
   %91 = load ptr, ptr %90, align 8, !tbaa !3
@@ -1281,8 +1279,7 @@ _ZN4llvm15unique_dyn_castINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEENS_8CastInfoIT
 
 _ZN4llvm15unique_dyn_castINS_3pdb19PDBSymbolTypeVTableENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_.exit: ; preds = %_ZN4llvm15unique_dyn_castINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_.exit.thread
   store ptr null, ptr %9, align 8, !tbaa !61, !noalias !188
-  %.not313 = icmp ne ptr %.pre346, null
-  call void @llvm.assume(i1 %.not313)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre346) ]
   %.not.i.i20 = icmp eq ptr %.sroa.9283.0, %.sroa.15.0
   br i1 %.not.i.i20, label %154, label %151
 

@@ -2775,6 +2775,7 @@ define dso_local void @_ZN4llvm12LivePhysRegs22addLiveOutsNoPristinesERKNS_17Mac
   br i1 %12, label %_ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit.thread, label %13
 
 13:                                               ; preds = %._crit_edge
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %11, align 8
   %14 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp ne i64 %14, 0
@@ -2997,6 +2998,7 @@ define dso_local void @_ZN4llvm14computeLiveInsERNS_12LivePhysRegsERKNS_17Machin
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %14, align 8
   %15 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %16 = inttoptr i64 %15 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %16) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %16, align 8
   %17 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
@@ -3035,6 +3037,7 @@ _ZN4llvm7reverseIRKNS_17MachineBasicBlockEEEDaOT_.exit: ; preds = %_ZNK4llvm14il
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.013.018, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %27, align 8
   %28 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %28, 0
@@ -3376,6 +3379,7 @@ _ZN4llvm12LivePhysRegs4initERKNS_18TargetRegisterInfoE.exit: ; preds = %1, %_ZNS
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8
   %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %31 = inttoptr i64 %30 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %31) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %31, align 8
   %32 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %32, 0
@@ -3875,6 +3879,7 @@ _ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit: ; preds = 
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0105.0200, align 8
   %252 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %253 = inttoptr i64 %252 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %253) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %253, align 8
   %254 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i43 = icmp eq i64 %254, 0

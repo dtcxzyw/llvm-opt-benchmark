@@ -495,7 +495,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %call11.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 16, i64 noundef 8) #16
+  %call11.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 16, i64 noundef 8) #15
   br label %_ZN6hermes28BacktrackingBumpPtrAllocator8AllocateINS_12UniqueStringEEEPT_mm.exit
 
 if.end.i.i:                                       ; preds = %if.end
@@ -537,7 +537,7 @@ lor.rhs.i.i.i:                                    ; preds = %_ZN6hermes28Backtra
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lor.rhs.i.i.i, %_ZN6hermes28BacktrackingBumpPtrAllocator8AllocateINS_12UniqueStringEEEPT_mm.exit
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %add.i, i64 noundef 8) #16
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %add.i, i64 noundef 8) #15
   br label %_ZN6hermes28BacktrackingBumpPtrAllocator8AllocateIcEEPT_mm.exit.i
 
 if.end.i.i.i:                                     ; preds = %lor.rhs.i.i.i
@@ -596,7 +596,7 @@ if.end:                                           ; preds = %entry
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Val, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %Val, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
-  %call.i.i = tail call i64 @_ZN4llvh10hash_valueENS_9StringRefE(ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #16
+  %call.i.i = tail call i64 @_ZN4llvh10hash_valueENS_9StringRefE(ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #15
   %conv.i.i = trunc i64 %call.i.i to i32
   %sub = add i32 %1, -1
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Val, align 8
@@ -911,7 +911,7 @@ _ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EEN
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8
   %conv.i = zext i32 %.sroa.speculated to i64
   %mul.i = mul nuw nsw i64 %conv.i, 24
-  %call.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i) #17
+  %call.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i) #16
   store ptr %call.i, ptr %this, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -992,7 +992,7 @@ if.end.i5:                                        ; preds = %if.then.i, %_ZN4llv
   br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i, !llvm.loop !12
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit: ; preds = %if.end.i5, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %1) #16
+  call void @_ZdlPv(ptr noundef nonnull %1) #15
   br label %return
 
 return:                                           ; preds = %for.body.i, %if.then, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit
@@ -3293,7 +3293,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -3351,7 +3351,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i183, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -3462,7 +3462,7 @@ if.then2.i56:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i57, label %if.end5.sink.split.i59, label %if.then.i.i17.i58
 
 if.then.i.i17.i58:                                ; preds = %if.then2.i56
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i59:                           ; preds = %if.then2.i56, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40
@@ -3530,7 +3530,7 @@ if.then2.i91:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i92, label %if.end5.sink.split.i94, label %if.then.i.i17.i93
 
 if.then.i.i17.i93:                                ; preds = %if.then2.i91
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i94:                           ; preds = %if.then2.i91, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75
@@ -3598,7 +3598,7 @@ if.then2.i126:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i127, label %if.end5.sink.split.i129, label %if.then.i.i17.i128
 
 if.then.i.i17.i128:                               ; preds = %if.then2.i126
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i129:                          ; preds = %if.then2.i126, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110
@@ -3666,7 +3666,7 @@ if.then2.i161:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i162, label %if.end5.sink.split.i164, label %if.then.i.i17.i163
 
 if.then.i.i17.i163:                               ; preds = %if.then2.i161
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i164:                          ; preds = %if.then2.i161, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145
@@ -3740,7 +3740,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -3798,7 +3798,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i183, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -3909,7 +3909,7 @@ if.then2.i56:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i57, label %if.end5.sink.split.i59, label %if.then.i.i17.i58
 
 if.then.i.i17.i58:                                ; preds = %if.then2.i56
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i59:                           ; preds = %if.then2.i56, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40
@@ -3977,7 +3977,7 @@ if.then2.i91:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i92, label %if.end5.sink.split.i94, label %if.then.i.i17.i93
 
 if.then.i.i17.i93:                                ; preds = %if.then2.i91
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i94:                           ; preds = %if.then2.i91, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75
@@ -4045,7 +4045,7 @@ if.then2.i126:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i127, label %if.end5.sink.split.i129, label %if.then.i.i17.i128
 
 if.then.i.i17.i128:                               ; preds = %if.then2.i126
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i129:                          ; preds = %if.then2.i126, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110
@@ -4113,7 +4113,7 @@ if.then2.i161:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i162, label %if.end5.sink.split.i164, label %if.then.i.i17.i163
 
 if.then.i.i17.i163:                               ; preds = %if.then2.i161
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i164:                          ; preds = %if.then2.i161, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145
@@ -4187,7 +4187,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -4245,7 +4245,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i183, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -4356,7 +4356,7 @@ if.then2.i56:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i57, label %if.end5.sink.split.i59, label %if.then.i.i17.i58
 
 if.then.i.i17.i58:                                ; preds = %if.then2.i56
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i59:                           ; preds = %if.then2.i56, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40
@@ -4424,7 +4424,7 @@ if.then2.i91:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i92, label %if.end5.sink.split.i94, label %if.then.i.i17.i93
 
 if.then.i.i17.i93:                                ; preds = %if.then2.i91
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i94:                           ; preds = %if.then2.i91, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75
@@ -4492,7 +4492,7 @@ if.then2.i126:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i127, label %if.end5.sink.split.i129, label %if.then.i.i17.i128
 
 if.then.i.i17.i128:                               ; preds = %if.then2.i126
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i129:                          ; preds = %if.then2.i126, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110
@@ -4560,7 +4560,7 @@ if.then2.i161:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i162, label %if.end5.sink.split.i164, label %if.then.i.i17.i163
 
 if.then.i.i17.i163:                               ; preds = %if.then2.i161
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i164:                          ; preds = %if.then2.i161, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145
@@ -4634,7 +4634,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -4692,7 +4692,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i136, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -4803,7 +4803,7 @@ if.then2.i44:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i45, label %if.end5.sink.split.i47, label %if.then.i.i17.i46
 
 if.then.i.i17.i46:                                ; preds = %if.then2.i44
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28
@@ -4871,7 +4871,7 @@ if.then2.i79:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i80, label %if.end5.sink.split.i82, label %if.then.i.i17.i81
 
 if.then.i.i17.i81:                                ; preds = %if.then2.i79
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i82:                           ; preds = %if.then2.i79, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63
@@ -4939,7 +4939,7 @@ if.then2.i114:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i115, label %if.end5.sink.split.i117, label %if.then.i.i17.i116
 
 if.then.i.i17.i116:                               ; preds = %if.then2.i114
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i117:                          ; preds = %if.then2.i114, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98
@@ -5013,7 +5013,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -5081,7 +5081,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -5155,7 +5155,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -5223,7 +5223,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -5297,7 +5297,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -5365,7 +5365,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -5433,7 +5433,7 @@ if.then2.i71:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i72, label %if.end5.sink.split.i74, label %if.then.i.i17.i73
 
 if.then.i.i17.i73:                                ; preds = %if.then2.i71
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i74:                           ; preds = %if.then2.i71, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55
@@ -5507,7 +5507,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -5575,7 +5575,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -5643,7 +5643,7 @@ if.then2.i75:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i76, label %if.end5.sink.split.i78, label %if.then.i.i17.i77
 
 if.then.i.i17.i77:                                ; preds = %if.then2.i75
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
@@ -5717,7 +5717,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -5785,7 +5785,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -5853,7 +5853,7 @@ if.then2.i75:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i76, label %if.end5.sink.split.i78, label %if.then.i.i17.i77
 
 if.then.i.i17.i77:                                ; preds = %if.then2.i75
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
@@ -5921,7 +5921,7 @@ if.then2.i110:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i111, label %if.end5.sink.split.i113, label %if.then.i.i17.i112
 
 if.then.i.i17.i112:                               ; preds = %if.then2.i110
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i113:                          ; preds = %if.then2.i110, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94
@@ -5995,7 +5995,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -6069,7 +6069,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -6143,7 +6143,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -6217,7 +6217,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -6291,7 +6291,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -6359,7 +6359,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -6433,7 +6433,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -6491,7 +6491,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i19, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -6608,7 +6608,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -6676,7 +6676,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -6750,7 +6750,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -6824,7 +6824,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -6892,7 +6892,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -6960,7 +6960,7 @@ if.then2.i71:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i72, label %if.end5.sink.split.i74, label %if.then.i.i17.i73
 
 if.then.i.i17.i73:                                ; preds = %if.then2.i71
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i74:                           ; preds = %if.then2.i71, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55
@@ -7034,7 +7034,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -7102,7 +7102,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -7170,7 +7170,7 @@ if.then2.i71:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i72, label %if.end5.sink.split.i74, label %if.then.i.i17.i73
 
 if.then.i.i17.i73:                                ; preds = %if.then2.i71
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i74:                           ; preds = %if.then2.i71, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55
@@ -7244,7 +7244,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -7318,7 +7318,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -7386,7 +7386,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -7444,7 +7444,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i58, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -7561,7 +7561,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -7635,7 +7635,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -7709,7 +7709,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -7777,7 +7777,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -7851,7 +7851,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -7919,7 +7919,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -7977,7 +7977,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i58, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -8094,7 +8094,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -8162,7 +8162,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -8220,7 +8220,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i62, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -8337,7 +8337,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -8405,7 +8405,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -8479,7 +8479,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -8553,7 +8553,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -8627,7 +8627,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -8695,7 +8695,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -8769,7 +8769,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -8837,7 +8837,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -8911,7 +8911,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -8979,7 +8979,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -9053,7 +9053,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -9121,7 +9121,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -9189,7 +9189,7 @@ if.then2.i71:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i72, label %if.end5.sink.split.i74, label %if.then.i.i17.i73
 
 if.then.i.i17.i73:                                ; preds = %if.then2.i71
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i74:                           ; preds = %if.then2.i71, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55
@@ -9263,7 +9263,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -9331,7 +9331,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -9405,7 +9405,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -9479,7 +9479,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -9553,7 +9553,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -9627,7 +9627,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -9695,7 +9695,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -9769,7 +9769,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -9827,7 +9827,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i19, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -9944,7 +9944,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -10012,7 +10012,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -10086,7 +10086,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -10154,7 +10154,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -10218,7 +10218,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -10319,7 +10319,7 @@ if.then.i48:                                      ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i49, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i51, label %if.then.i.i7.i50
 
 if.then.i.i7.i50:                                 ; preds = %if.then.i48
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i51: ; preds = %if.then.i48
@@ -10436,7 +10436,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -10504,7 +10504,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -10578,7 +10578,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -10646,7 +10646,7 @@ if.then2.i48:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i49, label %if.end5.sink.split.i51, label %if.then.i.i17.i50
 
 if.then.i.i17.i50:                                ; preds = %if.then2.i48
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i51:                           ; preds = %if.then2.i48, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32
@@ -10720,7 +10720,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -10788,7 +10788,7 @@ if.then2.i52:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i53, label %if.end5.sink.split.i55, label %if.then.i.i17.i54
 
 if.then.i.i17.i54:                                ; preds = %if.then2.i52
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i55:                           ; preds = %if.then2.i52, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36
@@ -10856,7 +10856,7 @@ if.then2.i87:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i88, label %if.end5.sink.split.i90, label %if.then.i.i17.i89
 
 if.then.i.i17.i89:                                ; preds = %if.then2.i87
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i90:                           ; preds = %if.then2.i87, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71
@@ -10924,7 +10924,7 @@ if.then2.i122:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i123, label %if.end5.sink.split.i125, label %if.then.i.i17.i124
 
 if.then.i.i17.i124:                               ; preds = %if.then2.i122
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i125:                          ; preds = %if.then2.i122, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106
@@ -10982,7 +10982,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i179, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -11083,7 +11083,7 @@ if.then.i223:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i224, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i226, label %if.then.i.i7.i225
 
 if.then.i.i7.i225:                                ; preds = %if.then.i223
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i226: ; preds = %if.then.i223
@@ -11194,7 +11194,7 @@ if.then2.i157:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i158, label %if.end5.sink.split.i160, label %if.then.i.i17.i159
 
 if.then.i.i17.i159:                               ; preds = %if.then2.i157
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i160:                          ; preds = %if.then2.i157, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141
@@ -11268,7 +11268,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -11336,7 +11336,7 @@ if.then2.i52:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i53, label %if.end5.sink.split.i55, label %if.then.i.i17.i54
 
 if.then.i.i17.i54:                                ; preds = %if.then2.i52
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i55:                           ; preds = %if.then2.i52, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36
@@ -11404,7 +11404,7 @@ if.then2.i87:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i88, label %if.end5.sink.split.i90, label %if.then.i.i17.i89
 
 if.then.i.i17.i89:                                ; preds = %if.then2.i87
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i90:                           ; preds = %if.then2.i87, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71
@@ -11472,7 +11472,7 @@ if.then2.i122:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i123, label %if.end5.sink.split.i125, label %if.then.i.i17.i124
 
 if.then.i.i17.i124:                               ; preds = %if.then2.i122
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i125:                          ; preds = %if.then2.i122, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106
@@ -11530,7 +11530,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i179, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -11631,7 +11631,7 @@ if.then.i223:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i224, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i226, label %if.then.i.i7.i225
 
 if.then.i.i7.i225:                                ; preds = %if.then.i223
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i226: ; preds = %if.then.i223
@@ -11742,7 +11742,7 @@ if.then2.i157:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i158, label %if.end5.sink.split.i160, label %if.then.i.i17.i159
 
 if.then.i.i17.i159:                               ; preds = %if.then2.i157
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i160:                          ; preds = %if.then2.i157, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141
@@ -11837,7 +11837,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -11905,7 +11905,7 @@ if.then2.i56:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i57, label %if.end5.sink.split.i59, label %if.then.i.i17.i58
 
 if.then.i.i17.i58:                                ; preds = %if.then2.i56
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i59:                           ; preds = %if.then2.i56, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40
@@ -11973,7 +11973,7 @@ if.then2.i91:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i92, label %if.end5.sink.split.i94, label %if.then.i.i17.i93
 
 if.then.i.i17.i93:                                ; preds = %if.then2.i91
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i94:                           ; preds = %if.then2.i91, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75
@@ -12041,7 +12041,7 @@ if.then2.i126:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i127, label %if.end5.sink.split.i129, label %if.then.i.i17.i128
 
 if.then.i.i17.i128:                               ; preds = %if.then2.i126
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i129:                          ; preds = %if.then2.i126, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110
@@ -12109,7 +12109,7 @@ if.then2.i161:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i162, label %if.end5.sink.split.i164, label %if.then.i.i17.i163
 
 if.then.i.i17.i163:                               ; preds = %if.then2.i161
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i164:                          ; preds = %if.then2.i161, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145
@@ -12183,7 +12183,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -12251,7 +12251,7 @@ if.then2.i44:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i45, label %if.end5.sink.split.i47, label %if.then.i.i17.i46
 
 if.then.i.i17.i46:                                ; preds = %if.then2.i44
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28
@@ -12315,7 +12315,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i27, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -12426,7 +12426,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -12484,7 +12484,7 @@ if.then.i71:                                      ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i72, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i74, label %if.then.i.i7.i73
 
 if.then.i.i7.i73:                                 ; preds = %if.then.i71
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i74: ; preds = %if.then.i71
@@ -12601,7 +12601,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -12669,7 +12669,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -12743,7 +12743,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -12817,7 +12817,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -12891,7 +12891,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -12959,7 +12959,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -13033,7 +13033,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -13091,7 +13091,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i62, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -13202,7 +13202,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -13276,7 +13276,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -13344,7 +13344,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -13418,7 +13418,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -13492,7 +13492,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -13566,7 +13566,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -13630,7 +13630,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i19, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -13741,7 +13741,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -13805,7 +13805,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i19, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -13916,7 +13916,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -13990,7 +13990,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -14064,7 +14064,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -14132,7 +14132,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -14206,7 +14206,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -14274,7 +14274,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -14348,7 +14348,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -14416,7 +14416,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -14490,7 +14490,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -14564,7 +14564,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -14638,7 +14638,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -14696,7 +14696,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i62, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -14807,7 +14807,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -14881,7 +14881,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -14955,7 +14955,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -15023,7 +15023,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -15097,7 +15097,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -15171,7 +15171,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -15229,7 +15229,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i58, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -15340,7 +15340,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -15414,7 +15414,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -15472,7 +15472,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i58, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -15583,7 +15583,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -15647,7 +15647,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i136, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -15758,7 +15758,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -15826,7 +15826,7 @@ if.then2.i44:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i45, label %if.end5.sink.split.i47, label %if.then.i.i17.i46
 
 if.then.i.i17.i46:                                ; preds = %if.then2.i44
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28
@@ -15894,7 +15894,7 @@ if.then2.i79:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i80, label %if.end5.sink.split.i82, label %if.then.i.i17.i81
 
 if.then.i.i17.i81:                                ; preds = %if.then2.i79
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i82:                           ; preds = %if.then2.i79, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63
@@ -15962,7 +15962,7 @@ if.then2.i114:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i115, label %if.end5.sink.split.i117, label %if.then.i.i17.i116
 
 if.then.i.i17.i116:                               ; preds = %if.then2.i114
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i117:                          ; preds = %if.then2.i114, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98
@@ -16036,7 +16036,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -16104,7 +16104,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -16168,7 +16168,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i97, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -16279,7 +16279,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -16347,7 +16347,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -16415,7 +16415,7 @@ if.then2.i75:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i76, label %if.end5.sink.split.i78, label %if.then.i.i17.i77
 
 if.then.i.i17.i77:                                ; preds = %if.then2.i75
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
@@ -16489,7 +16489,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -16557,7 +16557,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -16631,7 +16631,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -16705,7 +16705,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -16773,7 +16773,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -16847,7 +16847,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -16921,7 +16921,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -16995,7 +16995,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -17069,7 +17069,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -17137,7 +17137,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -17211,7 +17211,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -17279,7 +17279,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -17353,7 +17353,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -17421,7 +17421,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -17489,7 +17489,7 @@ if.then2.i75:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i76, label %if.end5.sink.split.i78, label %if.then.i.i17.i77
 
 if.then.i.i17.i77:                                ; preds = %if.then2.i75
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
@@ -17563,7 +17563,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -17637,7 +17637,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -17711,7 +17711,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -17779,7 +17779,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -17853,7 +17853,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -17921,7 +17921,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -17995,7 +17995,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -18063,7 +18063,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -18137,7 +18137,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -18205,7 +18205,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -18273,7 +18273,7 @@ if.then2.i75:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i76, label %if.end5.sink.split.i78, label %if.then.i.i17.i77
 
 if.then.i.i17.i77:                                ; preds = %if.then2.i75
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
@@ -18341,7 +18341,7 @@ if.then2.i110:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i111, label %if.end5.sink.split.i113, label %if.then.i.i17.i112
 
 if.then.i.i17.i112:                               ; preds = %if.then2.i110
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i113:                          ; preds = %if.then2.i110, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94
@@ -18415,7 +18415,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -18483,7 +18483,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -18547,7 +18547,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i19, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -18658,7 +18658,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -18732,7 +18732,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -18800,7 +18800,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -18868,7 +18868,7 @@ if.then2.i71:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i72, label %if.end5.sink.split.i74, label %if.then.i.i17.i73
 
 if.then.i.i17.i73:                                ; preds = %if.then2.i71
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i74:                           ; preds = %if.then2.i71, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55
@@ -18942,7 +18942,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -19010,7 +19010,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -19078,7 +19078,7 @@ if.then2.i75:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i76, label %if.end5.sink.split.i78, label %if.then.i.i17.i77
 
 if.then.i.i17.i77:                                ; preds = %if.then2.i75
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
@@ -19146,7 +19146,7 @@ if.then2.i110:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i111, label %if.end5.sink.split.i113, label %if.then.i.i17.i112
 
 if.then.i.i17.i112:                               ; preds = %if.then2.i110
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i113:                          ; preds = %if.then2.i110, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94
@@ -19220,7 +19220,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -19288,7 +19288,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -19346,7 +19346,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i97, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -19457,7 +19457,7 @@ if.then2.i75:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i76, label %if.end5.sink.split.i78, label %if.then.i.i17.i77
 
 if.then.i.i17.i77:                                ; preds = %if.then2.i75
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
@@ -19531,7 +19531,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -19599,7 +19599,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -19667,7 +19667,7 @@ if.then2.i71:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i72, label %if.end5.sink.split.i74, label %if.then.i.i17.i73
 
 if.then.i.i17.i73:                                ; preds = %if.then2.i71
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i74:                           ; preds = %if.then2.i71, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55
@@ -19741,7 +19741,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -19809,7 +19809,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -19877,7 +19877,7 @@ if.then2.i75:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i76, label %if.end5.sink.split.i78, label %if.then.i.i17.i77
 
 if.then.i.i17.i77:                                ; preds = %if.then2.i75
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
@@ -19945,7 +19945,7 @@ if.then2.i110:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i111, label %if.end5.sink.split.i113, label %if.then.i.i17.i112
 
 if.then.i.i17.i112:                               ; preds = %if.then2.i110
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i113:                          ; preds = %if.then2.i110, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94
@@ -20019,7 +20019,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -20087,7 +20087,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -20145,7 +20145,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i97, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -20256,7 +20256,7 @@ if.then2.i75:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i76, label %if.end5.sink.split.i78, label %if.then.i.i17.i77
 
 if.then.i.i17.i77:                                ; preds = %if.then2.i75
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
@@ -20330,7 +20330,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -20398,7 +20398,7 @@ if.then2.i48:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i49, label %if.end5.sink.split.i51, label %if.then.i.i17.i50
 
 if.then.i.i17.i50:                                ; preds = %if.then2.i48
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i51:                           ; preds = %if.then2.i48, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32
@@ -20456,7 +20456,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i105, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -20557,7 +20557,7 @@ if.then.i149:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i150, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i152, label %if.then.i.i7.i151
 
 if.then.i.i7.i151:                                ; preds = %if.then.i149
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i152: ; preds = %if.then.i149
@@ -20658,7 +20658,7 @@ if.then.i198:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i199, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i201, label %if.then.i.i7.i200
 
 if.then.i.i7.i200:                                ; preds = %if.then.i198
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i201: ; preds = %if.then.i198
@@ -20769,7 +20769,7 @@ if.then2.i83:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i84, label %if.end5.sink.split.i86, label %if.then.i.i17.i85
 
 if.then.i.i17.i85:                                ; preds = %if.then2.i83
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i86:                           ; preds = %if.then2.i83, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i67
@@ -20843,7 +20843,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -20911,7 +20911,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -20985,7 +20985,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -21043,7 +21043,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i136, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -21154,7 +21154,7 @@ if.then2.i44:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i45, label %if.end5.sink.split.i47, label %if.then.i.i17.i46
 
 if.then.i.i17.i46:                                ; preds = %if.then2.i44
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28
@@ -21222,7 +21222,7 @@ if.then2.i79:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i80, label %if.end5.sink.split.i82, label %if.then.i.i17.i81
 
 if.then.i.i17.i81:                                ; preds = %if.then2.i79
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i82:                           ; preds = %if.then2.i79, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63
@@ -21290,7 +21290,7 @@ if.then2.i114:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i115, label %if.end5.sink.split.i117, label %if.then.i.i17.i116
 
 if.then.i.i17.i116:                               ; preds = %if.then2.i114
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i117:                          ; preds = %if.then2.i114, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98
@@ -21364,7 +21364,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -21438,7 +21438,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -21506,7 +21506,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -21580,7 +21580,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -21638,7 +21638,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i62, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -21749,7 +21749,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -21823,7 +21823,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -21897,7 +21897,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -21965,7 +21965,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -22039,7 +22039,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -22113,7 +22113,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -22181,7 +22181,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -22255,7 +22255,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -22323,7 +22323,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -22397,7 +22397,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -22461,7 +22461,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -22562,7 +22562,7 @@ if.then.i64:                                      ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i65, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i67, label %if.then.i.i7.i66
 
 if.then.i.i7.i66:                                 ; preds = %if.then.i64
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i67: ; preds = %if.then.i64
@@ -22663,7 +22663,7 @@ if.then.i113:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i114, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i116, label %if.then.i.i7.i115
 
 if.then.i.i7.i115:                                ; preds = %if.then.i113
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i116: ; preds = %if.then.i113
@@ -22764,7 +22764,7 @@ if.then.i162:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i163, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i165, label %if.then.i.i7.i164
 
 if.then.i.i7.i164:                                ; preds = %if.then.i162
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i165: ; preds = %if.then.i162
@@ -22881,7 +22881,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -22949,7 +22949,7 @@ if.then2.i56:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i57, label %if.end5.sink.split.i59, label %if.then.i.i17.i58
 
 if.then.i.i17.i58:                                ; preds = %if.then2.i56
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i59:                           ; preds = %if.then2.i56, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40
@@ -23017,7 +23017,7 @@ if.then2.i91:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i92, label %if.end5.sink.split.i94, label %if.then.i.i17.i93
 
 if.then.i.i17.i93:                                ; preds = %if.then2.i91
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i94:                           ; preds = %if.then2.i91, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75
@@ -23091,7 +23091,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -23165,7 +23165,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -23233,7 +23233,7 @@ if.then2.i44:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i45, label %if.end5.sink.split.i47, label %if.then.i.i17.i46
 
 if.then.i.i17.i46:                                ; preds = %if.then2.i44
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28
@@ -23307,7 +23307,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -23381,7 +23381,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -23449,7 +23449,7 @@ if.then2.i44:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i45, label %if.end5.sink.split.i47, label %if.then.i.i17.i46
 
 if.then.i.i17.i46:                                ; preds = %if.then2.i44
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28
@@ -23517,7 +23517,7 @@ if.then2.i79:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i80, label %if.end5.sink.split.i82, label %if.then.i.i17.i81
 
 if.then.i.i17.i81:                                ; preds = %if.then2.i79
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i82:                           ; preds = %if.then2.i79, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63
@@ -23585,7 +23585,7 @@ if.then2.i114:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i115, label %if.end5.sink.split.i117, label %if.then.i.i17.i116
 
 if.then.i.i17.i116:                               ; preds = %if.then2.i114
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i117:                          ; preds = %if.then2.i114, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98
@@ -23659,7 +23659,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -23727,7 +23727,7 @@ if.then2.i44:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i45, label %if.end5.sink.split.i47, label %if.then.i.i17.i46
 
 if.then.i.i17.i46:                                ; preds = %if.then2.i44
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28
@@ -23795,7 +23795,7 @@ if.then2.i79:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i80, label %if.end5.sink.split.i82, label %if.then.i.i17.i81
 
 if.then.i.i17.i81:                                ; preds = %if.then2.i79
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i82:                           ; preds = %if.then2.i79, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63
@@ -23863,7 +23863,7 @@ if.then2.i114:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i115, label %if.end5.sink.split.i117, label %if.then.i.i17.i116
 
 if.then.i.i17.i116:                               ; preds = %if.then2.i114
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i117:                          ; preds = %if.then2.i114, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98
@@ -23937,7 +23937,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -24005,7 +24005,7 @@ if.then2.i44:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i45, label %if.end5.sink.split.i47, label %if.then.i.i17.i46
 
 if.then.i.i17.i46:                                ; preds = %if.then2.i44
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i47:                           ; preds = %if.then2.i44, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28
@@ -24073,7 +24073,7 @@ if.then2.i79:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i80, label %if.end5.sink.split.i82, label %if.then.i.i17.i81
 
 if.then.i.i17.i81:                                ; preds = %if.then2.i79
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i82:                           ; preds = %if.then2.i79, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63
@@ -24147,7 +24147,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -24215,7 +24215,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -24289,7 +24289,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -24357,7 +24357,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -24431,7 +24431,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -24505,7 +24505,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -24573,7 +24573,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -24647,7 +24647,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -24721,7 +24721,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -24789,7 +24789,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -24863,7 +24863,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -24931,7 +24931,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -25005,7 +25005,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -25073,7 +25073,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -25147,7 +25147,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -25215,7 +25215,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -25289,7 +25289,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -25363,7 +25363,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -25437,7 +25437,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -25505,7 +25505,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -25579,7 +25579,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -25653,7 +25653,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -25721,7 +25721,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -25795,7 +25795,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -25863,7 +25863,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -25927,7 +25927,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i58, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -26038,7 +26038,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -26106,7 +26106,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -26170,7 +26170,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i58, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -26281,7 +26281,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -26349,7 +26349,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -26423,7 +26423,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -26491,7 +26491,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -26565,7 +26565,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -26633,7 +26633,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -26707,7 +26707,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -26775,7 +26775,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -26849,7 +26849,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -26923,7 +26923,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -26991,7 +26991,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -27059,7 +27059,7 @@ if.then2.i71:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i72, label %if.end5.sink.split.i74, label %if.then.i.i17.i73
 
 if.then.i.i17.i73:                                ; preds = %if.then2.i71
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i74:                           ; preds = %if.then2.i71, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55
@@ -27133,7 +27133,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -27201,7 +27201,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -27259,7 +27259,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i97, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -27370,7 +27370,7 @@ if.then2.i75:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i76, label %if.end5.sink.split.i78, label %if.then.i.i17.i77
 
 if.then.i.i17.i77:                                ; preds = %if.then2.i75
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
@@ -27444,7 +27444,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -27512,7 +27512,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -27586,7 +27586,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -27644,7 +27644,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i19, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -27761,7 +27761,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -27829,7 +27829,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -27903,7 +27903,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -27971,7 +27971,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -28045,7 +28045,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -28113,7 +28113,7 @@ if.then2.i32:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i33, label %if.end5.sink.split.i35, label %if.then.i.i17.i34
 
 if.then.i.i17.i34:                                ; preds = %if.then2.i32
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i35:                           ; preds = %if.then2.i32, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16
@@ -28187,7 +28187,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -28255,7 +28255,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -28323,7 +28323,7 @@ if.then2.i71:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i72, label %if.end5.sink.split.i74, label %if.then.i.i17.i73
 
 if.then.i.i17.i73:                                ; preds = %if.then2.i71
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i74:                           ; preds = %if.then2.i71, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55
@@ -28397,7 +28397,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -28471,7 +28471,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -28539,7 +28539,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -28607,7 +28607,7 @@ if.then2.i75:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i76, label %if.end5.sink.split.i78, label %if.then.i.i17.i77
 
 if.then.i.i17.i77:                                ; preds = %if.then2.i75
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i78:                           ; preds = %if.then2.i75, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
@@ -28675,7 +28675,7 @@ if.then2.i110:                                    ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i111, label %if.end5.sink.split.i113, label %if.then.i.i17.i112
 
 if.then.i.i17.i112:                               ; preds = %if.then2.i110
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i113:                          ; preds = %if.then2.i110, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94
@@ -28749,7 +28749,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -28817,7 +28817,7 @@ if.then2.i56:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i57, label %if.end5.sink.split.i59, label %if.then.i.i17.i58
 
 if.then.i.i17.i58:                                ; preds = %if.then2.i56
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i59:                           ; preds = %if.then2.i56, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40
@@ -28885,7 +28885,7 @@ if.then2.i91:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i92, label %if.end5.sink.split.i94, label %if.then.i.i17.i93
 
 if.then.i.i17.i93:                                ; preds = %if.then2.i91
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i94:                           ; preds = %if.then2.i91, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75
@@ -28959,7 +28959,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -29017,7 +29017,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i62, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -29128,7 +29128,7 @@ if.then2.i40:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i41, label %if.end5.sink.split.i43, label %if.then.i.i17.i42
 
 if.then.i.i17.i42:                                ; preds = %if.then2.i40
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i43:                           ; preds = %if.then2.i40, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24
@@ -29192,7 +29192,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i19, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -29303,7 +29303,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -29367,7 +29367,7 @@ if.then.i:                                        ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i19, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i, label %if.then.i.i7.i
 
 if.then.i.i7.i:                                   ; preds = %if.then.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %if.then.i
@@ -29478,7 +29478,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -29552,7 +29552,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -29626,7 +29626,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -29700,7 +29700,7 @@ if.then2.i:                                       ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i, label %if.end5.sink.split.i, label %if.then.i.i17.i
 
 if.then.i.i17.i:                                  ; preds = %if.then2.i
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i:                             ; preds = %if.then2.i, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
@@ -29768,7 +29768,7 @@ if.then2.i36:                                     ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i.i37, label %if.end5.sink.split.i39, label %if.then.i.i17.i38
 
 if.then.i.i17.i38:                                ; preds = %if.then2.i36
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 if.end5.sink.split.i39:                           ; preds = %if.then2.i36, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20
@@ -29831,7 +29831,7 @@ if.then:                                          ; preds = %_ZSt17holds_alterna
   br i1 %cmp.not.i.i, label %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %if.then
-  tail call void @abort() #18
+  tail call void @abort() #17
   unreachable
 
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit: ; preds = %if.then
@@ -29940,7 +29940,7 @@ for.body.i:                                       ; preds = %if.then4, %_ZN4llvh
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i
 
@@ -29978,7 +29978,7 @@ if.end13.i.i.i.i:                                 ; preds = %_ZN12_GLOBAL__N_110
 
 if.end28.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i
   %conv.i.i.i.i.i = zext i32 %10 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %.pre.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %return.sink.split.i.i.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge.i.i
@@ -30007,7 +30007,7 @@ _ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i:     ; preds = %return.sink.split.i
   br i1 %cmp.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i
-  call void @free(ptr noundef %14) #16
+  call void @free(ptr noundef %14) #15
   br label %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit
 
 _ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit: ; preds = %_ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i, %if.then.i.i.i.i
@@ -30047,7 +30047,7 @@ for.body.i21:                                     ; preds = %if.end16, %_ZN4llvh
   br i1 %cmp.not.i.i23, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i26, label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %for.body.i21
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp19, ptr noundef nonnull %add.ptr.i.i.i.i.i.i15, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp19, ptr noundef nonnull %add.ptr.i.i.i.i.i.i15, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i25 = load i32, ptr %Size.i.i.i.i.i.i16, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i26
 
@@ -30111,7 +30111,7 @@ _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %land.lhs.true.i, %_
   br i1 %cmp9.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
-  %call11.i.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %28, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %28, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
@@ -30177,7 +30177,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i.i, label %if.then.i.i.i.i.i55, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i55:                              ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i
-  %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %39, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %39, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i
@@ -30242,7 +30242,7 @@ if.end.i:                                         ; preds = %if.then.i.i.i.i36, 
   br i1 %cmp9.i.i.i.i19.i, label %if.then.i.i.i.i41.i, label %if.end.i.i.i.i20.i
 
 if.then.i.i.i.i41.i:                              ; preds = %if.end.i
-  %call11.i.i.i.i42.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %50, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i42.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %50, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i22.i
 
 if.end.i.i.i.i20.i:                               ; preds = %if.end.i
@@ -30299,7 +30299,7 @@ if.end13.i.i.i.i43:                               ; preds = %_ZN6hermes25ES6Clas
 
 if.end28.i.i.i.i50:                               ; preds = %if.end13.i.i.i.i43
   %conv.i.i.i.i44.i = zext i32 %61 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp10.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i37, i64 noundef %conv.i.i.i.i44.i, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp10.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i37, i64 noundef %conv.i.i.i.i44.i, i64 noundef 8) #15
   %.pre.i.i.i51 = load i32, ptr %Size.i.i.i.i.i.i16, align 8
   %cmp.not.i.i.i.i.i52 = icmp eq i32 %.pre.i.i.i51, 0
   br i1 %cmp.not.i.i.i.i.i52, label %return.sink.split.i.i.i.i47, label %if.end28.i.i.if.then.i.i.i_crit_edge.i.i53
@@ -30328,7 +30328,7 @@ _ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i48:   ; preds = %return.sink.split.i
   br i1 %cmp.i.i.i.i.i49, label %_ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit, label %if.then.i.i.i46.i
 
 if.then.i.i.i46.i:                                ; preds = %_ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i48
-  call void @free(ptr noundef %65) #16
+  call void @free(ptr noundef %65) #15
   br label %_ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit
 
 _ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit: ; preds = %_ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i48, %if.then.i.i.i46.i
@@ -30340,7 +30340,7 @@ _ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3
 return.sink.split:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit, %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit
   %.sink = phi ptr [ %15, %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit ], [ %66, %_ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit ]
   %retval.sroa.0.0.ph = phi ptr [ %call2.i, %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit ], [ %call11.i, %_ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit ]
-  call void @free(ptr noundef %.sink) #16
+  call void @free(ptr noundef %.sink) #15
   br label %return
 
 return:                                           ; preds = %if.end, %return.sink.split, %_ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit, %lor.lhs.false12, %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit, %entry, %lor.lhs.false
@@ -30380,7 +30380,7 @@ entry:
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %0, i64 noundef 48, i64 noundef 8) #16
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %0, i64 noundef 48, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
@@ -30447,7 +30447,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   br i1 %cmp9.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
-  %call11.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %13, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %13, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
@@ -30511,7 +30511,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i18, label %if.then.i.i.i.i34, label %if.end.i.i.i.i19
 
 if.then.i.i.i.i34:                                ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
-  %call11.i.i.i.i35 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %24, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i35 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %24, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i21
 
 if.end.i.i.i.i19:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
@@ -30603,7 +30603,7 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit: ; preds = %for.body.i, %_ZN6h
   br i1 %cmp9.i.i.i.i46, label %if.then.i.i.i.i64, label %if.end.i.i.i.i47
 
 if.then.i.i.i.i64:                                ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit
-  %call11.i.i.i.i65 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %38, i64 noundef 80, i64 noundef 8) #16
+  %call11.i.i.i.i65 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %38, i64 noundef 80, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i49
 
 if.end.i.i.i.i47:                                 ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit
@@ -30691,7 +30691,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i = load i32, ptr %Size.i, align 8
   %.pre30 = load ptr, ptr %this, align 8
   %.pre31 = zext i32 %.pre.i to i64
@@ -30720,7 +30720,7 @@ if.then6:                                         ; preds = %if.end
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %7 = load ptr, ptr %this, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub
   %.pre = load i32, ptr %Size.i, align 8
@@ -30788,10 +30788,10 @@ if.end:                                           ; preds = %entry
   %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.not = icmp eq i32 %0, 63
+  %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   br i1 %cmp.i.i.i.i.i.i.i.not, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
-  %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
   %call.i = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %1)
@@ -30819,7 +30819,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then2
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %2, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %2, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.then2
@@ -30834,10 +30834,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14Identif
   br label %return.sink.split
 
 if.end5:                                          ; preds = %if.end
-  %cmp.i.i.i.i.i.i.i12 = icmp eq i32 %0, 55
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i12)
-  %_object = getelementptr inbounds nuw i8, ptr %node, i64 48
-  %14 = load ptr, ptr %_object, align 8
+  %14 = load ptr, ptr %_name, align 8
   %call.i14 = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %14)
   %_property = getelementptr inbounds nuw i8, ptr %node, i64 56
   %15 = load ptr, ptr %_property, align 8
@@ -30866,7 +30863,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp9.i.i.i.i26, label %if.then.i.i.i.i43, label %if.end.i.i.i.i27
 
 if.then.i.i.i.i43:                                ; preds = %if.end5
-  %call11.i.i.i.i44 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %16, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i44 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %16, i64 noundef 72, i64 noundef 8) #15
   br label %return.sink.split
 
 if.end.i.i.i.i27:                                 ; preds = %if.end5
@@ -30947,7 +30944,7 @@ entry:
   br i1 %cmp9.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %call11.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %1, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %1, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %entry
@@ -31015,7 +31012,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i.i.i26, label %if.then.i.i.i.i.i.i47, label %if.end.i.i.i.i.i.i27
 
 if.then.i.i.i.i.i.i47:                            ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
-  %call11.i.i.i.i.i.i48 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %13, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i48 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %13, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i29
 
 if.end.i.i.i.i.i.i27:                             ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
@@ -31079,7 +31076,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit49
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %24, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %24, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit49
@@ -31166,7 +31163,7 @@ if.else:                                          ; preds = %land.lhs.true, %_ZN
   br i1 %cmp9.i.i.i.i.i.i64, label %if.then.i.i.i.i.i.i85, label %if.end.i.i.i.i.i.i65
 
 if.then.i.i.i.i.i.i85:                            ; preds = %if.else
-  %call11.i.i.i.i.i.i86 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %38, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i86 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %38, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i67
 
 if.end.i.i.i.i.i.i65:                             ; preds = %if.else
@@ -31230,7 +31227,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i98, label %if.then.i.i.i.i120, label %if.end.i.i.i.i99
 
 if.then.i.i.i.i120:                               ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit87
-  %call11.i.i.i.i121 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %49, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i121 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %49, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i101
 
 if.end.i.i.i.i99:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit87
@@ -31303,7 +31300,7 @@ if.end:                                           ; preds = %if.then.i.i.i110, %
   br i1 %cmp9.i.i.i.i134, label %if.then.i.i.i.i150, label %if.end.i.i.i.i135
 
 if.then.i.i.i.i150:                               ; preds = %if.end
-  %call11.i.i.i.i151 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %61, i64 noundef 56, i64 noundef 8) #16
+  %call11.i.i.i.i151 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %61, i64 noundef 56, i64 noundef 8) #15
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringLiteralNodeEJRPNS_12UniqueStringEEEEPT_PNS2_4NodeEDpOT0_.exit
 
 if.end.i.i.i.i135:                                ; preds = %if.end
@@ -31358,7 +31355,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringL
   br i1 %cmp9.i.i.i.i162, label %if.then.i.i.i.i180, label %if.end.i.i.i.i163
 
 if.then.i.i.i.i180:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringLiteralNodeEJRPNS_12UniqueStringEEEEPT_PNS2_4NodeEDpOT0_.exit
-  %call11.i.i.i.i181 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %73, i64 noundef 48, i64 noundef 8) #16
+  %call11.i.i.i.i181 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %73, i64 noundef 48, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i165
 
 if.end.i.i.i.i163:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringLiteralNodeEJRPNS_12UniqueStringEEEEPT_PNS2_4NodeEDpOT0_.exit
@@ -31426,7 +31423,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   br i1 %cmp9.i.i.i.i196, label %if.then.i.i.i.i214, label %if.end.i.i.i.i197
 
 if.then.i.i.i.i214:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
-  %call11.i.i.i.i215 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %85, i64 noundef 80, i64 noundef 8) #16
+  %call11.i.i.i.i215 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %85, i64 noundef 80, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i199
 
 if.end.i.i.i.i197:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
@@ -31535,7 +31532,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp9.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end
-  %call11.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %5, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %5, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end
@@ -31630,7 +31627,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry
   br i1 %cmp9.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN4llvh9StringRefC2EPKc.exit
-  %call11.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %1, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %1, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -31693,7 +31690,7 @@ _ZN4llvh9StringRefC2EPKc.exit33:                  ; preds = %if.end
   br i1 %cmp9.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i41, label %if.end.i.i.i.i.i.i33
 
 if.then.i.i.i.i.i.i41:                            ; preds = %_ZN4llvh9StringRefC2EPKc.exit33
-  %call11.i.i.i.i.i.i42 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %13, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i42 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %13, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
 
 if.end.i.i.i.i.i.i33:                             ; preds = %_ZN4llvh9StringRefC2EPKc.exit33
@@ -31724,7 +31721,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp.not.i.i, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit
 
@@ -31765,7 +31762,7 @@ if.else10:                                        ; preds = %if.end
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else10
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %12, i64 noundef 48, i64 noundef 8) #16
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %12, i64 noundef 48, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.else10
@@ -31862,7 +31859,7 @@ if.end.i.i.i48:                                   ; preds = %if.end.i108.i.i
   br i1 %48, label %if.end.i, label %if.end19.i.i
 
 if.end19.i.i:                                     ; preds = %if.end.i.i.i48, %if.end.i117.i.i, %if.end.i126.i.i, %if.then.i47
-  call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.11) #18
+  call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.11) #17
   unreachable
 
 if.then9.i:                                       ; preds = %if.end.i126.i.i
@@ -31945,7 +31942,7 @@ if.end12.sink.split.i.i.i.i.i:                    ; preds = %if.else.i.i.i.i.i, 
   %.sroa.speculated.i.i.i.i.i.i = call i32 @llvm.umax.i32(i32 %conv3.i.i.i.i.i.i, i32 64)
   %conv.i.i.i.i.i.i.i = zext i32 %.sroa.speculated.i.i.i.i.i.i to i64
   %mul.i.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i.i, 24
-  %call.i.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #17
+  %call.i.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #16
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %classMemberIndexByIdentifier.sroa.0.059.i, null
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i64, label %if.end.i.i.i.i.i.i54
 
@@ -32016,7 +32013,7 @@ if.end.i7.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i.i: ; preds = %if.end.i7.i.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i.i.i.i.i.i.i
   %classMemberIndexByIdentifier.sroa.11.5.i = phi i32 [ 0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i.i.i.i.i.i.i ], [ %classMemberIndexByIdentifier.sroa.11.4.i, %if.end.i7.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %DestBucket.i.i.i.i.i.i.i), !noalias !20
-  call void @_ZdlPv(ptr noundef nonnull %classMemberIndexByIdentifier.sroa.0.059.i) #16
+  call void @_ZdlPv(ptr noundef nonnull %classMemberIndexByIdentifier.sroa.0.059.i) #15
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i.i
@@ -32080,7 +32077,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseM
   br i1 %cmp9.i.i.i.i.i, label %if.then.i.i.i.i27.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i27.i:                              ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_.exit.i
-  %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %68, i64 noundef 56, i64 noundef 8) #16
+  %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %68, i64 noundef 56, i64 noundef 8) #15
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringLiteralNodeEJRPNS_12UniqueStringEEEEPT_PNS2_4NodeEDpOT0_.exit.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_.exit.i
@@ -32118,7 +32115,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringL
   br i1 %cmp.not.i.i59, label %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i, label %if.then.i28.i
 
 if.then.i28.i:                                    ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringLiteralNodeEJRPNS_12UniqueStringEEEEPT_PNS2_4NodeEDpOT0_.exit.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %members.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i46, i64 noundef 0, i64 noundef 40) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %members.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i46, i64 noundef 0, i64 noundef 40) #15
   %.pre.i.i60 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !20
   br label %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i
 
@@ -32184,7 +32181,7 @@ for.inc.i:                                        ; preds = %sw.bb32.i, %sw.bb31
 
 _ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBodyNodeE.exit: ; preds = %for.inc.i, %_ZN12_GLOBAL__N_112VisitedClassC2EPN6hermes6ESTree4NodeES4_.exit
   %classMemberIndexByIdentifier.sroa.0.0.lcssa.i = phi ptr [ null, %_ZN12_GLOBAL__N_112VisitedClassC2EPN6hermes6ESTree4NodeES4_.exit ], [ %classMemberIndexByIdentifier.sroa.0.1.i, %for.inc.i ]
-  call void @_ZdlPv(ptr noundef %classMemberIndexByIdentifier.sroa.0.0.lcssa.i) #16
+  call void @_ZdlPv(ptr noundef %classMemberIndexByIdentifier.sroa.0.0.lcssa.i) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %memberKey.i)
   %85 = load ptr, ptr %classMembers, align 8
   %call14 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations15createClassCtorEPNS_6ESTree4NodeEPNS1_13ClassBodyNodeES3_PNS1_20MethodDefinitionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %resolvedClassId.0, ptr noundef %classBody, ptr noundef %superClass, ptr noundef %85)
@@ -32214,7 +32211,7 @@ _ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBod
   br i1 %cmp9.i.i.i.i.i74, label %if.then.i.i.i.i.i90, label %if.end.i.i.i.i.i75
 
 if.then.i.i.i.i.i90:                              ; preds = %_ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBodyNodeE.exit
-  %call11.i.i.i.i.i91 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %87, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i91 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %87, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit
 
 if.end.i.i.i.i.i75:                               ; preds = %_ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBodyNodeE.exit
@@ -32270,7 +32267,7 @@ for.body.i95:                                     ; preds = %_ZN4llvh23SmallVect
   br i1 %cmp.not.i.i96, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i, label %if.then.i.i97
 
 if.then.i.i97:                                    ; preds = %for.body.i95
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, ptr noundef nonnull %add.ptr.i.i.i.i.i.i92, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, ptr noundef nonnull %add.ptr.i.i.i.i.i.i92, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i98 = load i32, ptr %Size.i.i.i.i.i.i93, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i
 
@@ -32295,7 +32292,7 @@ _ZN12_GLOBAL__N_110NodeVectorC2ESt16initializer_listIPN6hermes6ESTree4NodeEE.exi
   br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit, label %if.then.i.i.i104
 
 if.then.i.i.i104:                                 ; preds = %_ZN12_GLOBAL__N_110NodeVectorC2ESt16initializer_listIPN6hermes6ESTree4NodeEE.exit
-  call void @free(ptr noundef %105) #16
+  call void @free(ptr noundef %105) #15
   br label %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit
 
 _ZN12_GLOBAL__N_110NodeVectorD2Ev.exit:           ; preds = %_ZN12_GLOBAL__N_110NodeVectorC2ESt16initializer_listIPN6hermes6ESTree4NodeEE.exit, %if.then.i.i.i104
@@ -32305,7 +32302,7 @@ _ZN12_GLOBAL__N_110NodeVectorD2Ev.exit:           ; preds = %_ZN12_GLOBAL__N_110
   br i1 %cmp.not.i.i107, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit114, label %if.then.i.i108
 
 if.then.i.i108:                                   ; preds = %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i110 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit114
 
@@ -32342,7 +32339,7 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit114: ; preds = %
   br i1 %cmp9.i.i.i.i.i124, label %if.then.i.i.i.i.i139, label %if.end.i.i.i.i.i125
 
 if.then.i.i.i.i.i139:                             ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit114
-  %call11.i.i.i.i.i140 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %111, i64 noundef 64, i64 noundef 8) #16
+  %call11.i.i.i.i.i140 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %111, i64 noundef 64, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i
 
 if.end.i.i.i.i.i125:                              ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit114
@@ -32387,7 +32384,7 @@ _ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit: ; pre
   br i1 %cmp.not.i.i143, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit150, label %if.then.i.i144
 
 if.then.i.i144:                                   ; preds = %_ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i146 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit150
 
@@ -32448,7 +32445,7 @@ for.body.i153:                                    ; preds = %for.body.i153.lr.ph
   br i1 %cmp9.i.i.i.i.i388, label %if.then.i.i.i.i.i407, label %if.end.i.i.i.i.i389
 
 if.then.i.i.i.i.i407:                             ; preds = %for.body.i153
-  %call11.i.i.i.i.i408 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %129, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i408 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %129, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit409
 
 if.end.i.i.i.i.i389:                              ; preds = %for.body.i153
@@ -32486,7 +32483,7 @@ _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit409:
   br i1 %cmp.not.i.i371, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit378, label %if.then.i.i372
 
 if.then.i.i372:                                   ; preds = %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit409
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i410, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i410, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i374 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit378
 
@@ -32505,7 +32502,7 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit378: ; preds = %
   br i1 %cmp.not.i.i361, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit368, label %if.then.i.i362
 
 if.then.i.i362:                                   ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit378
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i410, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i410, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i364 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit368
 
@@ -32595,7 +32592,7 @@ if.else18.i:                                      ; preds = %if.else.i158
   br i1 %cmp9.i.i.i.i.i.i.i313, label %if.then.i.i.i.i.i.i.i334, label %if.end.i.i.i.i.i.i.i314
 
 if.then.i.i.i.i.i.i.i334:                         ; preds = %if.else18.i
-  %call11.i.i.i.i.i.i.i335 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %167, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i.i335 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %167, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i316
 
 if.end.i.i.i.i.i.i.i314:                          ; preds = %if.else18.i
@@ -32643,7 +32640,7 @@ _ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit3
 
 if.end.i160.sink.split:                           ; preds = %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit336, %if.then13.i
   %retval.0.i.i.i.i.i.i.i317.sink.ph = phi ptr [ %162, %if.then13.i ], [ %retval.0.i.i.i.i.i.i.i317, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit336 ]
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i410, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i410, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i297 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
   br label %if.end.i160
 
@@ -32704,7 +32701,7 @@ if.else27.i:                                      ; preds = %if.end.i160
   br i1 %cmp9.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i281, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i281:                         ; preds = %if.else27.i
-  %call11.i.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %190, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %190, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.else27.i
@@ -32755,7 +32752,7 @@ if.end31.i.sink.split:                            ; preds = %_ZN6hermes25ES6Clas
   %hermesCallName.i.sroa.0.0.ph = phi ptr [ %cond11.i, %if.then22.i ], [ %cond.i, %if.then.i155 ], [ %cond11.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
   %hermesCallName.i.sroa.6.0.ph = phi i64 [ %call.i43.i, %if.then22.i ], [ %call.i.i156, %if.then.i155 ], [ %call.i43.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
   %srcNode.0.i.ph = phi ptr [ %182, %if.then22.i ], [ %151, %if.then.i155 ], [ %159, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i410, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i410, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i272 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
   br label %if.end31.i
 
@@ -32797,7 +32794,7 @@ if.end31.i:                                       ; preds = %if.end31.i.sink.spl
   br i1 %cmp9.i.i.i.i.i244, label %if.then.i.i.i.i.i264, label %if.end.i.i.i.i.i245
 
 if.then.i.i.i.i.i264:                             ; preds = %if.end31.i
-  %call11.i.i.i.i.i265 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %205, i64 noundef 64, i64 noundef 8) #16
+  %call11.i.i.i.i.i265 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %205, i64 noundef 64, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i247
 
 if.end.i.i.i.i.i245:                              ; preds = %if.end31.i
@@ -32842,7 +32839,7 @@ _ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit266: ; 
   br i1 %cmp.not.i.i227, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit234, label %if.then.i.i228
 
 if.then.i.i228:                                   ; preds = %_ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit266
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %statements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i230 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit234
 
@@ -32860,7 +32857,7 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit234: ; preds = %
   br i1 %cmp.i.i.i.i222, label %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit224, label %if.then.i.i.i223
 
 if.then.i.i.i223:                                 ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit234
-  call void @free(ptr noundef %221) #16
+  call void @free(ptr noundef %221) #15
   br label %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit224
 
 _ZN12_GLOBAL__N_110NodeVectorD2Ev.exit224:        ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit234, %if.then.i.i.i223
@@ -32929,7 +32926,7 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i: ; preds = %for.body.i.i, %_
   br i1 %cmp9.i.i.i.i.i.i174, label %if.then.i.i.i.i.i.i211, label %if.end.i.i.i.i.i.i175
 
 if.then.i.i.i.i.i.i211:                           ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i
-  %call11.i.i.i.i.i.i212 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %225, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i212 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %225, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i
 
 if.end.i.i.i.i.i.i175:                            ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i
@@ -32989,7 +32986,7 @@ _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i: 
   br i1 %cmp9.i.i.i.i.i192, label %if.then.i.i.i.i.i209, label %if.end.i.i.i.i.i193
 
 if.then.i.i.i.i.i209:                             ; preds = %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i
-  %call11.i.i.i.i.i210 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %237, i64 noundef 56, i64 noundef 8) #16
+  %call11.i.i.i.i.i210 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %237, i64 noundef 56, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i195
 
 if.end.i.i.i.i.i193:                              ; preds = %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i
@@ -33057,7 +33054,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree19ReturnS
   br i1 %cmp9.i.i.i.i17.i, label %if.then.i.i.i.i35.i, label %if.end.i.i.i.i18.i
 
 if.then.i.i.i.i35.i:                              ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree19ReturnStatementNodeEJPNS2_14IdentifierNodeEEEEPT_PNS2_4NodeEDpOT0_.exit.i
-  %call11.i.i.i.i36.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %249, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i36.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %249, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i20.i
 
 if.end.i.i.i.i18.i:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree19ReturnStatementNodeEJPNS2_14IdentifierNodeEEEEPT_PNS2_4NodeEDpOT0_.exit.i
@@ -33151,7 +33148,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockSt
   br i1 %cmp9.i.i.i.i48.i, label %if.then.i.i.i.i76.i, label %if.end.i.i.i.i49.i
 
 if.then.i.i.i.i76.i:                              ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit.i
-  %call11.i.i.i.i77.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %265, i64 noundef 136, i64 noundef 8) #16
+  %call11.i.i.i.i77.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %265, i64 noundef 136, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i51.i
 
 if.end.i.i.i.i49.i:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit.i
@@ -33245,7 +33242,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22Functio
   br i1 %cmp9.i.i.i.i89.i, label %if.then.i.i.i.i116.i, label %if.end.i.i.i.i90.i
 
 if.then.i.i.i.i116.i:                             ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22FunctionExpressionNodeEJDnN4llvh12simple_ilistINS2_4NodeEJEEERPNS2_18BlockStatementNodeEDnDnDnbbEEEPT_PS6_DpOT0_.exit.i
-  %call11.i.i.i.i117.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %281, i64 noundef 80, i64 noundef 8) #16
+  %call11.i.i.i.i117.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %281, i64 noundef 80, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i92.i
 
 if.end.i.i.i.i90.i:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22FunctionExpressionNodeEJDnN4llvh12simple_ilistINS2_4NodeEJEEERPNS2_18BlockStatementNodeEDnDnDnbbEEEPT_PS6_DpOT0_.exit.i
@@ -33317,7 +33314,7 @@ _ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_
   br i1 %cmp.i.i.i.i215, label %_ZN12_GLOBAL__N_120ResolvedClassMembersD2Ev.exit, label %if.then.i.i.i216
 
 if.then.i.i.i216:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.exit
-  call void @free(ptr noundef %296) #16
+  call void @free(ptr noundef %296) #15
   br label %_ZN12_GLOBAL__N_120ResolvedClassMembersD2Ev.exit
 
 _ZN12_GLOBAL__N_120ResolvedClassMembersD2Ev.exit: ; preds = %_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.exit, %if.then.i.i.i216
@@ -33326,7 +33323,7 @@ _ZN12_GLOBAL__N_120ResolvedClassMembersD2Ev.exit: ; preds = %_ZN6hermes25ES6Clas
   br i1 %cmp.i.i.i.i218, label %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit220, label %if.then.i.i.i219
 
 if.then.i.i.i219:                                 ; preds = %_ZN12_GLOBAL__N_120ResolvedClassMembersD2Ev.exit
-  call void @free(ptr noundef %297) #16
+  call void @free(ptr noundef %297) #15
   br label %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit220
 
 _ZN12_GLOBAL__N_110NodeVectorD2Ev.exit220:        ; preds = %_ZN12_GLOBAL__N_120ResolvedClassMembersD2Ev.exit, %if.then.i.i.i219
@@ -33361,7 +33358,7 @@ entry:
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %0, i64 noundef 64, i64 noundef 8) #16
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %0, i64 noundef 64, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
@@ -33431,7 +33428,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22Variabl
   br i1 %cmp9.i.i.i.i13, label %if.then.i.i.i.i31, label %if.end.i.i.i.i14
 
 if.then.i.i.i.i31:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22VariableDeclaratorNodeEJRPNS2_4NodeES6_EEEPT_S5_DpOT0_.exit
-  %call11.i.i.i.i32 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %11, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i32 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %11, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i16
 
 if.end.i.i.i.i14:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22VariableDeclaratorNodeEJRPNS2_4NodeES6_EEEPT_S5_DpOT0_.exit
@@ -33583,7 +33580,7 @@ if.then.i:                                        ; preds = %for.body
   br i1 %cmp.not.i.i.i, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %tmpStatements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %tmpStatements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit.i
 
@@ -33615,7 +33612,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i.i18.i, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit25.i, label %if.then.i.i19.i
 
 if.then.i.i19.i:                                  ; preds = %if.then4.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %tmpStatements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %tmpStatements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i21.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit25.i
 
@@ -33648,7 +33645,7 @@ for.body.i.i:                                     ; preds = %if.end5.i, %_ZN4llv
   br i1 %cmp.not.i.i26.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i.i, label %if.then.i.i27.i
 
 if.then.i.i27.i:                                  ; preds = %for.body.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %expressions.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %expressions.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i28.i = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i.i
 
@@ -33706,7 +33703,7 @@ for.body.i:                                       ; preds = %_ZN12_GLOBAL__N_110
   br i1 %cmp9.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i27
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i
-  %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %28, i64 noundef 64, i64 noundef 8) #16
+  %call11.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %28, i64 noundef 64, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i
 
 if.end.i.i.i.i.i27:                               ; preds = %for.body.i
@@ -33752,7 +33749,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23Express
   br i1 %cmp.not.i.i35.i, label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit42.i, label %if.then.i.i36.i
 
 if.then.i.i36.i:                                  ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23ExpressionStatementNodeEJRPNS2_4NodeERPNS_12UniqueStringEEEEPT_S5_DpOT0_.exit.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %tmpStatements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %tmpStatements, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #15
   %.pre.i.i38.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit42.i
 
@@ -33779,7 +33776,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br i1 %cmp.i.i.i.i.i28, label %_ZN6hermes25ES6ClassesTransformations16unpackStatementsEPNS_6ESTree4NodeERN12_GLOBAL__N_110NodeVectorE.exit, label %if.then.i.i.i44.i
 
 if.then.i.i.i44.i:                                ; preds = %for.end.i
-  call void @free(ptr noundef %45) #16
+  call void @free(ptr noundef %45) #15
   br label %_ZN6hermes25ES6ClassesTransformations16unpackStatementsEPNS_6ESTree4NodeERN12_GLOBAL__N_110NodeVectorE.exit
 
 _ZN6hermes25ES6ClassesTransformations16unpackStatementsEPNS_6ESTree4NodeERN12_GLOBAL__N_110NodeVectorE.exit: ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit.i, %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit25.i, %if.end5.i, %for.end.i, %if.then.i.i.i44.i
@@ -33935,7 +33932,7 @@ for.end31:                                        ; preds = %for.end31.loopexit,
   br i1 %cmp.i.i.i.i, label %if.end42, label %if.then.i.i.i30
 
 if.then.i.i.i30:                                  ; preds = %for.end31
-  call void @free(ptr noundef %63) #16
+  call void @free(ptr noundef %63) #15
   br label %if.end42
 
 if.else:                                          ; preds = %entry
@@ -33970,7 +33967,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %if.else
   br i1 %cmp9.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN4llvh9StringRefC2EPKc.exit
-  %call11.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %65, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %65, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -34028,7 +34025,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i39, label %if.end.i.i.i.i
 
 if.then.i.i.i.i39:                                ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
-  %call11.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %76, i64 noundef 56, i64 noundef 8) #16
+  %call11.i.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %76, i64 noundef 56, i64 noundef 8) #15
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
@@ -34082,7 +34079,7 @@ if.end13.i.i.i.i:                                 ; preds = %_ZN4llvh23SmallVect
 
 if.end28.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i
   %conv.i.i.i.i.i56 = zext i32 %88 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i48, i64 noundef %conv.i.i.i.i.i56, i64 noundef 8) #16
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i48, i64 noundef %conv.i.i.i.i.i56, i64 noundef 8) #15
   %.pre.i.i.i57 = load i32, ptr %Size.i.i.i.i.i.i41, align 8
   %cmp.not.i.i.i.i.i58 = icmp eq i32 %.pre.i.i.i57, 0
   br i1 %cmp.not.i.i.i.i.i58, label %return.sink.split.i.i.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge.i.i
@@ -34111,7 +34108,7 @@ _ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i:     ; preds = %return.sink.split.i
   br i1 %cmp.i.i.i.i.i54, label %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit, label %if.then.i.i.i.i55
 
 if.then.i.i.i.i55:                                ; preds = %_ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i
-  call void @free(ptr noundef %92) #16
+  call void @free(ptr noundef %92) #15
   br label %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit
 
 _ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit: ; preds = %_ZN12_GLOBAL__N_110NodeVectorC2ERKS0_.exit.i, %if.then.i.i.i.i55
@@ -34121,7 +34118,7 @@ _ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_G
   br i1 %cmp.i.i.i.i61, label %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit63, label %if.then.i.i.i62
 
 if.then.i.i.i62:                                  ; preds = %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit
-  call void @free(ptr noundef %93) #16
+  call void @free(ptr noundef %93) #15
   br label %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit63
 
 _ZN12_GLOBAL__N_110NodeVectorD2Ev.exit63:         ; preds = %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit, %if.then.i.i.i62
@@ -34202,7 +34199,7 @@ if.end42:                                         ; preds = %for.inc.i210, %if.e
   br i1 %cmp9.i.i.i.i76, label %if.then.i.i.i.i93, label %if.end.i.i.i.i77
 
 if.then.i.i.i.i93:                                ; preds = %if.end42
-  %call11.i.i.i.i94 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %100, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i94 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %100, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i79
 
 if.end.i.i.i.i77:                                 ; preds = %if.end42
@@ -34294,7 +34291,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockSt
   br i1 %cmp9.i.i.i.i105, label %if.then.i.i.i.i133, label %if.end.i.i.i.i106
 
 if.then.i.i.i.i133:                               ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit
-  %call11.i.i.i.i134 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %116, i64 noundef 136, i64 noundef 8) #16
+  %call11.i.i.i.i134 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %116, i64 noundef 136, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i108
 
 if.end.i.i.i.i106:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit
@@ -34393,7 +34390,7 @@ entry:
   br i1 %cmp9.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %call11.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %1, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %1, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %entry
@@ -34461,7 +34458,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i.i.i18, label %if.then.i.i.i.i.i.i39, label %if.end.i.i.i.i.i.i19
 
 if.then.i.i.i.i.i.i39:                            ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
-  %call11.i.i.i.i.i.i40 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %13, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i.i.i40 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %13, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i21
 
 if.end.i.i.i.i.i.i19:                             ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
@@ -34525,7 +34522,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit41
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %24, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %24, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit41
@@ -34617,7 +34614,7 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit: ; preds = %for.body.i, %_ZN6h
   br i1 %cmp9.i.i.i.i53, label %if.then.i.i.i.i71, label %if.end.i.i.i.i54
 
 if.then.i.i.i.i71:                                ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit
-  %call11.i.i.i.i72 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %38, i64 noundef 80, i64 noundef 8) #16
+  %call11.i.i.i.i72 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %38, i64 noundef 80, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i56
 
 if.end.i.i.i.i54:                                 ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit
@@ -34700,7 +34697,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %guard.uninitialized.i.i.i.i.i.i, label %init.check.i.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E12getHashValueERKS3_.exit.i, !prof !31
 
 init.check.i.i.i.i.i.i:                           ; preds = %if.end.i
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed) #16
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed) #15
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E12getHashValueERKS3_.exit.i, label %init.i.i.i.i.i.i
 
@@ -34709,7 +34706,7 @@ init.i.i.i.i.i.i:                                 ; preds = %init.check.i.i.i.i.
   %tobool1.not.i.i.i.i.i.i = icmp eq i64 %2, 0
   %cond.i.i.i.i.i.i = select i1 %tobool1.not.i.i.i.i.i.i, i64 -49064778989728563, i64 %2
   store i64 %cond.i.i.i.i.i.i, ptr @_ZZN4llvh7hashing6detail18get_execution_seedEvE4seed, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed) #15
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E12getHashValueERKS3_.exit.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E12getHashValueERKS3_.exit.i: ; preds = %init.i.i.i.i.i.i, %init.check.i.i.i.i.i.i, %if.end.i
@@ -34836,7 +34833,7 @@ entry:
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %0, i64 noundef 48, i64 noundef 8) #16
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %0, i64 noundef 48, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
@@ -34895,7 +34892,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   br i1 %cmp9.i.i.i.i15, label %if.then.i.i.i.i31, label %if.end.i.i.i.i16
 
 if.then.i.i.i.i31:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
-  %call11.i.i.i.i32 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %11, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i32 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %11, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i18
 
 if.end.i.i.i.i16:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
@@ -34962,7 +34959,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberE
   br i1 %cmp9.i.i.i.i43, label %if.then.i.i.i.i61, label %if.end.i.i.i.i44
 
 if.then.i.i.i.i61:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_18ThisExpressionNodeERPNS2_4NodeEbEEEPT_S8_DpOT0_.exit
-  %call11.i.i.i.i62 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %23, i64 noundef 72, i64 noundef 8) #16
+  %call11.i.i.i.i62 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %23, i64 noundef 72, i64 noundef 8) #15
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i46
 
 if.end.i.i.i.i44:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_18ThisExpressionNodeERPNS2_4NodeEbEEEPT_S8_DpOT0_.exit
@@ -35026,7 +35023,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree24Assignm
   br i1 %cmp9.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree24AssignmentExpressionNodeEJPNS_12UniqueStringERPNS2_20MemberExpressionNodeERPNS2_4NodeEEEEPT_SA_DpOT0_.exit
-  %call11.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %34, i64 noundef 64, i64 noundef 8) #16
+  %call11.i.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %34, i64 noundef 64, i64 noundef 8) #15
   br label %_ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree24AssignmentExpressionNodeEJPNS_12UniqueStringERPNS2_20MemberExpressionNodeERPNS2_4NodeEEEEPT_SA_DpOT0_.exit
@@ -35089,23 +35086,20 @@ return:                                           ; preds = %entry, %if.end
   ret { ptr, i8 } %.fca.1.insert
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -35118,14 +35112,13 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { noreturn nounwind }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind allocsize(0) }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

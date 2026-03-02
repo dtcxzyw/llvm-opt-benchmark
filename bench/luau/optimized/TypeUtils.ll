@@ -7067,8 +7067,7 @@ _ZN4Luau8TypePackD2Ev.exit:                       ; preds = %89, %91
           to label %.noexc93 unwind label %116
 
 .noexc93:                                         ; preds = %_ZN4Luau8TypePackD2Ev.exit
-  %.not.i.i92 = icmp ne ptr %97, null
-  call void @llvm.assume(i1 %.not.i.i92)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %97) ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !221
   %100 = load ptr, ptr %19, align 8, !tbaa !221

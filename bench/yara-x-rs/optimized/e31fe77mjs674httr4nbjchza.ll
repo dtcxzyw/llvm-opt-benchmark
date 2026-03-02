@@ -998,15 +998,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17h0ef2a6854d
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1043,15 +1042,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17h2f2c26d1c2
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1088,15 +1086,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17h34ca012bd8
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1133,15 +1130,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17h36c28cbc2a
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1178,15 +1174,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17h3926bae124
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1223,15 +1218,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17h428834e8ad
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1268,15 +1262,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17h4937710b3f
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1313,15 +1306,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17h755966102d
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1358,15 +1350,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17h84d51c1f5a
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1403,15 +1394,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17h86de954552
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1448,15 +1438,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17h9470381607
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1493,15 +1482,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17hbfec67f31b
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1538,15 +1526,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17hce694170d1
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1583,15 +1570,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17hcf3c774742
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1628,15 +1614,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17hd778cd91b4
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1673,15 +1658,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17hdd5e43be48
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1718,15 +1702,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17hdf8988b987
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1763,15 +1746,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17he024e4ad2d
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1808,15 +1790,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17hf4fa81399e
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1853,15 +1834,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17hfca2ea3e21
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1898,15 +1878,14 @@ define hidden { ptr, i64 } @_ZN8protobuf7reflect8repeated9data_impl17hfe78fa64cc
 
 13:                                               ; preds = %1
   %14 = extractvalue { i64, ptr } %5, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = insertvalue { ptr, i64 } poison, ptr %17, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %19, 1
-  ret { ptr, i64 } %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %20 = insertvalue { ptr, i64 } %19, i64 %18, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable

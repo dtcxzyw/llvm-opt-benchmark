@@ -8768,8 +8768,7 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %_ZNK5cla
 
 _ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i.i: ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i
   %19 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %15) #24
-  %.not.i.i.i = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i, align 16
   br label %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i.i
@@ -8820,8 +8819,7 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i22.i: ; preds = %_ZNK5c
 
 _ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i31.i: ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i22.i
   %41 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %37) #24
-  %.not.i.i32.i = icmp ne ptr %41, null
-  tail call void @llvm.assume(i1 %.not.i.i32.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %41) ]
   %.phi.trans.insert.i.i34.i = getelementptr inbounds nuw i8, ptr %41, i64 16
   %.pre.i.i35.i = load i8, ptr %.phi.trans.insert.i.i34.i, align 16
   br label %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i36.i

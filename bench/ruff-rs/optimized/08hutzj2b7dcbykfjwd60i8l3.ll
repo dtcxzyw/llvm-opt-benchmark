@@ -876,7 +876,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
           to label %.noexc8 unwind label %.loopexit
 
 .noexc8:                                          ; preds = %.lr.ph.i.i
-  br i1 %22, label %51, label %23, !prof !39
+  br i1 %22, label %52, label %23, !prof !39
 
 ._crit_edge.i.i:                                  ; preds = %23, %10
   %.not12.i.i = icmp eq i64 %.sroa.01.0.i.i, 1
@@ -930,13 +930,13 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %50 = zext nneg i16 %49 to i64
   br label %53
 
-51:                                               ; preds = %.noexc8
-  tail call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h37fa2dabbaca3e84E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  br label %52
-
-52:                                               ; preds = %53, %51
-  %.sroa.0.0 = phi i1 [ false, %53 ], [ true, %51 ]
+51:                                               ; preds = %53, %52
+  %.sroa.0.0 = phi i1 [ false, %53 ], [ true, %52 ]
   ret i1 %.sroa.0.0
+
+52:                                               ; preds = %.noexc8
+  tail call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h37fa2dabbaca3e84E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  br label %51
 
 53:                                               ; preds = %44, %40
   %.sroa.3.0.i.ph.i = phi i64 [ %50, %44 ], [ %.sroa.6.1.i.i, %40 ]
@@ -968,7 +968,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %72 = getelementptr inbounds i8, ptr %71, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !112
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %52
+  br label %51
 
 73:                                               ; preds = %74
   resume { ptr, i32 } %lpad.phi

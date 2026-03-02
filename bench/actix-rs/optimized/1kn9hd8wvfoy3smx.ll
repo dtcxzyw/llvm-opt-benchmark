@@ -15,8 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
 define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17he6a2a5dcd3aea276E"(ptr writeonly sret({ { ptr, { ptr, i64 }, { { { ptr, ptr, {} } }, i64 } } }) align 8 captures(none) initializes((0, 48)) %0, ptr align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
-  %6 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8
@@ -42,47 +41,46 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..func
   %7 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf1d35a488a27ffb4E"(i64 %2, i1 zeroext false)
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
-  %10 = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store i64 %8, ptr %4, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %9, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %.sroa.3.0..sroa_idx.i.i, align 8
-  %11 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17h1f08737b874c17c6E(i64 24, i64 8)
-          to label %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i" unwind label %12
+  %10 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17h1f08737b874c17c6E(i64 24, i64 8)
+          to label %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i" unwind label %11
 
-12:                                               ; preds = %6
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %6
+  %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h20382adc74d7e508E"(ptr nonnull align 8 %4) #12
-          to label %16 unwind label %14
+          to label %15 unwind label %13
 
-14:                                               ; preds = %12
-  %15 = landingpad { ptr, i32 }
+13:                                               ; preds = %11
+  %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-16:                                               ; preds = %12
-  resume { ptr, i32 } %13
+15:                                               ; preds = %11
+  resume { ptr, i32 } %12
 
 "_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i": ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %18 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %20 = load i64, ptr %19, align 8, !noundef !3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %19 = load i64, ptr %18, align 8, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$17h24c64bb3b239b72bE.exit"
 
 "_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$17h24c64bb3b239b72bE.exit": ; preds = %3, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i"
-  %.sroa.02.0.i = phi ptr [ %18, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i" ], [ null, %3 ]
-  %.sroa.33.0.i = phi i64 [ %20, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i" ], [ undef, %3 ]
-  %21 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.i, 0
-  %22 = insertvalue { ptr, i64 } %21, i64 %.sroa.33.0.i, 1
-  ret { ptr, i64 } %22
+  %.sroa.02.0.i = phi ptr [ %17, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i" ], [ null, %3 ]
+  %.sroa.33.0.i = phi i64 [ %19, %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i" ], [ undef, %3 ]
+  %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.i, 0
+  %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.33.0.i, 1
+  ret { ptr, i64 } %21
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -135,35 +133,33 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h4d32cc7784802066E"(ptr writeonly sret({ { ptr, i64 }, { ptr, i64 } }) align 8 captures(none) initializes((0, 32)) %0, ptr readonly align 8 captures(none) %1, ptr align 1 %2, i64 %3) unnamed_addr #2 {
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %.val = load ptr, ptr %1, align 8, !nonnull !3, !align !7, !noundef !3
-  %6 = getelementptr i8, ptr %1, i64 8
-  %.val1 = load i64, ptr %6, align 8, !noundef !3
+  %5 = getelementptr i8, ptr %1, i64 8
+  %.val1 = load i64, ptr %5, align 8, !noundef !3
   store ptr %.val, ptr %0, align 8, !alias.scope !8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.val1, ptr %7, align 8, !alias.scope !8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %8, align 8, !alias.scope !8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %3, ptr %9, align 8, !alias.scope !8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.val1, ptr %6, align 8, !alias.scope !8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %2, ptr %7, align 8, !alias.scope !8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %3, ptr %8, align 8, !alias.scope !8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17ha3cc977975be2e0eE"(ptr writeonly sret({ { { ptr, i64 } }, { ptr, i64, i8, [7 x i8] } }) align 8 captures(none) initializes((0, 40)) %0, ptr readonly align 8 captures(none) %1, ptr align 1 %2, i64 %3) unnamed_addr #1 {
   %5 = alloca { ptr, i64, i8, [7 x i8] }, align 8
-  %6 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %.val = load ptr, ptr %1, align 8, !nonnull !3, !align !11, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN12actix_router8resource11ResourceDef12pattern_iter17h1c455962707a4f57E(ptr nonnull sret({ ptr, i64, i8, [7 x i8] }) align 8 %5, ptr nonnull align 8 %.val), !noalias !12
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store ptr %2, ptr %0, align 8, !alias.scope !12
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %3, ptr %8, align 8, !alias.scope !12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %3, ptr %7, align 8, !alias.scope !12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -240,10 +236,10 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %45, label %46
 
-34:                                               ; preds = %113, %112, %35
-  %.pn50 = phi { ptr, i32 } [ %36, %35 ], [ %.pn48, %113 ], [ %.pn48, %112 ]
+34:                                               ; preds = %112, %111, %35
+  %.pn50 = phi { ptr, i32 } [ %36, %35 ], [ %.pn48, %112 ], [ %.pn48, %111 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17h59bcd2c6c829ff9eE"(ptr nonnull align 8 %19) #12
-          to label %23 unwind label %99
+          to label %23 unwind label %98
 
 35:                                               ; preds = %46, %45, %24
   %36 = landingpad { ptr, i32 }
@@ -311,13 +307,13 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
   %56 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0965ba9e91838ee4E"(ptr nonnull align 8 %30)
           to label %57 unwind label %.loopexit.split-lp
 
-.critedge55:                                      ; preds = %.loopexit, %.loopexit.split-lp, %102, %.critedge54.thread, %.critedge54
-  %.1 = phi i1 [ true, %102 ], [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ]
-  %.pn48 = phi { ptr, i32 } [ %.pn, %102 ], [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.critedge55:                                      ; preds = %.loopexit, %.loopexit.split-lp, %101, %.critedge54.thread, %.critedge54
+  %.1 = phi i1 [ true, %101 ], [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ]
+  %.pn48 = phi { ptr, i32 } [ %.pn, %101 ], [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17hbad8b8468280d2a6E"(ptr nonnull align 8 %14) #12
-          to label %111 unwind label %99
+          to label %110 unwind label %98
 
-.loopexit:                                        ; preds = %.backedge, %71, %97
+.loopexit:                                        ; preds = %.backedge, %71, %96
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.critedge55
@@ -398,126 +394,125 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
   %82 = load ptr, ptr %64, align 8, !nonnull !3, !noundef !3
   %83 = load i64, ptr %65, align 8, !noundef !3
   %84 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf1d35a488a27ffb4E"(i64 %83, i1 zeroext false)
-          to label %86 unwind label %98
+          to label %86 unwind label %97
 
 85:                                               ; preds = %79
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.cd780be17f47d01eb0baa4c39ee3792c.0, i64 40, ptr nonnull align 8 @anon.cd780be17f47d01eb0baa4c39ee3792c.2) #14
-          to label %108 unwind label %.thread70
+          to label %107 unwind label %.thread70
 
 86:                                               ; preds = %81
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %88 = extractvalue { i64, ptr } %84, 0
   %89 = extractvalue { i64, ptr } %84, 1
-  %90 = icmp ne ptr %89, null
-  call void @llvm.assume(i1 %90)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %89) ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull align 1 %87, i64 %83, i1 false)
   store i64 %88, ptr %8, align 8
   store ptr %89, ptr %.sroa.235.0..sroa_idx, align 8
   store i64 %83, ptr %.sroa.336.0..sroa_idx, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h437d474cf81f7a70E"(ptr nonnull align 8 %16, ptr nonnull align 8 %8)
-          to label %91 unwind label %98
+          to label %90 unwind label %97
 
-91:                                               ; preds = %86
+90:                                               ; preds = %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h493cd03b870689b3E"(ptr nonnull align 8 %15, ptr nonnull align 8 %7)
-          to label %92 unwind label %.critedge.thread67
+          to label %91 unwind label %.critedge.thread67
 
-.critedge.thread67:                               ; preds = %91
+.critedge.thread67:                               ; preds = %90
   %lpad.thr_comm.split-lp69 = landingpad { ptr, i32 }
           cleanup
   br label %.critedge.thread
 
-92:                                               ; preds = %91
+91:                                               ; preds = %90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  %93 = invoke align 8 ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h7a2ffbb9a19eb4e3E"(ptr nonnull align 8 %14, ptr nonnull align 8 %6)
-          to label %94 unwind label %.critedge
+  %92 = invoke align 8 ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h7a2ffbb9a19eb4e3E"(ptr nonnull align 8 %14, ptr nonnull align 8 %6)
+          to label %93 unwind label %.critedge
 
-94:                                               ; preds = %92
-  %95 = load i64, ptr %12, align 8, !range !16, !noundef !3
-  %96 = icmp eq i64 %95, 1
-  br i1 %96, label %.backedge.backedge, label %97
+93:                                               ; preds = %91
+  %94 = load i64, ptr %12, align 8, !range !16, !noundef !3
+  %95 = icmp eq i64 %94, 1
+  br i1 %95, label %.backedge.backedge, label %96
 
-.backedge.backedge:                               ; preds = %94, %97
+.backedge.backedge:                               ; preds = %93, %96
   br label %.backedge
 
-97:                                               ; preds = %94
+96:                                               ; preds = %93
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17hb44f31963d9d9ec3E"(ptr nonnull align 8 %12)
           to label %.backedge.backedge unwind label %.loopexit
 
-98:                                               ; preds = %86, %81
+97:                                               ; preds = %86, %81
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h219236317c7561bdE"(ptr nonnull align 8 %10) #12
-          to label %101 unwind label %99
+          to label %100 unwind label %98
 
-99:                                               ; preds = %113, %111, %.critedge54.thread, %110, %.thread75, %109, %.critedge.thread, %101, %98, %.critedge55, %34
-  %100 = landingpad { ptr, i32 }
+98:                                               ; preds = %112, %110, %.critedge54.thread, %109, %.thread75, %108, %.critedge.thread, %100, %97, %.critedge55, %34
+  %99 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-.critedge:                                        ; preds = %92
+.critedge:                                        ; preds = %91
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %102
+  br label %101
 
-101:                                              ; preds = %98
+100:                                              ; preds = %97
   invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67b829cc11a5fd02E"(ptr nonnull align 8 %11) #12
-          to label %.critedge.thread unwind label %99
+          to label %.critedge.thread unwind label %98
 
-102:                                              ; preds = %.critedge, %.critedge.thread
+101:                                              ; preds = %.critedge, %.critedge.thread
   %.pn = phi { ptr, i32 } [ %lpad.phi6266, %.critedge.thread ], [ %lpad.thr_comm.split-lp, %.critedge ]
-  %103 = load i64, ptr %12, align 8, !range !16, !noundef !3
-  %104 = icmp eq i64 %103, 1
-  br i1 %104, label %.critedge55, label %109
+  %102 = load i64, ptr %12, align 8, !range !16, !noundef !3
+  %103 = icmp eq i64 %102, 1
+  br i1 %103, label %.critedge55, label %108
 
 .thread70:                                        ; preds = %85
-  %105 = landingpad { ptr, i32 }
+  %104 = landingpad { ptr, i32 }
           cleanup
-  %106 = load i64, ptr %12, align 8, !range !16, !noundef !3
-  %107 = icmp eq i64 %106, 1
-  br i1 %107, label %.thread75, label %109
+  %105 = load i64, ptr %12, align 8, !range !16, !noundef !3
+  %106 = icmp eq i64 %105, 1
+  br i1 %106, label %.thread75, label %108
 
-.critedge.thread:                                 ; preds = %101, %.critedge.thread67
-  %lpad.phi6266 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp69, %.critedge.thread67 ], [ %lpad.thr_comm, %101 ]
+.critedge.thread:                                 ; preds = %100, %.critedge.thread67
+  %lpad.phi6266 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp69, %.critedge.thread67 ], [ %lpad.thr_comm, %100 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17h278e8b9d4cd94394E"(ptr nonnull align 8 %9) #12
-          to label %102 unwind label %99
+          to label %101 unwind label %98
 
-108:                                              ; preds = %85
+107:                                              ; preds = %85
   unreachable
 
-109:                                              ; preds = %.thread70, %102
-  %.pn73 = phi { ptr, i32 } [ %105, %.thread70 ], [ %.pn, %102 ]
+108:                                              ; preds = %.thread70, %101
+  %.pn73 = phi { ptr, i32 } [ %104, %.thread70 ], [ %.pn, %101 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17hb44f31963d9d9ec3E"(ptr nonnull align 8 %12) #12
-          to label %.critedge54 unwind label %99
+          to label %.critedge54 unwind label %98
 
 .thread75:                                        ; preds = %.thread70
   invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67b829cc11a5fd02E"(ptr nonnull align 8 %62) #12
-          to label %110 unwind label %99
+          to label %109 unwind label %98
 
-.critedge54:                                      ; preds = %109
+.critedge54:                                      ; preds = %108
   br i1 %.not, label %.critedge55, label %.critedge54.thread
 
-110:                                              ; preds = %.thread75
+109:                                              ; preds = %.thread75
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h219236317c7561bdE"(ptr nonnull align 8 %63) #12
-          to label %.critedge54.thread unwind label %99
+          to label %.critedge54.thread unwind label %98
 
-.critedge54.thread:                               ; preds = %110, %.critedge54
-  %.pn7279 = phi { ptr, i32 } [ %.pn73, %.critedge54 ], [ %105, %110 ]
+.critedge54.thread:                               ; preds = %109, %.critedge54
+  %.pn7279 = phi { ptr, i32 } [ %.pn73, %.critedge54 ], [ %104, %109 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17h278e8b9d4cd94394E"(ptr nonnull align 8 %61) #12
-          to label %.critedge55 unwind label %99
+          to label %.critedge55 unwind label %98
 
-111:                                              ; preds = %.critedge55
+110:                                              ; preds = %.critedge55
   invoke void @"_ZN4core3ptr112drop_in_place$LT$alloc..vec..Vec$LT$$LP$regex..regex..string..Regex$C$alloc..vec..Vec$LT$$RF$str$GT$$RP$$GT$$GT$17h08ca1b5d37920889E"(ptr nonnull align 8 %15) #12
-          to label %112 unwind label %99
+          to label %111 unwind label %98
+
+111:                                              ; preds = %110
+  br i1 %.1, label %112, label %34
 
 112:                                              ; preds = %111
-  br i1 %.1, label %113, label %34
-
-113:                                              ; preds = %112
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h23deb10694fd4210E"(ptr nonnull align 8 %16) #12
-          to label %34 unwind label %99
+          to label %34 unwind label %98
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -544,7 +539,7 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
 20:                                               ; preds = %36, %21
   %.pn50.pn = phi { ptr, i32 } [ %.pn50, %36 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h20382adc74d7e508E"(ptr align 8 %1) #12
-          to label %116 unwind label %101
+          to label %115 unwind label %100
 
 21:                                               ; preds = %3
   %22 = landingpad { ptr, i32 }
@@ -571,10 +566,10 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %47, label %48
 
-36:                                               ; preds = %115, %114, %37
-  %.pn50 = phi { ptr, i32 } [ %38, %37 ], [ %.pn48, %115 ], [ %.pn48, %114 ]
+36:                                               ; preds = %114, %113, %37
+  %.pn50 = phi { ptr, i32 } [ %38, %37 ], [ %.pn48, %114 ], [ %.pn48, %113 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17h59bcd2c6c829ff9eE"(ptr nonnull align 8 %19) #12
-          to label %20 unwind label %101
+          to label %20 unwind label %100
 
 37:                                               ; preds = %48, %47, %26
   %38 = landingpad { ptr, i32 }
@@ -643,13 +638,13 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
   %58 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0965ba9e91838ee4E"(ptr nonnull align 8 %32)
           to label %59 unwind label %.loopexit.split-lp
 
-.critedge55:                                      ; preds = %.loopexit, %.loopexit.split-lp, %104, %.critedge54.thread, %.critedge54
-  %.1 = phi i1 [ true, %104 ], [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ]
-  %.pn48 = phi { ptr, i32 } [ %.pn, %104 ], [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.critedge55:                                      ; preds = %.loopexit, %.loopexit.split-lp, %103, %.critedge54.thread, %.critedge54
+  %.1 = phi i1 [ true, %103 ], [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ]
+  %.pn48 = phi { ptr, i32 } [ %.pn, %103 ], [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17hbad8b8468280d2a6E"(ptr nonnull align 8 %14) #12
-          to label %113 unwind label %101
+          to label %112 unwind label %100
 
-.loopexit:                                        ; preds = %.backedge, %73, %99
+.loopexit:                                        ; preds = %.backedge, %73, %98
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.critedge55
@@ -730,128 +725,127 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
   %84 = load ptr, ptr %66, align 8, !nonnull !3, !noundef !3
   %85 = load i64, ptr %67, align 8, !noundef !3
   %86 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf1d35a488a27ffb4E"(i64 %85, i1 zeroext false)
-          to label %88 unwind label %100
+          to label %88 unwind label %99
 
 87:                                               ; preds = %81
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.cd780be17f47d01eb0baa4c39ee3792c.0, i64 40, ptr nonnull align 8 @anon.cd780be17f47d01eb0baa4c39ee3792c.2) #14
-          to label %110 unwind label %.thread70
+          to label %109 unwind label %.thread70
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %90 = extractvalue { i64, ptr } %86, 0
   %91 = extractvalue { i64, ptr } %86, 1
-  %92 = icmp ne ptr %91, null
-  call void @llvm.assume(i1 %92)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %91) ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull align 1 %89, i64 %85, i1 false)
   store i64 %90, ptr %8, align 8
   store ptr %91, ptr %.sroa.235.0..sroa_idx, align 8
   store i64 %85, ptr %.sroa.336.0..sroa_idx, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h437d474cf81f7a70E"(ptr nonnull align 8 %16, ptr nonnull align 8 %8)
-          to label %93 unwind label %100
+          to label %92 unwind label %99
 
-93:                                               ; preds = %88
+92:                                               ; preds = %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h493cd03b870689b3E"(ptr nonnull align 8 %15, ptr nonnull align 8 %7)
-          to label %94 unwind label %.critedge.thread67
+          to label %93 unwind label %.critedge.thread67
 
-.critedge.thread67:                               ; preds = %93
+.critedge.thread67:                               ; preds = %92
   %lpad.thr_comm.split-lp69 = landingpad { ptr, i32 }
           cleanup
   br label %.critedge.thread
 
-94:                                               ; preds = %93
+93:                                               ; preds = %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  %95 = invoke align 8 ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h7a2ffbb9a19eb4e3E"(ptr nonnull align 8 %14, ptr nonnull align 8 %6)
-          to label %96 unwind label %.critedge
+  %94 = invoke align 8 ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h7a2ffbb9a19eb4e3E"(ptr nonnull align 8 %14, ptr nonnull align 8 %6)
+          to label %95 unwind label %.critedge
 
-96:                                               ; preds = %94
-  %97 = load i64, ptr %12, align 8, !range !16, !noundef !3
-  %98 = icmp eq i64 %97, 1
-  br i1 %98, label %.backedge.backedge, label %99
+95:                                               ; preds = %93
+  %96 = load i64, ptr %12, align 8, !range !16, !noundef !3
+  %97 = icmp eq i64 %96, 1
+  br i1 %97, label %.backedge.backedge, label %98
 
-.backedge.backedge:                               ; preds = %96, %99
+.backedge.backedge:                               ; preds = %95, %98
   br label %.backedge
 
-99:                                               ; preds = %96
+98:                                               ; preds = %95
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17hb44f31963d9d9ec3E"(ptr nonnull align 8 %12)
           to label %.backedge.backedge unwind label %.loopexit
 
-100:                                              ; preds = %88, %83
+99:                                               ; preds = %88, %83
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h219236317c7561bdE"(ptr nonnull align 8 %10) #12
-          to label %103 unwind label %101
+          to label %102 unwind label %100
 
-101:                                              ; preds = %115, %113, %.critedge54.thread, %112, %.thread75, %111, %.critedge.thread, %103, %100, %.critedge55, %36, %20
-  %102 = landingpad { ptr, i32 }
+100:                                              ; preds = %114, %112, %.critedge54.thread, %111, %.thread75, %110, %.critedge.thread, %102, %99, %.critedge55, %36, %20
+  %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-.critedge:                                        ; preds = %94
+.critedge:                                        ; preds = %93
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %104
+  br label %103
 
-103:                                              ; preds = %100
+102:                                              ; preds = %99
   invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67b829cc11a5fd02E"(ptr nonnull align 8 %11) #12
-          to label %.critedge.thread unwind label %101
+          to label %.critedge.thread unwind label %100
 
-104:                                              ; preds = %.critedge, %.critedge.thread
+103:                                              ; preds = %.critedge, %.critedge.thread
   %.pn = phi { ptr, i32 } [ %lpad.phi6266, %.critedge.thread ], [ %lpad.thr_comm.split-lp, %.critedge ]
-  %105 = load i64, ptr %12, align 8, !range !16, !noundef !3
-  %106 = icmp eq i64 %105, 1
-  br i1 %106, label %.critedge55, label %111
+  %104 = load i64, ptr %12, align 8, !range !16, !noundef !3
+  %105 = icmp eq i64 %104, 1
+  br i1 %105, label %.critedge55, label %110
 
 .thread70:                                        ; preds = %87
-  %107 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
-  %108 = load i64, ptr %12, align 8, !range !16, !noundef !3
-  %109 = icmp eq i64 %108, 1
-  br i1 %109, label %.thread75, label %111
+  %107 = load i64, ptr %12, align 8, !range !16, !noundef !3
+  %108 = icmp eq i64 %107, 1
+  br i1 %108, label %.thread75, label %110
 
-.critedge.thread:                                 ; preds = %103, %.critedge.thread67
-  %lpad.phi6266 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp69, %.critedge.thread67 ], [ %lpad.thr_comm, %103 ]
+.critedge.thread:                                 ; preds = %102, %.critedge.thread67
+  %lpad.phi6266 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp69, %.critedge.thread67 ], [ %lpad.thr_comm, %102 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17h278e8b9d4cd94394E"(ptr nonnull align 8 %9) #12
-          to label %104 unwind label %101
+          to label %103 unwind label %100
 
-110:                                              ; preds = %87
+109:                                              ; preds = %87
   unreachable
 
-111:                                              ; preds = %.thread70, %104
-  %.pn73 = phi { ptr, i32 } [ %107, %.thread70 ], [ %.pn, %104 ]
+110:                                              ; preds = %.thread70, %103
+  %.pn73 = phi { ptr, i32 } [ %106, %.thread70 ], [ %.pn, %103 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17hb44f31963d9d9ec3E"(ptr nonnull align 8 %12) #12
-          to label %.critedge54 unwind label %101
+          to label %.critedge54 unwind label %100
 
 .thread75:                                        ; preds = %.thread70
   invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67b829cc11a5fd02E"(ptr nonnull align 8 %64) #12
-          to label %112 unwind label %101
+          to label %111 unwind label %100
 
-.critedge54:                                      ; preds = %111
+.critedge54:                                      ; preds = %110
   br i1 %.not, label %.critedge55, label %.critedge54.thread
 
-112:                                              ; preds = %.thread75
+111:                                              ; preds = %.thread75
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h219236317c7561bdE"(ptr nonnull align 8 %65) #12
-          to label %.critedge54.thread unwind label %101
+          to label %.critedge54.thread unwind label %100
 
-.critedge54.thread:                               ; preds = %112, %.critedge54
-  %.pn7279 = phi { ptr, i32 } [ %.pn73, %.critedge54 ], [ %107, %112 ]
+.critedge54.thread:                               ; preds = %111, %.critedge54
+  %.pn7279 = phi { ptr, i32 } [ %.pn73, %.critedge54 ], [ %106, %111 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17h278e8b9d4cd94394E"(ptr nonnull align 8 %63) #12
-          to label %.critedge55 unwind label %101
+          to label %.critedge55 unwind label %100
 
-113:                                              ; preds = %.critedge55
+112:                                              ; preds = %.critedge55
   invoke void @"_ZN4core3ptr112drop_in_place$LT$alloc..vec..Vec$LT$$LP$regex..regex..string..Regex$C$alloc..vec..Vec$LT$$RF$str$GT$$RP$$GT$$GT$17h08ca1b5d37920889E"(ptr nonnull align 8 %15) #12
-          to label %114 unwind label %101
+          to label %113 unwind label %100
+
+113:                                              ; preds = %112
+  br i1 %.1, label %114, label %36
 
 114:                                              ; preds = %113
-  br i1 %.1, label %115, label %36
-
-115:                                              ; preds = %114
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h23deb10694fd4210E"(ptr nonnull align 8 %16) #12
-          to label %36 unwind label %101
+          to label %36 unwind label %100
 
-116:                                              ; preds = %20
+115:                                              ; preds = %20
   resume { ptr, i32 } %.pn50.pn
 }
 
@@ -879,7 +873,7 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
 20:                                               ; preds = %36, %21
   %.pn50.pn = phi { ptr, i32 } [ %.pn50, %36 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h23deb10694fd4210E"(ptr align 8 %1) #12
-          to label %116 unwind label %101
+          to label %115 unwind label %100
 
 21:                                               ; preds = %3
   %22 = landingpad { ptr, i32 }
@@ -906,10 +900,10 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %47, label %48
 
-36:                                               ; preds = %115, %114, %37
-  %.pn50 = phi { ptr, i32 } [ %38, %37 ], [ %.pn48, %115 ], [ %.pn48, %114 ]
+36:                                               ; preds = %114, %113, %37
+  %.pn50 = phi { ptr, i32 } [ %38, %37 ], [ %.pn48, %114 ], [ %.pn48, %113 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17h59bcd2c6c829ff9eE"(ptr nonnull align 8 %19) #12
-          to label %20 unwind label %101
+          to label %20 unwind label %100
 
 37:                                               ; preds = %48, %47, %26
   %38 = landingpad { ptr, i32 }
@@ -978,13 +972,13 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
   %58 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0965ba9e91838ee4E"(ptr nonnull align 8 %32)
           to label %59 unwind label %.loopexit.split-lp
 
-.critedge55:                                      ; preds = %.loopexit, %.loopexit.split-lp, %104, %.critedge54.thread, %.critedge54
-  %.1 = phi i1 [ true, %104 ], [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ]
-  %.pn48 = phi { ptr, i32 } [ %.pn, %104 ], [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.critedge55:                                      ; preds = %.loopexit, %.loopexit.split-lp, %103, %.critedge54.thread, %.critedge54
+  %.1 = phi i1 [ true, %103 ], [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ]
+  %.pn48 = phi { ptr, i32 } [ %.pn, %103 ], [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17hbad8b8468280d2a6E"(ptr nonnull align 8 %14) #12
-          to label %113 unwind label %101
+          to label %112 unwind label %100
 
-.loopexit:                                        ; preds = %.backedge, %73, %99
+.loopexit:                                        ; preds = %.backedge, %73, %98
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.critedge55
@@ -1065,128 +1059,127 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
   %84 = load ptr, ptr %66, align 8, !nonnull !3, !noundef !3
   %85 = load i64, ptr %67, align 8, !noundef !3
   %86 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf1d35a488a27ffb4E"(i64 %85, i1 zeroext false)
-          to label %88 unwind label %100
+          to label %88 unwind label %99
 
 87:                                               ; preds = %81
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.cd780be17f47d01eb0baa4c39ee3792c.0, i64 40, ptr nonnull align 8 @anon.cd780be17f47d01eb0baa4c39ee3792c.2) #14
-          to label %110 unwind label %.thread70
+          to label %109 unwind label %.thread70
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %90 = extractvalue { i64, ptr } %86, 0
   %91 = extractvalue { i64, ptr } %86, 1
-  %92 = icmp ne ptr %91, null
-  call void @llvm.assume(i1 %92)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %91) ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull align 1 %89, i64 %85, i1 false)
   store i64 %90, ptr %8, align 8
   store ptr %91, ptr %.sroa.235.0..sroa_idx, align 8
   store i64 %85, ptr %.sroa.336.0..sroa_idx, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h437d474cf81f7a70E"(ptr nonnull align 8 %16, ptr nonnull align 8 %8)
-          to label %93 unwind label %100
+          to label %92 unwind label %99
 
-93:                                               ; preds = %88
+92:                                               ; preds = %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h493cd03b870689b3E"(ptr nonnull align 8 %15, ptr nonnull align 8 %7)
-          to label %94 unwind label %.critedge.thread67
+          to label %93 unwind label %.critedge.thread67
 
-.critedge.thread67:                               ; preds = %93
+.critedge.thread67:                               ; preds = %92
   %lpad.thr_comm.split-lp69 = landingpad { ptr, i32 }
           cleanup
   br label %.critedge.thread
 
-94:                                               ; preds = %93
+93:                                               ; preds = %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  %95 = invoke align 8 ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h7a2ffbb9a19eb4e3E"(ptr nonnull align 8 %14, ptr nonnull align 8 %6)
-          to label %96 unwind label %.critedge
+  %94 = invoke align 8 ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h7a2ffbb9a19eb4e3E"(ptr nonnull align 8 %14, ptr nonnull align 8 %6)
+          to label %95 unwind label %.critedge
 
-96:                                               ; preds = %94
-  %97 = load i64, ptr %12, align 8, !range !16, !noundef !3
-  %98 = icmp eq i64 %97, 1
-  br i1 %98, label %.backedge.backedge, label %99
+95:                                               ; preds = %93
+  %96 = load i64, ptr %12, align 8, !range !16, !noundef !3
+  %97 = icmp eq i64 %96, 1
+  br i1 %97, label %.backedge.backedge, label %98
 
-.backedge.backedge:                               ; preds = %96, %99
+.backedge.backedge:                               ; preds = %95, %98
   br label %.backedge
 
-99:                                               ; preds = %96
+98:                                               ; preds = %95
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17hb44f31963d9d9ec3E"(ptr nonnull align 8 %12)
           to label %.backedge.backedge unwind label %.loopexit
 
-100:                                              ; preds = %88, %83
+99:                                               ; preds = %88, %83
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h219236317c7561bdE"(ptr nonnull align 8 %10) #12
-          to label %103 unwind label %101
+          to label %102 unwind label %100
 
-101:                                              ; preds = %115, %113, %.critedge54.thread, %112, %.thread75, %111, %.critedge.thread, %103, %100, %.critedge55, %36, %20
-  %102 = landingpad { ptr, i32 }
+100:                                              ; preds = %114, %112, %.critedge54.thread, %111, %.thread75, %110, %.critedge.thread, %102, %99, %.critedge55, %36, %20
+  %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-.critedge:                                        ; preds = %94
+.critedge:                                        ; preds = %93
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %104
+  br label %103
 
-103:                                              ; preds = %100
+102:                                              ; preds = %99
   invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67b829cc11a5fd02E"(ptr nonnull align 8 %11) #12
-          to label %.critedge.thread unwind label %101
+          to label %.critedge.thread unwind label %100
 
-104:                                              ; preds = %.critedge, %.critedge.thread
+103:                                              ; preds = %.critedge, %.critedge.thread
   %.pn = phi { ptr, i32 } [ %lpad.phi6266, %.critedge.thread ], [ %lpad.thr_comm.split-lp, %.critedge ]
-  %105 = load i64, ptr %12, align 8, !range !16, !noundef !3
-  %106 = icmp eq i64 %105, 1
-  br i1 %106, label %.critedge55, label %111
+  %104 = load i64, ptr %12, align 8, !range !16, !noundef !3
+  %105 = icmp eq i64 %104, 1
+  br i1 %105, label %.critedge55, label %110
 
 .thread70:                                        ; preds = %87
-  %107 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
-  %108 = load i64, ptr %12, align 8, !range !16, !noundef !3
-  %109 = icmp eq i64 %108, 1
-  br i1 %109, label %.thread75, label %111
+  %107 = load i64, ptr %12, align 8, !range !16, !noundef !3
+  %108 = icmp eq i64 %107, 1
+  br i1 %108, label %.thread75, label %110
 
-.critedge.thread:                                 ; preds = %103, %.critedge.thread67
-  %lpad.phi6266 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp69, %.critedge.thread67 ], [ %lpad.thr_comm, %103 ]
+.critedge.thread:                                 ; preds = %102, %.critedge.thread67
+  %lpad.phi6266 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp69, %.critedge.thread67 ], [ %lpad.thr_comm, %102 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17h278e8b9d4cd94394E"(ptr nonnull align 8 %9) #12
-          to label %104 unwind label %101
+          to label %103 unwind label %100
 
-110:                                              ; preds = %87
+109:                                              ; preds = %87
   unreachable
 
-111:                                              ; preds = %.thread70, %104
-  %.pn73 = phi { ptr, i32 } [ %107, %.thread70 ], [ %.pn, %104 ]
+110:                                              ; preds = %.thread70, %103
+  %.pn73 = phi { ptr, i32 } [ %106, %.thread70 ], [ %.pn, %103 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17hb44f31963d9d9ec3E"(ptr nonnull align 8 %12) #12
-          to label %.critedge54 unwind label %101
+          to label %.critedge54 unwind label %100
 
 .thread75:                                        ; preds = %.thread70
   invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67b829cc11a5fd02E"(ptr nonnull align 8 %64) #12
-          to label %112 unwind label %101
+          to label %111 unwind label %100
 
-.critedge54:                                      ; preds = %111
+.critedge54:                                      ; preds = %110
   br i1 %.not, label %.critedge55, label %.critedge54.thread
 
-112:                                              ; preds = %.thread75
+111:                                              ; preds = %.thread75
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h219236317c7561bdE"(ptr nonnull align 8 %65) #12
-          to label %.critedge54.thread unwind label %101
+          to label %.critedge54.thread unwind label %100
 
-.critedge54.thread:                               ; preds = %112, %.critedge54
-  %.pn7279 = phi { ptr, i32 } [ %.pn73, %.critedge54 ], [ %107, %112 ]
+.critedge54.thread:                               ; preds = %111, %.critedge54
+  %.pn7279 = phi { ptr, i32 } [ %.pn73, %.critedge54 ], [ %106, %111 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17h278e8b9d4cd94394E"(ptr nonnull align 8 %63) #12
-          to label %.critedge55 unwind label %101
+          to label %.critedge55 unwind label %100
 
-113:                                              ; preds = %.critedge55
+112:                                              ; preds = %.critedge55
   invoke void @"_ZN4core3ptr112drop_in_place$LT$alloc..vec..Vec$LT$$LP$regex..regex..string..Regex$C$alloc..vec..Vec$LT$$RF$str$GT$$RP$$GT$$GT$17h08ca1b5d37920889E"(ptr nonnull align 8 %15) #12
-          to label %114 unwind label %101
+          to label %113 unwind label %100
+
+113:                                              ; preds = %112
+  br i1 %.1, label %114, label %36
 
 114:                                              ; preds = %113
-  br i1 %.1, label %115, label %36
-
-115:                                              ; preds = %114
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h23deb10694fd4210E"(ptr nonnull align 8 %16) #12
-          to label %36 unwind label %101
+          to label %36 unwind label %100
 
-116:                                              ; preds = %20
+115:                                              ; preds = %20
   resume { ptr, i32 } %.pn50.pn
 }
 
@@ -1235,10 +1228,10 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %47, label %48
 
-36:                                               ; preds = %115, %114, %37
-  %.pn50 = phi { ptr, i32 } [ %38, %37 ], [ %.pn48, %115 ], [ %.pn48, %114 ]
+36:                                               ; preds = %114, %113, %37
+  %.pn50 = phi { ptr, i32 } [ %38, %37 ], [ %.pn48, %114 ], [ %.pn48, %113 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17h59bcd2c6c829ff9eE"(ptr nonnull align 8 %20) #12
-          to label %25 unwind label %101
+          to label %25 unwind label %100
 
 37:                                               ; preds = %48, %47, %26
   %38 = landingpad { ptr, i32 }
@@ -1306,13 +1299,13 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
   %58 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0965ba9e91838ee4E"(ptr nonnull align 8 %32)
           to label %59 unwind label %.loopexit.split-lp
 
-.critedge55:                                      ; preds = %.loopexit, %.loopexit.split-lp, %104, %.critedge54.thread, %.critedge54
-  %.1 = phi i1 [ true, %104 ], [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ]
-  %.pn48 = phi { ptr, i32 } [ %.pn, %104 ], [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.critedge55:                                      ; preds = %.loopexit, %.loopexit.split-lp, %103, %.critedge54.thread, %.critedge54
+  %.1 = phi i1 [ true, %103 ], [ true, %.critedge54.thread ], [ true, %.critedge54 ], [ true, %.loopexit ], [ %.0.ph, %.loopexit.split-lp ]
+  %.pn48 = phi { ptr, i32 } [ %.pn, %103 ], [ %.pn7279, %.critedge54.thread ], [ %.pn73, %.critedge54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17hbad8b8468280d2a6E"(ptr nonnull align 8 %15) #12
-          to label %113 unwind label %101
+          to label %112 unwind label %100
 
-.loopexit:                                        ; preds = %.backedge, %73, %99
+.loopexit:                                        ; preds = %.backedge, %73, %98
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.critedge55
@@ -1393,126 +1386,125 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
   %84 = load ptr, ptr %66, align 8, !nonnull !3, !noundef !3
   %85 = load i64, ptr %67, align 8, !noundef !3
   %86 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf1d35a488a27ffb4E"(i64 %85, i1 zeroext false)
-          to label %88 unwind label %100
+          to label %88 unwind label %99
 
 87:                                               ; preds = %81
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.cd780be17f47d01eb0baa4c39ee3792c.0, i64 40, ptr nonnull align 8 @anon.cd780be17f47d01eb0baa4c39ee3792c.2) #14
-          to label %110 unwind label %.thread70
+          to label %109 unwind label %.thread70
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %90 = extractvalue { i64, ptr } %86, 0
   %91 = extractvalue { i64, ptr } %86, 1
-  %92 = icmp ne ptr %91, null
-  call void @llvm.assume(i1 %92)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %91) ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull align 1 %89, i64 %85, i1 false)
   store i64 %90, ptr %9, align 8
   store ptr %91, ptr %.sroa.235.0..sroa_idx, align 8
   store i64 %85, ptr %.sroa.336.0..sroa_idx, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h437d474cf81f7a70E"(ptr nonnull align 8 %17, ptr nonnull align 8 %9)
-          to label %93 unwind label %100
+          to label %92 unwind label %99
 
-93:                                               ; preds = %88
+92:                                               ; preds = %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h493cd03b870689b3E"(ptr nonnull align 8 %16, ptr nonnull align 8 %8)
-          to label %94 unwind label %.critedge.thread67
+          to label %93 unwind label %.critedge.thread67
 
-.critedge.thread67:                               ; preds = %93
+.critedge.thread67:                               ; preds = %92
   %lpad.thr_comm.split-lp69 = landingpad { ptr, i32 }
           cleanup
   br label %.critedge.thread
 
-94:                                               ; preds = %93
+93:                                               ; preds = %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  %95 = invoke align 8 ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h7a2ffbb9a19eb4e3E"(ptr nonnull align 8 %15, ptr nonnull align 8 %7)
-          to label %96 unwind label %.critedge
+  %94 = invoke align 8 ptr @"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h7a2ffbb9a19eb4e3E"(ptr nonnull align 8 %15, ptr nonnull align 8 %7)
+          to label %95 unwind label %.critedge
 
-96:                                               ; preds = %94
-  %97 = load i64, ptr %13, align 8, !range !16, !noundef !3
-  %98 = icmp eq i64 %97, 1
-  br i1 %98, label %.backedge.backedge, label %99
+95:                                               ; preds = %93
+  %96 = load i64, ptr %13, align 8, !range !16, !noundef !3
+  %97 = icmp eq i64 %96, 1
+  br i1 %97, label %.backedge.backedge, label %98
 
-.backedge.backedge:                               ; preds = %96, %99
+.backedge.backedge:                               ; preds = %95, %98
   br label %.backedge
 
-99:                                               ; preds = %96
+98:                                               ; preds = %95
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17hb44f31963d9d9ec3E"(ptr nonnull align 8 %13)
           to label %.backedge.backedge unwind label %.loopexit
 
-100:                                              ; preds = %88, %83
+99:                                               ; preds = %88, %83
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h219236317c7561bdE"(ptr nonnull align 8 %11) #12
-          to label %103 unwind label %101
+          to label %102 unwind label %100
 
-101:                                              ; preds = %115, %113, %.critedge54.thread, %112, %.thread75, %111, %.critedge.thread, %103, %100, %.critedge55, %36
-  %102 = landingpad { ptr, i32 }
+100:                                              ; preds = %114, %112, %.critedge54.thread, %111, %.thread75, %110, %.critedge.thread, %102, %99, %.critedge55, %36
+  %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-.critedge:                                        ; preds = %94
+.critedge:                                        ; preds = %93
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %104
+  br label %103
 
-103:                                              ; preds = %100
+102:                                              ; preds = %99
   invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67b829cc11a5fd02E"(ptr nonnull align 8 %12) #12
-          to label %.critedge.thread unwind label %101
+          to label %.critedge.thread unwind label %100
 
-104:                                              ; preds = %.critedge, %.critedge.thread
+103:                                              ; preds = %.critedge, %.critedge.thread
   %.pn = phi { ptr, i32 } [ %lpad.phi6266, %.critedge.thread ], [ %lpad.thr_comm.split-lp, %.critedge ]
-  %105 = load i64, ptr %13, align 8, !range !16, !noundef !3
-  %106 = icmp eq i64 %105, 1
-  br i1 %106, label %.critedge55, label %111
+  %104 = load i64, ptr %13, align 8, !range !16, !noundef !3
+  %105 = icmp eq i64 %104, 1
+  br i1 %105, label %.critedge55, label %110
 
 .thread70:                                        ; preds = %87
-  %107 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
-  %108 = load i64, ptr %13, align 8, !range !16, !noundef !3
-  %109 = icmp eq i64 %108, 1
-  br i1 %109, label %.thread75, label %111
+  %107 = load i64, ptr %13, align 8, !range !16, !noundef !3
+  %108 = icmp eq i64 %107, 1
+  br i1 %108, label %.thread75, label %110
 
-.critedge.thread:                                 ; preds = %103, %.critedge.thread67
-  %lpad.phi6266 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp69, %.critedge.thread67 ], [ %lpad.thr_comm, %103 ]
+.critedge.thread:                                 ; preds = %102, %.critedge.thread67
+  %lpad.phi6266 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp69, %.critedge.thread67 ], [ %lpad.thr_comm, %102 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17h278e8b9d4cd94394E"(ptr nonnull align 8 %10) #12
-          to label %104 unwind label %101
+          to label %103 unwind label %100
 
-110:                                              ; preds = %87
+109:                                              ; preds = %87
   unreachable
 
-111:                                              ; preds = %.thread70, %104
-  %.pn73 = phi { ptr, i32 } [ %107, %.thread70 ], [ %.pn, %104 ]
+110:                                              ; preds = %.thread70, %103
+  %.pn73 = phi { ptr, i32 } [ %106, %.thread70 ], [ %.pn, %103 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..PatternType$GT$17hb44f31963d9d9ec3E"(ptr nonnull align 8 %13) #12
-          to label %.critedge54 unwind label %101
+          to label %.critedge54 unwind label %100
 
 .thread75:                                        ; preds = %.thread70
   invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67b829cc11a5fd02E"(ptr nonnull align 8 %64) #12
-          to label %112 unwind label %101
+          to label %111 unwind label %100
 
-.critedge54:                                      ; preds = %111
+.critedge54:                                      ; preds = %110
   br i1 %.not, label %.critedge55, label %.critedge54.thread
 
-112:                                              ; preds = %.thread75
+111:                                              ; preds = %.thread75
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h219236317c7561bdE"(ptr nonnull align 8 %65) #12
-          to label %.critedge54.thread unwind label %101
+          to label %.critedge54.thread unwind label %100
 
-.critedge54.thread:                               ; preds = %112, %.critedge54
-  %.pn7279 = phi { ptr, i32 } [ %.pn73, %.critedge54 ], [ %107, %112 ]
+.critedge54.thread:                               ; preds = %111, %.critedge54
+  %.pn7279 = phi { ptr, i32 } [ %.pn73, %.critedge54 ], [ %106, %111 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17h278e8b9d4cd94394E"(ptr nonnull align 8 %63) #12
-          to label %.critedge55 unwind label %101
+          to label %.critedge55 unwind label %100
 
-113:                                              ; preds = %.critedge55
+112:                                              ; preds = %.critedge55
   invoke void @"_ZN4core3ptr112drop_in_place$LT$alloc..vec..Vec$LT$$LP$regex..regex..string..Regex$C$alloc..vec..Vec$LT$$RF$str$GT$$RP$$GT$$GT$17h08ca1b5d37920889E"(ptr nonnull align 8 %16) #12
-          to label %114 unwind label %101
+          to label %113 unwind label %100
+
+113:                                              ; preds = %112
+  br i1 %.1, label %114, label %36
 
 114:                                              ; preds = %113
-  br i1 %.1, label %115, label %36
-
-115:                                              ; preds = %114
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h23deb10694fd4210E"(ptr nonnull align 8 %17) #12
-          to label %36 unwind label %101
+          to label %36 unwind label %100
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

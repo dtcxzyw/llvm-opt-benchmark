@@ -48,7 +48,7 @@ define noundef zeroext i1 @_ZN17ruff_python_index14fstring_ranges13FStringRanges
   store ptr %5, ptr %13, align 8
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hcbe6e5fa20df1dacE.exit.i.i"
 
-"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hcbe6e5fa20df1dacE.exit.i.i": ; preds = %22, %3
+"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hcbe6e5fa20df1dacE.exit.i.i": ; preds = %21, %3
   %14 = call noundef align 4 dereferenceable_or_null(8) ptr @"_ZN110_$LT$alloc..collections..btree..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h056a1d67e6af7826E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %4), !noalias !4
   %.not.i.not.i.not = icmp eq ptr %14, null
   br i1 %.not.i.not.i.not, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8810c95bc18838bfE.exit", label %15
@@ -58,24 +58,23 @@ define noundef zeroext i1 @_ZN17ruff_python_index14fstring_ranges13FStringRanges
   %.val.i.i.i = load ptr, ptr %13, align 8, !alias.scope !12, !noalias !14
   %16 = call { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %14), !noalias !16
   %17 = extractvalue { i32, i32 } %16, 0
-  %18 = icmp ne ptr %.val.i.i.i, null
-  call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 4
-  %20 = load i32, ptr %19, align 4, !noalias !16, !noundef !3
-  %21 = icmp ult i32 %17, %20
-  br i1 %21, label %22, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8810c95bc18838bfE.exit"
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i.i.i) ]
+  %18 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 4
+  %19 = load i32, ptr %18, align 4, !noalias !16, !noundef !3
+  %20 = icmp ult i32 %17, %19
+  br i1 %20, label %21, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8810c95bc18838bfE.exit"
 
-22:                                               ; preds = %15
+21:                                               ; preds = %15
   %.val6.i.i.i = load i32, ptr %14, align 4, !alias.scope !9, !noalias !16, !noundef !3
-  %23 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %.val7.i.i.i = load i32, ptr %23, align 4, !alias.scope !9, !noalias !16, !noundef !3
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %.val7.i.i.i = load i32, ptr %22, align 4, !alias.scope !9, !noalias !16, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i = call noundef i32 @llvm.umax.i32(i32 %.val6.i.i.i, i32 %1)
   %.sroa.0.0.sroa.speculated.i2.i.i.i.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.val7.i.i.i, i32 %2)
   %.not.i.i.i = icmp ult i32 %.sroa.0.0.sroa.speculated.i2.i.i.i.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
   br i1 %.not.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hcbe6e5fa20df1dacE.exit.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8810c95bc18838bfE.exit"
 
-"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8810c95bc18838bfE.exit": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hcbe6e5fa20df1dacE.exit.i.i", %22, %15
-  %.sroa.0.0.i = phi i1 [ false, %15 ], [ false, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hcbe6e5fa20df1dacE.exit.i.i" ], [ true, %22 ]
+"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8810c95bc18838bfE.exit": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hcbe6e5fa20df1dacE.exit.i.i", %21, %15
+  %.sroa.0.0.i = phi i1 [ false, %15 ], [ false, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hcbe6e5fa20df1dacE.exit.i.i" ], [ true, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0.i
 }
@@ -95,24 +94,23 @@ define void @_ZN17ruff_python_index14fstring_ranges13FStringRanges9innermost17ha
 
 8:                                                ; preds = %5
   %9 = extractvalue { ptr, ptr } %6, 1
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
-  %11 = load i32, ptr %9, align 4, !alias.scope !20, !noalias !23, !noundef !3
-  %.not.i.i.i = icmp ugt i32 %11, %2
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %13 = load i32, ptr %12, align 4, !alias.scope !20, !noalias !23
-  %14 = icmp uge i32 %2, %13
-  %or.cond.i.not.i = select i1 %.not.i.i.i, i1 true, i1 %14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  %10 = load i32, ptr %9, align 4, !alias.scope !20, !noalias !23, !noundef !3
+  %.not.i.i.i = icmp ugt i32 %10, %2
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %12 = load i32, ptr %11, align 4, !alias.scope !20, !noalias !23
+  %13 = icmp uge i32 %2, %12
+  %or.cond.i.not.i = select i1 %.not.i.i.i, i1 true, i1 %13
   br i1 %or.cond.i.not.i, label %5, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17habb2bf257815c553E.exit
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17habb2bf257815c553E.exit: ; preds = %8
-  %15 = load i32, ptr %9, align 4, !noundef !3
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %17 = load i32, ptr %16, align 4, !noundef !3
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %15, ptr %18, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %17, ptr %19, align 4
+  %14 = load i32, ptr %9, align 4, !noundef !3
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %16 = load i32, ptr %15, align 4, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %14, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %16, ptr %18, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17habb2bf257815c553E.exit
@@ -154,58 +152,56 @@ define void @_ZN17ruff_python_index14fstring_ranges13FStringRanges9outermost17hc
 
 11:                                               ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h7c00bd6700dd63f3E.exit.i.i.i.i.i.i"
   %12 = extractvalue { ptr, ptr } %9, 1
-  %13 = icmp ne ptr %12, null
-  call void @llvm.assume(i1 %13)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %14 = load i32, ptr %12, align 4, !alias.scope !47, !noalias !50, !noundef !3
-  %15 = load i32, ptr %6, align 4, !noalias !52, !noundef !3
-  %.not.i.i.i.i.i.i.i.i.i = icmp ule i32 %14, %15
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %17 = load i32, ptr %16, align 4, !alias.scope !47, !noalias !50
-  %.not.i.i.i.i.i.i.i.i = icmp ult i32 %15, %17
+  %13 = load i32, ptr %12, align 4, !alias.scope !47, !noalias !50, !noundef !3
+  %14 = load i32, ptr %6, align 4, !noalias !52, !noundef !3
+  %.not.i.i.i.i.i.i.i.i.i = icmp ule i32 %13, %14
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %16 = load i32, ptr %15, align 4, !alias.scope !47, !noalias !50
+  %.not.i.i.i.i.i.i.i.i = icmp ult i32 %14, %16
   %or.cond.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 %.not.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i, label %18, label %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h7c00bd6700dd63f3E.exit.i.i.i.i.i.i"
+  br i1 %or.cond.i.i.i.i.i.i.i, label %17, label %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h7c00bd6700dd63f3E.exit.i.i.i.i.i.i"
 
-18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i8 1, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !55, !noalias !57
-  %20 = load i32, ptr %12, align 4, !alias.scope !59, !noalias !62, !noundef !3
-  %.not.i.i.i.i.i = icmp ule i32 %20, %15
-  %21 = load i32, ptr %19, align 4, !alias.scope !59, !noalias !62
-  %22 = icmp ult i32 %15, %21
-  %or.cond.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %22, i1 false
+  %19 = load i32, ptr %12, align 4, !alias.scope !59, !noalias !62, !noundef !3
+  %.not.i.i.i.i.i = icmp ule i32 %19, %14
+  %20 = load i32, ptr %18, align 4, !alias.scope !59, !noalias !62
+  %21 = icmp ult i32 %14, %20
+  %or.cond.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %21, i1 false
   br i1 %or.cond.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17habdc139eb432bd5dE.exit.i.i", label %.critedge
 
-"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17habdc139eb432bd5dE.exit.i.i": ; preds = %18
+"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17habdc139eb432bd5dE.exit.i.i": ; preds = %17
   call void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2196b7da0e0a7d93E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %.sroa.42.0..sroa_idx, ptr noalias noundef nonnull readonly align 4 dereferenceable_or_null(4) %10, ptr nonnull %12, ptr noalias noundef nonnull align 8 dereferenceable(80) %5, ptr noalias noundef nonnull align 1 dereferenceable(1) %8)
   %.phi.trans.insert9.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre10.i = load ptr, ptr %.phi.trans.insert9.i, align 8, !noalias !31
   %.phi.trans.insert11.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre12.i = load ptr, ptr %.phi.trans.insert11.i, align 8, !noalias !31
-  %23 = icmp eq ptr %.pre10.i, null
+  %22 = icmp eq ptr %.pre10.i, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %23, label %31, label %24
+  br i1 %22, label %29, label %23
 
-24:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17habdc139eb432bd5dE.exit.i.i"
-  %25 = icmp ne ptr %.pre12.i, null
-  call void @llvm.assume(i1 %25)
-  %26 = load i32, ptr %.pre12.i, align 4, !noundef !3
-  %27 = getelementptr inbounds nuw i8, ptr %.pre12.i, i64 4
-  %28 = load i32, ptr %27, align 4, !noundef !3
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %26, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %28, ptr %30, align 4
-  br label %31
+23:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17habdc139eb432bd5dE.exit.i.i"
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre12.i) ]
+  %24 = load i32, ptr %.pre12.i, align 4, !noundef !3
+  %25 = getelementptr inbounds nuw i8, ptr %.pre12.i, i64 4
+  %26 = load i32, ptr %25, align 4, !noundef !3
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %24, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %26, ptr %28, align 4
+  br label %29
 
-.critedge:                                        ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h7c00bd6700dd63f3E.exit.i.i.i.i.i.i", %18
+.critedge:                                        ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h7c00bd6700dd63f3E.exit.i.i.i.i.i.i", %17
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %31
+  br label %29
 
-31:                                               ; preds = %.critedge, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17habdc139eb432bd5dE.exit.i.i", %24
-  %storemerge = phi i32 [ 1, %24 ], [ 0, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17habdc139eb432bd5dE.exit.i.i" ], [ 0, %.critedge ]
+29:                                               ; preds = %.critedge, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17habdc139eb432bd5dE.exit.i.i", %23
+  %storemerge = phi i32 [ 1, %23 ], [ 0, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17habdc139eb432bd5dE.exit.i.i" ], [ 0, %.critedge ]
   store i32 %storemerge, ptr %0, align 4
   ret void
 }

@@ -2662,7 +2662,7 @@ define hidden void @zif_ob_flush(ptr noundef readonly captures(none) %0, ptr nou
   store i32 3, ptr %19, align 8, !tbaa !8
   br label %20
 
-20:                                               ; preds = %18, %11, %7, %5
+20:                                               ; preds = %5, %18, %11, %7
   ret void
 }
 
@@ -2754,7 +2754,7 @@ define hidden void @zif_ob_clean(ptr noundef readonly captures(none) %0, ptr nou
   store i32 3, ptr %38, align 8, !tbaa !8
   br label %39
 
-39:                                               ; preds = %37, %31, %8, %6
+39:                                               ; preds = %6, %37, %31, %8
   ret void
 }
 
@@ -2788,7 +2788,7 @@ define hidden void @zif_ob_end_flush(ptr noundef readonly captures(none) %0, ptr
   store i32 %11, ptr %12, align 8, !tbaa !8
   br label %13
 
-13:                                               ; preds = %9, %7, %5
+13:                                               ; preds = %5, %9, %7
   ret void
 }
 
@@ -2822,7 +2822,7 @@ define hidden void @zif_ob_end_clean(ptr noundef readonly captures(none) %0, ptr
   store i32 %11, ptr %12, align 8, !tbaa !8
   br label %13
 
-13:                                               ; preds = %9, %7, %5
+13:                                               ; preds = %5, %9, %7
   ret void
 }
 
@@ -2897,7 +2897,7 @@ zend_string_alloc.exit.i:                         ; preds = %7
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef nonnull @.str, i32 noundef 8, ptr noundef nonnull @.str.12, ptr noundef nonnull %30, i32 noundef %32) #22
   br label %33
 
-33:                                               ; preds = %27, %24, %22, %5
+33:                                               ; preds = %5, %27, %24, %22
   ret void
 }
 
@@ -2970,7 +2970,7 @@ zend_string_alloc.exit.i:                         ; preds = %9
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef nonnull @.str, i32 noundef 8, ptr noundef nonnull @.str.12, ptr noundef nonnull %30, i32 noundef %32) #22
   br label %33
 
-33:                                               ; preds = %27, %24, %7, %5
+33:                                               ; preds = %5, %27, %24, %7
   ret void
 }
 
@@ -3032,7 +3032,7 @@ php_output_get_contents.exit:                     ; preds = %zend_string_alloc.e
   store i32 2, ptr %24, align 8, !tbaa !8
   br label %25
 
-25:                                               ; preds = %php_output_get_contents.exit, %23, %5
+25:                                               ; preds = %php_output_get_contents.exit, %5, %23
   ret void
 }
 
@@ -3064,7 +3064,7 @@ php_output_get_level.exit:                        ; preds = %.critedge, %7
   store i32 4, ptr %11, align 8, !tbaa !8
   br label %12
 
-12:                                               ; preds = %php_output_get_level.exit, %5
+12:                                               ; preds = %5, %php_output_get_level.exit
   ret void
 }
 
@@ -3097,7 +3097,7 @@ php_output_get_length.exit:                       ; preds = %.critedge
   store i32 2, ptr %11, align 8, !tbaa !8
   br label %12
 
-12:                                               ; preds = %php_output_get_length.exit, %10, %5
+12:                                               ; preds = %php_output_get_length.exit, %5, %10
   ret void
 }
 
@@ -3125,7 +3125,7 @@ define hidden void @zif_ob_list_handlers(ptr noundef readonly captures(none) %0,
   tail call void @zend_stack_apply_with_argument(ptr noundef nonnull @output_globals, i32 noundef 1, ptr noundef nonnull @php_output_stack_apply_list, ptr noundef nonnull %1) #22
   br label %10
 
-10:                                               ; preds = %.critedge, %9, %5
+10:                                               ; preds = %5, %.critedge, %9
   ret void
 }
 
@@ -3192,7 +3192,7 @@ define hidden void @zif_ob_get_status(ptr noundef readonly captures(none) %0, pt
   %20 = call fastcc ptr @php_output_handler_status(ptr noundef nonnull %9, ptr noundef %1)
   br label %21
 
-21:                                               ; preds = %2, %16, %19, %10
+21:                                               ; preds = %16, %19, %2, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3211,48 +3211,47 @@ define internal noundef i32 @php_output_stack_apply_status(ptr noundef readonly 
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc nonnull ptr @php_output_handler_status(ptr noundef readonly captures(none) %0, ptr noundef returned %1) unnamed_addr #7 {
-  %3 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = tail call ptr @_zend_new_array_0() #22
-  store ptr %4, ptr %1, align 8, !tbaa !8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 775, ptr %5, align 8, !tbaa !8
-  %6 = load ptr, ptr %0, align 8, !tbaa !78
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !8
-  %9 = and i32 %8, 64
-  %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %10, label %zend_string_copy.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %3 = tail call ptr @_zend_new_array_0() #22
+  store ptr %3, ptr %1, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 775, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %0, align 8, !tbaa !78
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %7 = load i32, ptr %6, align 4, !tbaa !8
+  %8 = and i32 %7, 64
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %9, label %zend_string_copy.exit
 
-10:                                               ; preds = %2
-  %11 = load i32, ptr %6, align 4, !tbaa !20
-  %12 = add i32 %11, 1
-  store i32 %12, ptr %6, align 4, !tbaa !20
+9:                                                ; preds = %2
+  %10 = load i32, ptr %5, align 4, !tbaa !20
+  %11 = add i32 %10, 1
+  store i32 %11, ptr %5, align 4, !tbaa !20
   br label %zend_string_copy.exit
 
-zend_string_copy.exit:                            ; preds = %2, %10
-  tail call void @add_assoc_str_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.21, i64 noundef 4, ptr noundef nonnull %6) #22
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !54
-  %15 = and i32 %14, 15
-  %16 = zext nneg i32 %15 to i64
-  tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, i64 noundef 4, i64 noundef %16) #22
-  %17 = load i32, ptr %13, align 8, !tbaa !54
-  %18 = sext i32 %17 to i64
-  tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, i64 noundef 5, i64 noundef %18) #22
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %20 = load i32, ptr %19, align 4, !tbaa !79
-  %21 = sext i32 %20 to i64
-  tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, i64 noundef 5, i64 noundef %21) #22
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !66
-  tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef 10, i64 noundef %23) #22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load i64, ptr %24, align 8, !tbaa !63
-  tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, i64 noundef 11, i64 noundef %25) #22
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %27 = load i64, ptr %26, align 8, !tbaa !64
-  tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, i64 noundef 11, i64 noundef %27) #22
+zend_string_copy.exit:                            ; preds = %2, %9
+  tail call void @add_assoc_str_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.21, i64 noundef 4, ptr noundef nonnull %5) #22
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load i32, ptr %12, align 8, !tbaa !54
+  %14 = and i32 %13, 15
+  %15 = zext nneg i32 %14 to i64
+  tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, i64 noundef 4, i64 noundef %15) #22
+  %16 = load i32, ptr %12, align 8, !tbaa !54
+  %17 = sext i32 %16 to i64
+  tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, i64 noundef 5, i64 noundef %17) #22
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %19 = load i32, ptr %18, align 4, !tbaa !79
+  %20 = sext i32 %19 to i64
+  tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, i64 noundef 5, i64 noundef %20) #22
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load i64, ptr %21, align 8, !tbaa !66
+  tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef 10, i64 noundef %22) #22
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = load i64, ptr %23, align 8, !tbaa !63
+  tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, i64 noundef 11, i64 noundef %24) #22
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %26 = load i64, ptr %25, align 8, !tbaa !64
+  tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, i64 noundef 11, i64 noundef %26) #22
   ret ptr %1
 }
 
@@ -3308,7 +3307,7 @@ define hidden void @zif_output_reset_rewrite_vars(ptr noundef readonly captures(
   store i32 2, ptr %8, align 8, !tbaa !8
   br label %11
 
-11:                                               ; preds = %10, %9, %5
+11:                                               ; preds = %5, %10, %9
   ret void
 }
 

@@ -222,38 +222,36 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
 "_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit.i.i": ; preds = %1
   %13 = tail call { ptr, i64 } %6(), !noalias !36
   %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
   %.fca.1.extract.i.i = extractvalue { ptr, i64 } %13, 1
-  %16 = icmp ne ptr %.val1, null
-  tail call void @llvm.assume(i1 %16)
-  %17 = load ptr, ptr %.val1, align 8, !noalias !36, !noundef !4
-  %18 = load ptr, ptr %17, align 8, !alias.scope !39, !noalias !36, !noundef !4
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZN4core3ops8function6FnOnce9call_once17h10caec62625828eeE.exit, label %20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val1) ]
+  %15 = load ptr, ptr %.val1, align 8, !noalias !36, !noundef !4
+  %16 = load ptr, ptr %15, align 8, !alias.scope !39, !noalias !36, !noundef !4
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %_ZN4core3ops8function6FnOnce9call_once17h10caec62625828eeE.exit, label %18
 
-20:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit.i.i"
-  invoke void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$LT$$u5b$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$u5d$$GT$$GT$17hccbc1bee2f0243ecE.llvm.10022686776672290337"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
-          to label %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge.i.i" unwind label %21, !noalias !36
+18:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit.i.i"
+  invoke void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$LT$$u5b$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$u5d$$GT$$GT$17hccbc1bee2f0243ecE.llvm.10022686776672290337"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
+          to label %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge.i.i" unwind label %19, !noalias !36
 
-"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge.i.i": ; preds = %20
+"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge.i.i": ; preds = %18
   %.pre.i.i = load ptr, ptr %.val1, align 8, !noalias !36
   br label %_ZN4core3ops8function6FnOnce9call_once17h10caec62625828eeE.exit
 
-21:                                               ; preds = %20
-  %22 = landingpad { ptr, i32 }
+19:                                               ; preds = %18
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %.val1, align 8, !noalias !36, !noundef !4
+  %21 = load ptr, ptr %.val1, align 8, !noalias !36, !noundef !4
+  store ptr %14, ptr %21, align 8, !noalias !36
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 %.fca.1.extract.i.i, ptr %22, align 8, !noalias !36
+  resume { ptr, i32 } %20
+
+_ZN4core3ops8function6FnOnce9call_once17h10caec62625828eeE.exit: ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit.i.i", %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge.i.i"
+  %23 = phi ptr [ %.pre.i.i, %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge.i.i" ], [ %15, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit.i.i" ]
   store ptr %14, ptr %23, align 8, !noalias !36
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %.fca.1.extract.i.i, ptr %24, align 8, !noalias !36
-  resume { ptr, i32 } %22
-
-_ZN4core3ops8function6FnOnce9call_once17h10caec62625828eeE.exit: ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit.i.i", %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge.i.i"
-  %25 = phi ptr [ %.pre.i.i, %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge.i.i" ], [ %17, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit.i.i" ]
-  store ptr %14, ptr %25, align 8, !noalias !36
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i64 %.fca.1.extract.i.i, ptr %26, align 8, !noalias !36
   ret i1 true
 }
 
@@ -326,38 +324,37 @@ define hidden noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initial
 "_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit": ; preds = %1
   %13 = tail call { ptr, i64 } %6()
   %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
   %.fca.1.extract = extractvalue { ptr, i64 } %13, 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !4, !align !5, !noundef !4
-  %18 = load ptr, ptr %17, align 8, !noundef !4
-  %19 = load ptr, ptr %18, align 8, !alias.scope !42, !noundef !4
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit", label %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !4, !align !5, !noundef !4
+  %17 = load ptr, ptr %16, align 8, !noundef !4
+  %18 = load ptr, ptr %17, align 8, !alias.scope !42, !noundef !4
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit", label %20
 
-21:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit"
-  invoke void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$LT$$u5b$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$u5d$$GT$$GT$17hccbc1bee2f0243ecE.llvm.10022686776672290337"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18)
-          to label %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge" unwind label %22
+20:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit"
+  invoke void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$LT$$u5b$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$u5d$$GT$$GT$17hccbc1bee2f0243ecE.llvm.10022686776672290337"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
+          to label %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge" unwind label %21
 
-"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge": ; preds = %21
-  %.pre = load ptr, ptr %17, align 8
+"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge": ; preds = %20
+  %.pre = load ptr, ptr %16, align 8
   br label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit"
 
-22:                                               ; preds = %21
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %24 = load ptr, ptr %17, align 8, !noundef !4
-  store ptr %14, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 %.fca.1.extract, ptr %25, align 8
-  resume { ptr, i32 } %23
+  %23 = load ptr, ptr %16, align 8, !noundef !4
+  store ptr %14, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i64 %.fca.1.extract, ptr %24, align 8
+  resume { ptr, i32 } %22
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit": ; preds = %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge", %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit"
-  %26 = phi ptr [ %.pre, %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge" ], [ %18, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit" ]
-  store ptr %14, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %.fca.1.extract, ptr %27, align 8
+  %25 = phi ptr [ %.pre, %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17h3a2794beb6fc2de3E.exit_crit_edge" ], [ %17, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h1a568c01e302c6f3E.exit" ]
+  store ptr %14, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i64 %.fca.1.extract, ptr %26, align 8
   ret i1 true
 }
 

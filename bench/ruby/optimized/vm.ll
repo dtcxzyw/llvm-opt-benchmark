@@ -33998,8 +33998,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.thread.i.i.i:    ; preds = %rbimpl_RB_TYPE_P_fa
 
 vm_cref_replace_with_duplicated_cref.exit:        ; preds = %cref_replace_with_duplicated_cref_each_frame.exit.i, %cref_replace_with_duplicated_cref_each_frame.exit.thread32.i, %91, %rbimpl_RB_TYPE_P_fastpath.exit.i23.i, %103, %107, %110, %115, %116, %rbimpl_RB_TYPE_P_fastpath.exit.i.i25.i, %127, %131, %138
   %.0.i = phi ptr [ %75, %cref_replace_with_duplicated_cref_each_frame.exit.thread32.i ], [ %108, %107 ], [ %132, %138 ], [ %108, %115 ], [ null, %116 ], [ null, %103 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit.i23.i ], [ %108, %110 ], [ null, %91 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit.i.i25.i ], [ %132, %131 ], [ null, %127 ], [ %75, %cref_replace_with_duplicated_cref_each_frame.exit.i ]
-  %141 = icmp ne ptr %.0.i, null
-  tail call void @llvm.assume(i1 %141)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i) ]
   ret ptr %.0.i
 }
 

@@ -447,8 +447,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableENS_8ConstantEEEDaPT0_.exit: ; pre
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %76 = load i64, ptr %75, align 8, !tbaa !151
   %77 = call noundef ptr @_ZN4llvm6Module17getOrInsertGlobalENS_9StringRefEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr %74, i64 %76, ptr noundef %58) #13
-  %.not.i.i62 = icmp ne ptr %77, null
-  call void @llvm.assume(i1 %.not.i.i62)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %77) ]
   %78 = load i8, ptr %77, align 8, !tbaa !158
   %79 = icmp eq i8 %78, 3
   %spec.select.i.i.i = select i1 %79, ptr %77, ptr null

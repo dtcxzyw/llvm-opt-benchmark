@@ -65,43 +65,42 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_entities_read(ptr noundef %
 
 5:                                                ; preds = %2
   tail call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
-  br label %24
+  br label %23
 
 6:                                                ; preds = %2
-  %7 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !21
-  %.not.i = icmp eq ptr %9, null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %php_dom_follow_spec_doc_ref.exit.thread, label %php_dom_follow_spec_doc_ref.exit
 
 php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %6
-  %10 = load ptr, ptr @dom_namednodemap_class_entry, align 8
-  br label %17
+  %9 = load ptr, ptr @dom_namednodemap_class_entry, align 8
+  br label %16
 
 php_dom_follow_spec_doc_ref.exit:                 ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  %12 = load i16, ptr %11, align 4
-  %.fr11 = freeze i16 %12
-  %13 = and i16 %.fr11, 255
-  %14 = icmp eq i16 %13, 2
-  %15 = load ptr, ptr @dom_modern_dtd_namednodemap_class_entry, align 8
-  %16 = load ptr, ptr @dom_namednodemap_class_entry, align 8
-  %spec.select = select i1 %14, ptr %15, ptr %16
-  br label %17
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %11 = load i16, ptr %10, align 4
+  %.fr11 = freeze i16 %11
+  %12 = and i16 %.fr11, 255
+  %13 = icmp eq i16 %12, 2
+  %14 = load ptr, ptr @dom_modern_dtd_namednodemap_class_entry, align 8
+  %15 = load ptr, ptr @dom_namednodemap_class_entry, align 8
+  %spec.select = select i1 %13, ptr %14, ptr %15
+  br label %16
 
-17:                                               ; preds = %php_dom_follow_spec_doc_ref.exit, %php_dom_follow_spec_doc_ref.exit.thread
-  %18 = phi ptr [ %10, %php_dom_follow_spec_doc_ref.exit.thread ], [ %spec.select, %php_dom_follow_spec_doc_ref.exit ]
-  %19 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %18) #10
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %21 = load ptr, ptr %20, align 8, !tbaa !28
-  %22 = load ptr, ptr %1, align 8, !tbaa !16
-  %23 = getelementptr inbounds i8, ptr %22, i64 -24
-  tail call void @dom_namednode_iter(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull %23, ptr noundef %21, ptr noundef null, ptr noundef null) #10
-  br label %24
+16:                                               ; preds = %php_dom_follow_spec_doc_ref.exit, %php_dom_follow_spec_doc_ref.exit.thread
+  %17 = phi ptr [ %9, %php_dom_follow_spec_doc_ref.exit.thread ], [ %spec.select, %php_dom_follow_spec_doc_ref.exit ]
+  %18 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %17) #10
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %21 = load ptr, ptr %1, align 8, !tbaa !16
+  %22 = getelementptr inbounds i8, ptr %21, i64 -24
+  tail call void @dom_namednode_iter(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull %22, ptr noundef %20, ptr noundef null, ptr noundef null) #10
+  br label %23
 
-24:                                               ; preds = %17, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %17 ]
+23:                                               ; preds = %16, %5
+  %.0 = phi i32 [ -1, %5 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -117,43 +116,42 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_notations_read(ptr noundef 
 
 5:                                                ; preds = %2
   tail call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
-  br label %24
+  br label %23
 
 6:                                                ; preds = %2
-  %7 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !21
-  %.not.i = icmp eq ptr %9, null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %php_dom_follow_spec_doc_ref.exit.thread, label %php_dom_follow_spec_doc_ref.exit
 
 php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %6
-  %10 = load ptr, ptr @dom_namednodemap_class_entry, align 8
-  br label %17
+  %9 = load ptr, ptr @dom_namednodemap_class_entry, align 8
+  br label %16
 
 php_dom_follow_spec_doc_ref.exit:                 ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  %12 = load i16, ptr %11, align 4
-  %.fr11 = freeze i16 %12
-  %13 = and i16 %.fr11, 255
-  %14 = icmp eq i16 %13, 2
-  %15 = load ptr, ptr @dom_modern_dtd_namednodemap_class_entry, align 8
-  %16 = load ptr, ptr @dom_namednodemap_class_entry, align 8
-  %spec.select = select i1 %14, ptr %15, ptr %16
-  br label %17
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %11 = load i16, ptr %10, align 4
+  %.fr11 = freeze i16 %11
+  %12 = and i16 %.fr11, 255
+  %13 = icmp eq i16 %12, 2
+  %14 = load ptr, ptr @dom_modern_dtd_namednodemap_class_entry, align 8
+  %15 = load ptr, ptr @dom_namednodemap_class_entry, align 8
+  %spec.select = select i1 %13, ptr %14, ptr %15
+  br label %16
 
-17:                                               ; preds = %php_dom_follow_spec_doc_ref.exit, %php_dom_follow_spec_doc_ref.exit.thread
-  %18 = phi ptr [ %10, %php_dom_follow_spec_doc_ref.exit.thread ], [ %spec.select, %php_dom_follow_spec_doc_ref.exit ]
-  %19 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %18) #10
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
-  %22 = load ptr, ptr %1, align 8, !tbaa !16
-  %23 = getelementptr inbounds i8, ptr %22, i64 -24
-  tail call void @dom_namednode_iter(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull %23, ptr noundef %21, ptr noundef null, ptr noundef null) #10
-  br label %24
+16:                                               ; preds = %php_dom_follow_spec_doc_ref.exit, %php_dom_follow_spec_doc_ref.exit.thread
+  %17 = phi ptr [ %9, %php_dom_follow_spec_doc_ref.exit.thread ], [ %spec.select, %php_dom_follow_spec_doc_ref.exit ]
+  %18 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %17) #10
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %20 = load ptr, ptr %19, align 8, !tbaa !29
+  %21 = load ptr, ptr %1, align 8, !tbaa !16
+  %22 = getelementptr inbounds i8, ptr %21, i64 -24
+  tail call void @dom_namednode_iter(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull %22, ptr noundef %20, ptr noundef null, ptr noundef null) #10
+  br label %23
 
-24:                                               ; preds = %17, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %17 ]
+23:                                               ; preds = %16, %5
+  %.0 = phi i32 [ -1, %5 ], [ 0, %16 ]
   ret i32 %.0
 }
 

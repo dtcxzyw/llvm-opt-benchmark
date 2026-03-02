@@ -91,8 +91,8 @@ define hidden noundef range(i32 0, -2147483647) i32 @_ZNK6hermes14TerminatorInst
 entry:
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
-  switch i8 %0, label %if.end62 [
-    i8 77, label %return
+  switch i8 %0, label %return [
+    i8 87, label %if.then60
     i8 78, label %return.fold.split
     i8 79, label %return.fold.split
     i8 80, label %if.then18
@@ -102,7 +102,6 @@ entry:
     i8 84, label %return.fold.split51
     i8 85, label %return.fold.split51
     i8 86, label %return.fold.split51
-    i8 87, label %if.then60
   ]
 
 if.then18:                                        ; preds = %entry
@@ -119,19 +118,14 @@ if.then60:                                        ; preds = %entry
   %add.i46 = add nuw i32 %div1.i.i45, 1
   br label %return
 
-if.end62:                                         ; preds = %entry
-  %cmp.i.i.i.i.i.i.i.i48 = icmp eq i8 %0, 88
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i.i48)
-  br label %return
-
 return.fold.split:                                ; preds = %entry, %entry
   br label %return
 
 return.fold.split51:                              ; preds = %entry, %entry, %entry, %entry, %entry, %entry
   br label %return
 
-return:                                           ; preds = %entry, %return.fold.split51, %return.fold.split, %if.end62, %if.then60, %if.then18
-  %retval.0 = phi i32 [ 1, %if.end62 ], [ 1, %entry ], [ %add.i46, %if.then60 ], [ %add.i, %if.then18 ], [ 0, %return.fold.split ], [ 2, %return.fold.split51 ]
+return:                                           ; preds = %entry, %return.fold.split51, %return.fold.split, %if.then60, %if.then18
+  %retval.0 = phi i32 [ 2, %return.fold.split51 ], [ 1, %entry ], [ %add.i46, %if.then60 ], [ %add.i, %if.then18 ], [ 0, %return.fold.split ]
   ret i32 %retval.0
 }
 
@@ -241,8 +235,6 @@ if.then60:                                        ; preds = %if.end
   br label %return
 
 if.end62:                                         ; preds = %if.end
-  %cmp.i.i.i.i.i.i.i.i75 = icmp eq i8 %0, 88
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i.i75)
   %call.i.i77 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef 1) #15
   %17 = icmp eq ptr %call.i.i77, null
   %sub.ptr.i.i.i.i78 = getelementptr inbounds i8, ptr %call.i.i77, i64 -16

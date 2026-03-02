@@ -2338,8 +2338,7 @@ _ZN8IdealKit19was_promoted_to_phiEP4NodeS1_.exit.thread: ; preds = %112, %_ZN8Id
 
 _ZN4Node7del_outEPS_.exit.i48:                    ; preds = %151, %139, %_ZN8IdealKit19was_promoted_to_phiEP4NodeS1_.exit.thread
   store ptr %134, ptr %137, align 8
-  %.not8.i49 = icmp ne ptr %134, null
-  tail call void @llvm.assume(i1 %.not8.i49)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %134) ]
   %156 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = icmp eq ptr %157, null
@@ -3257,8 +3256,7 @@ _ZN14MergeMemStream15next_non_empty2Ev.exit:      ; preds = %_ZN14MergeMemStream
 
 _ZN4Node7del_outEPS_.exit.i72:                    ; preds = %204, %192, %185
   store ptr %187, ptr %190, align 8
-  %.not8.i73 = icmp ne ptr %187, null
-  tail call void @llvm.assume(i1 %.not8.i73)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %187) ]
   %209 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = icmp eq ptr %210, null

@@ -21079,8 +21079,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.e
   %1158 = getelementptr inbounds nuw i8, ptr %1157, i64 448
   %.sroa.0.0.copyload.i.i = load i32, ptr %1158, align 8, !tbaa !608
   %1159 = call noundef ptr @_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(696) %1157, i32 %.sroa.0.0.copyload.i.i)
-  %.not.not.i.i = icmp ne ptr %1159, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1159) ]
   %1160 = getelementptr inbounds nuw i8, ptr %1159, i64 16
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %1160, align 8
   %1161 = and i64 %.0.copyload.i.i.i.i.i.i, -8
@@ -27896,8 +27895,7 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit: ; preds = %_ZNK5clang21
 
 _ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i: ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit
   %113 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %109) #26
-  %.not.i23 = icmp ne ptr %113, null
-  tail call void @llvm.assume(i1 %.not.i23)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %113) ]
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %113, i64 16
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 16
   br label %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i

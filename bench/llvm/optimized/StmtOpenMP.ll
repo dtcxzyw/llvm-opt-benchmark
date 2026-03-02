@@ -1436,29 +1436,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 1, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 185
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPMetaDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 185
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPMetaDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 185) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPMetaDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPMetaDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 45, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPMetaDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 45, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -1601,31 +1600,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 1, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 183
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPParallelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 183
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPParallelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 183) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPParallelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPParallelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 48, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i8 0, ptr %39, align 8, !tbaa !68
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPParallelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 48, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i8 0, ptr %38, align 8, !tbaa !68
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -2221,31 +2219,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 207
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 207
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 207) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 67, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 67, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -2921,33 +2918,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %39, %36
   store i32 %15, ptr %42, align 4, !tbaa !9
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %43, align 8, !tbaa !10
-  %44 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = load i16, ptr %.0.i.i.i.i, align 8
-  %46 = and i16 %45, -512
-  %47 = or disjoint i16 %46, 221
-  store i16 %47, ptr %.0.i.i.i.i, align 8
-  %48 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %50, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_15OMPForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %44 = load i16, ptr %.0.i.i.i.i, align 8
+  %45 = and i16 %44, -512
+  %46 = or disjoint i16 %45, 221
+  store i16 %46, ptr %.0.i.i.i.i, align 8
+  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_15OMPForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-50:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 221) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_15OMPForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_15OMPForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %50
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 37, ptr %51, align 8, !tbaa !42
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %52, align 4, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %53, align 8, !tbaa !45
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %55, align 8, !tbaa !29
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i8 0, ptr %56, align 4, !tbaa !86
-  store ptr %41, ptr %54, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_15OMPForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 37, ptr %50, align 8, !tbaa !42
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %51, align 4, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %52, align 8, !tbaa !45
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %54, align 8, !tbaa !29
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i8 0, ptr %55, align 4, !tbaa !86
+  store ptr %41, ptr %53, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -3095,34 +3091,33 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %24, %21
   store i32 2, ptr %27, align 4, !tbaa !9
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %28, align 8, !tbaa !10
-  %29 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %29)
-  %30 = load i16, ptr %.0.i.i.i.i, align 8
-  %31 = and i16 %30, -512
-  %32 = or disjoint i16 %31, 189
-  store i16 %32, ptr %.0.i.i.i.i, align 8
-  %33 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %35, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPTileDirectiveEJNS_14SourceLocationES3_RjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %29 = load i16, ptr %.0.i.i.i.i, align 8
+  %30 = and i16 %29, -512
+  %31 = or disjoint i16 %30, 189
+  store i16 %31, ptr %.0.i.i.i.i, align 8
+  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPTileDirectiveEJNS_14SourceLocationES3_RjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-35:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 189) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPTileDirectiveEJNS_14SourceLocationES3_RjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPTileDirectiveEJNS_14SourceLocationES3_RjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %35
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 101, ptr %36, align 8, !tbaa !42
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %37, align 4, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %38, align 8, !tbaa !45
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %40, align 8, !tbaa !29
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  %42 = mul i32 %2, 3
-  store i32 %42, ptr %41, align 4, !tbaa !31
-  store ptr %26, ptr %39, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPTileDirectiveEJNS_14SourceLocationES3_RjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 101, ptr %35, align 8, !tbaa !42
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %36, align 4, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %37, align 8, !tbaa !45
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %39, align 8, !tbaa !29
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  %41 = mul i32 %2, 3
+  store i32 %41, ptr %40, align 4, !tbaa !31
+  store ptr %26, ptr %38, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -3272,33 +3267,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 2, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 188
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPUnrollDirectiveEJNS_14SourceLocationES3_EEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 188
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPUnrollDirectiveEJNS_14SourceLocationES3_EEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 188) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPUnrollDirectiveEJNS_14SourceLocationES3_EEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPUnrollDirectiveEJNS_14SourceLocationES3_EEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 103, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 1, ptr %39, align 8, !tbaa !29
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i32 0, ptr %40, align 4, !tbaa !31
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPUnrollDirectiveEJNS_14SourceLocationES3_EEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 103, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 1, ptr %38, align 8, !tbaa !29
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i32 0, ptr %39, align 4, !tbaa !31
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -3426,33 +3420,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %19, %16
   store i32 2, ptr %22, align 4, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %23, align 8, !tbaa !10
-  %24 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %24)
-  %25 = load i16, ptr %.0.i.i.i.i, align 8
-  %26 = and i16 %25, -512
-  %27 = or disjoint i16 %26, 190
-  store i16 %27, ptr %.0.i.i.i.i, align 8
-  %28 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPReverseDirectiveEJNS_14SourceLocationES3_EEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %24 = load i16, ptr %.0.i.i.i.i, align 8
+  %25 = and i16 %24, -512
+  %26 = or disjoint i16 %25, 190
+  store i16 %26, ptr %.0.i.i.i.i, align 8
+  %27 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %28, label %29, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPReverseDirectiveEJNS_14SourceLocationES3_EEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-30:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+29:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 190) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPReverseDirectiveEJNS_14SourceLocationES3_EEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPReverseDirectiveEJNS_14SourceLocationES3_EEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %30
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 62, ptr %31, align 8, !tbaa !42
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %32, align 4, !tbaa !45
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %33, align 8, !tbaa !45
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 1, ptr %35, align 8, !tbaa !29
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i32 0, ptr %36, align 4, !tbaa !31
-  store ptr %21, ptr %34, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPReverseDirectiveEJNS_14SourceLocationES3_EEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %29
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 62, ptr %30, align 8, !tbaa !42
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %31, align 4, !tbaa !45
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %32, align 8, !tbaa !45
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 1, ptr %34, align 8, !tbaa !29
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i32 0, ptr %35, align 4, !tbaa !31
+  store ptr %21, ptr %33, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -3600,34 +3593,33 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %24, %21
   store i32 2, ptr %27, align 4, !tbaa !9
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %28, align 8, !tbaa !10
-  %29 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %29)
-  %30 = load i16, ptr %.0.i.i.i.i, align 8
-  %31 = and i16 %30, -512
-  %32 = or disjoint i16 %31, 191
-  store i16 %32, ptr %.0.i.i.i.i, align 8
-  %33 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %35, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPInterchangeDirectiveEJNS_14SourceLocationES3_RjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %29 = load i16, ptr %.0.i.i.i.i, align 8
+  %30 = and i16 %29, -512
+  %31 = or disjoint i16 %30, 191
+  store i16 %31, ptr %.0.i.i.i.i, align 8
+  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPInterchangeDirectiveEJNS_14SourceLocationES3_RjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-35:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 191) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPInterchangeDirectiveEJNS_14SourceLocationES3_RjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPInterchangeDirectiveEJNS_14SourceLocationES3_RjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %35
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 39, ptr %36, align 8, !tbaa !42
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %37, align 4, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %38, align 8, !tbaa !45
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %40, align 8, !tbaa !29
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  %42 = mul i32 %2, 3
-  store i32 %42, ptr %41, align 4, !tbaa !31
-  store ptr %26, ptr %39, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPInterchangeDirectiveEJNS_14SourceLocationES3_RjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 39, ptr %35, align 8, !tbaa !42
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %36, align 4, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %37, align 8, !tbaa !45
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %39, align 8, !tbaa !29
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  %41 = mul i32 %2, 3
+  store i32 %41, ptr %40, align 4, !tbaa !31
+  store ptr %26, ptr %38, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -4255,31 +4247,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 220
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 220
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 220) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 38, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 38, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -4422,31 +4413,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 1, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 176
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPSectionsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 176
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPSectionsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 176) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPSectionsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPSectionsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 66, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i8 0, ptr %39, align 8, !tbaa !97
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPSectionsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 66, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i8 0, ptr %38, align 8, !tbaa !97
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -4564,31 +4554,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %19, %16
   store i32 0, ptr %22, align 4, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %23, align 8, !tbaa !10
-  %24 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %24)
-  %25 = load i16, ptr %.0.i.i.i.i, align 8
-  %26 = and i16 %25, -512
-  %27 = or disjoint i16 %26, 177
-  store i16 %27, ptr %.0.i.i.i.i, align 8
-  %28 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPSectionDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %24 = load i16, ptr %.0.i.i.i.i, align 8
+  %25 = and i16 %24, -512
+  %26 = or disjoint i16 %25, 177
+  store i16 %26, ptr %.0.i.i.i.i, align 8
+  %27 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %28, label %29, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPSectionDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-30:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+29:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 177) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPSectionDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPSectionDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %30
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 65, ptr %31, align 8, !tbaa !42
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %32, align 4, !tbaa !45
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %33, align 8, !tbaa !45
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i8 0, ptr %35, align 8, !tbaa !99
-  store ptr %21, ptr %34, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPSectionDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %29
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 65, ptr %30, align 8, !tbaa !42
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %31, align 4, !tbaa !45
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %32, align 8, !tbaa !45
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i8 0, ptr %34, align 8, !tbaa !99
+  store ptr %21, ptr %33, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -4722,29 +4711,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 178
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPScopeDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 178
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPScopeDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 178) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPScopeDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPScopeDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 64, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPScopeDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 64, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -4878,29 +4866,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 175
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPSingleDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 175
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPSingleDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 175) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPSingleDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPSingleDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 68, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPSingleDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 68, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -5015,29 +5002,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %19, %16
   store i32 0, ptr %22, align 4, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8, !tbaa !10
-  %24 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %24)
-  %25 = load i16, ptr %.0.i.i.i.i, align 8
-  %26 = and i16 %25, -512
-  %27 = or disjoint i16 %26, 186
-  store i16 %27, ptr %.0.i.i.i.i, align 8
-  %28 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPMasterDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %24 = load i16, ptr %.0.i.i.i.i, align 8
+  %25 = and i16 %24, -512
+  %26 = or disjoint i16 %25, 186
+  store i16 %26, ptr %.0.i.i.i.i, align 8
+  %27 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %28, label %29, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPMasterDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-30:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+29:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 186) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPMasterDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPMasterDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %30
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 42, ptr %31, align 8, !tbaa !42
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %32, align 4, !tbaa !45
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %33, align 8, !tbaa !45
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %21, ptr %34, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPMasterDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %29
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 42, ptr %30, align 8, !tbaa !42
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %31, align 4, !tbaa !45
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %32, align 8, !tbaa !45
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %21, ptr %33, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -5174,33 +5160,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 231
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPCriticalDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 231
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPCriticalDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 231) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPCriticalDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPCriticalDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 11, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
-  store i64 0, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %40, i8 0, i64 12, i1 false)
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPCriticalDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 11, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  store i64 0, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %39, i8 0, i64 12, i1 false)
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -5864,33 +5849,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %39, %36
   store i32 %15, ptr %42, align 4, !tbaa !9
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %43, align 8, !tbaa !10
-  %44 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = load i16, ptr %.0.i.i.i.i, align 8
-  %46 = and i16 %45, -512
-  %47 = or disjoint i16 %46, 214
-  store i16 %47, ptr %.0.i.i.i.i, align 8
-  %48 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %50, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %44 = load i16, ptr %.0.i.i.i.i, align 8
+  %45 = and i16 %44, -512
+  %46 = or disjoint i16 %45, 214
+  store i16 %46, ptr %.0.i.i.i.i, align 8
+  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-50:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 214) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %50
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 51, ptr %51, align 8, !tbaa !42
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %52, align 4, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %53, align 8, !tbaa !45
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %55, align 8, !tbaa !29
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i8 0, ptr %56, align 4, !tbaa !103
-  store ptr %41, ptr %54, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 51, ptr %50, align 8, !tbaa !42
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %51, align 4, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %52, align 8, !tbaa !45
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %54, align 8, !tbaa !29
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i8 0, ptr %55, align 4, !tbaa !103
+  store ptr %41, ptr %53, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -6518,31 +6502,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 213
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 213
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 213) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 52, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 52, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -6682,29 +6665,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 1, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 181
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPParallelMasterDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 181
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPParallelMasterDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 181) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPParallelMasterDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPParallelMasterDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 56, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPParallelMasterDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 56, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -6844,29 +6826,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 1, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 182
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPParallelMaskedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 182
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPParallelMaskedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 182) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPParallelMaskedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPParallelMaskedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 53, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPParallelMaskedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 53, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -7009,31 +6990,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 1, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 180
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_28OMPParallelSectionsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 180
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_28OMPParallelSectionsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 180) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_28OMPParallelSectionsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_28OMPParallelSectionsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 59, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i8 0, ptr %39, align 8, !tbaa !105
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_28OMPParallelSectionsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 59, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i8 0, ptr %38, align 8, !tbaa !105
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -7170,31 +7150,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 166
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPTaskDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 166
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPTaskDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 166) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPTaskDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPTaskDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 87, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i8 0, ptr %39, align 8, !tbaa !107
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPTaskDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 87, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i8 0, ptr %38, align 8, !tbaa !107
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -7384,29 +7363,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 236
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPAssumeDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 236
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPAssumeDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 236) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPAssumeDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPAssumeDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 2, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPAssumeDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 2, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -7526,29 +7504,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 228
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPErrorDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 228
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPErrorDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 228) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPErrorDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPErrorDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 35, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPErrorDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 35, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -7722,29 +7699,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 164
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPTaskwaitDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 164
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPTaskwaitDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 164) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPTaskwaitDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPTaskwaitDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 91, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPTaskwaitDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 91, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -7884,29 +7860,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 1, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 165
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_21OMPTaskgroupDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 165
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_21OMPTaskgroupDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 165) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_21OMPTaskgroupDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_21OMPTaskgroupDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 88, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_21OMPTaskgroupDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 88, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -8086,31 +8061,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 0, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 233
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPCancelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 233
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPCancelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 233) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPCancelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPCancelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 9, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 102, ptr %39, align 8, !tbaa !111
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPCancelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 9, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 102, ptr %38, align 8, !tbaa !111
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -8230,29 +8204,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 227
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPFlushDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 227
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPFlushDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 227) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPFlushDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPFlushDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 36, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPFlushDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 36, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -8372,29 +8345,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 230
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPDepobjDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 230
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPDepobjDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 230) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPDepobjDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPDepobjDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 17, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPDepobjDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 17, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -8514,29 +8486,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 179
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPScanDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 179
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPScanDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 179) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPScanDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPScanDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 63, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPScanDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 63, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -8674,29 +8645,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %27, %24
   store i32 0, ptr %31, align 4, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8, !tbaa !10
-  %33 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %33)
-  %34 = load i16, ptr %.0.i.i.i.i, align 8
-  %35 = and i16 %34, -512
-  %36 = or disjoint i16 %35, 184
-  store i16 %36, ptr %.0.i.i.i.i, align 8
-  %37 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPOrderedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %33 = load i16, ptr %.0.i.i.i.i, align 8
+  %34 = and i16 %33, -512
+  %35 = or disjoint i16 %34, 184
+  store i16 %35, ptr %.0.i.i.i.i, align 8
+  %36 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %37 = trunc nuw i8 %36 to i1
+  br i1 %37, label %38, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPOrderedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-39:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+38:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 184) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPOrderedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPOrderedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %39
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 47, ptr %40, align 8, !tbaa !42
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %41, align 4, !tbaa !45
-  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %42, align 8, !tbaa !45
-  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %29, ptr %43, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPOrderedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %38
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 47, ptr %39, align 8, !tbaa !42
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %40, align 4, !tbaa !45
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %41, align 8, !tbaa !45
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %29, ptr %42, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -8877,29 +8847,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 7, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 235
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPAtomicDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 235
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPAtomicDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 235) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPAtomicDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPAtomicDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 4, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPAtomicDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 4, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -9033,29 +9002,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 173
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPTargetDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 173
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPTargetDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 173) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPTargetDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPTargetDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 69, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPTargetDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 69, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -9198,31 +9166,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 1, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 170
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPTargetParallelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 170
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPTargetParallelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 170) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPTargetParallelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPTargetParallelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 73, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i8 0, ptr %39, align 8, !tbaa !124
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPTargetParallelDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 73, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i8 0, ptr %38, align 8, !tbaa !124
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -9886,33 +9853,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %39, %36
   store i32 %15, ptr %42, align 4, !tbaa !9
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %43, align 8, !tbaa !10
-  %44 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = load i16, ptr %.0.i.i.i.i, align 8
-  %46 = and i16 %45, -512
-  %47 = or disjoint i16 %46, 169
-  store i16 %47, ptr %.0.i.i.i.i, align 8
-  %48 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %50, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_29OMPTargetParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %44 = load i16, ptr %.0.i.i.i.i, align 8
+  %45 = and i16 %44, -512
+  %46 = or disjoint i16 %45, 169
+  store i16 %46, ptr %.0.i.i.i.i, align 8
+  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_29OMPTargetParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-50:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 169) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_29OMPTargetParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_29OMPTargetParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %50
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 76, ptr %51, align 8, !tbaa !42
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %52, align 4, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %53, align 8, !tbaa !45
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %55, align 8, !tbaa !29
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i8 0, ptr %56, align 4, !tbaa !126
-  store ptr %41, ptr %54, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_29OMPTargetParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 76, ptr %50, align 8, !tbaa !42
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %51, align 4, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %52, align 8, !tbaa !45
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %54, align 8, !tbaa !29
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i8 0, ptr %55, align 4, !tbaa !126
+  store ptr %41, ptr %53, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -10046,29 +10012,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 174
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPTargetDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 174
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPTargetDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 174) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPTargetDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPTargetDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 70, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPTargetDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 70, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -10202,29 +10167,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 172
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPTargetEnterDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 172
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPTargetEnterDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 172) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPTargetEnterDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPTargetEnterDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 71, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPTargetEnterDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 71, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -10358,29 +10322,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 171
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPTargetExitDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 171
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPTargetExitDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 171) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPTargetExitDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPTargetExitDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 72, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPTargetExitDataDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 72, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -10514,29 +10477,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 162
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPTeamsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 162
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPTeamsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 162) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPTeamsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPTeamsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 93, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPTeamsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 93, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -11168,33 +11130,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 198
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 198
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 198) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 89, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i8 0, ptr %55, align 4, !tbaa !128
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 89, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i8 0, ptr %54, align 4, !tbaa !128
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -11822,31 +11783,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 197
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_24OMPTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 197
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_24OMPTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 197) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_24OMPTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_24OMPTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 90, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_24OMPTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 90, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -12478,33 +12438,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 216
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPMasterTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 216
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPMasterTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 216) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPMasterTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPMasterTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 43, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i8 0, ptr %55, align 4, !tbaa !130
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPMasterTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 43, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i8 0, ptr %54, align 4, !tbaa !130
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -13136,33 +13095,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 218
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPMaskedTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 218
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPMaskedTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 218) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPMaskedTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPMaskedTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 40, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i8 0, ptr %55, align 4, !tbaa !132
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPMaskedTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 40, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i8 0, ptr %54, align 4, !tbaa !132
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -13790,31 +13748,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 215
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_30OMPMasterTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 215
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_30OMPMasterTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 215) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_30OMPMasterTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_30OMPMasterTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 44, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_30OMPMasterTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 44, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -14442,31 +14399,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 217
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_30OMPMaskedTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 217
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_30OMPMaskedTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 217) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_30OMPMaskedTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_30OMPMaskedTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 41, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_30OMPMaskedTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 41, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -15098,33 +15054,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 209
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPParallelMasterTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 209
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPParallelMasterTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 209) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPParallelMasterTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPParallelMasterTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 57, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i8 0, ptr %55, align 4, !tbaa !134
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPParallelMasterTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 57, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i8 0, ptr %54, align 4, !tbaa !134
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -15756,33 +15711,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 211
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPParallelMaskedTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 211
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPParallelMaskedTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 211) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPParallelMaskedTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPParallelMaskedTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 54, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i8 0, ptr %55, align 4, !tbaa !136
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPParallelMaskedTaskLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 54, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i8 0, ptr %54, align 4, !tbaa !136
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -16410,31 +16364,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 208
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPParallelMasterTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 208
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPParallelMasterTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 208) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPParallelMasterTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPParallelMasterTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 58, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPParallelMasterTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 58, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -17062,31 +17015,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 210
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPParallelMaskedTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 210
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPParallelMaskedTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 210) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPParallelMaskedTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPParallelMaskedTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 55, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPParallelMaskedTaskLoopSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 55, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -17714,31 +17666,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 225
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 225
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 225) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 18, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 18, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -17872,29 +17823,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 167
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_24OMPTargetUpdateDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 167
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_24OMPTargetUpdateDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 167) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_24OMPTargetUpdateDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_24OMPTargetUpdateDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 86, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_24OMPTargetUpdateDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 86, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -18610,33 +18560,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %39, %36
   store i32 %15, ptr %42, align 4, !tbaa !9
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %43, align 8, !tbaa !10
-  %44 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = load i16, ptr %.0.i.i.i.i, align 8
-  %46 = and i16 %45, -512
-  %47 = or disjoint i16 %46, 224
-  store i16 %47, ptr %.0.i.i.i.i, align 8
-  %48 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %50, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %44 = load i16, ptr %.0.i.i.i.i, align 8
+  %45 = and i16 %44, -512
+  %46 = or disjoint i16 %45, 224
+  store i16 %46, ptr %.0.i.i.i.i, align 8
+  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-50:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 224) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %50
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 21, ptr %51, align 8, !tbaa !42
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %52, align 4, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %53, align 8, !tbaa !45
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %55, align 8, !tbaa !29
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i8 0, ptr %56, align 4, !tbaa !138
-  store ptr %41, ptr %54, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 21, ptr %50, align 8, !tbaa !42
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %51, align 4, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %52, align 8, !tbaa !45
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %54, align 8, !tbaa !29
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i8 0, ptr %55, align 4, !tbaa !138
+  store ptr %41, ptr %53, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -19316,31 +19265,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 223
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 223
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 223) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 22, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 22, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -19968,31 +19916,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 222
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 222
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 222) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 23, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 23, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -20620,31 +20567,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 206
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPTargetParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 206
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPTargetParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 206) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPTargetParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPTargetParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 77, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPTargetParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 77, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -21240,31 +21186,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 204
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPTargetSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 204
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPTargetSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 204) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPTargetSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPTargetSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 78, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPTargetSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 78, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -21892,31 +21837,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 196
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPTeamsDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 196
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPTeamsDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 196) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPTeamsDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPTeamsDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 94, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPTeamsDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 94, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -22544,31 +22488,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 193
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_31OMPTeamsDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 193
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_31OMPTeamsDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 193) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_31OMPTeamsDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_31OMPTeamsDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 99, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_31OMPTeamsDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 99, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -23248,31 +23191,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 194
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_42OMPTeamsDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 194
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_42OMPTeamsDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 194) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_42OMPTeamsDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_42OMPTeamsDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 98, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_42OMPTeamsDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 98, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -23988,33 +23930,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %39, %36
   store i32 %15, ptr %42, align 4, !tbaa !9
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %43, align 8, !tbaa !10
-  %44 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = load i16, ptr %.0.i.i.i.i, align 8
-  %46 = and i16 %45, -512
-  %47 = or disjoint i16 %46, 195
-  store i16 %47, ptr %.0.i.i.i.i, align 8
-  %48 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %50, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPTeamsDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %44 = load i16, ptr %.0.i.i.i.i, align 8
+  %45 = and i16 %44, -512
+  %46 = or disjoint i16 %45, 195
+  store i16 %46, ptr %.0.i.i.i.i, align 8
+  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPTeamsDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-50:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 195) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPTeamsDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPTeamsDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %50
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 97, ptr %51, align 8, !tbaa !42
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %52, align 4, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %53, align 8, !tbaa !45
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %55, align 8, !tbaa !29
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i8 0, ptr %56, align 4, !tbaa !153
-  store ptr %41, ptr %54, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPTeamsDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 97, ptr %50, align 8, !tbaa !42
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %51, align 4, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %52, align 8, !tbaa !45
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %54, align 8, !tbaa !29
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i8 0, ptr %55, align 4, !tbaa !153
+  store ptr %41, ptr %53, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -24148,29 +24089,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 168
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPTargetTeamsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 168
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPTargetTeamsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 168) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPTargetTeamsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPTargetTeamsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 79, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPTargetTeamsDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 79, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -24798,31 +24738,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 203
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPTargetTeamsDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 203
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPTargetTeamsDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 203) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPTargetTeamsDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPTargetTeamsDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 80, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPTargetTeamsDistributeDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 80, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -25538,33 +25477,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %39, %36
   store i32 %15, ptr %42, align 4, !tbaa !9
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %43, align 8, !tbaa !10
-  %44 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = load i16, ptr %.0.i.i.i.i, align 8
-  %46 = and i16 %45, -512
-  %47 = or disjoint i16 %46, 202
-  store i16 %47, ptr %.0.i.i.i.i, align 8
-  %48 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %50, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_44OMPTargetTeamsDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %44 = load i16, ptr %.0.i.i.i.i, align 8
+  %45 = and i16 %44, -512
+  %46 = or disjoint i16 %45, 202
+  store i16 %46, ptr %.0.i.i.i.i, align 8
+  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_44OMPTargetTeamsDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-50:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 202) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_44OMPTargetTeamsDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_44OMPTargetTeamsDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %50
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 83, ptr %51, align 8, !tbaa !42
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %52, align 4, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %53, align 8, !tbaa !45
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %55, align 8, !tbaa !29
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i8 0, ptr %56, align 4, !tbaa !155
-  store ptr %41, ptr %54, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_44OMPTargetTeamsDistributeParallelForDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 83, ptr %50, align 8, !tbaa !42
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %51, align 4, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %52, align 8, !tbaa !45
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %54, align 8, !tbaa !29
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i8 0, ptr %55, align 4, !tbaa !155
+  store ptr %41, ptr %53, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -26244,31 +26182,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 201
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_48OMPTargetTeamsDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 201
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_48OMPTargetTeamsDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 201) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_48OMPTargetTeamsDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_48OMPTargetTeamsDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 84, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_48OMPTargetTeamsDistributeParallelForSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 84, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -26896,31 +26833,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 200
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPTargetTeamsDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 200
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPTargetTeamsDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 200) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPTargetTeamsDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPTargetTeamsDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 85, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPTargetTeamsDistributeSimdDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 85, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -27040,29 +26976,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 226
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPInteropDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 226
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPInteropDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 226) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPInteropDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPInteropDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 106, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPInteropDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 106, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -27198,31 +27133,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 229
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPDispatchDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 229
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPDispatchDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 229) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPDispatchDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPDispatchDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 105, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 0, ptr %39, align 8, !tbaa !157
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPDispatchDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 105, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 0, ptr %38, align 8, !tbaa !157
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -27356,29 +27290,28 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %23, %20
   store i32 0, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %27, align 8, !tbaa !10
-  %28 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = load i16, ptr %.0.i.i.i.i, align 8
-  %30 = and i16 %29, -512
-  %31 = or disjoint i16 %30, 187
-  store i16 %31, ptr %.0.i.i.i.i, align 8
-  %32 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPMaskedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %28 = load i16, ptr %.0.i.i.i.i, align 8
+  %29 = and i16 %28, -512
+  %30 = or disjoint i16 %29, 187
+  store i16 %30, ptr %.0.i.i.i.i, align 8
+  %31 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPMaskedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 187) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPMaskedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPMaskedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 108, ptr %35, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %36, align 4, !tbaa !45
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store ptr %25, ptr %38, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPMaskedDirectiveEEEPT_RKNS_10ASTContextEjbj.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %33
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 108, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store ptr %25, ptr %37, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -28006,31 +27939,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 219
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 219
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 219) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 107, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 107, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -28710,31 +28642,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 192
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_28OMPTeamsGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 192
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_28OMPTeamsGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 192) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_28OMPTeamsGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_28OMPTeamsGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 113, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_28OMPTeamsGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 113, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -29418,33 +29349,32 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 199
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPTargetTeamsGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 199
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPTargetTeamsGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 199) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPTargetTeamsGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPTargetTeamsGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 112, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
-  store i8 0, ptr %55, align 4, !tbaa !158
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPTargetTeamsGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 112, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
+  store i8 0, ptr %54, align 4, !tbaa !158
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -30072,31 +30002,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 212
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_31OMPParallelGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 212
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_31OMPParallelGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 212) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_31OMPParallelGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_31OMPParallelGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 109, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_31OMPParallelGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 109, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 
@@ -30724,31 +30653,30 @@ _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %38, %35
   store i32 %14, ptr %41, align 4, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %42, align 8, !tbaa !10
-  %43 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i16, ptr %.0.i.i.i.i, align 8
-  %45 = and i16 %44, -512
-  %46 = or disjoint i16 %45, 205
-  store i16 %46, ptr %.0.i.i.i.i, align 8
-  %47 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPTargetParallelGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i.i) ]
+  %43 = load i16, ptr %.0.i.i.i.i, align 8
+  %44 = and i16 %43, -512
+  %45 = or disjoint i16 %44, 205
+  store i16 %45, ptr %.0.i.i.i.i, align 8
+  %46 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1, !tbaa !65, !range !20, !noundef !21
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPTargetParallelGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
+48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   tail call void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef 205) #14
   br label %_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPTargetParallelGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit
 
-_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPTargetParallelGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i32 111, ptr %50, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  store i32 0, ptr %51, align 4, !tbaa !45
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store i32 %2, ptr %54, align 8, !tbaa !29
-  store ptr %40, ptr %53, align 8, !tbaa !14
+_ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPTargetParallelGenericLoopDirectiveEJRjEEEPT_RKNS_10ASTContextEjbjDpOT0_.exit: ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i32 111, ptr %49, align 8, !tbaa !42
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  store i32 0, ptr %50, align 4, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store i32 %2, ptr %53, align 8, !tbaa !29
+  store ptr %40, ptr %52, align 8, !tbaa !14
   ret ptr %.0.i.i.i.i
 }
 

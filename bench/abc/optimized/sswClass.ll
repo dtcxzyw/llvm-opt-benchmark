@@ -2332,7 +2332,6 @@ define noalias noundef ptr @Ssw_ClassesPreparePairs(ptr noundef %0, ptr noundef 
 
 .lr.ph102:                                        ; preds = %.preheader
   %21 = getelementptr i8, ptr %18, i64 8
-  %.not.i = icmp ne ptr %.val72, null
   %22 = getelementptr i8, ptr %.val72, i64 8
   %23 = getelementptr i8, ptr %0, i64 48
   %24 = getelementptr i8, ptr %0, i64 256
@@ -2349,7 +2348,7 @@ Aig_ManObj.exit:                                  ; preds = %26
   %.val84 = load ptr, ptr %21, align 8, !tbaa !89
   %28 = getelementptr inbounds nuw i32, ptr %.val84, i64 %indvars.iv111
   %29 = load i32, ptr %28, align 4, !tbaa !44
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val72) ]
   %.val.i = load ptr, ptr %22, align 8, !tbaa !29
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %.val.i, i64 %30

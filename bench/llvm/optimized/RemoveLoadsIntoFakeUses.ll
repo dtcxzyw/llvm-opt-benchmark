@@ -542,6 +542,7 @@ _ZN4llvm12LiveRegUnitsD2Ev.exit:                  ; preds = %_ZN4llvm11SmallVect
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %185, align 8
   %186 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %187 = inttoptr i64 %186 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %187) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %187, align 8
   %188 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %188, 0
@@ -591,6 +592,7 @@ _ZN4llvm11po_iteratorIPNS_15MachineFunctionENS_11SmallPtrSetIPNS_17MachineBasicB
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i64 = load i64, ptr %.sroa.0113.0159, align 8
   %200 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i64, -8
   %201 = inttoptr i64 %200 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %201) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %201, align 8
   %202 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i65 = icmp eq i64 %202, 0

@@ -644,6 +644,7 @@ default.unreachable:                              ; preds = %185
   store i64 %.sroa.569.0.copyload, ptr %.sroa.9.0..sroa_idx17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %85) ]
   invoke void @_ZN3std3sys3pal4unix2fs12canonicalize17hea66a61a00c76ba8E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %55, ptr noalias noundef nonnull readonly align 1 %85, i64 noundef %.sroa.569.0.copyload)
           to label %_ZN5dunce12canonicalize17hbd33f65aeaf94425E.exit unwind label %88
 
@@ -1266,10 +1267,12 @@ _ZN3std4path7PathBuf4push17h0f87a070931dfa0eE.exit188: ; preds = %309, %272
   %.sroa.6251.0 = phi ptr [ %280, %272 ], [ %.sroa.6251.1, %309 ]
   %.sroa.9.0268 = phi ptr [ %279, %272 ], [ %.sroa.9.1, %309 ]
   %.sroa.12.0 = phi ptr [ %281, %272 ], [ %.sroa.12.1, %309 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6251.0) ]
   %282 = icmp eq ptr %.sroa.0250.0, %.sroa.6251.0
   br i1 %282, label %283, label %287
 
 283:                                              ; preds = %_ZN3std4path7PathBuf4push17h0f87a070931dfa0eE.exit188
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.9.0268) ]
   %284 = icmp eq ptr %.sroa.9.0268, %.sroa.12.0
   br i1 %284, label %285, label %287
 

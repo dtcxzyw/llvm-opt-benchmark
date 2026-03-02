@@ -1616,6 +1616,7 @@ _ZN4llvm8DebugLocD2Ev.exit200:                    ; preds = %_ZN4llvm10MIMetadat
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.08.0.i16.i, align 8
   %588 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %589 = inttoptr i64 %588 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %589) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i17.i = load i64, ptr %589, align 8
   %590 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i17.i, 4
   %.not.i.i.i.i18.i = icmp eq i64 %590, 0
@@ -2147,6 +2148,7 @@ _ZN4llvm8DebugLocD2Ev.exit226:                    ; preds = %_ZN4llvm10MIMetadat
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i238 = load i64, ptr %.sroa.08.0.i16.i237, align 8
   %845 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i238, -8
   %846 = inttoptr i64 %845 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %846) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i17.i239 = load i64, ptr %846, align 8
   %847 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i17.i239, 4
   %.not.i.i.i.i18.i240 = icmp eq i64 %847, 0

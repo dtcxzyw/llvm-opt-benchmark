@@ -320,7 +320,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
           to label %.noexc8 unwind label %.loopexit
 
 .noexc8:                                          ; preds = %.lr.ph.i.i
-  br i1 %30, label %60, label %31, !prof !136
+  br i1 %30, label %61, label %31, !prof !136
 
 ._crit_edge.i.i:                                  ; preds = %31, %17
   %.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 1
@@ -374,13 +374,13 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %59 = zext nneg i16 %58 to i64
   br label %62
 
-60:                                               ; preds = %.noexc8
-  call void @"_ZN4core3ptr62drop_in_place$LT$uv_distribution_types..id..DistributionId$GT$17hbecd95a777c028eeE.llvm.16689769700896984180"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1)
-  br label %61
-
-61:                                               ; preds = %62, %60
-  %.sroa.0.0 = phi i1 [ true, %60 ], [ false, %62 ]
+60:                                               ; preds = %62, %61
+  %.sroa.0.0 = phi i1 [ true, %61 ], [ false, %62 ]
   ret i1 %.sroa.0.0
+
+61:                                               ; preds = %.noexc8
+  call void @"_ZN4core3ptr62drop_in_place$LT$uv_distribution_types..id..DistributionId$GT$17hbecd95a777c028eeE.llvm.16689769700896984180"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1)
+  br label %60
 
 62:                                               ; preds = %49, %53
   %.sroa.3.0.i.ph.i = phi i64 [ %59, %53 ], [ %.sroa.6.1.i.i, %49 ]
@@ -411,7 +411,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %80 = getelementptr inbounds i8, ptr %79, i64 -88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %80, ptr noundef nonnull readonly align 8 dereferenceable(88) %4, i64 88, i1 false), !noalias !140
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %61
+  br label %60
 
 81:                                               ; preds = %82
   resume { ptr, i32 } %lpad.phi

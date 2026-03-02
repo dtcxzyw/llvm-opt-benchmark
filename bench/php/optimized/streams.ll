@@ -1792,48 +1792,47 @@ _php_stream_write.exit.thread:                    ; preds = %_php_stream_write.e
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @_php_stream_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %23, label %5
+  br i1 %4, label %22, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = load ptr, ptr %0, align 8, !tbaa !47
-  %8 = load ptr, ptr %7, align 8, !tbaa !128
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %6 = load ptr, ptr %0, align 8, !tbaa !47
+  %7 = load ptr, ptr %6, align 8, !tbaa !128
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %5
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.1) #27
+  br label %22
 
 10:                                               ; preds = %5
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.1) #27
-  br label %23
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = load ptr, ptr %11, align 8, !tbaa !82
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %15, label %13
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !82
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %16, label %14
+13:                                               ; preds = %10
+  %14 = tail call fastcc i64 @_php_stream_write_filtered(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef 0)
+  br label %17
 
-14:                                               ; preds = %11
-  %15 = tail call fastcc i64 @_php_stream_write_filtered(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef 0)
-  br label %18
+15:                                               ; preds = %10
+  %16 = tail call fastcc i64 @_php_stream_write_buffer(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2)
+  br label %17
 
-16:                                               ; preds = %11
-  %17 = tail call fastcc i64 @_php_stream_write_buffer(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2)
-  br label %18
-
-18:                                               ; preds = %16, %14
-  %.0 = phi i64 [ %15, %14 ], [ %17, %16 ]
+17:                                               ; preds = %15, %13
+  %.0 = phi i64 [ %14, %13 ], [ %16, %15 ]
   %.not15 = icmp eq i64 %.0, 0
-  br i1 %.not15, label %23, label %19
+  br i1 %.not15, label %22, label %18
 
-19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %21 = load i32, ptr %20, align 4, !tbaa !53
-  %22 = or i32 %21, -2147483648
-  store i32 %22, ptr %20, align 4, !tbaa !53
-  br label %23
+18:                                               ; preds = %17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %20 = load i32, ptr %19, align 4, !tbaa !53
+  %21 = or i32 %20, -2147483648
+  store i32 %21, ptr %19, align 4, !tbaa !53
+  br label %22
 
-23:                                               ; preds = %18, %19, %3, %10
-  %.013 = phi i64 [ 0, %3 ], [ -1, %10 ], [ %.0, %19 ], [ 0, %18 ]
+22:                                               ; preds = %17, %18, %3, %9
+  %.013 = phi i64 [ 0, %3 ], [ -1, %9 ], [ %.0, %18 ], [ 0, %17 ]
   ret i64 %.013
 }
 

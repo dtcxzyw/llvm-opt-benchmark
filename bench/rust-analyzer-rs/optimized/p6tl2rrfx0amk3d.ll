@@ -345,7 +345,7 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState16with_query_stack
 
 10:                                               ; preds = %5
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.fb7826d4e6db71c0ca753570266be03a.1.llvm.14225396269139012787, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fb7826d4e6db71c0ca753570266be03a.3.llvm.14225396269139012787) #16
-          to label %47 unwind label %49
+          to label %44 unwind label %46
 
 11:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
@@ -361,91 +361,88 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState16with_query_stack
   br i1 %.not6.i, label %"_ZN5salsa7runtime11local_state10LocalState46report_query_read_and_unwind_if_cycle_resulted28_$u7b$$u7b$closure$u7d$$u7d$17hed952b811a65817bE.llvm.14225396269139012787.exit", label %18
 
 18:                                               ; preds = %11
-  %19 = icmp ne ptr %.sroa.4.0.copyload, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = load i8, ptr %.sroa.4.0.copyload, align 1, !noalias !32, !noundef !4
-  %21 = icmp ne ptr %.sroa.5.0.copyload, null
-  tail call void @llvm.assume(i1 %21)
-  %22 = load i32, ptr %.sroa.5.0.copyload, align 4, !range !33, !noalias !32, !noundef !4
-  %23 = load i64, ptr %17, align 8, !range !26, !alias.scope !34, !noalias !32, !noundef !4
-  %.not.i.i = icmp eq i64 %23, -9223372036854775808
-  br i1 %.not.i.i, label %_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i, label %24
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload) ]
+  %19 = load i8, ptr %.sroa.4.0.copyload, align 1, !noalias !32, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.5.0.copyload) ]
+  %20 = load i32, ptr %.sroa.5.0.copyload, align 4, !range !33, !noalias !32, !noundef !4
+  %21 = load i64, ptr %17, align 8, !range !26, !alias.scope !34, !noalias !32, !noundef !4
+  %.not.i.i = icmp eq i64 %21, -9223372036854775808
+  br i1 %.not.i.i, label %_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i, label %22
 
-24:                                               ; preds = %18
-  %25 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %25)
+22:                                               ; preds = %18
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload) ]
   %.sroa.0.0.copyload.i = load i64, ptr %.sroa.0.0.copyload, align 4, !noalias !32
   %.sroa.3.0.extract.shift.i.i.i = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.4.0.extract.shift.i.i.i = lshr i64 %.sroa.0.0.copyload.i, 48
-  %26 = and i64 %.sroa.3.0.extract.shift.i.i.i, 65535
+  %23 = and i64 %.sroa.3.0.extract.shift.i.i.i, 65535
+  %24 = mul i64 %23, 5871781006564002453
+  %25 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 5)
+  %26 = xor i64 %25, %.sroa.4.0.extract.shift.i.i.i
   %27 = mul i64 %26, 5871781006564002453
-  %28 = tail call i64 @llvm.fshl.i64(i64 %27, i64 %27, i64 5)
-  %29 = xor i64 %28, %.sroa.4.0.extract.shift.i.i.i
-  %30 = mul i64 %29, 5871781006564002453
-  %31 = and i64 %.sroa.0.0.copyload.i, 4294967295
-  %32 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 5)
-  %33 = xor i64 %32, %31
-  %34 = mul i64 %33, 5871781006564002453
+  %28 = and i64 %.sroa.0.0.copyload.i, 4294967295
+  %29 = tail call i64 @llvm.fshl.i64(i64 %27, i64 %27, i64 5)
+  %30 = xor i64 %29, %28
+  %31 = mul i64 %30, 5871781006564002453
   %.sroa.4.0.insert.shift.i.i.i = and i64 %.sroa.0.0.copyload.i, -281474976710656
-  %.sroa.3.0.insert.shift.i.i.i = shl nuw nsw i64 %26, 32
+  %.sroa.3.0.insert.shift.i.i.i = shl nuw nsw i64 %23, 32
   %.sroa.3.0.insert.insert.i.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i.i, %.sroa.4.0.insert.shift.i.i.i
-  %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.3.0.insert.insert.i.i.i, %31
-  %35 = invoke { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17h8e650f7d70b08aa1E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17, i64 noundef %34, i64 %.sroa.0.0.insert.insert.i.i.i)
-          to label %_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i unwind label %49
+  %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.3.0.insert.insert.i.i.i, %28
+  %32 = invoke { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17h8e650f7d70b08aa1E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17, i64 noundef %31, i64 %.sroa.0.0.insert.insert.i.i.i)
+          to label %_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i unwind label %46
 
-_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i: ; preds = %24, %18
-  %36 = getelementptr i8, ptr %16, i64 -4
-  %37 = load i8, ptr %36, align 4, !alias.scope !34, !noalias !32, !noundef !4
-  %.0.sroa.speculated.i.i.i = tail call noundef i8 @llvm.umin.i8(i8 %37, i8 %20)
-  store i8 %.0.sroa.speculated.i.i.i, ptr %36, align 4, !alias.scope !34, !noalias !32
-  %38 = getelementptr i8, ptr %16, i64 -8
-  %39 = load i32, ptr %38, align 8, !range !33, !alias.scope !34, !noalias !32, !noundef !4
-  %.0.sroa.speculated.i1.i.i = tail call noundef i32 @llvm.umax.i32(i32 %39, i32 %22)
-  store i32 %.0.sroa.speculated.i1.i.i, ptr %38, align 8, !alias.scope !34, !noalias !32
-  %40 = getelementptr i8, ptr %16, i64 -16
-  %41 = load ptr, ptr %40, align 8, !noalias !32, !noundef !4
-  %.not7.i = icmp eq ptr %41, null
-  br i1 %.not7.i, label %"_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i._ZN5salsa7runtime11local_state10LocalState46report_query_read_and_unwind_if_cycle_resulted28_$u7b$$u7b$closure$u7d$$u7d$17hed952b811a65817bE.llvm.14225396269139012787.exit_crit_edge", label %43
+_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i: ; preds = %22, %18
+  %33 = getelementptr i8, ptr %16, i64 -4
+  %34 = load i8, ptr %33, align 4, !alias.scope !34, !noalias !32, !noundef !4
+  %.0.sroa.speculated.i.i.i = tail call noundef i8 @llvm.umin.i8(i8 %34, i8 %19)
+  store i8 %.0.sroa.speculated.i.i.i, ptr %33, align 4, !alias.scope !34, !noalias !32
+  %35 = getelementptr i8, ptr %16, i64 -8
+  %36 = load i32, ptr %35, align 8, !range !33, !alias.scope !34, !noalias !32, !noundef !4
+  %.0.sroa.speculated.i1.i.i = tail call noundef i32 @llvm.umax.i32(i32 %36, i32 %20)
+  store i32 %.0.sroa.speculated.i1.i.i, ptr %35, align 8, !alias.scope !34, !noalias !32
+  %37 = getelementptr i8, ptr %16, i64 -16
+  %38 = load ptr, ptr %37, align 8, !noalias !32, !noundef !4
+  %.not7.i = icmp eq ptr %38, null
+  br i1 %.not7.i, label %"_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i._ZN5salsa7runtime11local_state10LocalState46report_query_read_and_unwind_if_cycle_resulted28_$u7b$$u7b$closure$u7d$$u7d$17hed952b811a65817bE.llvm.14225396269139012787.exit_crit_edge", label %40
 
 "_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i._ZN5salsa7runtime11local_state10LocalState46report_query_read_and_unwind_if_cycle_resulted28_$u7b$$u7b$closure$u7d$$u7d$17hed952b811a65817bE.llvm.14225396269139012787.exit_crit_edge": ; preds = %_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i
   %.pre = load i64, ptr %0, align 8, !noalias !37
-  %42 = add i64 %.pre, 1
+  %39 = add i64 %.pre, 1
   br label %"_ZN5salsa7runtime11local_state10LocalState46report_query_read_and_unwind_if_cycle_resulted28_$u7b$$u7b$closure$u7d$$u7d$17hed952b811a65817bE.llvm.14225396269139012787.exit"
 
-43:                                               ; preds = %_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i
-  %44 = atomicrmw add ptr %41, i64 1 monotonic, align 8, !noalias !44
-  %45 = icmp slt i64 %44, 0
-  br i1 %45, label %46, label %.noexc6
+40:                                               ; preds = %_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i
+  %41 = atomicrmw add ptr %38, i64 1 monotonic, align 8, !noalias !44
+  %42 = icmp slt i64 %41, 0
+  br i1 %42, label %43, label %.noexc6
 
-46:                                               ; preds = %43
+43:                                               ; preds = %40
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #16
-          to label %.noexc8 unwind label %49
+          to label %.noexc8 unwind label %46
 
-.noexc8:                                          ; preds = %46
+.noexc8:                                          ; preds = %43
   unreachable
 
-.noexc6:                                          ; preds = %43
-  invoke void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %41) #16
-          to label %.noexc7 unwind label %49
+.noexc6:                                          ; preds = %40
+  invoke void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %38) #16
+          to label %.noexc7 unwind label %46
 
 .noexc7:                                          ; preds = %.noexc6
   unreachable
 
-47:                                               ; preds = %10
+44:                                               ; preds = %10
   unreachable
 
 "_ZN5salsa7runtime11local_state10LocalState46report_query_read_and_unwind_if_cycle_resulted28_$u7b$$u7b$closure$u7d$$u7d$17hed952b811a65817bE.llvm.14225396269139012787.exit": ; preds = %"_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i._ZN5salsa7runtime11local_state10LocalState46report_query_read_and_unwind_if_cycle_resulted28_$u7b$$u7b$closure$u7d$$u7d$17hed952b811a65817bE.llvm.14225396269139012787.exit_crit_edge", %11
-  %48 = phi i64 [ %42, %"_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i._ZN5salsa7runtime11local_state10LocalState46report_query_read_and_unwind_if_cycle_resulted28_$u7b$$u7b$closure$u7d$$u7d$17hed952b811a65817bE.llvm.14225396269139012787.exit_crit_edge" ], [ 0, %11 ]
-  store i64 %48, ptr %0, align 8, !noalias !37
+  %45 = phi i64 [ %39, %"_ZN5salsa7runtime11ActiveQuery8add_read17hce9468fac3925a3cE.exit.i._ZN5salsa7runtime11local_state10LocalState46report_query_read_and_unwind_if_cycle_resulted28_$u7b$$u7b$closure$u7d$$u7d$17hed952b811a65817bE.llvm.14225396269139012787.exit_crit_edge" ], [ 0, %11 ]
+  store i64 %45, ptr %0, align 8, !noalias !37
   ret void
 
-49:                                               ; preds = %10, %24, %.noexc6, %46
-  %50 = landingpad { ptr, i32 }
+46:                                               ; preds = %10, %22, %.noexc6, %43
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %51 = load i64, ptr %0, align 8, !noalias !47, !noundef !4
-  %52 = add i64 %51, 1
-  store i64 %52, ptr %0, align 8, !noalias !47
-  resume { ptr, i32 } %50
+  %48 = load i64, ptr %0, align 8, !noalias !47, !noundef !4
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %0, align 8, !noalias !47
+  resume { ptr, i32 } %47
 }
 
 ; Function Attrs: nonlazybind uwtable

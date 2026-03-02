@@ -12073,8 +12073,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_IntGrow.exit.i.
   %26 = load i32, ptr %25, align 8, !tbaa !14
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %25, align 8, !tbaa !14
-  %.not.i20 = icmp ne ptr %.pr43, null
-  tail call void @llvm.assume(i1 %.not.i20)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pr43) ]
   br label %Abc_NtkIncrementTravId.exit27
 
 Abc_NtkIncrementTravId.exit.thread40:             ; preds = %Vec_IntGrow.exit.i.i

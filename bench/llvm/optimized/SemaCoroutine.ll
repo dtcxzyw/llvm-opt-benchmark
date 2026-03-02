@@ -4406,8 +4406,7 @@ _ZN5clang8CallExpr15getDirectCalleeEv.exit:       ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %65, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !899
   %83 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %82) #21
-  %.not.i.i.i = icmp ne ptr %83, null
-  tail call void @llvm.assume(i1 %.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
   %84 = tail call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %83) #21
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %27, ptr noundef nonnull align 8 dereferenceable(8) %77, i32 %84, i32 noundef 5506, i1 noundef zeroext false) #21
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %27) #21

@@ -614,8 +614,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i75: ; preds = %hwloc_get_nbo
   %or.cond.i.i70 = icmp ult i32 %334, -2
   tail call void @llvm.assume(i1 %or.cond.i.i70)
   %335 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %332, i32 noundef range(i32 0, -2) %334, i32 noundef 0) #7
-  %.not.i.i66.i = icmp ne ptr %335, null
-  tail call void @llvm.assume(i1 %.not.i.i66.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %335) ]
   br label %.preheader.i.i67.i
 
 .preheader.i.i67.i:                               ; preds = %341, %327

@@ -117,25 +117,24 @@ define void @_ZN13grep_searcher8searcher8Encoding3new17hd60f9a1b1091e43bE(ptr no
   %6 = load ptr, ptr @_ZN11encoding_rs11REPLACEMENT17hd1156b3be997c6cfE, align 8, !noalias !16, !nonnull !5, !align !19
   %7 = icmp eq ptr %4, %6
   %8 = select i1 %5, i1 true, i1 %7
-  br i1 %8, label %9, label %14
+  br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
   %10 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17ha43889fc6207b940E"(i64 noundef %2, i1 noundef zeroext false)
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = icmp ne ptr %12, null
-  tail call void @llvm.assume(i1 %13)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %1, i64 %2, i1 false)
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.57.0..sroa_idx, align 8
-  br label %14
+  br label %13
 
-14:                                               ; preds = %3, %9
+13:                                               ; preds = %3, %9
   %.sink8 = phi i64 [ %11, %9 ], [ -9223372036854775806, %3 ]
   %.sink = phi ptr [ %12, %9 ], [ %4, %3 ]
   store i64 %.sink8, ptr %0, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %15, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %14, align 8
   ret void
 }
 

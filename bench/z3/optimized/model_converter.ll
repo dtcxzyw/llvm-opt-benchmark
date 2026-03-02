@@ -936,8 +936,8 @@ _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %39, %50, %53, %.
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i.i.i27
   br label %.lr.ph.i.i.i.i29
 
-.lr.ph.i.i.i.i29:                                 ; preds = %.lr.ph.i.i.i.i29.preheader, %80
-  %.035.i.i.i.i30 = phi ptr [ %81, %80 ], [ %70, %.lr.ph.i.i.i.i29.preheader ]
+.lr.ph.i.i.i.i29:                                 ; preds = %.lr.ph.i.i.i.i29.preheader, %79
+  %.035.i.i.i.i30 = phi ptr [ %80, %79 ], [ %70, %.lr.ph.i.i.i.i29.preheader ]
   %71 = load ptr, ptr %.035.i.i.i.i30, align 8, !tbaa !118
   %72 = icmp ult ptr %71, inttoptr (i64 2 to ptr)
   br i1 %72, label %78, label %73
@@ -948,50 +948,48 @@ _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %39, %50, %53, %.
   %76 = icmp eq i32 %75, %62
   %77 = icmp eq ptr %71, %60
   %or.cond.i.i.i.i31 = and i1 %77, %76
-  br i1 %or.cond.i.i.i.i31, label %.loopexit.i42, label %80
+  br i1 %or.cond.i.i.i.i31, label %.loopexit.i42, label %79
 
 78:                                               ; preds = %.lr.ph.i.i.i.i29
-  %79 = icmp ne ptr %71, null
-  tail call void @llvm.assume(i1 %79)
-  br label %80
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %71) ]
+  br label %79
 
-80:                                               ; preds = %78, %73
-  %81 = getelementptr inbounds nuw i8, ptr %.035.i.i.i.i30, i64 16
-  %.not.i.i.i.i32 = icmp eq ptr %81, %68
+79:                                               ; preds = %78, %73
+  %80 = getelementptr inbounds nuw i8, ptr %.035.i.i.i.i30, i64 16
+  %.not.i.i.i.i32 = icmp eq ptr %80, %68
   br i1 %.not.i.i.i.i32, label %.lr.ph38.i.i.i.i35.preheader, label %.lr.ph.i.i.i.i29, !llvm.loop !122
 
-.lr.ph38.i.i.i.i35.preheader:                     ; preds = %80, %57
+.lr.ph38.i.i.i.i35.preheader:                     ; preds = %79, %57
   br label %.lr.ph38.i.i.i.i35
 
 .lr.ph38.i.i.i.i35:                               ; preds = %.lr.ph38.i.i.i.i35.preheader, %.lr.ph38.backedge.i.i.i.i40
   %.137.i.i.i.i36 = phi ptr [ %.137.be.i.i.i.i41, %.lr.ph38.backedge.i.i.i.i40 ], [ %66, %.lr.ph38.i.i.i.i35.preheader ]
-  %82 = load ptr, ptr %.137.i.i.i.i36, align 8, !tbaa !118
-  %83 = icmp ult ptr %82, inttoptr (i64 2 to ptr)
-  br i1 %83, label %89, label %84
+  %81 = load ptr, ptr %.137.i.i.i.i36, align 8, !tbaa !118
+  %82 = icmp ult ptr %81, inttoptr (i64 2 to ptr)
+  br i1 %82, label %88, label %83
 
-84:                                               ; preds = %.lr.ph38.i.i.i.i35
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 12
-  %86 = load i32, ptr %85, align 4, !tbaa !105
-  %87 = icmp eq i32 %86, %62
-  %88 = icmp eq ptr %82, %60
-  %or.cond31.i.i.i.i37 = and i1 %88, %87
+83:                                               ; preds = %.lr.ph38.i.i.i.i35
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 12
+  %85 = load i32, ptr %84, align 4, !tbaa !105
+  %86 = icmp eq i32 %85, %62
+  %87 = icmp eq ptr %81, %60
+  %or.cond31.i.i.i.i37 = and i1 %87, %86
   br i1 %or.cond31.i.i.i.i37, label %.loopexit.i42, label %.lr.ph38.backedge.i.i.i.i40
 
-89:                                               ; preds = %.lr.ph38.i.i.i.i35
-  %90 = icmp ne ptr %82, null
-  tail call void @llvm.assume(i1 %90)
+88:                                               ; preds = %.lr.ph38.i.i.i.i35
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %81) ]
   br label %.lr.ph38.backedge.i.i.i.i40
 
-.lr.ph38.backedge.i.i.i.i40:                      ; preds = %84, %89
+.lr.ph38.backedge.i.i.i.i40:                      ; preds = %83, %88
   %.137.be.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %.137.i.i.i.i36, i64 16
   br label %.lr.ph38.i.i.i.i35, !llvm.loop !123
 
-.loopexit.i42:                                    ; preds = %73, %84
-  %.026.i.i.i.i43 = phi ptr [ %.137.i.i.i.i36, %84 ], [ %.035.i.i.i.i30, %73 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i43, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !124
-  %93 = tail call noundef ptr @_ZNK11func_interp10get_interpEv(ptr noundef nonnull align 8 dereferenceable(56) %92)
-  tail call void @_ZN15model_converter11display_addERSoR19smt2_pp_environmentR11ast_managerP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nonnull align 8 poison, ptr noundef %60, ptr noundef %93)
+.loopexit.i42:                                    ; preds = %73, %83
+  %.026.i.i.i.i43 = phi ptr [ %.137.i.i.i.i36, %83 ], [ %.035.i.i.i.i30, %73 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i43, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !124
+  %91 = tail call noundef ptr @_ZNK11func_interp10get_interpEv(ptr noundef nonnull align 8 dereferenceable(56) %90)
+  tail call void @_ZN15model_converter11display_addERSoR19smt2_pp_environmentR11ast_managerP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nonnull align 8 poison, ptr noundef %60, ptr noundef %91)
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
   br i1 %exitcond70.not, label %._crit_edge56, label %57, !llvm.loop !125

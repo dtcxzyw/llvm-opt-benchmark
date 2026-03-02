@@ -3589,6 +3589,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser15parse_time_spec17h0129b735c83e63f5
   call void @llvm.lifetime.end.p0(ptr nonnull %131), !noalias !201
   call void @llvm.lifetime.end.p0(ptr nonnull %132), !noalias !201
   %.sroa.2614.1305.i = zext i1 %.sroa.2614.1305.in.i to i8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.010.1310.i) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !350)
   %.not.i.i.i = icmp eq i64 %.sroa.1211.1309.i, 0
   br i1 %.not.i.i.i, label %.thread364.i, label %1070
@@ -7118,6 +7119,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser15parse_time_spec17h0129b735c83e63f5
   call void @llvm.lifetime.end.p0(ptr nonnull %118), !noalias !617
   call void @llvm.lifetime.end.p0(ptr nonnull %119), !noalias !617
   %.sroa.26320.1611 = zext i1 %.sroa.26320.1611.in to i8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0316.1616) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !760)
   %.not.i.i = icmp eq i64 %.sroa.12317.1615, 0
   br i1 %.not.i.i, label %.thread670, label %1045
@@ -9598,14 +9600,13 @@ define hidden void @_ZN4jiff2tz5posix10PosixTzEnv12parse_os_str17h4ecaeb6be01bcc
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull readonly align 1 %42, i64 %44, i1 false), !noalias !922
   %53 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17hd72639aa2f4fd279E"(i64 noundef %48, ptr noundef nonnull %52, i64 noundef %44), !noalias !937
   %54 = extractvalue { ptr, i64 } %53, 0
-  %55 = icmp ne ptr %54, null
-  tail call void @llvm.assume(i1 %55)
-  %56 = extractvalue { ptr, i64 } %53, 1
+  %55 = extractvalue { ptr, i64 } %53, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %54) ]
   store i8 4, ptr %0, align 8, !alias.scope !922, !noalias !925
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %54, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !922, !noalias !925
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %56, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !922, !noalias !925
+  store i64 %55, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !922, !noalias !925
   br label %_ZN4jiff2tz5posix10PosixTzEnv5parse17hbd185d96554a4f1eE.exit
 
 _ZN4jiff2tz5posix10PosixTzEnv5parse17hbd185d96554a4f1eE.exit: ; preds = %30, %32, %"_ZN101_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..boxed..convert..BoxFromSlice$LT$T$GT$$GT$10from_slice17h0114697ac97569edE.exit.i"

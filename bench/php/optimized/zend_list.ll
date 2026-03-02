@@ -139,8 +139,7 @@ define dso_local void @zend_list_close(ptr noundef captures(none) %0) local_unna
   %16 = load i32, ptr %15, align 8, !tbaa !16
   %17 = sext i32 %16 to i64
   %18 = tail call ptr @zend_hash_index_find(ptr noundef nonnull @list_destructors, i64 noundef range(i64 -2147483648, 2147483648) %17) #14
-  %.not.i.i = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
   %19 = load ptr, ptr %18, align 8, !tbaa !13, !nonnull !22, !noundef !22
   %20 = load ptr, ptr %19, align 8, !tbaa !23
   %.not.i = icmp eq ptr %20, null
@@ -445,8 +444,7 @@ define hidden void @list_entry_destructor(ptr noundef captures(none) initializes
   %11 = load i32, ptr %10, align 8, !tbaa !16
   %12 = sext i32 %11 to i64
   %13 = tail call ptr @zend_hash_index_find(ptr noundef nonnull @list_destructors, i64 noundef range(i64 -2147483648, 2147483648) %12) #14
-  %.not.i.i = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   %14 = load ptr, ptr %13, align 8, !tbaa !13, !nonnull !22, !noundef !22
   %15 = load ptr, ptr %14, align 8, !tbaa !23
   %.not.i = icmp eq ptr %15, null
@@ -478,8 +476,7 @@ define hidden void @plist_entry_destructor(ptr noundef readonly captures(none) %
 zend_hash_index_find_ptr.exit:                    ; preds = %1
   %6 = zext nneg i32 %4 to i64
   %7 = tail call ptr @zend_hash_index_find(ptr noundef nonnull @list_destructors, i64 noundef range(i64 -2147483648, 2147483648) %6) #14
-  %.not.i = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   %8 = load ptr, ptr %7, align 8, !tbaa !13, !nonnull !22, !noundef !22
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !27
@@ -564,8 +561,7 @@ define hidden void @zend_close_rsrc_list(ptr noundef readonly captures(none) %0)
   %28 = load i32, ptr %7, align 8, !tbaa !16
   %29 = sext i32 %28 to i64
   %30 = call ptr @zend_hash_index_find(ptr noundef nonnull @list_destructors, i64 noundef range(i64 -2147483648, 2147483648) %29) #14
-  %.not.i.i = icmp ne ptr %30, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %31 = load ptr, ptr %30, align 8, !tbaa !13, !nonnull !22, !noundef !22
   %32 = load ptr, ptr %31, align 8, !tbaa !23
   %.not.i = icmp eq ptr %32, null

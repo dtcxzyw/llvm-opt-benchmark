@@ -63481,8 +63481,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit361.thread: ; preds = %667, %._crit_
   br i1 %.not309, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit365.threadthread-pre-split, label %679
 
 679:                                              ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit361.thread
-  %.not.i.i.i362 = icmp ne ptr %.pre509, null
-  call void @llvm.assume(i1 %.not.i.i.i362)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre509) ]
   %680 = load i8, ptr %.pre509, align 8, !tbaa !293
   %681 = icmp eq i8 %680, 0
   br i1 %681, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i363, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit365.thread

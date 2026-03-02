@@ -338,19 +338,18 @@ define hidden void @_ZN23G1FullGCCompactionPointC2EP15G1FullCollectorP14Preserve
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %7, align 8
   %8 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 5) #17
-  %9 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 32, i32 noundef 8, i8 noundef zeroext 5) #17
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
+  %9 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 32, i32 noundef 8, i8 noundef zeroext 5) #17
   store i32 0, ptr %8, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 32, ptr %11, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %10, ptr %12, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %10, i8 0, i64 256, i1 false)
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 11, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %8, ptr %14, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 32, ptr %10, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %9, ptr %11, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %9, i8 0, i64 256, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 11, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %8, ptr %13, align 8
   store ptr %8, ptr %6, align 8
   store i32 0, ptr %7, align 8
   ret void

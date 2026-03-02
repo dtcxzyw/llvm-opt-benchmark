@@ -15621,6 +15621,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %4, %11
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8
   %28 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %29 = inttoptr i64 %28 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8
   %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i38 = icmp eq i64 %30, 0
@@ -15786,6 +15787,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZNK4llvm12LexicalS
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i48 = load i64, ptr %.sroa.062.083, align 8
   %102 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i48, -8
   %103 = inttoptr i64 %102 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %103) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i49 = load i64, ptr %103, align 8
   %104 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i49, 4
   %.not.i.i.i.i50 = icmp eq i64 %104, 0
@@ -17172,8 +17174,9 @@ _ZN4llvm13LexicalScopes16findInlinedScopeEPKNS_12DILocalScopeEPKNS_10DILocationE
 
 471:                                              ; preds = %444
   %472 = icmp eq i8 %446, 29
-  call void @llvm.assume(i1 %472)
-  %473 = getelementptr inbounds i8, ptr %445, i64 -16
+  %spec.select.i.i14.i = select i1 %472, ptr %445, ptr null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i14.i) ]
+  %473 = getelementptr inbounds i8, ptr %spec.select.i.i14.i, i64 -16
   %474 = load i64, ptr %473, align 8
   %475 = and i64 %474, 2
   %.not.i.i.i.i15.i = icmp eq i64 %475, 0
@@ -19755,6 +19758,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_12MachineInstrENS_6detail13DenseS
   store ptr %82, ptr %10, align 8, !tbaa !25
   store i32 0, ptr %83, align 8, !tbaa !26
   store i32 2, ptr %84, align 4, !tbaa !27
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %229) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %229, align 8
   %552 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i90 = icmp eq i64 %552, 0
@@ -19806,6 +19810,7 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit:        ; preds = %_ZNK4llvm14ilist_it
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %227, align 8
   %570 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %571 = inttoptr i64 %570 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %571) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i91 = load i64, ptr %571, align 8
   %572 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i91, 4
   %.not.i.i.i.i92 = icmp eq i64 %572, 0
@@ -19871,6 +19876,7 @@ _ZN4llvm17MachineBasicBlock4backEv.exit110:       ; preds = %_ZNK4llvm14ilist_it
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i111 = load i64, ptr %227, align 8
   %597 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i111, -8
   %598 = inttoptr i64 %597 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %598) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i112 = load i64, ptr %598, align 8
   %599 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i112, 4
   %.not.i.i.i.i113 = icmp eq i64 %599, 0
@@ -19992,6 +19998,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockEPNS_12MachineI
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.0.i.i.i.i, align 8
   %662 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %663 = inttoptr i64 %662 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %663) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i133 = load i64, ptr %663, align 8
   %664 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i133, 4
   %.not.i.i.i.i134 = icmp eq i64 %664, 0
@@ -20145,6 +20152,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %713, %714
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i147 = load i64, ptr %.sroa.0259.1405, align 8
   %716 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i147, -8
   %717 = inttoptr i64 %716 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %717) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i148 = load i64, ptr %717, align 8
   %718 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i148, 4
   %.not.i.i.i.i149 = icmp eq i64 %718, 0
@@ -21100,8 +21108,9 @@ _ZN4llvm10DwarfDebug35constructAbstractSubprogramScopeDIEERNS_16DwarfCompileUnit
 
 239:                                              ; preds = %.lr.ph208
   %240 = icmp eq i8 %214, 29
-  call void @llvm.assume(i1 %240)
-  %241 = getelementptr inbounds i8, ptr %213, i64 -16
+  %spec.select.i.i14.i = select i1 %240, ptr %213, ptr null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i14.i) ]
+  %241 = getelementptr inbounds i8, ptr %spec.select.i.i14.i, i64 -16
   %242 = load i64, ptr %241, align 8
   %243 = and i64 %242, 2
   %.not.i.i.i.i15.i = icmp eq i64 %243, 0
@@ -26363,11 +26372,11 @@ define dso_local void @_ZN4llvm10DwarfDebug16handleMacroNodesENS_24MDTupleTypedA
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_11DIMacroNodeEE3endEv.exit
 
 _ZNK4llvm24MDTupleTypedArrayWrapperINS_11DIMacroNodeEE3endEv.exit: ; preds = %8, %14
-  %.sroa.0.0.i.ph29 = phi ptr [ %18, %14 ], [ %10, %8 ]
+  %.sroa.0.0.i.ph28 = phi ptr [ %18, %14 ], [ %10, %8 ]
   %.sroa.3.0.i.i.i.i = phi i64 [ %24, %14 ], [ %13, %8 ]
   %.sroa.0.0.i.i.i.i = phi ptr [ %22, %14 ], [ %10, %8 ]
   %25 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i
-  %.not2224 = icmp eq ptr %.sroa.0.0.i.ph29, %25
+  %.not2224 = icmp eq ptr %.sroa.0.0.i.ph28, %25
   br i1 %.not2224, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_11DIMacroNodeEE3endEv.exit
@@ -26379,7 +26388,7 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_11DIMacroNodeEE3endEv.exit: ; preds = %8,
   ret void
 
 28:                                               ; preds = %.lr.ph, %_ZN4llvm10DwarfDebug13emitMacroFileERNS_11DIMacroFileERNS_16DwarfCompileUnitE.exit
-  %.sroa.014.025 = phi ptr [ %.sroa.0.0.i.ph29, %.lr.ph ], [ %46, %_ZN4llvm10DwarfDebug13emitMacroFileERNS_11DIMacroFileERNS_16DwarfCompileUnitE.exit ]
+  %.sroa.014.025 = phi ptr [ %.sroa.0.0.i.ph28, %.lr.ph ], [ %45, %_ZN4llvm10DwarfDebug13emitMacroFileERNS_11DIMacroFileERNS_16DwarfCompileUnitE.exit ]
   %29 = load ptr, ptr %.sroa.014.025, align 8, !tbaa !194
   %30 = load i8, ptr %29, align 4, !tbaa !1024
   %.not = icmp eq i8 %30, 31
@@ -26390,32 +26399,30 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_11DIMacroNodeEE3endEv.exit: ; preds = %8,
   br label %_ZN4llvm10DwarfDebug13emitMacroFileERNS_11DIMacroFileERNS_16DwarfCompileUnitE.exit
 
 32:                                               ; preds = %28
-  %33 = icmp eq i8 %30, 32
-  tail call void @llvm.assume(i1 %33)
-  %34 = load i8, ptr %26, align 4, !tbaa !835, !range !52, !noundef !53
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %45
+  %33 = load i8, ptr %26, align 4, !tbaa !835, !range !52, !noundef !53
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %35, label %44
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %27, align 8, !tbaa !614
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
-  %39 = load ptr, ptr %38, align 8, !tbaa !270
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !837
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1880
-  %43 = load i16, ptr %42, align 8, !tbaa !869
-  %44 = icmp ugt i16 %43, 4
-  %_ZN4llvm5dwarf11MacroStringEj._ZN4llvm5dwarf14GnuMacroStringEj.i = select i1 %44, ptr @_ZN4llvm5dwarf11MacroStringEj, ptr @_ZN4llvm5dwarf14GnuMacroStringEj
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %27, align 8, !tbaa !614
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
+  %38 = load ptr, ptr %37, align 8, !tbaa !270
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !837
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1880
+  %42 = load i16, ptr %41, align 8, !tbaa !869
+  %43 = icmp ugt i16 %42, 4
+  %_ZN4llvm5dwarf11MacroStringEj._ZN4llvm5dwarf14GnuMacroStringEj.i = select i1 %43, ptr @_ZN4llvm5dwarf11MacroStringEj, ptr @_ZN4llvm5dwarf14GnuMacroStringEj
   tail call void @_ZN4llvm10DwarfDebug17emitMacroFileImplERNS_11DIMacroFileERNS_16DwarfCompileUnitEjjPFNS_9StringRefEjE(ptr noundef nonnull align 8 dereferenceable(5876) %0, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(688) %2, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %_ZN4llvm5dwarf11MacroStringEj._ZN4llvm5dwarf14GnuMacroStringEj.i)
   br label %_ZN4llvm10DwarfDebug13emitMacroFileERNS_11DIMacroFileERNS_16DwarfCompileUnitE.exit
 
-45:                                               ; preds = %32
+44:                                               ; preds = %32
   tail call void @_ZN4llvm10DwarfDebug17emitMacroFileImplERNS_11DIMacroFileERNS_16DwarfCompileUnitEjjPFNS_9StringRefEjE(ptr noundef nonnull align 8 dereferenceable(5876) %0, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(688) %2, i32 noundef 3, i32 noundef 4, ptr noundef nonnull @_ZN4llvm5dwarf13MacinfoStringEj)
   br label %_ZN4llvm10DwarfDebug13emitMacroFileERNS_11DIMacroFileERNS_16DwarfCompileUnitE.exit
 
-_ZN4llvm10DwarfDebug13emitMacroFileERNS_11DIMacroFileERNS_16DwarfCompileUnitE.exit: ; preds = %45, %36, %31
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.014.025, i64 8
-  %.not22 = icmp eq ptr %46, %25
+_ZN4llvm10DwarfDebug13emitMacroFileERNS_11DIMacroFileERNS_16DwarfCompileUnitE.exit: ; preds = %44, %35, %31
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.014.025, i64 8
+  %.not22 = icmp eq ptr %45, %25
   br i1 %.not22, label %._crit_edge, label %28
 }
 

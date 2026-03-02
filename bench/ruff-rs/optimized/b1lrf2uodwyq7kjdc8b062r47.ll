@@ -1532,7 +1532,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze7logging19is_logger_
   %26 = alloca [144 x i8], align 8
   %27 = load i32, ptr %0, align 8, !range !88, !noundef !3
   %28 = icmp eq i32 %27, 24
-  br i1 %28, label %29, label %365
+  br i1 %28, label %29, label %364
 
 29:                                               ; preds = %4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1644,7 +1644,7 @@ common.resume:                                    ; preds = %.body, %330, %56
 79:                                               ; preds = %34, %"_ZN20ruff_python_semantic7analyze7logging19is_logger_candidate28_$u7b$$u7b$closure$u7d$$u7d$17h79dff30406513229E.exit"
   %.sroa.0.1 = phi i1 [ %.sroa.0.0.i, %"_ZN20ruff_python_semantic7analyze7logging19is_logger_candidate28_$u7b$$u7b$closure$u7d$$u7d$17h79dff30406513229E.exit" ], [ false, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %365
+  br label %364
 
 80:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -2420,7 +2420,7 @@ _ZN15ruff_python_ast4name13QualifiedName16from_dotted_name17hc15ce0727ca61b69E.e
   call void @"_ZN4core3ptr57drop_in_place$LT$ruff_python_ast..name..QualifiedName$GT$17h051d73151e30b3bcE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br label %365
+  br label %364
 
 325:                                              ; preds = %330, %.body
   %326 = landingpad { ptr, i32 }
@@ -2437,7 +2437,7 @@ _ZN15ruff_python_ast4name13QualifiedName16from_dotted_name17hc15ce0727ca61b69E.e
 
 "_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_python_ast..name..UnqualifiedName$GT$$GT$17h57863acef6fcb1e2E.exit": ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_python_ast..name..QualifiedName$GT$$GT$17hd2be83d6e1747d98E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %365
+  br label %364
 
 330:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i36", %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i31", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h777319827c3e4e67E.exit.i26", %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i21", %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h777319827c3e4e67E.exit.i", %327
   %331 = landingpad { ptr, i32 }
@@ -2454,112 +2454,111 @@ _ZN15ruff_python_ast4name13QualifiedName16from_dotted_name17hc15ce0727ca61b69E.e
   %335 = extractvalue { ptr, i64 } %329, 0
   %336 = getelementptr { ptr, i64 }, ptr %335, i64 %333
   %337 = getelementptr i8, ptr %336, i64 -16
-  %338 = icmp ne ptr %337, null
-  call void @llvm.assume(i1 %338)
-  %339 = getelementptr i8, ptr %336, i64 -8
-  %340 = load i64, ptr %339, align 8, !noundef !3
-  %.not.i = icmp ult i64 %340, 3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %335) ]
+  %338 = getelementptr i8, ptr %336, i64 -8
+  %339 = load i64, ptr %338, align 8, !noundef !3
+  %.not.i = icmp ult i64 %339, 3
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39.thread", label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h777319827c3e4e67E.exit.i"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h777319827c3e4e67E.exit.i": ; preds = %334
-  %341 = load ptr, ptr %337, align 8, !nonnull !3, !align !53, !noundef !3
-  %342 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 @anon.2b5b11705821689e869012ad6d5a2677.171, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 %341, i64 noundef 3)
+  %340 = load ptr, ptr %337, align 8, !nonnull !3, !align !53, !noundef !3
+  %341 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 @anon.2b5b11705821689e869012ad6d5a2677.171, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 %340, i64 noundef 3)
           to label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit" unwind label %330
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39.thread": ; preds = %334, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24.thread", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit29.thread", %360, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39", %332
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39.thread": ; preds = %334, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24.thread", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit29.thread", %359, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39", %332
   call void @"_ZN4core3ptr59drop_in_place$LT$ruff_python_ast..name..UnqualifiedName$GT$17hf60121c7db0ef856E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %365
+  br label %364
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h777319827c3e4e67E.exit.i"
-  br i1 %342, label %348, label %343
+  br i1 %341, label %347, label %342
 
-343:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit"
-  %.pr = load i64, ptr %339, align 8
+342:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit"
+  %.pr = load i64, ptr %338, align 8
   %.not.i17 = icmp ult i64 %.pr, 6
   br i1 %.not.i17, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24.thread", label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i"
 
-"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i": ; preds = %343
-  %344 = load ptr, ptr %337, align 8, !nonnull !3, !align !53, !noundef !3
-  %345 = getelementptr i8, ptr %344, i64 %.pr
-  %346 = getelementptr i8, ptr %345, i64 -6
-  %347 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 @anon.2b5b11705821689e869012ad6d5a2677.170, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 %346, i64 noundef 6)
+"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i": ; preds = %342
+  %343 = load ptr, ptr %337, align 8, !nonnull !3, !align !53, !noundef !3
+  %344 = getelementptr i8, ptr %343, i64 %.pr
+  %345 = getelementptr i8, ptr %344, i64 -6
+  %346 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 @anon.2b5b11705821689e869012ad6d5a2677.170, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 %345, i64 noundef 6)
           to label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit" unwind label %330
 
-348:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit34", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit29", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit"
+347:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit34", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit29", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit"
   call void @"_ZN4core3ptr59drop_in_place$LT$ruff_python_ast..name..UnqualifiedName$GT$17hf60121c7db0ef856E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %365
+  br label %364
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit": ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i"
-  br i1 %347, label %348, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit.thread"
+  br i1 %346, label %347, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit.thread"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit"
-  %.pr53.pre = load i64, ptr %339, align 8
+  %.pr53.pre = load i64, ptr %338, align 8
   %.not.i20 = icmp ult i64 %.pr53.pre, 7
   br i1 %.not.i20, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24.thread", label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i21"
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i21": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit.thread"
-  %349 = load ptr, ptr %337, align 8, !nonnull !3, !align !53, !noundef !3
-  %350 = getelementptr i8, ptr %349, i64 %.pr53.pre
-  %351 = getelementptr i8, ptr %350, i64 -7
-  %352 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 @anon.2b5b11705821689e869012ad6d5a2677.167, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 %351, i64 noundef 7)
+  %348 = load ptr, ptr %337, align 8, !nonnull !3, !align !53, !noundef !3
+  %349 = getelementptr i8, ptr %348, i64 %.pr53.pre
+  %350 = getelementptr i8, ptr %349, i64 -7
+  %351 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 @anon.2b5b11705821689e869012ad6d5a2677.167, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 %350, i64 noundef 7)
           to label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24" unwind label %330
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24": ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i21"
-  br i1 %352, label %348, label %thread-pre-split44
+  br i1 %351, label %347, label %thread-pre-split44
 
 thread-pre-split44:                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24"
-  %.pr45 = load i64, ptr %339, align 8
+  %.pr45 = load i64, ptr %338, align 8
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24.thread"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24.thread": ; preds = %343, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit.thread", %thread-pre-split44
-  %353 = phi i64 [ %.pr45, %thread-pre-split44 ], [ %.pr53.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit.thread" ], [ %.pr, %343 ]
-  %.not.i25 = icmp ult i64 %353, 3
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24.thread": ; preds = %342, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit.thread", %thread-pre-split44
+  %352 = phi i64 [ %.pr45, %thread-pre-split44 ], [ %.pr53.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit.thread" ], [ %.pr, %342 ]
+  %.not.i25 = icmp ult i64 %352, 3
   br i1 %.not.i25, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39.thread", label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h777319827c3e4e67E.exit.i26"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h777319827c3e4e67E.exit.i26": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit24.thread"
-  %354 = load ptr, ptr %337, align 8, !nonnull !3, !align !53, !noundef !3
-  %355 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 @anon.2b5b11705821689e869012ad6d5a2677.172, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 %354, i64 noundef 3)
+  %353 = load ptr, ptr %337, align 8, !nonnull !3, !align !53, !noundef !3
+  %354 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 @anon.2b5b11705821689e869012ad6d5a2677.172, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 %353, i64 noundef 3)
           to label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit29" unwind label %330
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit29": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h777319827c3e4e67E.exit.i26"
-  br i1 %355, label %348, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit29.thread"
+  br i1 %354, label %347, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit29.thread"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit29.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit29"
-  %.pre = load i64, ptr %339, align 8
+  %.pre = load i64, ptr %338, align 8
   %.not.i30 = icmp ult i64 %.pre, 6
   br i1 %.not.i30, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39.thread", label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i31"
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i31": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hbcb1b2a53d7d361fE.exit29.thread"
-  %356 = load ptr, ptr %337, align 8, !nonnull !3, !align !53, !noundef !3
-  %357 = getelementptr i8, ptr %356, i64 %.pre
-  %358 = getelementptr i8, ptr %357, i64 -6
-  %359 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 @anon.2b5b11705821689e869012ad6d5a2677.173, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 %358, i64 noundef 6)
+  %355 = load ptr, ptr %337, align 8, !nonnull !3, !align !53, !noundef !3
+  %356 = getelementptr i8, ptr %355, i64 %.pre
+  %357 = getelementptr i8, ptr %356, i64 -6
+  %358 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 @anon.2b5b11705821689e869012ad6d5a2677.173, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 %357, i64 noundef 6)
           to label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit34" unwind label %330
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit34": ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i31"
-  br i1 %359, label %348, label %360
+  br i1 %358, label %347, label %359
 
-360:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit34"
-  %.pr49 = load i64, ptr %339, align 8
+359:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit34"
+  %.pr49 = load i64, ptr %338, align 8
   %.not.i35 = icmp ult i64 %.pr49, 7
   br i1 %.not.i35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39.thread", label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i36"
 
-"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i36": ; preds = %360
-  %361 = load ptr, ptr %337, align 8, !nonnull !3, !align !53, !noundef !3
-  %362 = getelementptr i8, ptr %361, i64 %.pr49
-  %363 = getelementptr i8, ptr %362, i64 -7
-  %364 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 @anon.2b5b11705821689e869012ad6d5a2677.86, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 %363, i64 noundef 7)
+"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i36": ; preds = %359
+  %360 = load ptr, ptr %337, align 8, !nonnull !3, !align !53, !noundef !3
+  %361 = getelementptr i8, ptr %360, i64 %.pr49
+  %362 = getelementptr i8, ptr %361, i64 -7
+  %363 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 @anon.2b5b11705821689e869012ad6d5a2677.86, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 %362, i64 noundef 7)
           to label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39" unwind label %330
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39": ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf9781670026e2b7fE.exit.i36"
-  br i1 %364, label %348, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39.thread"
+  br i1 %363, label %347, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39.thread"
 
-365:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_python_ast..name..UnqualifiedName$GT$$GT$17h57863acef6fcb1e2E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39.thread", %4, %79, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb9a1367f85343465E.exit", %348
-  %.sroa.0.0 = phi i1 [ %.sroa.0.1, %79 ], [ %.sroa.0.2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb9a1367f85343465E.exit" ], [ true, %348 ], [ false, %4 ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39.thread" ], [ false, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_python_ast..name..UnqualifiedName$GT$$GT$17h57863acef6fcb1e2E.exit" ]
+364:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_python_ast..name..UnqualifiedName$GT$$GT$17h57863acef6fcb1e2E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39.thread", %4, %79, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb9a1367f85343465E.exit", %347
+  %.sroa.0.0 = phi i1 [ %.sroa.0.1, %79 ], [ %.sroa.0.2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb9a1367f85343465E.exit" ], [ true, %347 ], [ false, %4 ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd77f0ed1b3bd53cdE.exit39.thread" ], [ false, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$ruff_python_ast..name..UnqualifiedName$GT$$GT$17h57863acef6fcb1e2E.exit" ]
   ret i1 %.sroa.0.0
 }
 

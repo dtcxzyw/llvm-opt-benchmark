@@ -515,10 +515,9 @@ define align 8 ptr @"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !align !3, !noundef !4
   store ptr null, ptr %2, align 8
-  %4 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h32d6bfa4be20287bE"(ptr align 8 %3, ptr nonnull align 8 %0)
-  ret ptr %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %4 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h32d6bfa4be20287bE"(ptr align 8 %3, ptr nonnull align 8 %0)
+  ret ptr %4
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -526,10 +525,9 @@ define align 8 ptr @"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !align !3, !noundef !4
   store ptr null, ptr %2, align 8
-  %4 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hfdb8a0a6ca650477E"(ptr align 8 %3, ptr nonnull align 8 %0)
-  ret ptr %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %4 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hfdb8a0a6ca650477E"(ptr align 8 %3, ptr nonnull align 8 %0)
+  ret ptr %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -2422,122 +2420,118 @@ define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty1
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E(ptr align 8 %0, i64 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = icmp ne ptr %0, null
-  br label %5
+  br label %4
 
-5:                                                ; preds = %6, %2
-  %.sroa.01.0 = phi i64 [ 0, %2 ], [ %7, %6 ]
+4:                                                ; preds = %5, %2
+  %.sroa.01.0 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %.not = icmp ult i64 %.sroa.01.0, %1
-  br i1 %.not, label %6, label %.critedge
+  br i1 %.not, label %5, label %.critedge
 
-6:                                                ; preds = %5
-  %7 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hb4b7953bb6a0524eE"(i64 %.sroa.01.0, i64 1)
-  %8 = load ptr, ptr %3, align 8, !align !3, !noundef !4
+5:                                                ; preds = %4
+  %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hb4b7953bb6a0524eE"(i64 %.sroa.01.0, i64 1)
+  %7 = load ptr, ptr %3, align 8, !align !3, !noundef !4
   store ptr null, ptr %3, align 8
-  tail call void @llvm.assume(i1 %4)
-  %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h32d6bfa4be20287bE"(ptr align 8 %8, ptr nonnull align 8 %0)
-  %.not5 = icmp eq ptr %9, null
-  br i1 %.not5, label %10, label %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %8 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h32d6bfa4be20287bE"(ptr align 8 %7, ptr nonnull align 8 %0)
+  %.not5 = icmp eq ptr %8, null
+  br i1 %.not5, label %9, label %4
 
-.critedge:                                        ; preds = %5, %10
-  %.0 = phi i64 [ %11, %10 ], [ 0, %5 ]
+.critedge:                                        ; preds = %4, %9
+  %.0 = phi i64 [ %10, %9 ], [ 0, %4 ]
   ret i64 %.0
 
-10:                                               ; preds = %6
-  %11 = sub i64 %1, %.sroa.01.0
+9:                                                ; preds = %5
+  %10 = sub i64 %1, %.sroa.01.0
   br label %.critedge
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E(ptr align 8 %0, i64 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = icmp ne ptr %0, null
-  br label %5
+  br label %4
 
-5:                                                ; preds = %6, %2
-  %.sroa.01.0 = phi i64 [ 0, %2 ], [ %7, %6 ]
+4:                                                ; preds = %5, %2
+  %.sroa.01.0 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %.not = icmp ult i64 %.sroa.01.0, %1
-  br i1 %.not, label %6, label %.critedge
+  br i1 %.not, label %5, label %.critedge
 
-6:                                                ; preds = %5
-  %7 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hb4b7953bb6a0524eE"(i64 %.sroa.01.0, i64 1)
-  %8 = load ptr, ptr %3, align 8, !align !3, !noundef !4
+5:                                                ; preds = %4
+  %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hb4b7953bb6a0524eE"(i64 %.sroa.01.0, i64 1)
+  %7 = load ptr, ptr %3, align 8, !align !3, !noundef !4
   store ptr null, ptr %3, align 8
-  tail call void @llvm.assume(i1 %4)
-  %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hfdb8a0a6ca650477E"(ptr align 8 %8, ptr nonnull align 8 %0)
-  %.not5 = icmp eq ptr %9, null
-  br i1 %.not5, label %10, label %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %8 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hfdb8a0a6ca650477E"(ptr align 8 %7, ptr nonnull align 8 %0)
+  %.not5 = icmp eq ptr %8, null
+  br i1 %.not5, label %9, label %4
 
-.critedge:                                        ; preds = %5, %10
-  %.0 = phi i64 [ %11, %10 ], [ 0, %5 ]
+.critedge:                                        ; preds = %4, %9
+  %.0 = phi i64 [ %10, %9 ], [ 0, %4 ]
   ret i64 %.0
 
-10:                                               ; preds = %6
-  %11 = sub i64 %1, %.sroa.01.0
+9:                                                ; preds = %5
+  %10 = sub i64 %1, %.sroa.01.0
   br label %.critedge
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_back17h23b808bbb0e380d1E(ptr align 8 %0, i64 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = icmp ne ptr %0, null
-  br label %5
+  br label %4
 
-5:                                                ; preds = %6, %2
-  %.sroa.01.0.i = phi i64 [ 0, %2 ], [ %7, %6 ]
+4:                                                ; preds = %5, %2
+  %.sroa.01.0.i = phi i64 [ 0, %2 ], [ %6, %5 ]
   %.not.i = icmp ult i64 %.sroa.01.0.i, %1
-  br i1 %.not.i, label %6, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit.thread
+  br i1 %.not.i, label %5, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit.thread
 
-6:                                                ; preds = %5
-  %7 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hb4b7953bb6a0524eE"(i64 %.sroa.01.0.i, i64 1)
-  %8 = load ptr, ptr %3, align 8, !align !3, !noundef !4
+5:                                                ; preds = %4
+  %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hb4b7953bb6a0524eE"(i64 %.sroa.01.0.i, i64 1)
+  %7 = load ptr, ptr %3, align 8, !align !3, !noundef !4
   store ptr null, ptr %3, align 8
-  tail call void @llvm.assume(i1 %4)
-  %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hfdb8a0a6ca650477E"(ptr align 8 %8, ptr nonnull align 8 %0)
-  %.not5.i = icmp eq ptr %9, null
-  br i1 %.not5.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit, label %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %8 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hfdb8a0a6ca650477E"(ptr align 8 %7, ptr nonnull align 8 %0)
+  %.not5.i = icmp eq ptr %8, null
+  br i1 %.not5.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit, label %4
 
-_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit.thread: ; preds = %5
-  %10 = load ptr, ptr %3, align 8, !align !3, !noundef !4
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit.thread: ; preds = %4
+  %9 = load ptr, ptr %3, align 8, !align !3, !noundef !4
   store ptr null, ptr %3, align 8
-  tail call void @llvm.assume(i1 %4)
-  %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hfdb8a0a6ca650477E"(ptr align 8 %10, ptr nonnull align 8 %0)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hfdb8a0a6ca650477E"(ptr align 8 %9, ptr nonnull align 8 %0)
   br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit
 
-_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit: ; preds = %6, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit.thread
-  %.0 = phi ptr [ %11, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit.thread ], [ null, %6 ]
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit: ; preds = %5, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit.thread
+  %.0 = phi ptr [ %10, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit.thread ], [ null, %5 ]
   ret ptr %.0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_back17h9c4b9aeb561121c2E(ptr align 8 %0, i64 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = icmp ne ptr %0, null
-  br label %5
+  br label %4
 
-5:                                                ; preds = %6, %2
-  %.sroa.01.0.i = phi i64 [ 0, %2 ], [ %7, %6 ]
+4:                                                ; preds = %5, %2
+  %.sroa.01.0.i = phi i64 [ 0, %2 ], [ %6, %5 ]
   %.not.i = icmp ult i64 %.sroa.01.0.i, %1
-  br i1 %.not.i, label %6, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit.thread
+  br i1 %.not.i, label %5, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit.thread
 
-6:                                                ; preds = %5
-  %7 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hb4b7953bb6a0524eE"(i64 %.sroa.01.0.i, i64 1)
-  %8 = load ptr, ptr %3, align 8, !align !3, !noundef !4
+5:                                                ; preds = %4
+  %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hb4b7953bb6a0524eE"(i64 %.sroa.01.0.i, i64 1)
+  %7 = load ptr, ptr %3, align 8, !align !3, !noundef !4
   store ptr null, ptr %3, align 8
-  tail call void @llvm.assume(i1 %4)
-  %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h32d6bfa4be20287bE"(ptr align 8 %8, ptr nonnull align 8 %0)
-  %.not5.i = icmp eq ptr %9, null
-  br i1 %.not5.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit, label %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %8 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h32d6bfa4be20287bE"(ptr align 8 %7, ptr nonnull align 8 %0)
+  %.not5.i = icmp eq ptr %8, null
+  br i1 %.not5.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit, label %4
 
-_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit.thread: ; preds = %5
-  %10 = load ptr, ptr %3, align 8, !align !3, !noundef !4
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit.thread: ; preds = %4
+  %9 = load ptr, ptr %3, align 8, !align !3, !noundef !4
   store ptr null, ptr %3, align 8
-  tail call void @llvm.assume(i1 %4)
-  %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h32d6bfa4be20287bE"(ptr align 8 %10, ptr nonnull align 8 %0)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h32d6bfa4be20287bE"(ptr align 8 %9, ptr nonnull align 8 %0)
   br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit
 
-_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit: ; preds = %6, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit.thread
-  %.0 = phi ptr [ %11, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit.thread ], [ null, %6 ]
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit: ; preds = %5, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit.thread
+  %.0 = phi ptr [ %10, %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit.thread ], [ null, %5 ]
   ret ptr %.0
 }
 

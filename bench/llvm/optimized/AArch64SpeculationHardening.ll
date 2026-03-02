@@ -1967,6 +1967,7 @@ _ZN4llvm8DebugLocD2Ev.exit63.i:                   ; preds = %675, %_ZN4llvm8Debu
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.095.0115.i, align 8
   %680 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %681 = inttoptr i64 %680 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %681) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i69 = load i64, ptr %681, align 8
   %682 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i69, 4
   %.not.i.i.i.i70 = icmp ne i64 %682, 0

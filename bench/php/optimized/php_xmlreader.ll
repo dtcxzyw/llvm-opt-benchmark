@@ -2067,8 +2067,7 @@ register_class_XMLReader.exit:                    ; preds = %zend_string_release
   store ptr @xmlreader_object_handlers, ptr %759, align 8, !tbaa !46
   %760 = getelementptr inbounds nuw i8, ptr %95, i64 64
   %761 = call ptr @zend_hash_str_find(ptr noundef nonnull %760, ptr noundef nonnull @.str.26, i64 noundef 4) #11
-  %.not.i = icmp ne ptr %761, null
-  call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %761) ]
   %762 = load ptr, ptr %761, align 8, !tbaa !8, !nonnull !9, !noundef !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) @xmlreader_open_fn, ptr noundef nonnull align 1 dereferenceable(160) %762, i64 160, i1 false)
   %763 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xmlreader_open_fn, i64 4), align 4, !tbaa !58
@@ -2077,8 +2076,7 @@ register_class_XMLReader.exit:                    ; preds = %zend_string_release
   %765 = load ptr, ptr @xmlreader_class_entry, align 8, !tbaa !57
   %766 = getelementptr inbounds nuw i8, ptr %765, i64 64
   %767 = call ptr @zend_hash_str_find(ptr noundef nonnull %766, ptr noundef nonnull @.str.27, i64 noundef 3) #11
-  %.not.i1 = icmp ne ptr %767, null
-  call void @llvm.assume(i1 %.not.i1)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %767) ]
   %768 = load ptr, ptr %767, align 8, !tbaa !8, !nonnull !9, !noundef !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) @xmlreader_xml_fn, ptr noundef nonnull align 1 dereferenceable(160) %768, i64 160, i1 false)
   %769 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xmlreader_xml_fn, i64 4), align 4, !tbaa !58
@@ -2614,7 +2612,7 @@ xmlreader_free_resources.exit:                    ; preds = %15, %18
   store i32 3, ptr %19, align 8, !tbaa !8
   br label %20
 
-20:                                               ; preds = %xmlreader_free_resources.exit, %5
+20:                                               ; preds = %5, %xmlreader_free_resources.exit
   ret void
 }
 
@@ -2743,7 +2741,7 @@ zend_string_alloc.exit:                           ; preds = %13
   call void %27(ptr noundef nonnull %16) #11
   br label %.thread
 
-.thread:                                          ; preds = %2, %8, %13, %zend_string_alloc.exit
+.thread:                                          ; preds = %8, %13, %zend_string_alloc.exit, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2829,7 +2827,7 @@ zend_string_alloc.exit:                           ; preds = %24
   call void %38(ptr noundef nonnull %27) #11
   br label %.thread
 
-.thread:                                          ; preds = %2, %20, %24, %zend_string_alloc.exit, %19, %15
+.thread:                                          ; preds = %20, %24, %zend_string_alloc.exit, %2, %19, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2881,7 +2879,7 @@ define hidden void @zim_XMLReader_getParserProperty(ptr noundef readonly capture
   store i32 %21, ptr %22, align 8, !tbaa !8
   br label %23
 
-23:                                               ; preds = %2, %19, %20, %13
+23:                                               ; preds = %19, %20, %2, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3328,7 +3326,7 @@ define hidden void @zim_XMLReader_read(ptr noundef readonly captures(none) %0, p
   store i32 %17, ptr %18, align 8, !tbaa !8
   br label %19
 
-19:                                               ; preds = %16, %14, %10, %5
+19:                                               ; preds = %5, %16, %14, %10
   ret void
 }
 
@@ -4158,7 +4156,7 @@ define hidden void @zim_XMLReader_setSchema(ptr noundef readonly captures(none) 
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.19) #11
   br label %46
 
-46:                                               ; preds = %2, %41, %43, %45, %15
+46:                                               ; preds = %41, %43, %2, %45, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -4210,7 +4208,7 @@ define hidden void @zim_XMLReader_setParserProperty(ptr noundef readonly capture
   store i32 3, ptr %24, align 8, !tbaa !8
   br label %25
 
-25:                                               ; preds = %2, %22, %23, %14
+25:                                               ; preds = %22, %23, %2, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -4616,7 +4614,7 @@ xmlreader_valid_encoding.exit:                    ; preds = %36
   store i32 2, ptr %112, align 8, !tbaa !8
   br label %.critedge
 
-.critedge:                                        ; preds = %4, %81, %92, %111, %110, %xmlreader_valid_encoding.exit, %33
+.critedge:                                        ; preds = %81, %92, %4, %111, %110, %xmlreader_valid_encoding.exit, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5204,8 +5202,7 @@ zend_hash_str_find_ptr.exit5:                     ; preds = %2, %0
   %7 = load ptr, ptr @xmlreader_class_entry, align 8, !tbaa !57
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %8, ptr noundef nonnull @.str.26, i64 noundef 4) #11
-  %.not.i3 = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %.not.i3)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   %10 = load ptr, ptr %9, align 8, !tbaa !8, !nonnull !9, !noundef !9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !120
@@ -5213,8 +5210,7 @@ zend_hash_str_find_ptr.exit5:                     ; preds = %2, %0
   %13 = load ptr, ptr @xmlreader_class_entry, align 8, !tbaa !57
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %14, ptr noundef nonnull @.str.27, i64 noundef 3) #11
-  %.not.i = icmp ne ptr %15, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
   %16 = load ptr, ptr %15, align 8, !tbaa !8, !nonnull !9, !noundef !9
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !120

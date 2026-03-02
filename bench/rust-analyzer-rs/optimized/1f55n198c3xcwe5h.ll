@@ -487,30 +487,29 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.9361837495247771283.ex
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.9361837495247771283"(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef i32 @"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.9361837495247771283"(i64 noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = icmp eq i64 %0, 0
-  %5 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %5)
-  br i1 %4, label %6, label %8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  br i1 %4, label %5, label %7
 
-6:                                                ; preds = %2
-  %7 = load i32, ptr %1, align 8, !noundef !4
+5:                                                ; preds = %2
+  %6 = load i32, ptr %1, align 8, !noundef !4
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h308b63f26a4416d3E.llvm.9361837495247771283.exit"
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = icmp ult i64 %10, 4294967296
-  %12 = trunc nuw i64 %10 to i32
-  br i1 %11, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h308b63f26a4416d3E.llvm.9361837495247771283.exit", label %13
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = icmp ult i64 %9, 4294967296
+  %11 = trunc nuw i64 %9 to i32
+  br i1 %10, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h308b63f26a4416d3E.llvm.9361837495247771283.exit", label %12
 
-13:                                               ; preds = %8
+12:                                               ; preds = %7
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.0ba172da8461e884abcb54710d2cbd2a.7.llvm.9361837495247771283, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ba172da8461e884abcb54710d2cbd2a.8.llvm.9361837495247771283, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ba172da8461e884abcb54710d2cbd2a.10.llvm.9361837495247771283) #15
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h308b63f26a4416d3E.llvm.9361837495247771283.exit": ; preds = %8, %6
-  %.0 = phi i32 [ %7, %6 ], [ %12, %8 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h308b63f26a4416d3E.llvm.9361837495247771283.exit": ; preds = %7, %5
+  %.0 = phi i32 [ %6, %5 ], [ %11, %7 ]
   ret i32 %.0
 }
 

@@ -2049,6 +2049,7 @@ _ZN12_GLOBAL__N_110ShrinkWrap21performShrinkWrappingERKN4llvm25ReversePostOrderT
   br i1 %523, label %.thread.i36, label %524
 
 524:                                              ; preds = %519
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %522) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %522, align 8
   %525 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i33 = icmp ne i64 %525, 0

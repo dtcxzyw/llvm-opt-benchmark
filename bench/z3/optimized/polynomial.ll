@@ -57504,8 +57504,7 @@ _ZN10polynomial7manager7inc_refEPNS_10polynomialE.exit.i416: ; preds = %_ZN10pol
 _ZN7obj_refIN10polynomial10polynomialENS0_7managerEE7dec_refEv.exit.i: ; preds = %.noexc422, %873, %872
   %880 = phi ptr [ %871, %872 ], [ %.pr.pre.i, %.noexc422 ], [ %871, %873 ]
   store ptr %880, ptr %12, align 8, !tbaa !57
-  %.not.i3.i = icmp ne ptr %880, null
-  call void @llvm.assume(i1 %.not.i3.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %880) ]
   %881 = load i32, ptr %880, align 8, !tbaa !50
   %882 = add i32 %881, 1
   store i32 %882, ptr %880, align 8, !tbaa !50
@@ -75872,8 +75871,7 @@ _ZN7obj_refIN10polynomial10polynomialENS0_7managerEEaSERKS3_.exit: ; preds = %_Z
 _ZN7obj_refIN10polynomial10polynomialENS0_7managerEE7dec_refEv.exit.i170: ; preds = %.noexc174, %450, %449
   %457 = phi ptr [ %448, %449 ], [ %.pr.pre.i173, %.noexc174 ], [ %448, %450 ]
   store ptr %457, ptr %8, align 8, !tbaa !57
-  %.not.i3.i171 = icmp ne ptr %457, null
-  call void @llvm.assume(i1 %.not.i3.i171)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %457) ]
   %458 = load i32, ptr %457, align 8, !tbaa !50
   %459 = add i32 %458, 1
   store i32 %459, ptr %457, align 8, !tbaa !50

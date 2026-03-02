@@ -8542,26 +8542,16 @@ _ZNK4llvm11Instruction11hasMetadataEj.exit.thread: ; preds = %_ZNK4llvm11Instruc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext range(i16 3, 0) i16 @_ZNK4llvm18TargetLoweringBase24getAtomicMemOperandFlagsERKNS_11InstructionERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(496) %2) local_unnamed_addr #0 align 2 {
-  %4 = load i8, ptr %1, align 8, !tbaa !463
-  %.not = icmp eq i8 %4, 66
-  br i1 %.not, label %7, label %5
-
-5:                                                ; preds = %3
-  %6 = icmp eq i8 %4, 65
-  tail call void @llvm.assume(i1 %6)
-  br label %7
-
-7:                                                ; preds = %3, %5
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %9 = load i16, ptr %8, align 2, !tbaa !732
-  %10 = trunc i16 %9 to i1
-  %spec.select12 = select i1 %10, i16 7, i16 3
-  %11 = load ptr, ptr %0, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef zeroext i16 %13(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #28
-  %15 = or i16 %14, %spec.select12
-  ret i16 %15
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %5 = load i16, ptr %4, align 2, !tbaa !732
+  %6 = trunc i16 %5 to i1
+  %spec.select12 = select i1 %6, i16 7, i16 3
+  %7 = load ptr, ptr %0, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call noundef zeroext i16 %9(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #28
+  %11 = or i16 %10, %spec.select12
+  ret i16 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

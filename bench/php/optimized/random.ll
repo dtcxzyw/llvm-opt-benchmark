@@ -1746,7 +1746,7 @@ zend_parse_arg_long_ex.exit58..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   store i32 4, ptr %32, align 8, !tbaa !71
   br label %33
 
-33:                                               ; preds = %27, %.thread, %30, %26
+33:                                               ; preds = %.thread, %27, %30, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2131,8 +2131,7 @@ register_class_Random_Randomizer.exit:            ; preds = %2, %103, %110, %111
   call void @zend_register_long_constant(ptr noundef nonnull @.str.72, i64 noundef 11, i64 noundef 1, i32 noundef 5, i32 noundef %1) #17
   %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !106
   %116 = call ptr @zend_hash_str_find(ptr noundef %115, ptr noundef nonnull @.str.73, i64 noundef 9) #17
-  %.not.i31.i = icmp ne ptr %116, null
-  call void @llvm.assume(i1 %.not.i31.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %116) ]
   %117 = load ptr, ptr %116, align 8, !tbaa !71, !nonnull !78, !noundef !78
   %118 = load ptr, ptr @zend_known_strings, align 8, !tbaa !120
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 600

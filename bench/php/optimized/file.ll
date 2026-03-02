@@ -3490,7 +3490,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   call void @zend_wrong_param_count() #18
   br label %41
 
-41:                                               ; preds = %.critedge, %27, %37, %40, %35
+41:                                               ; preds = %27, %37, %.critedge, %40, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -5719,8 +5719,8 @@ zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_
   br label %zend_parse_arg_resource.exit.thread194
 
 zend_parse_arg_str_ex.exit137.thread:             ; preds = %zend_parse_arg_str_ex.exit137, %34
-  %.in276 = phi ptr [ %35, %34 ], [ %4, %zend_parse_arg_str_ex.exit137 ]
-  %40 = load ptr, ptr %.in276, align 8, !tbaa !21
+  %.in274 = phi ptr [ %35, %34 ], [ %4, %zend_parse_arg_str_ex.exit137 ]
+  %40 = load ptr, ptr %.in274, align 8, !tbaa !21
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !32
@@ -5831,16 +5831,16 @@ zend_parse_arg_resource.exit.thread194:           ; preds = %zend_parse_arg_str_
   br label %select.unfold
 
 .critedge.thread227.thread:                       ; preds = %21, %.critedge.thread250, %.critedge.thread227
-  %.0110275 = phi i8 [ %66, %.critedge.thread227 ], [ 34, %.critedge.thread250 ], [ 34, %21 ]
-  %.0236273 = phi i8 [ %65, %.critedge.thread227 ], [ %61, %.critedge.thread250 ], [ 44, %21 ]
+  %.0110273 = phi i8 [ %66, %.critedge.thread227 ], [ 34, %.critedge.thread250 ], [ 34, %21 ]
+  %.0236271 = phi i8 [ %65, %.critedge.thread227 ], [ %61, %.critedge.thread250 ], [ 44, %21 ]
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.51) #18
   %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !114
   %.not7.i = icmp eq ptr %78, null
   br i1 %.not7.i, label %select.unfold, label %php_csv_handle_escape_argument.exit, !prof !23
 
 select.unfold:                                    ; preds = %.critedge.thread227.thread, %72, %74
-  %.0110274 = phi i8 [ %66, %72 ], [ %66, %74 ], [ %.0110275, %.critedge.thread227.thread ]
-  %.0236272 = phi i8 [ %65, %72 ], [ %65, %74 ], [ %.0236273, %.critedge.thread227.thread ]
+  %.0110272 = phi i8 [ %66, %72 ], [ %66, %74 ], [ %.0110273, %.critedge.thread227.thread ]
+  %.0236270 = phi i8 [ %65, %72 ], [ %65, %74 ], [ %.0236271, %.critedge.thread227.thread ]
   %.0.i141.ph = phi i32 [ -1, %72 ], [ %77, %74 ], [ 92, %.critedge.thread227.thread ]
   %79 = load ptr, ptr %12, align 8, !tbaa !21
   %80 = call i32 @php_file_le_stream() #18
@@ -5851,7 +5851,7 @@ select.unfold:                                    ; preds = %.critedge.thread227
 
 84:                                               ; preds = %select.unfold
   %85 = load ptr, ptr %6, align 8, !tbaa !30
-  %86 = call i64 @php_fputcsv(ptr noundef nonnull %82, ptr noundef nonnull %17, i8 noundef signext %.0236272, i8 noundef signext %.0110274, i32 noundef %.0.i141.ph, ptr noundef %85)
+  %86 = call i64 @php_fputcsv(ptr noundef nonnull %82, ptr noundef nonnull %17, i8 noundef signext %.0236270, i8 noundef signext %.0110272, i32 noundef %.0.i141.ph, ptr noundef %85)
   %87 = icmp slt i64 %86, 0
   br i1 %87, label %88, label %90
 
@@ -5866,7 +5866,7 @@ select.unfold:                                    ; preds = %.critedge.thread227
   store i32 4, ptr %91, align 8, !tbaa !21
   br label %php_csv_handle_escape_argument.exit
 
-php_csv_handle_escape_argument.exit:              ; preds = %.critedge.thread227.thread, %71, %zend_parse_arg_resource.exit.thread194, %88, %90, %select.unfold, %64, %62
+php_csv_handle_escape_argument.exit:              ; preds = %71, %.critedge.thread227.thread, %zend_parse_arg_resource.exit.thread194, %88, %90, %select.unfold, %64, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -6449,8 +6449,8 @@ zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_
   br label %zend_parse_arg_resource.exit.thread195
 
 zend_parse_arg_str_ex.exit140.thread:             ; preds = %zend_parse_arg_str_ex.exit140, %40
-  %.in273 = phi ptr [ %41, %40 ], [ %5, %zend_parse_arg_str_ex.exit140 ]
-  %46 = load ptr, ptr %.in273, align 8, !tbaa !21
+  %.in271 = phi ptr [ %41, %40 ], [ %5, %zend_parse_arg_str_ex.exit140 ]
+  %46 = load ptr, ptr %.in271, align 8, !tbaa !21
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = load i64, ptr %48, align 8, !tbaa !32
@@ -6626,7 +6626,7 @@ select.unfold:                                    ; preds = %77, %71, %73
   store i32 775, ptr %116, align 8, !tbaa !21
   br label %php_csv_handle_escape_argument.exit
 
-php_csv_handle_escape_argument.exit:              ; preds = %77, %70, %zend_parse_arg_resource.exit.thread195, %83, %96, %105, %115, %84, %61, %59
+php_csv_handle_escape_argument.exit:              ; preds = %70, %77, %zend_parse_arg_resource.exit.thread195, %83, %96, %105, %115, %84, %61, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

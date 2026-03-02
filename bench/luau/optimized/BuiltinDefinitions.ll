@@ -5483,8 +5483,7 @@ define dso_local noundef ptr @_ZN4Luau16getGlobalBindingERNS_11GlobalTypesERKNSt
   store i64 %13, ptr %12, align 8, !tbaa !146, !noalias !149
   %14 = call ptr @_ZNSt10_HashtableIN4Luau6SymbolESt4pairIKS1_NS0_7BindingEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS3_(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(16) %3), !noalias !149
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !149
-  %.not.i = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void @_ZN4Luau7BindingC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(104) %15)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 104

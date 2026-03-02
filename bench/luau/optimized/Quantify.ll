@@ -1740,8 +1740,7 @@ define dso_local void @_ZN4Luau8quantifyEPKNS_4TypeENS_9TypeLevelE(ptr noundef %
           to label %.noexc unwind label %59
 
 .noexc:                                           ; preds = %10
-  %.not.i.i = icmp ne ptr %11, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   %12 = load i32, ptr %11, align 8, !tbaa !22
   %13 = icmp eq i32 %12, 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2820,8 +2819,7 @@ define dso_local void @_ZN4Luau8quantifyEPNS_9TypeArenaEPKNS_4TypeEPNS_5ScopeE(p
           to label %.noexc unwind label %42
 
 .noexc:                                           ; preds = %21
-  %.not.i.i = icmp ne ptr %22, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
   %23 = load i32, ptr %22, align 8, !tbaa !22
   %24 = icmp eq i32 %23, 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -3810,8 +3808,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau18GenericTypeVisitorIN
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10Quantifier5visitEPKNS_4TypeERKNS_9TableTypeE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(336) %2) unnamed_addr #2 comdat align 2 {
 _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit:
   %3 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %1)
-  %.not.i.i = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %4 = load i32, ptr %3, align 8, !tbaa !22
   %5 = icmp eq i32 %4, 9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8

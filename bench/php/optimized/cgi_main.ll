@@ -539,7 +539,7 @@ define hidden void @zif_apache_response_headers(ptr noundef readonly captures(no
   tail call void @zend_llist_apply_with_argument(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 160), ptr noundef nonnull @add_response_header, ptr noundef nonnull %1) #28
   br label %8
 
-8:                                                ; preds = %.critedge, %5
+8:                                                ; preds = %5, %.critedge
   ret void
 }
 

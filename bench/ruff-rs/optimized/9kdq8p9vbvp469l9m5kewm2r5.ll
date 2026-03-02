@@ -228,87 +228,86 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !20
-  %20 = icmp ne ptr %.val, null
-  call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %22 = load i8, ptr %21, align 8, !range !23, !noalias !20, !noundef !3
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %31, label %.lr.ph.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  %20 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %21 = load i8, ptr %20, align 8, !range !23, !noalias !20, !noundef !3
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %30, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %19
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !27
-  %24 = load ptr, ptr %.val, align 8, !alias.scope !24, !noalias !30, !nonnull !3, !align !4, !noundef !3
-  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %26 = load ptr, ptr %25, align 8, !alias.scope !24, !noalias !30, !nonnull !3, !align !5, !noundef !3
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %28 = load ptr, ptr %27, align 8, !invariant.load !3, !noalias !31, !nonnull !3
-  call void %28(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %24, ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !31
-  %29 = load i32, ptr %4, align 8, !range !15, !noalias !27, !noundef !3
-  %.not.i.i = icmp eq i32 %29, 4
-  br i1 %.not.i.i, label %30, label %36
+  %23 = load ptr, ptr %.val, align 8, !alias.scope !24, !noalias !30, !nonnull !3, !align !4, !noundef !3
+  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %25 = load ptr, ptr %24, align 8, !alias.scope !24, !noalias !30, !nonnull !3, !align !5, !noundef !3
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %27 = load ptr, ptr %26, align 8, !invariant.load !3, !noalias !31, !nonnull !3
+  call void %27(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %23, ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !31
+  %28 = load i32, ptr %4, align 8, !range !15, !noalias !27, !noundef !3
+  %.not.i.i = icmp eq i32 %28, 4
+  br i1 %.not.i.i, label %29, label %35
 
-30:                                               ; preds = %.lr.ph.i.i
+29:                                               ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !27
-  br label %37
+  br label %36
 
-31:                                               ; preds = %19
+30:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !20
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !20
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !20
   store ptr %.val, ptr %7, align 8, !noalias !20
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %32, align 8, !noalias !20
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %31, align 8, !noalias !20
   store ptr %7, ptr %8, align 8, !noalias !20
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.104, ptr %33, align 8, !noalias !20
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 0, ptr %34, align 8, !noalias !20
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.104, ptr %32, align 8, !noalias !20
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i8 0, ptr %33, align 8, !noalias !20
   call void @"_ZN110_$LT$ruff_formatter..builders..BlockIndent$LT$Context$GT$$u20$as$u20$ruff_formatter..Format$LT$Context$GT$$GT$3fmt17hb331ed5e97822232E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !17
-  %35 = load i32, ptr %9, align 8, !range !15, !noalias !20, !noundef !3
-  %.not2.i = icmp eq i32 %35, 4
-  br i1 %.not2.i, label %43, label %42
+  %34 = load i32, ptr %9, align 8, !range !15, !noalias !20, !noundef !3
+  %.not2.i = icmp eq i32 %34, 4
+  br i1 %.not2.i, label %42, label %41
 
-36:                                               ; preds = %.lr.ph.i.i
+35:                                               ; preds = %.lr.ph.i.i
   %.sroa.7.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.29.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx2.i, i64 20, i1 false), !noalias !22
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !27
-  store i32 %29, ptr %0, align 8, !alias.scope !17, !noalias !22
+  store i32 %28, ptr %0, align 8, !alias.scope !17, !noalias !22
   br label %"_ZN152_$LT$ruff_python_formatter..builders..ParenthesizeIfExpands$u20$as$u20$ruff_formatter..Format$LT$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h0590462c0e7cfb15E.exit"
 
-37:                                               ; preds = %43, %30
+36:                                               ; preds = %42, %29
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !20
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !20
   store ptr @anon.ed451865e034dc40a72258bf1311dc2e.127, ptr %5, align 8, !noalias !20
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %38, align 8, !noalias !20
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %37, align 8, !noalias !20
   store ptr %5, ptr %6, align 8, !noalias !20
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.31, ptr %39, align 8, !noalias !20
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %40, align 8, !noalias !20
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i8 1, ptr %41, align 4, !noalias !20
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.31, ptr %38, align 8, !noalias !20
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 0, ptr %39, align 8, !noalias !20
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i8 1, ptr %40, align 4, !noalias !20
   call void @"_ZN112_$LT$ruff_formatter..builders..IfGroupBreaks$LT$Context$GT$$u20$as$u20$ruff_formatter..Format$LT$Context$GT$$GT$3fmt17hcfab2ce9e280b783E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !20
   br label %"_ZN152_$LT$ruff_python_formatter..builders..ParenthesizeIfExpands$u20$as$u20$ruff_formatter..Format$LT$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h0590462c0e7cfb15E.exit"
 
-42:                                               ; preds = %31
+41:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !22
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !20
   br label %"_ZN152_$LT$ruff_python_formatter..builders..ParenthesizeIfExpands$u20$as$u20$ruff_formatter..Format$LT$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h0590462c0e7cfb15E.exit"
 
-43:                                               ; preds = %31
+42:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !20
-  br label %37
+  br label %36
 
-"_ZN152_$LT$ruff_python_formatter..builders..ParenthesizeIfExpands$u20$as$u20$ruff_formatter..Format$LT$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h0590462c0e7cfb15E.exit": ; preds = %18, %36, %37, %42
+"_ZN152_$LT$ruff_python_formatter..builders..ParenthesizeIfExpands$u20$as$u20$ruff_formatter..Format$LT$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h0590462c0e7cfb15E.exit": ; preds = %18, %35, %36, %41
   ret void
 }
 
@@ -370,15 +369,14 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   store ptr %10, ptr %27, align 8, !noalias !32
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i8 0, ptr %28, align 8, !noalias !32
-  %29 = icmp ne ptr %.val, null
-  call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %31 = load ptr, ptr %30, align 8, !noalias !32, !nonnull !3, !noundef !3
-  %32 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %33 = load i64, ptr %32, align 8, !noalias !32, !noundef !3
-  %34 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %31, i64 %33
-  %35 = call noundef align 8 dereferenceable(48) ptr @"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$7entries17h842b5098dbc60a75E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %31, ptr noundef nonnull %34), !noalias !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %30 = load ptr, ptr %29, align 8, !noalias !32, !nonnull !3, !noundef !3
+  %31 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %32 = load i64, ptr %31, align 8, !noalias !32, !noundef !3
+  %33 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %30, i64 %32
+  %34 = call noundef align 8 dereferenceable(48) ptr @"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$7entries17h842b5098dbc60a75E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %30, ptr noundef nonnull %33), !noalias !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !32
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !32
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !32
@@ -447,15 +445,14 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   store ptr %10, ptr %27, align 8, !noalias !37
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i8 0, ptr %28, align 8, !noalias !37
-  %29 = icmp ne ptr %.val, null
-  call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %31 = load ptr, ptr %30, align 8, !noalias !37, !nonnull !3, !noundef !3
-  %32 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %33 = load i64, ptr %32, align 8, !noalias !37, !noundef !3
-  %34 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %31, i64 %33
-  %35 = call noundef align 8 dereferenceable(48) ptr @"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$7entries17h842b5098dbc60a75E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %31, ptr noundef nonnull %34), !noalias !41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %30 = load ptr, ptr %29, align 8, !noalias !37, !nonnull !3, !noundef !3
+  %31 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %32 = load i64, ptr %31, align 8, !noalias !37, !noundef !3
+  %33 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %30, i64 %32
+  %34 = call noundef align 8 dereferenceable(48) ptr @"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$7entries17h842b5098dbc60a75E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %30, ptr noundef nonnull %33), !noalias !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !37
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !37
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !37
@@ -2832,510 +2829,501 @@ define hidden void @_ZN21ruff_python_formatter8comments9placement23handle_enclos
   %183 = extractvalue { i64, ptr } %181, 1
   switch i64 %182, label %184 [
     i64 0, label %185
-    i64 2, label %213
-    i64 3, label %233
-    i64 4, label %266
-    i64 6, label %267
-    i64 7, label %271
-    i64 8, label %275
-    i64 9, label %279
-    i64 13, label %283
-    i64 19, label %310
-    i64 27, label %337
-    i64 28, label %381
-    i64 29, label %416
-    i64 30, label %485
-    i64 31, label %525
-    i64 32, label %606
-    i64 33, label %669
-    i64 34, label %723
-    i64 35, label %723
-    i64 36, label %723
-    i64 37, label %724
-    i64 38, label %725
-    i64 42, label %337
-    i64 43, label %730
-    i64 45, label %763
-    i64 51, label %767
-    i64 52, label %843
-    i64 53, label %849
-    i64 55, label %723
-    i64 56, label %877
-    i64 57, label %882
-    i64 60, label %884
-    i64 64, label %888
-    i64 65, label %892
-    i64 66, label %896
-    i64 67, label %920
-    i64 68, label %927
-    i64 74, label %970
-    i64 75, label %971
-    i64 76, label %994
-    i64 77, label %970
-    i64 78, label %1102
-    i64 79, label %1127
-    i64 81, label %1173
-    i64 83, label %1200
-    i64 87, label %970
-    i64 88, label %1242
+    i64 2, label %211
+    i64 3, label %231
+    i64 4, label %263
+    i64 6, label %264
+    i64 7, label %267
+    i64 8, label %270
+    i64 9, label %273
+    i64 13, label %276
+    i64 19, label %302
+    i64 27, label %328
+    i64 28, label %372
+    i64 29, label %407
+    i64 30, label %475
+    i64 31, label %514
+    i64 32, label %594
+    i64 33, label %656
+    i64 34, label %710
+    i64 35, label %710
+    i64 36, label %710
+    i64 37, label %711
+    i64 38, label %712
+    i64 42, label %328
+    i64 43, label %716
+    i64 45, label %749
+    i64 51, label %753
+    i64 52, label %828
+    i64 53, label %833
+    i64 55, label %710
+    i64 56, label %860
+    i64 57, label %864
+    i64 60, label %865
+    i64 64, label %869
+    i64 65, label %872
+    i64 66, label %875
+    i64 67, label %898
+    i64 68, label %905
+    i64 74, label %948
+    i64 75, label %949
+    i64 76, label %971
+    i64 77, label %948
+    i64 78, label %1078
+    i64 79, label %1102
+    i64 81, label %1147
+    i64 83, label %1173
+    i64 87, label %948
+    i64 88, label %1215
   ]
 
-184:                                              ; preds = %1277, %279, %1268, %275, %1259, %271, %1250, %267, %725, %877, %5
+184:                                              ; preds = %1249, %273, %1240, %270, %1231, %267, %1222, %264, %712, %860, %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
-  br label %1330
+  br label %1301
 
 185:                                              ; preds = %5
-  %186 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %186)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %173)
   call void @llvm.lifetime.start.p0(ptr nonnull %165)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %165, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
-  %187 = getelementptr i8, ptr %183, i64 8
-  %.val57 = load ptr, ptr %187, align 8
-  %188 = getelementptr i8, ptr %183, i64 16
-  %.val58 = load i64, ptr %188, align 8
+  %186 = getelementptr i8, ptr %183, i64 8
+  %.val57 = load ptr, ptr %186, align 8
+  %187 = getelementptr i8, ptr %183, i64 16
+  %.val58 = load i64, ptr %187, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !382)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
-  %189 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %165), !noalias !382
-  %190 = extractvalue { i64, ptr } %189, 0
-  %.not.i = icmp eq i64 %190, 92
-  br i1 %.not.i, label %191, label %194
+  %188 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %165), !noalias !382
+  %189 = extractvalue { i64, ptr } %188, 0
+  %.not.i = icmp eq i64 %189, 92
+  br i1 %.not.i, label %190, label %193
 
-191:                                              ; preds = %185
-  %192 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %165), !noalias !382
-  %193 = extractvalue { i64, ptr } %192, 0
-  %.not1.i = icmp eq i64 %193, 92
-  br i1 %.not1.i, label %195, label %194
+190:                                              ; preds = %185
+  %191 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %165), !noalias !382
+  %192 = extractvalue { i64, ptr } %191, 0
+  %.not1.i = icmp eq i64 %192, 92
+  br i1 %.not1.i, label %194, label %193
 
-194:                                              ; preds = %191, %185
+193:                                              ; preds = %190, %185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %173, ptr noundef nonnull align 8 dereferenceable(80) %165, i64 80, i1 false), !alias.scope !387
   br label %_ZN21ruff_python_formatter8comments9placement30handle_trailing_module_comment17hb9eacdf33b6acb40E.exit
 
-195:                                              ; preds = %191
+194:                                              ; preds = %190
   %.not2.i = icmp eq i64 %.val58, 0
-  br i1 %.not2.i, label %196, label %203
+  br i1 %.not2.i, label %195, label %202
 
-196:                                              ; preds = %195
-  %197 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %165), !noalias !382
-  %198 = extractvalue { i64, ptr } %197, 0
-  %199 = extractvalue { i64, ptr } %197, 1
+195:                                              ; preds = %194
+  %196 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %165), !noalias !382
+  %197 = extractvalue { i64, ptr } %196, 0
+  %198 = extractvalue { i64, ptr } %196, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %122), !noalias !387
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %122, ptr noundef nonnull align 8 dereferenceable(80) %165, i64 80, i1 false), !noalias !382
-  %200 = getelementptr inbounds nuw i8, ptr %173, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %200, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %122)
+  %199 = getelementptr inbounds nuw i8, ptr %173, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %199, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %122)
   call void @llvm.lifetime.end.p0(ptr nonnull %122), !noalias !387
-  %201 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i64 %198, ptr %201, align 8, !alias.scope !382, !noalias !385
-  %202 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  store ptr %199, ptr %202, align 8, !alias.scope !382, !noalias !385
+  %200 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store i64 %197, ptr %200, align 8, !alias.scope !382, !noalias !385
+  %201 = getelementptr inbounds nuw i8, ptr %173, i64 16
+  store ptr %198, ptr %201, align 8, !alias.scope !382, !noalias !385
   store i64 92, ptr %173, align 8, !alias.scope !382, !noalias !385
   br label %_ZN21ruff_python_formatter8comments9placement30handle_trailing_module_comment17hb9eacdf33b6acb40E.exit
 
-203:                                              ; preds = %195
-  %204 = icmp ne ptr %.val57, null
-  call void @llvm.assume(i1 %204)
-  %205 = getelementptr { i64, [14 x i64] }, ptr %.val57, i64 %.val58
-  %206 = getelementptr i8, ptr %205, i64 -120
-  %207 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE"(ptr noalias noundef readonly align 8 dereferenceable(120) %206), !noalias !382
-  %208 = extractvalue { i64, ptr } %207, 0
-  %209 = extractvalue { i64, ptr } %207, 1
+202:                                              ; preds = %194
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val57) ]
+  %203 = getelementptr { i64, [14 x i64] }, ptr %.val57, i64 %.val58
+  %204 = getelementptr i8, ptr %203, i64 -120
+  %205 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE"(ptr noalias noundef readonly align 8 dereferenceable(120) %204), !noalias !382
+  %206 = extractvalue { i64, ptr } %205, 0
+  %207 = extractvalue { i64, ptr } %205, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %121), !noalias !387
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %121, ptr noundef nonnull align 8 dereferenceable(80) %165, i64 80, i1 false), !noalias !382
-  %210 = getelementptr inbounds nuw i8, ptr %173, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %210, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %121)
+  %208 = getelementptr inbounds nuw i8, ptr %173, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %208, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %121)
   call void @llvm.lifetime.end.p0(ptr nonnull %121), !noalias !387
-  %211 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i64 %208, ptr %211, align 8, !alias.scope !382, !noalias !385
-  %212 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  store ptr %209, ptr %212, align 8, !alias.scope !382, !noalias !385
+  %209 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store i64 %206, ptr %209, align 8, !alias.scope !382, !noalias !385
+  %210 = getelementptr inbounds nuw i8, ptr %173, i64 16
+  store ptr %207, ptr %210, align 8, !alias.scope !382, !noalias !385
   store i64 93, ptr %173, align 8, !alias.scope !382, !noalias !385
   br label %_ZN21ruff_python_formatter8comments9placement30handle_trailing_module_comment17hb9eacdf33b6acb40E.exit
 
-_ZN21ruff_python_formatter8comments9placement30handle_trailing_module_comment17hb9eacdf33b6acb40E.exit: ; preds = %194, %196, %203
+_ZN21ruff_python_formatter8comments9placement30handle_trailing_module_comment17hb9eacdf33b6acb40E.exit: ; preds = %193, %195, %202
   call void @llvm.lifetime.end.p0(ptr nonnull %165)
   call void @_ZN21ruff_python_formatter8comments7visitor16CommentPlacement7or_else17h0ae022a0addfcd26E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %173, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %173)
-  br label %1330
+  br label %1301
 
-213:                                              ; preds = %5
+211:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %164, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !391)
-  %214 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %164), !noalias !388
-  %215 = extractvalue { i64, ptr } %214, 0
-  %216 = icmp eq i64 %215, 85
-  %217 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %164), !noalias !388
-  %218 = extractvalue { i64, ptr } %217, 0
-  switch i64 %218, label %223 [
-    i64 92, label %219
+  %212 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %164), !noalias !388
+  %213 = extractvalue { i64, ptr } %212, 0
+  %214 = icmp eq i64 %213, 85
+  %215 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %164), !noalias !388
+  %216 = extractvalue { i64, ptr } %215, 0
+  switch i64 %216, label %221 [
+    i64 92, label %217
     i64 78, label %switch.edge.i
     i64 87, label %switch.edge.i
   ]
 
-219:                                              ; preds = %213
-  %220 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %164), !noalias !388
-  %221 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %220), !noalias !388
-  br label %222
+217:                                              ; preds = %211
+  %218 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %164), !noalias !388
+  %219 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %218), !noalias !388
+  br label %220
 
-222:                                              ; preds = %switch.edge.i, %219
+220:                                              ; preds = %switch.edge.i, %217
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %164, i64 80, i1 false), !alias.scope !393
   br label %_ZN21ruff_python_formatter8comments9placement47handle_leading_function_with_decorators_comment17h955d6b127804211cE.exit
 
-223:                                              ; preds = %213
+221:                                              ; preds = %211
   br label %switch.edge.i
 
-switch.edge.i:                                    ; preds = %223, %213, %213
-  %.sroa.012.0.i = phi i1 [ false, %223 ], [ true, %213 ], [ true, %213 ]
-  %224 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %164), !noalias !388
-  %225 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %224), !noalias !388
-  %or.cond.i = and i1 %216, %.sroa.012.0.i
-  %or.cond14.i = select i1 %225, i1 %or.cond.i, i1 false
-  br i1 %or.cond14.i, label %226, label %222
+switch.edge.i:                                    ; preds = %221, %211, %211
+  %.sroa.012.0.i = phi i1 [ false, %221 ], [ true, %211 ], [ true, %211 ]
+  %222 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %164), !noalias !388
+  %223 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %222), !noalias !388
+  %or.cond.i = and i1 %214, %.sroa.012.0.i
+  %or.cond14.i = select i1 %223, i1 %or.cond.i, i1 false
+  br i1 %or.cond14.i, label %224, label %220
 
-226:                                              ; preds = %switch.edge.i
-  %227 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %164), !noalias !388
-  %228 = extractvalue { i64, ptr } %227, 0
-  %229 = extractvalue { i64, ptr } %227, 1
+224:                                              ; preds = %switch.edge.i
+  %225 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %164), !noalias !388
+  %226 = extractvalue { i64, ptr } %225, 0
+  %227 = extractvalue { i64, ptr } %225, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %120), !noalias !393
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %120, ptr noundef nonnull align 8 dereferenceable(80) %164, i64 80, i1 false), !noalias !388
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %230, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %120)
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %228, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %120)
   call void @llvm.lifetime.end.p0(ptr nonnull %120), !noalias !393
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %228, ptr %231, align 8, !alias.scope !388, !noalias !391
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %229, ptr %232, align 8, !alias.scope !388, !noalias !391
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %226, ptr %229, align 8, !alias.scope !388, !noalias !391
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %227, ptr %230, align 8, !alias.scope !388, !noalias !391
   store i64 94, ptr %0, align 8, !alias.scope !388, !noalias !391
   br label %_ZN21ruff_python_formatter8comments9placement47handle_leading_function_with_decorators_comment17h955d6b127804211cE.exit
 
-_ZN21ruff_python_formatter8comments9placement47handle_leading_function_with_decorators_comment17h955d6b127804211cE.exit: ; preds = %222, %226
+_ZN21ruff_python_formatter8comments9placement47handle_leading_function_with_decorators_comment17h955d6b127804211cE.exit: ; preds = %220, %224
   call void @llvm.lifetime.end.p0(ptr nonnull %164)
-  br label %1330
+  br label %1301
 
-233:                                              ; preds = %5
-  %234 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %234)
+231:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %163)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %163, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !397)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !399)
-  %235 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %163), !noalias !401
-  %236 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %235), !noalias !401
-  br i1 %236, label %237, label %245
+  %232 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %163), !noalias !401
+  %233 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %232), !noalias !401
+  br i1 %233, label %234, label %242
 
-237:                                              ; preds = %233
-  %238 = getelementptr inbounds nuw i8, ptr %163, i64 64
-  %239 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %238), !noalias !401
+234:                                              ; preds = %231
+  %235 = getelementptr inbounds nuw i8, ptr %163, i64 64
+  %236 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %235), !noalias !401
+  %237 = extractvalue { i32, i32 } %236, 0
+  %238 = getelementptr inbounds nuw i8, ptr %183, i64 48
+  %239 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Identifier$GT$5range17h62bc7d86fb9b07bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %238), !noalias !394
   %240 = extractvalue { i32, i32 } %239, 0
-  %241 = getelementptr inbounds nuw i8, ptr %183, i64 48
-  %242 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Identifier$GT$5range17h62bc7d86fb9b07bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %241), !noalias !394
-  %243 = extractvalue { i32, i32 } %242, 0
-  %244 = icmp ult i32 %240, %243
-  br i1 %244, label %246, label %245
+  %241 = icmp ult i32 %237, %240
+  br i1 %241, label %243, label %242
 
-245:                                              ; preds = %249, %246, %237, %233
+242:                                              ; preds = %246, %243, %234, %231
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %163, i64 80, i1 false), !alias.scope !402, !noalias !399
   br label %_ZN21ruff_python_formatter8comments9placement44handle_leading_class_with_decorators_comment17h18f16b12a7bf1bb2E.exit
 
-246:                                              ; preds = %237
-  %247 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %248 = load i64, ptr %247, align 8, !alias.scope !399, !noalias !402, !noundef !3
-  %.not.i60 = icmp eq i64 %248, 0
-  br i1 %.not.i60, label %245, label %249
+243:                                              ; preds = %234
+  %244 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %245 = load i64, ptr %244, align 8, !alias.scope !399, !noalias !402, !noundef !3
+  %.not.i60 = icmp eq i64 %245, 0
+  br i1 %.not.i60, label %242, label %246
 
-249:                                              ; preds = %246
-  %250 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %251 = load ptr, ptr %250, align 8, !alias.scope !399, !noalias !402, !nonnull !3, !noundef !3
-  %252 = getelementptr { { i32, [15 x i32] }, { i32, i32 } }, ptr %251, i64 %248
-  %253 = getelementptr i8, ptr %252, i64 -72
-  %254 = call { i32, i32 } @"_ZN15ruff_python_ast9generated94_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Decorator$GT$5range17h91452ef3cd50b110E"(ptr noundef nonnull align 8 %253), !noalias !394
-  %255 = extractvalue { i32, i32 } %254, 1
-  %256 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %238), !noalias !394
-  %257 = extractvalue { i32, i32 } %256, 0
-  %258 = icmp ult i32 %255, %257
-  br i1 %258, label %259, label %245
+246:                                              ; preds = %243
+  %247 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %248 = load ptr, ptr %247, align 8, !alias.scope !399, !noalias !402, !nonnull !3, !noundef !3
+  %249 = getelementptr { { i32, [15 x i32] }, { i32, i32 } }, ptr %248, i64 %245
+  %250 = getelementptr i8, ptr %249, i64 -72
+  %251 = call { i32, i32 } @"_ZN15ruff_python_ast9generated94_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Decorator$GT$5range17h91452ef3cd50b110E"(ptr noundef nonnull align 8 %250), !noalias !394
+  %252 = extractvalue { i32, i32 } %251, 1
+  %253 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %235), !noalias !394
+  %254 = extractvalue { i32, i32 } %253, 0
+  %255 = icmp ult i32 %252, %254
+  br i1 %255, label %256, label %242
 
-259:                                              ; preds = %249
-  %260 = call { i64, ptr } @"_ZN130_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..StmtClassDef$GT$$GT$4from17h079310d0b384397fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %183), !noalias !394
-  %261 = extractvalue { i64, ptr } %260, 0
-  %262 = extractvalue { i64, ptr } %260, 1
+256:                                              ; preds = %246
+  %257 = call { i64, ptr } @"_ZN130_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..StmtClassDef$GT$$GT$4from17h079310d0b384397fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %183), !noalias !394
+  %258 = extractvalue { i64, ptr } %257, 0
+  %259 = extractvalue { i64, ptr } %257, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %119), !noalias !403
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %119, ptr noundef nonnull align 8 dereferenceable(80) %163, i64 80, i1 false), !noalias !401
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %263, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %119)
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %260, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %119)
   call void @llvm.lifetime.end.p0(ptr nonnull %119), !noalias !403
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %261, ptr %264, align 8, !alias.scope !394, !noalias !404
-  %265 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %262, ptr %265, align 8, !alias.scope !394, !noalias !404
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %258, ptr %261, align 8, !alias.scope !394, !noalias !404
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %259, ptr %262, align 8, !alias.scope !394, !noalias !404
   store i64 94, ptr %0, align 8, !alias.scope !394, !noalias !404
   br label %_ZN21ruff_python_formatter8comments9placement44handle_leading_class_with_decorators_comment17h18f16b12a7bf1bb2E.exit
 
-_ZN21ruff_python_formatter8comments9placement44handle_leading_class_with_decorators_comment17h18f16b12a7bf1bb2E.exit: ; preds = %245, %259
+_ZN21ruff_python_formatter8comments9placement44handle_leading_class_with_decorators_comment17h18f16b12a7bf1bb2E.exit: ; preds = %242, %256
   call void @llvm.lifetime.end.p0(ptr nonnull %163)
-  br label %1330
+  br label %1301
 
-266:                                              ; preds = %5
+263:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %162)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %162, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call fastcc void @_ZN21ruff_python_formatter8comments9placement52handle_trailing_implicit_concatenated_string_comment17h6c18a414f1b5336bE(ptr noalias noundef align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 captures(none) dereferenceable(80) %162, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %162)
-  br label %1330
+  br label %1301
+
+264:                                              ; preds = %5
+  %265 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
+  %266 = extractvalue { i64, ptr } %265, 0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
+  %.not56 = icmp eq i64 %266, 92
+  br i1 %.not56, label %184, label %1222
 
 267:                                              ; preds = %5
   %268 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
   %269 = extractvalue { i64, ptr } %268, 0
-  %270 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %270)
-  %.not56 = icmp eq i64 %269, 92
-  br i1 %.not56, label %184, label %1250
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
+  %.not55 = icmp eq i64 %269, 92
+  br i1 %.not55, label %184, label %1231
 
-271:                                              ; preds = %5
-  %272 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
-  %273 = extractvalue { i64, ptr } %272, 0
-  %274 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %274)
-  %.not55 = icmp eq i64 %273, 92
-  br i1 %.not55, label %184, label %1259
+270:                                              ; preds = %5
+  %271 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
+  %272 = extractvalue { i64, ptr } %271, 0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
+  %.not54 = icmp eq i64 %272, 92
+  br i1 %.not54, label %184, label %1240
 
-275:                                              ; preds = %5
-  %276 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
-  %277 = extractvalue { i64, ptr } %276, 0
-  %278 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %278)
-  %.not54 = icmp eq i64 %277, 92
-  br i1 %.not54, label %184, label %1268
+273:                                              ; preds = %5
+  %274 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
+  %275 = extractvalue { i64, ptr } %274, 0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
+  %.not53 = icmp eq i64 %275, 92
+  br i1 %.not53, label %184, label %1249
 
-279:                                              ; preds = %5
-  %280 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
-  %281 = extractvalue { i64, ptr } %280, 0
-  %282 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %282)
-  %.not53 = icmp eq i64 %281, 92
-  br i1 %.not53, label %184, label %1277
-
-283:                                              ; preds = %5
-  %284 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %284)
+276:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %157, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !405)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
-  %285 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %157), !noalias !412
-  %286 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %285), !noalias !412
-  %287 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %288 = load i64, ptr %287, align 8, !alias.scope !410, !noalias !413
-  %.not.i61 = icmp ne i64 %288, 0
-  %or.cond.not.i = select i1 %286, i1 %.not.i61, i1 false
-  br i1 %or.cond.not.i, label %289, label %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.thread.i"
+  %277 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %157), !noalias !412
+  %278 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %277), !noalias !412
+  %279 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %280 = load i64, ptr %279, align 8, !alias.scope !410, !noalias !413
+  %.not.i61 = icmp ne i64 %280, 0
+  %or.cond.not.i = select i1 %278, i1 %.not.i61, i1 false
+  br i1 %or.cond.not.i, label %281, label %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.thread.i"
 
-"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.thread.i": ; preds = %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.i", %289, %283
+"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.thread.i": ; preds = %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.i", %281, %276
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %157, i64 80, i1 false), !alias.scope !413, !noalias !410
   br label %_ZN21ruff_python_formatter8comments9placement19handle_with_comment17h9d8c7629033b0cc2E.exit
 
-289:                                              ; preds = %283
-  %290 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %291 = load ptr, ptr %290, align 8, !alias.scope !410, !noalias !413, !nonnull !3, !noundef !3
-  %292 = call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17he3ddff16f638550eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %183), !noalias !414
+281:                                              ; preds = %276
+  %282 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %283 = load ptr, ptr %282, align 8, !alias.scope !410, !noalias !413, !nonnull !3, !noundef !3
+  %284 = call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17he3ddff16f638550eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %183), !noalias !414
+  %285 = extractvalue { i32, i32 } %284, 0
+  %286 = getelementptr inbounds nuw i8, ptr %157, i64 64
+  %287 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %286), !noalias !405
+  %288 = extractvalue { i32, i32 } %287, 0
+  %289 = icmp ult i32 %285, %288
+  br i1 %289, label %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.i", label %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.thread.i"
+
+"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.i": ; preds = %281
+  %290 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %286), !noalias !405
+  %291 = extractvalue { i32, i32 } %290, 0
+  %292 = call { i32, i32 } @"_ZN15ruff_python_ast9generated93_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..WithItem$GT$5range17ha94cdf2d7ff16625E"(ptr noundef nonnull align 8 %283), !noalias !405
   %293 = extractvalue { i32, i32 } %292, 0
-  %294 = getelementptr inbounds nuw i8, ptr %157, i64 64
-  %295 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %294), !noalias !405
-  %296 = extractvalue { i32, i32 } %295, 0
-  %297 = icmp ult i32 %293, %296
-  br i1 %297, label %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.i", label %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.thread.i"
+  %294 = icmp ult i32 %291, %293
+  br i1 %294, label %295, label %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.thread.i"
 
-"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.i": ; preds = %289
-  %298 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %294), !noalias !405
-  %299 = extractvalue { i32, i32 } %298, 0
-  %300 = call { i32, i32 } @"_ZN15ruff_python_ast9generated93_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..WithItem$GT$5range17ha94cdf2d7ff16625E"(ptr noundef nonnull align 8 %291), !noalias !405
-  %301 = extractvalue { i32, i32 } %300, 0
-  %302 = icmp ult i32 %299, %301
-  br i1 %302, label %303, label %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.thread.i"
-
-303:                                              ; preds = %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.i"
-  %304 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %157), !noalias !405
-  %305 = extractvalue { i64, ptr } %304, 0
-  %306 = extractvalue { i64, ptr } %304, 1
+295:                                              ; preds = %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.i"
+  %296 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %157), !noalias !405
+  %297 = extractvalue { i64, ptr } %296, 0
+  %298 = extractvalue { i64, ptr } %296, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %118), !noalias !417
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %118, ptr noundef nonnull align 8 dereferenceable(80) %157, i64 80, i1 false), !noalias !412
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %307, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %118)
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %299, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %118)
   call void @llvm.lifetime.end.p0(ptr nonnull %118), !noalias !417
-  %308 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %305, ptr %308, align 8, !alias.scope !405, !noalias !418
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %306, ptr %309, align 8, !alias.scope !405, !noalias !418
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %297, ptr %300, align 8, !alias.scope !405, !noalias !418
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %298, ptr %301, align 8, !alias.scope !405, !noalias !418
   store i64 94, ptr %0, align 8, !alias.scope !405, !noalias !418
   br label %_ZN21ruff_python_formatter8comments9placement19handle_with_comment17h9d8c7629033b0cc2E.exit
 
-_ZN21ruff_python_formatter8comments9placement19handle_with_comment17h9d8c7629033b0cc2E.exit: ; preds = %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.thread.i", %303
+_ZN21ruff_python_formatter8comments9placement19handle_with_comment17h9d8c7629033b0cc2E.exit: ; preds = %"_ZN21ruff_python_formatter8comments9placement19handle_with_comment28_$u7b$$u7b$closure$u7d$$u7d$17h871c845208109e1aE.exit.thread.i", %295
   call void @llvm.lifetime.end.p0(ptr nonnull %157)
-  br label %1330
+  br label %1301
 
-310:                                              ; preds = %5
-  %311 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %311)
+302:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %156)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %156, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !419)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !424)
-  %312 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %156), !noalias !426
-  %313 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %312), !noalias !426
-  %314 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %315 = load i64, ptr %314, align 8, !alias.scope !424, !noalias !427
-  %.not.i62 = icmp ne i64 %315, 0
-  %or.cond.not.i63 = select i1 %313, i1 %.not.i62, i1 false
-  br i1 %or.cond.not.i63, label %316, label %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.thread.i"
+  %303 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %156), !noalias !426
+  %304 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %303), !noalias !426
+  %305 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %306 = load i64, ptr %305, align 8, !alias.scope !424, !noalias !427
+  %.not.i62 = icmp ne i64 %306, 0
+  %or.cond.not.i63 = select i1 %304, i1 %.not.i62, i1 false
+  br i1 %or.cond.not.i63, label %307, label %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.thread.i"
 
-"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.thread.i": ; preds = %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.i", %316, %310
+"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.thread.i": ; preds = %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.i", %307, %302
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %156, i64 80, i1 false), !alias.scope !427, !noalias !424
   br label %_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment17hbc5676fafab34e96E.exit
 
-316:                                              ; preds = %310
-  %317 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %318 = load ptr, ptr %317, align 8, !alias.scope !424, !noalias !427, !nonnull !3, !noundef !3
-  %319 = call { i32, i32 } @"_ZN93_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17ha5eb459bcdc7eec3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %183), !noalias !428
-  %320 = extractvalue { i32, i32 } %319, 0
-  %321 = getelementptr inbounds nuw i8, ptr %156, i64 64
-  %322 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %321), !noalias !432
-  %323 = extractvalue { i32, i32 } %322, 0
-  %324 = icmp ult i32 %320, %323
-  br i1 %324, label %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.i", label %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.thread.i"
+307:                                              ; preds = %302
+  %308 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %309 = load ptr, ptr %308, align 8, !alias.scope !424, !noalias !427, !nonnull !3, !noundef !3
+  %310 = call { i32, i32 } @"_ZN93_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17ha5eb459bcdc7eec3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %183), !noalias !428
+  %311 = extractvalue { i32, i32 } %310, 0
+  %312 = getelementptr inbounds nuw i8, ptr %156, i64 64
+  %313 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %312), !noalias !432
+  %314 = extractvalue { i32, i32 } %313, 0
+  %315 = icmp ult i32 %311, %314
+  br i1 %315, label %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.i", label %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.thread.i"
 
-"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.i": ; preds = %316
-  %325 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %321), !noalias !432
-  %326 = extractvalue { i32, i32 } %325, 0
-  %327 = call { i32, i32 } @"_ZN15ruff_python_ast9generated90_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Alias$GT$5range17h09b9105c692a64a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %318), !noalias !419
-  %328 = extractvalue { i32, i32 } %327, 0
-  %329 = icmp ult i32 %326, %328
-  br i1 %329, label %330, label %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.thread.i"
+"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.i": ; preds = %307
+  %316 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %312), !noalias !432
+  %317 = extractvalue { i32, i32 } %316, 0
+  %318 = call { i32, i32 } @"_ZN15ruff_python_ast9generated90_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Alias$GT$5range17h09b9105c692a64a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %309), !noalias !419
+  %319 = extractvalue { i32, i32 } %318, 0
+  %320 = icmp ult i32 %317, %319
+  br i1 %320, label %321, label %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.thread.i"
 
-330:                                              ; preds = %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.i"
-  %331 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %156), !noalias !419
-  %332 = extractvalue { i64, ptr } %331, 0
-  %333 = extractvalue { i64, ptr } %331, 1
+321:                                              ; preds = %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.i"
+  %322 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %156), !noalias !419
+  %323 = extractvalue { i64, ptr } %322, 0
+  %324 = extractvalue { i64, ptr } %322, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %117), !noalias !433
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %117, ptr noundef nonnull align 8 dereferenceable(80) %156, i64 80, i1 false), !noalias !426
-  %334 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %334, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %117)
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %325, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %117)
   call void @llvm.lifetime.end.p0(ptr nonnull %117), !noalias !433
-  %335 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %332, ptr %335, align 8, !alias.scope !419, !noalias !434
-  %336 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %333, ptr %336, align 8, !alias.scope !419, !noalias !434
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %323, ptr %326, align 8, !alias.scope !419, !noalias !434
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %324, ptr %327, align 8, !alias.scope !419, !noalias !434
   store i64 94, ptr %0, align 8, !alias.scope !419, !noalias !434
   br label %_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment17hbc5676fafab34e96E.exit
 
-_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment17hbc5676fafab34e96E.exit: ; preds = %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.thread.i", %330
+_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment17hbc5676fafab34e96E.exit: ; preds = %"_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment28_$u7b$$u7b$closure$u7d$$u7d$17h881bc336850428aaE.exit.thread.i", %321
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
-  br label %1330
+  br label %1301
 
-337:                                              ; preds = %5, %5
+328:                                              ; preds = %5, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %147)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %147, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !435)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !438)
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
   call void @llvm.lifetime.start.p0(ptr nonnull %115), !noalias !440
-  %338 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %147), !noalias !442
-  %339 = extractvalue { i64, ptr } %338, 0
-  %340 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %147), !noalias !442
-  %341 = extractvalue { i64, ptr } %340, 0
-  %.not.i64 = icmp eq i64 %339, 92
-  %.not13.i = icmp eq i64 %341, 92
+  %329 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %147), !noalias !442
+  %330 = extractvalue { i64, ptr } %329, 0
+  %331 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %147), !noalias !442
+  %332 = extractvalue { i64, ptr } %331, 0
+  %.not.i64 = icmp eq i64 %330, 92
+  %.not13.i = icmp eq i64 %332, 92
   %or.cond.i65 = select i1 %.not.i64, i1 true, i1 %.not13.i
-  br i1 %or.cond.i65, label %342, label %343
+  br i1 %or.cond.i65, label %333, label %334
 
-342:                                              ; preds = %337
+333:                                              ; preds = %328
   call void @llvm.lifetime.end.p0(ptr nonnull %115), !noalias !440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %147, i64 80, i1 false), !alias.scope !443, !noalias !444
   br label %_ZN21ruff_python_formatter8comments9placement35handle_trailing_binary_like_comment17h5eff6cd6b41894c0E.exit
 
-343:                                              ; preds = %337
-  %344 = extractvalue { i64, ptr } %340, 1
-  %345 = extractvalue { i64, ptr } %338, 1
-  store i64 %339, ptr %116, align 8, !noalias !440
-  %346 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store ptr %345, ptr %346, align 8, !noalias !440
-  store i64 %341, ptr %115, align 8, !noalias !440
-  %347 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  store ptr %344, ptr %347, align 8, !noalias !440
-  %348 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %116), !noalias !442
-  %349 = extractvalue { i32, i32 } %348, 1
-  %350 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %115), !noalias !442
-  %351 = extractvalue { i32, i32 } %350, 0
-  %.not14.i = icmp ugt i32 %349, %351
-  br i1 %.not14.i, label %352, label %353, !prof !331
+334:                                              ; preds = %328
+  %335 = extractvalue { i64, ptr } %331, 1
+  %336 = extractvalue { i64, ptr } %329, 1
+  store i64 %330, ptr %116, align 8, !noalias !440
+  %337 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  store ptr %336, ptr %337, align 8, !noalias !440
+  store i64 %332, ptr %115, align 8, !noalias !440
+  %338 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  store ptr %335, ptr %338, align 8, !noalias !440
+  %339 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %116), !noalias !442
+  %340 = extractvalue { i32, i32 } %339, 1
+  %341 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %115), !noalias !442
+  %342 = extractvalue { i32, i32 } %341, 0
+  %.not14.i = icmp ugt i32 %340, %342
+  br i1 %.not14.i, label %343, label %344, !prof !331
 
-352:                                              ; preds = %343
+343:                                              ; preds = %334
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.55) #19, !noalias !442
   unreachable
 
-353:                                              ; preds = %343
+344:                                              ; preds = %334
   call void @llvm.lifetime.start.p0(ptr nonnull %114), !noalias !440
   call void @llvm.lifetime.start.p0(ptr nonnull %113), !noalias !440
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %113, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %349, i32 noundef %351), !noalias !435
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %113, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %340, i32 noundef %342), !noalias !435
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %114, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %113), !noalias !435
   call void @llvm.lifetime.end.p0(ptr nonnull %113), !noalias !440
-  %354 = getelementptr inbounds nuw i8, ptr %114, i64 48
-  store i8 0, ptr %354, align 8, !noalias !440
+  %345 = getelementptr inbounds nuw i8, ptr %114, i64 48
+  store i8 0, ptr %345, align 8, !noalias !440
   call void @llvm.lifetime.start.p0(ptr nonnull %112), !noalias !440
   call void @llvm.lifetime.start.p0(ptr nonnull %110), !noalias !445
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %110, ptr noalias noundef nonnull align 8 dereferenceable(48) %114), !noalias !449
-  %355 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %356 = load i8, ptr %355, align 4, !range !259, !noalias !445, !noundef !3
-  %.not19.i.i = icmp eq i8 %356, 90
+  %346 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %347 = load i8, ptr %346, align 4, !range !259, !noalias !445, !noundef !3
+  %.not19.i.i = icmp eq i8 %347, 90
   br i1 %.not19.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %353
+.lr.ph.i.i:                                       ; preds = %344
   %.sroa.46.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %109, i64 8
   %.sroa.57.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %109, i64 9
-  br label %357
+  br label %348
 
-357:                                              ; preds = %364, %.lr.ph.i.i
+348:                                              ; preds = %355, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %109), !noalias !445
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %109, ptr noundef nonnull align 4 dereferenceable(12) %110, i64 12, i1 false), !noalias !445
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !450)
   call void @llvm.experimental.noalias.scope.decl(metadata !453)
-  %358 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %109), !noalias !455
-  %359 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %358), !noalias !455
-  br i1 %359, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.thread.i.i", label %360
+  %349 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %109), !noalias !455
+  %350 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %349), !noalias !455
+  br i1 %350, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.thread.i.i", label %351
 
-360:                                              ; preds = %357
+351:                                              ; preds = %348
   %.sroa.46.0.copyload.i.i.i = load i8, ptr %.sroa.46.0..sroa_idx.i.i.i, align 8, !alias.scope !453, !noalias !456
-  %361 = load i8, ptr %354, align 8, !range !23, !noalias !457, !noundef !3
-  %362 = trunc nuw i8 %361 to i1
-  %363 = icmp ne i8 %.sroa.46.0.copyload.i.i.i, 6
-  %or.cond.not.i.i.i.i.i = select i1 %362, i1 true, i1 %363
+  %352 = load i8, ptr %345, align 8, !range !23, !noalias !457, !noundef !3
+  %353 = trunc nuw i8 %352 to i1
+  %354 = icmp ne i8 %.sroa.46.0.copyload.i.i.i, 6
+  %or.cond.not.i.i.i.i.i = select i1 %353, i1 true, i1 %354
   br i1 %or.cond.not.i.i.i.i.i, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.i.i", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.thread.i.i"
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.thread.i.i": ; preds = %360, %357
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.thread.i.i": ; preds = %351, %348
   call void @llvm.lifetime.end.p0(ptr nonnull %109), !noalias !445
-  br label %364
+  br label %355
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.i.i": ; preds = %360
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.i.i": ; preds = %351
   %.sroa.05.0.copyload.i.i.i = load i64, ptr %109, align 8, !alias.scope !453, !noalias !456
-  store i8 1, ptr %354, align 8, !noalias !457
+  store i8 1, ptr %345, align 8, !noalias !457
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.57.0..sroa_idx.i.i.i, i64 3, i1 false), !alias.scope !461, !noalias !445
   call void @llvm.lifetime.end.p0(ptr nonnull %109), !noalias !445
   %.not.i.i.i = icmp eq i8 %.sroa.46.0.copyload.i.i.i, 90
-  br i1 %.not.i.i.i, label %364, label %366
+  br i1 %.not.i.i.i, label %355, label %357
 
-364:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.i.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.thread.i.i"
+355:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.i.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.thread.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %110), !noalias !445
   call void @llvm.lifetime.start.p0(ptr nonnull %110), !noalias !445
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %110, ptr noalias noundef nonnull align 8 dereferenceable(48) %114), !noalias !449
-  %365 = load i8, ptr %355, align 4, !range !259, !noalias !445, !noundef !3
-  %.not.i.i = icmp eq i8 %365, 90
-  br i1 %.not.i.i, label %.loopexit.i, label %357
+  %356 = load i8, ptr %346, align 4, !range !259, !noalias !445, !noundef !3
+  %.not.i.i = icmp eq i8 %356, 90
+  br i1 %.not.i.i, label %.loopexit.i, label %348
 
-366:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.i.i"
+357:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd45147005fd85721E.exit.i.i"
   %.sroa.6.0..sroa_idx9.i = getelementptr inbounds nuw i8, ptr %112, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx9.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.i.i, i64 3, i1 false), !noalias !440
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i)
@@ -3343,235 +3331,234 @@ _ZN21ruff_python_formatter8comments9placement26handle_import_from_comment17hbc56
   store i64 %.sroa.05.0.copyload.i.i.i, ptr %112, align 8, !noalias !440
   %.sroa.4.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i8 %.sroa.46.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx7.i, align 8, !noalias !440
-  %367 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %112), !noalias !435
-  %368 = extractvalue { i32, i32 } %367, 0
+  %358 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %112), !noalias !435
+  %359 = extractvalue { i32, i32 } %358, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %112), !noalias !440
-  %369 = getelementptr inbounds nuw i8, ptr %147, i64 64
-  %370 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %369), !noalias !435
-  %371 = extractvalue { i32, i32 } %370, 1
-  %372 = icmp ult i32 %371, %368
-  br i1 %372, label %374, label %373
+  %360 = getelementptr inbounds nuw i8, ptr %147, i64 64
+  %361 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %360), !noalias !435
+  %362 = extractvalue { i32, i32 } %361, 1
+  %363 = icmp ult i32 %362, %359
+  br i1 %363, label %365, label %364
 
-.loopexit.i:                                      ; preds = %364, %353
+.loopexit.i:                                      ; preds = %355, %344
   call void @llvm.lifetime.end.p0(ptr nonnull %110), !noalias !445
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.51, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.56) #19, !noalias !435
   unreachable
 
-373:                                              ; preds = %366
+364:                                              ; preds = %357
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %147, i64 80, i1 false), !alias.scope !443, !noalias !444
-  br label %380
+  br label %371
 
-374:                                              ; preds = %366
+365:                                              ; preds = %357
   call void @llvm.lifetime.start.p0(ptr nonnull %111), !noalias !440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %111, ptr noundef nonnull align 8 dereferenceable(80) %147, i64 80, i1 false), !noalias !442
-  %375 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %375, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %111)
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %366, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %111)
   call void @llvm.lifetime.end.p0(ptr nonnull %111), !noalias !440
-  %376 = load i64, ptr %116, align 8, !range !381, !noalias !440, !noundef !3
-  %377 = load ptr, ptr %346, align 8, !noalias !440, !noundef !3
-  %378 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %376, ptr %378, align 8, !alias.scope !435, !noalias !462
-  %379 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %377, ptr %379, align 8, !alias.scope !435, !noalias !462
+  %367 = load i64, ptr %116, align 8, !range !381, !noalias !440, !noundef !3
+  %368 = load ptr, ptr %337, align 8, !noalias !440, !noundef !3
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %367, ptr %369, align 8, !alias.scope !435, !noalias !462
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %368, ptr %370, align 8, !alias.scope !435, !noalias !462
   store i64 93, ptr %0, align 8, !alias.scope !435, !noalias !462
-  br label %380
+  br label %371
 
-380:                                              ; preds = %374, %373
+371:                                              ; preds = %365, %364
   call void @llvm.lifetime.end.p0(ptr nonnull %114), !noalias !440
   call void @llvm.lifetime.end.p0(ptr nonnull %115), !noalias !440
   br label %_ZN21ruff_python_formatter8comments9placement35handle_trailing_binary_like_comment17h5eff6cd6b41894c0E.exit
 
-_ZN21ruff_python_formatter8comments9placement35handle_trailing_binary_like_comment17h5eff6cd6b41894c0E.exit: ; preds = %342, %380
+_ZN21ruff_python_formatter8comments9placement35handle_trailing_binary_like_comment17h5eff6cd6b41894c0E.exit: ; preds = %333, %371
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
   call void @llvm.lifetime.end.p0(ptr nonnull %147)
-  br label %1330
+  br label %1301
 
-381:                                              ; preds = %5
+372:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %155)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %155, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !463)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !466)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   call void @llvm.lifetime.start.p0(ptr nonnull %107), !noalias !468
-  %382 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %155), !noalias !470
-  %383 = extractvalue { i64, ptr } %382, 0
-  %384 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %155), !noalias !470
-  %385 = extractvalue { i64, ptr } %384, 0
-  %.not.i66 = icmp eq i64 %383, 92
-  %.not6.i = icmp eq i64 %385, 92
+  %373 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %155), !noalias !470
+  %374 = extractvalue { i64, ptr } %373, 0
+  %375 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %155), !noalias !470
+  %376 = extractvalue { i64, ptr } %375, 0
+  %.not.i66 = icmp eq i64 %374, 92
+  %.not6.i = icmp eq i64 %376, 92
   %or.cond.i67 = select i1 %.not.i66, i1 true, i1 %.not6.i
-  br i1 %or.cond.i67, label %386, label %387
+  br i1 %or.cond.i67, label %377, label %378
 
-386:                                              ; preds = %381
+377:                                              ; preds = %372
   call void @llvm.lifetime.end.p0(ptr nonnull %107), !noalias !468
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %155, i64 80, i1 false), !alias.scope !471, !noalias !472
   br label %_ZN21ruff_python_formatter8comments9placement25handle_named_expr_comment17h56be92544c4ad7c4E.exit
 
-387:                                              ; preds = %381
-  %388 = extractvalue { i64, ptr } %384, 1
-  %389 = extractvalue { i64, ptr } %382, 1
-  store i64 %383, ptr %108, align 8, !noalias !468
-  %390 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  store ptr %389, ptr %390, align 8, !noalias !468
-  store i64 %385, ptr %107, align 8, !noalias !468
-  %391 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store ptr %388, ptr %391, align 8, !noalias !468
+378:                                              ; preds = %372
+  %379 = extractvalue { i64, ptr } %375, 1
+  %380 = extractvalue { i64, ptr } %373, 1
+  store i64 %374, ptr %108, align 8, !noalias !468
+  %381 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  store ptr %380, ptr %381, align 8, !noalias !468
+  store i64 %376, ptr %107, align 8, !noalias !468
+  %382 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  store ptr %379, ptr %382, align 8, !noalias !468
   call void @llvm.lifetime.start.p0(ptr nonnull %106), !noalias !468
-  %392 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %108), !noalias !470
-  %393 = extractvalue { i32, i32 } %392, 1
-  %394 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %107), !noalias !470
-  %395 = extractvalue { i32, i32 } %394, 0
-  %.not7.i = icmp ugt i32 %393, %395
-  br i1 %.not7.i, label %396, label %397, !prof !331
+  %383 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %108), !noalias !470
+  %384 = extractvalue { i32, i32 } %383, 1
+  %385 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %107), !noalias !470
+  %386 = extractvalue { i32, i32 } %385, 0
+  %.not7.i = icmp ugt i32 %384, %386
+  br i1 %.not7.i, label %387, label %388, !prof !331
 
-396:                                              ; preds = %387
+387:                                              ; preds = %378
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.71) #19, !noalias !470
   unreachable
 
-397:                                              ; preds = %387
-  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %106, i32 noundef %393, i32 noundef %395, i8 noundef 48, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !463
-  %398 = getelementptr inbounds nuw i8, ptr %155, i64 64
-  %399 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %398), !noalias !463
-  %400 = extractvalue { i32, i32 } %399, 1
-  %401 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %106), !noalias !463
-  %402 = extractvalue { i32, i32 } %401, 0
-  %403 = icmp ult i32 %400, %402
-  br i1 %403, label %409, label %404
+388:                                              ; preds = %378
+  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %106, i32 noundef %384, i32 noundef %386, i8 noundef 48, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !463
+  %389 = getelementptr inbounds nuw i8, ptr %155, i64 64
+  %390 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %389), !noalias !463
+  %391 = extractvalue { i32, i32 } %390, 1
+  %392 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %106), !noalias !463
+  %393 = extractvalue { i32, i32 } %392, 0
+  %394 = icmp ult i32 %391, %393
+  br i1 %394, label %400, label %395
 
-404:                                              ; preds = %397
-  %405 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %155), !noalias !463
-  %406 = extractvalue { i64, ptr } %405, 0
-  %407 = extractvalue { i64, ptr } %405, 1
+395:                                              ; preds = %388
+  %396 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %155), !noalias !463
+  %397 = extractvalue { i64, ptr } %396, 0
+  %398 = extractvalue { i64, ptr } %396, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %105), !noalias !468
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %105, ptr noundef nonnull align 8 dereferenceable(80) %155, i64 80, i1 false), !noalias !470
-  %408 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %408, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %105)
+  %399 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %399, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %105)
   call void @llvm.lifetime.end.p0(ptr nonnull %105), !noalias !468
-  br label %413
+  br label %404
 
-409:                                              ; preds = %397
+400:                                              ; preds = %388
   call void @llvm.lifetime.start.p0(ptr nonnull %104), !noalias !468
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %104, ptr noundef nonnull align 8 dereferenceable(80) %155, i64 80, i1 false), !noalias !470
-  %410 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %410, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %104)
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %401, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %104)
   call void @llvm.lifetime.end.p0(ptr nonnull %104), !noalias !468
-  %411 = load i64, ptr %108, align 8, !range !381, !noalias !468, !noundef !3
-  %412 = load ptr, ptr %390, align 8, !noalias !468, !noundef !3
-  br label %413
+  %402 = load i64, ptr %108, align 8, !range !381, !noalias !468, !noundef !3
+  %403 = load ptr, ptr %381, align 8, !noalias !468, !noundef !3
+  br label %404
 
-413:                                              ; preds = %409, %404
-  %.sink9.i = phi i64 [ %411, %409 ], [ %406, %404 ]
-  %.sink8.i = phi ptr [ %412, %409 ], [ %407, %404 ]
-  %.sink.i = phi i64 [ 93, %409 ], [ 94, %404 ]
-  %414 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink9.i, ptr %414, align 8, !alias.scope !463, !noalias !473
-  %415 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink8.i, ptr %415, align 8, !alias.scope !463, !noalias !473
+404:                                              ; preds = %400, %395
+  %.sink9.i = phi i64 [ %402, %400 ], [ %397, %395 ]
+  %.sink8.i = phi ptr [ %403, %400 ], [ %398, %395 ]
+  %.sink.i = phi i64 [ 93, %400 ], [ 94, %395 ]
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink9.i, ptr %405, align 8, !alias.scope !463, !noalias !473
+  %406 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sink8.i, ptr %406, align 8, !alias.scope !463, !noalias !473
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !463, !noalias !473
   call void @llvm.lifetime.end.p0(ptr nonnull %106), !noalias !468
   call void @llvm.lifetime.end.p0(ptr nonnull %107), !noalias !468
   br label %_ZN21ruff_python_formatter8comments9placement25handle_named_expr_comment17h56be92544c4ad7c4E.exit
 
-_ZN21ruff_python_formatter8comments9placement25handle_named_expr_comment17h56be92544c4ad7c4E.exit: ; preds = %386, %413
+_ZN21ruff_python_formatter8comments9placement25handle_named_expr_comment17h56be92544c4ad7c4E.exit: ; preds = %377, %404
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   call void @llvm.lifetime.end.p0(ptr nonnull %155)
-  br label %1330
+  br label %1301
 
-416:                                              ; preds = %5
-  %417 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %417)
+407:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %154)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %154, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !474)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !477)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
-  %418 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %154), !noalias !481
-  %419 = extractvalue { i64, ptr } %418, 0
-  %.not.i69 = icmp eq i64 %419, 92
-  br i1 %.not.i69, label %484, label %420
+  %408 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %154), !noalias !481
+  %409 = extractvalue { i64, ptr } %408, 0
+  %.not.i69 = icmp eq i64 %409, 92
+  br i1 %.not.i69, label %474, label %410
 
-420:                                              ; preds = %416
-  %421 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %154), !noalias !481
-  %422 = extractvalue { i64, ptr } %421, 0
-  %.not11.i = icmp eq i64 %422, 92
-  br i1 %.not11.i, label %484, label %423
+410:                                              ; preds = %407
+  %411 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %154), !noalias !481
+  %412 = extractvalue { i64, ptr } %411, 0
+  %.not11.i = icmp eq i64 %412, 92
+  br i1 %.not11.i, label %474, label %413
 
-423:                                              ; preds = %420
-  %424 = load ptr, ptr %183, align 8, !alias.scope !479, !noalias !483, !nonnull !3, !align !5, !noundef !3
-  %425 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %424), !noalias !481
-  %426 = extractvalue { i32, i32 } %425, 1
-  %427 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %428 = load ptr, ptr %427, align 8, !alias.scope !479, !noalias !483, !nonnull !3, !align !5, !noundef !3
-  %429 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %428), !noalias !481
-  %430 = extractvalue { i32, i32 } %429, 0
-  %.not12.i = icmp ugt i32 %426, %430
-  br i1 %.not12.i, label %431, label %432, !prof !331
+413:                                              ; preds = %410
+  %414 = load ptr, ptr %183, align 8, !alias.scope !479, !noalias !483, !nonnull !3, !align !5, !noundef !3
+  %415 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %414), !noalias !481
+  %416 = extractvalue { i32, i32 } %415, 1
+  %417 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %418 = load ptr, ptr %417, align 8, !alias.scope !479, !noalias !483, !nonnull !3, !align !5, !noundef !3
+  %419 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %418), !noalias !481
+  %420 = extractvalue { i32, i32 } %419, 0
+  %.not12.i = icmp ugt i32 %416, %420
+  br i1 %.not12.i, label %421, label %422, !prof !331
 
-431:                                              ; preds = %423
+421:                                              ; preds = %413
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.50) #19, !noalias !481
   unreachable
 
-432:                                              ; preds = %423
+422:                                              ; preds = %413
   call void @llvm.lifetime.start.p0(ptr nonnull %103), !noalias !484
   call void @llvm.lifetime.start.p0(ptr nonnull %102), !noalias !484
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %102, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %426, i32 noundef %430), !noalias !485
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %102, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %416, i32 noundef %420), !noalias !485
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %103, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %102), !noalias !485
   call void @llvm.lifetime.end.p0(ptr nonnull %102), !noalias !484
-  %433 = getelementptr inbounds nuw i8, ptr %103, i64 48
-  store i8 0, ptr %433, align 8, !noalias !484
+  %423 = getelementptr inbounds nuw i8, ptr %103, i64 48
+  store i8 0, ptr %423, align 8, !noalias !484
   call void @llvm.lifetime.start.p0(ptr nonnull %101), !noalias !484
   call void @llvm.lifetime.start.p0(ptr nonnull %98), !noalias !486
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %98, ptr noalias noundef nonnull align 8 dereferenceable(48) %103), !noalias !490
-  %434 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %435 = load i8, ptr %434, align 4, !range !259, !noalias !486, !noundef !3
-  %.not19.i.i70 = icmp eq i8 %435, 90
+  %424 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %425 = load i8, ptr %424, align 4, !range !259, !noalias !486, !noundef !3
+  %.not19.i.i70 = icmp eq i8 %425, 90
   br i1 %.not19.i.i70, label %.loopexit.i77, label %.lr.ph.i.i71
 
-.lr.ph.i.i71:                                     ; preds = %432
+.lr.ph.i.i71:                                     ; preds = %422
   %.sroa.46.0..sroa_idx.i.i.i72 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %.sroa.57.0..sroa_idx.i.i.i73 = getelementptr inbounds nuw i8, ptr %97, i64 9
-  br label %436
+  br label %426
 
-436:                                              ; preds = %443, %.lr.ph.i.i71
+426:                                              ; preds = %433, %.lr.ph.i.i71
   call void @llvm.lifetime.start.p0(ptr nonnull %97), !noalias !486
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %97, ptr noundef nonnull align 4 dereferenceable(12) %98, i64 12, i1 false), !noalias !486
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i.i68)
   call void @llvm.experimental.noalias.scope.decl(metadata !491)
   call void @llvm.experimental.noalias.scope.decl(metadata !494)
-  %437 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %97), !noalias !496
-  %438 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %437), !noalias !496
-  br i1 %438, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.thread.i.i", label %439
+  %427 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %97), !noalias !496
+  %428 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %427), !noalias !496
+  br i1 %428, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.thread.i.i", label %429
 
-439:                                              ; preds = %436
+429:                                              ; preds = %426
   %.sroa.46.0.copyload.i.i.i74 = load i8, ptr %.sroa.46.0..sroa_idx.i.i.i72, align 8, !alias.scope !494, !noalias !497
-  %440 = load i8, ptr %433, align 8, !range !23, !noalias !498, !noundef !3
-  %441 = trunc nuw i8 %440 to i1
-  %442 = icmp ne i8 %.sroa.46.0.copyload.i.i.i74, 6
-  %or.cond.not.i.i.i.i.i75 = select i1 %441, i1 true, i1 %442
+  %430 = load i8, ptr %423, align 8, !range !23, !noalias !498, !noundef !3
+  %431 = trunc nuw i8 %430 to i1
+  %432 = icmp ne i8 %.sroa.46.0.copyload.i.i.i74, 6
+  %or.cond.not.i.i.i.i.i75 = select i1 %431, i1 true, i1 %432
   br i1 %or.cond.not.i.i.i.i.i75, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.i.i", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.thread.i.i"
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.thread.i.i": ; preds = %439, %436
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.thread.i.i": ; preds = %429, %426
   call void @llvm.lifetime.end.p0(ptr nonnull %97), !noalias !486
-  br label %443
+  br label %433
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.i.i": ; preds = %439
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.i.i": ; preds = %429
   %.sroa.05.0.copyload.i.i.i78 = load i64, ptr %97, align 8, !alias.scope !494, !noalias !497
-  store i8 1, ptr %433, align 8, !noalias !498
+  store i8 1, ptr %423, align 8, !noalias !498
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.i.i68, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.57.0..sroa_idx.i.i.i73, i64 3, i1 false), !alias.scope !502, !noalias !486
   call void @llvm.lifetime.end.p0(ptr nonnull %97), !noalias !486
   %.not.i.i.i79 = icmp eq i8 %.sroa.46.0.copyload.i.i.i74, 90
-  br i1 %.not.i.i.i79, label %443, label %445
+  br i1 %.not.i.i.i79, label %433, label %435
 
-443:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.i.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.thread.i.i"
+433:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.i.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.thread.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i68)
   call void @llvm.lifetime.end.p0(ptr nonnull %98), !noalias !486
   call void @llvm.lifetime.start.p0(ptr nonnull %98), !noalias !486
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %98, ptr noalias noundef nonnull align 8 dereferenceable(48) %103), !noalias !490
-  %444 = load i8, ptr %434, align 4, !range !259, !noalias !486, !noundef !3
-  %.not.i.i76 = icmp eq i8 %444, 90
-  br i1 %.not.i.i76, label %.loopexit.i77, label %436
+  %434 = load i8, ptr %424, align 4, !range !259, !noalias !486, !noundef !3
+  %.not.i.i76 = icmp eq i8 %434, 90
+  br i1 %.not.i.i76, label %.loopexit.i77, label %426
 
-445:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.i.i"
+435:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h29e1dff93d0672d8E.exit.i.i"
   %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %101, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx4.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.i.i68, i64 3, i1 false), !noalias !484
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i68)
@@ -3579,108 +3566,107 @@ _ZN21ruff_python_formatter8comments9placement25handle_named_expr_comment17h56be9
   store i64 %.sroa.05.0.copyload.i.i.i78, ptr %101, align 8, !noalias !484
   %.sroa.4.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i8 %.sroa.46.0.copyload.i.i.i74, ptr %.sroa.4.0..sroa_idx2.i, align 8, !noalias !484
-  %446 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %101), !noalias !485
-  %447 = extractvalue { i32, i32 } %446, 0
+  %436 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %101), !noalias !485
+  %437 = extractvalue { i32, i32 } %436, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %101), !noalias !484
-  %448 = getelementptr inbounds nuw i8, ptr %154, i64 64
-  %449 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %448), !noalias !485
-  %450 = extractvalue { i32, i32 } %449, 1
-  %451 = icmp ult i32 %450, %447
-  br i1 %451, label %455, label %452
+  %438 = getelementptr inbounds nuw i8, ptr %154, i64 64
+  %439 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %438), !noalias !485
+  %440 = extractvalue { i32, i32 } %439, 1
+  %441 = icmp ult i32 %440, %437
+  br i1 %441, label %445, label %442
 
-.loopexit.i77:                                    ; preds = %443, %432
+.loopexit.i77:                                    ; preds = %433, %422
   call void @llvm.lifetime.end.p0(ptr nonnull %98), !noalias !486
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.51, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.52) #19, !noalias !485
   unreachable
 
-452:                                              ; preds = %445
-  %453 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %154), !noalias !485
-  %454 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %453), !noalias !485
-  br i1 %454, label %463, label %462
+442:                                              ; preds = %435
+  %443 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %154), !noalias !485
+  %444 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %443), !noalias !485
+  br i1 %444, label %453, label %452
 
-455:                                              ; preds = %445
-  %456 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %424), !noalias !485
-  %457 = extractvalue { i64, ptr } %456, 0
-  %458 = extractvalue { i64, ptr } %456, 1
+445:                                              ; preds = %435
+  %446 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %414), !noalias !485
+  %447 = extractvalue { i64, ptr } %446, 0
+  %448 = extractvalue { i64, ptr } %446, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %99), !noalias !484
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %99, ptr noundef nonnull align 8 dereferenceable(80) %154, i64 80, i1 false), !noalias !481
-  %459 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %459, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %99), !noalias !479
+  %449 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %449, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %99), !noalias !479
   call void @llvm.lifetime.end.p0(ptr nonnull %99), !noalias !484
-  %460 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %457, ptr %460, align 8, !alias.scope !474, !noalias !503
-  %461 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %458, ptr %461, align 8, !alias.scope !474, !noalias !503
+  %450 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %447, ptr %450, align 8, !alias.scope !474, !noalias !503
+  %451 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %448, ptr %451, align 8, !alias.scope !474, !noalias !503
   store i64 93, ptr %0, align 8, !alias.scope !474, !noalias !503
-  br label %483
+  br label %473
 
-462:                                              ; preds = %452
+452:                                              ; preds = %442
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %154, i64 80, i1 false), !alias.scope !504, !noalias !505
-  br label %483
+  br label %473
 
-463:                                              ; preds = %452
-  %464 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %424), !noalias !485
-  %465 = extractvalue { i32, i32 } %464, 1
-  %.not15.i = icmp ugt i32 %465, %447
-  br i1 %.not15.i, label %466, label %467, !prof !331
+453:                                              ; preds = %442
+  %454 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %414), !noalias !485
+  %455 = extractvalue { i32, i32 } %454, 1
+  %.not15.i = icmp ugt i32 %455, %437
+  br i1 %.not15.i, label %456, label %457, !prof !331
 
-466:                                              ; preds = %463
+456:                                              ; preds = %453
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.53) #19, !noalias !485
   unreachable
 
-467:                                              ; preds = %463
-  %468 = call noundef zeroext i1 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$GT$19contains_line_break17h4b5508c38b630d87E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %465, i32 noundef %447), !noalias !485
-  br i1 %468, label %469, label %472
+457:                                              ; preds = %453
+  %458 = call noundef zeroext i1 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$GT$19contains_line_break17h4b5508c38b630d87E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %455, i32 noundef %437), !noalias !485
+  br i1 %458, label %459, label %462
 
-469:                                              ; preds = %467
-  %470 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %428), !noalias !485
-  %471 = extractvalue { i32, i32 } %470, 0
-  %.not16.i = icmp ugt i32 %447, %471
-  br i1 %.not16.i, label %473, label %474, !prof !331
+459:                                              ; preds = %457
+  %460 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %418), !noalias !485
+  %461 = extractvalue { i32, i32 } %460, 0
+  %.not16.i = icmp ugt i32 %437, %461
+  br i1 %.not16.i, label %463, label %464, !prof !331
 
-472:                                              ; preds = %474, %467
+462:                                              ; preds = %464, %457
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %154, i64 80, i1 false), !alias.scope !504, !noalias !505
-  br label %483
+  br label %473
 
-473:                                              ; preds = %469
+463:                                              ; preds = %459
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.54) #19, !noalias !485
   unreachable
 
-474:                                              ; preds = %469
-  %475 = call noundef zeroext i1 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$GT$19contains_line_break17h4b5508c38b630d87E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %447, i32 noundef %471), !noalias !485
-  br i1 %475, label %476, label %472
+464:                                              ; preds = %459
+  %465 = call noundef zeroext i1 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$GT$19contains_line_break17h4b5508c38b630d87E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %437, i32 noundef %461), !noalias !485
+  br i1 %465, label %466, label %462
 
-476:                                              ; preds = %474
-  %477 = call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprBinOp$GT$$GT$4from17h61c06baf14032016E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %183), !noalias !474
-  %478 = extractvalue { i64, ptr } %477, 0
-  %479 = extractvalue { i64, ptr } %477, 1
+466:                                              ; preds = %464
+  %467 = call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprBinOp$GT$$GT$4from17h61c06baf14032016E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %183), !noalias !474
+  %468 = extractvalue { i64, ptr } %467, 0
+  %469 = extractvalue { i64, ptr } %467, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %100), !noalias !484
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %100, ptr noundef nonnull align 8 dereferenceable(80) %154, i64 80, i1 false), !noalias !481
-  %480 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %480, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %100)
+  %470 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %470, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %100)
   call void @llvm.lifetime.end.p0(ptr nonnull %100), !noalias !484
-  %481 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %478, ptr %481, align 8, !alias.scope !474, !noalias !503
-  %482 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %479, ptr %482, align 8, !alias.scope !474, !noalias !503
+  %471 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %468, ptr %471, align 8, !alias.scope !474, !noalias !503
+  %472 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %469, ptr %472, align 8, !alias.scope !474, !noalias !503
   store i64 94, ptr %0, align 8, !alias.scope !474, !noalias !503
-  br label %483
+  br label %473
 
-483:                                              ; preds = %476, %472, %462, %455
+473:                                              ; preds = %466, %462, %452, %445
   call void @llvm.lifetime.end.p0(ptr nonnull %103), !noalias !484
   br label %_ZN21ruff_python_formatter8comments9placement58handle_trailing_binary_expression_left_or_operator_comment17h283d1ea15cd5c318E.exit
 
-484:                                              ; preds = %420, %416
+474:                                              ; preds = %410, %407
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %154, i64 80, i1 false), !alias.scope !504, !noalias !505
   br label %_ZN21ruff_python_formatter8comments9placement58handle_trailing_binary_expression_left_or_operator_comment17h283d1ea15cd5c318E.exit
 
-_ZN21ruff_python_formatter8comments9placement58handle_trailing_binary_expression_left_or_operator_comment17h283d1ea15cd5c318E.exit: ; preds = %483, %484
+_ZN21ruff_python_formatter8comments9placement58handle_trailing_binary_expression_left_or_operator_comment17h283d1ea15cd5c318E.exit: ; preds = %473, %474
   call void @llvm.lifetime.end.p0(ptr nonnull %154)
-  br label %1330
+  br label %1301
 
-485:                                              ; preds = %5
-  %486 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %486)
+475:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %153)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %153, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !506)
@@ -3688,100 +3674,100 @@ _ZN21ruff_python_formatter8comments9placement58handle_trailing_binary_expression
   tail call void @llvm.experimental.noalias.scope.decl(metadata !511)
   call void @llvm.lifetime.start.p0(ptr nonnull %96), !noalias !513
   call void @llvm.lifetime.start.p0(ptr nonnull %95), !noalias !513
-  %487 = tail call { i32, i32 } @"_ZN90_$LT$ruff_python_ast..generated..ExprUnaryOp$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h045bee1ffd8b4f4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %183), !noalias !515
-  %488 = extractvalue { i32, i32 } %487, 0
-  %489 = load ptr, ptr %183, align 8, !alias.scope !511, !noalias !515, !nonnull !3, !align !5, !noundef !3
-  %490 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %489), !noalias !515
-  %491 = extractvalue { i32, i32 } %490, 0
-  %.not.i80 = icmp ugt i32 %488, %491
-  br i1 %.not.i80, label %492, label %493, !prof !331
+  %476 = tail call { i32, i32 } @"_ZN90_$LT$ruff_python_ast..generated..ExprUnaryOp$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h045bee1ffd8b4f4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %183), !noalias !515
+  %477 = extractvalue { i32, i32 } %476, 0
+  %478 = load ptr, ptr %183, align 8, !alias.scope !511, !noalias !515, !nonnull !3, !align !5, !noundef !3
+  %479 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %478), !noalias !515
+  %480 = extractvalue { i32, i32 } %479, 0
+  %.not.i80 = icmp ugt i32 %477, %480
+  br i1 %.not.i80, label %481, label %482, !prof !331
 
-492:                                              ; preds = %485
+481:                                              ; preds = %475
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.74) #19, !noalias !515
   unreachable
 
-493:                                              ; preds = %485
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %95, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %488, i32 noundef %491), !noalias !516
+482:                                              ; preds = %475
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %95, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %477, i32 noundef %480), !noalias !516
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %96, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %95), !noalias !516
   call void @llvm.lifetime.end.p0(ptr nonnull %95), !noalias !513
-  %494 = getelementptr inbounds nuw i8, ptr %96, i64 48
+  %483 = getelementptr inbounds nuw i8, ptr %96, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %93), !noalias !513
-  store ptr %494, ptr %93, align 8, !noalias !517
+  store ptr %483, ptr %93, align 8, !noalias !517
   call void @llvm.lifetime.start.p0(ptr nonnull %92), !noalias !517
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %92, ptr noalias noundef nonnull align 8 dereferenceable(48) %96), !noalias !522
-  %495 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %496 = load i8, ptr %495, align 4, !range !259, !noalias !517, !noundef !3
-  %.not21.i.i = icmp eq i8 %496, 90
+  %484 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %485 = load i8, ptr %484, align 4, !range !259, !noalias !517, !noundef !3
+  %.not21.i.i = icmp eq i8 %485, 90
   br i1 %.not21.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i, label %.lr.ph.i.i81
 
-.lr.ph.i.i81:                                     ; preds = %493
+.lr.ph.i.i81:                                     ; preds = %482
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %91, i64 8
-  br label %497
+  br label %486
 
-497:                                              ; preds = %499, %.lr.ph.i.i81
+486:                                              ; preds = %488, %.lr.ph.i.i81
   call void @llvm.lifetime.start.p0(ptr nonnull %91), !noalias !517
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %91, ptr noundef nonnull align 4 dereferenceable(12) %92, i64 12, i1 false), !noalias !517
   call void @llvm.experimental.noalias.scope.decl(metadata !523)
-  %498 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1e776b8ba38b6d82E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %93, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %91), !noalias !526
-  br i1 %498, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i", label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.thread.i.i"
+  %487 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1e776b8ba38b6d82E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %93, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %91), !noalias !526
+  br i1 %487, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i", label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.thread.i.i"
 
-"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.thread.i.i": ; preds = %497
+"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.thread.i.i": ; preds = %486
   call void @llvm.lifetime.end.p0(ptr nonnull %91), !noalias !517
-  br label %499
+  br label %488
 
-"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i": ; preds = %497
+"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i": ; preds = %486
   %.sroa.4.0.copyload.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !alias.scope !527, !noalias !529
   call void @llvm.lifetime.end.p0(ptr nonnull %91), !noalias !517
   %.not.i.i.i87 = icmp eq i8 %.sroa.4.0.copyload.i.i, 90
-  br i1 %.not.i.i.i87, label %499, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i
+  br i1 %.not.i.i.i87, label %488, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i
 
-499:                                              ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i", %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.thread.i.i"
+488:                                              ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i", %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.thread.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %92), !noalias !517
   call void @llvm.lifetime.start.p0(ptr nonnull %92), !noalias !517
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %92, ptr noalias noundef nonnull align 8 dereferenceable(48) %96), !noalias !522
-  %500 = load i8, ptr %495, align 4, !range !259, !noalias !517, !noundef !3
-  %.not.i.i82 = icmp eq i8 %500, 90
-  br i1 %.not.i.i82, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i, label %497
+  %489 = load i8, ptr %484, align 4, !range !259, !noalias !517, !noundef !3
+  %.not.i.i82 = icmp eq i8 %489, 90
+  br i1 %.not.i.i82, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i, label %486
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i: ; preds = %499, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i", %493
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i: ; preds = %488, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i", %482
   call void @llvm.lifetime.end.p0(ptr nonnull %92), !noalias !517
   call void @llvm.lifetime.end.p0(ptr nonnull %93), !noalias !513
   call void @llvm.lifetime.start.p0(ptr nonnull %90), !noalias !531
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %90, ptr noalias noundef nonnull align 8 dereferenceable(48) %96), !noalias !535
-  %501 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %502 = load i8, ptr %501, align 4, !range !259, !noalias !531, !noundef !3
-  %.not24.i.i = icmp eq i8 %502, 90
+  %490 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %491 = load i8, ptr %490, align 4, !range !259, !noalias !531, !noundef !3
+  %.not24.i.i = icmp eq i8 %491, 90
   br i1 %.not24.i.i, label %.thread.i, label %.lr.ph.i5.i
 
 .lr.ph.i5.i:                                      ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i
   %.sroa.46.0..sroa_idx.i.i.i83 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  br label %503
+  br label %492
 
-503:                                              ; preds = %507, %.lr.ph.i5.i
+492:                                              ; preds = %496, %.lr.ph.i5.i
   call void @llvm.lifetime.start.p0(ptr nonnull %89), !noalias !531
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %89, ptr noundef nonnull align 4 dereferenceable(12) %90, i64 12, i1 false), !noalias !531
-  %504 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %89), !noalias !536
-  %505 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %504), !noalias !536
+  %493 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %89), !noalias !536
+  %494 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %493), !noalias !536
   %.sroa.46.0.copyload.i.i.i84 = load i8, ptr %.sroa.46.0..sroa_idx.i.i.i83, align 8, !noalias !531
-  %506 = icmp ne i8 %.sroa.46.0.copyload.i.i.i84, 5
-  %or.cond.not.i.i = select i1 %505, i1 true, i1 %506
-  br i1 %or.cond.not.i.i, label %507, label %510
+  %495 = icmp ne i8 %.sroa.46.0.copyload.i.i.i84, 5
+  %or.cond.not.i.i = select i1 %494, i1 true, i1 %495
+  br i1 %or.cond.not.i.i, label %496, label %499
 
-507:                                              ; preds = %503
+496:                                              ; preds = %492
   call void @llvm.lifetime.end.p0(ptr nonnull %89), !noalias !531
   call void @llvm.lifetime.end.p0(ptr nonnull %90), !noalias !531
   call void @llvm.lifetime.start.p0(ptr nonnull %90), !noalias !531
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %90, ptr noalias noundef nonnull align 8 dereferenceable(48) %96), !noalias !535
-  %508 = load i8, ptr %501, align 4, !range !259, !noalias !531, !noundef !3
-  %.not.i8.i = icmp eq i8 %508, 90
-  br i1 %.not.i8.i, label %.thread.i, label %503
+  %497 = load i8, ptr %490, align 4, !range !259, !noalias !531, !noundef !3
+  %.not.i8.i = icmp eq i8 %497, 90
+  br i1 %.not.i8.i, label %.thread.i, label %492
 
-.thread.i:                                        ; preds = %507, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i
+.thread.i:                                        ; preds = %496, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %90), !noalias !531
-  %509 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %489), !noalias !516
+  %498 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %478), !noalias !516
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h003c99ca0c2b6c5aE.exit.i"
 
-510:                                              ; preds = %503
+499:                                              ; preds = %492
   %.sroa.57.0..sroa_idx.i.i.i85 = getelementptr inbounds nuw i8, ptr %89, i64 9
   %.sroa.05.0.copyload.i.i.i86 = load i64, ptr %89, align 8, !alias.scope !539, !noalias !541
   %.sroa.6.0..sroa_idx14.i = getelementptr inbounds nuw i8, ptr %88, i64 9
@@ -3789,51 +3775,50 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit.i: ; pr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx14.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.57.0..sroa_idx.i.i.i85, i64 3, i1 false), !noalias !513
   call void @llvm.lifetime.end.p0(ptr nonnull %89), !noalias !531
   call void @llvm.lifetime.end.p0(ptr nonnull %90), !noalias !531
-  %511 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %489), !noalias !516
+  %500 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %478), !noalias !516
   store i64 %.sroa.05.0.copyload.i.i.i86, ptr %88, align 8, !noalias !513
   %.sroa.4.0..sroa_idx12.i = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i8 5, ptr %.sroa.4.0..sroa_idx12.i, align 8, !noalias !513
-  %512 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %88), !noalias !545
+  %501 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %88), !noalias !545
   call void @llvm.lifetime.end.p0(ptr nonnull %88), !noalias !542
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h003c99ca0c2b6c5aE.exit.i"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h003c99ca0c2b6c5aE.exit.i": ; preds = %510, %.thread.i
-  %.pn.i = phi { i32, i32 } [ %512, %510 ], [ %509, %.thread.i ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17h003c99ca0c2b6c5aE.exit.i": ; preds = %499, %.thread.i
+  %.pn.i = phi { i32, i32 } [ %501, %499 ], [ %498, %.thread.i ]
   %.sroa.0.0.i.i = extractvalue { i32, i32 } %.pn.i, 0
-  %513 = getelementptr inbounds nuw i8, ptr %153, i64 64
-  %514 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %513), !noalias !506
-  %515 = extractvalue { i32, i32 } %514, 1
-  %516 = icmp ult i32 %515, %.sroa.0.0.i.i
-  br i1 %516, label %518, label %517
+  %502 = getelementptr inbounds nuw i8, ptr %153, i64 64
+  %503 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %502), !noalias !506
+  %504 = extractvalue { i32, i32 } %503, 1
+  %505 = icmp ult i32 %504, %.sroa.0.0.i.i
+  br i1 %505, label %507, label %506
 
-517:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h003c99ca0c2b6c5aE.exit.i"
+506:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h003c99ca0c2b6c5aE.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %153, i64 80, i1 false), !alias.scope !516, !noalias !546
   br label %_ZN21ruff_python_formatter8comments9placement23handle_unary_op_comment17h4e969d29c29f5239E.exit
 
-518:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h003c99ca0c2b6c5aE.exit.i"
-  %519 = call { i64, ptr } @"_ZN129_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprUnaryOp$GT$$GT$4from17h652c0dcc963b8419E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %183), !noalias !506
-  %520 = extractvalue { i64, ptr } %519, 0
-  %521 = extractvalue { i64, ptr } %519, 1
+507:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h003c99ca0c2b6c5aE.exit.i"
+  %508 = call { i64, ptr } @"_ZN129_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprUnaryOp$GT$$GT$4from17h652c0dcc963b8419E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %183), !noalias !506
+  %509 = extractvalue { i64, ptr } %508, 0
+  %510 = extractvalue { i64, ptr } %508, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %94), !noalias !513
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %94, ptr noundef nonnull align 8 dereferenceable(80) %153, i64 80, i1 false), !noalias !547
-  %522 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %522, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %94)
+  %511 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %511, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %94)
   call void @llvm.lifetime.end.p0(ptr nonnull %94), !noalias !513
-  %523 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %520, ptr %523, align 8, !alias.scope !506, !noalias !548
-  %524 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %521, ptr %524, align 8, !alias.scope !506, !noalias !548
+  %512 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %509, ptr %512, align 8, !alias.scope !506, !noalias !548
+  %513 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %510, ptr %513, align 8, !alias.scope !506, !noalias !548
   store i64 92, ptr %0, align 8, !alias.scope !506, !noalias !548
   br label %_ZN21ruff_python_formatter8comments9placement23handle_unary_op_comment17h4e969d29c29f5239E.exit
 
-_ZN21ruff_python_formatter8comments9placement23handle_unary_op_comment17h4e969d29c29f5239E.exit: ; preds = %517, %518
+_ZN21ruff_python_formatter8comments9placement23handle_unary_op_comment17h4e969d29c29f5239E.exit: ; preds = %506, %507
   call void @llvm.lifetime.end.p0(ptr nonnull %96), !noalias !513
   call void @llvm.lifetime.end.p0(ptr nonnull %153)
-  br label %1330
+  br label %1301
 
-525:                                              ; preds = %5
-  %526 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %526)
+514:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %152)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %152, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !549)
@@ -3841,533 +3826,532 @@ _ZN21ruff_python_formatter8comments9placement23handle_unary_op_comment17h4e969d2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !554)
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
   call void @llvm.lifetime.start.p0(ptr nonnull %87)
-  %527 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %528 = load ptr, ptr %527, align 8, !alias.scope !554, !noalias !556, !align !5, !noundef !3
-  %.not.i88 = icmp eq ptr %528, null
-  %529 = getelementptr inbounds nuw i8, ptr %152, i64 64
-  %530 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %529), !noalias !558
+  %515 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %516 = load ptr, ptr %515, align 8, !alias.scope !554, !noalias !556, !align !5, !noundef !3
+  %.not.i88 = icmp eq ptr %516, null
+  %517 = getelementptr inbounds nuw i8, ptr %152, i64 64
+  %518 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %517), !noalias !558
+  %519 = extractvalue { i32, i32 } %518, 0
+  br i1 %.not.i88, label %524, label %520
+
+520:                                              ; preds = %514
+  %521 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Parameters$GT$5range17h9b0c6d050dd07aa9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %516), !noalias !558
+  %522 = extractvalue { i32, i32 } %521, 0
+  %523 = icmp ult i32 %519, %522
+  br i1 %523, label %558, label %552
+
+524:                                              ; preds = %514
+  %525 = load ptr, ptr %183, align 8, !alias.scope !554, !noalias !556, !nonnull !3, !align !5, !noundef !3
+  %526 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %525), !noalias !558
+  %527 = extractvalue { i32, i32 } %526, 0
+  %528 = icmp ult i32 %519, %527
+  br i1 %528, label %529, label %534
+
+529:                                              ; preds = %524
+  %530 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hcff8a57b7c6a6f69E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %183), !noalias !559
   %531 = extractvalue { i32, i32 } %530, 0
-  br i1 %.not.i88, label %536, label %532
+  %532 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %517), !noalias !559
+  %533 = extractvalue { i32, i32 } %532, 0
+  %.not4.i = icmp ugt i32 %531, %533
+  br i1 %.not4.i, label %535, label %536, !prof !331
 
-532:                                              ; preds = %525
-  %533 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Parameters$GT$5range17h9b0c6d050dd07aa9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %528), !noalias !558
-  %534 = extractvalue { i32, i32 } %533, 0
-  %535 = icmp ult i32 %531, %534
-  br i1 %535, label %570, label %564
-
-536:                                              ; preds = %525
-  %537 = load ptr, ptr %183, align 8, !alias.scope !554, !noalias !556, !nonnull !3, !align !5, !noundef !3
-  %538 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %537), !noalias !558
-  %539 = extractvalue { i32, i32 } %538, 0
-  %540 = icmp ult i32 %531, %539
-  br i1 %540, label %541, label %546
-
-541:                                              ; preds = %536
-  %542 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hcff8a57b7c6a6f69E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %183), !noalias !559
-  %543 = extractvalue { i32, i32 } %542, 0
-  %544 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %529), !noalias !559
-  %545 = extractvalue { i32, i32 } %544, 0
-  %.not4.i = icmp ugt i32 %543, %545
-  br i1 %.not4.i, label %547, label %548, !prof !331
-
-546:                                              ; preds = %577, %564, %536
+534:                                              ; preds = %565, %552, %524
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %152, i64 80, i1 false), !alias.scope !560, !noalias !561
   br label %_ZN21ruff_python_formatter8comments9placement21handle_lambda_comment17hc8a1dbae55122cf7E.exit
 
-547:                                              ; preds = %541
+535:                                              ; preds = %529
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.72) #19, !noalias !559
   unreachable
 
-548:                                              ; preds = %541
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %85, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %543, i32 noundef %545), !noalias !549
+536:                                              ; preds = %529
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %85, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %531, i32 noundef %533), !noalias !549
   call void @llvm.lifetime.start.p0(ptr nonnull %84), !noalias !562
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %84, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %85), !noalias !549
   call void @llvm.lifetime.start.p0(ptr nonnull %80), !noalias !563
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %80, ptr noalias noundef nonnull align 8 dereferenceable(48) %84), !noalias !549
-  %549 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %550 = load i8, ptr %549, align 4, !range !259, !noalias !563, !noundef !3
-  %.not6.not.i.i = icmp eq i8 %550, 90
+  %537 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %538 = load i8, ptr %537, align 4, !range !259, !noalias !563, !noundef !3
+  %.not6.not.i.i = icmp eq i8 %538, 90
   br i1 %.not6.not.i.i, label %.loopexit.i90, label %.lr.ph.i.i89
 
-.lr.ph.i.i89:                                     ; preds = %548
+.lr.ph.i.i89:                                     ; preds = %536
   %.sroa.42.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %79, i64 8
-  br label %551
+  br label %539
 
-551:                                              ; preds = %555, %.lr.ph.i.i89
+539:                                              ; preds = %543, %.lr.ph.i.i89
   call void @llvm.lifetime.start.p0(ptr nonnull %79), !noalias !563
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %79, ptr noundef nonnull align 4 dereferenceable(12) %80, i64 12, i1 false), !noalias !563
-  %552 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %79), !noalias !549
-  %553 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %552), !noalias !549
+  %540 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %79), !noalias !549
+  %541 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %540), !noalias !549
   %.sroa.42.0.copyload.i.i.i = load i8, ptr %.sroa.42.0..sroa_idx.i.i.i, align 4, !alias.scope !566, !noalias !563
-  %554 = icmp ne i8 %.sroa.42.0.copyload.i.i.i, 5
-  %.sroa.0.0.i.not.i.i = select i1 %553, i1 true, i1 %554
+  %542 = icmp ne i8 %.sroa.42.0.copyload.i.i.i, 5
+  %.sroa.0.0.i.not.i.i = select i1 %541, i1 true, i1 %542
   call void @llvm.lifetime.end.p0(ptr nonnull %79), !noalias !563
   call void @llvm.lifetime.end.p0(ptr nonnull %80), !noalias !563
-  br i1 %.sroa.0.0.i.not.i.i, label %555, label %563
+  br i1 %.sroa.0.0.i.not.i.i, label %543, label %551
 
-555:                                              ; preds = %551
+543:                                              ; preds = %539
   call void @llvm.lifetime.start.p0(ptr nonnull %80), !noalias !563
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %80, ptr noalias noundef nonnull align 8 dereferenceable(48) %84), !noalias !549
-  %556 = load i8, ptr %549, align 4, !range !259, !noalias !563, !noundef !3
-  %.not.not.i.i = icmp eq i8 %556, 90
-  br i1 %.not.not.i.i, label %.loopexit.i90, label %551
+  %544 = load i8, ptr %537, align 4, !range !259, !noalias !563, !noundef !3
+  %.not.not.i.i = icmp eq i8 %544, 90
+  br i1 %.not.not.i.i, label %.loopexit.i90, label %539
 
-.loopexit.i90:                                    ; preds = %555, %548
+.loopexit.i90:                                    ; preds = %543, %536
   call void @llvm.lifetime.end.p0(ptr nonnull %80), !noalias !563
   call void @llvm.lifetime.end.p0(ptr nonnull %84), !noalias !562
-  %557 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %152), !noalias !549
-  %558 = extractvalue { i64, ptr } %557, 0
-  %559 = extractvalue { i64, ptr } %557, 1
+  %545 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %152), !noalias !549
+  %546 = extractvalue { i64, ptr } %545, 0
+  %547 = extractvalue { i64, ptr } %545, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %83), !noalias !562
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %83, ptr noundef nonnull align 8 dereferenceable(80) %152, i64 80, i1 false), !noalias !558
-  %560 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %560, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %83)
+  %548 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %548, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %83)
   call void @llvm.lifetime.end.p0(ptr nonnull %83), !noalias !562
-  %561 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %558, ptr %561, align 8, !alias.scope !549, !noalias !569
-  %562 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %559, ptr %562, align 8, !alias.scope !549, !noalias !569
+  %549 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %546, ptr %549, align 8, !alias.scope !549, !noalias !569
+  %550 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %547, ptr %550, align 8, !alias.scope !549, !noalias !569
   store i64 94, ptr %0, align 8, !alias.scope !549, !noalias !569
   br label %_ZN21ruff_python_formatter8comments9placement21handle_lambda_comment17hc8a1dbae55122cf7E.exit
 
-563:                                              ; preds = %551
+551:                                              ; preds = %539
   call void @llvm.lifetime.end.p0(ptr nonnull %84), !noalias !562
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %152, i64 80, i1 false), !alias.scope !560, !noalias !561
   br label %_ZN21ruff_python_formatter8comments9placement21handle_lambda_comment17hc8a1dbae55122cf7E.exit
 
-564:                                              ; preds = %532
-  %565 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Parameters$GT$5range17h9b0c6d050dd07aa9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %528), !noalias !558
-  %566 = extractvalue { i32, i32 } %565, 1
-  %567 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %529), !noalias !558
-  %568 = extractvalue { i32, i32 } %567, 0
-  %569 = icmp ult i32 %566, %568
-  br i1 %569, label %577, label %546
+552:                                              ; preds = %520
+  %553 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Parameters$GT$5range17h9b0c6d050dd07aa9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %516), !noalias !558
+  %554 = extractvalue { i32, i32 } %553, 1
+  %555 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %517), !noalias !558
+  %556 = extractvalue { i32, i32 } %555, 0
+  %557 = icmp ult i32 %554, %556
+  br i1 %557, label %565, label %534
 
-570:                                              ; preds = %532
-  %571 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %152), !noalias !558
-  %572 = extractvalue { i64, ptr } %571, 0
-  %573 = extractvalue { i64, ptr } %571, 1
+558:                                              ; preds = %520
+  %559 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %152), !noalias !558
+  %560 = extractvalue { i64, ptr } %559, 0
+  %561 = extractvalue { i64, ptr } %559, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %81), !noalias !562
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %81, ptr noundef nonnull align 8 dereferenceable(80) %152, i64 80, i1 false), !noalias !558
-  %574 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %574, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %81), !noalias !561
+  %562 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %562, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %81), !noalias !561
   call void @llvm.lifetime.end.p0(ptr nonnull %81), !noalias !562
-  %575 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %572, ptr %575, align 8, !alias.scope !549, !noalias !569
-  %576 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %573, ptr %576, align 8, !alias.scope !549, !noalias !569
+  %563 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %560, ptr %563, align 8, !alias.scope !549, !noalias !569
+  %564 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %561, ptr %564, align 8, !alias.scope !549, !noalias !569
   store i64 94, ptr %0, align 8, !alias.scope !549, !noalias !569
   br label %_ZN21ruff_python_formatter8comments9placement21handle_lambda_comment17hc8a1dbae55122cf7E.exit
 
-577:                                              ; preds = %564
-  %578 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %529), !noalias !558
-  %579 = extractvalue { i32, i32 } %578, 0
-  %580 = load ptr, ptr %183, align 8, !alias.scope !554, !noalias !556, !nonnull !3, !align !5, !noundef !3
-  %581 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %580), !noalias !558
-  %582 = extractvalue { i32, i32 } %581, 0
-  %583 = icmp ult i32 %579, %582
-  br i1 %583, label %584, label %546
+565:                                              ; preds = %552
+  %566 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %517), !noalias !558
+  %567 = extractvalue { i32, i32 } %566, 0
+  %568 = load ptr, ptr %183, align 8, !alias.scope !554, !noalias !556, !nonnull !3, !align !5, !noundef !3
+  %569 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %568), !noalias !558
+  %570 = extractvalue { i32, i32 } %569, 0
+  %571 = icmp ult i32 %567, %570
+  br i1 %571, label %572, label %534
 
-584:                                              ; preds = %577
-  %585 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Parameters$GT$5range17h9b0c6d050dd07aa9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %528), !noalias !558
-  %586 = extractvalue { i32, i32 } %585, 1
-  %587 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %529), !noalias !558
-  %588 = extractvalue { i32, i32 } %587, 0
-  %.not5.i = icmp ugt i32 %586, %588
-  br i1 %.not5.i, label %589, label %590, !prof !331
+572:                                              ; preds = %565
+  %573 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Parameters$GT$5range17h9b0c6d050dd07aa9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %516), !noalias !558
+  %574 = extractvalue { i32, i32 } %573, 1
+  %575 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %517), !noalias !558
+  %576 = extractvalue { i32, i32 } %575, 0
+  %.not5.i = icmp ugt i32 %574, %576
+  br i1 %.not5.i, label %577, label %578, !prof !331
 
-589:                                              ; preds = %584
+577:                                              ; preds = %572
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.73) #19, !noalias !558
   unreachable
 
-590:                                              ; preds = %584
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %87, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %586, i32 noundef %588), !noalias !570
+578:                                              ; preds = %572
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %87, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %574, i32 noundef %576), !noalias !570
   call void @llvm.lifetime.start.p0(ptr nonnull %86), !noalias !562
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %86, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %87), !noalias !570
   call void @llvm.lifetime.start.p0(ptr nonnull %78), !noalias !571
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %78, ptr noalias noundef nonnull align 8 dereferenceable(48) %86), !noalias !570
-  %591 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %592 = load i8, ptr %591, align 4, !range !259, !noalias !571, !noundef !3
-  %.not6.not.i7.i = icmp eq i8 %592, 90
+  %579 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %580 = load i8, ptr %579, align 4, !range !259, !noalias !571, !noundef !3
+  %.not6.not.i7.i = icmp eq i8 %580, 90
   br i1 %.not6.not.i7.i, label %.loopexit19.i, label %.lr.ph.i8.i
 
-.lr.ph.i8.i:                                      ; preds = %590
+.lr.ph.i8.i:                                      ; preds = %578
   %.sroa.42.0..sroa_idx.i.i9.i = getelementptr inbounds nuw i8, ptr %77, i64 8
-  br label %593
+  br label %581
 
-593:                                              ; preds = %597, %.lr.ph.i8.i
+581:                                              ; preds = %585, %.lr.ph.i8.i
   call void @llvm.lifetime.start.p0(ptr nonnull %77), !noalias !571
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %77, ptr noundef nonnull align 4 dereferenceable(12) %78, i64 12, i1 false), !noalias !571
-  %594 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %77), !noalias !570
-  %595 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %594), !noalias !570
+  %582 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %77), !noalias !570
+  %583 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %582), !noalias !570
   %.sroa.42.0.copyload.i.i10.i = load i8, ptr %.sroa.42.0..sroa_idx.i.i9.i, align 4, !alias.scope !574, !noalias !571
-  %596 = icmp ne i8 %.sroa.42.0.copyload.i.i10.i, 5
-  %.sroa.0.0.i.not.i11.i = select i1 %595, i1 true, i1 %596
+  %584 = icmp ne i8 %.sroa.42.0.copyload.i.i10.i, 5
+  %.sroa.0.0.i.not.i11.i = select i1 %583, i1 true, i1 %584
   call void @llvm.lifetime.end.p0(ptr nonnull %77), !noalias !571
   call void @llvm.lifetime.end.p0(ptr nonnull %78), !noalias !571
-  br i1 %.sroa.0.0.i.not.i11.i, label %597, label %605
+  br i1 %.sroa.0.0.i.not.i11.i, label %585, label %593
 
-597:                                              ; preds = %593
+585:                                              ; preds = %581
   call void @llvm.lifetime.start.p0(ptr nonnull %78), !noalias !571
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %78, ptr noalias noundef nonnull align 8 dereferenceable(48) %86), !noalias !570
-  %598 = load i8, ptr %591, align 4, !range !259, !noalias !571, !noundef !3
-  %.not.not.i13.i = icmp eq i8 %598, 90
-  br i1 %.not.not.i13.i, label %.loopexit19.i, label %593
+  %586 = load i8, ptr %579, align 4, !range !259, !noalias !571, !noundef !3
+  %.not.not.i13.i = icmp eq i8 %586, 90
+  br i1 %.not.not.i13.i, label %.loopexit19.i, label %581
 
-.loopexit19.i:                                    ; preds = %597, %590
+.loopexit19.i:                                    ; preds = %585, %578
   call void @llvm.lifetime.end.p0(ptr nonnull %78), !noalias !571
   call void @llvm.lifetime.end.p0(ptr nonnull %86), !noalias !562
-  %599 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %152), !noalias !570
-  %600 = extractvalue { i64, ptr } %599, 0
-  %601 = extractvalue { i64, ptr } %599, 1
+  %587 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %152), !noalias !570
+  %588 = extractvalue { i64, ptr } %587, 0
+  %589 = extractvalue { i64, ptr } %587, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %82), !noalias !562
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %82, ptr noundef nonnull align 8 dereferenceable(80) %152, i64 80, i1 false), !noalias !558
-  %602 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %602, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %82), !noalias !554
+  %590 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %590, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %82), !noalias !554
   call void @llvm.lifetime.end.p0(ptr nonnull %82), !noalias !562
-  %603 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %600, ptr %603, align 8, !alias.scope !549, !noalias !569
-  %604 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %601, ptr %604, align 8, !alias.scope !549, !noalias !569
+  %591 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %588, ptr %591, align 8, !alias.scope !549, !noalias !569
+  %592 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %589, ptr %592, align 8, !alias.scope !549, !noalias !569
   store i64 94, ptr %0, align 8, !alias.scope !549, !noalias !569
   br label %_ZN21ruff_python_formatter8comments9placement21handle_lambda_comment17hc8a1dbae55122cf7E.exit
 
-605:                                              ; preds = %593
+593:                                              ; preds = %581
   call void @llvm.lifetime.end.p0(ptr nonnull %86), !noalias !562
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %152, i64 80, i1 false), !alias.scope !560, !noalias !561
   br label %_ZN21ruff_python_formatter8comments9placement21handle_lambda_comment17hc8a1dbae55122cf7E.exit
 
-_ZN21ruff_python_formatter8comments9placement21handle_lambda_comment17hc8a1dbae55122cf7E.exit: ; preds = %546, %.loopexit.i90, %563, %570, %.loopexit19.i, %605
+_ZN21ruff_python_formatter8comments9placement21handle_lambda_comment17hc8a1dbae55122cf7E.exit: ; preds = %534, %.loopexit.i90, %551, %558, %.loopexit19.i, %593
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @llvm.lifetime.end.p0(ptr nonnull %152)
-  br label %1330
+  br label %1301
 
-606:                                              ; preds = %5
-  %607 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %607)
+594:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %151)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %151, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !577)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !580)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !582)
-  %608 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %151), !noalias !584
-  %609 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %608), !noalias !584
-  br i1 %609, label %618, label %610
+  %595 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %151), !noalias !584
+  %596 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %595), !noalias !584
+  br i1 %596, label %605, label %597
 
-610:                                              ; preds = %606
+597:                                              ; preds = %594
   call void @llvm.lifetime.start.p0(ptr nonnull %76), !noalias !586
-  %611 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %612 = load ptr, ptr %611, align 8, !alias.scope !582, !noalias !587, !nonnull !3, !align !5, !noundef !3
-  %613 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %612), !noalias !584
-  %614 = extractvalue { i32, i32 } %613, 1
-  %615 = load ptr, ptr %183, align 8, !alias.scope !582, !noalias !587, !nonnull !3, !align !5, !noundef !3
-  %616 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %615), !noalias !584
-  %617 = extractvalue { i32, i32 } %616, 0
-  %.not.i91 = icmp ugt i32 %614, %617
-  br i1 %.not.i91, label %619, label %620, !prof !331
+  %598 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %599 = load ptr, ptr %598, align 8, !alias.scope !582, !noalias !587, !nonnull !3, !align !5, !noundef !3
+  %600 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %599), !noalias !584
+  %601 = extractvalue { i32, i32 } %600, 1
+  %602 = load ptr, ptr %183, align 8, !alias.scope !582, !noalias !587, !nonnull !3, !align !5, !noundef !3
+  %603 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %602), !noalias !584
+  %604 = extractvalue { i32, i32 } %603, 0
+  %.not.i91 = icmp ugt i32 %601, %604
+  br i1 %.not.i91, label %606, label %607, !prof !331
 
-618:                                              ; preds = %606
+605:                                              ; preds = %594
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %151, i64 80, i1 false), !alias.scope !588, !noalias !589
   br label %_ZN21ruff_python_formatter8comments9placement22handle_expr_if_comment17hc2518a4243eb9039E.exit
 
-619:                                              ; preds = %610
+606:                                              ; preds = %597
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.65) #19, !noalias !584
   unreachable
 
-620:                                              ; preds = %610
-  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %76, i32 noundef %614, i32 noundef %617, i8 noundef 69, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !590
-  %621 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %76), !noalias !590
-  %622 = extractvalue { i32, i32 } %621, 0
-  %623 = getelementptr inbounds nuw i8, ptr %151, i64 64
-  %624 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %623), !noalias !590
-  %625 = extractvalue { i32, i32 } %624, 0
-  %626 = icmp ult i32 %622, %625
-  br i1 %626, label %634, label %627
+607:                                              ; preds = %597
+  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %76, i32 noundef %601, i32 noundef %604, i8 noundef 69, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !590
+  %608 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %76), !noalias !590
+  %609 = extractvalue { i32, i32 } %608, 0
+  %610 = getelementptr inbounds nuw i8, ptr %151, i64 64
+  %611 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %610), !noalias !590
+  %612 = extractvalue { i32, i32 } %611, 0
+  %613 = icmp ult i32 %609, %612
+  br i1 %613, label %621, label %614
 
-627:                                              ; preds = %634, %620
+614:                                              ; preds = %621, %607
   call void @llvm.lifetime.start.p0(ptr nonnull %75), !noalias !586
-  %628 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %615), !noalias !590
-  %629 = extractvalue { i32, i32 } %628, 1
-  %630 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %631 = load ptr, ptr %630, align 8, !alias.scope !582, !noalias !587, !nonnull !3, !align !5, !noundef !3
-  %632 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %631), !noalias !590
-  %633 = extractvalue { i32, i32 } %632, 0
-  %.not4.i92 = icmp ugt i32 %629, %633
-  br i1 %.not4.i92, label %647, label %648, !prof !331
+  %615 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %602), !noalias !590
+  %616 = extractvalue { i32, i32 } %615, 1
+  %617 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %618 = load ptr, ptr %617, align 8, !alias.scope !582, !noalias !587, !nonnull !3, !align !5, !noundef !3
+  %619 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %618), !noalias !590
+  %620 = extractvalue { i32, i32 } %619, 0
+  %.not4.i92 = icmp ugt i32 %616, %620
+  br i1 %.not4.i92, label %634, label %635, !prof !331
 
-634:                                              ; preds = %620
-  %635 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %623), !noalias !590
-  %636 = extractvalue { i32, i32 } %635, 0
-  %637 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %615), !noalias !590
-  %638 = extractvalue { i32, i32 } %637, 0
-  %639 = icmp ult i32 %636, %638
-  br i1 %639, label %640, label %627
+621:                                              ; preds = %607
+  %622 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %610), !noalias !590
+  %623 = extractvalue { i32, i32 } %622, 0
+  %624 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %602), !noalias !590
+  %625 = extractvalue { i32, i32 } %624, 0
+  %626 = icmp ult i32 %623, %625
+  br i1 %626, label %627, label %614
 
-640:                                              ; preds = %634
-  %641 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %615), !noalias !590
-  %642 = extractvalue { i64, ptr } %641, 0
-  %643 = extractvalue { i64, ptr } %641, 1
+627:                                              ; preds = %621
+  %628 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %602), !noalias !590
+  %629 = extractvalue { i64, ptr } %628, 0
+  %630 = extractvalue { i64, ptr } %628, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %73), !noalias !586
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %73, ptr noundef nonnull align 8 dereferenceable(80) %151, i64 80, i1 false), !noalias !584
-  %644 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %644, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %73), !noalias !582
+  %631 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %631, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %73), !noalias !582
   call void @llvm.lifetime.end.p0(ptr nonnull %73), !noalias !586
-  %645 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %642, ptr %645, align 8, !alias.scope !577, !noalias !591
-  %646 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %643, ptr %646, align 8, !alias.scope !577, !noalias !591
+  %632 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %629, ptr %632, align 8, !alias.scope !577, !noalias !591
+  %633 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %630, ptr %633, align 8, !alias.scope !577, !noalias !591
   store i64 92, ptr %0, align 8, !alias.scope !577, !noalias !591
-  br label %668
+  br label %655
 
-647:                                              ; preds = %627
+634:                                              ; preds = %614
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.66) #19, !noalias !590
   unreachable
 
-648:                                              ; preds = %627
-  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %75, i32 noundef %629, i32 noundef %633, i8 noundef 63, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !590
-  %649 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %75), !noalias !590
-  %650 = extractvalue { i32, i32 } %649, 0
-  %651 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %623), !noalias !590
-  %652 = extractvalue { i32, i32 } %651, 0
-  %653 = icmp ult i32 %650, %652
-  br i1 %653, label %655, label %654
+635:                                              ; preds = %614
+  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %75, i32 noundef %616, i32 noundef %620, i8 noundef 63, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !590
+  %636 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %75), !noalias !590
+  %637 = extractvalue { i32, i32 } %636, 0
+  %638 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %610), !noalias !590
+  %639 = extractvalue { i32, i32 } %638, 0
+  %640 = icmp ult i32 %637, %639
+  br i1 %640, label %642, label %641
 
-654:                                              ; preds = %655, %648
+641:                                              ; preds = %642, %635
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %151, i64 80, i1 false), !alias.scope !588, !noalias !589
   call void @llvm.lifetime.end.p0(ptr nonnull %75), !noalias !586
   call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !586
   br label %_ZN21ruff_python_formatter8comments9placement22handle_expr_if_comment17hc2518a4243eb9039E.exit
 
-655:                                              ; preds = %648
-  %656 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %623), !noalias !590
-  %657 = extractvalue { i32, i32 } %656, 0
-  %658 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %631), !noalias !590
-  %659 = extractvalue { i32, i32 } %658, 0
-  %660 = icmp ult i32 %657, %659
-  br i1 %660, label %661, label %654
+642:                                              ; preds = %635
+  %643 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %610), !noalias !590
+  %644 = extractvalue { i32, i32 } %643, 0
+  %645 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %618), !noalias !590
+  %646 = extractvalue { i32, i32 } %645, 0
+  %647 = icmp ult i32 %644, %646
+  br i1 %647, label %648, label %641
 
-661:                                              ; preds = %655
-  %662 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %631), !noalias !590
-  %663 = extractvalue { i64, ptr } %662, 0
-  %664 = extractvalue { i64, ptr } %662, 1
+648:                                              ; preds = %642
+  %649 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %618), !noalias !590
+  %650 = extractvalue { i64, ptr } %649, 0
+  %651 = extractvalue { i64, ptr } %649, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %74), !noalias !586
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %74, ptr noundef nonnull align 8 dereferenceable(80) %151, i64 80, i1 false), !noalias !584
-  %665 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %665, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %74), !noalias !582
+  %652 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %652, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %74), !noalias !582
   call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !586
-  %666 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %663, ptr %666, align 8, !alias.scope !577, !noalias !591
-  %667 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %664, ptr %667, align 8, !alias.scope !577, !noalias !591
+  %653 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %650, ptr %653, align 8, !alias.scope !577, !noalias !591
+  %654 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %651, ptr %654, align 8, !alias.scope !577, !noalias !591
   store i64 92, ptr %0, align 8, !alias.scope !577, !noalias !591
   call void @llvm.lifetime.end.p0(ptr nonnull %75), !noalias !586
-  br label %668
+  br label %655
 
-668:                                              ; preds = %661, %640
+655:                                              ; preds = %648, %627
   call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !586
   br label %_ZN21ruff_python_formatter8comments9placement22handle_expr_if_comment17hc2518a4243eb9039E.exit
 
-_ZN21ruff_python_formatter8comments9placement22handle_expr_if_comment17hc2518a4243eb9039E.exit: ; preds = %618, %654, %668
+_ZN21ruff_python_formatter8comments9placement22handle_expr_if_comment17hc2518a4243eb9039E.exit: ; preds = %605, %641, %655
   call void @llvm.lifetime.end.p0(ptr nonnull %151)
-  br label %1330
+  br label %1301
 
-669:                                              ; preds = %5
+656:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %178)
   call void @llvm.lifetime.start.p0(ptr nonnull %177)
   call void @llvm.lifetime.start.p0(ptr nonnull %150)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %150, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !592)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !595)
-  %670 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %150), !noalias !597
-  %671 = extractvalue { i64, ptr } %670, 0
-  %672 = extractvalue { i64, ptr } %670, 1
-  %.not.i93 = icmp eq i64 %671, 92
-  br i1 %.not.i93, label %676, label %673
+  %657 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %150), !noalias !597
+  %658 = extractvalue { i64, ptr } %657, 0
+  %659 = extractvalue { i64, ptr } %657, 1
+  %.not.i93 = icmp eq i64 %658, 92
+  br i1 %.not.i93, label %663, label %660
 
-673:                                              ; preds = %669
-  %674 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %150), !noalias !597
-  %675 = extractvalue { i64, ptr } %674, 0
-  %.not6.i94 = icmp eq i64 %675, 92
-  br i1 %.not6.i94, label %682, label %677
+660:                                              ; preds = %656
+  %661 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %150), !noalias !597
+  %662 = extractvalue { i64, ptr } %661, 0
+  %.not6.i94 = icmp eq i64 %662, 92
+  br i1 %.not6.i94, label %669, label %664
 
-676:                                              ; preds = %669
+663:                                              ; preds = %656
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %177, ptr noundef nonnull align 8 dereferenceable(80) %150, i64 80, i1 false), !alias.scope !599, !noalias !600
   br label %_ZN21ruff_python_formatter8comments9placement29handle_dict_unpacking_comment17h2e55aa3fc37bff6eE.exit
 
-677:                                              ; preds = %673
-  %678 = extractvalue { i64, ptr } %674, 1
+664:                                              ; preds = %660
+  %665 = extractvalue { i64, ptr } %661, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %72), !noalias !601
-  store i64 %675, ptr %72, align 8, !noalias !601
-  %679 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store ptr %678, ptr %679, align 8, !noalias !601
-  %680 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %72), !noalias !597
-  %681 = extractvalue { i32, i32 } %680, 1
+  store i64 %662, ptr %72, align 8, !noalias !601
+  %666 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  store ptr %665, ptr %666, align 8, !noalias !601
+  %667 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %72), !noalias !597
+  %668 = extractvalue { i32, i32 } %667, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %72), !noalias !601
-  br label %689
+  br label %676
 
-682:                                              ; preds = %673
+669:                                              ; preds = %660
   call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !601
-  %683 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %150), !noalias !597
-  %684 = extractvalue { i64, ptr } %683, 0
-  %685 = extractvalue { i64, ptr } %683, 1
-  store i64 %684, ptr %71, align 8, !noalias !601
-  %686 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr %685, ptr %686, align 8, !noalias !601
-  %687 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %71), !noalias !597
-  %688 = extractvalue { i32, i32 } %687, 0
+  %670 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %150), !noalias !597
+  %671 = extractvalue { i64, ptr } %670, 0
+  %672 = extractvalue { i64, ptr } %670, 1
+  store i64 %671, ptr %71, align 8, !noalias !601
+  %673 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store ptr %672, ptr %673, align 8, !noalias !601
+  %674 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %71), !noalias !597
+  %675 = extractvalue { i32, i32 } %674, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !601
-  br label %689
+  br label %676
 
-689:                                              ; preds = %682, %677
-  %.sroa.04.0.i = phi i32 [ %681, %677 ], [ %688, %682 ]
+676:                                              ; preds = %669, %664
+  %.sroa.04.0.i = phi i32 [ %668, %664 ], [ %675, %669 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %70), !noalias !601
   call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !601
-  %690 = getelementptr inbounds nuw i8, ptr %150, i64 64
-  %691 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %690), !noalias !597
-  %692 = extractvalue { i32, i32 } %691, 0
-  %.not7.i95 = icmp ugt i32 %.sroa.04.0.i, %692
-  br i1 %.not7.i95, label %693, label %694, !prof !331
+  %677 = getelementptr inbounds nuw i8, ptr %150, i64 64
+  %678 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %677), !noalias !597
+  %679 = extractvalue { i32, i32 } %678, 0
+  %.not7.i95 = icmp ugt i32 %.sroa.04.0.i, %679
+  br i1 %.not7.i95, label %680, label %681, !prof !331
 
-693:                                              ; preds = %689
+680:                                              ; preds = %676
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.61) #19, !noalias !597
   unreachable
 
-694:                                              ; preds = %689
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %69, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %.sroa.04.0.i, i32 noundef %692), !noalias !592
+681:                                              ; preds = %676
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %69, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %.sroa.04.0.i, i32 noundef %679), !noalias !592
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %70, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %69), !noalias !592
   call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !601
-  %695 = getelementptr inbounds nuw i8, ptr %70, i64 48
-  store i8 0, ptr %695, align 8, !noalias !601
+  %682 = getelementptr inbounds nuw i8, ptr %70, i64 48
+  store i8 0, ptr %682, align 8, !noalias !601
   call void @llvm.experimental.noalias.scope.decl(metadata !602)
   call void @llvm.experimental.noalias.scope.decl(metadata !605)
   call void @llvm.experimental.noalias.scope.decl(metadata !608)
   call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !611
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %67, ptr noalias noundef nonnull align 8 dereferenceable(56) %70), !noalias !619
-  %696 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %697 = load i8, ptr %696, align 4, !range !259, !noalias !611, !noundef !3
-  %.not19.i.i.i.i.i = icmp eq i8 %697, 90
+  %683 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %684 = load i8, ptr %683, align 4, !range !259, !noalias !611, !noundef !3
+  %.not19.i.i.i.i.i = icmp eq i8 %684, 90
   br i1 %.not19.i.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %694
+.lr.ph.i.i.i.i.i:                                 ; preds = %681
   %.sroa.46.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 8
-  br label %698
+  br label %685
 
-698:                                              ; preds = %704, %.lr.ph.i.i.i.i.i
-  %699 = phi i1 [ %705, %704 ], [ false, %.lr.ph.i.i.i.i.i ]
+685:                                              ; preds = %691, %.lr.ph.i.i.i.i.i
+  %686 = phi i1 [ %692, %691 ], [ false, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !611
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %66, ptr noundef nonnull align 4 dereferenceable(12) %67, i64 12, i1 false), !noalias !611
   call void @llvm.experimental.noalias.scope.decl(metadata !620)
-  %700 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %66), !noalias !623
-  %701 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %700), !noalias !623
-  br i1 %701, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.thread.i.i.i.i.i", label %702
+  %687 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %66), !noalias !623
+  %688 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %687), !noalias !623
+  br i1 %688, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.thread.i.i.i.i.i", label %689
 
-702:                                              ; preds = %698
+689:                                              ; preds = %685
   %.sroa.46.0.copyload.i.i.i.i.i.i = load i8, ptr %.sroa.46.0..sroa_idx.i.i.i.i.i.i, align 4, !alias.scope !620, !noalias !625
-  %703 = icmp ne i8 %.sroa.46.0.copyload.i.i.i.i.i.i, 6
-  %or.cond.not.i.i.i.i.i.i.i.i = select i1 %699, i1 true, i1 %703
+  %690 = icmp ne i8 %.sroa.46.0.copyload.i.i.i.i.i.i, 6
+  %or.cond.not.i.i.i.i.i.i.i.i = select i1 %686, i1 true, i1 %690
   br i1 %or.cond.not.i.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.i.i.i.i.i", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.thread.i.i.i.i.i"
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.thread.i.i.i.i.i": ; preds = %702, %698
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.thread.i.i.i.i.i": ; preds = %689, %685
   call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !611
-  br label %704
+  br label %691
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.i.i.i.i.i": ; preds = %702
-  store i8 1, ptr %695, align 8, !alias.scope !626, !noalias !627
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.i.i.i.i.i": ; preds = %689
+  store i8 1, ptr %682, align 8, !alias.scope !626, !noalias !627
   call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !611
   %.not.i.i.i.i.i.i = icmp eq i8 %.sroa.46.0.copyload.i.i.i.i.i.i, 90
-  br i1 %.not.i.i.i.i.i.i, label %704, label %716
+  br i1 %.not.i.i.i.i.i.i, label %691, label %703
 
-704:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.i.i.i.i.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.thread.i.i.i.i.i"
-  %705 = phi i1 [ true, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.i.i.i.i.i" ], [ %699, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.thread.i.i.i.i.i" ]
+691:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.i.i.i.i.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.thread.i.i.i.i.i"
+  %692 = phi i1 [ true, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.i.i.i.i.i" ], [ %686, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.thread.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !611
   call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !611
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %67, ptr noalias noundef nonnull align 8 dereferenceable(56) %70), !noalias !619
-  %706 = load i8, ptr %696, align 4, !range !259, !noalias !611, !noundef !3
-  %.not.i.i.i.i.i = icmp eq i8 %706, 90
-  br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %698
+  %693 = load i8, ptr %683, align 4, !range !259, !noalias !611, !noundef !3
+  %.not.i.i.i.i.i = icmp eq i8 %693, 90
+  br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %685
 
-707:                                              ; preds = %716
+694:                                              ; preds = %703
   call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !631
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %65, ptr noalias noundef nonnull align 8 dereferenceable(56) %70), !noalias !592
-  %708 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %709 = load i8, ptr %708, align 4, !range !259, !noalias !631, !noundef !3
-  %.not6.not.i.i.i.i = icmp eq i8 %709, 90
+  %695 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %696 = load i8, ptr %695, align 4, !range !259, !noalias !631, !noundef !3
+  %.not6.not.i.i.i.i = icmp eq i8 %696, 90
   br i1 %.not6.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %707
+.lr.ph.i.i.i.i:                                   ; preds = %694
   %.sroa.42.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %64, i64 8
-  br label %710
+  br label %697
 
-710:                                              ; preds = %714, %.lr.ph.i.i.i.i
+697:                                              ; preds = %701, %.lr.ph.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !631
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %64, ptr noundef nonnull align 4 dereferenceable(12) %65, i64 12, i1 false), !noalias !631
-  %711 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %64), !noalias !592
-  %712 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %711), !noalias !592
+  %698 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %64), !noalias !592
+  %699 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %698), !noalias !592
   %.sroa.42.0.copyload.i.i.i.i.i = load i8, ptr %.sroa.42.0..sroa_idx.i.i.i.i.i, align 4, !alias.scope !636, !noalias !631
-  %713 = icmp ne i8 %.sroa.42.0.copyload.i.i.i.i.i, 34
-  %.sroa.0.0.i.not.i.i.i.i = select i1 %712, i1 true, i1 %713
+  %700 = icmp ne i8 %.sroa.42.0.copyload.i.i.i.i.i, 34
+  %.sroa.0.0.i.not.i.i.i.i = select i1 %699, i1 true, i1 %700
   call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !631
   call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !631
-  br i1 %.sroa.0.0.i.not.i.i.i.i, label %714, label %.loopexit.i96
+  br i1 %.sroa.0.0.i.not.i.i.i.i, label %701, label %.loopexit.i96
 
-714:                                              ; preds = %710
+701:                                              ; preds = %697
   call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !631
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %65, ptr noalias noundef nonnull align 8 dereferenceable(56) %70), !noalias !592
-  %715 = load i8, ptr %708, align 4, !range !259, !noalias !631, !noundef !3
-  %.not.not.i.i.i.i = icmp eq i8 %715, 90
-  br i1 %.not.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %710
+  %702 = load i8, ptr %695, align 4, !range !259, !noalias !631, !noundef !3
+  %.not.not.i.i.i.i = icmp eq i8 %702, 90
+  br i1 %.not.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %697
 
-._crit_edge.i.i.i.i:                              ; preds = %714, %707
+._crit_edge.i.i.i.i:                              ; preds = %701, %694
   call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !631
-  br label %718
+  br label %705
 
-716:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.i.i.i.i.i"
+703:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcd1e94c8b6b4af43E.exit.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !611
-  %717 = icmp eq i8 %.sroa.46.0.copyload.i.i.i.i.i.i, 34
-  br i1 %717, label %.loopexit.i96, label %707
+  %704 = icmp eq i8 %.sroa.46.0.copyload.i.i.i.i.i.i, 34
+  br i1 %704, label %.loopexit.i96, label %694
 
-.loopexit.i.i:                                    ; preds = %704, %694
+.loopexit.i.i:                                    ; preds = %691, %681
   call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !611
-  br label %718
+  br label %705
 
-718:                                              ; preds = %.loopexit.i.i, %._crit_edge.i.i.i.i
+705:                                              ; preds = %.loopexit.i.i, %._crit_edge.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %177, ptr noundef nonnull align 8 dereferenceable(80) %150, i64 80, i1 false), !alias.scope !599, !noalias !600
-  br label %722
+  br label %709
 
-.loopexit.i96:                                    ; preds = %710, %716
+.loopexit.i96:                                    ; preds = %697, %703
   call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !601
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %68, ptr noundef nonnull align 8 dereferenceable(80) %150, i64 80, i1 false), !noalias !597
-  %719 = getelementptr inbounds nuw i8, ptr %177, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %719, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %68)
+  %706 = getelementptr inbounds nuw i8, ptr %177, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %706, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !601
-  %720 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  store i64 %671, ptr %720, align 8, !alias.scope !592, !noalias !639
-  %721 = getelementptr inbounds nuw i8, ptr %177, i64 16
-  store ptr %672, ptr %721, align 8, !alias.scope !592, !noalias !639
+  %707 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  store i64 %658, ptr %707, align 8, !alias.scope !592, !noalias !639
+  %708 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  store ptr %659, ptr %708, align 8, !alias.scope !592, !noalias !639
   store i64 92, ptr %177, align 8, !alias.scope !592, !noalias !639
-  br label %722
+  br label %709
 
-722:                                              ; preds = %.loopexit.i96, %718
+709:                                              ; preds = %.loopexit.i96, %705
   call void @llvm.lifetime.end.p0(ptr nonnull %70), !noalias !601
   br label %_ZN21ruff_python_formatter8comments9placement29handle_dict_unpacking_comment17h2e55aa3fc37bff6eE.exit
 
-_ZN21ruff_python_formatter8comments9placement29handle_dict_unpacking_comment17h2e55aa3fc37bff6eE.exit: ; preds = %676, %722
+_ZN21ruff_python_formatter8comments9placement29handle_dict_unpacking_comment17h2e55aa3fc37bff6eE.exit: ; preds = %663, %709
   call void @llvm.lifetime.end.p0(ptr nonnull %150)
   call void @_ZN21ruff_python_formatter8comments7visitor16CommentPlacement7or_else17h7f5a8ff8fbf5d645E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %178, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %177, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %177)
   call void @_ZN21ruff_python_formatter8comments7visitor16CommentPlacement7or_else17h8d6fc284e48fea3cE(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %178, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %178)
-  br label %1330
+  br label %1301
 
-723:                                              ; preds = %5, %5, %5, %5
+710:                                              ; preds = %5, %5, %5, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %140)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %140, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call void @_ZN21ruff_python_formatter8comments9placement36handle_bracketed_end_of_line_comment17h42670439ab1c3eb7E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %140, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %140)
-  br label %1330
+  br label %1301
 
-724:                                              ; preds = %5
+711:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %176)
   call void @llvm.lifetime.start.p0(ptr nonnull %149)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %149, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
@@ -4375,167 +4359,165 @@ _ZN21ruff_python_formatter8comments9placement29handle_dict_unpacking_comment17h2
   call void @llvm.lifetime.end.p0(ptr nonnull %149)
   call void @_ZN21ruff_python_formatter8comments7visitor16CommentPlacement7or_else17he0979f6dba1125e6E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %176, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %176)
-  br label %1330
+  br label %1301
 
-725:                                              ; preds = %5
-  %726 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %726)
-  %727 = getelementptr inbounds nuw i8, ptr %183, i64 40
-  %728 = load i8, ptr %727, align 8, !range !23, !noundef !3
-  %729 = trunc nuw i8 %728 to i1
-  br i1 %729, label %1282, label %184
+712:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
+  %713 = getelementptr inbounds nuw i8, ptr %183, i64 40
+  %714 = load i8, ptr %713, align 8, !range !23, !noundef !3
+  %715 = trunc nuw i8 %714 to i1
+  br i1 %715, label %1254, label %184
 
-730:                                              ; preds = %5
+716:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %146)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %146, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !640)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !643)
-  %731 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %146), !noalias !640
-  %732 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %731), !noalias !640
-  br i1 %732, label %733, label %736
+  %717 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %146), !noalias !640
+  %718 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %717), !noalias !640
+  br i1 %718, label %719, label %722
 
-733:                                              ; preds = %730
-  %734 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %146), !noalias !640
-  %735 = extractvalue { i64, ptr } %734, 0
-  %.not.i97 = icmp eq i64 %735, 92
-  br i1 %.not.i97, label %736, label %737
+719:                                              ; preds = %716
+  %720 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %146), !noalias !640
+  %721 = extractvalue { i64, ptr } %720, 0
+  %.not.i97 = icmp eq i64 %721, 92
+  br i1 %.not.i97, label %722, label %723
 
-.sink.split.i:                                    ; preds = %"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.thread.i", %737
+.sink.split.i:                                    ; preds = %"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.thread.i", %723
   call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !645
-  br label %736
+  br label %722
 
-736:                                              ; preds = %"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.i", %.sink.split.i, %733, %730
+722:                                              ; preds = %"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.i", %.sink.split.i, %719, %716
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %146, i64 80, i1 false), !alias.scope !645
   br label %_ZN21ruff_python_formatter8comments9placement19handle_call_comment17hb40d354895d68712E.exit
 
-737:                                              ; preds = %733
-  %738 = extractvalue { i64, ptr } %734, 1
+723:                                              ; preds = %719
+  %724 = extractvalue { i64, ptr } %720, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !645
-  store i64 %735, ptr %63, align 8, !noalias !645
-  %739 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %738, ptr %739, align 8, !noalias !645
-  %740 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %146), !noalias !640
-  %741 = extractvalue { i64, ptr } %740, 0
-  %.not5.i98 = icmp eq i64 %741, 92
-  br i1 %.not5.i98, label %.sink.split.i, label %742
+  store i64 %721, ptr %63, align 8, !noalias !645
+  %725 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store ptr %724, ptr %725, align 8, !noalias !645
+  %726 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %146), !noalias !640
+  %727 = extractvalue { i64, ptr } %726, 0
+  %.not5.i98 = icmp eq i64 %727, 92
+  br i1 %.not5.i98, label %.sink.split.i, label %728
 
-742:                                              ; preds = %737
-  %743 = extractvalue { i64, ptr } %740, 1
+728:                                              ; preds = %723
+  %729 = extractvalue { i64, ptr } %726, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !645
-  store i64 %741, ptr %61, align 8, !noalias !646
-  %744 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %743, ptr %744, align 8, !noalias !646
-  %745 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %63), !noalias !650
-  %746 = extractvalue { i32, i32 } %745, 1
-  %747 = getelementptr inbounds nuw i8, ptr %146, i64 64
-  %748 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %747), !noalias !640
-  %749 = extractvalue { i32, i32 } %748, 0
-  %750 = icmp ult i32 %746, %749
-  br i1 %750, label %"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.i", label %"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.thread.i"
+  store i64 %727, ptr %61, align 8, !noalias !646
+  %730 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr %729, ptr %730, align 8, !noalias !646
+  %731 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %63), !noalias !650
+  %732 = extractvalue { i32, i32 } %731, 1
+  %733 = getelementptr inbounds nuw i8, ptr %146, i64 64
+  %734 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %733), !noalias !640
+  %735 = extractvalue { i32, i32 } %734, 0
+  %736 = icmp ult i32 %732, %735
+  br i1 %736, label %"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.i", label %"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.thread.i"
 
-"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.thread.i": ; preds = %742
+"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.thread.i": ; preds = %728
   call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !645
   br label %.sink.split.i
 
-"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.i": ; preds = %742
-  %751 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %747), !noalias !640
-  %752 = extractvalue { i32, i32 } %751, 1
-  %753 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %61), !noalias !640
-  %754 = extractvalue { i32, i32 } %753, 0
-  %755 = icmp ult i32 %752, %754
+"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.i": ; preds = %728
+  %737 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %733), !noalias !640
+  %738 = extractvalue { i32, i32 } %737, 1
+  %739 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %61), !noalias !640
+  %740 = extractvalue { i32, i32 } %739, 0
+  %741 = icmp ult i32 %738, %740
   call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !645
   call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !645
-  br i1 %755, label %756, label %736
+  br i1 %741, label %742, label %722
 
-756:                                              ; preds = %"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.i"
-  %757 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %146), !noalias !640
-  %758 = extractvalue { i64, ptr } %757, 0
-  %759 = extractvalue { i64, ptr } %757, 1
+742:                                              ; preds = %"_ZN21ruff_python_formatter8comments9placement19handle_call_comment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1d69458b03513b7eE.exit.i"
+  %743 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %146), !noalias !640
+  %744 = extractvalue { i64, ptr } %743, 0
+  %745 = extractvalue { i64, ptr } %743, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !645
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull align 8 dereferenceable(80) %146, i64 80, i1 false), !noalias !640
-  %760 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %760, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %62)
+  %746 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %746, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %62)
   call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !645
-  %761 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %758, ptr %761, align 8, !alias.scope !640, !noalias !643
-  %762 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %759, ptr %762, align 8, !alias.scope !640, !noalias !643
+  %747 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %744, ptr %747, align 8, !alias.scope !640, !noalias !643
+  %748 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %745, ptr %748, align 8, !alias.scope !640, !noalias !643
   store i64 94, ptr %0, align 8, !alias.scope !640, !noalias !643
   br label %_ZN21ruff_python_formatter8comments9placement19handle_call_comment17hb40d354895d68712E.exit
 
-_ZN21ruff_python_formatter8comments9placement19handle_call_comment17hb40d354895d68712E.exit: ; preds = %736, %756
+_ZN21ruff_python_formatter8comments9placement19handle_call_comment17hb40d354895d68712E.exit: ; preds = %722, %742
   call void @llvm.lifetime.end.p0(ptr nonnull %146)
-  br label %1330
+  br label %1301
 
-763:                                              ; preds = %5
-  %764 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment16enclosing_parent17hcabc303bef000d53E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
-  %765 = extractvalue { i64, ptr } %764, 0
-  %766 = icmp eq i64 %765, 88
-  br i1 %766, label %1284, label %1283
+749:                                              ; preds = %5
+  %750 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment16enclosing_parent17hcabc303bef000d53E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
+  %751 = extractvalue { i64, ptr } %750, 0
+  %752 = icmp eq i64 %751, 88
+  br i1 %752, label %1256, label %1255
 
-767:                                              ; preds = %5
-  %768 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %768)
+753:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %144)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %144, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !651)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !654)
-  %769 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %144), !noalias !656
-  %770 = extractvalue { i64, ptr } %769, 0
-  %.not.i100 = icmp eq i64 %770, 92
-  br i1 %.not.i100, label %788, label %771
+  %754 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %144), !noalias !656
+  %755 = extractvalue { i64, ptr } %754, 0
+  %.not.i100 = icmp eq i64 %755, 92
+  br i1 %.not.i100, label %773, label %756
 
-771:                                              ; preds = %767
+756:                                              ; preds = %753
   call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !658
   call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !658
-  %772 = getelementptr inbounds nuw i8, ptr %183, i64 32
-  %773 = load ptr, ptr %772, align 8, !alias.scope !654, !noalias !660, !nonnull !3, !align !5, !noundef !3
-  %774 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %773), !noalias !656
-  %775 = extractvalue { i32, i32 } %774, 1
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %59, i32 noundef %775, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !661
+  %757 = getelementptr inbounds nuw i8, ptr %183, i64 32
+  %758 = load ptr, ptr %757, align 8, !alias.scope !654, !noalias !660, !nonnull !3, !align !5, !noundef !3
+  %759 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %758), !noalias !656
+  %760 = extractvalue { i32, i32 } %759, 1
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %59, i32 noundef %760, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !661
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %60, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %59), !noalias !661
   call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !658
-  %776 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  store i8 0, ptr %776, align 8, !noalias !658
+  %761 = getelementptr inbounds nuw i8, ptr %60, i64 48
+  store i8 0, ptr %761, align 8, !noalias !658
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i.i.i.i.i), !noalias !662
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !662
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %52, ptr noalias noundef nonnull align 8 dereferenceable(56) %60), !noalias !680
-  %777 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %778 = load i8, ptr %777, align 4, !range !259, !noalias !662, !noundef !3
-  %.not48.i.i.i.i.i = icmp eq i8 %778, 90
+  %762 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %763 = load i8, ptr %762, align 4, !range !259, !noalias !662, !noundef !3
+  %.not48.i.i.i.i.i = icmp eq i8 %763, 90
   br i1 %.not48.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i101
 
-.lr.ph.i.i.i.i.i101:                              ; preds = %771
+.lr.ph.i.i.i.i.i101:                              ; preds = %756
   %.sroa.430.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 9
-  %779 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  %764 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 20
   %.sroa.5.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 21
-  br label %780
+  br label %765
 
-780:                                              ; preds = %785, %.lr.ph.i.i.i.i.i101
-  %.sroa.7.050.i.i.i.i.i = phi i8 [ 90, %.lr.ph.i.i.i.i.i101 ], [ %.sroa.9.1.ph.i.i.i.i.i, %785 ]
-  %.sroa.020.049.i.i.i.i.i = phi i64 [ undef, %.lr.ph.i.i.i.i.i101 ], [ %.sroa.4.1.ph.i.i.i.i.i, %785 ]
+765:                                              ; preds = %770, %.lr.ph.i.i.i.i.i101
+  %.sroa.7.050.i.i.i.i.i = phi i8 [ 90, %.lr.ph.i.i.i.i.i101 ], [ %.sroa.9.1.ph.i.i.i.i.i, %770 ]
+  %.sroa.020.049.i.i.i.i.i = phi i64 [ undef, %.lr.ph.i.i.i.i.i101 ], [ %.sroa.4.1.ph.i.i.i.i.i, %770 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !662
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %779, ptr noundef nonnull align 4 dereferenceable(12) %52, i64 12, i1 false), !noalias !662
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %764, ptr noundef nonnull align 4 dereferenceable(12) %52, i64 12, i1 false), !noalias !662
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.sroa.9.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5.0..sroa_idx.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.i.i.i.i.i, i64 3, i1 false), !noalias !662
   store i64 %.sroa.020.049.i.i.i.i.i, ptr %51, align 8, !noalias !662
   store i8 %.sroa.7.050.i.i.i.i.i, ptr %.sroa.430.0..sroa_idx.i.i.i.i.i, align 8, !noalias !662
-  %781 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %779), !noalias !681
-  %782 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %781), !noalias !681
-  br i1 %782, label %785, label %783
+  %766 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %764), !noalias !681
+  %767 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %766), !noalias !681
+  br i1 %767, label %770, label %768
 
-783:                                              ; preds = %780
-  %.sroa.05.0.copyload.i.i.i.i.i.i = load i64, ptr %779, align 4, !alias.scope !685, !noalias !687
+768:                                              ; preds = %765
+  %.sroa.05.0.copyload.i.i.i.i.i.i = load i64, ptr %764, align 4, !alias.scope !685, !noalias !687
   %.sroa.4.0.copyload.i.i.i.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 4, !alias.scope !685, !noalias !687
-  %784 = icmp eq i8 %.sroa.4.0.copyload.i.i.i.i.i.i, 6
-  br i1 %784, label %785, label %787
+  %769 = icmp eq i8 %.sroa.4.0.copyload.i.i.i.i.i.i, 6
+  br i1 %769, label %770, label %772
 
-785:                                              ; preds = %783, %780
-  %.sroa.8.sink.i.i.i.i.i = phi ptr [ %.sroa.8.i.i.i.i.i, %780 ], [ %.sroa.5.0..sroa_idx.i.i.i.i.i.i, %783 ]
-  %.sroa.9.1.ph.i.i.i.i.i = phi i8 [ %.sroa.7.050.i.i.i.i.i, %780 ], [ 6, %783 ]
-  %.sroa.4.1.ph.i.i.i.i.i = phi i64 [ %.sroa.020.049.i.i.i.i.i, %780 ], [ %.sroa.05.0.copyload.i.i.i.i.i.i, %783 ]
+770:                                              ; preds = %768, %765
+  %.sroa.8.sink.i.i.i.i.i = phi ptr [ %.sroa.8.i.i.i.i.i, %765 ], [ %.sroa.5.0..sroa_idx.i.i.i.i.i.i, %768 ]
+  %.sroa.9.1.ph.i.i.i.i.i = phi i8 [ %.sroa.7.050.i.i.i.i.i, %765 ], [ 6, %768 ]
+  %.sroa.4.1.ph.i.i.i.i.i = phi i64 [ %.sroa.020.049.i.i.i.i.i, %765 ], [ %.sroa.05.0.copyload.i.i.i.i.i.i, %768 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5.sroa.9.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.sink.i.i.i.i.i, i64 3, i1 false), !noalias !662
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !662
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5.sroa.9.i.i.i.i.i, i64 3, i1 false), !noalias !662
@@ -4543,295 +4525,289 @@ _ZN21ruff_python_formatter8comments9placement19handle_call_comment17hb40d354895d
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !662
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !662
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %52, ptr noalias noundef nonnull align 8 dereferenceable(56) %60), !noalias !680
-  %786 = load i8, ptr %777, align 4, !range !259, !noalias !662, !noundef !3
-  %.not.i.i.i.i.i104 = icmp eq i8 %786, 90
-  br i1 %.not.i.i.i.i.i104, label %.loopexit.i.i.i, label %780
+  %771 = load i8, ptr %762, align 4, !range !259, !noalias !662, !noundef !3
+  %.not.i.i.i.i.i104 = icmp eq i8 %771, 90
+  br i1 %.not.i.i.i.i.i104, label %.loopexit.i.i.i, label %765
 
-787:                                              ; preds = %783
+772:                                              ; preds = %768
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !662
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12.i.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.i.i.i.i.i, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.9.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !662
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd729401d38e33a48E.exit.i"
 
-.loopexit.i.i.i:                                  ; preds = %785, %771
-  %.sroa.020.0.lcssa.i.i.i.i.i = phi i64 [ undef, %771 ], [ %.sroa.4.1.ph.i.i.i.i.i, %785 ]
-  %.sroa.7.0.lcssa.i.i.i.i.i = phi i8 [ 90, %771 ], [ %.sroa.9.1.ph.i.i.i.i.i, %785 ]
+.loopexit.i.i.i:                                  ; preds = %770, %756
+  %.sroa.020.0.lcssa.i.i.i.i.i = phi i64 [ undef, %756 ], [ %.sroa.4.1.ph.i.i.i.i.i, %770 ]
+  %.sroa.7.0.lcssa.i.i.i.i.i = phi i8 [ 90, %756 ], [ %.sroa.9.1.ph.i.i.i.i.i, %770 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !662
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12.i.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.i.i.i.i.i, i64 3, i1 false)
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd729401d38e33a48E.exit.i"
 
-"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd729401d38e33a48E.exit.i": ; preds = %.loopexit.i.i.i, %787
-  %.sroa.6.0.i.i = phi i8 [ %.sroa.7.050.i.i.i.i.i, %787 ], [ %.sroa.7.0.lcssa.i.i.i.i.i, %.loopexit.i.i.i ]
-  %.sroa.0.0.i.i102 = phi i64 [ %.sroa.020.049.i.i.i.i.i, %787 ], [ %.sroa.020.0.lcssa.i.i.i.i.i, %.loopexit.i.i.i ]
+"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd729401d38e33a48E.exit.i": ; preds = %.loopexit.i.i.i, %772
+  %.sroa.6.0.i.i = phi i8 [ %.sroa.7.050.i.i.i.i.i, %772 ], [ %.sroa.7.0.lcssa.i.i.i.i.i, %.loopexit.i.i.i ]
+  %.sroa.0.0.i.i102 = phi i64 [ %.sroa.020.049.i.i.i.i.i, %772 ], [ %.sroa.020.0.lcssa.i.i.i.i.i, %.loopexit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i.i.i.i), !noalias !662
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !658
   %.not2.i103 = icmp eq i8 %.sroa.6.0.i.i, 90
-  br i1 %.not2.i103, label %812, label %797
+  br i1 %.not2.i103, label %797, label %782
 
-788:                                              ; preds = %767
-  %789 = getelementptr inbounds nuw i8, ptr %183, i64 32
-  %790 = load ptr, ptr %789, align 8, !alias.scope !654, !noalias !660, !nonnull !3, !noundef !3
-  %791 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %790), !noalias !656
-  %792 = extractvalue { i64, ptr } %791, 0
-  %793 = extractvalue { i64, ptr } %791, 1
+773:                                              ; preds = %753
+  %774 = getelementptr inbounds nuw i8, ptr %183, i64 32
+  %775 = load ptr, ptr %774, align 8, !alias.scope !654, !noalias !660, !nonnull !3, !noundef !3
+  %776 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %775), !noalias !656
+  %777 = extractvalue { i64, ptr } %776, 0
+  %778 = extractvalue { i64, ptr } %776, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !658
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %53, ptr noundef nonnull align 8 dereferenceable(80) %144, i64 80, i1 false), !noalias !656
-  %794 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %794, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %53), !noalias !688
+  %779 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %779, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %53), !noalias !688
   call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !658
-  %795 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %792, ptr %795, align 8, !alias.scope !651, !noalias !689
-  %796 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %793, ptr %796, align 8, !alias.scope !651, !noalias !689
+  %780 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %777, ptr %780, align 8, !alias.scope !651, !noalias !689
+  %781 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %778, ptr %781, align 8, !alias.scope !651, !noalias !689
   store i64 92, ptr %0, align 8, !alias.scope !651, !noalias !689
   br label %_ZN21ruff_python_formatter8comments9placement24handle_attribute_comment17h2ea4b8d115e11bf1E.exit
 
-797:                                              ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd729401d38e33a48E.exit.i"
+782:                                              ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd729401d38e33a48E.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !658
   store i64 %.sroa.0.0.i.i102, ptr %58, align 8, !noalias !658
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i8 %.sroa.6.0.i.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !658
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %58, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12.i.i.i, i64 3, i1 false)
-  %798 = getelementptr inbounds nuw i8, ptr %144, i64 64
-  %799 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %798), !noalias !661
-  %800 = extractvalue { i32, i32 } %799, 0
-  %801 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %58), !noalias !661
-  %802 = extractvalue { i32, i32 } %801, 0
-  %803 = icmp ult i32 %800, %802
-  br i1 %803, label %805, label %804
+  %783 = getelementptr inbounds nuw i8, ptr %144, i64 64
+  %784 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %783), !noalias !661
+  %785 = extractvalue { i32, i32 } %784, 0
+  %786 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %58), !noalias !661
+  %787 = extractvalue { i32, i32 } %786, 0
+  %788 = icmp ult i32 %785, %787
+  br i1 %788, label %790, label %789
 
-804:                                              ; preds = %797
+789:                                              ; preds = %782
   call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !658
-  br label %812
+  br label %797
 
-805:                                              ; preds = %797
-  %806 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %773), !noalias !661
-  %807 = extractvalue { i64, ptr } %806, 0
-  %808 = extractvalue { i64, ptr } %806, 1
+790:                                              ; preds = %782
+  %791 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %758), !noalias !661
+  %792 = extractvalue { i64, ptr } %791, 0
+  %793 = extractvalue { i64, ptr } %791, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !658
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %56, ptr noundef nonnull align 8 dereferenceable(80) %144, i64 80, i1 false), !noalias !656
-  %809 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %809, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %56), !noalias !654
+  %794 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %794, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %56), !noalias !654
   call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !658
+  %795 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %792, ptr %795, align 8, !alias.scope !651, !noalias !689
+  %796 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %793, ptr %796, align 8, !alias.scope !651, !noalias !689
+  store i64 93, ptr %0, align 8, !alias.scope !651, !noalias !689
+  call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !658
+  br label %_ZN21ruff_python_formatter8comments9placement24handle_attribute_comment17h2ea4b8d115e11bf1E.exit
+
+797:                                              ; preds = %789, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd729401d38e33a48E.exit.i"
+  %798 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %144), !noalias !661
+  %799 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %798), !noalias !661
+  br i1 %799, label %800, label %805
+
+800:                                              ; preds = %797
+  call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !658
+  %801 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %758), !noalias !661
+  %802 = extractvalue { i32, i32 } %801, 1
+  %803 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Identifier$GT$5range17h62bc7d86fb9b07bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %183), !noalias !651
+  %804 = extractvalue { i32, i32 } %803, 0
+  %.not3.i = icmp ugt i32 %802, %804
+  br i1 %.not3.i, label %812, label %813, !prof !331
+
+805:                                              ; preds = %820, %797
+  %806 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %144), !noalias !651
+  %807 = extractvalue { i64, ptr } %806, 0
+  %808 = extractvalue { i64, ptr } %806, 1
+  call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !658
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %55, ptr noundef nonnull align 8 dereferenceable(80) %144, i64 80, i1 false), !noalias !656
+  %809 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %809, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !658
   %810 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %807, ptr %810, align 8, !alias.scope !651, !noalias !689
   %811 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %808, ptr %811, align 8, !alias.scope !651, !noalias !689
-  store i64 93, ptr %0, align 8, !alias.scope !651, !noalias !689
-  call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !658
-  br label %_ZN21ruff_python_formatter8comments9placement24handle_attribute_comment17h2ea4b8d115e11bf1E.exit
-
-812:                                              ; preds = %804, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd729401d38e33a48E.exit.i"
-  %813 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %144), !noalias !661
-  %814 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %813), !noalias !661
-  br i1 %814, label %815, label %820
-
-815:                                              ; preds = %812
-  call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !658
-  %816 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %773), !noalias !661
-  %817 = extractvalue { i32, i32 } %816, 1
-  %818 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Identifier$GT$5range17h62bc7d86fb9b07bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %183), !noalias !651
-  %819 = extractvalue { i32, i32 } %818, 0
-  %.not3.i = icmp ugt i32 %817, %819
-  br i1 %.not3.i, label %827, label %828, !prof !331
-
-820:                                              ; preds = %835, %812
-  %821 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %144), !noalias !651
-  %822 = extractvalue { i64, ptr } %821, 0
-  %823 = extractvalue { i64, ptr } %821, 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !658
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %55, ptr noundef nonnull align 8 dereferenceable(80) %144, i64 80, i1 false), !noalias !656
-  %824 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %824, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %55)
-  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !658
-  %825 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %822, ptr %825, align 8, !alias.scope !651, !noalias !689
-  %826 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %823, ptr %826, align 8, !alias.scope !651, !noalias !689
   store i64 94, ptr %0, align 8, !alias.scope !651, !noalias !689
   br label %_ZN21ruff_python_formatter8comments9placement24handle_attribute_comment17h2ea4b8d115e11bf1E.exit
 
-827:                                              ; preds = %815
+812:                                              ; preds = %800
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.64) #19, !noalias !651
   unreachable
 
-828:                                              ; preds = %815
-  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %57, i32 noundef %817, i32 noundef %819, i8 noundef 16, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !651
-  %829 = getelementptr inbounds nuw i8, ptr %144, i64 64
-  %830 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %829), !noalias !651
-  %831 = extractvalue { i32, i32 } %830, 1
-  %832 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %57), !noalias !651
-  %833 = extractvalue { i32, i32 } %832, 0
-  %834 = icmp ult i32 %831, %833
-  br i1 %834, label %836, label %835
+813:                                              ; preds = %800
+  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %57, i32 noundef %802, i32 noundef %804, i8 noundef 16, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !651
+  %814 = getelementptr inbounds nuw i8, ptr %144, i64 64
+  %815 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %814), !noalias !651
+  %816 = extractvalue { i32, i32 } %815, 1
+  %817 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %57), !noalias !651
+  %818 = extractvalue { i32, i32 } %817, 0
+  %819 = icmp ult i32 %816, %818
+  br i1 %819, label %821, label %820
 
-835:                                              ; preds = %828
+820:                                              ; preds = %813
   call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !658
-  br label %820
+  br label %805
 
-836:                                              ; preds = %828
-  %837 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %773), !noalias !651
-  %838 = extractvalue { i64, ptr } %837, 0
-  %839 = extractvalue { i64, ptr } %837, 1
+821:                                              ; preds = %813
+  %822 = call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %758), !noalias !651
+  %823 = extractvalue { i64, ptr } %822, 0
+  %824 = extractvalue { i64, ptr } %822, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !658
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %54, ptr noundef nonnull align 8 dereferenceable(80) %144, i64 80, i1 false), !noalias !656
-  %840 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %840, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %54)
+  %825 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %825, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !658
-  %841 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %838, ptr %841, align 8, !alias.scope !651, !noalias !689
-  %842 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %839, ptr %842, align 8, !alias.scope !651, !noalias !689
+  %826 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %823, ptr %826, align 8, !alias.scope !651, !noalias !689
+  %827 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %824, ptr %827, align 8, !alias.scope !651, !noalias !689
   store i64 93, ptr %0, align 8, !alias.scope !651, !noalias !689
   call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !658
   br label %_ZN21ruff_python_formatter8comments9placement24handle_attribute_comment17h2ea4b8d115e11bf1E.exit
 
-_ZN21ruff_python_formatter8comments9placement24handle_attribute_comment17h2ea4b8d115e11bf1E.exit: ; preds = %788, %805, %820, %836
+_ZN21ruff_python_formatter8comments9placement24handle_attribute_comment17h2ea4b8d115e11bf1E.exit: ; preds = %773, %790, %805, %821
   call void @llvm.lifetime.end.p0(ptr nonnull %144)
-  br label %1330
+  br label %1301
 
-843:                                              ; preds = %5
-  %844 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %844)
-  %845 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %846 = load ptr, ptr %845, align 8, !nonnull !3, !noundef !3
-  %847 = load i32, ptr %846, align 8, !range !690, !noundef !3
-  %848 = icmp eq i32 %847, 30
-  br i1 %848, label %1293, label %1295
+828:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
+  %829 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %830 = load ptr, ptr %829, align 8, !nonnull !3, !noundef !3
+  %831 = load i32, ptr %830, align 8, !range !690, !noundef !3
+  %832 = icmp eq i32 %831, 30
+  br i1 %832, label %1264, label %1266
 
-849:                                              ; preds = %5
-  %850 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %850)
+833:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %141)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %141, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !691)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !694)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
-  %851 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %141), !noalias !696
-  %852 = extractvalue { i64, ptr } %851, 0
-  %.not.i105 = icmp eq i64 %852, 92
-  br i1 %.not.i105, label %876, label %853
+  %834 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %141), !noalias !696
+  %835 = extractvalue { i64, ptr } %834, 0
+  %.not.i105 = icmp eq i64 %835, 92
+  br i1 %.not.i105, label %859, label %836
 
-853:                                              ; preds = %849
-  %854 = call { i32, i32 } @"_ZN90_$LT$ruff_python_ast..generated..ExprStarred$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h52cde3ce2c778037E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %183), !noalias !699
-  %855 = extractvalue { i32, i32 } %854, 0
-  %856 = getelementptr inbounds nuw i8, ptr %141, i64 64
-  %857 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %856), !noalias !699
-  %858 = extractvalue { i32, i32 } %857, 0
-  %.not2.i106 = icmp ugt i32 %855, %858
-  br i1 %.not2.i106, label %859, label %860, !prof !331
+836:                                              ; preds = %833
+  %837 = call { i32, i32 } @"_ZN90_$LT$ruff_python_ast..generated..ExprStarred$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h52cde3ce2c778037E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %183), !noalias !699
+  %838 = extractvalue { i32, i32 } %837, 0
+  %839 = getelementptr inbounds nuw i8, ptr %141, i64 64
+  %840 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %839), !noalias !699
+  %841 = extractvalue { i32, i32 } %840, 0
+  %.not2.i106 = icmp ugt i32 %838, %841
+  br i1 %.not2.i106, label %842, label %843, !prof !331
 
-859:                                              ; preds = %853
+842:                                              ; preds = %836
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.67) #19, !noalias !699
   unreachable
 
-860:                                              ; preds = %853
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %50, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %855, i32 noundef %858), !noalias !691
+843:                                              ; preds = %836
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %50, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %838, i32 noundef %841), !noalias !691
   call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !700
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %50), !noalias !691
   call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !701
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %47, ptr noalias noundef nonnull align 8 dereferenceable(48) %49), !noalias !691
-  %861 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %862 = load i8, ptr %861, align 4, !range !259, !noalias !701, !noundef !3
-  %.not6.not.i.i107 = icmp eq i8 %862, 90
+  %844 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %845 = load i8, ptr %844, align 4, !range !259, !noalias !701, !noundef !3
+  %.not6.not.i.i107 = icmp eq i8 %845, 90
   br i1 %.not6.not.i.i107, label %.loopexit.i110, label %.lr.ph.i.i108
 
-.lr.ph.i.i108:                                    ; preds = %860, %867
+.lr.ph.i.i108:                                    ; preds = %843, %850
   call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !701
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %46, ptr noundef nonnull align 4 dereferenceable(12) %47, i64 12, i1 false), !noalias !701
-  %863 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %46), !noalias !691
-  %864 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %863), !noalias !691
-  br i1 %864, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9ba737599de78832E.exit.thread.i.i", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9ba737599de78832E.exit.i.i"
+  %846 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %46), !noalias !691
+  %847 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %846), !noalias !691
+  br i1 %847, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9ba737599de78832E.exit.thread.i.i", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9ba737599de78832E.exit.i.i"
 
 "_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9ba737599de78832E.exit.thread.i.i": ; preds = %.lr.ph.i.i108
   call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !701
-  br label %867
+  br label %850
 
 "_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9ba737599de78832E.exit.i.i": ; preds = %.lr.ph.i.i108
   call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !704
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %45, ptr noundef nonnull align 4 dereferenceable(12) %46, i64 12, i1 false), !noalias !701
-  %865 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %45), !noalias !709
-  %866 = icmp eq i8 %865, 5
+  %848 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %45), !noalias !709
+  %849 = icmp eq i8 %848, 5
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !704
   call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !701
-  br i1 %866, label %875, label %867
+  br i1 %849, label %858, label %850
 
-867:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9ba737599de78832E.exit.i.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9ba737599de78832E.exit.thread.i.i"
+850:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9ba737599de78832E.exit.i.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9ba737599de78832E.exit.thread.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !701
   call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !701
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %47, ptr noalias noundef nonnull align 8 dereferenceable(48) %49), !noalias !691
-  %868 = load i8, ptr %861, align 4, !range !259, !noalias !701, !noundef !3
-  %.not.not.i.i109 = icmp eq i8 %868, 90
+  %851 = load i8, ptr %844, align 4, !range !259, !noalias !701, !noundef !3
+  %.not.not.i.i109 = icmp eq i8 %851, 90
   br i1 %.not.not.i.i109, label %.loopexit.i110, label %.lr.ph.i.i108
 
-.loopexit.i110:                                   ; preds = %867, %860
+.loopexit.i110:                                   ; preds = %850, %843
   call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !701
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !700
-  %869 = call { i64, ptr } @"_ZN129_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprStarred$GT$$GT$4from17he2a45f7ffdccb5a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %183), !noalias !691
-  %870 = extractvalue { i64, ptr } %869, 0
-  %871 = extractvalue { i64, ptr } %869, 1
+  %852 = call { i64, ptr } @"_ZN129_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprStarred$GT$$GT$4from17he2a45f7ffdccb5a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %183), !noalias !691
+  %853 = extractvalue { i64, ptr } %852, 0
+  %854 = extractvalue { i64, ptr } %852, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !700
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %48, ptr noundef nonnull align 8 dereferenceable(80) %141, i64 80, i1 false), !noalias !696
-  %872 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %872, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %48)
+  %855 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %855, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !700
-  %873 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %870, ptr %873, align 8, !alias.scope !691, !noalias !710
-  %874 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %871, ptr %874, align 8, !alias.scope !691, !noalias !710
+  %856 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %853, ptr %856, align 8, !alias.scope !691, !noalias !710
+  %857 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %854, ptr %857, align 8, !alias.scope !691, !noalias !710
   store i64 92, ptr %0, align 8, !alias.scope !691, !noalias !710
   br label %_ZN21ruff_python_formatter8comments9placement59handle_trailing_expression_starred_star_end_of_line_comment17hbde223fd8caf027eE.exit
 
-875:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9ba737599de78832E.exit.i.i"
+858:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9ba737599de78832E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !701
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !700
-  br label %876
+  br label %859
 
-876:                                              ; preds = %875, %849
+859:                                              ; preds = %858, %833
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %141, i64 80, i1 false), !alias.scope !711, !noalias !712
   br label %_ZN21ruff_python_formatter8comments9placement59handle_trailing_expression_starred_star_end_of_line_comment17hbde223fd8caf027eE.exit
 
-_ZN21ruff_python_formatter8comments9placement59handle_trailing_expression_starred_star_end_of_line_comment17hbde223fd8caf027eE.exit: ; preds = %.loopexit.i110, %876
+_ZN21ruff_python_formatter8comments9placement59handle_trailing_expression_starred_star_end_of_line_comment17hbde223fd8caf027eE.exit: ; preds = %.loopexit.i110, %859
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %141)
-  br label %1330
+  br label %1301
 
-877:                                              ; preds = %5
-  %878 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %878)
-  %879 = getelementptr inbounds nuw i8, ptr %183, i64 32
-  %880 = load i8, ptr %879, align 8, !range !23, !noundef !3
-  %881 = trunc nuw i8 %880 to i1
-  br i1 %881, label %1331, label %184
+860:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
+  %861 = getelementptr inbounds nuw i8, ptr %183, i64 32
+  %862 = load i8, ptr %861, align 8, !range !23, !noundef !3
+  %863 = trunc nuw i8 %862 to i1
+  br i1 %863, label %1302, label %184
 
-882:                                              ; preds = %5
-  %883 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %883)
+864:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %138)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %138, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call fastcc void @_ZN21ruff_python_formatter8comments9placement21handle_slice_comments17h6d8446c9738d5e40E(ptr noalias noundef align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 captures(none) dereferenceable(80) %138, ptr noalias noundef readonly align 8 dereferenceable(32) %183, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %138)
-  br label %1330
+  br label %1301
 
-884:                                              ; preds = %5
-  %885 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
-  %886 = extractvalue { i64, ptr } %885, 0
-  %887 = and i64 %886, -2
-  %switch = icmp eq i64 %887, 60
-  br i1 %switch, label %1333, label %1332
+865:                                              ; preds = %5
+  %866 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
+  %867 = extractvalue { i64, ptr } %866, 0
+  %868 = and i64 %867, -2
+  %switch = icmp eq i64 %868, 60
+  br i1 %switch, label %1304, label %1303
 
-888:                                              ; preds = %5
-  %889 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %889)
-  %890 = tail call noundef i8 @_ZN21ruff_python_formatter7pattern22pattern_match_sequence12SequenceType12from_pattern17hcb90c199819d28f6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %183, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
-  %891 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter7pattern22pattern_match_sequence12SequenceType16is_parenthesized17h8f067c808b74d094E(i8 noundef %890)
-  br i1 %891, label %1341, label %1340
+869:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
+  %870 = tail call noundef i8 @_ZN21ruff_python_formatter7pattern22pattern_match_sequence12SequenceType12from_pattern17hcb90c199819d28f6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %183, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
+  %871 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter7pattern22pattern_match_sequence12SequenceType16is_parenthesized17h8f067c808b74d094E(i8 noundef %870)
+  br i1 %871, label %1312, label %1311
 
-892:                                              ; preds = %5
-  %893 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %893)
+872:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %172)
   call void @llvm.lifetime.start.p0(ptr nonnull %134)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %134, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
@@ -4839,431 +4815,428 @@ _ZN21ruff_python_formatter8comments9placement59handle_trailing_expression_starre
   call void @llvm.lifetime.end.p0(ptr nonnull %134)
   call void @llvm.lifetime.start.p0(ptr nonnull %171)
   store ptr %183, ptr %171, align 8
-  %894 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  store ptr %3, ptr %894, align 8
-  %895 = getelementptr inbounds nuw i8, ptr %171, i64 16
-  store i64 %4, ptr %895, align 8
+  %873 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  store ptr %3, ptr %873, align 8
+  %874 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  store i64 %4, ptr %874, align 8
   call void @_ZN21ruff_python_formatter8comments7visitor16CommentPlacement7or_else17h763c30c08ed8de58E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %172, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %171)
   call void @llvm.lifetime.end.p0(ptr nonnull %171)
   call void @llvm.lifetime.end.p0(ptr nonnull %172)
-  br label %1330
+  br label %1301
 
-896:                                              ; preds = %5
-  %897 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %897)
+875:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %133)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %133, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !713)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !716)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !718)
-  %898 = getelementptr inbounds nuw i8, ptr %183, i64 56
-  %899 = load ptr, ptr %898, align 8, !alias.scope !718, !noalias !720, !nonnull !3, !align !5, !noundef !3
-  %900 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %899), !noalias !721
-  %901 = extractvalue { i32, i32 } %900, 1
-  %902 = getelementptr inbounds nuw i8, ptr %133, i64 64
-  %903 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %902), !noalias !722
-  %904 = extractvalue { i32, i32 } %903, 0
-  %905 = icmp ult i32 %901, %904
-  br i1 %905, label %907, label %906
+  %876 = getelementptr inbounds nuw i8, ptr %183, i64 56
+  %877 = load ptr, ptr %876, align 8, !alias.scope !718, !noalias !720, !nonnull !3, !align !5, !noundef !3
+  %878 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %877), !noalias !721
+  %879 = extractvalue { i32, i32 } %878, 1
+  %880 = getelementptr inbounds nuw i8, ptr %133, i64 64
+  %881 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %880), !noalias !722
+  %882 = extractvalue { i32, i32 } %881, 0
+  %883 = icmp ult i32 %879, %882
+  br i1 %883, label %885, label %884
 
-906:                                              ; preds = %907, %896
+884:                                              ; preds = %885, %875
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %133, i64 80, i1 false), !alias.scope !720, !noalias !718
   br label %_ZN21ruff_python_formatter8comments9placement34handle_pattern_match_class_comment17hf1a71dc1980a1096E.exit
 
-907:                                              ; preds = %896
-  %908 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %902), !noalias !722
-  %909 = extractvalue { i32, i32 } %908, 1
-  %910 = call { i32, i32 } @"_ZN15ruff_python_ast9generated101_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..PatternArguments$GT$5range17h55217e47d7364890E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %183), !noalias !713
-  %911 = extractvalue { i32, i32 } %910, 0
-  %912 = icmp ult i32 %909, %911
-  br i1 %912, label %913, label %906
+885:                                              ; preds = %875
+  %886 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %880), !noalias !722
+  %887 = extractvalue { i32, i32 } %886, 1
+  %888 = call { i32, i32 } @"_ZN15ruff_python_ast9generated101_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..PatternArguments$GT$5range17h55217e47d7364890E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %183), !noalias !713
+  %889 = extractvalue { i32, i32 } %888, 0
+  %890 = icmp ult i32 %887, %889
+  br i1 %890, label %891, label %884
 
-913:                                              ; preds = %907
-  %914 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %133), !noalias !713
-  %915 = extractvalue { i64, ptr } %914, 0
-  %916 = extractvalue { i64, ptr } %914, 1
+891:                                              ; preds = %885
+  %892 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %133), !noalias !713
+  %893 = extractvalue { i64, ptr } %892, 0
+  %894 = extractvalue { i64, ptr } %892, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !721
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %44, ptr noundef nonnull align 8 dereferenceable(80) %133, i64 80, i1 false), !noalias !722
-  %917 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %917, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %44)
+  %895 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !721
-  %918 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %915, ptr %918, align 8, !alias.scope !713, !noalias !723
-  %919 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %916, ptr %919, align 8, !alias.scope !713, !noalias !723
+  %896 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %893, ptr %896, align 8, !alias.scope !713, !noalias !723
+  %897 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %894, ptr %897, align 8, !alias.scope !713, !noalias !723
   store i64 94, ptr %0, align 8, !alias.scope !713, !noalias !723
   br label %_ZN21ruff_python_formatter8comments9placement34handle_pattern_match_class_comment17hf1a71dc1980a1096E.exit
 
-_ZN21ruff_python_formatter8comments9placement34handle_pattern_match_class_comment17hf1a71dc1980a1096E.exit: ; preds = %906, %913
+_ZN21ruff_python_formatter8comments9placement34handle_pattern_match_class_comment17hf1a71dc1980a1096E.exit: ; preds = %884, %891
   call void @llvm.lifetime.end.p0(ptr nonnull %133)
-  br label %1330
+  br label %1301
 
-920:                                              ; preds = %5
+898:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %132)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %132, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !724)
-  %921 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %132), !noalias !724
-  %922 = extractvalue { i64, ptr } %921, 0
-  %923 = extractvalue { i64, ptr } %921, 1
+  %899 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %132), !noalias !724
+  %900 = extractvalue { i64, ptr } %899, 0
+  %901 = extractvalue { i64, ptr } %899, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !727
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %43, ptr noundef nonnull align 8 dereferenceable(80) %132, i64 80, i1 false), !noalias !724
-  %924 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %924, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %43)
+  %902 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %902, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !727
-  %925 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %922, ptr %925, align 8, !alias.scope !724, !noalias !729
-  %926 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %923, ptr %926, align 8, !alias.scope !724, !noalias !729
+  %903 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %900, ptr %903, align 8, !alias.scope !724, !noalias !729
+  %904 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %901, ptr %904, align 8, !alias.scope !724, !noalias !729
   store i64 94, ptr %0, align 8, !alias.scope !724, !noalias !729
   call void @llvm.lifetime.end.p0(ptr nonnull %132)
-  br label %1330
+  br label %1301
 
-927:                                              ; preds = %5
+905:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %131)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %131, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !730)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !733)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
-  %928 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %131), !noalias !735
-  %929 = extractvalue { i64, ptr } %928, 0
-  %.not.i112 = icmp eq i64 %929, 92
-  br i1 %.not.i112, label %947, label %930
+  %906 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %131), !noalias !735
+  %907 = extractvalue { i64, ptr } %906, 0
+  %.not.i112 = icmp eq i64 %907, 92
+  br i1 %.not.i112, label %925, label %908
 
-930:                                              ; preds = %927
-  %931 = extractvalue { i64, ptr } %928, 1
-  store i64 %929, ptr %42, align 8, !noalias !737
-  %932 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %931, ptr %932, align 8, !noalias !737
+908:                                              ; preds = %905
+  %909 = extractvalue { i64, ptr } %906, 1
+  store i64 %907, ptr %42, align 8, !noalias !737
+  %910 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store ptr %909, ptr %910, align 8, !noalias !737
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !737
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !737
-  %933 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %42), !noalias !735
-  %934 = extractvalue { i32, i32 } %933, 1
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %40, i32 noundef %934, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !730
+  %911 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %42), !noalias !735
+  %912 = extractvalue { i32, i32 } %911, 1
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %40, i32 noundef %912, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !730
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %41, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %40), !noalias !730
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !737
-  %935 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  store i8 0, ptr %935, align 8, !noalias !737
+  %913 = getelementptr inbounds nuw i8, ptr %41, i64 48
+  store i8 0, ptr %913, align 8, !noalias !737
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !737
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !738
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %36, ptr noalias noundef nonnull align 8 dereferenceable(48) %41), !noalias !742
-  %936 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %937 = load i8, ptr %936, align 4, !range !259, !noalias !738, !noundef !3
-  %.not19.i.i113 = icmp eq i8 %937, 90
+  %914 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %915 = load i8, ptr %914, align 4, !range !259, !noalias !738, !noundef !3
+  %.not19.i.i113 = icmp eq i8 %915, 90
   br i1 %.not19.i.i113, label %.loopexit.i120, label %.lr.ph.i.i114
 
-.lr.ph.i.i114:                                    ; preds = %930
+.lr.ph.i.i114:                                    ; preds = %908
   %.sroa.46.0..sroa_idx.i.i.i115 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.57.0..sroa_idx.i.i.i116 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  br label %938
+  br label %916
 
-938:                                              ; preds = %945, %.lr.ph.i.i114
+916:                                              ; preds = %923, %.lr.ph.i.i114
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !738
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 4 dereferenceable(12) %36, i64 12, i1 false), !noalias !738
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i.i111)
   call void @llvm.experimental.noalias.scope.decl(metadata !743)
   call void @llvm.experimental.noalias.scope.decl(metadata !746)
-  %939 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %35), !noalias !748
-  %940 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %939), !noalias !748
-  br i1 %940, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.thread.i.i", label %941
+  %917 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %35), !noalias !748
+  %918 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %917), !noalias !748
+  br i1 %918, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.thread.i.i", label %919
 
-941:                                              ; preds = %938
+919:                                              ; preds = %916
   %.sroa.46.0.copyload.i.i.i117 = load i8, ptr %.sroa.46.0..sroa_idx.i.i.i115, align 8, !alias.scope !746, !noalias !749
-  %942 = load i8, ptr %935, align 8, !range !23, !noalias !750, !noundef !3
-  %943 = trunc nuw i8 %942 to i1
-  %944 = icmp ne i8 %.sroa.46.0.copyload.i.i.i117, 6
-  %or.cond.not.i.i.i.i.i118 = select i1 %943, i1 true, i1 %944
+  %920 = load i8, ptr %913, align 8, !range !23, !noalias !750, !noundef !3
+  %921 = trunc nuw i8 %920 to i1
+  %922 = icmp ne i8 %.sroa.46.0.copyload.i.i.i117, 6
+  %or.cond.not.i.i.i.i.i118 = select i1 %921, i1 true, i1 %922
   br i1 %or.cond.not.i.i.i.i.i118, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.i.i", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.thread.i.i"
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.thread.i.i": ; preds = %941, %938
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.thread.i.i": ; preds = %919, %916
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !738
-  br label %945
+  br label %923
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.i.i": ; preds = %941
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.i.i": ; preds = %919
   %.sroa.05.0.copyload.i.i.i121 = load i64, ptr %35, align 8, !alias.scope !746, !noalias !749
-  store i8 1, ptr %935, align 8, !noalias !750
+  store i8 1, ptr %913, align 8, !noalias !750
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.i.i111, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.57.0..sroa_idx.i.i.i116, i64 3, i1 false), !alias.scope !754, !noalias !738
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !738
   %.not.i.i.i122 = icmp eq i8 %.sroa.46.0.copyload.i.i.i117, 90
-  br i1 %.not.i.i.i122, label %945, label %948
+  br i1 %.not.i.i.i122, label %923, label %926
 
-945:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.i.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.thread.i.i"
+923:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.i.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.thread.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i111)
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !738
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !738
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %36, ptr noalias noundef nonnull align 8 dereferenceable(48) %41), !noalias !742
-  %946 = load i8, ptr %936, align 4, !range !259, !noalias !738, !noundef !3
-  %.not.i.i119 = icmp eq i8 %946, 90
-  br i1 %.not.i.i119, label %.loopexit.i120, label %938
+  %924 = load i8, ptr %914, align 4, !range !259, !noalias !738, !noundef !3
+  %.not.i.i119 = icmp eq i8 %924, 90
+  br i1 %.not.i.i119, label %.loopexit.i120, label %916
 
-947:                                              ; preds = %927
+925:                                              ; preds = %905
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %131, i64 80, i1 false), !alias.scope !755, !noalias !756
   br label %_ZN21ruff_python_formatter8comments9placement31handle_pattern_match_as_comment17h501ba2b8d191cedeE.exit
 
-948:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.i.i"
+926:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a9507dec8891b8cE.exit.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.i.i111, i64 3, i1 false), !noalias !737
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i111)
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !738
-  %949 = icmp eq i8 %.sroa.46.0.copyload.i.i.i117, 53
-  br i1 %949, label %950, label %957
+  %927 = icmp eq i8 %.sroa.46.0.copyload.i.i.i117, 53
+  br i1 %927, label %928, label %935
 
-.loopexit.i120:                                   ; preds = %945, %930
+.loopexit.i120:                                   ; preds = %923, %908
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !738
-  br label %957
+  br label %935
 
-950:                                              ; preds = %948
+928:                                              ; preds = %926
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.9.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.i, i64 3, i1 false), !noalias !737
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   store i64 %.sroa.05.0.copyload.i.i.i121, ptr %39, align 8, !noalias !737
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i8 53, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !737
-  %951 = getelementptr inbounds nuw i8, ptr %131, i64 64
-  %952 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %951), !noalias !730
-  %953 = extractvalue { i32, i32 } %952, 1
-  %954 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %39), !noalias !730
-  %955 = extractvalue { i32, i32 } %954, 0
-  %956 = icmp ult i32 %953, %955
-  br i1 %956, label %963, label %958
+  %929 = getelementptr inbounds nuw i8, ptr %131, i64 64
+  %930 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %929), !noalias !730
+  %931 = extractvalue { i32, i32 } %930, 1
+  %932 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %39), !noalias !730
+  %933 = extractvalue { i32, i32 } %932, 0
+  %934 = icmp ult i32 %931, %933
+  br i1 %934, label %941, label %936
 
-957:                                              ; preds = %.loopexit.i120, %948
+935:                                              ; preds = %.loopexit.i120, %926
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !737
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %131, i64 80, i1 false), !alias.scope !755, !noalias !756
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !737
   br label %_ZN21ruff_python_formatter8comments9placement31handle_pattern_match_as_comment17h501ba2b8d191cedeE.exit
 
-958:                                              ; preds = %950
-  %959 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %131), !noalias !730
-  %960 = extractvalue { i64, ptr } %959, 0
-  %961 = extractvalue { i64, ptr } %959, 1
+936:                                              ; preds = %928
+  %937 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %131), !noalias !730
+  %938 = extractvalue { i64, ptr } %937, 0
+  %939 = extractvalue { i64, ptr } %937, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !737
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %38, ptr noundef nonnull align 8 dereferenceable(80) %131, i64 80, i1 false), !noalias !735
-  %962 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %962, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %38)
+  %940 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %940, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !737
-  br label %967
+  br label %945
 
-963:                                              ; preds = %950
+941:                                              ; preds = %928
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !737
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %37, ptr noundef nonnull align 8 dereferenceable(80) %131, i64 80, i1 false), !noalias !735
-  %964 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %964, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %37)
+  %942 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %942, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !737
-  %965 = load i64, ptr %42, align 8, !range !381, !noalias !737, !noundef !3
-  %966 = load ptr, ptr %932, align 8, !noalias !737, !noundef !3
-  br label %967
+  %943 = load i64, ptr %42, align 8, !range !381, !noalias !737, !noundef !3
+  %944 = load ptr, ptr %910, align 8, !noalias !737, !noundef !3
+  br label %945
 
-967:                                              ; preds = %963, %958
-  %.sink23.i = phi i64 [ %965, %963 ], [ %960, %958 ]
-  %.sink22.i = phi ptr [ %966, %963 ], [ %961, %958 ]
-  %.sink.i123 = phi i64 [ 93, %963 ], [ 94, %958 ]
-  %968 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink23.i, ptr %968, align 8, !alias.scope !730, !noalias !757
-  %969 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink22.i, ptr %969, align 8, !alias.scope !730, !noalias !757
+945:                                              ; preds = %941, %936
+  %.sink23.i = phi i64 [ %943, %941 ], [ %938, %936 ]
+  %.sink22.i = phi ptr [ %944, %941 ], [ %939, %936 ]
+  %.sink.i123 = phi i64 [ 93, %941 ], [ 94, %936 ]
+  %946 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink23.i, ptr %946, align 8, !alias.scope !730, !noalias !757
+  %947 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sink22.i, ptr %947, align 8, !alias.scope !730, !noalias !757
   store i64 %.sink.i123, ptr %0, align 8, !alias.scope !730, !noalias !757
   call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !737
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !737
   br label %_ZN21ruff_python_formatter8comments9placement31handle_pattern_match_as_comment17h501ba2b8d191cedeE.exit
 
-_ZN21ruff_python_formatter8comments9placement31handle_pattern_match_as_comment17h501ba2b8d191cedeE.exit: ; preds = %947, %957, %967
+_ZN21ruff_python_formatter8comments9placement31handle_pattern_match_as_comment17h501ba2b8d191cedeE.exit: ; preds = %925, %935, %945
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %131)
-  br label %1330
+  br label %1301
 
-970:                                              ; preds = %5, %5, %5
+948:                                              ; preds = %5, %5, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %124)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %124, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call void @_ZN21ruff_python_formatter8comments9placement36handle_bracketed_end_of_line_comment17h42670439ab1c3eb7E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %124, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
-  br label %1330
+  br label %1301
 
-971:                                              ; preds = %5
-  %972 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %972)
+949:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %130)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %130, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !758)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !761)
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !763
-  %973 = getelementptr inbounds nuw i8, ptr %183, i64 88
-  %974 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Identifier$GT$5range17h62bc7d86fb9b07bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %973), !noalias !766
-  %975 = extractvalue { i32, i32 } %974, 1
-  %976 = getelementptr inbounds nuw i8, ptr %130, i64 64
-  %977 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %976), !noalias !767
-  %978 = extractvalue { i32, i32 } %977, 0
-  %.not.i124 = icmp ugt i32 %975, %978
-  br i1 %.not.i124, label %979, label %980, !prof !331
+  %950 = getelementptr inbounds nuw i8, ptr %183, i64 88
+  %951 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Identifier$GT$5range17h62bc7d86fb9b07bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %950), !noalias !766
+  %952 = extractvalue { i32, i32 } %951, 1
+  %953 = getelementptr inbounds nuw i8, ptr %130, i64 64
+  %954 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %953), !noalias !767
+  %955 = extractvalue { i32, i32 } %954, 0
+  %.not.i124 = icmp ugt i32 %952, %955
+  br i1 %.not.i124, label %956, label %957, !prof !331
 
-979:                                              ; preds = %971
+956:                                              ; preds = %949
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.60) #19, !noalias !767
   unreachable
 
-980:                                              ; preds = %971
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %34, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %975, i32 noundef %978), !noalias !758
+957:                                              ; preds = %949
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %34, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %952, i32 noundef %955), !noalias !758
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !768
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %32, ptr noalias noundef nonnull align 8 dereferenceable(48) %34), !noalias !758
-  %981 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %982 = load i8, ptr %981, align 4, !range !259, !noalias !768, !noundef !3
-  %.not7.not.i.i = icmp eq i8 %982, 90
+  %958 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %959 = load i8, ptr %958, align 4, !range !259, !noalias !768, !noundef !3
+  %.not7.not.i.i = icmp eq i8 %959, 90
   br i1 %.not7.not.i.i, label %.loopexit.i127, label %.lr.ph.i.i125
 
-.lr.ph.i.i125:                                    ; preds = %980, %985
-  %983 = phi i8 [ %986, %985 ], [ %982, %980 ]
-  %984 = icmp eq i8 %983, 5
+.lr.ph.i.i125:                                    ; preds = %957, %962
+  %960 = phi i8 [ %963, %962 ], [ %959, %957 ]
+  %961 = icmp eq i8 %960, 5
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !768
-  br i1 %984, label %993, label %985
+  br i1 %961, label %970, label %962
 
-985:                                              ; preds = %.lr.ph.i.i125
+962:                                              ; preds = %.lr.ph.i.i125
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !768
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %32, ptr noalias noundef nonnull align 8 dereferenceable(48) %34), !noalias !758
-  %986 = load i8, ptr %981, align 4, !range !259, !noalias !768, !noundef !3
-  %.not.not.i.i126 = icmp eq i8 %986, 90
+  %963 = load i8, ptr %958, align 4, !range !259, !noalias !768, !noundef !3
+  %.not.not.i.i126 = icmp eq i8 %963, 90
   br i1 %.not.not.i.i126, label %.loopexit.i127, label %.lr.ph.i.i125
 
-.loopexit.i127:                                   ; preds = %985, %980
+.loopexit.i127:                                   ; preds = %962, %957
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !768
-  %987 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %130), !noalias !758
-  %988 = extractvalue { i64, ptr } %987, 0
-  %989 = extractvalue { i64, ptr } %987, 1
+  %964 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %130), !noalias !758
+  %965 = extractvalue { i64, ptr } %964, 0
+  %966 = extractvalue { i64, ptr } %964, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !763
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %33, ptr noundef nonnull align 8 dereferenceable(80) %130, i64 80, i1 false), !noalias !771
-  %990 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %990, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %33)
+  %967 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %967, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !763
-  %991 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %988, ptr %991, align 8, !alias.scope !758, !noalias !772
-  %992 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %989, ptr %992, align 8, !alias.scope !758, !noalias !772
+  %968 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %965, ptr %968, align 8, !alias.scope !758, !noalias !772
+  %969 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %966, ptr %969, align 8, !alias.scope !758, !noalias !772
   store i64 92, ptr %0, align 8, !alias.scope !758, !noalias !772
   br label %_ZN21ruff_python_formatter8comments9placement30handle_pattern_keyword_comment17hf8e953f0aa07301eE.exit
 
-993:                                              ; preds = %.lr.ph.i.i125
+970:                                              ; preds = %.lr.ph.i.i125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %130, i64 80, i1 false), !alias.scope !773, !noalias !774
   br label %_ZN21ruff_python_formatter8comments9placement30handle_pattern_keyword_comment17hf8e953f0aa07301eE.exit
 
-_ZN21ruff_python_formatter8comments9placement30handle_pattern_keyword_comment17hf8e953f0aa07301eE.exit: ; preds = %.loopexit.i127, %993
+_ZN21ruff_python_formatter8comments9placement30handle_pattern_keyword_comment17hf8e953f0aa07301eE.exit: ; preds = %.loopexit.i127, %970
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !763
   call void @llvm.lifetime.end.p0(ptr nonnull %130)
-  br label %1330
+  br label %1301
 
-994:                                              ; preds = %5
-  %995 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %995)
+971:                                              ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %129, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !775)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !778)
-  %996 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %129), !noalias !780
-  %997 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %996), !noalias !780
-  %998 = getelementptr inbounds nuw i8, ptr %129, i64 64
-  %999 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %998), !noalias !780
-  %1000 = extractvalue { i32, i32 } %999, 1
-  %1001 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  %1002 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %1001), !noalias !780
-  %1003 = extractvalue { i32, i32 } %1002, 0
-  %1004 = icmp ult i32 %1000, %1003
-  br i1 %1004, label %1011, label %1005
+  %972 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %129), !noalias !780
+  %973 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition11is_own_line17hac7a5cdf7e25a9a1E(i1 noundef zeroext %972), !noalias !780
+  %974 = getelementptr inbounds nuw i8, ptr %129, i64 64
+  %975 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %974), !noalias !780
+  %976 = extractvalue { i32, i32 } %975, 1
+  %977 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %978 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %977), !noalias !780
+  %979 = extractvalue { i32, i32 } %978, 0
+  %980 = icmp ult i32 %976, %979
+  br i1 %980, label %987, label %981
 
-1005:                                             ; preds = %994
+981:                                              ; preds = %971
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !782
-  %1006 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %1001), !noalias !780
-  %1007 = extractvalue { i32, i32 } %1006, 1
-  %1008 = getelementptr inbounds nuw i8, ptr %183, i64 88
-  %1009 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %1008), !noalias !780
-  %1010 = extractvalue { i32, i32 } %1009, 0
-  %.not.i128 = icmp ugt i32 %1007, %1010
-  br i1 %.not.i128, label %1012, label %1013, !prof !331
+  %982 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %977), !noalias !780
+  %983 = extractvalue { i32, i32 } %982, 1
+  %984 = getelementptr inbounds nuw i8, ptr %183, i64 88
+  %985 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %984), !noalias !780
+  %986 = extractvalue { i32, i32 } %985, 0
+  %.not.i128 = icmp ugt i32 %983, %986
+  br i1 %.not.i128, label %988, label %989, !prof !331
 
-1011:                                             ; preds = %994
-  br i1 %997, label %1101, label %1094
+987:                                              ; preds = %971
+  br i1 %973, label %1077, label %1070
 
-1012:                                             ; preds = %1005
+988:                                              ; preds = %981
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.76) #19, !noalias !780
   unreachable
 
-1013:                                             ; preds = %1005
-  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %31, i32 noundef %1007, i32 noundef %1010, i8 noundef 71, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !775
-  %1014 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %998), !noalias !775
+989:                                              ; preds = %981
+  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %31, i32 noundef %983, i32 noundef %986, i8 noundef 71, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !775
+  %990 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %974), !noalias !775
+  %991 = extractvalue { i32, i32 } %990, 0
+  %992 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %31), !noalias !775
+  %993 = extractvalue { i32, i32 } %992, 0
+  %994 = icmp ult i32 %991, %993
+  br i1 %994, label %1001, label %995
+
+995:                                              ; preds = %989
+  %996 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %974), !noalias !775
+  %997 = extractvalue { i32, i32 } %996, 0
+  %998 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %984), !noalias !775
+  %999 = extractvalue { i32, i32 } %998, 0
+  %1000 = icmp ult i32 %997, %999
+  br i1 %1000, label %1026, label %1002
+
+1001:                                             ; preds = %989
+  br i1 %973, label %1063, label %1062
+
+1002:                                             ; preds = %995
+  %1003 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %984), !noalias !775
+  %1004 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %1005 = load ptr, ptr %1004, align 8, !noalias !782, !nonnull !3, !noundef !3
+  %1006 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %1007 = load i64, ptr %1006, align 8, !noalias !782, !noundef !3
+  %.idx.i = shl nuw nsw i64 %1007, 6
+  %1008 = getelementptr inbounds nuw i8, ptr %1005, i64 %.idx.i
+  %1009 = icmp eq i64 %1007, 0
+  br i1 %1009, label %._crit_edge.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %1002
+  %.sroa.01.08.i = extractvalue { i32, i32 } %1003, 1
+  br i1 %973, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %1023
+  %.sroa.01.010.us.i = phi i32 [ %.sroa.01.0.us.i, %1023 ], [ %.sroa.01.08.i, %.lr.ph.i ]
+  %.sroa.04.09.us.i = phi ptr [ %1010, %1023 ], [ %1005, %.lr.ph.i ]
+  %1010 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.us.i, i64 64
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !782
+  %1011 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %.sroa.04.09.us.i), !noalias !775
+  %1012 = extractvalue { i32, i32 } %1011, 0
+  %.not7.us.i = icmp ugt i32 %.sroa.01.010.us.i, %1012
+  br i1 %.not7.us.i, label %.split.us.i, label %1013, !prof !331
+
+1013:                                             ; preds = %.lr.ph.split.us.i
+  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %30, i32 noundef %.sroa.01.010.us.i, i32 noundef %1012, i8 noundef 69, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !775
+  %1014 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %974), !noalias !775
   %1015 = extractvalue { i32, i32 } %1014, 0
-  %1016 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %31), !noalias !775
-  %1017 = extractvalue { i32, i32 } %1016, 0
-  %1018 = icmp ult i32 %1015, %1017
-  br i1 %1018, label %1025, label %1019
+  %1016 = icmp ult i32 %.sroa.01.010.us.i, %1015
+  br i1 %1016, label %1017, label %1023
 
-1019:                                             ; preds = %1013
-  %1020 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %998), !noalias !775
+1017:                                             ; preds = %1013
+  %1018 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %974), !noalias !775
+  %1019 = extractvalue { i32, i32 } %1018, 0
+  %1020 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %30), !noalias !775
   %1021 = extractvalue { i32, i32 } %1020, 0
-  %1022 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %1008), !noalias !775
-  %1023 = extractvalue { i32, i32 } %1022, 0
-  %1024 = icmp ult i32 %1021, %1023
-  br i1 %1024, label %1050, label %1026
+  %1022 = icmp ult i32 %1019, %1021
+  br i1 %1022, label %.split12.us.i, label %1023
 
-1025:                                             ; preds = %1013
-  br i1 %997, label %1087, label %1086
-
-1026:                                             ; preds = %1019
-  %1027 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %1008), !noalias !775
-  %1028 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %1029 = load ptr, ptr %1028, align 8, !noalias !782, !nonnull !3, !noundef !3
-  %1030 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %1031 = load i64, ptr %1030, align 8, !noalias !782, !noundef !3
-  %.idx.i = shl nuw nsw i64 %1031, 6
-  %1032 = getelementptr inbounds nuw i8, ptr %1029, i64 %.idx.i
-  %1033 = icmp eq i64 %1031, 0
-  br i1 %1033, label %._crit_edge.i, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %1026
-  %.sroa.01.08.i = extractvalue { i32, i32 } %1027, 1
-  br i1 %997, label %.lr.ph.split.us.i, label %.lr.ph.split.i
-
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %1047
-  %.sroa.01.010.us.i = phi i32 [ %.sroa.01.0.us.i, %1047 ], [ %.sroa.01.08.i, %.lr.ph.i ]
-  %.sroa.04.09.us.i = phi ptr [ %1034, %1047 ], [ %1029, %.lr.ph.i ]
-  %1034 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.us.i, i64 64
-  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !782
-  %1035 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %.sroa.04.09.us.i), !noalias !775
-  %1036 = extractvalue { i32, i32 } %1035, 0
-  %.not7.us.i = icmp ugt i32 %.sroa.01.010.us.i, %1036
-  br i1 %.not7.us.i, label %.split.us.i, label %1037, !prof !331
-
-1037:                                             ; preds = %.lr.ph.split.us.i
-  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %30, i32 noundef %.sroa.01.010.us.i, i32 noundef %1036, i8 noundef 69, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !775
-  %1038 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %998), !noalias !775
-  %1039 = extractvalue { i32, i32 } %1038, 0
-  %1040 = icmp ult i32 %.sroa.01.010.us.i, %1039
-  br i1 %1040, label %1041, label %1047
-
-1041:                                             ; preds = %1037
-  %1042 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %998), !noalias !775
-  %1043 = extractvalue { i32, i32 } %1042, 0
-  %1044 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %30), !noalias !775
-  %1045 = extractvalue { i32, i32 } %1044, 0
-  %1046 = icmp ult i32 %1043, %1045
-  br i1 %1046, label %.split12.us.i, label %1047
-
-1047:                                             ; preds = %1041, %1037
-  %1048 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %.sroa.04.09.us.i), !noalias !775
+1023:                                             ; preds = %1017, %1013
+  %1024 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %.sroa.04.09.us.i), !noalias !775
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !782
-  %.sroa.01.0.us.i = extractvalue { i32, i32 } %1048, 1
-  %1049 = icmp eq ptr %1034, %1032
-  br i1 %1049, label %._crit_edge.i, label %.lr.ph.split.us.i
+  %.sroa.01.0.us.i = extractvalue { i32, i32 } %1024, 1
+  %1025 = icmp eq ptr %1010, %1008
+  br i1 %1025, label %._crit_edge.i, label %.lr.ph.split.us.i
 
-1050:                                             ; preds = %1019
-  br i1 %997, label %1085, label %1078
+1026:                                             ; preds = %995
+  br i1 %973, label %1061, label %1054
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %1069
-  %.sroa.01.010.i = phi i32 [ %.sroa.01.0.i, %1069 ], [ %.sroa.01.08.i, %.lr.ph.i ]
-  %.sroa.04.09.i = phi ptr [ %1051, %1069 ], [ %1029, %.lr.ph.i ]
-  %1051 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i, i64 64
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %1045
+  %.sroa.01.010.i = phi i32 [ %.sroa.01.0.i, %1045 ], [ %.sroa.01.08.i, %.lr.ph.i ]
+  %.sroa.04.09.i = phi ptr [ %1027, %1045 ], [ %1005, %.lr.ph.i ]
+  %1027 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !782
-  %1052 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %.sroa.04.09.i), !noalias !775
-  %1053 = extractvalue { i32, i32 } %1052, 0
-  %.not7.i129 = icmp ugt i32 %.sroa.01.010.i, %1053
-  br i1 %.not7.i129, label %.split.us.i, label %1054, !prof !331
+  %1028 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %.sroa.04.09.i), !noalias !775
+  %1029 = extractvalue { i32, i32 } %1028, 0
+  %.not7.i129 = icmp ugt i32 %.sroa.01.010.i, %1029
+  br i1 %.not7.i129, label %.split.us.i, label %1030, !prof !331
 
-._crit_edge.i:                                    ; preds = %1069, %1047, %1026
+._crit_edge.i:                                    ; preds = %1045, %1023, %1002
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %129, i64 80, i1 false), !alias.scope !783, !noalias !784
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !782
   br label %_ZN21ruff_python_formatter8comments9placement28handle_comprehension_comment17hf734b9ca0936e576E.exit
@@ -5272,131 +5245,130 @@ _ZN21ruff_python_formatter8comments9placement30handle_pattern_keyword_comment17h
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.77) #19, !noalias !775
   unreachable
 
-1054:                                             ; preds = %.lr.ph.split.i
-  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %30, i32 noundef %.sroa.01.010.i, i32 noundef %1053, i8 noundef 69, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !775
-  %1055 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %30), !noalias !775
-  %1056 = extractvalue { i32, i32 } %1055, 0
-  %1057 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %998), !noalias !775
-  %1058 = extractvalue { i32, i32 } %1057, 0
-  %1059 = icmp ult i32 %1056, %1058
-  br i1 %1059, label %1060, label %1069
+1030:                                             ; preds = %.lr.ph.split.i
+  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %30, i32 noundef %.sroa.01.010.i, i32 noundef %1029, i8 noundef 69, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !775
+  %1031 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %30), !noalias !775
+  %1032 = extractvalue { i32, i32 } %1031, 0
+  %1033 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %974), !noalias !775
+  %1034 = extractvalue { i32, i32 } %1033, 0
+  %1035 = icmp ult i32 %1032, %1034
+  br i1 %1035, label %1036, label %1045
 
-1060:                                             ; preds = %1054
-  %1061 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %998), !noalias !775
-  %1062 = extractvalue { i32, i32 } %1061, 0
-  %1063 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %.sroa.04.09.i), !noalias !775
-  %1064 = extractvalue { i32, i32 } %1063, 0
-  %1065 = icmp ult i32 %1062, %1064
-  br i1 %1065, label %1066, label %1069
+1036:                                             ; preds = %1030
+  %1037 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %974), !noalias !775
+  %1038 = extractvalue { i32, i32 } %1037, 0
+  %1039 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %.sroa.04.09.i), !noalias !775
+  %1040 = extractvalue { i32, i32 } %1039, 0
+  %1041 = icmp ult i32 %1038, %1040
+  br i1 %1041, label %1042, label %1045
 
-1066:                                             ; preds = %1060
-  %1067 = call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Comprehension$GT$$GT$4from17hb07e919e77fd2c08E"(ptr noundef nonnull align 8 %183), !noalias !775
+1042:                                             ; preds = %1036
+  %1043 = call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Comprehension$GT$$GT$4from17hb07e919e77fd2c08E"(ptr noundef nonnull align 8 %183), !noalias !775
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !782
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %29, ptr noundef nonnull align 8 dereferenceable(80) %129, i64 80, i1 false), !noalias !780
-  %1068 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1068, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %29)
+  %1044 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1044, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !782
-  br label %1072
+  br label %1048
 
-1069:                                             ; preds = %1060, %1054
-  %1070 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %.sroa.04.09.i), !noalias !775
+1045:                                             ; preds = %1036, %1030
+  %1046 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %.sroa.04.09.i), !noalias !775
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !782
-  %.sroa.01.0.i = extractvalue { i32, i32 } %1070, 1
-  %1071 = icmp eq ptr %1051, %1032
-  br i1 %1071, label %._crit_edge.i, label %.lr.ph.split.i
+  %.sroa.01.0.i = extractvalue { i32, i32 } %1046, 1
+  %1047 = icmp eq ptr %1027, %1008
+  br i1 %1047, label %._crit_edge.i, label %.lr.ph.split.i
 
-1072:                                             ; preds = %.split12.us.i, %1066
-  %.pn = phi { i64, ptr } [ %1075, %.split12.us.i ], [ %1067, %1066 ]
+1048:                                             ; preds = %.split12.us.i, %1042
+  %.pn = phi { i64, ptr } [ %1051, %.split12.us.i ], [ %1043, %1042 ]
   %.sink = extractvalue { i64, ptr } %.pn, 1
   %.sink215 = extractvalue { i64, ptr } %.pn, 0
-  %1073 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink215, ptr %1073, align 8, !alias.scope !775, !noalias !785
-  %1074 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink, ptr %1074, align 8, !alias.scope !775, !noalias !785
+  %1049 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink215, ptr %1049, align 8, !alias.scope !775, !noalias !785
+  %1050 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sink, ptr %1050, align 8, !alias.scope !775, !noalias !785
   store i64 94, ptr %0, align 8, !alias.scope !775, !noalias !785
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !782
-  br label %1077
+  br label %1053
 
-.split12.us.i:                                    ; preds = %1041
-  %1075 = call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Comprehension$GT$$GT$4from17hb07e919e77fd2c08E"(ptr noundef nonnull align 8 %183), !noalias !775
+.split12.us.i:                                    ; preds = %1017
+  %1051 = call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Comprehension$GT$$GT$4from17hb07e919e77fd2c08E"(ptr noundef nonnull align 8 %183), !noalias !775
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !782
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull align 8 dereferenceable(80) %129, i64 80, i1 false), !noalias !780
-  %1076 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1076, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %28)
+  %1052 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1052, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !782
-  br label %1072
+  br label %1048
 
-1077:                                             ; preds = %1087, %1086, %1085, %1078, %1072
+1053:                                             ; preds = %1063, %1062, %1061, %1054, %1048
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !782
   br label %_ZN21ruff_python_formatter8comments9placement28handle_comprehension_comment17hf734b9ca0936e576E.exit
 
-1078:                                             ; preds = %1050
-  %1079 = call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Comprehension$GT$$GT$4from17hb07e919e77fd2c08E"(ptr noundef nonnull align 8 %183), !noalias !775
-  %1080 = extractvalue { i64, ptr } %1079, 0
-  %1081 = extractvalue { i64, ptr } %1079, 1
+1054:                                             ; preds = %1026
+  %1055 = call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Comprehension$GT$$GT$4from17hb07e919e77fd2c08E"(ptr noundef nonnull align 8 %183), !noalias !775
+  %1056 = extractvalue { i64, ptr } %1055, 0
+  %1057 = extractvalue { i64, ptr } %1055, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !782
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(80) %129, i64 80, i1 false), !noalias !780
-  %1082 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1082, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %27)
+  %1058 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1058, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !782
-  %1083 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1080, ptr %1083, align 8, !alias.scope !775, !noalias !785
-  %1084 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1081, ptr %1084, align 8, !alias.scope !775, !noalias !785
+  %1059 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1056, ptr %1059, align 8, !alias.scope !775, !noalias !785
+  %1060 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1057, ptr %1060, align 8, !alias.scope !775, !noalias !785
   store i64 94, ptr %0, align 8, !alias.scope !775, !noalias !785
-  br label %1077
+  br label %1053
 
-1085:                                             ; preds = %1050
+1061:                                             ; preds = %1026
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %129, i64 80, i1 false), !alias.scope !783, !noalias !784
-  br label %1077
+  br label %1053
 
-1086:                                             ; preds = %1025
+1062:                                             ; preds = %1001
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %129, i64 80, i1 false), !alias.scope !783, !noalias !784
-  br label %1077
+  br label %1053
 
-1087:                                             ; preds = %1025
-  %1088 = call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Comprehension$GT$$GT$4from17hb07e919e77fd2c08E"(ptr noundef nonnull align 8 %183), !noalias !775
-  %1089 = extractvalue { i64, ptr } %1088, 0
-  %1090 = extractvalue { i64, ptr } %1088, 1
+1063:                                             ; preds = %1001
+  %1064 = call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Comprehension$GT$$GT$4from17hb07e919e77fd2c08E"(ptr noundef nonnull align 8 %183), !noalias !775
+  %1065 = extractvalue { i64, ptr } %1064, 0
+  %1066 = extractvalue { i64, ptr } %1064, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !782
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull align 8 dereferenceable(80) %129, i64 80, i1 false), !noalias !780
-  %1091 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1091, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %26)
+  %1067 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1067, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !782
-  %1092 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1089, ptr %1092, align 8, !alias.scope !775, !noalias !785
-  %1093 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1090, ptr %1093, align 8, !alias.scope !775, !noalias !785
+  %1068 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1065, ptr %1068, align 8, !alias.scope !775, !noalias !785
+  %1069 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1066, ptr %1069, align 8, !alias.scope !775, !noalias !785
   store i64 94, ptr %0, align 8, !alias.scope !775, !noalias !785
-  br label %1077
+  br label %1053
 
-1094:                                             ; preds = %1011
-  %1095 = call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Comprehension$GT$$GT$4from17hb07e919e77fd2c08E"(ptr noundef nonnull align 8 %183), !noalias !780
-  %1096 = extractvalue { i64, ptr } %1095, 0
-  %1097 = extractvalue { i64, ptr } %1095, 1
+1070:                                             ; preds = %987
+  %1071 = call { i64, ptr } @"_ZN127_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Comprehension$GT$$GT$4from17hb07e919e77fd2c08E"(ptr noundef nonnull align 8 %183), !noalias !780
+  %1072 = extractvalue { i64, ptr } %1071, 0
+  %1073 = extractvalue { i64, ptr } %1071, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !782
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef nonnull align 8 dereferenceable(80) %129, i64 80, i1 false), !noalias !780
-  %1098 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1098, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %25), !noalias !784
+  %1074 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1074, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %25), !noalias !784
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !782
-  %1099 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1096, ptr %1099, align 8, !alias.scope !775, !noalias !785
-  %1100 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1097, ptr %1100, align 8, !alias.scope !775, !noalias !785
+  %1075 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1072, ptr %1075, align 8, !alias.scope !775, !noalias !785
+  %1076 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1073, ptr %1076, align 8, !alias.scope !775, !noalias !785
   store i64 94, ptr %0, align 8, !alias.scope !775, !noalias !785
   br label %_ZN21ruff_python_formatter8comments9placement28handle_comprehension_comment17hf734b9ca0936e576E.exit
 
-1101:                                             ; preds = %1011
+1077:                                             ; preds = %987
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %129, i64 80, i1 false), !alias.scope !783, !noalias !784
   br label %_ZN21ruff_python_formatter8comments9placement28handle_comprehension_comment17hf734b9ca0936e576E.exit
 
-_ZN21ruff_python_formatter8comments9placement28handle_comprehension_comment17hf734b9ca0936e576E.exit: ; preds = %._crit_edge.i, %1077, %1094, %1101
+_ZN21ruff_python_formatter8comments9placement28handle_comprehension_comment17hf734b9ca0936e576E.exit: ; preds = %._crit_edge.i, %1053, %1070, %1077
   call void @llvm.lifetime.end.p0(ptr nonnull %129)
-  br label %1330
+  br label %1301
 
-1102:                                             ; preds = %5
-  %1103 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %1103)
+1078:                                             ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %180)
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %128, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
@@ -5407,611 +5379,607 @@ _ZN21ruff_python_formatter8comments9placement28handle_comprehension_comment17hf7
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !791
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %24, ptr noundef nonnull align 4 dereferenceable(20) %22, i64 20, i1 false), !noalias !791
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !791
-  %1104 = getelementptr inbounds nuw i8, ptr %22, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %23, ptr noundef nonnull align 4 dereferenceable(20) %1104, i64 20, i1 false), !noalias !791
+  %1079 = getelementptr inbounds nuw i8, ptr %22, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %23, ptr noundef nonnull align 4 dereferenceable(20) %1079, i64 20, i1 false), !noalias !791
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !791
-  %1105 = load i32, ptr %24, align 4, !range !795, !noalias !791, !noundef !3
-  %1106 = trunc nuw i32 %1105 to i1
-  %1107 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %.sroa.0.0.i = select i1 %1106, ptr %1107, ptr null
-  %1108 = load i32, ptr %23, align 4, !range !795, !noalias !791, !noundef !3
-  %1109 = trunc nuw i32 %1108 to i1
-  %1110 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %.sroa.01.0.i130 = select i1 %1109, ptr %1110, ptr null
-  %1111 = getelementptr inbounds nuw i8, ptr %128, i64 64
-  %1112 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1111), !noalias !786
-  %1113 = extractvalue { i32, i32 } %1112, 0
-  %1114 = extractvalue { i32, i32 } %1112, 1
-  %1115 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %128), !noalias !786
-  %1116 = call noundef i8 @_ZN21ruff_python_formatter5other10parameters43assign_argument_separator_comment_placement17h152f2cef194f9788E(ptr noalias noundef readonly align 4 dereferenceable_or_null(16) %.sroa.0.0.i, ptr noalias noundef readonly align 4 dereferenceable_or_null(16) %.sroa.01.0.i130, i32 noundef %1113, i32 noundef %1114, i1 noundef zeroext %1115), !noalias !786
-  %.not.i131 = icmp eq i8 %1116, 4
-  br i1 %.not.i131, label %1124, label %1117
+  %1080 = load i32, ptr %24, align 4, !range !795, !noalias !791, !noundef !3
+  %1081 = trunc nuw i32 %1080 to i1
+  %1082 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %.sroa.0.0.i = select i1 %1081, ptr %1082, ptr null
+  %1083 = load i32, ptr %23, align 4, !range !795, !noalias !791, !noundef !3
+  %1084 = trunc nuw i32 %1083 to i1
+  %1085 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %.sroa.01.0.i130 = select i1 %1084, ptr %1085, ptr null
+  %1086 = getelementptr inbounds nuw i8, ptr %128, i64 64
+  %1087 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1086), !noalias !786
+  %1088 = extractvalue { i32, i32 } %1087, 0
+  %1089 = extractvalue { i32, i32 } %1087, 1
+  %1090 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %128), !noalias !786
+  %1091 = call noundef i8 @_ZN21ruff_python_formatter5other10parameters43assign_argument_separator_comment_placement17h152f2cef194f9788E(ptr noalias noundef readonly align 4 dereferenceable_or_null(16) %.sroa.0.0.i, ptr noalias noundef readonly align 4 dereferenceable_or_null(16) %.sroa.01.0.i130, i32 noundef %1088, i32 noundef %1089, i1 noundef zeroext %1090), !noalias !786
+  %.not.i131 = icmp eq i8 %1091, 4
+  br i1 %.not.i131, label %1099, label %1092
 
-1117:                                             ; preds = %1102
-  %1118 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %128), !noalias !786
-  %1119 = extractvalue { i64, ptr } %1118, 0
-  %1120 = extractvalue { i64, ptr } %1118, 1
+1092:                                             ; preds = %1078
+  %1093 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %128), !noalias !786
+  %1094 = extractvalue { i64, ptr } %1093, 0
+  %1095 = extractvalue { i64, ptr } %1093, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !791
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull align 8 dereferenceable(80) %128, i64 80, i1 false), !noalias !796
-  %1121 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1121, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %21)
+  %1096 = getelementptr inbounds nuw i8, ptr %180, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1096, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !791
-  %1122 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  store i64 %1119, ptr %1122, align 8, !alias.scope !786, !noalias !797
-  %1123 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  store ptr %1120, ptr %1123, align 8, !alias.scope !786, !noalias !797
+  %1097 = getelementptr inbounds nuw i8, ptr %180, i64 8
+  store i64 %1094, ptr %1097, align 8, !alias.scope !786, !noalias !797
+  %1098 = getelementptr inbounds nuw i8, ptr %180, i64 16
+  store ptr %1095, ptr %1098, align 8, !alias.scope !786, !noalias !797
   store i64 94, ptr %180, align 8, !alias.scope !786, !noalias !797
   br label %_ZN21ruff_python_formatter8comments9placement35handle_parameters_separator_comment17h26f2909da3a97961E.exit
 
-1124:                                             ; preds = %1102
+1099:                                             ; preds = %1078
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %180, ptr noundef nonnull align 8 dereferenceable(80) %128, i64 80, i1 false), !alias.scope !794, !noalias !798
   br label %_ZN21ruff_python_formatter8comments9placement35handle_parameters_separator_comment17h26f2909da3a97961E.exit
 
-_ZN21ruff_python_formatter8comments9placement35handle_parameters_separator_comment17h26f2909da3a97961E.exit: ; preds = %1117, %1124
+_ZN21ruff_python_formatter8comments9placement35handle_parameters_separator_comment17h26f2909da3a97961E.exit: ; preds = %1092, %1099
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !791
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !791
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
   call void @llvm.lifetime.start.p0(ptr nonnull %179)
   store ptr %183, ptr %179, align 8
-  %1125 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  store ptr %3, ptr %1125, align 8
-  %1126 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  store i64 %4, ptr %1126, align 8
+  %1100 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  store ptr %3, ptr %1100, align 8
+  %1101 = getelementptr inbounds nuw i8, ptr %179, i64 16
+  store i64 %4, ptr %1101, align 8
   call void @_ZN21ruff_python_formatter8comments7visitor16CommentPlacement7or_else17h9bea86c604de68e6E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %180, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %179)
   call void @llvm.lifetime.end.p0(ptr nonnull %179)
   call void @llvm.lifetime.end.p0(ptr nonnull %180)
-  br label %1330
+  br label %1301
 
-1127:                                             ; preds = %5
-  %1128 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %1128)
+1102:                                             ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %127)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %127, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !799)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !802)
-  %1129 = tail call noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Parameter10annotation17h70613b1286c3c927E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %183), !noalias !804
-  %.not.i132 = icmp eq ptr %1129, null
-  br i1 %.not.i132, label %1136, label %1130
+  %1103 = tail call noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Parameter10annotation17h70613b1286c3c927E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %183), !noalias !804
+  %.not.i132 = icmp eq ptr %1103, null
+  br i1 %.not.i132, label %1110, label %1104
 
-1130:                                             ; preds = %1127
+1104:                                             ; preds = %1102
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !806
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !806
-  %1131 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %1132 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Identifier$GT$5range17h62bc7d86fb9b07bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1131), !noalias !804
-  %1133 = extractvalue { i32, i32 } %1132, 1
-  call void @_ZN18ruff_python_trivia9tokenizer22first_non_trivia_token17h1d5542dc03a399e6E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %19, i32 noundef %1133, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !808
-  %1134 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1135 = load i8, ptr %1134, align 4, !range !259, !noalias !806, !noundef !3
-  %.not1.i133 = icmp eq i8 %1135, 90
-  br i1 %.not1.i133, label %1147, label %1144, !prof !331
+  %1105 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %1106 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Identifier$GT$5range17h62bc7d86fb9b07bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1105), !noalias !804
+  %1107 = extractvalue { i32, i32 } %1106, 1
+  call void @_ZN18ruff_python_trivia9tokenizer22first_non_trivia_token17h1d5542dc03a399e6E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %19, i32 noundef %1107, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !808
+  %1108 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %1109 = load i8, ptr %1108, align 4, !range !259, !noalias !806, !noundef !3
+  %.not1.i133 = icmp eq i8 %1109, 90
+  br i1 %.not1.i133, label %1121, label %1118, !prof !331
 
-1136:                                             ; preds = %1127
-  %1137 = getelementptr inbounds nuw i8, ptr %127, i64 64
-  %1138 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1137), !noalias !809
-  %1139 = extractvalue { i32, i32 } %1138, 0
-  %1140 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %1141 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Identifier$GT$5range17h62bc7d86fb9b07bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1140), !noalias !809
-  %1142 = extractvalue { i32, i32 } %1141, 0
-  %1143 = icmp ult i32 %1139, %1142
-  br i1 %1143, label %1166, label %1165
+1110:                                             ; preds = %1102
+  %1111 = getelementptr inbounds nuw i8, ptr %127, i64 64
+  %1112 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1111), !noalias !809
+  %1113 = extractvalue { i32, i32 } %1112, 0
+  %1114 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %1115 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Identifier$GT$5range17h62bc7d86fb9b07bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1114), !noalias !809
+  %1116 = extractvalue { i32, i32 } %1115, 0
+  %1117 = icmp ult i32 %1113, %1116
+  br i1 %1117, label %1140, label %1139
 
-1144:                                             ; preds = %1130
+1118:                                             ; preds = %1104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false), !noalias !806
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !806
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !806
-  %1145 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %20), !noalias !808
-  store i8 %1145, ptr %18, align 1, !noalias !806
-  %1146 = icmp eq i8 %1145, 12
-  br i1 %1146, label %1149, label %1148, !prof !160
+  %1119 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %20), !noalias !808
+  store i8 %1119, ptr %18, align 1, !noalias !806
+  %1120 = icmp eq i8 %1119, 12
+  br i1 %1120, label %1123, label %1122, !prof !160
 
-1147:                                             ; preds = %1130
+1121:                                             ; preds = %1104
   tail call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.46, i64 noundef 85, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.47) #19, !noalias !808
   unreachable
 
-1148:                                             ; preds = %1144
+1122:                                             ; preds = %1118
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !806
   store ptr null, ptr %17, align 8, !noalias !806
   call void @_ZN4core9panicking13assert_failed17hefe0a350275ec647E(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %18, ptr noalias noundef readonly align 1 dereferenceable(1) @anon.ed451865e034dc40a72258bf1311dc2e.48, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.49) #19, !noalias !808
   unreachable
 
-1149:                                             ; preds = %1144
+1123:                                             ; preds = %1118
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !806
-  %1150 = getelementptr inbounds nuw i8, ptr %127, i64 64
-  %1151 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1150), !noalias !799
-  %1152 = extractvalue { i32, i32 } %1151, 0
-  %1153 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %20), !noalias !799
-  %1154 = extractvalue { i32, i32 } %1153, 0
-  %1155 = icmp ult i32 %1152, %1154
-  br i1 %1155, label %1157, label %1156
+  %1124 = getelementptr inbounds nuw i8, ptr %127, i64 64
+  %1125 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1124), !noalias !799
+  %1126 = extractvalue { i32, i32 } %1125, 0
+  %1127 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %20), !noalias !799
+  %1128 = extractvalue { i32, i32 } %1127, 0
+  %1129 = icmp ult i32 %1126, %1128
+  br i1 %1129, label %1131, label %1130
 
-1156:                                             ; preds = %1149
+1130:                                             ; preds = %1123
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %127, i64 80, i1 false), !alias.scope !808, !noalias !810
-  br label %1164
+  br label %1138
 
-1157:                                             ; preds = %1149
-  %1158 = call { i64, ptr } @"_ZN123_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Parameter$GT$$GT$4from17hd5595d7d926620a3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %183), !noalias !799
-  %1159 = extractvalue { i64, ptr } %1158, 0
-  %1160 = extractvalue { i64, ptr } %1158, 1
+1131:                                             ; preds = %1123
+  %1132 = call { i64, ptr } @"_ZN123_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Parameter$GT$$GT$4from17hd5595d7d926620a3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %183), !noalias !799
+  %1133 = extractvalue { i64, ptr } %1132, 0
+  %1134 = extractvalue { i64, ptr } %1132, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !806
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %127, i64 80, i1 false), !noalias !811
-  %1161 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1161, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %16)
+  %1135 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1135, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !806
-  %1162 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1159, ptr %1162, align 8, !alias.scope !799, !noalias !812
-  %1163 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1160, ptr %1163, align 8, !alias.scope !799, !noalias !812
+  %1136 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1133, ptr %1136, align 8, !alias.scope !799, !noalias !812
+  %1137 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1134, ptr %1137, align 8, !alias.scope !799, !noalias !812
   store i64 92, ptr %0, align 8, !alias.scope !799, !noalias !812
-  br label %1164
+  br label %1138
 
-1164:                                             ; preds = %1157, %1156
+1138:                                             ; preds = %1131, %1130
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !806
   br label %_ZN21ruff_python_formatter8comments9placement24handle_parameter_comment17hbf2782bc74a09b61E.exit
 
-1165:                                             ; preds = %1136
+1139:                                             ; preds = %1110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %127, i64 80, i1 false), !alias.scope !808, !noalias !810
   br label %_ZN21ruff_python_formatter8comments9placement24handle_parameter_comment17hbf2782bc74a09b61E.exit
 
-1166:                                             ; preds = %1136
-  %1167 = call { i64, ptr } @"_ZN123_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Parameter$GT$$GT$4from17hd5595d7d926620a3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %183), !noalias !809
-  %1168 = extractvalue { i64, ptr } %1167, 0
-  %1169 = extractvalue { i64, ptr } %1167, 1
+1140:                                             ; preds = %1110
+  %1141 = call { i64, ptr } @"_ZN123_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Parameter$GT$$GT$4from17hd5595d7d926620a3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %183), !noalias !809
+  %1142 = extractvalue { i64, ptr } %1141, 0
+  %1143 = extractvalue { i64, ptr } %1141, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !806
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(80) %127, i64 80, i1 false), !noalias !811
-  %1170 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1170, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %15), !noalias !813
+  %1144 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1144, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %15), !noalias !813
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !806
-  %1171 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1168, ptr %1171, align 8, !alias.scope !799, !noalias !812
-  %1172 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1169, ptr %1172, align 8, !alias.scope !799, !noalias !812
+  %1145 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1142, ptr %1145, align 8, !alias.scope !799, !noalias !812
+  %1146 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1143, ptr %1146, align 8, !alias.scope !799, !noalias !812
   store i64 92, ptr %0, align 8, !alias.scope !799, !noalias !812
   br label %_ZN21ruff_python_formatter8comments9placement24handle_parameter_comment17hbf2782bc74a09b61E.exit
 
-_ZN21ruff_python_formatter8comments9placement24handle_parameter_comment17hbf2782bc74a09b61E.exit: ; preds = %1164, %1165, %1166
+_ZN21ruff_python_formatter8comments9placement24handle_parameter_comment17hbf2782bc74a09b61E.exit: ; preds = %1138, %1139, %1140
   call void @llvm.lifetime.end.p0(ptr nonnull %127)
-  br label %1330
+  br label %1301
 
-1173:                                             ; preds = %5
-  %1174 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %1174)
+1147:                                             ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %126)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %126, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !814)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !817)
-  %1175 = getelementptr inbounds nuw i8, ptr %183, i64 95
-  %1176 = load i8, ptr %1175, align 1, !range !819, !noalias !820, !noundef !3
-  %.not.i134 = icmp eq i8 %1176, -38
-  %1177 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated92_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Keyword$GT$5range17hf2b6dceb0d23ad3eE"(ptr noundef nonnull align 8 %183), !noalias !820
-  %1178 = extractvalue { i32, i32 } %1177, 0
-  br i1 %.not.i134, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6478114615f18a77E.exit.i", label %1179
+  %1148 = getelementptr inbounds nuw i8, ptr %183, i64 95
+  %1149 = load i8, ptr %1148, align 1, !range !819, !noalias !820, !noundef !3
+  %.not.i134 = icmp eq i8 %1149, -38
+  %1150 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated92_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Keyword$GT$5range17hf2b6dceb0d23ad3eE"(ptr noundef nonnull align 8 %183), !noalias !820
+  %1151 = extractvalue { i32, i32 } %1150, 0
+  br i1 %.not.i134, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6478114615f18a77E.exit.i", label %1152
 
-1179:                                             ; preds = %1173
-  %1180 = getelementptr inbounds nuw i8, ptr %183, i64 64
-  %1181 = tail call noundef i32 @_ZN14ruff_text_size6traits6Ranged3end17h8ccda86adfb3dbc3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %1180), !noalias !820
+1152:                                             ; preds = %1147
+  %1153 = getelementptr inbounds nuw i8, ptr %183, i64 64
+  %1154 = tail call noundef i32 @_ZN14ruff_text_size6traits6Ranged3end17h8ccda86adfb3dbc3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %1153), !noalias !820
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6478114615f18a77E.exit.i"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h6478114615f18a77E.exit.i": ; preds = %1179, %1173
-  %.sroa.02.0.i.i = phi i32 [ %1181, %1179 ], [ %1178, %1173 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17h6478114615f18a77E.exit.i": ; preds = %1152, %1147
+  %.sroa.02.0.i.i = phi i32 [ %1154, %1152 ], [ %1151, %1147 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !820
-  %1182 = getelementptr inbounds nuw i8, ptr %126, i64 64
-  %1183 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1182), !noalias !822
-  %1184 = extractvalue { i32, i32 } %1183, 0
-  %.not2.i135 = icmp ugt i32 %.sroa.02.0.i.i, %1184
-  br i1 %.not2.i135, label %1185, label %1186, !prof !331
+  %1155 = getelementptr inbounds nuw i8, ptr %126, i64 64
+  %1156 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1155), !noalias !822
+  %1157 = extractvalue { i32, i32 } %1156, 0
+  %.not2.i135 = icmp ugt i32 %.sroa.02.0.i.i, %1157
+  br i1 %.not2.i135, label %1158, label %1159, !prof !331
 
-1185:                                             ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h6478114615f18a77E.exit.i"
+1158:                                             ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h6478114615f18a77E.exit.i"
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.59) #19, !noalias !822
   unreachable
 
-1186:                                             ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h6478114615f18a77E.exit.i"
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %.sroa.02.0.i.i, i32 noundef %1184), !noalias !814
+1159:                                             ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h6478114615f18a77E.exit.i"
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %.sroa.02.0.i.i, i32 noundef %1157), !noalias !814
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !823
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %12, ptr noalias noundef nonnull align 8 dereferenceable(48) %14), !noalias !814
-  %1187 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %1188 = load i8, ptr %1187, align 4, !range !259, !noalias !823, !noundef !3
-  %.not7.not.i.i136 = icmp eq i8 %1188, 90
+  %1160 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %1161 = load i8, ptr %1160, align 4, !range !259, !noalias !823, !noundef !3
+  %.not7.not.i.i136 = icmp eq i8 %1161, 90
   br i1 %.not7.not.i.i136, label %.loopexit.i139, label %.lr.ph.i.i137
 
-.lr.ph.i.i137:                                    ; preds = %1186, %1191
-  %1189 = phi i8 [ %1192, %1191 ], [ %1188, %1186 ]
-  %1190 = icmp eq i8 %1189, 5
+.lr.ph.i.i137:                                    ; preds = %1159, %1164
+  %1162 = phi i8 [ %1165, %1164 ], [ %1161, %1159 ]
+  %1163 = icmp eq i8 %1162, 5
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !823
-  br i1 %1190, label %1199, label %1191
+  br i1 %1163, label %1172, label %1164
 
-1191:                                             ; preds = %.lr.ph.i.i137
+1164:                                             ; preds = %.lr.ph.i.i137
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !823
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %12, ptr noalias noundef nonnull align 8 dereferenceable(48) %14), !noalias !814
-  %1192 = load i8, ptr %1187, align 4, !range !259, !noalias !823, !noundef !3
-  %.not.not.i.i138 = icmp eq i8 %1192, 90
+  %1165 = load i8, ptr %1160, align 4, !range !259, !noalias !823, !noundef !3
+  %.not.not.i.i138 = icmp eq i8 %1165, 90
   br i1 %.not.not.i.i138, label %.loopexit.i139, label %.lr.ph.i.i137
 
-.loopexit.i139:                                   ; preds = %1191, %1186
+.loopexit.i139:                                   ; preds = %1164, %1159
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !823
-  %1193 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %126), !noalias !814
-  %1194 = extractvalue { i64, ptr } %1193, 0
-  %1195 = extractvalue { i64, ptr } %1193, 1
+  %1166 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %126), !noalias !814
+  %1167 = extractvalue { i64, ptr } %1166, 0
+  %1168 = extractvalue { i64, ptr } %1166, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !820
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull align 8 dereferenceable(80) %126, i64 80, i1 false), !noalias !822
-  %1196 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1196, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %13)
+  %1169 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1169, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !820
-  %1197 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1194, ptr %1197, align 8, !alias.scope !814, !noalias !826
-  %1198 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1195, ptr %1198, align 8, !alias.scope !814, !noalias !826
+  %1170 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1167, ptr %1170, align 8, !alias.scope !814, !noalias !826
+  %1171 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1168, ptr %1171, align 8, !alias.scope !814, !noalias !826
   store i64 92, ptr %0, align 8, !alias.scope !814, !noalias !826
   br label %_ZN21ruff_python_formatter8comments9placement22handle_keyword_comment17hee5c0a373434315eE.exit
 
-1199:                                             ; preds = %.lr.ph.i.i137
+1172:                                             ; preds = %.lr.ph.i.i137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %126, i64 80, i1 false), !alias.scope !827, !noalias !828
   br label %_ZN21ruff_python_formatter8comments9placement22handle_keyword_comment17hee5c0a373434315eE.exit
 
-_ZN21ruff_python_formatter8comments9placement22handle_keyword_comment17hee5c0a373434315eE.exit: ; preds = %.loopexit.i139, %1199
+_ZN21ruff_python_formatter8comments9placement22handle_keyword_comment17hee5c0a373434315eE.exit: ; preds = %.loopexit.i139, %1172
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !820
   call void @llvm.lifetime.end.p0(ptr nonnull %126)
-  br label %1330
+  br label %1301
 
-1200:                                             ; preds = %5
+1173:                                             ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %125)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %125, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !829)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !832)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %1201 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %125), !noalias !834
-  %1202 = extractvalue { i64, ptr } %1201, 0
-  %1203 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %125), !noalias !834
-  %1204 = extractvalue { i64, ptr } %1203, 0
-  %.not.i140 = icmp eq i64 %1202, 92
-  %.not6.i141 = icmp eq i64 %1204, 92
+  %1174 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14preceding_node17hd7579725d748bc9fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %125), !noalias !834
+  %1175 = extractvalue { i64, ptr } %1174, 0
+  %1176 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14following_node17h689a5b67fb6dc72dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %125), !noalias !834
+  %1177 = extractvalue { i64, ptr } %1176, 0
+  %.not.i140 = icmp eq i64 %1175, 92
+  %.not6.i141 = icmp eq i64 %1177, 92
   %or.cond.i142 = select i1 %.not.i140, i1 true, i1 %.not6.i141
-  br i1 %or.cond.i142, label %1205, label %1206
+  br i1 %or.cond.i142, label %1178, label %1179
 
-1205:                                             ; preds = %1200
+1178:                                             ; preds = %1173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %125, i64 80, i1 false), !alias.scope !836, !noalias !837
   br label %_ZN21ruff_python_formatter8comments9placement24handle_with_item_comment17hb7e88f9f6bf54ad0E.exit
 
-1206:                                             ; preds = %1200
-  %1207 = extractvalue { i64, ptr } %1203, 1
-  %1208 = extractvalue { i64, ptr } %1201, 1
-  store i64 %1202, ptr %11, align 8, !noalias !838
-  %1209 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %1208, ptr %1209, align 8, !noalias !838
-  store i64 %1204, ptr %10, align 8, !noalias !838
-  %1210 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %1207, ptr %1210, align 8, !noalias !838
+1179:                                             ; preds = %1173
+  %1180 = extractvalue { i64, ptr } %1176, 1
+  %1181 = extractvalue { i64, ptr } %1174, 1
+  store i64 %1175, ptr %11, align 8, !noalias !838
+  %1182 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %1181, ptr %1182, align 8, !noalias !838
+  store i64 %1177, ptr %10, align 8, !noalias !838
+  %1183 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %1180, ptr %1183, align 8, !noalias !838
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !838
-  %1211 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !834
-  %1212 = extractvalue { i32, i32 } %1211, 1
-  %1213 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10), !noalias !834
-  %1214 = extractvalue { i32, i32 } %1213, 0
-  %.not7.i143 = icmp ugt i32 %1212, %1214
-  br i1 %.not7.i143, label %1215, label %1216, !prof !331
+  %1184 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !834
+  %1185 = extractvalue { i32, i32 } %1184, 1
+  %1186 = call { i32, i32 } @"_ZN89_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hd6791b713880e4f5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10), !noalias !834
+  %1187 = extractvalue { i32, i32 } %1186, 0
+  %.not7.i143 = icmp ugt i32 %1185, %1187
+  br i1 %.not7.i143, label %1188, label %1189, !prof !331
 
-1215:                                             ; preds = %1206
+1188:                                             ; preds = %1179
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.68) #19, !noalias !834
   unreachable
 
-1216:                                             ; preds = %1206
-  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %9, i32 noundef %1212, i32 noundef %1214, i8 noundef 53, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !829
-  %1217 = getelementptr inbounds nuw i8, ptr %125, i64 64
-  %1218 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1217), !noalias !829
-  %1219 = extractvalue { i32, i32 } %1218, 1
-  %1220 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %9), !noalias !829
-  %1221 = extractvalue { i32, i32 } %1220, 0
-  %1222 = icmp ult i32 %1219, %1221
-  br i1 %1222, label %1226, label %1223
+1189:                                             ; preds = %1179
+  call void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c634d5a16001eE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %9, i32 noundef %1185, i32 noundef %1187, i8 noundef 53, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !829
+  %1190 = getelementptr inbounds nuw i8, ptr %125, i64 64
+  %1191 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1190), !noalias !829
+  %1192 = extractvalue { i32, i32 } %1191, 1
+  %1193 = call { i32, i32 } @"_ZN93_$LT$ruff_python_trivia..tokenizer..SimpleToken$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h602403ca6a7b91acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %9), !noalias !829
+  %1194 = extractvalue { i32, i32 } %1193, 0
+  %1195 = icmp ult i32 %1192, %1194
+  br i1 %1195, label %1199, label %1196
 
-1223:                                             ; preds = %1216
-  %1224 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %125), !noalias !829
-  %1225 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %1224), !noalias !829
-  br i1 %1225, label %1234, label %1230
+1196:                                             ; preds = %1189
+  %1197 = call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %125), !noalias !829
+  %1198 = call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %1197), !noalias !829
+  br i1 %1198, label %1207, label %1203
 
-1226:                                             ; preds = %1216
+1199:                                             ; preds = %1189
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !838
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(80) %125, i64 80, i1 false), !noalias !834
-  %1227 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1227, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %6)
+  %1200 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1200, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !838
-  %1228 = load i64, ptr %11, align 8, !range !381, !noalias !838, !noundef !3
-  %1229 = load ptr, ptr %1209, align 8, !noalias !838, !noundef !3
-  br label %1239
+  %1201 = load i64, ptr %11, align 8, !range !381, !noalias !838, !noundef !3
+  %1202 = load ptr, ptr %1182, align 8, !noalias !838, !noundef !3
+  br label %1212
 
-1230:                                             ; preds = %1223
+1203:                                             ; preds = %1196
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !838
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %125, i64 80, i1 false), !noalias !834
-  %1231 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1231, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %8)
+  %1204 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1204, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !838
-  %1232 = load i64, ptr %10, align 8, !range !381, !noalias !838, !noundef !3
-  %1233 = load ptr, ptr %1210, align 8, !noalias !838, !noundef !3
-  br label %1239
+  %1205 = load i64, ptr %10, align 8, !range !381, !noalias !838, !noundef !3
+  %1206 = load ptr, ptr %1183, align 8, !noalias !838, !noundef !3
+  br label %1212
 
-1234:                                             ; preds = %1223
-  %1235 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %125), !noalias !829
-  %1236 = extractvalue { i64, ptr } %1235, 0
-  %1237 = extractvalue { i64, ptr } %1235, 1
+1207:                                             ; preds = %1196
+  %1208 = call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %125), !noalias !829
+  %1209 = extractvalue { i64, ptr } %1208, 0
+  %1210 = extractvalue { i64, ptr } %1208, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !838
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %125, i64 80, i1 false), !noalias !834
-  %1238 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1238, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %7)
+  %1211 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %1211, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !838
-  br label %1239
+  br label %1212
 
-1239:                                             ; preds = %1234, %1230, %1226
-  %.sink220 = phi i64 [ %1236, %1234 ], [ %1232, %1230 ], [ %1228, %1226 ]
-  %.sink218 = phi ptr [ %1237, %1234 ], [ %1233, %1230 ], [ %1229, %1226 ]
-  %.sink217 = phi i64 [ 94, %1234 ], [ 92, %1230 ], [ 93, %1226 ]
-  %1240 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink220, ptr %1240, align 8, !alias.scope !829, !noalias !839
-  %1241 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink218, ptr %1241, align 8, !alias.scope !829, !noalias !839
+1212:                                             ; preds = %1207, %1203, %1199
+  %.sink220 = phi i64 [ %1209, %1207 ], [ %1205, %1203 ], [ %1201, %1199 ]
+  %.sink218 = phi ptr [ %1210, %1207 ], [ %1206, %1203 ], [ %1202, %1199 ]
+  %.sink217 = phi i64 [ 94, %1207 ], [ 92, %1203 ], [ 93, %1199 ]
+  %1213 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink220, ptr %1213, align 8, !alias.scope !829, !noalias !839
+  %1214 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sink218, ptr %1214, align 8, !alias.scope !829, !noalias !839
   store i64 %.sink217, ptr %0, align 8, !alias.scope !829, !noalias !839
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !838
   br label %_ZN21ruff_python_formatter8comments9placement24handle_with_item_comment17hb7e88f9f6bf54ad0E.exit
 
-_ZN21ruff_python_formatter8comments9placement24handle_with_item_comment17hb7e88f9f6bf54ad0E.exit: ; preds = %1205, %1239
+_ZN21ruff_python_formatter8comments9placement24handle_with_item_comment17hb7e88f9f6bf54ad0E.exit: ; preds = %1178, %1212
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
-  br label %1330
+  br label %1301
 
-1242:                                             ; preds = %5
-  %1243 = icmp ne ptr %183, null
-  tail call void @llvm.assume(i1 %1243)
-  %1244 = tail call { i64, ptr } @"_ZN121_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..FString$GT$$GT$4from17hd38dc24739f945faE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %183)
-  %1245 = extractvalue { i64, ptr } %1244, 0
-  %1246 = extractvalue { i64, ptr } %1244, 1
+1215:                                             ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %183) ]
+  %1216 = tail call { i64, ptr } @"_ZN121_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..FString$GT$$GT$4from17hd38dc24739f945faE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %183)
+  %1217 = extractvalue { i64, ptr } %1216, 0
+  %1218 = extractvalue { i64, ptr } %1216, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %170)
   call void @llvm.lifetime.start.p0(ptr nonnull %123)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %123, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %170, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %123)
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
-  %1247 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1245, ptr %1247, align 8
-  %1248 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1246, ptr %1248, align 8
-  %1249 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1249, ptr noundef nonnull align 4 dereferenceable(12) %170, i64 12, i1 false)
+  %1219 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1217, ptr %1219, align 8
+  %1220 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1218, ptr %1220, align 8
+  %1221 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1221, ptr noundef nonnull align 4 dereferenceable(12) %170, i64 12, i1 false)
   store i64 94, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %170)
-  br label %1330
+  br label %1301
 
-1250:                                             ; preds = %267
-  %1251 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %1252 = load ptr, ptr %1251, align 8, !nonnull !3, !align !5, !noundef !3
-  %1253 = extractvalue { i64, ptr } %268, 1
-  %1254 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %1252)
-  %1255 = extractvalue { i64, ptr } %1254, 0
-  %1256 = extractvalue { i64, ptr } %1254, 1
-  %1257 = tail call noundef zeroext i1 @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..generated..AnyNodeRef$GT$6ptr_eq17h2827ae8ad11360fbE"(i64 noundef %269, ptr noundef %1253, i64 noundef %1255, ptr noundef %1256)
-  br i1 %1257, label %1258, label %184
+1222:                                             ; preds = %264
+  %1223 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %1224 = load ptr, ptr %1223, align 8, !nonnull !3, !align !5, !noundef !3
+  %1225 = extractvalue { i64, ptr } %265, 1
+  %1226 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %1224)
+  %1227 = extractvalue { i64, ptr } %1226, 0
+  %1228 = extractvalue { i64, ptr } %1226, 1
+  %1229 = tail call noundef zeroext i1 @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..generated..AnyNodeRef$GT$6ptr_eq17h2827ae8ad11360fbE"(i64 noundef %266, ptr noundef %1225, i64 noundef %1227, ptr noundef %1228)
+  br i1 %1229, label %1230, label %184
 
-1258:                                             ; preds = %1250
+1230:                                             ; preds = %1222
   call void @llvm.lifetime.start.p0(ptr nonnull %161)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %161, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call fastcc void @_ZN21ruff_python_formatter8comments9placement52handle_trailing_implicit_concatenated_string_comment17h6c18a414f1b5336bE(ptr noalias noundef align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 captures(none) dereferenceable(80) %161, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %161)
-  br label %1330
+  br label %1301
 
-1259:                                             ; preds = %271
-  %1260 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  %1261 = load ptr, ptr %1260, align 8, !nonnull !3, !align !5, !noundef !3
-  %1262 = extractvalue { i64, ptr } %272, 1
-  %1263 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %1261)
-  %1264 = extractvalue { i64, ptr } %1263, 0
-  %1265 = extractvalue { i64, ptr } %1263, 1
-  %1266 = tail call noundef zeroext i1 @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..generated..AnyNodeRef$GT$6ptr_eq17h2827ae8ad11360fbE"(i64 noundef %273, ptr noundef %1262, i64 noundef %1264, ptr noundef %1265)
-  br i1 %1266, label %1267, label %184
+1231:                                             ; preds = %267
+  %1232 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %1233 = load ptr, ptr %1232, align 8, !nonnull !3, !align !5, !noundef !3
+  %1234 = extractvalue { i64, ptr } %268, 1
+  %1235 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %1233)
+  %1236 = extractvalue { i64, ptr } %1235, 0
+  %1237 = extractvalue { i64, ptr } %1235, 1
+  %1238 = tail call noundef zeroext i1 @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..generated..AnyNodeRef$GT$6ptr_eq17h2827ae8ad11360fbE"(i64 noundef %269, ptr noundef %1234, i64 noundef %1236, ptr noundef %1237)
+  br i1 %1238, label %1239, label %184
 
-1267:                                             ; preds = %1259
+1239:                                             ; preds = %1231
   call void @llvm.lifetime.start.p0(ptr nonnull %160)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %160, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call fastcc void @_ZN21ruff_python_formatter8comments9placement52handle_trailing_implicit_concatenated_string_comment17h6c18a414f1b5336bE(ptr noalias noundef align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 captures(none) dereferenceable(80) %160, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %160)
-  br label %1330
+  br label %1301
 
-1268:                                             ; preds = %275
-  %1269 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %1270 = load ptr, ptr %1269, align 8, !nonnull !3, !align !5, !noundef !3
-  %1271 = extractvalue { i64, ptr } %276, 1
-  %1272 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %1270)
-  %1273 = extractvalue { i64, ptr } %1272, 0
-  %1274 = extractvalue { i64, ptr } %1272, 1
-  %1275 = tail call noundef zeroext i1 @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..generated..AnyNodeRef$GT$6ptr_eq17h2827ae8ad11360fbE"(i64 noundef %277, ptr noundef %1271, i64 noundef %1273, ptr noundef %1274)
-  br i1 %1275, label %1276, label %184
+1240:                                             ; preds = %270
+  %1241 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %1242 = load ptr, ptr %1241, align 8, !nonnull !3, !align !5, !noundef !3
+  %1243 = extractvalue { i64, ptr } %271, 1
+  %1244 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %1242)
+  %1245 = extractvalue { i64, ptr } %1244, 0
+  %1246 = extractvalue { i64, ptr } %1244, 1
+  %1247 = tail call noundef zeroext i1 @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..generated..AnyNodeRef$GT$6ptr_eq17h2827ae8ad11360fbE"(i64 noundef %272, ptr noundef %1243, i64 noundef %1245, ptr noundef %1246)
+  br i1 %1247, label %1248, label %184
 
-1276:                                             ; preds = %1268
+1248:                                             ; preds = %1240
   call void @llvm.lifetime.start.p0(ptr nonnull %159)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %159, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call fastcc void @_ZN21ruff_python_formatter8comments9placement52handle_trailing_implicit_concatenated_string_comment17h6c18a414f1b5336bE(ptr noalias noundef align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 captures(none) dereferenceable(80) %159, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %159)
-  br label %1330
+  br label %1301
 
-1277:                                             ; preds = %279
-  %1278 = extractvalue { i64, ptr } %280, 1
-  %1279 = getelementptr i8, ptr %183, i64 24
-  %.val59 = load ptr, ptr %1279, align 8, !align !5, !noundef !3
-  %1280 = tail call fastcc noundef zeroext i1 @"_ZN21ruff_python_formatter8comments9placement23handle_enclosed_comment28_$u7b$$u7b$closure$u7d$$u7d$17haea2c94570f15ae6E"(ptr %.val59, i64 noundef %281, ptr noundef %1278)
-  br i1 %1280, label %1281, label %184
+1249:                                             ; preds = %273
+  %1250 = extractvalue { i64, ptr } %274, 1
+  %1251 = getelementptr i8, ptr %183, i64 24
+  %.val59 = load ptr, ptr %1251, align 8, !align !5, !noundef !3
+  %1252 = tail call fastcc noundef zeroext i1 @"_ZN21ruff_python_formatter8comments9placement23handle_enclosed_comment28_$u7b$$u7b$closure$u7d$$u7d$17haea2c94570f15ae6E"(ptr %.val59, i64 noundef %275, ptr noundef %1250)
+  br i1 %1252, label %1253, label %184
 
-1281:                                             ; preds = %1277
+1253:                                             ; preds = %1249
   call void @llvm.lifetime.start.p0(ptr nonnull %158)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %158, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call fastcc void @_ZN21ruff_python_formatter8comments9placement52handle_trailing_implicit_concatenated_string_comment17h6c18a414f1b5336bE(ptr noalias noundef align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 captures(none) dereferenceable(80) %158, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %158)
-  br label %1330
+  br label %1301
 
-1282:                                             ; preds = %725
+1254:                                             ; preds = %712
   call void @llvm.lifetime.start.p0(ptr nonnull %148)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %148, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call void @_ZN21ruff_python_formatter8comments9placement36handle_bracketed_end_of_line_comment17h42670439ab1c3eb7E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %148, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %148)
-  br label %1330
+  br label %1301
 
-1283:                                             ; preds = %763
+1255:                                             ; preds = %749
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
-  br label %1330
+  br label %1301
 
-1284:                                             ; preds = %763
-  %1285 = extractvalue { i64, ptr } %764, 1
-  %1286 = icmp ne ptr %1285, null
-  tail call void @llvm.assume(i1 %1286)
-  %1287 = tail call { i64, ptr } @"_ZN121_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..FString$GT$$GT$4from17hd38dc24739f945faE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1285)
-  %1288 = extractvalue { i64, ptr } %1287, 0
-  %1289 = extractvalue { i64, ptr } %1287, 1
+1256:                                             ; preds = %749
+  %1257 = extractvalue { i64, ptr } %750, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1257) ]
+  %1258 = tail call { i64, ptr } @"_ZN121_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..FString$GT$$GT$4from17hd38dc24739f945faE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1257)
+  %1259 = extractvalue { i64, ptr } %1258, 0
+  %1260 = extractvalue { i64, ptr } %1258, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %167)
   call void @llvm.lifetime.start.p0(ptr nonnull %145)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %145, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %167, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %145)
   call void @llvm.lifetime.end.p0(ptr nonnull %145)
-  %1290 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1288, ptr %1290, align 8
-  %1291 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1289, ptr %1291, align 8
-  %1292 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1292, ptr noundef nonnull align 4 dereferenceable(12) %167, i64 12, i1 false)
+  %1261 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1259, ptr %1261, align 8
+  %1262 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1260, ptr %1262, align 8
+  %1263 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1263, ptr noundef nonnull align 4 dereferenceable(12) %167, i64 12, i1 false)
   store i64 94, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %167)
-  br label %1330
+  br label %1301
 
-1293:                                             ; preds = %843
-  %1294 = getelementptr inbounds nuw i8, ptr %846, i64 8
+1264:                                             ; preds = %828
+  %1265 = getelementptr inbounds nuw i8, ptr %830, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %143, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
-  call fastcc void @_ZN21ruff_python_formatter8comments9placement21handle_slice_comments17h6d8446c9738d5e40E(ptr noalias noundef align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 captures(none) dereferenceable(80) %143, ptr noalias noundef readonly align 8 dereferenceable(32) %1294, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
+  call fastcc void @_ZN21ruff_python_formatter8comments9placement21handle_slice_comments17h6d8446c9738d5e40E(ptr noalias noundef align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 captures(none) dereferenceable(80) %143, ptr noalias noundef readonly align 8 dereferenceable(32) %1265, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %143)
-  br label %1330
+  br label %1301
 
-1295:                                             ; preds = %843
-  %1296 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
-  %1297 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %1296)
-  br i1 %1297, label %1298, label %1306
+1266:                                             ; preds = %828
+  %1267 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment13line_position17ha9bfa8eb8682a787E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
+  %1268 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition14is_end_of_line17h198d6e3ab6f981c7E(i1 noundef zeroext %1267)
+  br i1 %1268, label %1269, label %1277
 
-1298:                                             ; preds = %1295
-  %1299 = load ptr, ptr %183, align 8, !nonnull !3, !align !5, !noundef !3
-  %1300 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %1299)
-  %1301 = extractvalue { i32, i32 } %1300, 1
-  %1302 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %1303 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1302)
-  %1304 = extractvalue { i32, i32 } %1303, 0
-  %1305 = icmp ult i32 %1301, %1304
-  br i1 %1305, label %1307, label %1306
+1269:                                             ; preds = %1266
+  %1270 = load ptr, ptr %183, align 8, !nonnull !3, !align !5, !noundef !3
+  %1271 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %1270)
+  %1272 = extractvalue { i32, i32 } %1271, 1
+  %1273 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %1274 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1273)
+  %1275 = extractvalue { i32, i32 } %1274, 0
+  %1276 = icmp ult i32 %1272, %1275
+  br i1 %1276, label %1278, label %1277
 
-1306:                                             ; preds = %1295, %1322, %1298
+1277:                                             ; preds = %1266, %1293, %1269
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
-  br label %1330
+  br label %1301
 
-1307:                                             ; preds = %1298
+1278:                                             ; preds = %1269
   call void @llvm.lifetime.start.p0(ptr nonnull %175)
   call void @llvm.lifetime.start.p0(ptr nonnull %174)
-  %1308 = load ptr, ptr %183, align 8, !nonnull !3, !align !5, !noundef !3
-  %1309 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %1308)
-  %1310 = extractvalue { i32, i32 } %1309, 1
-  %1311 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1302)
-  %1312 = extractvalue { i32, i32 } %1311, 0
-  %.not51 = icmp ugt i32 %1310, %1312
-  br i1 %.not51, label %1313, label %1314, !prof !331
+  %1279 = load ptr, ptr %183, align 8, !nonnull !3, !align !5, !noundef !3
+  %1280 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %1279)
+  %1281 = extractvalue { i32, i32 } %1280, 1
+  %1282 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %1273)
+  %1283 = extractvalue { i32, i32 } %1282, 0
+  %.not51 = icmp ugt i32 %1281, %1283
+  br i1 %.not51, label %1284, label %1285, !prof !331
 
-1313:                                             ; preds = %1307
+1284:                                             ; preds = %1278
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.37) #19
   unreachable
 
-1314:                                             ; preds = %1307
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %174, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %1310, i32 noundef %1312)
+1285:                                             ; preds = %1278
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %174, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i32 noundef %1281, i32 noundef %1283)
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %175, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %174)
   call void @llvm.lifetime.end.p0(ptr nonnull %174)
-  %1315 = call fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9cf54119eaebbbf3E(ptr noalias noundef align 8 dereferenceable(48) %175)
-  br i1 %1315, label %1317, label %1316
+  %1286 = call fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9cf54119eaebbbf3E(ptr noalias noundef align 8 dereferenceable(48) %175)
+  br i1 %1286, label %1288, label %1287
 
-1316:                                             ; preds = %1314
+1287:                                             ; preds = %1285
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
-  br label %1321
+  br label %1292
 
-1317:                                             ; preds = %1314
-  %1318 = getelementptr inbounds nuw i8, ptr %175, i64 48
+1288:                                             ; preds = %1285
+  %1289 = getelementptr inbounds nuw i8, ptr %175, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %169)
-  call fastcc void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE(ptr noalias noundef align 4 captures(none) dereferenceable(12) %169, ptr noalias noundef align 8 dereferenceable(48) %175, ptr noalias noundef nonnull align 1 %1318)
-  %1319 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  %1320 = load i8, ptr %1319, align 4, !range !259, !noundef !3
-  %.not52.not = icmp eq i8 %1320, 90
+  call fastcc void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE(ptr noalias noundef align 4 captures(none) dereferenceable(12) %169, ptr noalias noundef align 8 dereferenceable(48) %175, ptr noalias noundef nonnull align 1 %1289)
+  %1290 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  %1291 = load i8, ptr %1290, align 4, !range !259, !noundef !3
+  %.not52.not = icmp eq i8 %1291, 90
   call void @llvm.lifetime.end.p0(ptr nonnull %169)
-  br i1 %.not52.not, label %1323, label %1322
+  br i1 %.not52.not, label %1294, label %1293
 
-1321:                                             ; preds = %1323, %1316
+1292:                                             ; preds = %1294, %1287
   call void @llvm.lifetime.end.p0(ptr nonnull %175)
-  br label %1330
+  br label %1301
 
-1322:                                             ; preds = %1317
+1293:                                             ; preds = %1288
   call void @llvm.lifetime.end.p0(ptr nonnull %175)
-  br label %1306
+  br label %1277
 
-1323:                                             ; preds = %1317
-  %1324 = call { i64, ptr } @"_ZN131_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprSubscript$GT$$GT$4from17hea26270eb6d2a23dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %183)
-  %1325 = extractvalue { i64, ptr } %1324, 0
-  %1326 = extractvalue { i64, ptr } %1324, 1
+1294:                                             ; preds = %1288
+  %1295 = call { i64, ptr } @"_ZN131_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..ExprSubscript$GT$$GT$4from17hea26270eb6d2a23dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %183)
+  %1296 = extractvalue { i64, ptr } %1295, 0
+  %1297 = extractvalue { i64, ptr } %1295, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %168)
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %142, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %168, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %142)
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
-  %1327 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1325, ptr %1327, align 8
-  %1328 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1326, ptr %1328, align 8
-  %1329 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1329, ptr noundef nonnull align 4 dereferenceable(12) %168, i64 12, i1 false)
+  %1298 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1296, ptr %1298, align 8
+  %1299 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1297, ptr %1299, align 8
+  %1300 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1300, ptr noundef nonnull align 4 dereferenceable(12) %168, i64 12, i1 false)
   store i64 94, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %168)
-  br label %1321
+  br label %1292
 
-1330:                                             ; preds = %1293, %1321, %184, %_ZN21ruff_python_formatter8comments9placement30handle_trailing_module_comment17hb9eacdf33b6acb40E.exit, %_ZN21ruff_python_formatter8comments9placement47handle_leading_function_with_decorators_comment17h955d6b127804211cE.exit, %_ZN21ruff_python_formatter8comments9placement44handle_leading_class_with_decorators_comment17h18f16b12a7bf1bb2E.exit, %266, %_ZN21ruff_python_formatter8comments9placement19handle_with_comment17h9d8c7629033b0cc2E.exit, %_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment17hbc5676fafab34e96E.exit, %_ZN21ruff_python_formatter8comments9placement35handle_trailing_binary_like_comment17h5eff6cd6b41894c0E.exit, %_ZN21ruff_python_formatter8comments9placement25handle_named_expr_comment17h56be92544c4ad7c4E.exit, %_ZN21ruff_python_formatter8comments9placement58handle_trailing_binary_expression_left_or_operator_comment17h283d1ea15cd5c318E.exit, %_ZN21ruff_python_formatter8comments9placement23handle_unary_op_comment17h4e969d29c29f5239E.exit, %_ZN21ruff_python_formatter8comments9placement21handle_lambda_comment17hc8a1dbae55122cf7E.exit, %_ZN21ruff_python_formatter8comments9placement22handle_expr_if_comment17hc2518a4243eb9039E.exit, %_ZN21ruff_python_formatter8comments9placement29handle_dict_unpacking_comment17h2e55aa3fc37bff6eE.exit, %723, %724, %_ZN21ruff_python_formatter8comments9placement19handle_call_comment17hb40d354895d68712E.exit, %_ZN21ruff_python_formatter8comments9placement24handle_attribute_comment17h2ea4b8d115e11bf1E.exit, %_ZN21ruff_python_formatter8comments9placement59handle_trailing_expression_starred_star_end_of_line_comment17hbde223fd8caf027eE.exit, %882, %892, %_ZN21ruff_python_formatter8comments9placement34handle_pattern_match_class_comment17hf1a71dc1980a1096E.exit, %920, %_ZN21ruff_python_formatter8comments9placement31handle_pattern_match_as_comment17h501ba2b8d191cedeE.exit, %970, %_ZN21ruff_python_formatter8comments9placement30handle_pattern_keyword_comment17hf8e953f0aa07301eE.exit, %_ZN21ruff_python_formatter8comments9placement28handle_comprehension_comment17hf734b9ca0936e576E.exit, %_ZN21ruff_python_formatter8comments9placement35handle_parameters_separator_comment17h26f2909da3a97961E.exit, %_ZN21ruff_python_formatter8comments9placement24handle_parameter_comment17hbf2782bc74a09b61E.exit, %_ZN21ruff_python_formatter8comments9placement22handle_keyword_comment17hee5c0a373434315eE.exit, %_ZN21ruff_python_formatter8comments9placement24handle_with_item_comment17hb7e88f9f6bf54ad0E.exit, %1242, %1258, %1267, %1276, %1281, %1282, %1283, %1284, %1306, %1331, %1333, %1332, %1341, %1340
+1301:                                             ; preds = %1264, %1292, %184, %_ZN21ruff_python_formatter8comments9placement30handle_trailing_module_comment17hb9eacdf33b6acb40E.exit, %_ZN21ruff_python_formatter8comments9placement47handle_leading_function_with_decorators_comment17h955d6b127804211cE.exit, %_ZN21ruff_python_formatter8comments9placement44handle_leading_class_with_decorators_comment17h18f16b12a7bf1bb2E.exit, %263, %_ZN21ruff_python_formatter8comments9placement19handle_with_comment17h9d8c7629033b0cc2E.exit, %_ZN21ruff_python_formatter8comments9placement26handle_import_from_comment17hbc5676fafab34e96E.exit, %_ZN21ruff_python_formatter8comments9placement35handle_trailing_binary_like_comment17h5eff6cd6b41894c0E.exit, %_ZN21ruff_python_formatter8comments9placement25handle_named_expr_comment17h56be92544c4ad7c4E.exit, %_ZN21ruff_python_formatter8comments9placement58handle_trailing_binary_expression_left_or_operator_comment17h283d1ea15cd5c318E.exit, %_ZN21ruff_python_formatter8comments9placement23handle_unary_op_comment17h4e969d29c29f5239E.exit, %_ZN21ruff_python_formatter8comments9placement21handle_lambda_comment17hc8a1dbae55122cf7E.exit, %_ZN21ruff_python_formatter8comments9placement22handle_expr_if_comment17hc2518a4243eb9039E.exit, %_ZN21ruff_python_formatter8comments9placement29handle_dict_unpacking_comment17h2e55aa3fc37bff6eE.exit, %710, %711, %_ZN21ruff_python_formatter8comments9placement19handle_call_comment17hb40d354895d68712E.exit, %_ZN21ruff_python_formatter8comments9placement24handle_attribute_comment17h2ea4b8d115e11bf1E.exit, %_ZN21ruff_python_formatter8comments9placement59handle_trailing_expression_starred_star_end_of_line_comment17hbde223fd8caf027eE.exit, %864, %872, %_ZN21ruff_python_formatter8comments9placement34handle_pattern_match_class_comment17hf1a71dc1980a1096E.exit, %898, %_ZN21ruff_python_formatter8comments9placement31handle_pattern_match_as_comment17h501ba2b8d191cedeE.exit, %948, %_ZN21ruff_python_formatter8comments9placement30handle_pattern_keyword_comment17hf8e953f0aa07301eE.exit, %_ZN21ruff_python_formatter8comments9placement28handle_comprehension_comment17hf734b9ca0936e576E.exit, %_ZN21ruff_python_formatter8comments9placement35handle_parameters_separator_comment17h26f2909da3a97961E.exit, %_ZN21ruff_python_formatter8comments9placement24handle_parameter_comment17hbf2782bc74a09b61E.exit, %_ZN21ruff_python_formatter8comments9placement22handle_keyword_comment17hee5c0a373434315eE.exit, %_ZN21ruff_python_formatter8comments9placement24handle_with_item_comment17hb7e88f9f6bf54ad0E.exit, %1215, %1230, %1239, %1248, %1253, %1254, %1255, %1256, %1277, %1302, %1304, %1303, %1312, %1311
   ret void
 
-1331:                                             ; preds = %877
+1302:                                             ; preds = %860
   call void @llvm.lifetime.start.p0(ptr nonnull %139)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %139, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call void @_ZN21ruff_python_formatter8comments9placement36handle_bracketed_end_of_line_comment17h42670439ab1c3eb7E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %139, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %139)
-  br label %1330
+  br label %1301
 
-1332:                                             ; preds = %884
+1303:                                             ; preds = %865
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %136, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call void @_ZN21ruff_python_formatter8comments9placement36handle_bracketed_end_of_line_comment17h42670439ab1c3eb7E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %136, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %136)
-  br label %1330
+  br label %1301
 
-1333:                                             ; preds = %884
-  %1334 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
-  %1335 = extractvalue { i64, ptr } %1334, 0
-  %1336 = extractvalue { i64, ptr } %1334, 1
+1304:                                             ; preds = %865
+  %1305 = tail call { i64, ptr } @_ZN21ruff_python_formatter8comments7visitor16DecoratedComment14enclosing_node17h43e3c9f01f452c62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
+  %1306 = extractvalue { i64, ptr } %1305, 0
+  %1307 = extractvalue { i64, ptr } %1305, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %166)
   call void @llvm.lifetime.start.p0(ptr nonnull %137)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %137, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call void @"_ZN21ruff_python_formatter8comments7visitor162_$LT$impl$u20$core..convert..From$LT$ruff_python_formatter..comments..visitor..DecoratedComment$GT$$u20$for$u20$ruff_python_formatter..comments..SourceComment$GT$4from17hd2a98b826585a26bE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %166, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %137)
   call void @llvm.lifetime.end.p0(ptr nonnull %137)
-  %1337 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1335, ptr %1337, align 8
-  %1338 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1336, ptr %1338, align 8
-  %1339 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1339, ptr noundef nonnull align 4 dereferenceable(12) %166, i64 12, i1 false)
+  %1308 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1306, ptr %1308, align 8
+  %1309 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1307, ptr %1309, align 8
+  %1310 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1310, ptr noundef nonnull align 4 dereferenceable(12) %166, i64 12, i1 false)
   store i64 93, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %166)
-  br label %1330
+  br label %1301
 
-1340:                                             ; preds = %888
+1311:                                             ; preds = %869
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
-  br label %1330
+  br label %1301
 
-1341:                                             ; preds = %888
+1312:                                             ; preds = %869
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %135, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   call void @_ZN21ruff_python_formatter8comments9placement36handle_bracketed_end_of_line_comment17h42670439ab1c3eb7E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %135, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
-  br label %1330
+  br label %1301
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -7943,7 +7911,7 @@ define void @"_ZN161_$LT$ruff_python_formatter..module..mod_module..FormatModMod
   %32 = extractvalue { ptr, i64 } %31, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !953
   %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %53, label %62
+  br i1 %.not, label %52, label %61
 
 33:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -7952,89 +7920,88 @@ define void @"_ZN161_$LT$ruff_python_formatter..module..mod_module..FormatModMod
   %35 = extractvalue { ptr, i8 } %34, 0
   %36 = extractvalue { ptr, i8 } %34, 1
   %37 = tail call noundef i8 @"_ZN223_$LT$ruff_python_formatter..statement..suite..FormatSuite$u20$as$u20$ruff_formatter..FormatRuleWithOptions$LT$alloc..vec..Vec$LT$ruff_python_ast..generated..Stmt$GT$$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$12with_options17he401c25ac70c9582E"(i8 noundef %36, i8 noundef 2)
-  %38 = icmp ne ptr %35, null
-  tail call void @llvm.assume(i1 %38)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %35) ]
   store ptr %35, ptr %9, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 %37, ptr %39, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 %37, ptr %38, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %40 = tail call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 2)
-  store i8 %40, ptr %8, align 1
+  %39 = tail call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 2)
+  store i8 %39, ptr %8, align 1
   store ptr %9, ptr %10, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.85, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %8, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.86, ptr %43, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.85, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %8, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.86, ptr %42, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !956)
   call void @llvm.experimental.noalias.scope.decl(metadata !959)
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %51, %33
-  %.sroa.01.02.i.idx = phi i64 [ %.sroa.01.02.i.add, %51 ], [ 0, %33 ]
+.lr.ph.i:                                         ; preds = %50, %33
+  %.sroa.01.02.i.idx = phi i64 [ %.sroa.01.02.i.add, %50 ], [ 0, %33 ]
   %.sroa.01.02.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.sroa.01.02.i.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !961
-  %44 = load ptr, ptr %.sroa.01.02.i.ptr, align 8, !alias.scope !959, !noalias !963, !nonnull !3, !align !4, !noundef !3
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.ptr, i64 8
-  %46 = load ptr, ptr %45, align 8, !alias.scope !959, !noalias !963, !nonnull !3, !align !5, !noundef !3
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %48 = load ptr, ptr %47, align 8, !invariant.load !3, !noalias !964, !nonnull !3
-  call void %48(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %44, ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !964
-  %49 = load i32, ptr %5, align 8, !range !15, !noalias !961, !noundef !3
-  %.not.i = icmp eq i32 %49, 4
-  br i1 %.not.i, label %51, label %50
+  %43 = load ptr, ptr %.sroa.01.02.i.ptr, align 8, !alias.scope !959, !noalias !963, !nonnull !3, !align !4, !noundef !3
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.ptr, i64 8
+  %45 = load ptr, ptr %44, align 8, !alias.scope !959, !noalias !963, !nonnull !3, !align !5, !noundef !3
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %47 = load ptr, ptr %46, align 8, !invariant.load !3, !noalias !964, !nonnull !3
+  call void %47(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %43, ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !964
+  %48 = load i32, ptr %5, align 8, !range !15, !noalias !961, !noundef !3
+  %.not.i = icmp eq i32 %48, 4
+  br i1 %.not.i, label %50, label %49
 
-._crit_edge.i:                                    ; preds = %51
+._crit_edge.i:                                    ; preds = %50
   store i32 4, ptr %0, align 8, !alias.scope !956, !noalias !965
   br label %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit"
 
-50:                                               ; preds = %.lr.ph.i
+49:                                               ; preds = %.lr.ph.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !965
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !961
   br label %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit"
 
-51:                                               ; preds = %.lr.ph.i
+50:                                               ; preds = %.lr.ph.i
   %.sroa.01.02.i.add = add nuw nsw i64 %.sroa.01.02.i.idx, 16
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !961
-  %52 = icmp eq i64 %.sroa.01.02.i.add, 32
-  br i1 %52, label %._crit_edge.i, label %.lr.ph.i
+  %51 = icmp eq i64 %.sroa.01.02.i.add, 32
+  br i1 %51, label %._crit_edge.i, label %.lr.ph.i
 
-"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit": ; preds = %._crit_edge.i, %50
+"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit": ; preds = %._crit_edge.i, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %68
+  br label %67
 
-53:                                               ; preds = %15
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %55 = load i32, ptr %54, align 8, !noundef !3
-  %56 = call noundef nonnull align 8 ptr %20(ptr noundef nonnull align 1 %16)
-  %57 = call { ptr, i64 } @_ZN21ruff_python_formatter7context15PyFormatContext6source17h977323e7f0b1b18aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %56)
-  %58 = extractvalue { ptr, i64 } %57, 0
-  %59 = extractvalue { ptr, i64 } %57, 1
-  %60 = call noundef i32 @_ZN18ruff_python_trivia9tokenizer11lines_after17h52a509f1e52dfe48E(i32 noundef %55, ptr noalias noundef nonnull readonly align 1 %58, i64 noundef %59)
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %63
+52:                                               ; preds = %15
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %54 = load i32, ptr %53, align 8, !noundef !3
+  %55 = call noundef nonnull align 8 ptr %20(ptr noundef nonnull align 1 %16)
+  %56 = call { ptr, i64 } @_ZN21ruff_python_formatter7context15PyFormatContext6source17h977323e7f0b1b18aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %55)
+  %57 = extractvalue { ptr, i64 } %56, 0
+  %58 = extractvalue { ptr, i64 } %56, 1
+  %59 = call noundef i32 @_ZN18ruff_python_trivia9tokenizer11lines_after17h52a509f1e52dfe48E(i32 noundef %54, ptr noalias noundef nonnull readonly align 1 %57, i64 noundef %58)
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %62
 
-62:                                               ; preds = %53, %15
+61:                                               ; preds = %52, %15
   store i32 4, ptr %0, align 8
-  br label %68
+  br label %67
 
-63:                                               ; preds = %53
-  %64 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 3)
+62:                                               ; preds = %52
+  %63 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %65 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %64, ptr %65, align 1
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 %63, ptr %64, align 1
   store i8 1, ptr %7, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %67 = load ptr, ptr %66, align 8, !invariant.load !3, !nonnull !3
-  call void %67(ptr noundef nonnull align 1 %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
+  %65 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %66 = load ptr, ptr %65, align 8, !invariant.load !3, !nonnull !3
+  call void %66(ptr noundef nonnull align 1 %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i32 4, ptr %0, align 8
-  br label %68
+  br label %67
 
-68:                                               ; preds = %62, %63, %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit"
+67:                                               ; preds = %61, %62, %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit"
   ret void
 }
 
@@ -8430,7 +8397,7 @@ define void @"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..F
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1012
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store i32 %24, ptr %0, align 8
-  br label %136
+  br label %135
 
 29:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -8486,223 +8453,222 @@ define void @"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..F
   %.not26 = icmp eq i64 %65, 0
   br i1 %.not26, label %67, label %68
 
-66:                                               ; preds = %135, %25
+66:                                               ; preds = %134, %25
   store i32 4, ptr %0, align 8
-  br label %136
+  br label %135
 
 67:                                               ; preds = %29
-  br i1 %.not, label %.thread, label %108
+  br i1 %.not, label %.thread, label %107
 
 68:                                               ; preds = %29
   %69 = extractvalue { ptr, i64 } %64, 0
-  %70 = icmp ne ptr %69, null
-  call void @llvm.assume(i1 %70)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %69) ]
   %.val31 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   %.val32 = load ptr, ptr %33, align 8, !nonnull !3, !align !5, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1021
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1021
-  %71 = getelementptr inbounds nuw i8, ptr %.val32, i64 48
-  %72 = load ptr, ptr %71, align 8, !invariant.load !3, !noalias !1021, !nonnull !3
-  %73 = call noundef nonnull align 8 ptr %72(ptr noundef nonnull align 1 %.val31), !noalias !1021
-  %74 = call { ptr, i64 } @_ZN21ruff_python_formatter7context15PyFormatContext6source17h977323e7f0b1b18aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %73), !noalias !1021
-  %75 = call { i32, i32 } @"_ZN15ruff_python_ast9generated94_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Parameter$GT$5range17hed99e854e8f0f216E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %21)
-  %76 = extractvalue { i32, i32 } %75, 1
-  %77 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %69)
-  %78 = extractvalue { i32, i32 } %77, 0
-  %.not.i33 = icmp ugt i32 %76, %78
-  br i1 %.not.i33, label %79, label %80, !prof !331
+  %70 = getelementptr inbounds nuw i8, ptr %.val32, i64 48
+  %71 = load ptr, ptr %70, align 8, !invariant.load !3, !noalias !1021, !nonnull !3
+  %72 = call noundef nonnull align 8 ptr %71(ptr noundef nonnull align 1 %.val31), !noalias !1021
+  %73 = call { ptr, i64 } @_ZN21ruff_python_formatter7context15PyFormatContext6source17h977323e7f0b1b18aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %72), !noalias !1021
+  %74 = call { i32, i32 } @"_ZN15ruff_python_ast9generated94_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Parameter$GT$5range17hed99e854e8f0f216E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %21)
+  %75 = extractvalue { i32, i32 } %74, 1
+  %76 = call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %69)
+  %77 = extractvalue { i32, i32 } %76, 0
+  %.not.i33 = icmp ugt i32 %75, %77
+  br i1 %.not.i33, label %78, label %79, !prof !331
 
-79:                                               ; preds = %68
+78:                                               ; preds = %68
   call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.98) #19
   unreachable
 
-80:                                               ; preds = %68
-  %81 = extractvalue { ptr, i64 } %74, 1
-  %82 = extractvalue { ptr, i64 } %74, 0
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %82, i64 noundef %81, i32 noundef %76, i32 noundef %78)
+79:                                               ; preds = %68
+  %80 = extractvalue { ptr, i64 } %73, 1
+  %81 = extractvalue { ptr, i64 } %73, 0
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %81, i64 noundef %80, i32 noundef %75, i32 noundef %77)
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1021
-  %83 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i8 0, ptr %83, align 8, !noalias !1021
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store i8 0, ptr %82, align 8, !noalias !1021
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1024
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %10), !noalias !1028
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %85 = load i8, ptr %84, align 4, !range !259, !noalias !1024, !noundef !3
-  %.not19.i.i = icmp eq i8 %85, 90
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %84 = load i8, ptr %83, align 4, !range !259, !noalias !1024, !noundef !3
+  %.not19.i.i = icmp eq i8 %84, 90
   br i1 %.not19.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha59f922411f95977E.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %80
+.lr.ph.i.i:                                       ; preds = %79
   %.sroa.46.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br label %86
+  br label %85
 
-86:                                               ; preds = %93, %.lr.ph.i.i
+85:                                               ; preds = %92, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false), !noalias !1024
   call void @llvm.experimental.noalias.scope.decl(metadata !1029)
-  %87 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %7), !noalias !1032
-  %88 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %87), !noalias !1032
-  br i1 %88, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i.i", label %89
+  %86 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %7), !noalias !1032
+  %87 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %86), !noalias !1032
+  br i1 %87, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i.i", label %88
 
-89:                                               ; preds = %86
+88:                                               ; preds = %85
   %.sroa.46.0.copyload.i.i.i = load i8, ptr %.sroa.46.0..sroa_idx.i.i.i, align 4, !alias.scope !1029, !noalias !1034
-  %90 = load i8, ptr %83, align 8, !range !23, !noalias !1035, !noundef !3
-  %91 = trunc nuw i8 %90 to i1
-  %92 = icmp ne i8 %.sroa.46.0.copyload.i.i.i, 6
-  %or.cond.not.i.i.i.i.i = select i1 %91, i1 true, i1 %92
+  %89 = load i8, ptr %82, align 8, !range !23, !noalias !1035, !noundef !3
+  %90 = trunc nuw i8 %89 to i1
+  %91 = icmp ne i8 %.sroa.46.0.copyload.i.i.i, 6
+  %or.cond.not.i.i.i.i.i = select i1 %90, i1 true, i1 %91
   br i1 %or.cond.not.i.i.i.i.i, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i.i", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i.i"
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i.i": ; preds = %89, %86
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i.i": ; preds = %88, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1024
-  br label %93
+  br label %92
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i.i": ; preds = %89
-  store i8 1, ptr %83, align 8, !noalias !1035
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i.i": ; preds = %88
+  store i8 1, ptr %82, align 8, !noalias !1035
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1024
   %.not.i.i.i = icmp eq i8 %.sroa.46.0.copyload.i.i.i, 90
-  br i1 %.not.i.i.i, label %93, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha59f922411f95977E.exit.i
+  br i1 %.not.i.i.i, label %92, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha59f922411f95977E.exit.i
 
-93:                                               ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i.i"
+92:                                               ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1024
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1024
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %10), !noalias !1028
-  %94 = load i8, ptr %84, align 4, !range !259, !noalias !1024, !noundef !3
-  %.not.i.i = icmp eq i8 %94, 90
-  br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha59f922411f95977E.exit.i, label %86
+  %93 = load i8, ptr %83, align 4, !range !259, !noalias !1024, !noundef !3
+  %.not.i.i = icmp eq i8 %93, 90
+  br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha59f922411f95977E.exit.i, label %85
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17ha59f922411f95977E.exit.i: ; preds = %93, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i.i", %80
+_ZN4core4iter6traits8iterator8Iterator8try_fold17ha59f922411f95977E.exit.i: ; preds = %92, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i.i", %79
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1024
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1039
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %10), !noalias !1043
-  %95 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %96 = load i8, ptr %95, align 4, !range !259, !noalias !1039, !noundef !3
-  %.not19.i12.i = icmp eq i8 %96, 90
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %95 = load i8, ptr %94, align 4, !range !259, !noalias !1039, !noundef !3
+  %.not19.i12.i = icmp eq i8 %95, 90
   br i1 %.not19.i12.i, label %"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit", label %.lr.ph.i13.i
 
 .lr.ph.i13.i:                                     ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha59f922411f95977E.exit.i
   %.sroa.46.0..sroa_idx.i.i14.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %97
+  br label %96
 
-97:                                               ; preds = %104, %.lr.ph.i13.i
+96:                                               ; preds = %103, %.lr.ph.i13.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1039
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false), !noalias !1039
   call void @llvm.experimental.noalias.scope.decl(metadata !1044)
-  %98 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %5), !noalias !1047
-  %99 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %98), !noalias !1047
-  br i1 %99, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i19.i", label %100
+  %97 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %5), !noalias !1047
+  %98 = call noundef zeroext i1 @_ZN18ruff_python_trivia9tokenizer15SimpleTokenKind9is_trivia17h7aeb50b97fa47e9fE(i8 noundef %97), !noalias !1047
+  br i1 %98, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i19.i", label %99
 
-100:                                              ; preds = %97
+99:                                               ; preds = %96
   %.sroa.46.0.copyload.i.i17.i = load i8, ptr %.sroa.46.0..sroa_idx.i.i14.i, align 4, !alias.scope !1044, !noalias !1049
-  %101 = load i8, ptr %83, align 8, !range !23, !noalias !1050, !noundef !3
-  %102 = trunc nuw i8 %101 to i1
-  %103 = icmp ne i8 %.sroa.46.0.copyload.i.i17.i, 6
-  %or.cond.not.i.i.i.i18.i = select i1 %102, i1 true, i1 %103
+  %100 = load i8, ptr %82, align 8, !range !23, !noalias !1050, !noundef !3
+  %101 = trunc nuw i8 %100 to i1
+  %102 = icmp ne i8 %.sroa.46.0.copyload.i.i17.i, 6
+  %or.cond.not.i.i.i.i18.i = select i1 %101, i1 true, i1 %102
   br i1 %or.cond.not.i.i.i.i18.i, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i22.i", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i19.i"
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i19.i": ; preds = %100, %97
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i19.i": ; preds = %99, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1039
-  br label %104
+  br label %103
 
-"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i22.i": ; preds = %100
-  store i8 1, ptr %83, align 8, !noalias !1050
+"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i22.i": ; preds = %99
+  store i8 1, ptr %82, align 8, !noalias !1050
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1039
   %.not.i.i23.i = icmp eq i8 %.sroa.46.0.copyload.i.i17.i, 90
-  br i1 %.not.i.i23.i, label %104, label %"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit.thread"
+  br i1 %.not.i.i23.i, label %103, label %"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit.thread"
 
-104:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i22.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i19.i"
+103:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i22.i", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.thread.i19.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1039
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1039
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %10), !noalias !1043
-  %105 = load i8, ptr %95, align 4, !range !259, !noalias !1039, !noundef !3
-  %.not.i20.i = icmp eq i8 %105, 90
-  br i1 %.not.i20.i, label %"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit", label %97
+  %104 = load i8, ptr %94, align 4, !range !259, !noalias !1039, !noundef !3
+  %.not.i20.i = icmp eq i8 %104, 90
+  br i1 %.not.i20.i, label %"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit", label %96
 
-"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit": ; preds = %104, %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha59f922411f95977E.exit.i
+"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit": ; preds = %103, %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha59f922411f95977E.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1039
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1021
-  br label %108
+  br label %107
 
 "_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit.thread": ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3a9250f0d1bbcc9fE.exit.i22.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1039
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1021
-  br i1 %.not, label %.thread, label %108
+  br i1 %.not, label %.thread, label %107
 
 .thread:                                          ; preds = %67, %"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit.thread"
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr @anon.ed451865e034dc40a72258bf1311dc2e.90, ptr %17, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 1, ptr %106, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 1, ptr %105, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 %., ptr %16, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %107 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 2)
-  br label %111
+  %106 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 2)
+  br label %110
 
-108:                                              ; preds = %"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit", %67, %"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit.thread"
+107:                                              ; preds = %"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit", %67, %"_ZN190_$LT$ruff_python_formatter..other..parameter_with_default..FormatParameterWithDefault$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ParameterWithDefault$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h200ef96fb049ecf5E.exit.thread"
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr @anon.ed451865e034dc40a72258bf1311dc2e.90, ptr %17, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 1, ptr %109, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 1, ptr %108, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 2, ptr %16, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %110 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 2)
-  br label %111
+  %109 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 2)
+  br label %110
 
-111:                                              ; preds = %.thread, %108
-  %112 = phi i8 [ %110, %108 ], [ 4, %.thread ]
-  store i8 %112, ptr %15, align 1
+110:                                              ; preds = %.thread, %107
+  %111 = phi i8 [ %109, %107 ], [ 4, %.thread ]
+  store i8 %111, ptr %15, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %113 = call { ptr, i8 } @"_ZN21ruff_python_formatter10expression164_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Expr$GT$6format17h4e50c003e272006bE"(ptr noundef nonnull align 8 %27)
-  %114 = extractvalue { ptr, i8 } %113, 0
-  %115 = extractvalue { ptr, i8 } %113, 1
-  store ptr %114, ptr %14, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i8 %115, ptr %116, align 8
+  %112 = call { ptr, i8 } @"_ZN21ruff_python_formatter10expression164_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Expr$GT$6format17h4e50c003e272006bE"(ptr noundef nonnull align 8 %27)
+  %113 = extractvalue { ptr, i8 } %112, 0
+  %114 = extractvalue { ptr, i8 } %112, 1
+  store ptr %113, ptr %14, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i8 %114, ptr %115, align 8
   store ptr %19, ptr %18, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.94, ptr %117, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %17, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.31, ptr %119, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr %16, ptr %120, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.95, ptr %121, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store ptr %15, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.96, ptr %123, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store ptr %14, ptr %124, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.91, ptr %125, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.94, ptr %116, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr %17, ptr %117, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.31, ptr %118, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store ptr %16, ptr %119, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.95, ptr %120, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  store ptr %15, ptr %121, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.96, ptr %122, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  store ptr %14, ptr %123, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.91, ptr %124, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1054)
   br label %.lr.ph.i34
 
-.lr.ph.i34:                                       ; preds = %132, %111
-  %.sroa.01.02.i35.idx = phi i64 [ %.sroa.01.02.i35.add, %132 ], [ 0, %111 ]
+.lr.ph.i34:                                       ; preds = %131, %110
+  %.sroa.01.02.i35.idx = phi i64 [ %.sroa.01.02.i35.add, %131 ], [ 0, %110 ]
   %.sroa.01.02.i35.ptr = getelementptr inbounds nuw i8, ptr %18, i64 %.sroa.01.02.i35.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1057
-  %126 = load ptr, ptr %.sroa.01.02.i35.ptr, align 8, !alias.scope !1054, !noalias !1060, !nonnull !3, !align !4, !noundef !3
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i35.ptr, i64 8
-  %128 = load ptr, ptr %127, align 8, !alias.scope !1054, !noalias !1060, !nonnull !3, !align !5, !noundef !3
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %130 = load ptr, ptr %129, align 8, !invariant.load !3, !noalias !1061, !nonnull !3
-  call void %130(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %126, ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !1061
-  %131 = load i32, ptr %4, align 8, !range !15, !noalias !1057, !noundef !3
-  %.not.i36 = icmp eq i32 %131, 4
-  br i1 %.not.i36, label %132, label %134
+  %125 = load ptr, ptr %.sroa.01.02.i35.ptr, align 8, !alias.scope !1054, !noalias !1060, !nonnull !3, !align !4, !noundef !3
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i35.ptr, i64 8
+  %127 = load ptr, ptr %126, align 8, !alias.scope !1054, !noalias !1060, !nonnull !3, !align !5, !noundef !3
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %129 = load ptr, ptr %128, align 8, !invariant.load !3, !noalias !1061, !nonnull !3
+  call void %129(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %125, ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !1061
+  %130 = load i32, ptr %4, align 8, !range !15, !noalias !1057, !noundef !3
+  %.not.i36 = icmp eq i32 %130, 4
+  br i1 %.not.i36, label %131, label %133
 
-132:                                              ; preds = %.lr.ph.i34
+131:                                              ; preds = %.lr.ph.i34
   %.sroa.01.02.i35.add = add nuw nsw i64 %.sroa.01.02.i35.idx, 16
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1057
-  %133 = icmp eq i64 %.sroa.01.02.i35.add, 80
-  br i1 %133, label %135, label %.lr.ph.i34
+  %132 = icmp eq i64 %.sroa.01.02.i35.add, 80
+  br i1 %132, label %134, label %.lr.ph.i34
 
-134:                                              ; preds = %.lr.ph.i34
+133:                                              ; preds = %.lr.ph.i34
   %.sroa.443.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.261.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.443.0..sroa_idx44, i64 20, i1 false)
@@ -8712,11 +8678,11 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17ha59f922411f95977E.exit.i: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  store i32 %131, ptr %0, align 8
+  store i32 %130, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %136
+  br label %135
 
-135:                                              ; preds = %132
+134:                                              ; preds = %131
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -8725,7 +8691,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17ha59f922411f95977E.exit.i: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %66
 
-136:                                              ; preds = %28, %134, %66
+135:                                              ; preds = %28, %133, %66
   ret void
 }
 
@@ -9567,7 +9533,7 @@ define void @"_ZN156_$LT$ruff_python_formatter..statement..clause..FormatClauseB
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %36, 0
   %or.cond = select i1 %34, i1 %37, i1 false
-  br i1 %or.cond, label %68, label %._crit_edge16
+  br i1 %or.cond, label %67, label %._crit_edge16
 
 ._crit_edge16:                                    ; preds = %21
   %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9594,131 +9560,129 @@ define void @"_ZN156_$LT$ruff_python_formatter..statement..clause..FormatClauseB
   %49 = extractvalue { ptr, i8 } %48, 0
   %50 = extractvalue { ptr, i8 } %48, 1
   %51 = tail call noundef i8 @"_ZN223_$LT$ruff_python_formatter..statement..suite..FormatSuite$u20$as$u20$ruff_formatter..FormatRuleWithOptions$LT$alloc..vec..Vec$LT$ruff_python_ast..generated..Stmt$GT$$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$12with_options17he401c25ac70c9582E"(i8 noundef %50, i8 noundef %39)
-  %52 = icmp ne ptr %49, null
-  tail call void @llvm.assume(i1 %52)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store ptr %49, ptr %7, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 %51, ptr %53, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i8 %51, ptr %52, align 8
   store ptr %7, ptr %8, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.85, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 1, ptr %55, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.85, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i8 1, ptr %54, align 8
   store ptr %9, ptr %10, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.107, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %8, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.108, ptr %58, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.107, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %8, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.108, ptr %57, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1112)
   call void @llvm.experimental.noalias.scope.decl(metadata !1115)
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %66, %38
-  %.sroa.01.02.i.idx = phi i64 [ %.sroa.01.02.i.add, %66 ], [ 0, %38 ]
+.lr.ph.i:                                         ; preds = %65, %38
+  %.sroa.01.02.i.idx = phi i64 [ %.sroa.01.02.i.add, %65 ], [ 0, %38 ]
   %.sroa.01.02.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.sroa.01.02.i.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1117
-  %59 = load ptr, ptr %.sroa.01.02.i.ptr, align 8, !alias.scope !1115, !noalias !1119, !nonnull !3, !align !4, !noundef !3
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.ptr, i64 8
-  %61 = load ptr, ptr %60, align 8, !alias.scope !1115, !noalias !1119, !nonnull !3, !align !5, !noundef !3
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %63 = load ptr, ptr %62, align 8, !invariant.load !3, !noalias !1120, !nonnull !3
-  call void %63(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 1 %59, ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !1120
-  %64 = load i32, ptr %6, align 8, !range !15, !noalias !1117, !noundef !3
-  %.not.i = icmp eq i32 %64, 4
-  br i1 %.not.i, label %66, label %65
+  %58 = load ptr, ptr %.sroa.01.02.i.ptr, align 8, !alias.scope !1115, !noalias !1119, !nonnull !3, !align !4, !noundef !3
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.ptr, i64 8
+  %60 = load ptr, ptr %59, align 8, !alias.scope !1115, !noalias !1119, !nonnull !3, !align !5, !noundef !3
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %62 = load ptr, ptr %61, align 8, !invariant.load !3, !noalias !1120, !nonnull !3
+  call void %62(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 1 %58, ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !1120
+  %63 = load i32, ptr %6, align 8, !range !15, !noalias !1117, !noundef !3
+  %.not.i = icmp eq i32 %63, 4
+  br i1 %.not.i, label %65, label %64
 
-._crit_edge.i:                                    ; preds = %66
+._crit_edge.i:                                    ; preds = %65
   store i32 4, ptr %0, align 8, !alias.scope !1112, !noalias !1121
   br label %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit"
 
-65:                                               ; preds = %.lr.ph.i
+64:                                               ; preds = %.lr.ph.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !1121
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1117
   br label %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit"
 
-66:                                               ; preds = %.lr.ph.i
+65:                                               ; preds = %.lr.ph.i
   %.sroa.01.02.i.add = add nuw nsw i64 %.sroa.01.02.i.idx, 16
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1117
-  %67 = icmp eq i64 %.sroa.01.02.i.add, 32
-  br i1 %67, label %._crit_edge.i, label %.lr.ph.i
+  %66 = icmp eq i64 %.sroa.01.02.i.add, 32
+  br i1 %66, label %._crit_edge.i, label %.lr.ph.i
 
-"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit": ; preds = %._crit_edge.i, %65
+"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit": ; preds = %._crit_edge.i, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %92
+  br label %90
 
-68:                                               ; preds = %21
+67:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %69 = tail call { ptr, i8 } @"_ZN21ruff_python_formatter9statement5suite187_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$alloc..vec..Vec$LT$ruff_python_ast..generated..Stmt$GT$$GT$6format17h725898a6869dec3dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
-  %70 = extractvalue { ptr, i8 } %69, 0
-  %71 = extractvalue { ptr, i8 } %69, 1
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %73 = load i8, ptr %72, align 8, !range !1111, !noundef !3
-  %74 = tail call noundef i8 @"_ZN223_$LT$ruff_python_formatter..statement..suite..FormatSuite$u20$as$u20$ruff_formatter..FormatRuleWithOptions$LT$alloc..vec..Vec$LT$ruff_python_ast..generated..Stmt$GT$$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$12with_options17he401c25ac70c9582E"(i8 noundef %71, i8 noundef %73)
-  %75 = icmp ne ptr %70, null
-  tail call void @llvm.assume(i1 %75)
-  store ptr %70, ptr %12, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i8 %74, ptr %76, align 8
+  %68 = tail call { ptr, i8 } @"_ZN21ruff_python_formatter9statement5suite187_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$alloc..vec..Vec$LT$ruff_python_ast..generated..Stmt$GT$$GT$6format17h725898a6869dec3dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
+  %69 = extractvalue { ptr, i8 } %68, 0
+  %70 = extractvalue { ptr, i8 } %68, 1
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %72 = load i8, ptr %71, align 8, !range !1111, !noundef !3
+  %73 = tail call noundef i8 @"_ZN223_$LT$ruff_python_formatter..statement..suite..FormatSuite$u20$as$u20$ruff_formatter..FormatRuleWithOptions$LT$alloc..vec..Vec$LT$ruff_python_ast..generated..Stmt$GT$$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$12with_options17he401c25ac70c9582E"(i8 noundef %70, i8 noundef %72)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %69) ]
+  store ptr %69, ptr %12, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i8 %73, ptr %74, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %77 = tail call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 2)
-  store i8 %77, ptr %11, align 1
+  %75 = tail call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 2)
+  store i8 %75, ptr %11, align 1
   store ptr %4, ptr %13, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.87, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %12, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.85, ptr %80, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr %11, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.86, ptr %82, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.87, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %12, ptr %77, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.85, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store ptr %11, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.86, ptr %80, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1122)
   call void @llvm.experimental.noalias.scope.decl(metadata !1125)
   br label %.lr.ph.i10
 
-.lr.ph.i10:                                       ; preds = %90, %68
-  %.sroa.01.02.i11.idx = phi i64 [ %.sroa.01.02.i11.add, %90 ], [ 0, %68 ]
+.lr.ph.i10:                                       ; preds = %88, %67
+  %.sroa.01.02.i11.idx = phi i64 [ %.sroa.01.02.i11.add, %88 ], [ 0, %67 ]
   %.sroa.01.02.i11.ptr = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.01.02.i11.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1127
-  %83 = load ptr, ptr %.sroa.01.02.i11.ptr, align 8, !alias.scope !1125, !noalias !1129, !nonnull !3, !align !4, !noundef !3
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i11.ptr, i64 8
-  %85 = load ptr, ptr %84, align 8, !alias.scope !1125, !noalias !1129, !nonnull !3, !align !5, !noundef !3
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %87 = load ptr, ptr %86, align 8, !invariant.load !3, !noalias !1130, !nonnull !3
-  call void %87(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %83, ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !1130
-  %88 = load i32, ptr %5, align 8, !range !15, !noalias !1127, !noundef !3
-  %.not.i12 = icmp eq i32 %88, 4
-  br i1 %.not.i12, label %90, label %89
+  %81 = load ptr, ptr %.sroa.01.02.i11.ptr, align 8, !alias.scope !1125, !noalias !1129, !nonnull !3, !align !4, !noundef !3
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i11.ptr, i64 8
+  %83 = load ptr, ptr %82, align 8, !alias.scope !1125, !noalias !1129, !nonnull !3, !align !5, !noundef !3
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %85 = load ptr, ptr %84, align 8, !invariant.load !3, !noalias !1130, !nonnull !3
+  call void %85(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %81, ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !1130
+  %86 = load i32, ptr %5, align 8, !range !15, !noalias !1127, !noundef !3
+  %.not.i12 = icmp eq i32 %86, 4
+  br i1 %.not.i12, label %88, label %87
 
-._crit_edge.i13:                                  ; preds = %90
+._crit_edge.i13:                                  ; preds = %88
   store i32 4, ptr %0, align 8, !alias.scope !1122, !noalias !1131
   br label %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit14"
 
-89:                                               ; preds = %.lr.ph.i10
+87:                                               ; preds = %.lr.ph.i10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !1131
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1127
   br label %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit14"
 
-90:                                               ; preds = %.lr.ph.i10
+88:                                               ; preds = %.lr.ph.i10
   %.sroa.01.02.i11.add = add nuw nsw i64 %.sroa.01.02.i11.idx, 16
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1127
-  %91 = icmp eq i64 %.sroa.01.02.i11.add, 48
-  br i1 %91, label %._crit_edge.i13, label %.lr.ph.i10
+  %89 = icmp eq i64 %.sroa.01.02.i11.add, 48
+  br i1 %89, label %._crit_edge.i13, label %.lr.ph.i10
 
-"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit14": ; preds = %._crit_edge.i13, %89
+"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit14": ; preds = %._crit_edge.i13, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %92
+  br label %90
 
-92:                                               ; preds = %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit14", %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit"
+90:                                               ; preds = %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit14", %"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE.exit"
   ret void
 }
 

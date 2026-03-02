@@ -2525,8 +2525,7 @@ _ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit:
   store ptr %2, ptr %4, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %1)
-  %.not.i.i = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   %10 = load i32, ptr %9, align 8, !tbaa !88
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8

@@ -1517,6 +1517,7 @@ common.resume:                                    ; preds = %31, %35, %16, %20, 
 8:                                                ; preds = %6
   %9 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ], !noalias !917
   tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef 48, i64 noundef 8) #16, !noalias !917
   br label %common.resume
 
@@ -1842,6 +1843,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$$u5b$cfg..cfg_expr..CfgExpr$
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef 48, i64 noundef 8) #16, !noalias !1020
   br label %.body
 
@@ -2314,6 +2316,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$cfg..cf
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 48, i64 noundef 8) #16
   resume { ptr, i32 } %5
 }

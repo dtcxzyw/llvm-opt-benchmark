@@ -415,7 +415,7 @@ define hidden void @zim_SQLite3_open(ptr noundef readonly captures(none) %0, ptr
   call void @_efree(ptr noundef %.0) #17
   br label %62
 
-62:                                               ; preds = %2, %59, %61, %44, %50, %30, %25, %18
+62:                                               ; preds = %59, %61, %44, %50, %2, %30, %25, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -741,7 +741,7 @@ define hidden void @zim_SQLite3_close(ptr noundef readonly captures(none) %0, pt
   store i32 3, ptr %23, align 8, !tbaa !8
   br label %24
 
-24:                                               ; preds = %22, %17, %8
+24:                                               ; preds = %8, %22, %17
   ret void
 }
 
@@ -877,7 +877,7 @@ define hidden void @zim_SQLite3_version(ptr noundef readonly captures(none) %0, 
   tail call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i64 noundef 13, i64 noundef range(i64 -2147483648, 2147483648) %10) #17
   br label %11
 
-11:                                               ; preds = %.critedge, %5
+11:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -919,7 +919,7 @@ define hidden void @zim_SQLite3_lastInsertRowID(ptr noundef readonly captures(no
   store i32 4, ptr %16, align 8, !tbaa !8
   br label %17
 
-17:                                               ; preds = %12, %11, %7
+17:                                               ; preds = %7, %12, %11
   ret void
 }
 
@@ -968,7 +968,7 @@ define hidden void @zim_SQLite3_lastErrorCode(ptr noundef readonly captures(none
   store i32 4, ptr %20, align 8, !tbaa !8
   br label %21
 
-21:                                               ; preds = %19, %15, %11, %8
+21:                                               ; preds = %8, %19, %15, %11
   ret void
 }
 
@@ -1017,7 +1017,7 @@ define hidden void @zim_SQLite3_lastExtendedErrorCode(ptr noundef readonly captu
   store i32 4, ptr %20, align 8, !tbaa !8
   br label %21
 
-21:                                               ; preds = %19, %15, %11, %8
+21:                                               ; preds = %8, %19, %15, %11
   ret void
 }
 
@@ -1134,7 +1134,7 @@ zend_string_alloc.exit:                           ; preds = %12
   store i32 6, ptr %28, align 8, !tbaa !8
   br label %29
 
-29:                                               ; preds = %26, %zend_string_alloc.exit, %11, %8
+29:                                               ; preds = %8, %26, %zend_string_alloc.exit, %11
   ret void
 }
 
@@ -1357,7 +1357,7 @@ define hidden void @zim_SQLite3_changes(ptr noundef readonly captures(none) %0, 
   store i32 4, ptr %17, align 8, !tbaa !8
   br label %18
 
-18:                                               ; preds = %12, %11, %7
+18:                                               ; preds = %7, %12, %11
   ret void
 }
 
@@ -1415,7 +1415,7 @@ zend_string_alloc.exit:                           ; preds = %12
   store i32 6, ptr %27, align 8, !tbaa !8
   br label %28
 
-28:                                               ; preds = %2, %zend_string_alloc.exit, %12, %25
+28:                                               ; preds = %zend_string_alloc.exit, %12, %2, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

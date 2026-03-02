@@ -6091,8 +6091,7 @@ define hidden void @_ZN18VM_RedefineClasses21set_new_constant_poolEP15ClassLoade
   store ptr %12, ptr %8, align 8
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %5, ptr %16, align 8
-  %.not.i = icmp ne ptr %12, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 816
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 8

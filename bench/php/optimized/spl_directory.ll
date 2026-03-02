@@ -591,7 +591,7 @@ zend_string_release.exit.i:                       ; preds = %28, %27, %20, %16
   store i8 0, ptr %35, align 8, !tbaa !18
   br label %spl_filesystem_dir_read.exit
 
-spl_filesystem_dir_read.exit:                     ; preds = %34, %31, %10, %7
+spl_filesystem_dir_read.exit:                     ; preds = %34, %31, %7, %10
   ret void
 }
 
@@ -636,7 +636,7 @@ define hidden void @zim_DirectoryIterator_key(ptr noundef readonly captures(none
   store i32 4, ptr %15, align 8, !tbaa !18
   br label %16
 
-16:                                               ; preds = %11, %10, %7
+16:                                               ; preds = %7, %11, %10
   ret void
 }
 
@@ -672,7 +672,7 @@ define hidden void @zim_DirectoryIterator_current(ptr noundef readonly captures(
   store i32 776, ptr %14, align 8, !tbaa !18
   br label %15
 
-15:                                               ; preds = %11, %10, %5
+15:                                               ; preds = %5, %11, %10
   ret void
 }
 
@@ -871,7 +871,7 @@ zend_string_release.exit:                         ; preds = %62, %66, %73, %74
   store ptr null, ptr %20, align 8, !tbaa !41
   br label %75
 
-75:                                               ; preds = %.critedge, %zend_string_release.exit, %13, %10
+75:                                               ; preds = %10, %.critedge, %zend_string_release.exit, %13
   ret void
 }
 
@@ -955,7 +955,7 @@ define hidden void @zim_DirectoryIterator_seek(ptr noundef readonly captures(non
   %49 = icmp sgt i64 %48, %47
   br i1 %49, label %32, label %.loopexit
 
-.loopexit:                                        ; preds = %41, %.thread, %14, %2, %27
+.loopexit:                                        ; preds = %41, %27, %.thread, %2, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1001,7 +1001,7 @@ define hidden void @zim_DirectoryIterator_valid(ptr noundef readonly captures(no
   store i32 %14, ptr %15, align 8, !tbaa !18
   br label %16
 
-16:                                               ; preds = %11, %10, %7
+16:                                               ; preds = %7, %11, %10
   ret void
 }
 
@@ -1104,7 +1104,7 @@ spl_filesystem_object_get_path.exit.thread19:     ; preds = %spl_intern_is_glob.
   store i32 6, ptr %43, align 8, !tbaa !18
   br label %44
 
-44:                                               ; preds = %spl_filesystem_object_get_path.exit.thread19, %spl_filesystem_object_get_path.exit.thread, %8
+44:                                               ; preds = %8, %spl_filesystem_object_get_path.exit.thread19, %spl_filesystem_object_get_path.exit.thread
   ret void
 }
 
@@ -1283,7 +1283,7 @@ spl_filesystem_object_get_path.exit.thread41:     ; preds = %spl_intern_is_glob.
   call void @_efree(ptr noundef nonnull %.1.i3547) #18
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %79, %74, %70, %64, %66, %11, %8
+zend_string_release_ex.exit:                      ; preds = %79, %74, %70, %64, %8, %66, %11
   ret void
 }
 
@@ -1332,7 +1332,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge
   store i32 262, ptr %21, align 8, !tbaa !18
   br label %22
 
-22:                                               ; preds = %zend_string_alloc.exit, %10, %7
+22:                                               ; preds = %7, %zend_string_alloc.exit, %10
   ret void
 }
 
@@ -1555,7 +1555,7 @@ zend_string_release_ex.exit:                      ; preds = %90, %94, %99
   store i32 6, ptr %101, align 8, !tbaa !18
   br label %zend_string_release_ex.exit46
 
-zend_string_release_ex.exit46:                    ; preds = %89, %84, %zend_string_alloc.exit, %zend_string_release_ex.exit, %11, %8
+zend_string_release_ex.exit46:                    ; preds = %89, %84, %zend_string_alloc.exit, %8, %zend_string_release_ex.exit, %11
   ret void
 }
 
@@ -1666,7 +1666,7 @@ zend_string_release_ex.exit:                      ; preds = %44, %48, %53
   store i32 6, ptr %55, align 8, !tbaa !18
   br label %zend_string_release_ex.exit26
 
-zend_string_release_ex.exit26:                    ; preds = %43, %38, %zend_string_alloc.exit, %zend_string_release_ex.exit, %10, %7
+zend_string_release_ex.exit26:                    ; preds = %43, %38, %zend_string_alloc.exit, %7, %zend_string_release_ex.exit, %10
   ret void
 }
 
@@ -1944,7 +1944,7 @@ spl_filesystem_object_get_pathname.exit.thread:   ; preds = %.critedge, %11, %sp
   store i32 6, ptr %29, align 8, !tbaa !18
   br label %30
 
-30:                                               ; preds = %22, %24, %spl_filesystem_object_get_pathname.exit.thread, %8
+30:                                               ; preds = %8, %22, %24, %spl_filesystem_object_get_pathname.exit.thread
   ret void
 }
 
@@ -2019,7 +2019,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge
   store i32 262, ptr %38, align 8, !tbaa !18
   br label %39
 
-39:                                               ; preds = %24, %33, %35, %zend_string_alloc.exit, %8
+39:                                               ; preds = %8, %33, %35, %24, %zend_string_alloc.exit
   ret void
 }
 
@@ -2251,7 +2251,7 @@ define hidden void @zim_FilesystemIterator_current(ptr noundef readonly captures
   store i32 776, ptr %34, align 8, !tbaa !18
   br label %35
 
-35:                                               ; preds = %27, %12, %21, %23, %30, %31, %8
+35:                                               ; preds = %8, %27, %21, %23, %12, %30, %31
   ret void
 }
 
@@ -2739,7 +2739,7 @@ spl_filesystem_is_dot.exit.thread:                ; preds = %.tail.i, %11, %spl_
   store i32 %19, ptr %20, align 8, !tbaa !18
   br label %21
 
-21:                                               ; preds = %spl_filesystem_is_dot.exit.thread, %10, %7
+21:                                               ; preds = %7, %spl_filesystem_is_dot.exit.thread, %10
   ret void
 }
 
@@ -2967,7 +2967,7 @@ define hidden void @zim_SplFileInfo_getPerms(ptr noundef readonly captures(none)
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3008,7 +3008,7 @@ define hidden void @zim_SplFileInfo_getInode(ptr noundef readonly captures(none)
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3043,7 +3043,7 @@ define hidden void @zim_SplFileInfo_getSize(ptr noundef readonly captures(none) 
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3078,7 +3078,7 @@ define hidden void @zim_SplFileInfo_getOwner(ptr noundef readonly captures(none)
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3113,7 +3113,7 @@ define hidden void @zim_SplFileInfo_getGroup(ptr noundef readonly captures(none)
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3148,7 +3148,7 @@ define hidden void @zim_SplFileInfo_getATime(ptr noundef readonly captures(none)
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3183,7 +3183,7 @@ define hidden void @zim_SplFileInfo_getMTime(ptr noundef readonly captures(none)
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3218,7 +3218,7 @@ define hidden void @zim_SplFileInfo_getCTime(ptr noundef readonly captures(none)
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3253,7 +3253,7 @@ define hidden void @zim_SplFileInfo_getType(ptr noundef readonly captures(none) 
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3288,7 +3288,7 @@ define hidden void @zim_SplFileInfo_isWritable(ptr noundef readonly captures(non
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3323,7 +3323,7 @@ define hidden void @zim_SplFileInfo_isReadable(ptr noundef readonly captures(non
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3358,7 +3358,7 @@ define hidden void @zim_SplFileInfo_isExecutable(ptr noundef readonly captures(n
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3393,7 +3393,7 @@ define hidden void @zim_SplFileInfo_isFile(ptr noundef readonly captures(none) %
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3428,7 +3428,7 @@ define hidden void @zim_SplFileInfo_isDir(ptr noundef readonly captures(none) %0
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3463,7 +3463,7 @@ define hidden void @zim_SplFileInfo_isLink(ptr noundef readonly captures(none) %
   call void @zend_restore_error_handling(ptr noundef nonnull %3) #18
   br label %16
 
-16:                                               ; preds = %.critedge, %12, %8
+16:                                               ; preds = %8, %.critedge, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3573,7 +3573,7 @@ zend_string_alloc.exit:                           ; preds = %31
   store i32 262, ptr %51, align 8, !tbaa !18
   br label %52
 
-52:                                               ; preds = %14, %.thread21, %33, %zend_string_alloc.exit, %19, %10
+52:                                               ; preds = %.thread21, %10, %33, %zend_string_alloc.exit, %14, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3677,7 +3677,7 @@ zend_string_alloc.exit:                           ; preds = %28
   store i32 2, ptr %41, align 8, !tbaa !18
   br label %42
 
-42:                                               ; preds = %19, %40, %zend_string_alloc.exit, %9
+42:                                               ; preds = %9, %19, %40, %zend_string_alloc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3960,7 +3960,7 @@ spl_filesystem_object_create_info.exit:           ; preds = %84, %87
   call void @_efree(ptr noundef nonnull %46) #18
   br label %zend_string_release.exit
 
-zend_string_release.exit:                         ; preds = %2, %instanceof_function.exit.thread, %33, %98, %97, %90, %spl_filesystem_object_create_info.exit, %spl_filesystem_object_get_pathname.exit, %40, %22
+zend_string_release.exit:                         ; preds = %instanceof_function.exit.thread, %33, %98, %97, %90, %spl_filesystem_object_create_info.exit, %spl_filesystem_object_get_pathname.exit, %40, %2, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -4347,7 +4347,7 @@ spl_filesystem_object_get_debug_info.exit:        ; preds = %138, %150
   store i32 775, ptr %172, align 8, !tbaa !18
   br label %173
 
-173:                                              ; preds = %spl_filesystem_object_get_debug_info.exit, %7
+173:                                              ; preds = %7, %spl_filesystem_object_get_debug_info.exit
   ret void
 }
 
@@ -4366,7 +4366,7 @@ define hidden void @zim_SplFileInfo__bad_state_ex(ptr noundef readonly captures(
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.14) #18
   br label %6
 
-6:                                                ; preds = %.critedge, %5
+6:                                                ; preds = %5, %.critedge
   ret void
 }
 
@@ -4563,7 +4563,7 @@ define hidden void @zim_FilesystemIterator_getFlags(ptr noundef readonly capture
   store i32 4, ptr %11, align 8, !tbaa !18
   br label %12
 
-12:                                               ; preds = %.critedge, %5
+12:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -4737,7 +4737,7 @@ spl_filesystem_is_invalid_or_dot.exit.thread81:   ; preds = %.tail.i.i, %.crited
   call void @php_stat(ptr noundef %57, i32 noundef 13, ptr noundef nonnull %1) #18
   br label %58
 
-58:                                               ; preds = %32, %17, %35, %56, %55, %45, %30, %28, %spl_filesystem_is_invalid_or_dot.exit.thread
+58:                                               ; preds = %17, %35, %32, %56, %55, %45, %30, %28, %spl_filesystem_is_invalid_or_dot.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -4895,11 +4895,11 @@ zend_string_alloc.exit:                           ; preds = %41, %48
   store ptr %82, ptr %43, align 8, !tbaa !74
   br label %83
 
-83:                                               ; preds = %zval_ptr_dtor_str.exit, %73
+83:                                               ; preds = %73, %zval_ptr_dtor_str.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %84
 
-84:                                               ; preds = %.critedge, %83, %10
+84:                                               ; preds = %10, %.critedge, %83
   ret void
 }
 
@@ -4955,7 +4955,7 @@ define hidden void @zim_RecursiveDirectoryIterator_getSubPath(ptr noundef readon
   store i32 6, ptr %22, align 8, !tbaa !18
   br label %23
 
-23:                                               ; preds = %14, %16, %20, %5
+23:                                               ; preds = %5, %14, %16, %20
   ret void
 }
 
@@ -5009,7 +5009,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge
   store i32 262, ptr %25, align 8, !tbaa !18
   br label %26
 
-26:                                               ; preds = %zend_string_alloc.exit, %10, %7
+26:                                               ; preds = %7, %zend_string_alloc.exit, %10
   ret void
 }
 
@@ -5050,7 +5050,7 @@ define hidden void @zim_GlobIterator_count(ptr noundef readonly captures(none) %
   store i32 4, ptr %12, align 8, !tbaa !18
   br label %13
 
-13:                                               ; preds = %.critedge, %5
+13:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -5176,7 +5176,7 @@ zend_string_copy.exit:                            ; preds = %20, %25
   store ptr %59, ptr %65, align 8, !tbaa !36
   br label %66
 
-66:                                               ; preds = %zend_string_copy.exit, %2, %.critedge, %19
+66:                                               ; preds = %.critedge, %zend_string_copy.exit, %2, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5590,7 +5590,7 @@ define hidden void @zim_SplFileObject_rewind(ptr noundef readonly captures(none)
   tail call fastcc void @spl_filesystem_file_rewind(ptr noundef nonnull %6, ptr noundef nonnull %8)
   br label %9
 
-9:                                                ; preds = %.critedge, %5
+9:                                                ; preds = %5, %.critedge
   ret void
 }
 
@@ -5707,7 +5707,7 @@ define hidden void @zim_SplFileObject_eof(ptr noundef readonly captures(none) %0
   store i32 %13, ptr %14, align 8, !tbaa !18
   br label %15
 
-15:                                               ; preds = %11, %10, %5
+15:                                               ; preds = %5, %11, %10
   ret void
 }
 
@@ -5770,7 +5770,7 @@ define hidden void @zim_SplFileObject_valid(ptr noundef readonly captures(none) 
   store i32 %28, ptr %29, align 8, !tbaa !18
   br label %30
 
-30:                                               ; preds = %26, %24, %18, %7
+30:                                               ; preds = %7, %26, %24, %18
   ret void
 }
 
@@ -5826,7 +5826,7 @@ define hidden void @zim_SplFileObject_fgets(ptr noundef readonly captures(none) 
   store i32 262, ptr %26, align 8, !tbaa !18
   br label %27
 
-27:                                               ; preds = %12, %21, %23, %11, %8
+27:                                               ; preds = %8, %21, %23, %12, %11
   ret void
 }
 
@@ -6116,7 +6116,7 @@ define hidden void @zim_SplFileObject_current(ptr noundef readonly captures(none
   store i32 2, ptr %51, align 8, !tbaa !18
   br label %52
 
-52:                                               ; preds = %.thread42, %47, %33, %35, %50, %11, %8
+52:                                               ; preds = %8, %.thread42, %47, %33, %35, %50, %11
   ret void
 }
 
@@ -6239,7 +6239,7 @@ define hidden void @zim_SplFileObject_key(ptr noundef readonly captures(none) %0
   store i32 4, ptr %10, align 8, !tbaa !18
   br label %11
 
-11:                                               ; preds = %.critedge, %5
+11:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -6317,7 +6317,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %21, %25
   store i64 %35, ptr %33, align 8, !tbaa !18
   br label %36
 
-36:                                               ; preds = %32, %8
+36:                                               ; preds = %8, %32
   ret void
 }
 
@@ -6354,7 +6354,7 @@ define hidden void @zim_SplFileObject_getFlags(ptr noundef readonly captures(non
   store i32 4, ptr %11, align 8, !tbaa !18
   br label %12
 
-12:                                               ; preds = %.critedge, %5
+12:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -6412,7 +6412,7 @@ define hidden void @zim_SplFileObject_getMaxLineLen(ptr noundef readonly capture
   store i32 4, ptr %10, align 8, !tbaa !18
   br label %11
 
-11:                                               ; preds = %.critedge, %5
+11:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -6432,7 +6432,7 @@ define hidden void @zim_SplFileObject_hasChildren(ptr noundef readonly captures(
   store i32 2, ptr %6, align 8, !tbaa !18
   br label %7
 
-7:                                                ; preds = %.critedge, %5
+7:                                                ; preds = %5, %.critedge
   ret void
 }
 
@@ -6447,7 +6447,7 @@ define hidden void @zim_SplFileObject_getChildren(ptr noundef readonly captures(
   tail call void @zend_wrong_parameters_none_error() #18
   br label %.critedge
 
-.critedge:                                        ; preds = %2, %5
+.critedge:                                        ; preds = %5, %2
   ret void
 }
 
@@ -6570,7 +6570,7 @@ spl_csv_enclosure_param_handling.exit:            ; preds = %46, %49
   store i32 2, ptr %56, align 8, !tbaa !18
   br label %spl_csv_enclosure_param_handling.exit.thread
 
-spl_csv_enclosure_param_handling.exit.thread:     ; preds = %44, %spl_csv_enclosure_param_handling.exit, %2, %55, %52, %34, %27, %22
+spl_csv_enclosure_param_handling.exit.thread:     ; preds = %44, %55, %spl_csv_enclosure_param_handling.exit, %52, %2, %34, %27, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6804,7 +6804,7 @@ spl_csv_enclosure_param_handling.exit:            ; preds = %44, %47
   store i32 4, ptr %59, align 8, !tbaa !18
   br label %spl_csv_enclosure_param_handling.exit.thread
 
-spl_csv_enclosure_param_handling.exit.thread:     ; preds = %42, %spl_csv_enclosure_param_handling.exit, %2, %56, %58, %32, %25
+spl_csv_enclosure_param_handling.exit.thread:     ; preds = %42, %56, %58, %spl_csv_enclosure_param_handling.exit, %2, %32, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -6905,7 +6905,7 @@ define hidden void @zim_SplFileObject_setCsvControl(ptr noundef readonly capture
   store i32 %30, ptr %39, align 4, !tbaa !18
   br label %40
 
-40:                                               ; preds = %28, %2, %36, %25, %18
+40:                                               ; preds = %36, %28, %2, %25, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6969,7 +6969,7 @@ define hidden void @zim_SplFileObject_getCsvControl(ptr noundef readonly capture
   %28 = call i32 @add_next_index_string(ptr noundef nonnull %1, ptr noundef nonnull %5) #18
   br label %29
 
-29:                                               ; preds = %25, %10
+29:                                               ; preds = %10, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7051,7 +7051,7 @@ define hidden void @zim_SplFileObject_fflush(ptr noundef readonly captures(none)
   store i32 %13, ptr %14, align 8, !tbaa !18
   br label %15
 
-15:                                               ; preds = %11, %10, %5
+15:                                               ; preds = %5, %11, %10
   ret void
 }
 
@@ -7096,7 +7096,7 @@ define hidden void @zim_SplFileObject_ftell(ptr noundef readonly captures(none) 
   store i32 4, ptr %17, align 8, !tbaa !18
   br label %18
 
-18:                                               ; preds = %16, %14, %10, %5
+18:                                               ; preds = %5, %16, %14, %10
   ret void
 }
 
@@ -7287,7 +7287,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %24, %28
   store i32 %46, ptr %47, align 8, !tbaa !18
   br label %48
 
-48:                                               ; preds = %32, %38, %10, %7
+48:                                               ; preds = %7, %32, %38, %10
   ret void
 }
 
@@ -7323,7 +7323,7 @@ define hidden void @zim_SplFileObject_fpassthru(ptr noundef readonly captures(no
   store i32 4, ptr %13, align 8, !tbaa !18
   br label %14
 
-14:                                               ; preds = %11, %10, %5
+14:                                               ; preds = %5, %11, %10
   ret void
 }
 
@@ -7382,7 +7382,7 @@ define hidden void @zim_SplFileObject_fscanf(ptr noundef readonly captures(none)
   call void @zend_wrong_param_count() #18
   br label %33
 
-33:                                               ; preds = %17, %2, %32, %23, %16
+33:                                               ; preds = %32, %23, %17, %2, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7621,7 +7621,7 @@ define hidden void @zim_SplFileObject_fstat(ptr noundef readonly captures(none) 
   tail call void @php_fstat(ptr noundef nonnull %9, ptr noundef %1) #18
   br label %12
 
-12:                                               ; preds = %11, %10, %5
+12:                                               ; preds = %5, %11, %10
   ret void
 }
 
@@ -7797,7 +7797,7 @@ zend_string_release_ex.exit.i:                    ; preds = %48, %43, %39
   store i32 0, ptr %50, align 8, !tbaa !18
   br label %spl_filesystem_file_free_line.exit
 
-spl_filesystem_file_free_line.exit:               ; preds = %.lr.ph, %2, %19, %53, %49, %._crit_edge, %29, %18, %14
+spl_filesystem_file_free_line.exit:               ; preds = %.lr.ph, %19, %53, %49, %._crit_edge, %29, %2, %18, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -7812,7 +7812,7 @@ define hidden void @zim_SplFileObject___toString(ptr noundef readonly captures(n
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
-  br label %27
+  br label %28
 
 .critedge:                                        ; preds = %2
   %7 = load ptr, ptr %3, align 8, !tbaa !18
@@ -7824,46 +7824,46 @@ define hidden void @zim_SplFileObject___toString(ptr noundef readonly captures(n
 
 11:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #18
-  br label %27
+  br label %28
 
 12:                                               ; preds = %.critedge
   %13 = getelementptr inbounds i8, ptr %7, i64 -4104
   %14 = load ptr, ptr %13, align 8, !tbaa !18
   %.not16 = icmp eq ptr %14, null
-  br i1 %.not16, label %15, label %.critedge20
+  br i1 %.not16, label %15, label %17
 
 15:                                               ; preds = %12
   %16 = tail call fastcc i32 @spl_filesystem_file_read_line(ptr noundef nonnull %3, ptr noundef nonnull %8, i1 noundef zeroext false)
   %.not17 = icmp eq i32 %16, 0
-  br i1 %.not17, label %..critedge20_crit_edge, label %27, !prof !40
+  br i1 %.not17, label %._crit_edge, label %28
 
-..critedge20_crit_edge:                           ; preds = %15
+._crit_edge:                                      ; preds = %15
   %.pre = load ptr, ptr %13, align 8, !tbaa !18
-  br label %.critedge20
+  br label %17
 
-.critedge20:                                      ; preds = %..critedge20_crit_edge, %12
-  %17 = phi ptr [ %.pre, %..critedge20_crit_edge ], [ %14, %12 ]
-  store ptr %17, ptr %1, align 8, !tbaa !18
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %19 = load i32, ptr %18, align 4, !tbaa !18
-  %20 = and i32 %19, 64
-  %.not18 = icmp eq i32 %20, 0
-  br i1 %.not18, label %23, label %21
+17:                                               ; preds = %._crit_edge, %12
+  %18 = phi ptr [ %.pre, %._crit_edge ], [ %14, %12 ]
+  store ptr %18, ptr %1, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %20 = load i32, ptr %19, align 4, !tbaa !18
+  %21 = and i32 %20, 64
+  %.not18 = icmp eq i32 %21, 0
+  br i1 %.not18, label %24, label %22
 
-21:                                               ; preds = %.critedge20
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 6, ptr %22, align 8, !tbaa !18
-  br label %27
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 6, ptr %23, align 8, !tbaa !18
+  br label %28
 
-23:                                               ; preds = %.critedge20
-  %24 = load i32, ptr %17, align 4, !tbaa !32
-  %25 = add i32 %24, 1
-  store i32 %25, ptr %17, align 4, !tbaa !32
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 262, ptr %26, align 8, !tbaa !18
-  br label %27
+24:                                               ; preds = %17
+  %25 = load i32, ptr %18, align 4, !tbaa !32
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %18, align 4, !tbaa !32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 262, ptr %27, align 8, !tbaa !18
+  br label %28
 
-27:                                               ; preds = %15, %11, %23, %21, %6
+28:                                               ; preds = %6, %11, %15, %24, %22
   ret void
 }
 
@@ -7923,8 +7923,7 @@ define hidden noundef i32 @zm_startup_spl_directory(i32 noundef %0, i32 noundef 
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %48, i32 noundef 1, ptr noundef %42) #18
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %50 = call ptr @zend_hash_str_find(ptr noundef nonnull %49, ptr noundef nonnull @.str.60, i64 noundef 13) #18
-  %.not.i.i = icmp ne ptr %50, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   %51 = load ptr, ptr %50, align 8, !tbaa !18, !nonnull !65, !noundef !65
   %52 = load ptr, ptr @zend_known_strings, align 8, !tbaa !113
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 600
@@ -8474,8 +8473,8 @@ zend_string_release.exit64.i:                     ; preds = %285, %284, %277, %z
   %292 = getelementptr inbounds nuw i8, ptr %288, i64 4
   %293 = load i32, ptr %292, align 4, !tbaa !18
   %294 = and i32 %293, 64
-  %.not.i.i1 = icmp eq i32 %294, 0
-  br i1 %.not.i.i1, label %295, label %register_class_FilesystemIterator.exit
+  %.not.i.i = icmp eq i32 %294, 0
+  br i1 %.not.i.i, label %295, label %register_class_FilesystemIterator.exit
 
 295:                                              ; preds = %zend_string_release.exit64.i
   %296 = load i32, ptr %288, align 4, !tbaa !32
@@ -8727,8 +8726,8 @@ zend_string_release.exit27.i:                     ; preds = %386, %385, %378, %z
   %393 = getelementptr inbounds nuw i8, ptr %389, i64 4
   %394 = load i32, ptr %393, align 4, !tbaa !18
   %395 = and i32 %394, 64
-  %.not.i.i2 = icmp eq i32 %395, 0
-  br i1 %.not.i.i2, label %396, label %register_class_SplFileObject.exit
+  %.not.i.i1 = icmp eq i32 %395, 0
+  br i1 %.not.i.i1, label %396, label %register_class_SplFileObject.exit
 
 396:                                              ; preds = %zend_string_release.exit27.i
   %397 = load i32, ptr %389, align 4, !tbaa !32
@@ -8741,8 +8740,8 @@ zend_string_release.exit27.i:                     ; preds = %386, %385, %378, %z
 
 401:                                              ; preds = %396
   %402 = and i32 %394, 128
-  %.not5.i.i3 = icmp eq i32 %402, 0
-  br i1 %.not5.i.i3, label %404, label %403
+  %.not5.i.i2 = icmp eq i32 %402, 0
+  br i1 %.not5.i.i2, label %404, label %403
 
 403:                                              ; preds = %401
   call void @free(ptr noundef nonnull %389) #18

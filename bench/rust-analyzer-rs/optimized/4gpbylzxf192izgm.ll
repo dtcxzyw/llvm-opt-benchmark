@@ -52,45 +52,42 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN117_$LT$itert
   %.01824 = phi ptr [ %10, %8 ], [ %6, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %13 = getelementptr inbounds nuw i8, ptr %.01824, i64 24
-  %14 = load i32, ptr %13, align 8, !alias.scope !7, !noalias !10
-  %15 = getelementptr inbounds nuw i8, ptr %.01824, i64 28
-  %16 = load i32, ptr %15, align 4, !alias.scope !7, !noalias !10
-  %.not.i.i.i = icmp eq i32 %14, %16
+  %13 = tail call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %12), !noalias !10
+  %.not13.i = icmp eq ptr %13, null
+  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.thread22
+  %14 = getelementptr inbounds nuw i8, ptr %.01824, i64 24
+  %15 = load i32, ptr %14, align 8, !alias.scope !7, !noalias !12
+  %16 = getelementptr inbounds nuw i8, ptr %.01824, i64 28
+  %17 = load i32, ptr %16, align 4, !alias.scope !7, !noalias !12
+  %.not.i.i.i = icmp eq i32 %15, %17
   %.not.i.i.fr.i = freeze i1 %.not.i.i.i
-  %17 = tail call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %12), !noalias !13
-  %.not.us.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.fr.i, label %.split.us.i, label %.split.i
+  br i1 %.not.i.i.fr.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.split.us.i:                                      ; preds = %.thread22
-  br i1 %.not.us.i, label %.thread, label %.split14.us.i
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i
+  %18 = tail call noundef zeroext i1 @"_ZN57_$LT$text_edit..Indel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3947c3c8df988a3bE.llvm.4584440205186026580"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.01824, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13), !noalias !14
+  br label %.split.i
 
-.split14.us.i:                                    ; preds = %.split.us.i
-  %18 = tail call noundef zeroext i1 @"_ZN57_$LT$text_edit..Indel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3947c3c8df988a3bE.llvm.4584440205186026580"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.01824, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !noalias !14
-  br label %.split14.i
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i"
+  %19 = phi ptr [ %21, %"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i" ], [ %13, %.lr.ph.i ]
+  %20 = tail call noundef zeroext i1 @"_ZN57_$LT$text_edit..Indel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3947c3c8df988a3bE.llvm.4584440205186026580"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.01824, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %19), !noalias !14
+  br i1 %20, label %"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i", label %.split.i
 
-.split.i:                                         ; preds = %.thread22
-  br i1 %.not.us.i, label %.thread, label %"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i"
+"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i": ; preds = %.lr.ph.split.i
+  %21 = tail call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %12), !noalias !26
+  %.not.i = icmp eq ptr %21, null
+  br i1 %.not.i, label %.thread, label %.lr.ph.split.i
 
-19:                                               ; preds = %"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i"
-  %20 = tail call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc374baea60f2e8e7E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %12), !noalias !26
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %.thread, label %"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i"
-
-"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i": ; preds = %.split.i, %19
-  %21 = phi ptr [ %20, %19 ], [ %17, %.split.i ]
-  %22 = tail call noundef zeroext i1 @"_ZN57_$LT$text_edit..Indel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3947c3c8df988a3bE.llvm.4584440205186026580"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.01824, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %21), !noalias !14
-  br i1 %22, label %19, label %.split14.i
-
-.split14.i:                                       ; preds = %"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i", %.split14.us.i
-  %.us-phi.i = phi ptr [ %17, %.split14.us.i ], [ %21, %"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i" ]
+.split.i:                                         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
+  %.us-phi.i = phi ptr [ %13, %.lr.ph.split.us.i ], [ %19, %.lr.ph.split.i ]
   store i64 1, ptr %0, align 8, !noalias !26
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.us-phi.i, ptr %23, align 8, !noalias !26
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.us-phi.i, ptr %22, align 8, !noalias !26
   br label %.thread
 
-.thread:                                          ; preds = %19, %.split14.i, %.split.i, %.split.us.i, %3, %8
-  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ %.01824, %.split.us.i ], [ %.01824, %.split.i ], [ %.01824, %.split14.i ], [ %.01824, %19 ]
+.thread:                                          ; preds = %"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i", %.split.i, %.thread22, %3, %8
+  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ %.01824, %.thread22 ], [ %.01824, %.split.i ], [ %.01824, %"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i" ]
   ret ptr %.0
 }
 
@@ -494,11 +491,11 @@ attributes #10 = { cold noreturn nounwind }
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17ha2c166de10717884E: argument 1"}
 !9 = distinct !{!9, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17ha2c166de10717884E"}
-!10 = !{!11, !12}
-!11 = distinct !{!11, !9, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17ha2c166de10717884E: argument 0"}
-!12 = distinct !{!12, !9, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17ha2c166de10717884E: argument 2"}
-!13 = !{!8, !12}
-!14 = !{!15, !17, !18, !20, !21, !23, !24, !12}
+!10 = !{!8, !11}
+!11 = distinct !{!11, !9, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17ha2c166de10717884E: argument 2"}
+!12 = !{!13, !11}
+!13 = distinct !{!13, !9, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17ha2c166de10717884E: argument 0"}
+!14 = !{!15, !17, !18, !20, !21, !23, !24, !11}
 !15 = distinct !{!15, !16, !"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h68f73048d81c99a6E.llvm.4584440205186026580: argument 0"}
 !16 = distinct !{!16, !"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h68f73048d81c99a6E.llvm.4584440205186026580"}
 !17 = distinct !{!17, !16, !"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h68f73048d81c99a6E.llvm.4584440205186026580: argument 1"}
@@ -510,7 +507,7 @@ attributes #10 = { cold noreturn nounwind }
 !23 = distinct !{!23, !22, !"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E: argument 1"}
 !24 = distinct !{!24, !25, !"_ZN145_$LT$itertools..adaptors..coalesce..DedupPred2CoalescePred$LT$DP$GT$$u20$as$u20$itertools..adaptors..coalesce..CoalescePredicate$LT$T$C$T$GT$$GT$13coalesce_pair17h7dd6f40a0259df79E: argument 0"}
 !25 = distinct !{!25, !"_ZN145_$LT$itertools..adaptors..coalesce..DedupPred2CoalescePred$LT$DP$GT$$u20$as$u20$itertools..adaptors..coalesce..CoalescePredicate$LT$T$C$T$GT$$GT$13coalesce_pair17h7dd6f40a0259df79E"}
-!26 = !{!12}
+!26 = !{!11}
 !27 = !{i64 0, i64 -9223372036854775806}
 !28 = !{!29}
 !29 = distinct !{!29, !30, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E: argument 1"}

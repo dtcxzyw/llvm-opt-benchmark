@@ -557,6 +557,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEjNS_12DenseMapInfoIS
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %161, align 8
   %162 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %163 = inttoptr i64 %162 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %163) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %163, align 8
   %164 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i36 = icmp eq i64 %164, 0
@@ -593,6 +594,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit: ; preds =
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i38 = load i64, ptr %.sroa.053.068, align 8
   %175 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i38, -8
   %176 = inttoptr i64 %175 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %176) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i39 = load i64, ptr %176, align 8
   %177 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i39, 4
   %.not.i.i.i40 = icmp eq i64 %177, 0

@@ -14408,8 +14408,7 @@ define dso_local noundef zeroext i1 @_Z33TestRetainedSmallVectorDataSourcev() lo
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %74 = load ptr, ptr %9, align 8, !noalias !45, !nonnull !46, !noundef !46
   %75 = call ptr @__dynamic_cast(ptr nonnull %74, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceIiEE, i64 0) #22, !noalias !45
-  %.not.i.i = icmp ne ptr %75, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %75) ]
   store ptr %75, ptr %12, align 8, !alias.scope !45
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -14452,8 +14451,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceIiE4CastE
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %94 = load ptr, ptr %10, align 8, !noalias !53, !nonnull !46, !noundef !46
   %95 = call ptr @__dynamic_cast(ptr nonnull %94, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceIiEE, i64 0) #22, !noalias !53
-  %.not.i.i43 = icmp ne ptr %95, null
-  call void @llvm.assume(i1 %.not.i.i43)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %95) ]
   store ptr %95, ptr %13, align 8, !alias.scope !53
   %96 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -14496,8 +14494,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceIiE4CastE
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %114 = load ptr, ptr %11, align 8, !noalias !60, !nonnull !46, !noundef !46
   %115 = call ptr @__dynamic_cast(ptr nonnull %114, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceIiEE, i64 0) #22, !noalias !60
-  %.not.i.i48 = icmp ne ptr %115, null
-  call void @llvm.assume(i1 %.not.i.i48)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %115) ]
   store ptr %115, ptr %14, align 8, !alias.scope !60
   %116 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %117 = getelementptr inbounds nuw i8, ptr %11, i64 8

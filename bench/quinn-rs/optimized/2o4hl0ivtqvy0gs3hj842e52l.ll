@@ -926,7 +926,7 @@ define internal noundef float @_ZN5bytes3buf8buf_impl3Buf10get_f32_le17h0e3331e9
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i, ptr %2, align 8, !noalias !114
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !114
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !114
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !114
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i.i": ; preds = %13
@@ -954,7 +954,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds 
   store i64 4, ptr %4, align 8, !noalias !85
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8, !noalias !85
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !85
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !85
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf10get_u32_le17hc3e18aece009fcf0E.exit: ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
@@ -1009,7 +1009,7 @@ define internal noundef float @_ZN5bytes3buf8buf_impl3Buf10get_f32_ne17h22a11c31
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i, ptr %2, align 8, !noalias !150
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !150
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !150
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !150
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i.i": ; preds = %13
@@ -1037,7 +1037,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds 
   store i64 4, ptr %4, align 8, !noalias !122
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8, !noalias !122
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !122
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !122
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf10get_u32_ne17h6f0c68d99d20b26cE.exit: ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
@@ -1092,7 +1092,7 @@ define internal noundef double @_ZN5bytes3buf8buf_impl3Buf10get_f64_le17ha02f6b0
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i, ptr %2, align 8, !noalias !186
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !186
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !186
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !186
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i.i": ; preds = %13
@@ -1120,7 +1120,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds 
   store i64 8, ptr %4, align 8, !noalias !158
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8, !noalias !158
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !158
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !158
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf10get_u64_le17h736e8a0326ec488bE.exit: ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
@@ -1175,7 +1175,7 @@ define internal noundef double @_ZN5bytes3buf8buf_impl3Buf10get_f64_ne17h6f5ec46
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i, ptr %2, align 8, !noalias !222
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !222
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !222
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !222
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i.i": ; preds = %13
@@ -1203,7 +1203,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds 
   store i64 8, ptr %4, align 8, !noalias !194
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8, !noalias !194
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !194
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !194
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf10get_u64_ne17h23fe793f3cd5b9e2E.exit: ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
@@ -1257,7 +1257,7 @@ define internal noundef i16 @_ZN5bytes3buf8buf_impl3Buf10get_i16_le17h894f5823a7
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !254
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !254
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !254
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !254
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -1285,7 +1285,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 2, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -1339,7 +1339,7 @@ define internal noundef i16 @_ZN5bytes3buf8buf_impl3Buf10get_i16_ne17h3158c7bc75
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !286
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !286
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !286
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !286
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -1367,7 +1367,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 2, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -1421,7 +1421,7 @@ define internal noundef i32 @_ZN5bytes3buf8buf_impl3Buf10get_i32_le17h6c804e8ee7
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !318
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !318
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !318
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !318
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -1449,7 +1449,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 4, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -1503,7 +1503,7 @@ define internal noundef i32 @_ZN5bytes3buf8buf_impl3Buf10get_i32_ne17h15baa86e9a
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !350
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !350
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !350
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !350
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -1531,7 +1531,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 4, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -1585,7 +1585,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf10get_i64_le17hfdcf3e74f5
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !382
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !382
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !382
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !382
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -1613,7 +1613,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 8, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -1667,7 +1667,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf10get_i64_ne17ha7903198fa
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !414
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !414
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !414
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !414
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -1695,7 +1695,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 8, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -1715,7 +1715,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf10get_int_le17h6f823e6153
   br i1 %6, label %8, label %7, !prof !428
 
 7:                                                ; preds = %2
-  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %1) #21, !noalias !425
+  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %1) #22, !noalias !425
   unreachable
 
 8:                                                ; preds = %2
@@ -1755,7 +1755,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf10get_int_le17h6f823e6153
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %3, align 8, !noalias !449
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %19, ptr %22, align 8, !noalias !449
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !449
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !449
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %15
@@ -1776,7 +1776,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf10get_int_le17h6f823e6153
   store i64 %1, ptr %5, align 8, !noalias !422
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %12, ptr %28, align 8, !noalias !422
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #21, !noalias !422
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #22, !noalias !422
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf11get_uint_le17h6403fc21d429c5d7E.exit: ; preds = %.preheader.i.i.i, %.loopexit.loopexit.i.i
@@ -1802,7 +1802,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf10get_int_ne17h990ed54895
   br i1 %6, label %8, label %7, !prof !428
 
 7:                                                ; preds = %2
-  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %1) #21, !noalias !457
+  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %1) #22, !noalias !457
   unreachable
 
 8:                                                ; preds = %2
@@ -1842,7 +1842,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf10get_int_ne17h990ed54895
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i, ptr %3, align 8, !noalias !480
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %19, ptr %22, align 8, !noalias !480
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !480
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !480
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i.i": ; preds = %15
@@ -1863,7 +1863,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf10get_int_ne17h990ed54895
   store i64 %1, ptr %5, align 8, !noalias !482
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %12, ptr %28, align 8, !noalias !482
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #21, !noalias !482
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #22, !noalias !482
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf10get_int_le17h6f823e6153d6f102E.exit: ; preds = %.preheader.i.i.i.i, %.loopexit.loopexit.i.i.i
@@ -1922,7 +1922,7 @@ define internal noundef i16 @_ZN5bytes3buf8buf_impl3Buf10get_u16_le17hfce703ce14
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !507
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !507
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !507
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !507
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -1950,7 +1950,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 2, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -2004,7 +2004,7 @@ define internal noundef i16 @_ZN5bytes3buf8buf_impl3Buf10get_u16_ne17hdae7590b14
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !539
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !539
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !539
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !539
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -2032,7 +2032,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 2, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -2086,7 +2086,7 @@ define internal noundef i32 @_ZN5bytes3buf8buf_impl3Buf10get_u32_le17hc3e18aece0
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !571
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !571
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !571
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !571
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -2114,7 +2114,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 4, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -2168,7 +2168,7 @@ define internal noundef i32 @_ZN5bytes3buf8buf_impl3Buf10get_u32_ne17h6f0c68d99d
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !603
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !603
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !603
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !603
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -2196,7 +2196,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 4, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -2250,7 +2250,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf10get_u64_le17h736e8a0326
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !635
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !635
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !635
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !635
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -2278,7 +2278,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 8, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -2332,7 +2332,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf10get_u64_ne17h23fe793f3c
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !667
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !667
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !667
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !667
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -2360,7 +2360,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 8, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %27, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 28:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -2480,7 +2480,7 @@ define internal noundef i128 @_ZN5bytes3buf8buf_impl3Buf11get_i128_le17he81d1f52
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !717
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !717
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !717
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !717
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -2508,7 +2508,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 16, ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %28, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 29:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
@@ -2562,7 +2562,7 @@ define internal noundef i128 @_ZN5bytes3buf8buf_impl3Buf11get_i128_ne17h868a066f
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !749
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !749
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !749
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !749
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -2590,7 +2590,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 16, ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %28, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 29:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
@@ -2644,7 +2644,7 @@ define internal noundef i128 @_ZN5bytes3buf8buf_impl3Buf11get_u128_le17h2482f5e8
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !781
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !781
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !781
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !781
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -2672,7 +2672,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 16, ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %28, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 29:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
@@ -2726,7 +2726,7 @@ define internal noundef i128 @_ZN5bytes3buf8buf_impl3Buf11get_u128_ne17hbd6a09cb
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !813
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !813
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !813
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !813
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -2754,7 +2754,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 16, ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %28, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 29:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
@@ -2773,7 +2773,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf11get_uint_le17h6403fc21d
   br i1 %6, label %8, label %7, !prof !428
 
 7:                                                ; preds = %2
-  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %1) #21, !noalias !821
+  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %1) #22, !noalias !821
   unreachable
 
 8:                                                ; preds = %2
@@ -2813,7 +2813,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf11get_uint_le17h6403fc21d
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !844
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %19, ptr %22, align 8, !noalias !844
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !844
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !844
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %15
@@ -2834,7 +2834,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf11get_uint_le17h6403fc21d
   store i64 %1, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %12, ptr %28, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #22
   unreachable
 
 29:                                               ; preds = %.loopexit.loopexit.i, %.preheader.i.i
@@ -2855,7 +2855,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf11get_uint_ne17h18bc02e24
   br i1 %6, label %8, label %7, !prof !428
 
 7:                                                ; preds = %2
-  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %1) #21, !noalias !849
+  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %1) #22, !noalias !849
   unreachable
 
 8:                                                ; preds = %2
@@ -2895,7 +2895,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf11get_uint_ne17h18bc02e24
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %3, align 8, !noalias !872
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %19, ptr %22, align 8, !noalias !872
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !872
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !872
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %15
@@ -2916,7 +2916,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf11get_uint_ne17h18bc02e24
   store i64 %1, ptr %5, align 8, !noalias !846
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %12, ptr %28, align 8, !noalias !846
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #21, !noalias !846
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #22, !noalias !846
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf11get_uint_le17h6403fc21d429c5d7E.exit: ; preds = %.preheader.i.i.i, %.loopexit.loopexit.i.i
@@ -2971,7 +2971,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf11try_get_f3217h9fe99f08f6c0a2da
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %3, align 8, !noalias !901
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %17, ptr %20, align 8, !noalias !901
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !901
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !901
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -3061,7 +3061,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf11try_get_f6417h75973e5a8e0ab6c9
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %3, align 8, !noalias !936
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %17, ptr %20, align 8, !noalias !936
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !936
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !936
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -3154,7 +3154,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf11try_get_i1617ha9fd46998b91462c
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !965
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !965
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !965
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !965
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -3242,7 +3242,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf11try_get_i3217h0d1749af87a3bb93
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !994
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !994
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !994
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !994
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -3330,7 +3330,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf11try_get_i6417hec72172890e9fdc7
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1023
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1023
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1023
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1023
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -3413,7 +3413,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf11try_get_int17h1a82cc4dde47f3a4
   store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %4, align 8, !noalias !1051
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1051
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !1051
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !1051
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i": ; preds = %16
@@ -3425,7 +3425,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf11try_get_int17h1a82cc4dde47f3a4
   br i1 %27, label %.loopexit.loopexit, label %16
 
 28:                                               ; preds = %3
-  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %2) #21
+  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %2) #22
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit: ; preds = %7
@@ -3502,7 +3502,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf11try_get_u1617h290593edbf9dde56
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1074
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1074
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1074
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1074
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -3590,7 +3590,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf11try_get_u3217hb39e9f293a172b04
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1103
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1103
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1103
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1103
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -3678,7 +3678,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf11try_get_u6417h086bbcb8057929be
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1132
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1132
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1132
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1132
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -3766,7 +3766,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf12try_get_i12817hf5093edaeef9de0
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1161
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1161
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1161
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1161
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -3854,7 +3854,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf12try_get_u12817h22d5028b8e726a2
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1190
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1190
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1190
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1190
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -3937,7 +3937,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf12try_get_uint17h9f47a09c3a22b0c
   store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %4, align 8, !noalias !1218
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1218
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !1218
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !1218
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i": ; preds = %16
@@ -3949,7 +3949,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf12try_get_uint17h9f47a09c3a22b0c
   br i1 %27, label %.loopexit.loopexit, label %16
 
 28:                                               ; preds = %3
-  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %2) #21
+  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %2) #22
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit: ; preds = %7
@@ -4009,7 +4009,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf13copy_to_bytes17h707a8ccdc27de7
 
 26:                                               ; preds = %20
   %27 = load i64, ptr %25, align 8, !noalias !1223
-  tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %24, i64 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.30) #21
+  tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %24, i64 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.30) #22
   unreachable
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9ed73b0ebbf241b3E.exit": ; preds = %20
@@ -4084,7 +4084,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf13copy_to_bytes17h707a8ccdc27de7
   %.lcssa51.sink = phi i64 [ %42, %61 ], [ %55, %57 ]
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %.sink, align 8, !noalias !1247
   store i64 %.lcssa51.sink, ptr %.sink.sroa.phi, align 8, !noalias !1247
-  invoke void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sink) #21
+  invoke void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sink) #22
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -4115,7 +4115,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf13copy_to_bytes17h707a8ccdc27de7
   store i64 %2, ptr %14, align 8
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %18, ptr %66, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14) #22
   unreachable
 
 "_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h6f545173fec138b2E.exit.loopexit": ; preds = %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h8d64727f97b451beE.exit.i"
@@ -4136,127 +4136,125 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf13copy_to_bytes17h707a8ccdc27de7
   br i1 %.not.i5, label %69, label %.noexc7
 
 69:                                               ; preds = %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h6f545173fec138b2E.exit"
-  %70 = icmp ne ptr %.sroa.0.0.copyload, null
-  call void @llvm.assume(i1 %70)
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %71, align 8, !alias.scope !1256, !noalias !1259
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.copyload, ptr %72, align 8, !alias.scope !1256, !noalias !1259
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.8.0.copyload, ptr %73, align 8, !alias.scope !1256, !noalias !1259
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload) ]
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.0.0.copyload, ptr %70, align 8, !alias.scope !1256, !noalias !1259
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.5.0.copyload, ptr %71, align 8, !alias.scope !1256, !noalias !1259
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sroa.8.0.copyload, ptr %72, align 8, !alias.scope !1256, !noalias !1259
   store ptr @_ZN5bytes9bytes_mut13SHARED_VTABLE17ha302cbe0cdde5006E, ptr %0, align 8, !alias.scope !1256, !noalias !1259
-  br label %105
+  br label %103
 
 .noexc7:                                          ; preds = %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h6f545173fec138b2E.exit"
-  %74 = lshr i64 %67, 5
-  %75 = icmp ne ptr %.sroa.0.0.copyload, null
-  call void @llvm.assume(i1 %75)
-  %76 = sub nsw i64 0, %74
-  %77 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %76
-  %78 = add i64 %74, %.sroa.5.0.copyload
-  %79 = add i64 %74, %.sroa.7.0.copyload
-  store i64 %79, ptr %9, align 8, !noalias !1261
-  %80 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %77, ptr %80, align 8, !noalias !1261
-  %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %78, ptr %81, align 8, !noalias !1261
+  %73 = lshr i64 %67, 5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload) ]
+  %74 = sub nsw i64 0, %73
+  %75 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %74
+  %76 = add i64 %73, %.sroa.5.0.copyload
+  %77 = add i64 %73, %.sroa.7.0.copyload
+  store i64 %77, ptr %9, align 8, !noalias !1261
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %75, ptr %78, align 8, !noalias !1261
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 %76, ptr %79, align 8, !noalias !1261
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1261
   call void @"_ZN92_$LT$bytes..bytes..Bytes$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$4from17h213cb3dcec34bfc3E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !1262)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1261
-  store i64 %74, ptr %7, align 8, !noalias !1265
-  %82 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %83 = load i64, ptr %82, align 8, !alias.scope !1262, !noalias !1261, !noundef !3
-  %.not.i.i6 = icmp ugt i64 %74, %83
-  br i1 %.not.i.i6, label %84, label %98, !prof !113
+  store i64 %73, ptr %7, align 8, !noalias !1265
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %81 = load i64, ptr %80, align 8, !alias.scope !1262, !noalias !1261, !noundef !3
+  %.not.i.i6 = icmp ugt i64 %73, %81
+  br i1 %.not.i.i6, label %82, label %96, !prof !113
 
-84:                                               ; preds = %.noexc7
+82:                                               ; preds = %.noexc7
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1265
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1265
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1265
-  store i64 %83, ptr %4, align 8, !noalias !1265
+  store i64 %81, ptr %4, align 8, !noalias !1265
   store ptr %7, ptr %5, align 8, !noalias !1265
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h7cb14cc4e0f53c98E", ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !1265
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %85, align 8, !noalias !1265
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %83, align 8, !noalias !1265
   %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h7cb14cc4e0f53c98E", ptr %.sroa.46.0..sroa_idx.i.i, align 8, !noalias !1265
   store ptr @anon.ca391f32cacb947182dbf6dff10db961.45, ptr %6, align 8, !noalias !1265
-  %86 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 2, ptr %86, align 8, !noalias !1265
-  %87 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %87, align 8, !noalias !1265
-  %88 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %5, ptr %88, align 8, !noalias !1265
-  %89 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 2, ptr %89, align 8, !noalias !1265
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.47) #21
-          to label %.noexc.i unwind label %90, !noalias !1261
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 2, ptr %84, align 8, !noalias !1265
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %85, align 8, !noalias !1265
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %5, ptr %86, align 8, !noalias !1265
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 2, ptr %87, align 8, !noalias !1265
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.47) #22
+          to label %.noexc.i unwind label %88, !noalias !1261
 
-.noexc.i:                                         ; preds = %84
+.noexc.i:                                         ; preds = %82
   unreachable
 
-90:                                               ; preds = %84
-  %91 = landingpad { ptr, i32 }
+88:                                               ; preds = %82
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !1266)
   call void @llvm.experimental.noalias.scope.decl(metadata !1269)
-  %92 = load ptr, ptr %8, align 8, !alias.scope !1272, !noalias !1261, !nonnull !3, !align !4, !noundef !3
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  %94 = load ptr, ptr %93, align 8, !noalias !1273, !nonnull !3, !noundef !3
-  %95 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %96 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %97 = load ptr, ptr %96, align 8, !alias.scope !1272, !noalias !1261, !noundef !3
-  invoke void %94(ptr noalias noundef nonnull align 8 dereferenceable(8) %95, ptr noundef %97, i64 noundef %83)
-          to label %.body.thread unwind label %103, !noalias !1261
+  %90 = load ptr, ptr %8, align 8, !alias.scope !1272, !noalias !1261, !nonnull !3, !align !4, !noundef !3
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
+  %92 = load ptr, ptr %91, align 8, !noalias !1273, !nonnull !3, !noundef !3
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %95 = load ptr, ptr %94, align 8, !alias.scope !1272, !noalias !1261, !noundef !3
+  invoke void %92(ptr noalias noundef nonnull align 8 dereferenceable(8) %93, ptr noundef %95, i64 noundef %81)
+          to label %.body.thread unwind label %101, !noalias !1261
 
-98:                                               ; preds = %.noexc7
-  %99 = sub nuw i64 %83, %74
-  store i64 %99, ptr %82, align 8, !alias.scope !1262, !noalias !1261
-  %100 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %101 = load ptr, ptr %100, align 8, !alias.scope !1262, !noalias !1261, !noundef !3
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %74
-  store ptr %102, ptr %100, align 8, !alias.scope !1262, !noalias !1261
+96:                                               ; preds = %.noexc7
+  %97 = sub nuw i64 %81, %73
+  store i64 %97, ptr %80, align 8, !alias.scope !1262, !noalias !1261
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %99 = load ptr, ptr %98, align 8, !alias.scope !1262, !noalias !1261, !noundef !3
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %73
+  store ptr %100, ptr %98, align 8, !alias.scope !1262, !noalias !1261
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1261
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !1259
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1261
-  br label %105
+  br label %103
 
-103:                                              ; preds = %90
-  %104 = landingpad { ptr, i32 }
+101:                                              ; preds = %88
+  %102 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22, !noalias !1261
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23, !noalias !1261
   unreachable
 
-105:                                              ; preds = %98, %69
+103:                                              ; preds = %96, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
-.body.thread:                                     ; preds = %90, %106
-  %eh.lpad-body13 = phi { ptr, i32 } [ %91, %90 ], [ %lpad.phi, %106 ]
+.body.thread:                                     ; preds = %88, %104
+  %eh.lpad-body13 = phi { ptr, i32 } [ %89, %88 ], [ %lpad.phi, %104 ]
   resume { ptr, i32 } %eh.lpad-body13
 
 .loopexit:                                        ; preds = %47
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %104
 
 .loopexit.split-lp:                               ; preds = %.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %104
 
-106:                                              ; preds = %.loopexit.split-lp, %.loopexit
+104:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h57bdeb2537e5de06E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #23
-          to label %.body.thread unwind label %107
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h57bdeb2537e5de06E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #24
+          to label %.body.thread unwind label %105
 
-107:                                              ; preds = %106
-  %108 = landingpad { ptr, i32 }
+105:                                              ; preds = %104
+  %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 }
 
@@ -4300,7 +4298,7 @@ define hidden void @_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h5f73850f88984c60
   store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %4, align 8, !noalias !1294
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %16, ptr %19, align 8, !noalias !1294
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !1294
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !1294
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h183679c65f1e33afE.exit.i": ; preds = %12
@@ -4316,7 +4314,7 @@ _ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h9e77e85a3f30570fE.exit: ; preds 
   store i64 %2, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %9, ptr %24, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #22
   unreachable
 
 .loopexit:                                        ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h183679c65f1e33afE.exit.i", %.preheader.i
@@ -4363,7 +4361,7 @@ define hidden void @_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35
   store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %4, align 8, !noalias !1316
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %16, ptr %19, align 8, !noalias !1316
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !1316
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !1316
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i": ; preds = %12
@@ -4379,7 +4377,7 @@ _ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit: ; preds 
   store i64 %2, ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %9, ptr %24, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #22
   unreachable
 
 .loopexit:                                        ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %.preheader.i
@@ -4434,7 +4432,7 @@ define hidden void @_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h9b378eb2a88a9f50
   store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %4, align 8, !noalias !1347
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %19, ptr %22, align 8, !noalias !1347
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !1347
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !1347
   unreachable
 
 "_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h182b1d00277d5358E.exit.i": ; preds = %14
@@ -4452,7 +4450,7 @@ _ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h574ab755cfbec6c1E.exit: ; preds 
   store i64 %2, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %28, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #22
   unreachable
 
 .loopexit:                                        ; preds = %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h182b1d00277d5358E.exit.i", %.preheader.i
@@ -4525,7 +4523,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_f32_le17h704e35167dcb1
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %3, align 8, !noalias !1383
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %17, ptr %20, align 8, !noalias !1383
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1383
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1383
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -4613,7 +4611,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_f32_ne17h6a9ad4e4d7625
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %3, align 8, !noalias !1418
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %17, ptr %20, align 8, !noalias !1418
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1418
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1418
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -4701,7 +4699,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_f64_le17he8685fb57b62a
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %3, align 8, !noalias !1453
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %17, ptr %20, align 8, !noalias !1453
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1453
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1453
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -4785,7 +4783,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_f64_ne17h9bfef7cfbbb07
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %3, align 8, !noalias !1488
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %17, ptr %20, align 8, !noalias !1488
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1488
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1488
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -4876,7 +4874,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_i16_le17h4b8c76e36ef36
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1517
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1517
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1517
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1517
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -4962,7 +4960,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_i16_ne17h157f671e09bb2
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1546
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1546
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1546
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1546
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -5048,7 +5046,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_i32_le17h1aee28c490097
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1575
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1575
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1575
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1575
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -5134,7 +5132,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_i32_ne17ha978f82d6ce14
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1604
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1604
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1604
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1604
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -5220,7 +5218,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_i64_le17hf9c8ca4316f24
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1633
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1633
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1633
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1633
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -5306,7 +5304,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_i64_ne17hec9bdc60c2c6a
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1662
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1662
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1662
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1662
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -5349,7 +5347,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_int_le17h8b731fdf53d72
   br i1 %6, label %8, label %7, !prof !428
 
 7:                                                ; preds = %3
-  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %2) #21
+  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %2) #22
   unreachable
 
 8:                                                ; preds = %3
@@ -5389,7 +5387,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_int_le17h8b731fdf53d72
   store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %4, align 8, !noalias !1690
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %19, ptr %22, align 8, !noalias !1690
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !1690
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !1690
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i": ; preds = %15
@@ -5432,7 +5430,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_int_ne17h0b208c8784b2d
   br i1 %6, label %8, label %7, !prof !428
 
 7:                                                ; preds = %3
-  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %2) #21, !noalias !1697
+  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %2) #22, !noalias !1697
   unreachable
 
 8:                                                ; preds = %3
@@ -5472,7 +5470,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_int_ne17h0b208c8784b2d
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %4, align 8, !noalias !1718
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %19, ptr %22, align 8, !noalias !1718
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !1718
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !1718
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %15
@@ -5556,7 +5554,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_u16_le17h7129d1a26ded9
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1741
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1741
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1741
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1741
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -5642,7 +5640,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_u16_ne17h5a63fa8e08d15
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1770
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1770
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1770
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1770
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -5728,7 +5726,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_u32_le17h7eb2293cf9199
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1799
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1799
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1799
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1799
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -5814,7 +5812,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_u32_ne17h3f0450b16b04a
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1828
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1828
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1828
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1828
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -5900,7 +5898,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_u64_le17heba63a529c8fb
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1857
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1857
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1857
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1857
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -5986,7 +5984,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf14try_get_u64_ne17h21746a48d02e2
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1886
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1886
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1886
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1886
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -6099,7 +6097,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf15try_get_i128_le17h451e61401514
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1923
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1923
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1923
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1923
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -6185,7 +6183,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf15try_get_i128_ne17h4dfd67df2e97
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1952
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1952
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1952
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1952
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -6271,7 +6269,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf15try_get_u128_le17h5f3d4c532173
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !1981
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !1981
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !1981
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !1981
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -6357,7 +6355,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf15try_get_u128_ne17hf4210c605fe0
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !2010
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !2010
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !2010
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !2010
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -6400,7 +6398,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf15try_get_uint_le17hce8e0940715e
   br i1 %6, label %8, label %7, !prof !428
 
 7:                                                ; preds = %3
-  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %2) #21
+  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %2) #22
   unreachable
 
 8:                                                ; preds = %3
@@ -6440,7 +6438,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf15try_get_uint_le17hce8e0940715e
   store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %4, align 8, !noalias !2038
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %19, ptr %22, align 8, !noalias !2038
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !2038
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !2038
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i": ; preds = %15
@@ -6483,7 +6481,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf15try_get_uint_ne17h8a30b8adb5c4
   br i1 %6, label %8, label %7, !prof !428
 
 7:                                                ; preds = %3
-  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %2) #21, !noalias !2045
+  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %2) #22, !noalias !2045
   unreachable
 
 8:                                                ; preds = %3
@@ -6523,7 +6521,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf15try_get_uint_ne17h8a30b8adb5c4
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %4, align 8, !noalias !2066
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %19, ptr %22, align 8, !noalias !2066
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !2066
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !2066
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %15
@@ -6604,7 +6602,7 @@ define internal void @_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d948
   store i64 %.sroa.0.0.sroa.speculated.i, ptr %5, align 8, !noalias !2078
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %19, ptr %22, align 8, !noalias !2078
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #21, !noalias !2078
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #22, !noalias !2078
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit": ; preds = %15
@@ -6626,7 +6624,7 @@ define internal noundef i8 @_ZN5bytes3buf8buf_impl3Buf6get_i817h722f46d656fa8b53
   br i1 %.not1, label %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit", label %5, !prof !2084
 
 5:                                                ; preds = %1
-  tail call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.ca391f32cacb947182dbf6dff10db961.37) #21
+  tail call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.ca391f32cacb947182dbf6dff10db961.37) #22
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit": ; preds = %1
@@ -6662,7 +6660,7 @@ define hidden noundef i8 @_ZN5bytes3buf8buf_impl3Buf6get_u817h23d97b4523a0f870E(
   br i1 %.not, label %20, label %13
 
 12:                                               ; preds = %1
-  tail call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.ca391f32cacb947182dbf6dff10db961.37) #21
+  tail call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.ca391f32cacb947182dbf6dff10db961.37) #22
   unreachable
 
 13:                                               ; preds = %10
@@ -6679,7 +6677,7 @@ define hidden noundef i8 @_ZN5bytes3buf8buf_impl3Buf6get_u817h23d97b4523a0f870E(
   store i64 1, ptr %2, align 8, !noalias !2106
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %6, ptr %17, align 8, !noalias !2106
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !2106
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !2106
   unreachable
 
 "_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h182b1d00277d5358E.exit": ; preds = %13
@@ -6690,7 +6688,7 @@ define hidden noundef i8 @_ZN5bytes3buf8buf_impl3Buf6get_u817h23d97b4523a0f870E(
   ret i8 %15
 
 20:                                               ; preds = %10
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.38) #21
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.38) #22
   unreachable
 }
 
@@ -6704,7 +6702,7 @@ define hidden noundef i8 @_ZN5bytes3buf8buf_impl3Buf6get_u817h4b086a067a3767ddE(
   br i1 %.not1, label %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h183679c65f1e33afE.exit", label %5, !prof !2084
 
 5:                                                ; preds = %1
-  tail call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.ca391f32cacb947182dbf6dff10db961.37) #21
+  tail call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.ca391f32cacb947182dbf6dff10db961.37) #22
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h183679c65f1e33afE.exit": ; preds = %1
@@ -6726,7 +6724,7 @@ define hidden noundef i8 @_ZN5bytes3buf8buf_impl3Buf6get_u817h883fc7f06b808c36E(
   br i1 %.not1, label %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit", label %5, !prof !2084
 
 5:                                                ; preds = %1
-  tail call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.ca391f32cacb947182dbf6dff10db961.37) #21
+  tail call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.ca391f32cacb947182dbf6dff10db961.37) #22
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit": ; preds = %1
@@ -6785,7 +6783,7 @@ define internal noundef float @_ZN5bytes3buf8buf_impl3Buf7get_f3217h9edbb503a949
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i, ptr %2, align 8, !noalias !2153
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !2153
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !2153
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !2153
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i.i": ; preds = %13
@@ -6815,7 +6813,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds 
   store i64 4, ptr %4, align 8, !noalias !2125
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %29, align 8, !noalias !2125
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !2125
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !2125
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf7get_u3217h8490814e395c693cE.exit: ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
@@ -6871,7 +6869,7 @@ define internal noundef double @_ZN5bytes3buf8buf_impl3Buf7get_f6417h38fef154970
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i, ptr %2, align 8, !noalias !2189
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !2189
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !2189
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !2189
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i.i": ; preds = %13
@@ -6901,7 +6899,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i: ; preds 
   store i64 8, ptr %4, align 8, !noalias !2161
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %29, align 8, !noalias !2161
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !2161
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !2161
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf7get_u6417hd6089863133fca76E.exit: ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
@@ -6956,7 +6954,7 @@ define internal noundef i16 @_ZN5bytes3buf8buf_impl3Buf7get_i1617h3b2d3dc2b8e9d9
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !2221
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !2221
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !2221
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !2221
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -6986,7 +6984,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 2, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %29, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -7040,7 +7038,7 @@ define internal noundef i32 @_ZN5bytes3buf8buf_impl3Buf7get_i3217h3ed4836c78713a
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !2253
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !2253
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !2253
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !2253
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -7070,7 +7068,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 4, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %29, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -7124,7 +7122,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf7get_i6417h1269943bd479e2
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !2285
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !2285
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !2285
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !2285
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -7154,7 +7152,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 8, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %29, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -7212,7 +7210,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf7get_int17h18b8e771d582c3
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %3, align 8, !noalias !2319
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !2319
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !2319
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !2319
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %16
@@ -7224,7 +7222,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf7get_int17h18b8e771d582c3
   br i1 %27, label %.loopexit.loopexit.i.i, label %16
 
 28:                                               ; preds = %2
-  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %1) #21, !noalias !2296
+  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %1) #22, !noalias !2296
   unreachable
 
 .loopexit.loopexit.i.i:                           ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i"
@@ -7238,7 +7236,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf7get_int17h18b8e771d582c3
   store i64 %1, ptr %5, align 8, !noalias !2293
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %13, ptr %31, align 8, !noalias !2293
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #21, !noalias !2293
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #22, !noalias !2293
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit: ; preds = %.preheader.i.i.i, %.loopexit.loopexit.i.i
@@ -7306,7 +7304,7 @@ define hidden noundef i16 @_ZN5bytes3buf8buf_impl3Buf7get_u1617h2f918903260326dd
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !2352
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %20, ptr %23, align 8, !noalias !2352
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !2352
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !2352
   unreachable
 
 "_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h182b1d00277d5358E.exit.i.i.i": ; preds = %15
@@ -7341,7 +7339,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h9b378eb2a88a9f50E.exit.i: ; preds = 
   store i64 2, ptr %4, align 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %34, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 35:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h9b378eb2a88a9f50E.exit.i, %"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h182b1d00277d5358E.exit.i"
@@ -7395,7 +7393,7 @@ define hidden noundef i16 @_ZN5bytes3buf8buf_impl3Buf7get_u1617h7b9bbe40ad499294
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !2389
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !2389
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !2389
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !2389
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -7425,7 +7423,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 2, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %29, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -7479,7 +7477,7 @@ define hidden noundef i32 @_ZN5bytes3buf8buf_impl3Buf7get_u3217h8490814e395c693c
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !2421
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !2421
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !2421
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !2421
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -7509,7 +7507,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 4, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %29, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -7563,7 +7561,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf7get_u6417hd6089863133fca
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !2453
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !2453
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !2453
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !2453
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -7593,7 +7591,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 8, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %29, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 30:                                               ; preds = %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i, %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i"
@@ -7647,7 +7645,7 @@ define internal noundef i128 @_ZN5bytes3buf8buf_impl3Buf8get_i12817h6f273cd098e4
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !2485
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !2485
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !2485
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !2485
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -7677,7 +7675,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 16, ptr %4, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %30, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 31:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
@@ -7731,7 +7729,7 @@ define internal noundef i128 @_ZN5bytes3buf8buf_impl3Buf8get_u12817h58ae9b450b9d
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %2, align 8, !noalias !2517
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %20, align 8, !noalias !2517
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #21, !noalias !2517
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #22, !noalias !2517
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %13
@@ -7761,7 +7759,7 @@ _ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i: ; preds = 
   store i64 16, ptr %4, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %30, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22
   unreachable
 
 31:                                               ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i", %_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h798834a7b836cb35E.exit.i
@@ -7818,7 +7816,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed1
   store i64 %.sroa.0.0.sroa.speculated.i.i.i, ptr %3, align 8, !noalias !2548
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %23, align 8, !noalias !2548
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21, !noalias !2548
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22, !noalias !2548
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i": ; preds = %16
@@ -7830,7 +7828,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed1
   br i1 %27, label %.loopexit.loopexit.i, label %16
 
 28:                                               ; preds = %2
-  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %1) #21, !noalias !2525
+  tail call void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef 8, i64 noundef %1) #22, !noalias !2525
   unreachable
 
 .loopexit.loopexit.i:                             ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i"
@@ -7844,7 +7842,7 @@ define internal noundef i64 @_ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed1
   store i64 %1, ptr %5, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %13, ptr %31, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #22
   unreachable
 
 32:                                               ; preds = %.loopexit.loopexit.i, %.preheader.i.i
@@ -7990,8 +7988,8 @@ define internal noundef zeroext i1 @"_ZN68_$LT$webpki..signed_data..SignedData$u
   ret i1 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h21e6da91afd153bfE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
+define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h21e6da91afd153bfE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #7 {
   %3 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr i8, ptr %3, i64 8
@@ -8020,7 +8018,7 @@ define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
   br i1 %6, label %7, label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf1a8819122b40085E.exit"
 
 7:                                                ; preds = %2
-  tail call void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h2f1b89aaa7f0b171E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.1) #21, !noalias !2554
+  tail call void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h2f1b89aaa7f0b171E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.1) #22, !noalias !2554
   unreachable
 
 "_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf1a8819122b40085E.exit": ; preds = %2
@@ -8046,7 +8044,7 @@ define internal noundef zeroext i1 @"_ZN73_$LT$webpki..signed_data..OwnedSignedD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define hidden noundef i64 @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$9remaining17h5848a1541351ceefE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$9remaining17h5848a1541351ceefE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %.val = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.val1.i.i = load i64, ptr %2, align 8, !alias.scope !2557, !noundef !3
@@ -8060,7 +8058,7 @@ define hidden noundef i64 @"_ZN77_$LT$bytes..buf..take..Take$LT$T$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal { ptr, i64 } @"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$5chunk17hf6328688407c35ccE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
+define internal { ptr, i64 } @"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$5chunk17hf6328688407c35ccE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   %.val = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3 = load i64, ptr %2, align 8, !noundef !3
@@ -8095,12 +8093,12 @@ define internal void @"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$byt
   store i64 %1, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %7, ptr %12, align 8
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #21
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #22
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$9remaining17h8dddb5b81099b170E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #8 {
+define internal noundef i64 @"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$9remaining17h8dddb5b81099b170E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i64, ptr %2, align 8, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8210,13 +8208,13 @@ define hidden void @_ZN11quinn_proto10connection9assembler9Assembler6reinit17h74
   store i64 0, ptr %4, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.412.0..sroa_idx, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.513.0..sroa_idx, i8 0, i64 40, i1 false)
-  invoke void @"_ZN4core3ptr114drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$quinn_proto..connection..assembler..Buffer$GT$$GT$17h72159f4f219c81d3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #23
+  invoke void @"_ZN4core3ptr114drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$quinn_proto..connection..assembler..Buffer$GT$$GT$17h72159f4f219c81d3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #24
           to label %.thread unwind label %11
 
 11:                                               ; preds = %9
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 }
 
@@ -8322,13 +8320,13 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection9assembler9Assembl
 
 40:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$quinn_proto..range_set..btree_range_set..RangeSet$GT$17h2c20c8d0fffff2a6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #23
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$quinn_proto..range_set..btree_range_set..RangeSet$GT$17h2c20c8d0fffff2a6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #24
           to label %39 unwind label %41
 
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 
 43:                                               ; preds = %4, %"_ZN4core3ptr62drop_in_place$LT$quinn_proto..connection..assembler..State$GT$17h763b408d09cf89afE.exit", %6
@@ -8497,7 +8495,7 @@ define hidden void @_ZN11quinn_proto10connection9assembler9Assembler4read17h3a86
   store ptr %6, ptr %74, align 8, !noalias !2563
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %75, align 8, !noalias !2563
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.47) #21
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.47) #22
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %70
@@ -8619,13 +8617,13 @@ define hidden void @_ZN11quinn_proto10connection9assembler9Assembler4read17h3a86
 
 134:                                              ; preds = %.loopexit.split-lp, %.loopexit15.split.us
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit15.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$quinn_proto..connection..assembler..Buffer$GT$$GT$17ha000c99b452031f5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #23
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$quinn_proto..connection..assembler..Buffer$GT$$GT$17ha000c99b452031f5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #24
           to label %133 unwind label %135
 
 135:                                              ; preds = %134
   %136 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 }
 
@@ -8674,7 +8672,7 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
 
 36:                                               ; preds = %1
   %37 = load i64, ptr %35, align 8, !noalias !2566
-  tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %34, i64 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.113) #21
+  tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %34, i64 %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.113) #22
   unreachable
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9ed73b0ebbf241b3E.exit": ; preds = %1
@@ -8806,7 +8804,7 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
 
 84:                                               ; preds = %.noexc
   %85 = load i64, ptr %83, align 8, !noalias !2583
-  invoke void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %82, i64 %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.30) #21
+  invoke void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %82, i64 %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.30) #22
           to label %.noexc19 unwind label %.thread85
 
 .noexc19:                                         ; preds = %84
@@ -8814,7 +8812,7 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
 
 .body25:                                          ; preds = %158, %86, %118
   %.pn.pn = phi { ptr, i32 } [ %.pn, %118 ], [ %87, %86 ], [ %159, %158 ]
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h57bdeb2537e5de06E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24) #23
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h57bdeb2537e5de06E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24) #24
           to label %.thread unwind label %255
 
 86:                                               ; preds = %137, %173, %126, %"_ZN118_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17haa4cff4546282e82E.exit.thread"
@@ -8890,7 +8888,7 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
 
 118:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body37, %.body37.thread
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp96, %.body37 ], [ %eh.lpad-body3894, %.body37.thread ], [ %lpad.loopexit99, %.loopexit ], [ %lpad.loopexit.split-lp100, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr140drop_in_place$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$quinn_proto..connection..assembler..Buffer$GT$$GT$$GT$17hece0c4933a508c70E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23) #23
+  invoke void @"_ZN4core3ptr140drop_in_place$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$quinn_proto..connection..assembler..Buffer$GT$$GT$$GT$17hece0c4933a508c70E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23) #24
           to label %.body25 unwind label %255
 
 .loopexit:                                        ; preds = %248
@@ -9015,7 +9013,7 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
   store ptr %10, ptr %156, align 8, !noalias !2605
   %157 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 2, ptr %157, align 8, !noalias !2605
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.47) #21
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.47) #22
           to label %.noexc.i unwind label %158, !noalias !2601
 
 .noexc.i:                                         ; preds = %152
@@ -9050,7 +9048,7 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
 171:                                              ; preds = %158
   %172 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22, !noalias !2601
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23, !noalias !2601
   unreachable
 
 173:                                              ; preds = %133, %166
@@ -9132,7 +9130,7 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
   store i64 %190, ptr %8, align 8, !noalias !2625
   %204 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %201, ptr %204, align 8, !noalias !2625
-  invoke void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8) #21
+  invoke void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8) #22
           to label %.noexc29 unwind label %.body37.thread97.loopexit.split-lp
 
 .noexc29:                                         ; preds = %203
@@ -9218,7 +9216,7 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
   store ptr %3, ptr %227, align 8, !noalias !2635
   %228 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 2, ptr %228, align 8, !noalias !2635
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.47) #21
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.47) #22
           to label %.noexc.i35 unwind label %229, !noalias !2631
 
 .noexc.i35:                                       ; preds = %223
@@ -9249,7 +9247,7 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
 239:                                              ; preds = %229
   %240 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22, !noalias !2631
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23, !noalias !2631
   unreachable
 
 241:                                              ; preds = %210, %235
@@ -9320,13 +9318,13 @@ define internal fastcc void @_ZN11quinn_proto10connection9assembler9Assembler10d
 
 .body37.thread:                                   ; preds = %.body37.thread97.loopexit, %.body37.thread97.loopexit.split-lp, %229
   %eh.lpad-body3894 = phi { ptr, i32 } [ %230, %229 ], [ %lpad.loopexit, %.body37.thread97.loopexit ], [ %lpad.loopexit.split-lp, %.body37.thread97.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$quinn_proto..connection..assembler..Buffer$GT$17hf6dac8b0311768ceE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %22) #23
+  invoke void @"_ZN4core3ptr63drop_in_place$LT$quinn_proto..connection..assembler..Buffer$GT$17hf6dac8b0311768ceE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %22) #24
           to label %118 unwind label %255
 
 255:                                              ; preds = %267, %.body37.thread, %118, %.body25
   %256 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 
 _ZN11quinn_proto10connection9assembler6Buffer19try_mark_defragment17h9db255098a6f69b6E.exit: ; preds = %.sink.split.i, %67
@@ -9350,7 +9348,7 @@ _ZN11quinn_proto10connection9assembler6Buffer19try_mark_defragment17h9db255098a6
 
 267:                                              ; preds = %.thread85, %.thread81
   %eh.lpad-body84 = phi { ptr, i32 } [ %75, %.thread81 ], [ %lpad.thr_comm, %.thread85 ]
-  invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$quinn_proto..connection..assembler..Buffer$GT$$GT$17h090dcf6159176329E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #23
+  invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$quinn_proto..connection..assembler..Buffer$GT$$GT$17h090dcf6159176329E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #24
           to label %.thread unwind label %255
 }
 
@@ -9430,7 +9428,7 @@ define hidden void @_ZN11quinn_proto10connection9assembler9Assembler6insert17hc1
 
 44:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$quinn_proto..range_set..btree_range_set..Replace$GT$17h319bd8f0bb1b9297E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17) #23
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$quinn_proto..range_set..btree_range_set..Replace$GT$17h319bd8f0bb1b9297E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17) #24
           to label %.thread unwind label %78
 
 45:                                               ; preds = %43
@@ -9497,7 +9495,7 @@ define hidden void @_ZN11quinn_proto10connection9assembler9Assembler6insert17hc1
   store ptr %10, ptr %66, align 8, !noalias !2654
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 2, ptr %67, align 8, !noalias !2654
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.47) #21
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.47) #22
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %62
@@ -9533,7 +9531,7 @@ define hidden void @_ZN11quinn_proto10connection9assembler9Assembler6insert17hc1
 78:                                               ; preds = %.thread, %44
   %79 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 
 80:                                               ; preds = %28
@@ -9569,7 +9567,7 @@ define hidden void @_ZN11quinn_proto10connection9assembler9Assembler6insert17hc1
   store ptr %6, ptr %87, align 8, !noalias !2663
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %88, align 8, !noalias !2663
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.47) #21
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.47) #22
           to label %.noexc20 unwind label %.thread29
 
 .noexc20:                                         ; preds = %83
@@ -9944,7 +9942,7 @@ define hidden void @_ZN11quinn_proto5frame5Close6encode17hc7ae6894526cfe8dE(ptr 
   br i1 %14, label %15, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2d1158c41bf590b5E.exit.i", !prof !113
 
 15:                                               ; preds = %7
-  call void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.ca391f32cacb947182dbf6dff10db961.16, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ca391f32cacb947182dbf6dff10db961.15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.124) #21
+  call void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.ca391f32cacb947182dbf6dff10db961.16, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ca391f32cacb947182dbf6dff10db961.15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.124) #22
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2d1158c41bf590b5E.exit.i": ; preds = %7
@@ -9960,7 +9958,7 @@ define hidden void @_ZN11quinn_proto5frame5Close6encode17hc7ae6894526cfe8dE(ptr 
   br i1 %22, label %23, label %_ZN11quinn_proto5frame16ApplicationClose6encode17h8e769f8c998104faE.exit, !prof !113
 
 23:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2d1158c41bf590b5E.exit.i"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %.sroa.0.0.sroa.speculated.i.i, i64 noundef %21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.125) #21, !noalias !2709
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %.sroa.0.0.sroa.speculated.i.i, i64 noundef %21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.125) #22, !noalias !2709
   unreachable
 
 _ZN11quinn_proto5frame16ApplicationClose6encode17h8e769f8c998104faE.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2d1158c41bf590b5E.exit.i"
@@ -9996,7 +9994,7 @@ define hidden void @_ZN11quinn_proto5frame15ConnectionClose6encode17h4e977e98e60
   br i1 %13, label %14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2d1158c41bf590b5E.exit1", !prof !113
 
 14:                                               ; preds = %3
-  call void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.ca391f32cacb947182dbf6dff10db961.16, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ca391f32cacb947182dbf6dff10db961.15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.121) #21
+  call void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.ca391f32cacb947182dbf6dff10db961.16, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ca391f32cacb947182dbf6dff10db961.15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.121) #22
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2d1158c41bf590b5E.exit1": ; preds = %3
@@ -10010,7 +10008,7 @@ define hidden void @_ZN11quinn_proto5frame15ConnectionClose6encode17h4e977e98e60
   br i1 %21, label %22, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2d1158c41bf590b5E.exit", !prof !113
 
 22:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2d1158c41bf590b5E.exit1"
-  call void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.ca391f32cacb947182dbf6dff10db961.16, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ca391f32cacb947182dbf6dff10db961.15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.122) #21
+  call void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.ca391f32cacb947182dbf6dff10db961.16, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ca391f32cacb947182dbf6dff10db961.15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.122) #22
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2d1158c41bf590b5E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2d1158c41bf590b5E.exit1"
@@ -10027,7 +10025,7 @@ define hidden void @_ZN11quinn_proto5frame15ConnectionClose6encode17h4e977e98e60
   br i1 %29, label %30, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h853cac7c0f786396E.exit", !prof !113
 
 30:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2d1158c41bf590b5E.exit"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.123) #21, !noalias !2712
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.123) #22, !noalias !2712
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h853cac7c0f786396E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2d1158c41bf590b5E.exit"
@@ -10092,7 +10090,7 @@ define hidden void @_ZN11quinn_proto5frame3Ack6encode17h5dc883f11d7123aaE(i64 no
   br label %33
 
 32:                                               ; preds = %4
-  call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.126) #21
+  call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.126) #22
   unreachable
 
 33:                                               ; preds = %.lr.ph, %33
@@ -10744,7 +10742,7 @@ define hidden void @_ZN11quinn_proto6packet13PartialDecode3new17hac03d8144a4c7b7
 115:                                              ; preds = %112, %104, %.noexc57, %92, %88, %82, %.loopexit.i, %47, %43, %42, %34, %31, %24, %6, %134, %119
   %116 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$std..io..cursor..Cursor$LT$bytes..bytes_mut..BytesMut$GT$$GT$17h65353e21a505fcc6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19) #23
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$std..io..cursor..Cursor$LT$bytes..bytes_mut..BytesMut$GT$$GT$17h65353e21a505fcc6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19) #24
           to label %139 unwind label %137
 
 117:                                              ; preds = %.noexc47, %39, %.noexc50, %"_ZN55_$LT$u32$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h2b164750a5293d29E.exit.i", %30, %51, %46, %.noexc60, %.noexc59, %103, %.noexc56, %80
@@ -10890,7 +10888,7 @@ define hidden void @_ZN11quinn_proto6packet13PartialDecode3new17hac03d8144a4c7b7
 137:                                              ; preds = %115
   %138 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 
 139:                                              ; preds = %115
@@ -10955,7 +10953,7 @@ define hidden void @_ZN11quinn_proto6packet12PacketNumber6decode17hdb400ef72d33c
   ], !prof !2747
 
 7:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.ca391f32cacb947182dbf6dff10db961.132, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.134) #21
+  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.ca391f32cacb947182dbf6dff10db961.132, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca391f32cacb947182dbf6dff10db961.134) #22
   unreachable
 
 8:                                                ; preds = %3
@@ -11006,7 +11004,7 @@ define hidden void @_ZN11quinn_proto6packet12PacketNumber6decode17hdb400ef72d33c
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i, ptr %4, align 8, !noalias !2774
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %26, ptr %29, align 8, !noalias !2774
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #21, !noalias !2774
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4) #22, !noalias !2774
   unreachable
 
 "_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i": ; preds = %22
@@ -11023,7 +11021,7 @@ define hidden void @_ZN11quinn_proto6packet12PacketNumber6decode17hdb400ef72d33c
   store i64 3, ptr %6, align 8, !noalias !2748
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %19, ptr %35, align 8, !noalias !2748
-  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6) #21, !noalias !2748
+  call void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6) #22, !noalias !2748
   unreachable
 
 _ZN5bytes3buf8buf_impl3Buf8get_uint17h3d9efb31f4ed156bE.exit: ; preds = %"_ZN78_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h6f2d1918d214ab89E.exit.i.i.i"
@@ -11117,16 +11115,16 @@ define internal noundef zeroext i1 @"_ZN58_$LT$quinn_proto..StreamId$u20$as$u20$
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h2f1b89aaa7f0b171E(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #9
+declare void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h2f1b89aaa7f0b171E(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #9
+declare void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN43_$LT$bool$u20$as$u20$core..fmt..Display$GT$3fmt17h3bbce99bd143591fE"(ptr noalias noundef readonly align 1 dereferenceable(1), ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
@@ -11162,7 +11160,7 @@ declare noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h7a7cb238ea6
 declare hidden noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hfe1342faf2befea1E(ptr noalias noundef align 8 dereferenceable(16), ptr noundef nonnull, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: nounwind nonlazybind uwtable
-declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #12
+declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #13
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3c6e46973403d1c8E"(ptr noalias noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #1
@@ -11192,49 +11190,49 @@ declare hidden void @"_ZN4core3ptr70drop_in_place$LT$quinn_proto..range_set..btr
 declare hidden void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hdec3f2ebf373a446E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #9
+declare void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #9
+declare void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #9
+declare void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h22ab407a5d75163cE"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), i64 noundef, i1 noundef zeroext, i64 noundef range(i64 1, -9223372036854775807), i64 noundef) unnamed_addr #1
 
 ; Function Attrs: cold minsize noreturn nonlazybind optsize uwtable
-declare void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef range(i64 0, -9223372036854775807), i64, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #13
+declare void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef range(i64 0, -9223372036854775807), i64, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #14
+declare i64 @llvm.bswap.i64(i64) #15
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef, i64 noundef) unnamed_addr #9
+declare void @_ZN5bytes18panic_does_not_fit17he0e48069009846dcE(i64 noundef, i64 noundef) unnamed_addr #10
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #9
+declare void @_ZN5bytes13panic_advance17h2926ef68e0ae2968E(ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: cold minsize noreturn nonlazybind optsize uwtable
-declare void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #13
+declare void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #14
+declare i16 @llvm.bswap.i16(i16) #15
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #14
+declare i32 @llvm.bswap.i32(i32) #15
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i128 @llvm.bswap.i128(i128) #14
+declare i128 @llvm.bswap.i128(i128) #15
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h57bdeb2537e5de06E"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: cold minsize noreturn nounwind nonlazybind optsize uwtable
-declare void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() unnamed_addr #16
+declare void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() unnamed_addr #17
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN5bytes5bytes13static_to_vec17h37b1d8f289af75f6E(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noundef nonnull align 8, ptr noundef, i64 noundef) unnamed_addr #1
@@ -11249,7 +11247,7 @@ declare noundef zeroext i1 @_ZN5bytes9bytes_mut8BytesMut13reserve_inner17h831ffa
 declare void @"_ZN92_$LT$bytes..bytes..Bytes$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$4from17h213cb3dcec34bfc3E"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #17
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9e941ee1e0a25930E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
@@ -11291,7 +11289,7 @@ declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17he8b53c74d30d059bE(ptr noalias noundef align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #14
+declare i64 @llvm.usub.sat.i64(i64, i64) #15
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr133drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..vec..Vec$LT$u8$GT$$C$webpki..crl..types..OwnedRevokedCert$GT$$GT$17h615ceebe7a813353E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
@@ -11378,7 +11376,7 @@ declare void @"_ZN107_$LT$quinn_proto..range_set..btree_range_set..Replace$u20$a
 declare hidden void @"_ZN4core3ptr69drop_in_place$LT$quinn_proto..range_set..btree_range_set..Replace$GT$17h319bd8f0bb1b9297E"(ptr noalias noundef align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #14
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #15
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$9write_var17hf05269890952936bE"(ptr noalias noundef align 8 dereferenceable(24), i64 noundef) unnamed_addr #1
@@ -11405,7 +11403,7 @@ declare { ptr, ptr } @_ZN11quinn_proto9range_set15array_range_set13ArrayRangeSet
 declare hidden void @"_ZN119_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb450afe0824266c2E"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #9
+declare void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i64 @_ZN11quinn_proto9range_set15array_range_set13ArrayRangeSet3len17h731aec61015daea8E(ptr noalias noundef readonly align 8 dereferenceable(48)) unnamed_addr #1
@@ -11486,19 +11484,19 @@ declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4a7876b158803be4E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
+declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
+declare i64 @llvm.umax.i64(i64, i64) #21
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -11507,23 +11505,24 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #13 = { cold minsize noreturn nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #14 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { noreturn }
-attributes #22 = { cold noreturn nounwind }
-attributes #23 = { cold }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #9 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #10 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #14 = { cold minsize noreturn nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #15 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { noreturn }
+attributes #23 = { cold noreturn nounwind }
+attributes #24 = { cold }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

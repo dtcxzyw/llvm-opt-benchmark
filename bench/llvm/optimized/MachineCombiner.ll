@@ -1538,6 +1538,7 @@ _ZL24insertDeleteInstructionsPN4llvm17MachineBasicBlockERNS_12MachineInstrERNS_1
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0128.2169.i, align 8
   %377 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %378 = inttoptr i64 %377 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %378) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i95.i = load i64, ptr %378, align 8
   %379 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i95.i, 4
   %.not.i.i.i.i96.i = icmp eq i64 %379, 0

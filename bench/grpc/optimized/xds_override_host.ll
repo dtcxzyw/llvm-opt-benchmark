@@ -7371,6 +7371,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10: ; preds = %.lr.p
   %.us-phi = phi i64 [ %41, %.lr.ph.i.us.us ], [ %56, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10 ]
   %.us-phi15 = phi ptr [ %42, %.lr.ph.i.us.us ], [ %57, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10 ]
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 %.us-phi
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
   br label %.loopexit
 
 64:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10, %.lr.ph.i

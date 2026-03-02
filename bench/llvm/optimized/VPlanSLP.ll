@@ -555,30 +555,28 @@ _ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread: ; pr
   br i1 %.not44, label %.loopexit, label %18
 
 150:                                              ; preds = %4
-  %151 = icmp eq i8 %10, 0
-  tail call void @llvm.assume(i1 %151)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %153 = load ptr, ptr %152, align 8, !tbaa !3
-  store ptr %153, ptr %6, align 8, !tbaa !24
-  %154 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %154, ptr %5, align 8, !tbaa !26
-  %155 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %155, align 8, !tbaa !27
-  %156 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 8, ptr %156, align 4, !tbaa !28
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %152 = load ptr, ptr %151, align 8, !tbaa !3
+  store ptr %152, ptr %6, align 8, !tbaa !24
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %153, ptr %5, align 8, !tbaa !26
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 0, ptr %154, align 8, !tbaa !27
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 8, ptr %155, align 4, !tbaa !28
   call void @_ZN4llvm25ReversePostOrderTraversalINS_30VPBlockShallowTraversalWrapperIPNS_11VPBlockBaseEEENS_11GraphTraitsIS4_EEE10InitializeERKS4_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %157 = load ptr, ptr %5, align 8, !tbaa !26, !noalias !105
-  %158 = load i32, ptr %155, align 8, !tbaa !27, !noalias !105
-  %.not4550 = icmp eq i32 %158, 0
+  %156 = load ptr, ptr %5, align 8, !tbaa !26, !noalias !105
+  %157 = load i32, ptr %154, align 8, !tbaa !27, !noalias !105
+  %.not4550 = icmp eq i32 %157, 0
   br i1 %.not4550, label %._crit_edge, label %.lr.ph52.preheader
 
 .lr.ph52.preheader:                               ; preds = %150
-  %159 = zext i32 %158 to i64
-  %.idx = shl nuw nsw i64 %159, 3
-  %160 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx
+  %158 = zext i32 %157 to i64
+  %.idx = shl nuw nsw i64 %158, 3
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx
   br label %.lr.ph52
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph52
@@ -586,23 +584,23 @@ _ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread: ; pr
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %150
-  %161 = phi ptr [ %.pre54, %._crit_edge.loopexit ], [ %157, %150 ]
-  %162 = icmp eq ptr %161, %154
-  br i1 %162, label %_ZN4llvm23VPInterleavedAccessInfo11visitRegionEPNS_13VPRegionBlockERNS_8DenseMapIPNS_15InterleaveGroupINS_11InstructionEEEPNS4_INS_13VPInstructionEEENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_SA_EEEERNS_21InterleavedAccessInfoE.exit, label %163
+  %160 = phi ptr [ %.pre54, %._crit_edge.loopexit ], [ %156, %150 ]
+  %161 = icmp eq ptr %160, %153
+  br i1 %161, label %_ZN4llvm23VPInterleavedAccessInfo11visitRegionEPNS_13VPRegionBlockERNS_8DenseMapIPNS_15InterleaveGroupINS_11InstructionEEEPNS4_INS_13VPInstructionEEENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_SA_EEEERNS_21InterleavedAccessInfoE.exit, label %162
 
-163:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %161) #21
+162:                                              ; preds = %._crit_edge
+  call void @free(ptr noundef %160) #21
   br label %_ZN4llvm23VPInterleavedAccessInfo11visitRegionEPNS_13VPRegionBlockERNS_8DenseMapIPNS_15InterleaveGroupINS_11InstructionEEEPNS4_INS_13VPInstructionEEENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_SA_EEEERNS_21InterleavedAccessInfoE.exit
 
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %.lr.ph52
-  %.sroa.037.051 = phi ptr [ %164, %.lr.ph52 ], [ %160, %.lr.ph52.preheader ]
-  %164 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 -8
-  %165 = load ptr, ptr %164, align 8, !tbaa !34
-  call void @_ZN4llvm23VPInterleavedAccessInfo10visitBlockEPNS_11VPBlockBaseERNS_8DenseMapIPNS_15InterleaveGroupINS_11InstructionEEEPNS4_INS_13VPInstructionEEENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_SA_EEEERNS_21InterleavedAccessInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %165, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(152) %3)
-  %.not45 = icmp eq ptr %164, %157
+  %.sroa.037.051 = phi ptr [ %163, %.lr.ph52 ], [ %159, %.lr.ph52.preheader ]
+  %163 = getelementptr inbounds i8, ptr %.sroa.037.051, i64 -8
+  %164 = load ptr, ptr %163, align 8, !tbaa !34
+  call void @_ZN4llvm23VPInterleavedAccessInfo10visitBlockEPNS_11VPBlockBaseERNS_8DenseMapIPNS_15InterleaveGroupINS_11InstructionEEEPNS4_INS_13VPInstructionEEENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_SA_EEEERNS_21InterleavedAccessInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %164, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(152) %3)
+  %.not45 = icmp eq ptr %163, %156
   br i1 %.not45, label %._crit_edge.loopexit, label %.lr.ph52
 
-_ZN4llvm23VPInterleavedAccessInfo11visitRegionEPNS_13VPRegionBlockERNS_8DenseMapIPNS_15InterleaveGroupINS_11InstructionEEEPNS4_INS_13VPInstructionEEENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_SA_EEEERNS_21InterleavedAccessInfoE.exit: ; preds = %._crit_edge, %163
+_ZN4llvm23VPInterleavedAccessInfo11visitRegionEPNS_13VPRegionBlockERNS_8DenseMapIPNS_15InterleaveGroupINS_11InstructionEEEPNS4_INS_13VPInstructionEEENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_SA_EEEERNS_21InterleavedAccessInfoE.exit: ; preds = %._crit_edge, %162
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 

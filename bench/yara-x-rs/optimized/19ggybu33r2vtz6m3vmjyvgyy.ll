@@ -477,7 +477,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !3
   %.not = icmp ugt i64 %4, %1
-  br i1 %.not, label %5, label %152
+  br i1 %.not, label %5, label %146
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -494,7 +494,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %15 = xor i64 %1, -1
   %16 = add i64 %4, %15
   %17 = icmp ult i64 %16, %1
-  br i1 %17, label %89, label %18
+  br i1 %17, label %85, label %18
 
 18:                                               ; preds = %5
   %19 = add i64 %7, 1
@@ -523,7 +523,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   br i1 %30, label %37, label %33
 
 32:                                               ; preds = %23
-  br i1 %26, label %53, label %52
+  br i1 %26, label %57, label %52
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i64, ptr %12, i64 %7
@@ -558,186 +558,180 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
 
 52:                                               ; preds = %32
-  br i1 %30, label %61, label %54
+  %53 = getelementptr inbounds nuw i64, ptr %12, i64 %7
+  %54 = getelementptr i64, ptr %12, i64 %.sroa.06.0
+  %55 = shl i64 %27, 3
+  %56 = getelementptr i64, ptr %54, i64 %27
+  br i1 %30, label %61, label %58
 
-53:                                               ; preds = %32
-  br i1 %30, label %78, label %71
+57:                                               ; preds = %32
+  br i1 %30, label %74, label %67
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i64, ptr %12, i64 %7
-  %56 = getelementptr i64, ptr %12, i64 %.sroa.06.0
-  %57 = shl i64 %27, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %56, ptr nonnull align 8 %55, i64 %57, i1 false)
-  %58 = sub i64 %1, %27
-  %59 = getelementptr i64, ptr %56, i64 %27
-  %60 = shl i64 %58, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr nonnull align 8 %12, i64 %60, i1 false)
+58:                                               ; preds = %52
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 8 %53, i64 %55, i1 false)
+  %59 = sub i64 %1, %27
+  %60 = shl i64 %59, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr nonnull align 8 %12, i64 %60, i1 false)
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
 
 61:                                               ; preds = %52
   %62 = sub i64 %28, %27
-  %63 = getelementptr inbounds nuw i64, ptr %12, i64 %7
-  %64 = getelementptr i64, ptr %12, i64 %.sroa.06.0
-  %65 = shl i64 %27, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 8 %63, i64 %65, i1 false)
-  %66 = getelementptr i64, ptr %64, i64 %27
-  %67 = shl i64 %62, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %66, ptr nonnull align 8 %12, i64 %67, i1 false)
-  %68 = sub nuw i64 %1, %28
-  %69 = getelementptr inbounds nuw i64, ptr %12, i64 %62
-  %70 = shl i64 %68, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %69, i64 %70, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 8 %53, i64 %55, i1 false)
+  %63 = shl i64 %62, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr nonnull align 8 %12, i64 %63, i1 false)
+  %64 = sub nuw i64 %1, %28
+  %65 = getelementptr inbounds nuw i64, ptr %12, i64 %62
+  %66 = shl i64 %64, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %65, i64 %66, i1 false)
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
 
-71:                                               ; preds = %53
-  %72 = sub i64 %1, %27
-  %73 = getelementptr i64, ptr %12, i64 %.sroa.06.0
-  %74 = getelementptr i64, ptr %73, i64 %27
-  %75 = shl i64 %72, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %74, ptr nonnull align 8 %12, i64 %75, i1 false)
-  %76 = getelementptr inbounds nuw i64, ptr %12, i64 %7
-  %77 = shl i64 %27, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %73, ptr nonnull align 8 %76, i64 %77, i1 false)
+67:                                               ; preds = %57
+  %68 = sub i64 %1, %27
+  %69 = getelementptr i64, ptr %12, i64 %.sroa.06.0
+  %70 = getelementptr i64, ptr %69, i64 %27
+  %71 = shl i64 %68, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %70, ptr nonnull align 8 %12, i64 %71, i1 false)
+  %72 = getelementptr inbounds nuw i64, ptr %12, i64 %7
+  %73 = shl i64 %27, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %72, i64 %73, i1 false)
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
 
-78:                                               ; preds = %53
-  %79 = sub i64 %27, %28
-  %80 = sub i64 %1, %27
-  %81 = getelementptr inbounds nuw i64, ptr %12, i64 %79
-  %82 = shl i64 %80, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %81, ptr nonnull align 8 %12, i64 %82, i1 false)
-  %83 = sub i64 %9, %79
-  %84 = getelementptr inbounds nuw i64, ptr %12, i64 %83
-  %85 = shl i64 %79, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %84, i64 %85, i1 false)
-  %86 = getelementptr inbounds nuw i64, ptr %12, i64 %7
-  %87 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.06.0
-  %88 = shl i64 %28, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %87, ptr nonnull align 8 %86, i64 %88, i1 false)
+74:                                               ; preds = %57
+  %75 = sub i64 %27, %28
+  %76 = sub i64 %1, %27
+  %77 = getelementptr inbounds nuw i64, ptr %12, i64 %75
+  %78 = shl i64 %76, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %77, ptr nonnull align 8 %12, i64 %78, i1 false)
+  %79 = sub i64 %9, %75
+  %80 = getelementptr inbounds nuw i64, ptr %12, i64 %79
+  %81 = shl i64 %75, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %80, i64 %81, i1 false)
+  %82 = getelementptr inbounds nuw i64, ptr %12, i64 %7
+  %83 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.06.0
+  %84 = shl i64 %28, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %83, ptr nonnull align 8 %82, i64 %84, i1 false)
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
 
-89:                                               ; preds = %5
-  %90 = add i64 %.sroa.01.0, 1
-  %.not26 = icmp ult i64 %90, %9
-  %91 = select i1 %.not26, i64 0, i64 %9
-  %.sroa.05.0 = sub nuw i64 %90, %91
-  %92 = icmp eq i64 %.sroa.05.0, %.sroa.01.0
-  %93 = icmp eq i64 %16, 0
-  %or.cond.i30 = or i1 %93, %92
-  br i1 %or.cond.i30, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit", label %94
+85:                                               ; preds = %5
+  %86 = add i64 %.sroa.01.0, 1
+  %.not26 = icmp ult i64 %86, %9
+  %87 = select i1 %.not26, i64 0, i64 %9
+  %.sroa.05.0 = sub nuw i64 %86, %87
+  %88 = icmp eq i64 %.sroa.05.0, %.sroa.01.0
+  %89 = icmp eq i64 %16, 0
+  %or.cond.i30 = or i1 %89, %88
+  br i1 %or.cond.i30, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit", label %90
 
-94:                                               ; preds = %89
-  %95 = sub i64 %.sroa.01.0, %.sroa.05.0
-  %96 = add i64 %95, %9
-  %.not.i31 = icmp ult i64 %96, %9
-  %..i32 = select i1 %.not.i31, i64 %96, i64 %95
-  %97 = icmp ult i64 %..i32, %16
-  %98 = sub i64 %9, %.sroa.05.0
-  %99 = sub i64 %9, %.sroa.01.0
-  %100 = icmp ult i64 %98, %16
-  %101 = icmp ult i64 %99, %16
-  br i1 %100, label %103, label %102
+90:                                               ; preds = %85
+  %91 = sub i64 %.sroa.01.0, %.sroa.05.0
+  %92 = add i64 %91, %9
+  %.not.i31 = icmp ult i64 %92, %9
+  %..i32 = select i1 %.not.i31, i64 %92, i64 %91
+  %93 = icmp ult i64 %..i32, %16
+  %94 = sub i64 %9, %.sroa.05.0
+  %95 = sub i64 %9, %.sroa.01.0
+  %96 = icmp ult i64 %94, %16
+  %97 = icmp ult i64 %95, %16
+  br i1 %96, label %99, label %98
 
-102:                                              ; preds = %94
-  br i1 %101, label %107, label %104
+98:                                               ; preds = %90
+  br i1 %97, label %103, label %100
 
-103:                                              ; preds = %94
-  br i1 %97, label %122, label %120
+99:                                               ; preds = %90
+  br i1 %93, label %120, label %116
 
-104:                                              ; preds = %102
-  %105 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.05.0
-  %106 = shl i64 %16, 3
+100:                                              ; preds = %98
+  %101 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.05.0
+  %102 = shl i64 %16, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %101, i64 %102, i1 false)
+  br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
+
+103:                                              ; preds = %98
+  br i1 %93, label %110, label %104
+
+104:                                              ; preds = %103
+  %105 = getelementptr i64, ptr %12, i64 %.sroa.05.0
+  %106 = shl i64 %95, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %105, i64 %106, i1 false)
+  %107 = sub i64 %16, %95
+  %108 = getelementptr i64, ptr %105, i64 %95
+  %109 = shl i64 %107, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %108, i64 %109, i1 false)
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
 
-107:                                              ; preds = %102
-  br i1 %97, label %114, label %108
-
-108:                                              ; preds = %107
-  %109 = getelementptr i64, ptr %12, i64 %.sroa.05.0
-  %110 = shl i64 %99, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %109, i64 %110, i1 false)
-  %111 = sub i64 %16, %99
-  %112 = getelementptr i64, ptr %109, i64 %99
-  %113 = shl i64 %111, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %112, i64 %113, i1 false)
+110:                                              ; preds = %103
+  %111 = sub i64 %16, %95
+  %112 = getelementptr i64, ptr %12, i64 %.sroa.05.0
+  %113 = getelementptr i64, ptr %112, i64 %95
+  %114 = shl i64 %111, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %113, i64 %114, i1 false)
+  %115 = shl i64 %95, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %112, i64 %115, i1 false)
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
 
-114:                                              ; preds = %107
-  %115 = sub i64 %16, %99
-  %116 = getelementptr i64, ptr %12, i64 %.sroa.05.0
-  %117 = getelementptr i64, ptr %116, i64 %99
-  %118 = shl i64 %115, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %117, i64 %118, i1 false)
-  %119 = shl i64 %99, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %116, i64 %119, i1 false)
+116:                                              ; preds = %99
+  %117 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.05.0
+  %118 = shl i64 %94, 3
+  %119 = getelementptr i64, ptr %13, i64 %94
+  br i1 %97, label %124, label %121
+
+120:                                              ; preds = %99
+  br i1 %97, label %136, label %130
+
+121:                                              ; preds = %116
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %117, i64 %118, i1 false)
+  %122 = sub i64 %16, %94
+  %123 = shl i64 %122, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %119, ptr nonnull align 8 %12, i64 %123, i1 false)
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
 
-120:                                              ; preds = %103
-  %121 = getelementptr i64, ptr %13, i64 %98
-  br i1 %101, label %128, label %123
-
-122:                                              ; preds = %103
-  br i1 %101, label %142, label %136
-
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.05.0
-  %125 = shl i64 %98, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %124, i64 %125, i1 false)
-  %126 = sub i64 %16, %98
-  %127 = shl i64 %126, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %121, ptr nonnull align 8 %12, i64 %127, i1 false)
+124:                                              ; preds = %116
+  %125 = sub i64 %95, %94
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %117, i64 %118, i1 false)
+  %126 = shl i64 %125, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %119, ptr nonnull align 8 %12, i64 %126, i1 false)
+  %127 = sub nuw i64 %16, %95
+  %128 = getelementptr inbounds nuw i64, ptr %12, i64 %125
+  %129 = shl i64 %127, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %128, i64 %129, i1 false)
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
 
-128:                                              ; preds = %120
-  %129 = sub i64 %99, %98
-  %130 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.05.0
-  %131 = shl i64 %98, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %130, i64 %131, i1 false)
-  %132 = shl i64 %129, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %121, ptr nonnull align 8 %12, i64 %132, i1 false)
-  %133 = sub nuw i64 %16, %99
-  %134 = getelementptr inbounds nuw i64, ptr %12, i64 %129
-  %135 = shl i64 %133, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %134, i64 %135, i1 false)
+130:                                              ; preds = %120
+  %131 = sub i64 %16, %94
+  %132 = getelementptr i64, ptr %13, i64 %94
+  %133 = shl i64 %131, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %132, ptr nonnull align 8 %12, i64 %133, i1 false)
+  %134 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.05.0
+  %135 = shl i64 %94, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %134, i64 %135, i1 false)
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
 
-136:                                              ; preds = %122
-  %137 = sub i64 %16, %98
-  %138 = getelementptr i64, ptr %13, i64 %98
-  %139 = shl i64 %137, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %138, ptr nonnull align 8 %12, i64 %139, i1 false)
-  %140 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.05.0
-  %141 = shl i64 %98, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %140, i64 %141, i1 false)
+136:                                              ; preds = %120
+  %137 = sub i64 %94, %95
+  %138 = sub i64 %16, %94
+  %139 = getelementptr inbounds nuw i64, ptr %12, i64 %137
+  %140 = shl i64 %138, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %139, ptr nonnull align 8 %12, i64 %140, i1 false)
+  %141 = sub i64 %9, %137
+  %142 = getelementptr inbounds nuw i64, ptr %12, i64 %141
+  %143 = shl i64 %137, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %142, i64 %143, i1 false)
+  %144 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.05.0
+  %145 = shl i64 %95, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %144, i64 %145, i1 false)
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
 
-142:                                              ; preds = %122
-  %143 = sub i64 %98, %99
-  %144 = sub i64 %16, %98
-  %145 = getelementptr inbounds nuw i64, ptr %12, i64 %143
-  %146 = shl i64 %144, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %145, ptr nonnull align 8 %12, i64 %146, i1 false)
-  %147 = sub i64 %9, %143
-  %148 = getelementptr inbounds nuw i64, ptr %12, i64 %147
-  %149 = shl i64 %143, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %148, i64 %149, i1 false)
-  %150 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.05.0
-  %151 = shl i64 %99, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %150, i64 %151, i1 false)
-  br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
-
-"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit": ; preds = %142, %136, %128, %123, %114, %108, %104, %89, %78, %71, %61, %54, %45, %38, %33, %18
+"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit": ; preds = %136, %130, %124, %121, %110, %104, %100, %85, %74, %67, %61, %58, %45, %38, %33, %18
   %storemerge = add i64 %4, -1
   store i64 %storemerge, ptr %3, align 8
-  br label %152
+  br label %146
 
-152:                                              ; preds = %2, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
+146:                                              ; preds = %2, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit"
   %.sroa.3.0 = phi i64 [ %14, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit" ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 1, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9wrap_copy17h8d43adbda230e282E.exit" ], [ 0, %2 ]
-  %153 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %154 = insertvalue { i64, i64 } %153, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %154
+  %147 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %148 = insertvalue { i64, i64 } %147, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %148
 }
 
 ; Function Attrs: nonlazybind uwtable

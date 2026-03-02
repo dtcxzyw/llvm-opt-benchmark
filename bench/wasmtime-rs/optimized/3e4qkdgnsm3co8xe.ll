@@ -140,21 +140,20 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %53 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd2643dd02b6cd9ebE"(i64 0, i64 %52, ptr nonnull align 1 %13, i64 4, ptr nonnull align 8 @anon.bdabe76a8f6d7fe5708a6db693f850b8.2)
   %54 = extractvalue { ptr, i64 } %53, 0
   %55 = extractvalue { ptr, i64 } %53, 1
-  %56 = icmp ne ptr %54, null
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1353dd432280b8bcE"(ptr nonnull align 1 %41, i64 %51, ptr nonnull align 1 %54, i64 %55)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %54) ]
+  %56 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1353dd432280b8bcE"(ptr nonnull align 1 %41, i64 %51, ptr nonnull align 1 %54, i64 %55)
   %.pre33 = load i64, ptr %4, align 8
-  br i1 %57, label %58, label %42
+  br i1 %56, label %57, label %42
 
-58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %37, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.pre33, ptr %60, align 8
+57:                                               ; preds = %50
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %37, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.pre33, ptr %59, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %42, %2, %34, %58
-  %.sink = phi i64 [ 0, %34 ], [ 1, %58 ], [ 0, %2 ], [ 0, %42 ]
+._crit_edge:                                      ; preds = %42, %2, %34, %57
+  %.sink = phi i64 [ 0, %34 ], [ 1, %57 ], [ 0, %2 ], [ 0, %42 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

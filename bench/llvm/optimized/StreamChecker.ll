@@ -11097,8 +11097,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19StreamMapEEENS0_17ProgramState
 
 63:                                               ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19StreamMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit
   %64 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_19StreamMapEE8GDMIndexEvE5Index) #27
-  %.not.i.i43 = icmp ne ptr %64, null
-  call void @llvm.assume(i1 %.not.i.i43)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %64) ]
   %65 = load ptr, ptr %64, align 8, !tbaa !3, !noalias !610, !nonnull !500, !noundef !500
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 76
   %67 = load i32, ptr %66, align 4, !tbaa !531, !noalias !610
@@ -18496,8 +18495,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   %21 = call noundef ptr @_ZNK5clang4ento4SVal11getAsSymbolEb(ptr noundef nonnull align 8 dereferenceable(9) %9, i1 noundef zeroext false) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %22 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_19StreamMapEE8GDMIndexEvE5Index) #27
-  %.not.i.i10 = icmp ne ptr %22, null
-  call void @llvm.assume(i1 %.not.i.i10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
   %23 = load ptr, ptr %22, align 8, !tbaa !3, !noalias !1118, !nonnull !500, !noundef !500
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 76
   %25 = load i32, ptr %24, align 4, !tbaa !531, !noalias !1118

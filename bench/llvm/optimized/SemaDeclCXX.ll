@@ -33672,8 +33672,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_15AccessSpecifierEvEERKS1_OT_.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   %1538 = load ptr, ptr %137, align 8, !tbaa !1215
   %1539 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1538) #28
-  %.not646660 = icmp ne ptr %1539, null
-  call void @llvm.assume(i1 %.not646660)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1539) ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -68547,8 +68546,7 @@ _ZNK5clang12FunctionDecl21getDeclaredReturnTypeEv.exit436: ; preds = %_ZNK5clang
 _ZNK5clang4Type20getContainedAutoTypeEv.exit:     ; preds = %1961
   %1976 = load ptr, ptr %1958, align 16, !tbaa !22
   %1977 = call noundef ptr @_ZNK5clang4Type23getContainedDeducedTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %1976) #28
-  %.not.i.i.i439 = icmp ne ptr %1977, null
-  call void @llvm.assume(i1 %.not.i.i.i439)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1977) ]
   %1978 = getelementptr inbounds nuw i8, ptr %1977, i64 32
   %1979 = load ptr, ptr %1978, align 16, !tbaa !2064
   %.not1020 = icmp eq ptr %1979, null

@@ -71,19 +71,17 @@ default.unreachable:                              ; preds = %9
 
 17:                                               ; preds = %9
   %18 = getelementptr i8, ptr %11, i64 -1
-  %19 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %21 = getelementptr i8, ptr %11, i64 7
-  %22 = load ptr, ptr %21, align 8, !nonnull !4, !align !6, !noundef !4
-  %23 = getelementptr i8, ptr %22, i64 56
-  %.val = load ptr, ptr %23, align 8
-  %24 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %20)
-  %25 = extractvalue { i64, i64 } %24, 0
-  %26 = extractvalue { i64, i64 } %24, 1
-  %27 = icmp eq i64 %25, 3651417219560125105
-  %28 = icmp eq i64 %26, -2221366707112211979
-  %.sroa.0.0.i = select i1 %27, i1 %28, i1 false
+  %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
+  %20 = getelementptr i8, ptr %11, i64 7
+  %21 = load ptr, ptr %20, align 8, !nonnull !4, !align !6, !noundef !4
+  %22 = getelementptr i8, ptr %21, i64 56
+  %.val = load ptr, ptr %22, align 8
+  %23 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %19)
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = extractvalue { i64, i64 } %23, 1
+  %26 = icmp eq i64 %24, 3651417219560125105
+  %27 = icmp eq i64 %25, -2221366707112211979
+  %.sroa.0.0.i = select i1 %26, i1 %27, i1 false
   br label %14
 }
 

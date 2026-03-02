@@ -4631,6 +4631,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
 
 1069:                                             ; preds = %1064
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1066) ]
   %1070 = call ptr @__dynamic_cast(ptr nonnull %1066, ptr nonnull @_ZTIN7jsonnet8internal3ASTE, ptr nonnull @_ZTIN7jsonnet8internal13LiteralStringE, i64 0) #41
   %1071 = getelementptr inbounds nuw i8, ptr %1070, i64 128
   store ptr %1057, ptr %9, align 8, !tbaa !28
@@ -71157,131 +71158,130 @@ define linkonce_odr void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118ba
   br i1 %.not, label %._crit_edge, label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %4
-  %5 = icmp ne ptr %.fr51, null
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not50 = icmp eq i64 %3, -1
-  tail call void @llvm.assume(i1 %5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fr51) ]
   br i1 %.not50, label %.lr.ph39.split.split, label %.lr.ph39.split.us.split
 
 .lr.ph39.split.us.split:                          ; preds = %.lr.ph39, %..loopexit_crit_edge.us
   %.038.us = phi i64 [ %.1.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph39 ]
-  %.01837.us = phi i64 [ %10, %..loopexit_crit_edge.us ], [ 0, %.lr.ph39 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.fr51, i64 %.01837.us
-  %8 = load i8, ptr %7, align 1, !tbaa !21
-  %9 = icmp eq i8 %8, 10
-  %10 = add nuw i64 %.01837.us, 1
-  br i1 %9, label %11, label %..loopexit_crit_edge.us
+  %.01837.us = phi i64 [ %9, %..loopexit_crit_edge.us ], [ 0, %.lr.ph39 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.fr51, i64 %.01837.us
+  %7 = load i8, ptr %6, align 1, !tbaa !21
+  %8 = icmp eq i8 %7, 10
+  %9 = add nuw i64 %.01837.us, 1
+  br i1 %8, label %10, label %..loopexit_crit_edge.us
 
-11:                                               ; preds = %.lr.ph39.split.us.split
-  %.not.i.us = icmp eq i64 %10, -1
-  %12 = select i1 %.not.i.us, i64 %2, i64 %10
-  %13 = icmp eq i64 %12, %.038.us
-  br i1 %13, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit.us, label %14
+10:                                               ; preds = %.lr.ph39.split.us.split
+  %.not.i.us = icmp eq i64 %9, -1
+  %11 = select i1 %.not.i.us, i64 %2, i64 %9
+  %12 = icmp eq i64 %11, %.038.us
+  br i1 %12, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit.us, label %13
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %.fr51, i64 %.038.us
-  %16 = sub i64 %12, %.038.us
-  %17 = load ptr, ptr %0, align 8, !tbaa !1022
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %15, i64 noundef %16)
-  %20 = load i64, ptr %6, align 8, !tbaa !526
-  %21 = add i64 %20, %16
-  store i64 %21, ptr %6, align 8, !tbaa !526
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %.fr51, i64 %.038.us
+  %15 = sub i64 %11, %.038.us
+  %16 = load ptr, ptr %0, align 8, !tbaa !1022
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %14, i64 noundef %15)
+  %19 = load i64, ptr %5, align 8, !tbaa !526
+  %20 = add i64 %19, %15
+  store i64 %20, ptr %5, align 8, !tbaa !526
   br label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit.us
 
-_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit.us: ; preds = %14, %11
-  %22 = load ptr, ptr %0, align 8, !tbaa !1022
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef signext 10)
-  %25 = load i64, ptr %6, align 8, !tbaa !526
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %6, align 8, !tbaa !526
-  %27 = icmp ult i64 %10, %2
-  br i1 %27, label %.preheader.us, label %..loopexit_crit_edge.us
+_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit.us: ; preds = %13, %10
+  %21 = load ptr, ptr %0, align 8, !tbaa !1022
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %22, i8 noundef signext 10)
+  %24 = load i64, ptr %5, align 8, !tbaa !526
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %5, align 8, !tbaa !526
+  %26 = icmp ult i64 %9, %2
+  br i1 %26, label %.preheader.us, label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %.preheader.us, %.lr.ph39.split.us.split, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit.us
-  %.1.us = phi i64 [ %.038.us, %.lr.ph39.split.us.split ], [ %10, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit.us ], [ %10, %.preheader.us ]
-  %exitcond55.not = icmp eq i64 %10, %2
+  %.1.us = phi i64 [ %.038.us, %.lr.ph39.split.us.split ], [ %9, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit.us ], [ %9, %.preheader.us ]
+  %exitcond55.not = icmp eq i64 %9, %2
   br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph39.split.us.split, !llvm.loop !1082
 
 .preheader.us:                                    ; preds = %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit.us, %.preheader.us
-  %.01936.us = phi i64 [ %38, %.preheader.us ], [ 0, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit.us ]
-  %28 = load ptr, ptr %0, align 8, !tbaa !1022
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef signext 32)
-  %31 = load i64, ptr %6, align 8, !tbaa !526
-  %32 = add i64 %31, 1
-  store i64 %32, ptr %6, align 8, !tbaa !526
-  %33 = load ptr, ptr %0, align 8, !tbaa !1022
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %34, i8 noundef signext 32)
-  %36 = load i64, ptr %6, align 8, !tbaa !526
-  %37 = add i64 %36, 1
-  store i64 %37, ptr %6, align 8, !tbaa !526
-  %38 = add nuw i64 %.01936.us, 1
+  %.01936.us = phi i64 [ %37, %.preheader.us ], [ 0, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit.us ]
+  %27 = load ptr, ptr %0, align 8, !tbaa !1022
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %28, i8 noundef signext 32)
+  %30 = load i64, ptr %5, align 8, !tbaa !526
+  %31 = add i64 %30, 1
+  store i64 %31, ptr %5, align 8, !tbaa !526
+  %32 = load ptr, ptr %0, align 8, !tbaa !1022
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %33, i8 noundef signext 32)
+  %35 = load i64, ptr %5, align 8, !tbaa !526
+  %36 = add i64 %35, 1
+  store i64 %36, ptr %5, align 8, !tbaa !526
+  %37 = add nuw i64 %.01936.us, 1
   %exitcond.not = icmp eq i64 %.01936.us, %3
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !1083
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.preheader, %4
   %.0.lcssa = phi i64 [ 0, %4 ], [ %.1, %.preheader ], [ %.1.us, %..loopexit_crit_edge.us ]
-  %39 = icmp uge i64 %.0.lcssa, %2
-  %40 = icmp eq ptr %.fr51, null
-  %or.cond = or i1 %39, %40
-  br i1 %or.cond, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit26, label %61
+  %38 = icmp uge i64 %.0.lcssa, %2
+  %39 = icmp eq ptr %.fr51, null
+  %or.cond = or i1 %38, %39
+  br i1 %or.cond, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit26, label %60
 
 .lr.ph39.split.split:                             ; preds = %.lr.ph39, %.preheader
   %.038 = phi i64 [ %.1, %.preheader ], [ 0, %.lr.ph39 ]
-  %.01837 = phi i64 [ %44, %.preheader ], [ 0, %.lr.ph39 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.fr51, i64 %.01837
-  %42 = load i8, ptr %41, align 1, !tbaa !21
-  %43 = icmp eq i8 %42, 10
-  %44 = add nuw i64 %.01837, 1
-  br i1 %43, label %45, label %.preheader
+  %.01837 = phi i64 [ %43, %.preheader ], [ 0, %.lr.ph39 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.fr51, i64 %.01837
+  %41 = load i8, ptr %40, align 1, !tbaa !21
+  %42 = icmp eq i8 %41, 10
+  %43 = add nuw i64 %.01837, 1
+  br i1 %42, label %44, label %.preheader
 
-45:                                               ; preds = %.lr.ph39.split.split
-  %.not.i = icmp eq i64 %44, -1
-  %46 = select i1 %.not.i, i64 %2, i64 %44
-  %47 = icmp eq i64 %46, %.038
-  br i1 %47, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit, label %48
+44:                                               ; preds = %.lr.ph39.split.split
+  %.not.i = icmp eq i64 %43, -1
+  %45 = select i1 %.not.i, i64 %2, i64 %43
+  %46 = icmp eq i64 %45, %.038
+  br i1 %46, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit, label %47
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %.fr51, i64 %.038
-  %50 = sub i64 %46, %.038
-  %51 = load ptr, ptr %0, align 8, !tbaa !1022
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull %49, i64 noundef %50)
-  %54 = load i64, ptr %6, align 8, !tbaa !526
-  %55 = add i64 %54, %50
-  store i64 %55, ptr %6, align 8, !tbaa !526
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %.fr51, i64 %.038
+  %49 = sub i64 %45, %.038
+  %50 = load ptr, ptr %0, align 8, !tbaa !1022
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull %48, i64 noundef %49)
+  %53 = load i64, ptr %5, align 8, !tbaa !526
+  %54 = add i64 %53, %49
+  store i64 %54, ptr %5, align 8, !tbaa !526
   br label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit
 
-_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit: ; preds = %45, %48
-  %56 = load ptr, ptr %0, align 8, !tbaa !1022
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %57, i8 noundef signext 10)
-  %59 = load i64, ptr %6, align 8, !tbaa !526
-  %60 = add i64 %59, 1
-  store i64 %60, ptr %6, align 8, !tbaa !526
+_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit: ; preds = %44, %47
+  %55 = load ptr, ptr %0, align 8, !tbaa !1022
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %56, i8 noundef signext 10)
+  %58 = load i64, ptr %5, align 8, !tbaa !526
+  %59 = add i64 %58, 1
+  store i64 %59, ptr %5, align 8, !tbaa !526
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph39.split.split, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit
-  %.1 = phi i64 [ %44, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit ], [ %.038, %.lr.ph39.split.split ]
-  %exitcond58.not = icmp eq i64 %44, %2
+  %.1 = phi i64 [ %43, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit ], [ %.038, %.lr.ph39.split.split ]
+  %exitcond58.not = icmp eq i64 %43, %2
   br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph39.split.split, !llvm.loop !1082
 
-61:                                               ; preds = %._crit_edge
-  %62 = getelementptr inbounds nuw i8, ptr %.fr51, i64 %.0.lcssa
-  %63 = sub nuw i64 %2, %.0.lcssa
-  %64 = load ptr, ptr %0, align 8, !tbaa !1022
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull %62, i64 noundef %63)
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !526
-  %69 = add i64 %68, %63
-  store i64 %69, ptr %67, align 8, !tbaa !526
+60:                                               ; preds = %._crit_edge
+  %61 = getelementptr inbounds nuw i8, ptr %.fr51, i64 %.0.lcssa
+  %62 = sub nuw i64 %2, %.0.lcssa
+  %63 = load ptr, ptr %0, align 8, !tbaa !1022
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull %61, i64 noundef %62)
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %67 = load i64, ptr %66, align 8, !tbaa !526
+  %68 = add i64 %67, %62
+  store i64 %68, ptr %66, align 8, !tbaa !526
   br label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit26
 
-_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit26: ; preds = %61, %._crit_edge
+_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit26: ; preds = %60, %._crit_edge
   ret void
 }
 

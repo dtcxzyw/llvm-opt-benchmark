@@ -4300,8 +4300,8 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN7datalog7conte
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %24
-  %.035.i.i.i = phi ptr [ %25, %24 ], [ %14, %.lr.ph.i.i.i.preheader ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %23
+  %.035.i.i.i = phi ptr [ %24, %23 ], [ %14, %.lr.ph.i.i.i.preheader ]
   %15 = load ptr, ptr %.035.i.i.i, align 8, !tbaa !310
   %16 = icmp ult ptr %15, inttoptr (i64 2 to ptr)
   br i1 %16, label %22, label %17
@@ -4312,49 +4312,47 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN7datalog7conte
   %20 = icmp eq i32 %19, %5
   %21 = icmp eq ptr %15, %1
   %or.cond.i.i.i = and i1 %21, %20
-  br i1 %or.cond.i.i.i, label %_ZN7obj_mapIK4sortPN7datalog7context11sort_domainEE4findEPS1_.exit, label %24
+  br i1 %or.cond.i.i.i, label %_ZN7obj_mapIK4sortPN7datalog7context11sort_domainEE4findEPS1_.exit, label %23
 
 22:                                               ; preds = %.lr.ph.i.i.i
-  %23 = icmp ne ptr %15, null
-  tail call void @llvm.assume(i1 %23)
-  br label %24
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
+  br label %23
 
-24:                                               ; preds = %22, %17
-  %25 = getelementptr inbounds nuw i8, ptr %.035.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %25, %12
+23:                                               ; preds = %22, %17
+  %24 = getelementptr inbounds nuw i8, ptr %.035.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %24, %12
   br i1 %.not.i.i.i, label %.lr.ph38.i.i.i.preheader, label %.lr.ph.i.i.i, !llvm.loop !319
 
-.lr.ph38.i.i.i.preheader:                         ; preds = %24, %2
+.lr.ph38.i.i.i.preheader:                         ; preds = %23, %2
   br label %.lr.ph38.i.i.i
 
 .lr.ph38.i.i.i:                                   ; preds = %.lr.ph38.i.i.i.preheader, %.lr.ph38.backedge.i.i.i
   %.137.i.i.i = phi ptr [ %.pn.i, %.lr.ph38.backedge.i.i.i ], [ %10, %.lr.ph38.i.i.i.preheader ]
-  %26 = load ptr, ptr %.137.i.i.i, align 8, !tbaa !310
-  %27 = icmp ult ptr %26, inttoptr (i64 2 to ptr)
-  br i1 %27, label %33, label %28
+  %25 = load ptr, ptr %.137.i.i.i, align 8, !tbaa !310
+  %26 = icmp ult ptr %25, inttoptr (i64 2 to ptr)
+  br i1 %26, label %32, label %27
 
-28:                                               ; preds = %.lr.ph38.i.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %30 = load i32, ptr %29, align 4, !tbaa !318
-  %31 = icmp eq i32 %30, %5
-  %32 = icmp eq ptr %26, %1
-  %or.cond31.i.i.i = and i1 %32, %31
+27:                                               ; preds = %.lr.ph38.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  %29 = load i32, ptr %28, align 4, !tbaa !318
+  %30 = icmp eq i32 %29, %5
+  %31 = icmp eq ptr %25, %1
+  %or.cond31.i.i.i = and i1 %31, %30
   br i1 %or.cond31.i.i.i, label %_ZN7obj_mapIK4sortPN7datalog7context11sort_domainEE4findEPS1_.exit, label %.lr.ph38.backedge.i.i.i
 
-33:                                               ; preds = %.lr.ph38.i.i.i
-  %34 = icmp ne ptr %26, null
-  tail call void @llvm.assume(i1 %34)
+32:                                               ; preds = %.lr.ph38.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %25) ]
   br label %.lr.ph38.backedge.i.i.i
 
-.lr.ph38.backedge.i.i.i:                          ; preds = %28, %33
+.lr.ph38.backedge.i.i.i:                          ; preds = %27, %32
   %.pn.i = getelementptr inbounds nuw i8, ptr %.137.i.i.i, i64 16
   br label %.lr.ph38.i.i.i, !llvm.loop !320
 
-_ZN7obj_mapIK4sortPN7datalog7context11sort_domainEE4findEPS1_.exit: ; preds = %17, %28
-  %.026.i.i.i = phi ptr [ %.137.i.i.i, %28 ], [ %.035.i.i.i, %17 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.026.i.i.i, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !321
-  ret ptr %36
+_ZN7obj_mapIK4sortPN7datalog7context11sort_domainEE4findEPS1_.exit: ; preds = %17, %27
+  %.026.i.i.i = phi ptr [ %.137.i.i.i, %27 ], [ %.035.i.i.i, %17 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.026.i.i.i, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !321
+  ret ptr %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
@@ -4378,8 +4376,8 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7datalog7cont
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %24
-  %.035.i.i.i = phi ptr [ %25, %24 ], [ %14, %.lr.ph.i.i.i.preheader ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %23
+  %.035.i.i.i = phi ptr [ %24, %23 ], [ %14, %.lr.ph.i.i.i.preheader ]
   %15 = load ptr, ptr %.035.i.i.i, align 8, !tbaa !310
   %16 = icmp ult ptr %15, inttoptr (i64 2 to ptr)
   br i1 %16, label %22, label %17
@@ -4390,49 +4388,47 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7datalog7cont
   %20 = icmp eq i32 %19, %5
   %21 = icmp eq ptr %15, %1
   %or.cond.i.i.i = and i1 %21, %20
-  br i1 %or.cond.i.i.i, label %_ZNK7obj_mapIK4sortPN7datalog7context11sort_domainEE4findEPS1_.exit, label %24
+  br i1 %or.cond.i.i.i, label %_ZNK7obj_mapIK4sortPN7datalog7context11sort_domainEE4findEPS1_.exit, label %23
 
 22:                                               ; preds = %.lr.ph.i.i.i
-  %23 = icmp ne ptr %15, null
-  tail call void @llvm.assume(i1 %23)
-  br label %24
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
+  br label %23
 
-24:                                               ; preds = %22, %17
-  %25 = getelementptr inbounds nuw i8, ptr %.035.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %25, %12
+23:                                               ; preds = %22, %17
+  %24 = getelementptr inbounds nuw i8, ptr %.035.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %24, %12
   br i1 %.not.i.i.i, label %.lr.ph38.i.i.i.preheader, label %.lr.ph.i.i.i, !llvm.loop !319
 
-.lr.ph38.i.i.i.preheader:                         ; preds = %24, %2
+.lr.ph38.i.i.i.preheader:                         ; preds = %23, %2
   br label %.lr.ph38.i.i.i
 
 .lr.ph38.i.i.i:                                   ; preds = %.lr.ph38.i.i.i.preheader, %.lr.ph38.backedge.i.i.i
   %.137.i.i.i = phi ptr [ %.pn.i, %.lr.ph38.backedge.i.i.i ], [ %10, %.lr.ph38.i.i.i.preheader ]
-  %26 = load ptr, ptr %.137.i.i.i, align 8, !tbaa !310
-  %27 = icmp ult ptr %26, inttoptr (i64 2 to ptr)
-  br i1 %27, label %33, label %28
+  %25 = load ptr, ptr %.137.i.i.i, align 8, !tbaa !310
+  %26 = icmp ult ptr %25, inttoptr (i64 2 to ptr)
+  br i1 %26, label %32, label %27
 
-28:                                               ; preds = %.lr.ph38.i.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %30 = load i32, ptr %29, align 4, !tbaa !318
-  %31 = icmp eq i32 %30, %5
-  %32 = icmp eq ptr %26, %1
-  %or.cond31.i.i.i = and i1 %32, %31
+27:                                               ; preds = %.lr.ph38.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  %29 = load i32, ptr %28, align 4, !tbaa !318
+  %30 = icmp eq i32 %29, %5
+  %31 = icmp eq ptr %25, %1
+  %or.cond31.i.i.i = and i1 %31, %30
   br i1 %or.cond31.i.i.i, label %_ZNK7obj_mapIK4sortPN7datalog7context11sort_domainEE4findEPS1_.exit, label %.lr.ph38.backedge.i.i.i
 
-33:                                               ; preds = %.lr.ph38.i.i.i
-  %34 = icmp ne ptr %26, null
-  tail call void @llvm.assume(i1 %34)
+32:                                               ; preds = %.lr.ph38.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %25) ]
   br label %.lr.ph38.backedge.i.i.i
 
-.lr.ph38.backedge.i.i.i:                          ; preds = %28, %33
+.lr.ph38.backedge.i.i.i:                          ; preds = %27, %32
   %.pn.i = getelementptr inbounds nuw i8, ptr %.137.i.i.i, i64 16
   br label %.lr.ph38.i.i.i, !llvm.loop !320
 
-_ZNK7obj_mapIK4sortPN7datalog7context11sort_domainEE4findEPS1_.exit: ; preds = %17, %28
-  %.026.i.i.i = phi ptr [ %.137.i.i.i, %28 ], [ %.035.i.i.i, %17 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.026.i.i.i, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !321
-  ret ptr %36
+_ZNK7obj_mapIK4sortPN7datalog7context11sort_domainEE4findEPS1_.exit: ; preds = %17, %27
+  %.026.i.i.i = phi ptr [ %.137.i.i.i, %27 ], [ %.035.i.i.i, %17 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.026.i.i.i, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !321
+  ret ptr %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -5389,8 +5385,8 @@ define hidden noundef i32 @_ZN7datalog7context19get_constant_numberEP4sort6symbo
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %25
-  %.035.i.i.i.i = phi ptr [ %26, %25 ], [ %15, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %24
+  %.035.i.i.i.i = phi ptr [ %25, %24 ], [ %15, %.lr.ph.i.i.i.i.preheader ]
   %16 = load ptr, ptr %.035.i.i.i.i, align 8, !tbaa !310
   %17 = icmp ult ptr %16, inttoptr (i64 2 to ptr)
   br i1 %17, label %23, label %18
@@ -5401,50 +5397,48 @@ define hidden noundef i32 @_ZN7datalog7context19get_constant_numberEP4sort6symbo
   %21 = icmp eq i32 %20, %6
   %22 = icmp eq ptr %16, %1
   %or.cond.i.i.i.i = and i1 %22, %21
-  br i1 %or.cond.i.i.i.i, label %_ZN7datalog7context15get_sort_domainEP4sort.exit, label %25
+  br i1 %or.cond.i.i.i.i, label %_ZN7datalog7context15get_sort_domainEP4sort.exit, label %24
 
 23:                                               ; preds = %.lr.ph.i.i.i.i
-  %24 = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %24)
-  br label %25
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %16) ]
+  br label %24
 
-25:                                               ; preds = %23, %18
-  %26 = getelementptr inbounds nuw i8, ptr %.035.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %26, %13
+24:                                               ; preds = %23, %18
+  %25 = getelementptr inbounds nuw i8, ptr %.035.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %25, %13
   br i1 %.not.i.i.i.i, label %.lr.ph38.i.i.i.i.preheader, label %.lr.ph.i.i.i.i, !llvm.loop !319
 
-.lr.ph38.i.i.i.i.preheader:                       ; preds = %25, %3
+.lr.ph38.i.i.i.i.preheader:                       ; preds = %24, %3
   br label %.lr.ph38.i.i.i.i
 
 .lr.ph38.i.i.i.i:                                 ; preds = %.lr.ph38.i.i.i.i.preheader, %.lr.ph38.backedge.i.i.i.i
   %.137.i.i.i.i = phi ptr [ %.pn.i.i, %.lr.ph38.backedge.i.i.i.i ], [ %11, %.lr.ph38.i.i.i.i.preheader ]
-  %27 = load ptr, ptr %.137.i.i.i.i, align 8, !tbaa !310
-  %28 = icmp ult ptr %27, inttoptr (i64 2 to ptr)
-  br i1 %28, label %34, label %29
+  %26 = load ptr, ptr %.137.i.i.i.i, align 8, !tbaa !310
+  %27 = icmp ult ptr %26, inttoptr (i64 2 to ptr)
+  br i1 %27, label %33, label %28
 
-29:                                               ; preds = %.lr.ph38.i.i.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !318
-  %32 = icmp eq i32 %31, %6
-  %33 = icmp eq ptr %27, %1
-  %or.cond31.i.i.i.i = and i1 %33, %32
+28:                                               ; preds = %.lr.ph38.i.i.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 12
+  %30 = load i32, ptr %29, align 4, !tbaa !318
+  %31 = icmp eq i32 %30, %6
+  %32 = icmp eq ptr %26, %1
+  %or.cond31.i.i.i.i = and i1 %32, %31
   br i1 %or.cond31.i.i.i.i, label %_ZN7datalog7context15get_sort_domainEP4sort.exit, label %.lr.ph38.backedge.i.i.i.i
 
-34:                                               ; preds = %.lr.ph38.i.i.i.i
-  %35 = icmp ne ptr %27, null
-  tail call void @llvm.assume(i1 %35)
+33:                                               ; preds = %.lr.ph38.i.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   br label %.lr.ph38.backedge.i.i.i.i
 
-.lr.ph38.backedge.i.i.i.i:                        ; preds = %34, %29
+.lr.ph38.backedge.i.i.i.i:                        ; preds = %33, %28
   %.pn.i.i = getelementptr inbounds nuw i8, ptr %.137.i.i.i.i, i64 16
   br label %.lr.ph38.i.i.i.i, !llvm.loop !320
 
-_ZN7datalog7context15get_sort_domainEP4sort.exit: ; preds = %18, %29
-  %.026.i.i.i.i = phi ptr [ %.137.i.i.i.i, %29 ], [ %.035.i.i.i.i, %18 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !321
-  %38 = tail call noundef i32 @_ZN7datalog7context18symbol_sort_domain10get_numberE6symbol(ptr noundef nonnull align 8 dereferenceable(80) %37, ptr %2)
-  ret i32 %38
+_ZN7datalog7context15get_sort_domainEP4sort.exit: ; preds = %18, %28
+  %.026.i.i.i.i = phi ptr [ %.137.i.i.i.i, %28 ], [ %.035.i.i.i.i, %18 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !321
+  %36 = tail call noundef i32 @_ZN7datalog7context18symbol_sort_domain10get_numberE6symbol(ptr noundef nonnull align 8 dereferenceable(80) %35, ptr %2)
+  ret i32 %36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5648,8 +5642,8 @@ define hidden noundef i32 @_ZN7datalog7context19get_constant_numberEP4sortm(ptr 
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %25
-  %.035.i.i.i.i = phi ptr [ %26, %25 ], [ %15, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %24
+  %.035.i.i.i.i = phi ptr [ %25, %24 ], [ %15, %.lr.ph.i.i.i.i.preheader ]
   %16 = load ptr, ptr %.035.i.i.i.i, align 8, !tbaa !310
   %17 = icmp ult ptr %16, inttoptr (i64 2 to ptr)
   br i1 %17, label %23, label %18
@@ -5660,63 +5654,61 @@ define hidden noundef i32 @_ZN7datalog7context19get_constant_numberEP4sortm(ptr 
   %21 = icmp eq i32 %20, %6
   %22 = icmp eq ptr %16, %1
   %or.cond.i.i.i.i = and i1 %22, %21
-  br i1 %or.cond.i.i.i.i, label %_ZN7datalog7context15get_sort_domainEP4sort.exit, label %25
+  br i1 %or.cond.i.i.i.i, label %_ZN7datalog7context15get_sort_domainEP4sort.exit, label %24
 
 23:                                               ; preds = %.lr.ph.i.i.i.i
-  %24 = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %24)
-  br label %25
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %16) ]
+  br label %24
 
-25:                                               ; preds = %23, %18
-  %26 = getelementptr inbounds nuw i8, ptr %.035.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %26, %13
+24:                                               ; preds = %23, %18
+  %25 = getelementptr inbounds nuw i8, ptr %.035.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %25, %13
   br i1 %.not.i.i.i.i, label %.lr.ph38.i.i.i.i.preheader, label %.lr.ph.i.i.i.i, !llvm.loop !319
 
-.lr.ph38.i.i.i.i.preheader:                       ; preds = %25, %3
+.lr.ph38.i.i.i.i.preheader:                       ; preds = %24, %3
   br label %.lr.ph38.i.i.i.i
 
 .lr.ph38.i.i.i.i:                                 ; preds = %.lr.ph38.i.i.i.i.preheader, %.lr.ph38.backedge.i.i.i.i
   %.137.i.i.i.i = phi ptr [ %.pn.i.i, %.lr.ph38.backedge.i.i.i.i ], [ %11, %.lr.ph38.i.i.i.i.preheader ]
-  %27 = load ptr, ptr %.137.i.i.i.i, align 8, !tbaa !310
-  %28 = icmp ult ptr %27, inttoptr (i64 2 to ptr)
-  br i1 %28, label %34, label %29
+  %26 = load ptr, ptr %.137.i.i.i.i, align 8, !tbaa !310
+  %27 = icmp ult ptr %26, inttoptr (i64 2 to ptr)
+  br i1 %27, label %33, label %28
 
-29:                                               ; preds = %.lr.ph38.i.i.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !318
-  %32 = icmp eq i32 %31, %6
-  %33 = icmp eq ptr %27, %1
-  %or.cond31.i.i.i.i = and i1 %33, %32
+28:                                               ; preds = %.lr.ph38.i.i.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 12
+  %30 = load i32, ptr %29, align 4, !tbaa !318
+  %31 = icmp eq i32 %30, %6
+  %32 = icmp eq ptr %26, %1
+  %or.cond31.i.i.i.i = and i1 %32, %31
   br i1 %or.cond31.i.i.i.i, label %_ZN7datalog7context15get_sort_domainEP4sort.exit, label %.lr.ph38.backedge.i.i.i.i
 
-34:                                               ; preds = %.lr.ph38.i.i.i.i
-  %35 = icmp ne ptr %27, null
-  tail call void @llvm.assume(i1 %35)
+33:                                               ; preds = %.lr.ph38.i.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   br label %.lr.ph38.backedge.i.i.i.i
 
-.lr.ph38.backedge.i.i.i.i:                        ; preds = %34, %29
+.lr.ph38.backedge.i.i.i.i:                        ; preds = %33, %28
   %.pn.i.i = getelementptr inbounds nuw i8, ptr %.137.i.i.i.i, i64 16
   br label %.lr.ph38.i.i.i.i, !llvm.loop !320
 
-_ZN7datalog7context15get_sort_domainEP4sort.exit: ; preds = %18, %29
-  %.026.i.i.i.i = phi ptr [ %.137.i.i.i.i, %29 ], [ %.035.i.i.i.i, %18 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !321
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !324
-  %40 = icmp eq i32 %39, 1
-  br i1 %40, label %41, label %43
+_ZN7datalog7context15get_sort_domainEP4sort.exit: ; preds = %18, %28
+  %.026.i.i.i.i = phi ptr [ %.137.i.i.i.i, %28 ], [ %.035.i.i.i.i, %18 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !321
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load i32, ptr %36, align 8, !tbaa !324
+  %38 = icmp eq i32 %37, 1
+  br i1 %38, label %39, label %41
+
+39:                                               ; preds = %_ZN7datalog7context15get_sort_domainEP4sort.exit
+  %40 = trunc i64 %2 to i32
+  br label %43
 
 41:                                               ; preds = %_ZN7datalog7context15get_sort_domainEP4sort.exit
-  %42 = trunc i64 %2 to i32
-  br label %45
+  %42 = tail call noundef i32 @_ZN7datalog7context18uint64_sort_domain10get_numberEm(ptr noundef nonnull align 8 dereferenceable(80) %35, i64 noundef %2)
+  br label %43
 
-43:                                               ; preds = %_ZN7datalog7context15get_sort_domainEP4sort.exit
-  %44 = tail call noundef i32 @_ZN7datalog7context18uint64_sort_domain10get_numberEm(ptr noundef nonnull align 8 dereferenceable(80) %37, i64 noundef %2)
-  br label %45
-
-45:                                               ; preds = %43, %41
-  %.0 = phi i32 [ %42, %41 ], [ %44, %43 ]
+43:                                               ; preds = %41, %39
+  %.0 = phi i32 [ %40, %39 ], [ %42, %41 ]
   ret i32 %.0
 }
 
@@ -5977,8 +5969,8 @@ define hidden void @_ZN7datalog7context19print_constant_nameEP4sortmRSo(ptr noun
 _ZNK7datalog7context15has_sort_domainEP4sort.exit: ; preds = %18, %29
   br i1 %.not34.i.i.i.i, label %.lr.ph38.i.i.i.i14.preheader, label %.lr.ph.i.i.i.i8
 
-.lr.ph.i.i.i.i8:                                  ; preds = %_ZNK7datalog7context15has_sort_domainEP4sort.exit, %47
-  %.035.i.i.i.i9 = phi ptr [ %48, %47 ], [ %14, %_ZNK7datalog7context15has_sort_domainEP4sort.exit ]
+.lr.ph.i.i.i.i8:                                  ; preds = %_ZNK7datalog7context15has_sort_domainEP4sort.exit, %46
+  %.035.i.i.i.i9 = phi ptr [ %47, %46 ], [ %14, %_ZNK7datalog7context15has_sort_domainEP4sort.exit ]
   %38 = load ptr, ptr %.035.i.i.i.i9, align 8, !tbaa !310
   %39 = icmp ult ptr %38, inttoptr (i64 2 to ptr)
   br i1 %39, label %45, label %40
@@ -5989,60 +5981,58 @@ _ZNK7datalog7context15has_sort_domainEP4sort.exit: ; preds = %18, %29
   %43 = icmp eq i32 %42, %7
   %44 = icmp eq ptr %38, %1
   %or.cond.i.i.i.i10 = and i1 %44, %43
-  br i1 %or.cond.i.i.i.i10, label %_ZN7datalog7context15get_sort_domainEP4sort.exit, label %47
+  br i1 %or.cond.i.i.i.i10, label %_ZN7datalog7context15get_sort_domainEP4sort.exit, label %46
 
 45:                                               ; preds = %.lr.ph.i.i.i.i8
-  %46 = icmp ne ptr %38, null
-  tail call void @llvm.assume(i1 %46)
-  br label %47
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
+  br label %46
 
-47:                                               ; preds = %45, %40
-  %48 = getelementptr inbounds nuw i8, ptr %.035.i.i.i.i9, i64 16
-  %.not.i.i.i.i11 = icmp eq ptr %48, %16
+46:                                               ; preds = %45, %40
+  %47 = getelementptr inbounds nuw i8, ptr %.035.i.i.i.i9, i64 16
+  %.not.i.i.i.i11 = icmp eq ptr %47, %16
   br i1 %.not.i.i.i.i11, label %.lr.ph38.i.i.i.i14.preheader, label %.lr.ph.i.i.i.i8, !llvm.loop !319
 
-.lr.ph38.i.i.i.i14.preheader:                     ; preds = %47, %_ZNK7datalog7context15has_sort_domainEP4sort.exit
+.lr.ph38.i.i.i.i14.preheader:                     ; preds = %46, %_ZNK7datalog7context15has_sort_domainEP4sort.exit
   br label %.lr.ph38.i.i.i.i14
 
 .lr.ph38.i.i.i.i14:                               ; preds = %.lr.ph38.i.i.i.i14.preheader, %.lr.ph38.backedge.i.i.i.i17
   %.137.i.i.i.i15 = phi ptr [ %.pn.i.i, %.lr.ph38.backedge.i.i.i.i17 ], [ %12, %.lr.ph38.i.i.i.i14.preheader ]
-  %49 = load ptr, ptr %.137.i.i.i.i15, align 8, !tbaa !310
-  %50 = icmp ult ptr %49, inttoptr (i64 2 to ptr)
-  br i1 %50, label %56, label %51
+  %48 = load ptr, ptr %.137.i.i.i.i15, align 8, !tbaa !310
+  %49 = icmp ult ptr %48, inttoptr (i64 2 to ptr)
+  br i1 %49, label %55, label %50
 
-51:                                               ; preds = %.lr.ph38.i.i.i.i14
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  %53 = load i32, ptr %52, align 4, !tbaa !318
-  %54 = icmp eq i32 %53, %7
-  %55 = icmp eq ptr %49, %1
-  %or.cond31.i.i.i.i16 = and i1 %55, %54
+50:                                               ; preds = %.lr.ph38.i.i.i.i14
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 12
+  %52 = load i32, ptr %51, align 4, !tbaa !318
+  %53 = icmp eq i32 %52, %7
+  %54 = icmp eq ptr %48, %1
+  %or.cond31.i.i.i.i16 = and i1 %54, %53
   br i1 %or.cond31.i.i.i.i16, label %_ZN7datalog7context15get_sort_domainEP4sort.exit, label %.lr.ph38.backedge.i.i.i.i17
 
-56:                                               ; preds = %.lr.ph38.i.i.i.i14
-  %57 = icmp ne ptr %49, null
-  tail call void @llvm.assume(i1 %57)
+55:                                               ; preds = %.lr.ph38.i.i.i.i14
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %48) ]
   br label %.lr.ph38.backedge.i.i.i.i17
 
-.lr.ph38.backedge.i.i.i.i17:                      ; preds = %56, %51
+.lr.ph38.backedge.i.i.i.i17:                      ; preds = %55, %50
   %.pn.i.i = getelementptr inbounds nuw i8, ptr %.137.i.i.i.i15, i64 16
   br label %.lr.ph38.i.i.i.i14, !llvm.loop !320
 
-_ZN7datalog7context15get_sort_domainEP4sort.exit: ; preds = %40, %51
-  %.026.i.i.i.i18 = phi ptr [ %.137.i.i.i.i15, %51 ], [ %.035.i.i.i.i9, %40 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i18, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !321
-  %60 = trunc i64 %2 to i32
-  %61 = load ptr, ptr %59, align 8, !tbaa !15
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(48) %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %65
+_ZN7datalog7context15get_sort_domainEP4sort.exit: ; preds = %40, %50
+  %.026.i.i.i.i18 = phi ptr [ %.137.i.i.i.i15, %50 ], [ %.035.i.i.i.i9, %40 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i18, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !321
+  %58 = trunc i64 %2 to i32
+  %59 = load ptr, ptr %57, align 8, !tbaa !15
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %61 = load ptr, ptr %60, align 8
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(48) %57, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br label %63
 
 .loopexit:                                        ; preds = %23, %37, %34, %.preheader.i.i.i.i
-  %64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %2)
-  br label %65
+  %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %2)
+  br label %63
 
-65:                                               ; preds = %.loopexit, %_ZN7datalog7context15get_sort_domainEP4sort.exit
+63:                                               ; preds = %.loopexit, %_ZN7datalog7context15get_sort_domainEP4sort.exit
   ret void
 }
 
@@ -6124,8 +6114,8 @@ define hidden noundef zeroext i1 @_ZN7datalog7context27try_get_sort_constant_cou
 _ZNK7datalog7context15has_sort_domainEP4sort.exit: ; preds = %17, %28
   br i1 %.not34.i.i.i.i, label %.lr.ph38.i.i.i.i13.preheader, label %.lr.ph.i.i.i.i7
 
-.lr.ph.i.i.i.i7:                                  ; preds = %_ZNK7datalog7context15has_sort_domainEP4sort.exit, %46
-  %.035.i.i.i.i8 = phi ptr [ %47, %46 ], [ %13, %_ZNK7datalog7context15has_sort_domainEP4sort.exit ]
+.lr.ph.i.i.i.i7:                                  ; preds = %_ZNK7datalog7context15has_sort_domainEP4sort.exit, %45
+  %.035.i.i.i.i8 = phi ptr [ %46, %45 ], [ %13, %_ZNK7datalog7context15has_sort_domainEP4sort.exit ]
   %37 = load ptr, ptr %.035.i.i.i.i8, align 8, !tbaa !310
   %38 = icmp ult ptr %37, inttoptr (i64 2 to ptr)
   br i1 %38, label %44, label %39
@@ -6136,54 +6126,52 @@ _ZNK7datalog7context15has_sort_domainEP4sort.exit: ; preds = %17, %28
   %42 = icmp eq i32 %41, %6
   %43 = icmp eq ptr %37, %1
   %or.cond.i.i.i.i9 = and i1 %43, %42
-  br i1 %or.cond.i.i.i.i9, label %_ZN7datalog7context15get_sort_domainEP4sort.exit, label %46
+  br i1 %or.cond.i.i.i.i9, label %_ZN7datalog7context15get_sort_domainEP4sort.exit, label %45
 
 44:                                               ; preds = %.lr.ph.i.i.i.i7
-  %45 = icmp ne ptr %37, null
-  tail call void @llvm.assume(i1 %45)
-  br label %46
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %37) ]
+  br label %45
 
-46:                                               ; preds = %44, %39
-  %47 = getelementptr inbounds nuw i8, ptr %.035.i.i.i.i8, i64 16
-  %.not.i.i.i.i10 = icmp eq ptr %47, %15
+45:                                               ; preds = %44, %39
+  %46 = getelementptr inbounds nuw i8, ptr %.035.i.i.i.i8, i64 16
+  %.not.i.i.i.i10 = icmp eq ptr %46, %15
   br i1 %.not.i.i.i.i10, label %.lr.ph38.i.i.i.i13.preheader, label %.lr.ph.i.i.i.i7, !llvm.loop !319
 
-.lr.ph38.i.i.i.i13.preheader:                     ; preds = %46, %_ZNK7datalog7context15has_sort_domainEP4sort.exit
+.lr.ph38.i.i.i.i13.preheader:                     ; preds = %45, %_ZNK7datalog7context15has_sort_domainEP4sort.exit
   br label %.lr.ph38.i.i.i.i13
 
 .lr.ph38.i.i.i.i13:                               ; preds = %.lr.ph38.i.i.i.i13.preheader, %.lr.ph38.backedge.i.i.i.i16
   %.137.i.i.i.i14 = phi ptr [ %.pn.i.i, %.lr.ph38.backedge.i.i.i.i16 ], [ %11, %.lr.ph38.i.i.i.i13.preheader ]
-  %48 = load ptr, ptr %.137.i.i.i.i14, align 8, !tbaa !310
-  %49 = icmp ult ptr %48, inttoptr (i64 2 to ptr)
-  br i1 %49, label %55, label %50
+  %47 = load ptr, ptr %.137.i.i.i.i14, align 8, !tbaa !310
+  %48 = icmp ult ptr %47, inttoptr (i64 2 to ptr)
+  br i1 %48, label %54, label %49
 
-50:                                               ; preds = %.lr.ph38.i.i.i.i13
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  %52 = load i32, ptr %51, align 4, !tbaa !318
-  %53 = icmp eq i32 %52, %6
-  %54 = icmp eq ptr %48, %1
-  %or.cond31.i.i.i.i15 = and i1 %54, %53
+49:                                               ; preds = %.lr.ph38.i.i.i.i13
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  %51 = load i32, ptr %50, align 4, !tbaa !318
+  %52 = icmp eq i32 %51, %6
+  %53 = icmp eq ptr %47, %1
+  %or.cond31.i.i.i.i15 = and i1 %53, %52
   br i1 %or.cond31.i.i.i.i15, label %_ZN7datalog7context15get_sort_domainEP4sort.exit, label %.lr.ph38.backedge.i.i.i.i16
 
-55:                                               ; preds = %.lr.ph38.i.i.i.i13
-  %56 = icmp ne ptr %48, null
-  tail call void @llvm.assume(i1 %56)
+54:                                               ; preds = %.lr.ph38.i.i.i.i13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %47) ]
   br label %.lr.ph38.backedge.i.i.i.i16
 
-.lr.ph38.backedge.i.i.i.i16:                      ; preds = %55, %50
+.lr.ph38.backedge.i.i.i.i16:                      ; preds = %54, %49
   %.pn.i.i = getelementptr inbounds nuw i8, ptr %.137.i.i.i.i14, i64 16
   br label %.lr.ph38.i.i.i.i13, !llvm.loop !320
 
-_ZN7datalog7context15get_sort_domainEP4sort.exit: ; preds = %39, %50
-  %.026.i.i.i.i17 = phi ptr [ %.137.i.i.i.i14, %50 ], [ %.035.i.i.i.i8, %39 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i17, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !321
-  %59 = load ptr, ptr %58, align 8, !tbaa !15
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(48) %58)
-  %63 = zext i32 %62 to i64
-  store i64 %63, ptr %2, align 8, !tbaa !361
+_ZN7datalog7context15get_sort_domainEP4sort.exit: ; preds = %39, %49
+  %.026.i.i.i.i17 = phi ptr [ %.137.i.i.i.i14, %49 ], [ %.035.i.i.i.i8, %39 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i17, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !321
+  %57 = load ptr, ptr %56, align 8, !tbaa !15
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef i32 %59(ptr noundef nonnull align 8 dereferenceable(48) %56)
+  %61 = zext i32 %60 to i64
+  store i64 %61, ptr %2, align 8, !tbaa !361
   br label %_ZNK7datalog7context15has_sort_domainEP4sort.exit.thread
 
 _ZNK7datalog7context15has_sort_domainEP4sort.exit.thread: ; preds = %22, %33, %36, %.preheader.i.i.i.i, %_ZN7datalog7context15get_sort_domainEP4sort.exit

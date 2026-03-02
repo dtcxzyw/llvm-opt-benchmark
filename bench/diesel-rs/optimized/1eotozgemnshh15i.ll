@@ -11,8 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
 define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h8227398b0e531cf6E"(ptr writeonly sret({ { { ptr, i64 }, { { ptr, ptr }, i64 }, {} } }) align 8 captures(none) initializes((0, 40)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
-  %5 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
@@ -28,32 +27,30 @@ define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searc
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9a4114637911d36eE"(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) initializes((0, 8)) %0, ptr readonly align 8 captures(none) %1, ptr %2) unnamed_addr #1 {
   %4 = alloca { i64, [2 x i64] }, align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN5alloc2rc15Rc$LT$T$C$A$GT$10try_unwrap17hea465d03da1e4ef1E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr nonnull %2)
-  %6 = load i64, ptr %4, align 8, !range !3, !noundef !4
-  %.not.i = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not.i, label %8, label %7
+  %5 = load i64, ptr %4, align 8, !range !3, !noundef !4
+  %.not.i = icmp eq i64 %5, -9223372036854775808
+  br i1 %.not.i, label %7, label %6
 
-7:                                                ; preds = %3
+6:                                                ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %"_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expression_type28_$u7b$$u7b$closure$u7d$$u7d$17h0238a3c7d707c4aaE.exit"
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$syn..error..Error$C$alloc..rc..Rc$LT$syn..error..Error$GT$$GT$$GT$17hb2165cc73de5a23fE"(ptr nonnull align 8 %4)
   br label %"_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expression_type28_$u7b$$u7b$closure$u7d$$u7d$17h0238a3c7d707c4aaE.exit"
 
-"_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expression_type28_$u7b$$u7b$closure$u7d$$u7d$17h0238a3c7d707c4aaE.exit": ; preds = %7, %8
+"_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expression_type28_$u7b$$u7b$closure$u7d$$u7d$17h0238a3c7d707c4aaE.exit": ; preds = %6, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h151dab89c6d0c80fE"(ptr sret({ i64, [28 x i64] }) align 8 %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #1 {
-  %4 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %.val = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer21infer_expression_type17hf6fc9f664900196fE(ptr sret({ i64, [28 x i64] }) align 8 %0, ptr nonnull align 8 %.val, ptr nonnull align 8 %2, ptr align 8 null)
   ret void
@@ -67,14 +64,13 @@ define noalias align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h4753eb534226b3f3E"(ptr writeonly sret({ i64, [40 x i64] }) align 8 captures(none) initializes((0, 240)) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #1 {
   %4 = alloca { i64, [28 x i64] }, align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %.val = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer21infer_expression_type17hf6fc9f664900196fE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %4, ptr nonnull align 8 %.val, ptr nonnull align 8 %2, ptr align 8 null), !noalias !6
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %6, ptr noundef nonnull align 8 dereferenceable(232) %4, i64 232, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %5, ptr noundef nonnull align 8 dereferenceable(232) %4, i64 232, i1 false)
   store i64 18, ptr %0, align 8, !alias.scope !6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -86,73 +82,72 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %6 = alloca { { { i64, ptr }, i64 } }, align 8
   %7 = alloca { i64, [28 x i64] }, align 8
   %8 = alloca { i64, [28 x i64] }, align 8
-  %9 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %10 = load i64, ptr %2, align 8, !range !12, !noalias !9, !noundef !4
-  %11 = icmp eq i64 %10, 18
-  br i1 %11, label %12, label %14
+  %9 = load i64, ptr %2, align 8, !range !12, !noalias !9, !noundef !4
+  %10 = icmp eq i64 %9, 18
+  br i1 %10, label %11, label %13
 
-12:                                               ; preds = %4
-  %13 = icmp eq ptr %3, null
-  br i1 %13, label %15, label %19
+11:                                               ; preds = %4
+  %12 = icmp eq ptr %3, null
+  br i1 %12, label %14, label %18
 
-14:                                               ; preds = %15, %4
+13:                                               ; preds = %14, %4
   tail call void @"_ZN3syn3gen5clone75_$LT$impl$u20$core..clone..Clone$u20$for$u20$syn..path..GenericArgument$GT$5clone17h06da466acdbb7874E"(ptr sret({ i64, [40 x i64] }) align 8 %0, ptr nonnull align 8 %2)
   br label %"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints28_$u7b$$u7b$closure$u7d$$u7d$17h311607e3f80b384eE.exit"
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load i64, ptr %16, align 8, !range !13, !noalias !9, !noundef !4
-  %18 = icmp eq i64 %17, 6
-  br i1 %18, label %23, label %14
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %16 = load i64, ptr %15, align 8, !range !13, !noalias !9, !noundef !4
+  %17 = icmp eq i64 %16, 6
+  br i1 %17, label %22, label %13
 
-19:                                               ; preds = %12
-  %20 = load ptr, ptr %1, align 8, !noalias !9, !nonnull !4, !align !5, !noundef !4
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer21infer_expression_type17hf6fc9f664900196fE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %8, ptr nonnull align 8 %20, ptr nonnull align 8 %3, ptr nonnull align 8 %21), !noalias !9
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %22, ptr noundef nonnull align 8 dereferenceable(232) %8, i64 232, i1 false)
+18:                                               ; preds = %11
+  %19 = load ptr, ptr %1, align 8, !noalias !9, !nonnull !4, !align !5, !noundef !4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer21infer_expression_type17hf6fc9f664900196fE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %8, ptr nonnull align 8 %19, ptr nonnull align 8 %3, ptr nonnull align 8 %20), !noalias !9
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %21, ptr noundef nonnull align 8 dereferenceable(232) %8, i64 232, i1 false)
   store i64 18, ptr %0, align 8, !alias.scope !9
   br label %"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints28_$u7b$$u7b$closure$u7d$$u7d$17h311607e3f80b384eE.exit"
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %1, align 8, !noalias !9, !nonnull !4, !align !5, !noundef !4
+22:                                               ; preds = %14
+  %23 = load ptr, ptr %1, align 8, !noalias !9, !nonnull !4, !align !5, !noundef !4
   call void @_ZN3syn5error5Error11new_spanned17hb234dcde1be65fcaE(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %6, ptr nonnull align 8 %2, ptr nonnull align 1 @anon.957b9859b5be8bca09ccd99e02c720b5.3, i64 140), !noalias !9
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h11232871e2edd826E(ptr nonnull sret({ { i64, [3 x i64] }, { {} } }) align 8 %5, ptr nonnull align 8 %2)
-          to label %25 unwind label %30, !noalias !9
+          to label %24 unwind label %29, !noalias !9
 
-25:                                               ; preds = %23
-  %26 = invoke i32 @_ZN5quote7spanned10join_spans17hb3248c53475767b1E(ptr nonnull align 8 %5)
-          to label %27 unwind label %30, !noalias !9
+24:                                               ; preds = %22
+  %25 = invoke i32 @_ZN5quote7spanned10join_spans17hb3248c53475767b1E(ptr nonnull align 8 %5)
+          to label %26 unwind label %29, !noalias !9
 
-27:                                               ; preds = %25
-  call void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer14register_error17hc8d4db963ff7b04dE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %7, ptr nonnull align 8 %24, ptr nonnull align 8 %6, i32 %26), !noalias !9
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %28, ptr noundef nonnull align 8 dereferenceable(232) %7, i64 232, i1 false)
+26:                                               ; preds = %24
+  call void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer14register_error17hc8d4db963ff7b04dE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %7, ptr nonnull align 8 %23, ptr nonnull align 8 %6, i32 %25), !noalias !9
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %27, ptr noundef nonnull align 8 dereferenceable(232) %7, i64 232, i1 false)
   store i64 18, ptr %0, align 8, !alias.scope !9
   br label %"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints28_$u7b$$u7b$closure$u7d$$u7d$17h311607e3f80b384eE.exit"
 
-29:                                               ; preds = %30
+28:                                               ; preds = %29
   resume { ptr, i32 } %lpad.thr_comm.i
 
-30:                                               ; preds = %25, %23
+29:                                               ; preds = %24, %22
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17hab1abc2346f673abE"(ptr nonnull align 8 %6) #11
-          to label %29 unwind label %31, !noalias !9
+          to label %28 unwind label %30, !noalias !9
 
-31:                                               ; preds = %30
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %29
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #12, !noalias !9
   unreachable
 
-"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints28_$u7b$$u7b$closure$u7d$$u7d$17h311607e3f80b384eE.exit": ; preds = %14, %19, %27
+"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints28_$u7b$$u7b$closure$u7d$$u7d$17h311607e3f80b384eE.exit": ; preds = %13, %18, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -162,10 +157,8 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hf2df2bbebc946a7aE"(ptr sret({ i64, [28 x i64] }) align 8 %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #1 {
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %.val = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer21infer_expression_type17hf6fc9f664900196fE(ptr sret({ i64, [28 x i64] }) align 8 %0, ptr nonnull align 8 %.val, ptr nonnull align 8 %3, ptr nonnull align 8 %2)
   ret void
@@ -212,13 +205,12 @@ define hidden noundef zeroext i1 @"_ZN13dsl_auto_type9auto_type25expression_type
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type28_$u7b$$u7b$closure$u7d$$u7d$17ha60d4a75cdf3b090E"(ptr align 8 %0) unnamed_addr #4 {
   %2 = alloca { ptr, i64 }, align 8
-  %3 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %3)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   store ptr @anon.957b9859b5be8bca09ccd99e02c720b5.0, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 4, ptr %4, align 8
-  %5 = call zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1668ce3aa363a8c3E"(ptr nonnull align 8 %0, ptr nonnull align 8 %2)
-  ret i1 %5
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 4, ptr %3, align 8
+  %4 = call zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1668ce3aa363a8c3E"(ptr nonnull align 8 %0, ptr nonnull align 8 %2)
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -229,31 +221,30 @@ define hidden void @"_ZN13dsl_auto_type9auto_type25expression_type_inference12Ty
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN13dsl_auto_type9auto_type25expression_type_inference12literal_type28_$u7b$$u7b$closure$u7d$$u7d$17hace3632f7ea4c421E"(ptr sret({ { { i64, ptr }, i64 } }) align 8 %0, ptr readonly align 8 captures(address_is_null) %1, ptr align 8 %2) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
-  invoke void @_ZN3syn5error5Error11new_spanned17h6de26ac5c986e43dE(ptr sret({ { { i64, ptr }, i64 } }) align 8 %0, ptr nonnull align 8 %5, ptr nonnull align 1 @anon.957b9859b5be8bca09ccd99e02c720b5.4, i64 31)
-          to label %8 unwind label %6
+define hidden void @"_ZN13dsl_auto_type9auto_type25expression_type_inference12literal_type28_$u7b$$u7b$closure$u7d$$u7d$17hace3632f7ea4c421E"(ptr sret({ { { i64, ptr }, i64 } }) align 8 %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
+  invoke void @_ZN3syn5error5Error11new_spanned17h6de26ac5c986e43dE(ptr sret({ { { i64, ptr }, i64 } }) align 8 %0, ptr nonnull align 8 %4, ptr nonnull align 1 @anon.957b9859b5be8bca09ccd99e02c720b5.4, i64 31)
+          to label %7 unwind label %5
 
-6:                                                ; preds = %3
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %3
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17hab1abc2346f673abE"(ptr align 8 %2) #11
-          to label %11 unwind label %9
+          to label %10 unwind label %8
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   tail call void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17hab1abc2346f673abE"(ptr align 8 %2)
   ret void
 
-9:                                                ; preds = %6
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %5
+  %9 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #12
   unreachable
 
-11:                                               ; preds = %6
-  resume { ptr, i32 } %7
+10:                                               ; preds = %5
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -784,8 +784,7 @@ getControlData.exit:                              ; preds = %15
 
 40:                                               ; preds = %15, %.lr.ph.i
   %41 = tail call ptr @__cmsg_nxthdr(ptr noundef %2, ptr noundef nonnull %.019.i) #12
-  %.not.i = icmp ne ptr %41, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %41) ]
   br label %.lr.ph.i
 
 42:                                               ; preds = %getControlData.exit

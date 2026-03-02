@@ -1603,8 +1603,7 @@ entry:
   %0 = getelementptr i8, ptr %args.val, i64 8
   %args.val.val = load ptr, ptr %0, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %args.val.val) #20
-  %cmp.i.i.i.i.i = icmp ne ptr %call1.i, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1.i) ]
   %call5.i.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #20
   %1 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i.i = add i64 %1, 47

@@ -10074,12 +10074,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter20addDagOpera
   %58 = and i64 %51, 4294967295
   br label %59
 
-._crit_edge:                                      ; preds = %223, %6
+._crit_edge:                                      ; preds = %222, %6
   ret void
 
-59:                                               ; preds = %.lr.ph, %223
-  %indvars.iv148 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next149, %223 ]
-  %.0133 = phi i32 [ 0, %.lr.ph ], [ %.1, %223 ]
+59:                                               ; preds = %.lr.ph, %222
+  %indvars.iv148 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next149, %222 ]
+  %.0133 = phi i32 [ 0, %.lr.ph ], [ %.1, %222 ]
   %60 = load ptr, ptr %44, align 8, !tbaa !193
   %61 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %60, i64 %indvars.iv148
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 240
@@ -10129,7 +10129,7 @@ _ZNK4llvm14CGIOperandList11OperandInfo15getTiedRegisterEv.exit: ; preds = %.lr.p
   %86 = load i64, ptr %84, align 8, !tbaa !86
   store i64 %86, ptr %85, align 8, !tbaa !86
   %87 = add i32 %.0133, 1
-  br label %223
+  br label %222
 
 _ZNK4llvm14CGIOperandList11OperandInfo15getTiedRegisterEv.exit.thread: ; preds = %72, %59, %_ZNK4llvm14CGIOperandList11OperandInfo15getTiedRegisterEv.exit
   %88 = trunc nuw i64 %indvars.iv148 to i32
@@ -10263,7 +10263,7 @@ _ZN12_GLOBAL__N_119CompressInstEmitter16validateRegisterEPKN4llvm6RecordES4_.exi
   %144 = load ptr, ptr %97, align 8, !tbaa !276
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr %144, ptr %145, align 8, !tbaa !86
-  br label %223
+  br label %222
 
 146:                                              ; preds = %96
   %147 = icmp ne ptr %100, %103
@@ -10403,21 +10403,19 @@ _ZN12_GLOBAL__N_119CompressInstEmitter13validateTypesEPKN4llvm6RecordES4_b.exit.
   %.val78 = load ptr, ptr %4, align 8, !tbaa !8
   %205 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val78, i64 %indvars.iv148
   store i32 0, ptr %205, align 8, !tbaa !220
-  br label %223
+  br label %222
 
 206:                                              ; preds = %_ZNK4llvm14CGIOperandList11OperandInfo15getTiedRegisterEv.exit.thread
-  %207 = icmp eq i8 %94, 7
-  call void @llvm.assume(i1 %207)
-  %208 = load ptr, ptr %61, align 8, !tbaa !196
-  %209 = call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %208, ptr nonnull @.str.25, i64 13)
-  br i1 %209, label %210, label %218
+  %207 = load ptr, ptr %61, align 8, !tbaa !196
+  %208 = call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %207, ptr nonnull @.str.25, i64 13)
+  br i1 %208, label %209, label %217
 
-210:                                              ; preds = %206
-  %211 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %212 = load ptr, ptr %211, align 8, !tbaa !8
-  %213 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %214 = load i32, ptr %213, align 8, !tbaa !11
-  %215 = zext i32 %214 to i64
+209:                                              ; preds = %206
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %211 = load ptr, ptr %210, align 8, !tbaa !8
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %213 = load i32, ptr %212, align 8, !tbaa !11
+  %214 = zext i32 %213 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
@@ -10431,26 +10429,26 @@ _ZN12_GLOBAL__N_119CompressInstEmitter13validateTypesEPKN4llvm6RecordES4_b.exit.
   call void @_ZNK4llvm7IntInit11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %43, ptr noundef nonnull align 8 dereferenceable(32) %92) #20
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %43)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.27)
-  %216 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  store i8 4, ptr %216, align 8, !tbaa !87
-  %217 = getelementptr inbounds nuw i8, ptr %37, i64 33
-  store i8 1, ptr %217, align 1, !tbaa !83
+  %215 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  store i8 4, ptr %215, align 8, !tbaa !87
+  %216 = getelementptr inbounds nuw i8, ptr %37, i64 33
+  store i8 1, ptr %216, align 1, !tbaa !83
   store ptr %38, ptr %37, align 8, !tbaa !86
-  call void @_ZN4llvm15PrintFatalErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %212, i64 %215, ptr noundef nonnull align 8 dereferenceable(34) %37) #22
+  call void @_ZN4llvm15PrintFatalErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %211, i64 %214, ptr noundef nonnull align 8 dereferenceable(34) %37) #22
   unreachable
 
-218:                                              ; preds = %206
+217:                                              ; preds = %206
   %.val79 = load ptr, ptr %4, align 8, !tbaa !8
-  %219 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val79, i64 %indvars.iv148
-  store i32 1, ptr %219, align 8, !tbaa !220
-  %220 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %221 = load i64, ptr %220, align 8, !tbaa !385
-  %222 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  store i64 %221, ptr %222, align 8, !tbaa !86
-  br label %223
+  %218 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val79, i64 %indvars.iv148
+  store i32 1, ptr %218, align 8, !tbaa !220
+  %219 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  %220 = load i64, ptr %219, align 8, !tbaa !385
+  %221 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  store i64 %220, ptr %221, align 8, !tbaa !86
+  br label %222
 
-223:                                              ; preds = %142, %218, %204, %79
-  %.1 = phi i32 [ %87, %79 ], [ %.0133, %204 ], [ %.0133, %218 ], [ %.0133, %142 ]
+222:                                              ; preds = %142, %217, %204, %79
+  %.1 = phi i32 [ %87, %79 ], [ %.0133, %204 ], [ %.0133, %217 ], [ %.0133, %142 ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %.not = icmp eq i64 %indvars.iv.next149, %58
   br i1 %.not, label %._crit_edge, label %59, !llvm.loop !387

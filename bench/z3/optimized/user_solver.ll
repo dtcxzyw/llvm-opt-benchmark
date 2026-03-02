@@ -2950,8 +2950,7 @@ define hidden void @_ZN11user_solver6solver8assertedEN3sat7literalE(ptr noundef 
 _ZNK3euf13th_euf_solver14bool_var2enodeEj.exit:   ; preds = %2
   %12 = lshr i32 %1, 1
   %13 = tail call noundef ptr @_ZNK3euf13th_euf_solver13bool_var2exprEj(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef %12)
-  %.not.i = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   %14 = tail call noundef ptr @_ZNK3euf13th_euf_solver10expr2enodeEP4expr(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull %13)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !424

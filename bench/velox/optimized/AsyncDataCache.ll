@@ -12202,8 +12202,7 @@ while.end.i:                                      ; preds = %while.cond.i
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache15RawFileCacheKeyEPNS6_19AsyncDataCacheEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSD_8PrefetchE.exit: ; preds = %while.body.i
   %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
   store i32 %1, ptr %arrayidx.i.i.i.i.le, align 4
-  %cmp11 = icmp ne ptr %0, null
-  call void @llvm.assume(i1 %cmp11)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %arrayidx13 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %conv.i21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %arrayidx, ptr noundef nonnull align 1 dereferenceable(24) %arrayidx13, i64 24, i1 false)
   br label %if.end

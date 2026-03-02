@@ -1775,7 +1775,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit150: ; preds = %216, %219
 
 228:                                              ; preds = %155
   tail call void @llvm.assume(i1 %not..i)
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %37) ]
   %229 = load ptr, ptr %1, align 8, !tbaa !3
   %230 = load ptr, ptr %37, align 8, !tbaa !582
   %231 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext18getASTRecordLayoutEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %229, ptr noundef %230) #16

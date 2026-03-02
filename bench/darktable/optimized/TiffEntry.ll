@@ -134,7 +134,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit:           ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %19 = load i16, ptr %18, align 4, !tbaa !24
   %20 = icmp eq i16 %19, -8531
-  %21 = load ptr, ptr %2, align 8, !tbaa !22, !nonnull !26, !noundef !26
+  %21 = load ptr, ptr %2, align 8, !tbaa !22
   %22 = icmp sgt i32 %14, -1
   tail call void @llvm.assume(i1 %22)
   %23 = add nuw nsw i32 %10, 2
@@ -147,7 +147,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit:           ; preds = %3
   %27 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i)
   %spec.select.i.i.i.i.i.i = select i1 %20, i16 %.0.copyload.i.i.i.i.i.i, i16 %27
   store i32 %23, ptr %9, align 8, !tbaa !25
-  store i16 %spec.select.i.i.i.i.i.i, ptr %17, align 8, !tbaa !27
+  store i16 %spec.select.i.i.i.i.i.i, ptr %17, align 8, !tbaa !26
   %28 = zext nneg i32 %23 to i64
   %29 = add nuw nsw i64 %28, 2
   %.not.i.i.i.i.i.i23 = icmp samesign ugt i64 %29, %15
@@ -178,7 +178,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit26:         ; preds = %_ZN8rawspeed10ByteS
 38:                                               ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit26
   %39 = trunc nuw nsw i16 %spec.select.i.i.i.i.i.i25.fr to i8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  store i8 %39, ptr %40, align 2, !tbaa !28
+  store i8 %39, ptr %40, align 2, !tbaa !27
   %41 = zext nneg i32 %31 to i64
   %42 = add nuw nsw i64 %41, 4
   %.not.i.i.i.i.i.i27 = icmp samesign ugt i64 %42, %15
@@ -198,10 +198,10 @@ _ZN8rawspeed10ByteStream6getU32Ev.exit:           ; preds = %38
   %spec.select.i.i.i.i.i.i29 = select i1 %20, i32 %.0.copyload.i.i.i.i.i.i28, i32 %47
   store i32 %44, ptr %9, align 8, !tbaa !25
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %spec.select.i.i.i.i.i.i29, ptr %48, align 4, !tbaa !29
+  store i32 %spec.select.i.i.i.i.i.i29, ptr %48, align 4, !tbaa !28
   %49 = zext nneg i16 %spec.select.i.i.i.i.i.i25.fr to i64
   %50 = getelementptr inbounds nuw i32, ptr @_ZN8rawspeed9TiffEntry10datashiftsE, i64 %49
-  %51 = load i32, ptr %50, align 4, !tbaa !30
+  %51 = load i32, ptr %50, align 4, !tbaa !29
   %52 = lshr i32 -1, %51
   %53 = icmp ugt i32 %spec.select.i.i.i.i.i.i29, %52
   br i1 %53, label %54, label %55
@@ -223,7 +223,7 @@ _ZN8rawspeed10ByteStream6getU32Ev.exit:           ; preds = %38
   br i1 %.not.i.i, label %62, label %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit
 
 62:                                               ; preds = %59
-  tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #15, !noalias !31
+  tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #15, !noalias !30
   unreachable
 
 _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit:  ; preds = %59
@@ -334,7 +334,7 @@ _ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread50:
   br i1 %.not.i.i37, label %99, label %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit42
 
 99:                                               ; preds = %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread50
-  tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #15, !noalias !34
+  tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #15, !noalias !33
   unreachable
 
 _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit42: ; preds = %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread50
@@ -394,14 +394,14 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDENS_7TiffTagENS_12TiffD
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i16 %2, ptr %9, align 8, !tbaa !27
+  store i16 %2, ptr %9, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  store i8 %3, ptr %10, align 2, !tbaa !28
+  store i8 %3, ptr %10, align 2, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %4, ptr %11, align 4, !tbaa !29
+  store i32 %4, ptr %11, align 4, !tbaa !28
   %12 = zext i8 %3 to i64
   %13 = getelementptr inbounds nuw i32, ptr @_ZN8rawspeed9TiffEntry10datashiftsE, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !30
+  %14 = load i32, ptr %13, align 4, !tbaa !29
   %15 = lshr i32 -1, %14
   %16 = icmp ugt i32 %4, %15
   br i1 %16, label %17, label %18
@@ -450,14 +450,14 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i:
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %.sroa.8.0..sroa_idx, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i16 %2, ptr %8, align 8, !tbaa !27
+  store i16 %2, ptr %8, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  store i8 %3, ptr %9, align 2, !tbaa !28
+  store i8 %3, ptr %9, align 2, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %10, align 4, !tbaa !29
+  store i32 0, ptr %10, align 4, !tbaa !28
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed17TiffEntryWithDataE, i64 16), ptr %0, align 8, !tbaa !6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %5, align 8, !tbaa !22, !nonnull !26, !noundef !26
+  %12 = load ptr, ptr %5, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !23
   %15 = icmp sgt i32 %14, -1
@@ -470,23 +470,23 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i:
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %17 = getelementptr inbounds nuw i8, ptr null, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %17, ptr %18, align 8, !tbaa !37
+  store ptr %17, ptr %18, align 8, !tbaa !36
   br label %22
 
 .noexc4.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #25
-  store ptr %19, ptr %11, align 8, !tbaa !39
+  store ptr %19, ptr %11, align 8, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %20, ptr %21, align 8, !tbaa !37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %12, i64 %16, i1 false)
+  store ptr %20, ptr %21, align 8, !tbaa !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %12, i64 %16, i1 false)
   br label %22
 
 22:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i, %.noexc4.i
   %23 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i ], [ %19, %.noexc4.i ]
   %24 = phi ptr [ %17, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i ], [ %20, %.noexc4.i ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %24, ptr %25, align 8, !tbaa !40
+  store ptr %24, ptr %25, align 8, !tbaa !39
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %23 to i64
   %28 = sub i64 %26, %27
@@ -498,7 +498,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   store ptr %23, ptr %7, align 8
   store i64 %.sroa.212.8.insert.insert, ptr %.sroa.423.0..sroa_idx, align 8
   store i32 0, ptr %.sroa.7.0..sroa_idx, align 8
-  store i32 %4, ptr %10, align 4, !tbaa !29
+  store i32 %4, ptr %10, align 4, !tbaa !28
   ret void
 }
 
@@ -511,7 +511,7 @@ declare i32 @__gxx_personality_v0(...)
 define hidden noundef zeroext i1 @_ZNK8rawspeed9TiffEntry5isIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
 switch.edge:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %2 = load i8, ptr %1, align 2, !tbaa !28
+  %2 = load i8, ptr %1, align 2, !tbaa !27
   %3 = icmp ult i8 %2, 5
   %switch.cast = trunc i8 %2 to i5
   %switch.downshift = lshr i5 -6, %switch.cast
@@ -523,7 +523,7 @@ switch.edge:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK8rawspeed9TiffEntry8isStringEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %3 = load i8, ptr %2, align 2, !tbaa !28
+  %3 = load i8, ptr %2, align 2, !tbaa !27
   %4 = icmp eq i8 %3, 2
   ret i1 %4
 }
@@ -531,7 +531,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed9TiffEntry8isStringEv(ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK8rawspeed9TiffEntry7isFloatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %3 = load i8, ptr %2, align 2, !tbaa !28
+  %3 = load i8, ptr %2, align 2, !tbaa !27
   %4 = icmp ult i8 %3, 13
   %switch.cast = zext nneg i8 %3 to i13
   %switch.downshift = lshr i13 -200, %switch.cast
@@ -543,7 +543,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed9TiffEntry7isFloatEv(ptr noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK8rawspeed9TiffEntry10isRationalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %3 = load i8, ptr %2, align 2, !tbaa !28
+  %3 = load i8, ptr %2, align 2, !tbaa !27
   %.off = add i8 %3, -3
   %switch = icmp ult i8 %.off, 3
   ret i1 %switch
@@ -552,7 +552,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed9TiffEntry10isRationalEv(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK8rawspeed9TiffEntry11isSRationalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %3 = load i8, ptr %2, align 2, !tbaa !28
+  %3 = load i8, ptr %2, align 2, !tbaa !27
   %.off = add i8 %3, -8
   %switch = icmp ult i8 %.off, 3
   ret i1 %switch
@@ -561,7 +561,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed9TiffEntry11isSRationalEv(ptr nou
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i8 @_ZNK8rawspeed9TiffEntry7getByteEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %4 = load i8, ptr %3, align 2, !tbaa !28
+  %4 = load i8, ptr %3, align 2, !tbaa !27
   switch i8 %4, label %5 [
     i8 1, label %10
     i8 7, label %10
@@ -570,7 +570,7 @@ define hidden noundef zeroext i8 @_ZNK8rawspeed9TiffEntry7getByteEj(ptr noundef 
 5:                                                ; preds = %2
   %6 = zext i8 %4 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i16, ptr %7, align 8, !tbaa !27
+  %8 = load i16, ptr %7, align 8, !tbaa !26
   %9 = zext i16 %8 to i32
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed9TiffEntry7getByteEj, i32 noundef %6, i32 noundef %9) #15
   unreachable
@@ -591,7 +591,7 @@ define hidden noundef zeroext i8 @_ZNK8rawspeed9TiffEntry7getByteEj(ptr noundef 
 _ZNK8rawspeed10ByteStream8peekByteEj.exit:        ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = zext nneg i32 %13 to i64
-  %19 = load ptr, ptr %17, align 8, !tbaa !22, !nonnull !26, !noundef !26
+  %19 = load ptr, ptr %17, align 8, !tbaa !22
   %20 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %13, -1
@@ -604,7 +604,7 @@ _ZNK8rawspeed10ByteStream8peekByteEj.exit:        ; preds = %10
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %4 = load i8, ptr %3, align 2, !tbaa !28
+  %4 = load i8, ptr %3, align 2, !tbaa !27
   switch i8 %4, label %5 [
     i8 3, label %10
     i8 7, label %10
@@ -613,7 +613,7 @@ define hidden noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef 
 5:                                                ; preds = %2
   %6 = zext i8 %4 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i16, ptr %7, align 8, !tbaa !27
+  %8 = load i16, ptr %7, align 8, !tbaa !26
   %9 = zext i16 %8 to i32
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.5, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed9TiffEntry6getU16Ej, i32 noundef %6, i32 noundef %9) #15
   unreachable
@@ -640,7 +640,7 @@ _ZNK8rawspeed10ByteStream4peekItEET_j.exit:       ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %23 = load i16, ptr %22, align 4, !tbaa !24
   %24 = icmp eq i16 %23, -8531
-  %25 = load ptr, ptr %21, align 8, !tbaa !22, !nonnull !26, !noundef !26
+  %25 = load ptr, ptr %21, align 8, !tbaa !22
   %26 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %26)
   %27 = add nuw nsw i32 %14, 2
@@ -658,7 +658,7 @@ _ZNK8rawspeed10ByteStream4peekItEET_j.exit:       ; preds = %10
 ; Function Attrs: mustprogress uwtable
 define hidden noundef signext i16 @_ZNK8rawspeed9TiffEntry6getI16Ej(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %4 = load i8, ptr %3, align 2, !tbaa !28
+  %4 = load i8, ptr %3, align 2, !tbaa !27
   %.off = add i8 %4, -7
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %10, label %5
@@ -666,7 +666,7 @@ define hidden noundef signext i16 @_ZNK8rawspeed9TiffEntry6getI16Ej(ptr noundef 
 5:                                                ; preds = %2
   %6 = zext i8 %4 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i16, ptr %7, align 8, !tbaa !27
+  %8 = load i16, ptr %7, align 8, !tbaa !26
   %9 = zext i16 %8 to i32
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed9TiffEntry6getI16Ej, i32 noundef %6, i32 noundef %9) #15
   unreachable
@@ -693,7 +693,7 @@ _ZNK8rawspeed10ByteStream4peekIsEET_j.exit:       ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %23 = load i16, ptr %22, align 4, !tbaa !24
   %24 = icmp eq i16 %23, -8531
-  %25 = load ptr, ptr %21, align 8, !tbaa !22, !nonnull !26, !noundef !26
+  %25 = load ptr, ptr %21, align 8, !tbaa !22
   %26 = icmp sgt i32 %18, -1
   tail call void @llvm.assume(i1 %26)
   %27 = add nuw nsw i32 %14, 2
@@ -711,7 +711,7 @@ _ZNK8rawspeed10ByteStream4peekIsEET_j.exit:       ; preds = %10
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %4 = load i8, ptr %3, align 2, !tbaa !28
+  %4 = load i8, ptr %3, align 2, !tbaa !27
   switch i8 %4, label %28 [
     i8 3, label %5
     i8 4, label %33
@@ -743,7 +743,7 @@ _ZNK8rawspeed9TiffEntry6getU16Ej.exit:            ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %18 = load i16, ptr %17, align 4, !tbaa !24
   %19 = icmp eq i16 %18, -8531
-  %20 = load ptr, ptr %16, align 8, !tbaa !22, !nonnull !26, !noundef !26
+  %20 = load ptr, ptr %16, align 8, !tbaa !22
   %21 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %21)
   %22 = add nuw nsw i32 %9, 2
@@ -761,7 +761,7 @@ _ZNK8rawspeed9TiffEntry6getU16Ej.exit:            ; preds = %5
 28:                                               ; preds = %2
   %29 = zext i8 %4 to i32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load i16, ptr %30, align 8, !tbaa !27
+  %31 = load i16, ptr %30, align 8, !tbaa !26
   %32 = zext i16 %31 to i32
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed9TiffEntry6getU32Ej, i32 noundef %29, i32 noundef %32) #15
   unreachable
@@ -788,7 +788,7 @@ _ZNK8rawspeed10ByteStream4peekIjEET_j.exit:       ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %46 = load i16, ptr %45, align 4, !tbaa !24
   %47 = icmp eq i16 %46, -8531
-  %48 = load ptr, ptr %44, align 8, !tbaa !22, !nonnull !26, !noundef !26
+  %48 = load ptr, ptr %44, align 8, !tbaa !22
   %49 = icmp sgt i32 %41, -1
   tail call void @llvm.assume(i1 %49)
   %50 = add nuw nsw i32 %37, 4
@@ -810,7 +810,7 @@ _ZNK8rawspeed10ByteStream4peekIjEET_j.exit:       ; preds = %33
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK8rawspeed9TiffEntry6getI32Ej(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %4 = load i8, ptr %3, align 2, !tbaa !28
+  %4 = load i8, ptr %3, align 2, !tbaa !27
   switch i8 %4, label %28 [
     i8 8, label %5
     i8 9, label %33
@@ -840,7 +840,7 @@ _ZNK8rawspeed9TiffEntry6getI16Ej.exit:            ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %18 = load i16, ptr %17, align 4, !tbaa !24
   %19 = icmp eq i16 %18, -8531
-  %20 = load ptr, ptr %16, align 8, !tbaa !22, !nonnull !26, !noundef !26
+  %20 = load ptr, ptr %16, align 8, !tbaa !22
   %21 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %21)
   %22 = add nuw nsw i32 %9, 2
@@ -858,7 +858,7 @@ _ZNK8rawspeed9TiffEntry6getI16Ej.exit:            ; preds = %5
 28:                                               ; preds = %2
   %29 = zext i8 %4 to i32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load i16, ptr %30, align 8, !tbaa !27
+  %31 = load i16, ptr %30, align 8, !tbaa !26
   %32 = zext i16 %31 to i32
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed9TiffEntry6getI32Ej, i32 noundef %29, i32 noundef %32) #15
   unreachable
@@ -885,7 +885,7 @@ _ZNK8rawspeed10ByteStream4peekIiEET_j.exit:       ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %46 = load i16, ptr %45, align 4, !tbaa !24
   %47 = icmp eq i16 %46, -8531
-  %48 = load ptr, ptr %44, align 8, !tbaa !22, !nonnull !26, !noundef !26
+  %48 = load ptr, ptr %44, align 8, !tbaa !22
   %49 = icmp sgt i32 %41, -1
   tail call void @llvm.assume(i1 %49)
   %50 = add nuw nsw i32 %37, 4
@@ -907,7 +907,7 @@ _ZNK8rawspeed10ByteStream4peekIiEET_j.exit:       ; preds = %33
 ; Function Attrs: mustprogress uwtable
 define hidden i64 @_ZNK8rawspeed9TiffEntry11getRationalEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %4 = load i8, ptr %3, align 2, !tbaa !28
+  %4 = load i8, ptr %3, align 2, !tbaa !27
   %.off.i = add i8 %4, -3
   %switch.i = icmp ult i8 %.off.i, 3
   br i1 %switch.i, label %7, label %5
@@ -945,7 +945,7 @@ define hidden i64 @_ZNK8rawspeed9TiffEntry11getRationalEj(ptr noundef nonnull re
 ; Function Attrs: mustprogress uwtable
 define hidden i64 @_ZNK8rawspeed9TiffEntry12getSRationalEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %4 = load i8, ptr %3, align 2, !tbaa !28
+  %4 = load i8, ptr %3, align 2, !tbaa !27
   %.off.i = add i8 %4, -8
   %switch.i = icmp ult i8 %.off.i, 3
   br i1 %switch.i, label %7, label %5
@@ -983,7 +983,7 @@ define hidden i64 @_ZNK8rawspeed9TiffEntry12getSRationalEj(ptr noundef nonnull r
 ; Function Attrs: mustprogress uwtable
 define hidden noundef float @_ZNK8rawspeed9TiffEntry8getFloatEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %4 = load i8, ptr %3, align 2, !tbaa !28
+  %4 = load i8, ptr %3, align 2, !tbaa !27
   switch i8 %4, label %_ZNK8rawspeed9TiffEntry7isFloatEv.exit [
     i8 12, label %9
     i8 11, label %35
@@ -998,7 +998,7 @@ define hidden noundef float @_ZNK8rawspeed9TiffEntry8getFloatEj(ptr noundef nonn
 _ZNK8rawspeed9TiffEntry7isFloatEv.exit:           ; preds = %2
   %5 = zext i8 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i16, ptr %6, align 8, !tbaa !27
+  %7 = load i16, ptr %6, align 8, !tbaa !26
   %8 = zext i16 %7 to i32
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed9TiffEntry8getFloatEj, i32 noundef %5, i32 noundef %8) #15
   unreachable
@@ -1025,7 +1025,7 @@ _ZNK8rawspeed10ByteStream4peekIdEET_j.exit:       ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %22 = load i16, ptr %21, align 4, !tbaa !24
   %23 = icmp eq i16 %22, -8531
-  %24 = load ptr, ptr %20, align 8, !tbaa !22, !nonnull !26, !noundef !26
+  %24 = load ptr, ptr %20, align 8, !tbaa !22
   %25 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %25)
   %26 = add nuw nsw i32 %13, 8
@@ -1064,7 +1064,7 @@ _ZNK8rawspeed10ByteStream4peekIfEET_j.exit:       ; preds = %35
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %48 = load i16, ptr %47, align 4, !tbaa !24
   %49 = icmp eq i16 %48, -8531
-  %50 = load ptr, ptr %46, align 8, !tbaa !22, !nonnull !26, !noundef !26
+  %50 = load ptr, ptr %46, align 8, !tbaa !22
   %51 = icmp sgt i32 %43, -1
   tail call void @llvm.assume(i1 %51)
   %52 = add nuw nsw i32 %39, 4
@@ -1126,7 +1126,7 @@ _ZNK8rawspeed9TiffEntry12getSRationalEj.exit:     ; preds = %2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK8rawspeed9TiffEntry9getStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  %4 = load i8, ptr %3, align 2, !tbaa !28
+  %4 = load i8, ptr %3, align 2, !tbaa !27
   %.off = add i8 %4, -1
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %7, label %5
@@ -1161,7 +1161,7 @@ define hidden void @_ZNK8rawspeed9TiffEntry9getStringB5cxx11Ev(ptr dead_on_unwin
 
 _ZNK8rawspeed10ByteStream10peekBufferEj.exit:     ; preds = %7
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !22, !nonnull !26, !noundef !26
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
   %23 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %16
@@ -1180,25 +1180,25 @@ _ZNK8rawspeed10ByteStream10peekBufferEj.exit:     ; preds = %7
 30:                                               ; preds = %45, %.lr.ph.i.i.i
   %.047.i.i.i = phi i64 [ %28, %.lr.ph.i.i.i ], [ %47, %45 ]
   %.02946.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %46, %45 ]
-  %31 = load i8, ptr %.02946.i.i.i, align 1, !tbaa !41
+  %31 = load i8, ptr %.02946.i.i.i, align 1, !tbaa !40
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit, label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
-  %35 = load i8, ptr %34, align 1, !tbaa !41
+  %35 = load i8, ptr %34, align 1, !tbaa !40
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
-  %39 = load i8, ptr %38, align 1, !tbaa !41
+  %39 = load i8, ptr %38, align 1, !tbaa !40
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
-  %43 = load i8, ptr %42, align 1, !tbaa !41
+  %43 = load i8, ptr %42, align 1, !tbaa !40
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30, label %45
 
@@ -1206,7 +1206,7 @@ _ZNK8rawspeed10ByteStream10peekBufferEj.exit:     ; preds = %7
   %46 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
   %47 = add nsw i64 %.047.i.i.i, -1
   %48 = icmp sgt i64 %.047.i.i.i, 1
-  br i1 %48, label %30, label %._crit_edge.loopexit.i.i.i, !llvm.loop !42
+  br i1 %48, label %30, label %._crit_edge.loopexit.i.i.i, !llvm.loop !41
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %45
   %.pre54.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
@@ -1223,7 +1223,7 @@ _ZNK8rawspeed10ByteStream10peekBufferEj.exit:     ; preds = %7
   ]
 
 50:                                               ; preds = %._crit_edge.i.i.i
-  %51 = load i8, ptr %.029.lcssa.i.i.i, align 1, !tbaa !41
+  %51 = load i8, ptr %.029.lcssa.i.i.i, align 1, !tbaa !40
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit, label %53
 
@@ -1233,7 +1233,7 @@ _ZNK8rawspeed10ByteStream10peekBufferEj.exit:     ; preds = %7
 
 ._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i, %53
   %.1.i.i.i = phi ptr [ %54, %53 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %55 = load i8, ptr %.1.i.i.i, align 1, !tbaa !41
+  %55 = load i8, ptr %.1.i.i.i, align 1, !tbaa !40
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit, label %57
 
@@ -1243,7 +1243,7 @@ _ZNK8rawspeed10ByteStream10peekBufferEj.exit:     ; preds = %7
 
 ._crit_edge._crit_edge52.i.i.i:                   ; preds = %._crit_edge.i.i.i, %57
   %.2.i.i.i = phi ptr [ %58, %57 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %59 = load i8, ptr %.2.i.i.i, align 1, !tbaa !41
+  %59 = load i8, ptr %.2.i.i.i, align 1, !tbaa !40
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %_ZSt4findIPKhcET_S2_S2_RKT0_.exit, label %61
 
@@ -1265,9 +1265,9 @@ _ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30: ; preds = %41
 _ZSt4findIPKhcET_S2_S2_RKT0_.exit:                ; preds = %30, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30, %50, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %61
   %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %25, %61 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %.029.lcssa.i.i.i, %50 ], [ %64, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30 ], [ %63, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28 ], [ %62, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %30 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %65, ptr %0, align 8, !tbaa !44
+  store ptr %65, ptr %0, align 8, !tbaa !43
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %66, align 8, !tbaa !46
+  store i64 0, ptr %66, align 8, !tbaa !45
   %67 = ptrtoint ptr %.028.i.i.i to i64
   %68 = sub i64 %67, %27
   %69 = icmp ugt i64 %68, 15
@@ -1284,7 +1284,7 @@ _ZSt4findIPKhcET_S2_S2_RKT0_.exit:                ; preds = %30, %_ZSt4findIPKhc
 72:                                               ; preds = %70
   %73 = add nuw i64 %68, 1
   %74 = icmp slt i64 %73, 0
-  br i1 %74, label %.noexc4.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i, !prof !49
+  br i1 %74, label %.noexc4.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i, !prof !48
 
 .noexc4.i:                                        ; preds = %72
   tail call void @_ZSt17__throw_bad_allocv() #24
@@ -1292,8 +1292,8 @@ _ZSt4findIPKhcET_S2_S2_RKT0_.exit:                ; preds = %30, %_ZSt4findIPKhc
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; preds = %72
   %75 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %73) #25
-  store ptr %75, ptr %0, align 8, !tbaa !50
-  store i64 %68, ptr %65, align 8, !tbaa !41
+  store ptr %75, ptr %0, align 8, !tbaa !49
+  store i64 %68, ptr %65, align 8, !tbaa !40
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit
@@ -1304,25 +1304,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
   ]
 
 77:                                               ; preds = %._crit_edge.i.i
-  %78 = load i8, ptr %24, align 1, !tbaa !41
-  store i8 %78, ptr %76, align 1, !tbaa !41
+  %78 = load i8, ptr %24, align 1, !tbaa !40
+  store i8 %78, ptr %76, align 1, !tbaa !40
   br label %80
 
 79:                                               ; preds = %._crit_edge.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr nonnull align 1 %24, i64 %68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr align 1 %24, i64 %68, i1 false)
   br label %80
 
 80:                                               ; preds = %79, %77, %._crit_edge.i.i
-  store i64 %68, ptr %66, align 8, !tbaa !46
+  store i64 %68, ptr %66, align 8, !tbaa !45
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 %68
-  store i8 0, ptr %81, align 1, !tbaa !41
+  store i8 0, ptr %81, align 1, !tbaa !40
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, i64 } @_ZNK8rawspeed9TiffEntry14getRootIfdDataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.0717 = load ptr, ptr %2, align 8, !tbaa !51
+  %.0717 = load ptr, ptr %2, align 8, !tbaa !50
   %.not18 = icmp eq ptr %.0717, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -1334,9 +1334,9 @@ define hidden { ptr, i64 } @_ZNK8rawspeed9TiffEntry14getRootIfdDataEv(ptr nounde
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.0719, i64 16
-  %.07 = load ptr, ptr %5, align 8, !tbaa !51
+  %.07 = load ptr, ptr %5, align 8, !tbaa !50
   %.not = icmp eq ptr %.07, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %4, %1
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed9TiffEntry14getRootIfdDataEv) #15
@@ -1355,13 +1355,13 @@ define hidden { ptr, i64 } @_ZNK8rawspeed9TiffEntry14getRootIfdDataEv(ptr nounde
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17TiffEntryWithDataD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -1375,13 +1375,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17TiffEntryWithDataD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN8rawspeed17TiffEntryWithDataD2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -1580,30 +1580,29 @@ attributes #27 = { cold }
 !23 = !{!16, !18, i64 8}
 !24 = !{!15, !19, i64 12}
 !25 = !{!14, !18, i64 16}
-!26 = !{}
-!27 = !{!10, !20, i64 40}
-!28 = !{!10, !21, i64 42}
-!29 = !{!10, !18, i64 44}
-!30 = !{!18, !18, i64 0}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj: argument 0"}
-!33 = distinct !{!33, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj: argument 0"}
-!36 = distinct !{!36, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj"}
-!37 = !{!38, !17, i64 16}
-!38 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !17, i64 0, !17, i64 8, !17, i64 16}
-!39 = !{!38, !17, i64 0}
-!40 = !{!38, !17, i64 8}
-!41 = !{!13, !13, i64 0}
-!42 = distinct !{!42, !43}
-!43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!45, !17, i64 0}
-!45 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !17, i64 0}
-!46 = !{!47, !48, i64 8}
-!47 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !45, i64 0, !48, i64 8, !13, i64 16}
-!48 = !{!"long", !13, i64 0}
-!49 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!50 = !{!47, !17, i64 0}
-!51 = !{!11, !11, i64 0}
-!52 = distinct !{!52, !43}
+!26 = !{!10, !20, i64 40}
+!27 = !{!10, !21, i64 42}
+!28 = !{!10, !18, i64 44}
+!29 = !{!18, !18, i64 0}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj: argument 0"}
+!32 = distinct !{!32, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj: argument 0"}
+!35 = distinct !{!35, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj"}
+!36 = !{!37, !17, i64 16}
+!37 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !17, i64 0, !17, i64 8, !17, i64 16}
+!38 = !{!37, !17, i64 0}
+!39 = !{!37, !17, i64 8}
+!40 = !{!13, !13, i64 0}
+!41 = distinct !{!41, !42}
+!42 = !{!"llvm.loop.mustprogress"}
+!43 = !{!44, !17, i64 0}
+!44 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !17, i64 0}
+!45 = !{!46, !47, i64 8}
+!46 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !44, i64 0, !47, i64 8, !13, i64 16}
+!47 = !{!"long", !13, i64 0}
+!48 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!49 = !{!46, !17, i64 0}
+!50 = !{!11, !11, i64 0}
+!51 = distinct !{!51, !42}

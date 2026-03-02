@@ -2743,8 +2743,7 @@ if.end.i28.i:                                     ; preds = %if.then.i
   br label %_ZN2v814PersistentBaseINS_5ArrayEE5ResetEv.exit.i
 
 _ZN2v814PersistentBaseINS_5ArrayEE5ResetEv.exit.i: ; preds = %if.end.i28.i, %if.then.i
-  %cmp.i.i.i = icmp ne ptr %call8.i, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call8.i) ]
   %18 = load i64, ptr %call8.i, align 8
   %call2.i32.i = tail call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %16, i64 noundef %18) #25
   store ptr %call2.i32.i, ptr %js_execution_async_resources_.i, align 8

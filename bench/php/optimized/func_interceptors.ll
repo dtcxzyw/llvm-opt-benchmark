@@ -241,7 +241,7 @@ zend_string_starts_with_cstr_ci.exit:             ; preds = %35
   call void %76(ptr noundef %0, ptr noundef %1) #12
   br label %77
 
-77:                                               ; preds = %22, %74, %75
+77:                                               ; preds = %74, %22, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

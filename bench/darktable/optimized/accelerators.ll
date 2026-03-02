@@ -4039,8 +4039,7 @@ define internal range(i32 0, 2) i32 @_visible_shortcuts(ptr noundef %0, ptr noun
   br i1 %60, label %.loopexit, label %.lr.ph51.preheader
 
 61:                                               ; preds = %49
-  %.not4048 = icmp ne ptr %53, null
-  call void @llvm.assume(i1 %.not4048)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %53) ]
   br label %.lr.ph51.preheader
 
 .lr.ph51.preheader:                               ; preds = %61, %54

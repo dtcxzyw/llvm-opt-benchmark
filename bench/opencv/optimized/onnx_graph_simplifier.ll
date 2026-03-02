@@ -9071,8 +9071,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn14dnn4_v2024122320Biase
   tail call void @llvm.experimental.noalias.scope.decl(metadata !572)
   %26 = load ptr, ptr %1, align 8, !tbaa !427, !noalias !575, !nonnull !521, !noundef !521
   %27 = tail call ptr @__dynamic_cast(ptr nonnull %26, ptr nonnull @_ZTIN2cv3dnn18ImportGraphWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122316ONNXGraphWrapperE, i64 0) #27, !noalias !575
-  %.not.not.i.i = icmp ne ptr %27, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !22, !noalias !575
   %.not.i.i.i.i.i = icmp eq ptr %29, null
@@ -10199,8 +10198,7 @@ _ZNSt12__shared_ptrIN2cv3dnn14dnn4_v2024122316ONNXGraphWrapperELN9__gnu_cxx12_Lo
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122320BiasedMatmulSubgraph8finalizeERKNS_3PtrINS0_18ImportGraphWrapperEEERKNS3_INS0_17ImportNodeWrapperEEERSt6vectorIS9_SaIS9_EE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !540, !noalias !586, !nonnull !521, !noundef !521
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !586
-  %.not.not.i.i = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !22, !noalias !586
   %.not.i.i.i.i.i = icmp eq ptr %8, null
@@ -11240,8 +11238,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122336AdjustSliceAllOptio
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122336AdjustSliceAllOptionalInputsSubgraph8finalizeERKNS_3PtrINS0_18ImportGraphWrapperEEERKNS3_INS0_17ImportNodeWrapperEEERSt6vectorIS9_SaIS9_EE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !540, !noalias !596, !nonnull !521, !noundef !521
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !596
-  %.not.not.i.i = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !22, !noalias !596
   %.not.i.i.i.i.i = icmp eq ptr %8, null
@@ -11976,8 +11973,7 @@ define internal fastcc void @_ZN2cv3dnn14dnn4_v20241223L15extractConstantERKNS_3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !608)
   %9 = load ptr, ptr %1, align 8, !tbaa !427, !noalias !611, !nonnull !521, !noundef !521
   %10 = tail call ptr @__dynamic_cast(ptr nonnull %9, ptr nonnull @_ZTIN2cv3dnn18ImportGraphWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122316ONNXGraphWrapperE, i64 0) #27, !noalias !611
-  %.not.not.i.i = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !22, !noalias !611
   %.not.i.i.i.i.i = icmp eq ptr %12, null
@@ -12052,8 +12048,7 @@ _ZNK2cv3PtrINS_3dnn18ImportGraphWrapperEE11dynamicCastINS1_14dnn4_v2024122316ONN
 47:                                               ; preds = %42
   %48 = load ptr, ptr %7, align 8, !tbaa !540, !noalias !617, !nonnull !521, !noundef !521
   %49 = call ptr @__dynamic_cast(ptr nonnull %48, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !617
-  %.not.not.i.i25 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %.not.not.i.i25)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !22, !noalias !617
   %.not.i.i.i.i.i26 = icmp eq ptr %51, null
@@ -14008,8 +14003,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %4
   call void @llvm.experimental.noalias.scope.decl(metadata !641)
   %32 = load ptr, ptr %1, align 8, !tbaa !427, !noalias !644, !nonnull !521, !noundef !521
   %33 = call ptr @__dynamic_cast(ptr nonnull %32, ptr nonnull @_ZTIN2cv3dnn18ImportGraphWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122316ONNXGraphWrapperE, i64 0) #27, !noalias !644
-  %.not.not.i.i = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %33) ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !22, !noalias !644
   %.not.i.i.i.i.i = icmp eq ptr %35, null
@@ -14517,8 +14511,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit89:                  ; preds = %238, %240
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122317LayerNormSubGraph8finalizeERKNS_3PtrINS0_18ImportGraphWrapperEEERKNS3_INS0_17ImportNodeWrapperEEERSt6vectorIS9_SaIS9_EE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !540, !noalias !653, !nonnull !521, !noundef !521
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !653
-  %.not.not.i.i = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !22, !noalias !653
   %.not.i.i.i.i.i = icmp eq ptr %8, null
@@ -14824,8 +14817,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122317LayerNormSubGraph11
   call void %9(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.135") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %2)
   %10 = load ptr, ptr %4, align 8, !tbaa !540, !noalias !660, !nonnull !521, !noundef !521
   %11 = call ptr @__dynamic_cast(ptr nonnull %10, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !660
-  %.not.not.i.i = icmp ne ptr %11, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !22, !noalias !660
   %.not.i.i.i.i.i = icmp eq ptr %13, null
@@ -15464,8 +15456,7 @@ define internal fastcc void @_ZN2cv3dnn14dnn4_v20241223L12getInputNameB5cxx11ERK
   tail call void @llvm.experimental.noalias.scope.decl(metadata !670)
   %8 = load ptr, ptr %1, align 8, !tbaa !427, !noalias !673, !nonnull !521, !noundef !521
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN2cv3dnn18ImportGraphWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122316ONNXGraphWrapperE, i64 0) #27, !noalias !673
-  %.not.not.i.i = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !22, !noalias !673
   %.not.i.i.i.i.i = icmp eq ptr %11, null
@@ -18134,8 +18125,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122321ExtractScalesSubgra
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !540, !noalias !692, !nonnull !521, !noundef !521
   %17 = tail call ptr @__dynamic_cast(ptr nonnull %16, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !692
-  %.not.not.i.i = icmp ne ptr %17, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !22, !noalias !692
   %.not.i.i.i.i.i = icmp eq ptr %19, null
@@ -18293,8 +18283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %73, %
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %84 = load ptr, ptr %83, align 8, !tbaa !540, !noalias !697, !nonnull !521, !noundef !521
   %85 = call ptr @__dynamic_cast(ptr nonnull %84, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !697
-  %.not.not.i.i39 = icmp ne ptr %85, null
-  call void @llvm.assume(i1 %.not.not.i.i39)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %85) ]
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %87 = load ptr, ptr %86, align 8, !tbaa !22, !noalias !697
   %.not.i.i.i.i.i40 = icmp eq ptr %87, null
@@ -18458,8 +18447,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %153 = load ptr, ptr %2, align 8, !tbaa !540, !noalias !702, !nonnull !521, !noundef !521
   %154 = call ptr @__dynamic_cast(ptr nonnull %153, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !702
-  %.not.not.i.i55 = icmp ne ptr %154, null
-  call void @llvm.assume(i1 %.not.not.i.i55)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %154) ]
   %155 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %156 = load ptr, ptr %155, align 8, !tbaa !22, !noalias !702
   %.not.i.i.i.i.i56 = icmp eq ptr %156, null
@@ -21186,8 +21174,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %32, %
   call void %43(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.135") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %38, i32 noundef %40)
   %44 = load ptr, ptr %7, align 8, !tbaa !540, !noalias !711, !nonnull !521, !noundef !521
   %45 = call ptr @__dynamic_cast(ptr nonnull %44, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !711
-  %.not.not.i.i = icmp ne ptr %45, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %45) ]
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !22, !noalias !711
   %.not.i.i.i.i.i = icmp eq ptr %47, null
@@ -21465,8 +21452,7 @@ _ZNSt12__shared_ptrIN2cv3dnn17ImportNodeWrapperELN9__gnu_cxx12_Lock_policyE2EED2
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122319SoftMaxSubgraphBase8finalizeERKNS_3PtrINS0_18ImportGraphWrapperEEERKNS3_INS0_17ImportNodeWrapperEEERSt6vectorIS9_SaIS9_EE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !540, !noalias !717, !nonnull !521, !noundef !521
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !717
-  %.not.not.i.i = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !22, !noalias !717
   %.not.i.i.i.i.i = icmp eq ptr %8, null
@@ -22827,8 +22813,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn14dnn4_v2024122317HardS
   call void %18(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.135") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %15)
   %19 = load ptr, ptr %5, align 8, !tbaa !540, !noalias !724, !nonnull !521, !noundef !521
   %20 = call ptr @__dynamic_cast(ptr nonnull %19, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !724
-  %.not.not.i.i = icmp ne ptr %20, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !22, !noalias !724
   %.not.i.i.i.i.i = icmp eq ptr %22, null
@@ -23466,8 +23451,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn14dnn4_v2024122312CeluS
   call void %32(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.135") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %29)
   %33 = load ptr, ptr %5, align 8, !tbaa !540, !noalias !735, !nonnull !521, !noundef !521
   %34 = call ptr @__dynamic_cast(ptr nonnull %33, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !735
-  %.not.not.i.i = icmp ne ptr %34, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !22, !noalias !735
   %.not.i.i.i.i.i = icmp eq ptr %36, null
@@ -23659,8 +23643,7 @@ _ZNSt12__shared_ptrIN2cv3dnn17ImportNodeWrapperELN9__gnu_cxx12_Lock_policyE2EED2
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122312CeluSubgraph8finalizeERKNS_3PtrINS0_18ImportGraphWrapperEEERKNS3_INS0_17ImportNodeWrapperEEERSt6vectorIS9_SaIS9_EE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !540, !noalias !741, !nonnull !521, !noundef !521
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !741
-  %.not.not.i.i = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !22, !noalias !741
   %.not.i.i.i.i.i = icmp eq ptr %8, null
@@ -23820,8 +23803,7 @@ define linkonce_odr hidden noundef float @_ZN2cv3dnn14dnn4_v2024122312CeluSubgra
 18:                                               ; preds = %13
   %19 = load ptr, ptr %5, align 8, !tbaa !540, !noalias !746, !nonnull !521, !noundef !521
   %20 = call ptr @__dynamic_cast(ptr nonnull %19, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !746
-  %.not.not.i.i = icmp ne ptr %20, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !22, !noalias !746
   %.not.i.i.i.i.i = icmp eq ptr %22, null
@@ -24379,8 +24361,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn14dnn4_v2024122321Norma
   call void %21(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.135") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %18)
   %22 = load ptr, ptr %5, align 8, !tbaa !540, !noalias !754, !nonnull !521, !noundef !521
   %23 = call ptr @__dynamic_cast(ptr nonnull %22, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !754
-  %.not.not.i.i = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !22, !noalias !754
   %.not.i.i.i.i.i = icmp eq ptr %25, null
@@ -24654,8 +24635,7 @@ _ZNSt12__shared_ptrIN2cv3dnn17ImportNodeWrapperELN9__gnu_cxx12_Lock_policyE2EED2
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122321NormalizeSubgraphBase8finalizeERKNS_3PtrINS0_18ImportGraphWrapperEEERKNS3_INS0_17ImportNodeWrapperEEERSt6vectorIS9_SaIS9_EE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !540, !noalias !760, !nonnull !521, !noundef !521
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !760
-  %.not.not.i.i = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !22, !noalias !760
   %.not.i.i.i.i.i = icmp eq ptr %8, null
@@ -29096,8 +29076,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122314ExpandSubgraph8fina
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !540, !noalias !805, !nonnull !521, !noundef !521
   %10 = tail call ptr @__dynamic_cast(ptr nonnull %9, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !805
-  %.not.not.i.i = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !22, !noalias !805
   %.not.i.i.i.i.i = icmp eq ptr %12, null
@@ -29327,8 +29306,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv3dnn14dnn4_v2024122314ExpandSubgra
   call void %10(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.135") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %1)
   %11 = load ptr, ptr %4, align 8, !tbaa !540, !noalias !810, !nonnull !521, !noundef !521
   %12 = call ptr @__dynamic_cast(ptr nonnull %11, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !810
-  %.not.not.i.i = icmp ne ptr %12, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !22, !noalias !810
   %.not.i.i.i.i.i = icmp eq ptr %14, null
@@ -33739,8 +33717,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122317AttentionSubGraph8finalizeERKNS_3PtrINS0_18ImportGraphWrapperEEERKNS3_INS0_17ImportNodeWrapperEEERSt6vectorIS9_SaIS9_EE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !540, !noalias !837, !nonnull !521, !noundef !521
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !837
-  %.not.not.i.i = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !22, !noalias !837
   %.not.i.i.i.i.i = icmp eq ptr %8, null
@@ -36336,8 +36313,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024122327AttentionSingleHeadSubGraph8finalizeERKNS_3PtrINS0_18ImportGraphWrapperEEERKNS3_INS0_17ImportNodeWrapperEEERSt6vectorIS9_SaIS9_EE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !540, !noalias !857, !nonnull !521, !noundef !521
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ONNXNodeWrapperE, i64 0) #27, !noalias !857
-  %.not.not.i.i = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !22, !noalias !857
   %.not.i.i.i.i.i = icmp eq ptr %8, null

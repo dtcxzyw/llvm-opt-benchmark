@@ -268,49 +268,48 @@ define hidden void @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..tra
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17habef2d58aeef0537E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = ptrtoint ptr %2 to i64
-  %7 = ptrtoint ptr %1 to i64
-  %reass.sub = sub i64 %6, %7
-  %8 = add i64 %reass.sub, 3
-  %9 = lshr i64 %8, 2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !alias.scope !57, !noundef !8
-  %12 = load i64, ptr %0, align 8, !range !60, !alias.scope !57, !noundef !8
-  %13 = sub i64 %12, %11
-  %14 = icmp ugt i64 %9, %13
-  br i1 %14, label %15, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he265ece37e4e7313E.exit", !prof !25
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = ptrtoint ptr %2 to i64
+  %6 = ptrtoint ptr %1 to i64
+  %reass.sub = sub i64 %5, %6
+  %7 = add i64 %reass.sub, 3
+  %8 = lshr i64 %7, 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load i64, ptr %9, align 8, !alias.scope !57, !noundef !8
+  %11 = load i64, ptr %0, align 8, !range !60, !alias.scope !57, !noundef !8
+  %12 = sub i64 %11, %10
+  %13 = icmp ugt i64 %8, %12
+  br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he265ece37e4e7313E.exit", !prof !25
 
-15:                                               ; preds = %3
-  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h9b05874dde04bbfdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %11, i64 noundef %9, i64 noundef 1, i64 noundef 1)
+14:                                               ; preds = %3
+  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h9b05874dde04bbfdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %10, i64 noundef %8, i64 noundef 1, i64 noundef 1)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he265ece37e4e7313E.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he265ece37e4e7313E.exit": ; preds = %3, %15
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he265ece37e4e7313E.exit": ; preds = %3, %14
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !61
   store ptr %1, ptr %4, align 8, !noalias !66
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %2, ptr %16, align 8, !noalias !66
-  %17 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17h3c23e72ec64a61f7E.llvm.12664128795376568269(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !66
-  %18 = extractvalue { i32, i32 } %17, 0
-  %19 = icmp eq i32 %18, 0
-  %20 = extractvalue { i32, i32 } %17, 1
-  %21 = icmp eq i32 %20, 1114112
-  %22 = select i1 %19, i1 true, i1 %21
-  br i1 %22, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hd332c90e9577f004E.llvm.8761448810520279710.exit, label %.lr.ph.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %2, ptr %15, align 8, !noalias !66
+  %16 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17h3c23e72ec64a61f7E.llvm.12664128795376568269(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !66
+  %17 = extractvalue { i32, i32 } %16, 0
+  %18 = icmp eq i32 %17, 0
+  %19 = extractvalue { i32, i32 } %16, 1
+  %20 = icmp eq i32 %19, 1114112
+  %21 = select i1 %18, i1 true, i1 %20
+  br i1 %21, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hd332c90e9577f004E.llvm.8761448810520279710.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he265ece37e4e7313E.exit", %.lr.ph.i.i.i
-  %23 = phi i32 [ %28, %.lr.ph.i.i.i ], [ %20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he265ece37e4e7313E.exit" ]
-  %24 = icmp eq i32 %23, 45
-  %..i.i.i.i.i = select i1 %24, i32 95, i32 %23
+  %22 = phi i32 [ %27, %.lr.ph.i.i.i ], [ %19, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he265ece37e4e7313E.exit" ]
+  %23 = icmp eq i32 %22, 45
+  %..i.i.i.i.i = select i1 %23, i32 95, i32 %22
   call void @_ZN5alloc6string6String4push17h65f6c624e4e39ab4E.llvm.12664128795376568269(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef range(i32 0, 1114112) %..i.i.i.i.i), !noalias !69
-  %25 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17h3c23e72ec64a61f7E.llvm.12664128795376568269(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  %26 = extractvalue { i32, i32 } %25, 0
-  %27 = icmp eq i32 %26, 0
-  %28 = extractvalue { i32, i32 } %25, 1
-  %29 = icmp eq i32 %28, 1114112
-  %30 = select i1 %27, i1 true, i1 %29
-  br i1 %30, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hd332c90e9577f004E.llvm.8761448810520279710.exit, label %.lr.ph.i.i.i
+  %24 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17h3c23e72ec64a61f7E.llvm.12664128795376568269(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  %25 = extractvalue { i32, i32 } %24, 0
+  %26 = icmp eq i32 %25, 0
+  %27 = extractvalue { i32, i32 } %24, 1
+  %28 = icmp eq i32 %27, 1114112
+  %29 = select i1 %26, i1 true, i1 %28
+  br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hd332c90e9577f004E.llvm.8761448810520279710.exit, label %.lr.ph.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17hd332c90e9577f004E.llvm.8761448810520279710.exit: ; preds = %.lr.ph.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he265ece37e4e7313E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !61

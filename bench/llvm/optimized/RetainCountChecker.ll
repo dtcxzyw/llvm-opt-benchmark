@@ -9836,8 +9836,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50: ; pre
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %68) #21
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %68) #21
   %72 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_111RefBindingsEE8GDMIndexEvE5Index) #21
-  %.not.i.i.i = icmp ne ptr %72, null
-  call void @llvm.assume(i1 %.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %72) ]
   %73 = load ptr, ptr %72, align 8, !tbaa !9, !noalias !1096, !nonnull !243, !noundef !243
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 84
   %75 = load i32, ptr %74, align 4, !tbaa !13, !noalias !1096

@@ -571,11 +571,11 @@ switch.lookup:                                    ; preds = %7
   br label %_ZN9anthropic5Model2id17hb72e6cbcd6427368E.exit
 
 _ZN9anthropic5Model2id17hb72e6cbcd6427368E.exit:  ; preds = %switch.lookup, %10, %13
-  %.sroa.0.0.i.pn.in = phi ptr [ %14, %13 ], [ %11, %10 ], [ %switch.gep, %switch.lookup ]
+  %.sroa.0.0.in = phi ptr [ %14, %13 ], [ %11, %10 ], [ %switch.gep, %switch.lookup ]
   %.sroa.6.0.i.pn.in = phi ptr [ %15, %13 ], [ %12, %10 ], [ %switch.gep4, %switch.lookup ]
   %.sroa.6.0.i.pn = load i64, ptr %.sroa.6.0.i.pn.in, align 8
-  %.sroa.0.0.i.pn = load ptr, ptr %.sroa.0.0.i.pn.in, align 8
-  %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn, 0
+  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, i64 } %.pn, i64 %.sroa.6.0.i.pn, 1
   ret { ptr, i64 } %.merged
 }

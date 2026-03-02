@@ -2496,7 +2496,7 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   %97 = load ptr, ptr %7, align 8
   %98 = tail call noundef ptr @_ZNK7PackSet28same_inputs_at_index_or_nullEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(64) %97, ptr noundef nonnull %1, i32 noundef %2) #8
   %cond = icmp eq ptr %98, null
-  br i1 %cond, label %99, label %181
+  br i1 %cond, label %99, label %180
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2509,7 +2509,7 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %104, %108
-  br i1 %109, label %110, label %386
+  br i1 %109, label %110, label %382
 
 110:                                              ; preds = %99
   %111 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %108)
@@ -2538,410 +2538,406 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 72, ptr noundef nonnull %133) #8
-  %135 = icmp ne ptr %134, null
-  tail call void @llvm.assume(i1 %135)
-  %136 = select i1 %switch.selectcmp.i, i8 %129, i8 10
-  %137 = load ptr, ptr %131, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %139 = load i32, ptr %138, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %134) ]
+  %135 = select i1 %switch.selectcmp.i, i8 %129, i8 10
+  %136 = load ptr, ptr %131, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %138 = load i32, ptr %137, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %134, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %141 = getelementptr inbounds nuw i8, ptr %137, i64 80
-  %142 = load i32, ptr %141, align 8
-  %143 = add nsw i32 %142, 1
-  store i32 %143, ptr %141, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 80
+  %141 = load i32, ptr %140, align 8
+  %142 = add nsw i32 %141, 1
   store i32 %142, ptr %140, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %134, i64 12
-  store i32 2, ptr %144, align 4
-  %145 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %146 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %147 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %146) #8
-  store i32 2, ptr %145, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %134, i64 20
-  store i32 2, ptr %148, align 4
-  %149 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  store ptr %147, ptr %149, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, i8 0, i64 16, i1 false)
-  %150 = getelementptr inbounds nuw i8, ptr %137, i64 64
-  %151 = getelementptr inbounds nuw i8, ptr %134, i64 32
-  %152 = ptrtoint ptr %146 to i64
-  store i64 %152, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %134, i64 40
-  %154 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %146) #8
-  store i32 0, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %134, i64 44
-  store i32 4, ptr %155, align 4
-  %156 = getelementptr inbounds nuw i8, ptr %134, i64 48
-  store ptr %154, ptr %156, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %154, i8 0, i64 32, i1 false)
-  %157 = getelementptr inbounds nuw i8, ptr %134, i64 56
-  store i64 %152, ptr %157, align 8
-  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %150, ptr noundef nonnull align 8 dereferenceable(69) %134) #8
+  store i32 %141, ptr %139, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %134, i64 12
+  store i32 2, ptr %143, align 4
+  %144 = getelementptr inbounds nuw i8, ptr %134, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %146 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %145) #8
+  store i32 2, ptr %144, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 20
+  store i32 2, ptr %147, align 4
+  %148 = getelementptr inbounds nuw i8, ptr %134, i64 24
+  store ptr %146, ptr %148, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, i8 0, i64 16, i1 false)
+  %149 = getelementptr inbounds nuw i8, ptr %136, i64 64
+  %150 = getelementptr inbounds nuw i8, ptr %134, i64 32
+  %151 = ptrtoint ptr %145 to i64
+  store i64 %151, ptr %150, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %134, i64 40
+  %153 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %145) #8
+  store i32 0, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %134, i64 44
+  store i32 4, ptr %154, align 4
+  %155 = getelementptr inbounds nuw i8, ptr %134, i64 48
+  store ptr %153, ptr %155, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %153, i8 0, i64 32, i1 false)
+  %156 = getelementptr inbounds nuw i8, ptr %134, i64 56
+  store i64 %151, ptr %156, align 8
+  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %149, ptr noundef nonnull align 8 dereferenceable(69) %134) #8
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV27VTransformPopulateIndexNode, i64 16), ptr %134, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %134, i64 64
-  store i32 %139, ptr %158, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %134, i64 68
-  store i8 %136, ptr %159, align 4
-  %160 = load ptr, ptr %149, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  store ptr %111, ptr %161, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %111, i64 40
-  %163 = load i32, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %111, i64 44
-  %165 = load i32, ptr %164, align 4
-  %166 = icmp eq i32 %163, %165
-  br i1 %166, label %167, label %_ZN14VTransformNode7set_reqEjPS_.exit
+  %157 = getelementptr inbounds nuw i8, ptr %134, i64 64
+  store i32 %138, ptr %157, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %134, i64 68
+  store i8 %135, ptr %158, align 4
+  %159 = load ptr, ptr %148, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  store ptr %111, ptr %160, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %111, i64 40
+  %162 = load i32, ptr %161, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %111, i64 44
+  %164 = load i32, ptr %163, align 4
+  %165 = icmp eq i32 %162, %164
+  br i1 %165, label %166, label %_ZN14VTransformNode7set_reqEjPS_.exit
 
-167:                                              ; preds = %110
-  %168 = add nsw i32 %163, 1
-  %169 = icmp sgt i32 %163, -1
-  %170 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %168)
-  %171 = icmp samesign ult i32 %170, 2
-  %or.cond.i.i.i.i.i.i.i = select i1 %169, i1 %171, i1 false
-  %172 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %168, i1 true)
-  %173 = sub nuw nsw i32 32, %172
-  %174 = shl nuw i32 1, %173
-  %.0.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i32 %168, i32 %174
-  tail call void @_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %162, i32 noundef %.0.i.i.i.i.i.i.i)
-  %.pre.i.i.i.i = load i32, ptr %162, align 8
+166:                                              ; preds = %110
+  %167 = add nsw i32 %162, 1
+  %168 = icmp sgt i32 %162, -1
+  %169 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %167)
+  %170 = icmp samesign ult i32 %169, 2
+  %or.cond.i.i.i.i.i.i.i = select i1 %168, i1 %170, i1 false
+  %171 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %167, i1 true)
+  %172 = sub nuw nsw i32 32, %171
+  %173 = shl nuw i32 1, %172
+  %.0.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i32 %167, i32 %173
+  tail call void @_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %161, i32 noundef %.0.i.i.i.i.i.i.i)
+  %.pre.i.i.i.i = load i32, ptr %161, align 8
   br label %_ZN14VTransformNode7set_reqEjPS_.exit
 
-_ZN14VTransformNode7set_reqEjPS_.exit:            ; preds = %110, %167
-  %175 = phi i32 [ %.pre.i.i.i.i, %167 ], [ %163, %110 ]
-  %176 = add nsw i32 %175, 1
-  store i32 %176, ptr %162, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %111, i64 48
-  %178 = load ptr, ptr %177, align 8
-  %179 = sext i32 %175 to i64
-  %180 = getelementptr inbounds ptr, ptr %178, i64 %179
-  store ptr %134, ptr %180, align 8
+_ZN14VTransformNode7set_reqEjPS_.exit:            ; preds = %110, %166
+  %174 = phi i32 [ %.pre.i.i.i.i, %166 ], [ %162, %110 ]
+  %175 = add nsw i32 %174, 1
+  store i32 %175, ptr %161, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %111, i64 48
+  %177 = load ptr, ptr %176, align 8
+  %178 = sext i32 %174 to i64
+  %179 = getelementptr inbounds ptr, ptr %177, i64 %178
+  store ptr %134, ptr %179, align 8
   br label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit
 
-181:                                              ; preds = %96
-  %182 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull %98)
-  %183 = icmp eq i32 %2, 2
-  br i1 %183, label %184, label %266
+180:                                              ; preds = %96
+  %181 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull %98)
+  %182 = icmp eq i32 %2, 2
+  br i1 %182, label %183, label %264
 
-184:                                              ; preds = %181
-  %185 = tail call noundef zeroext i1 @_ZN10VectorNode8is_shiftEP4Node(ptr noundef %6) #8
-  br i1 %185, label %186, label %266
+183:                                              ; preds = %180
+  %184 = tail call noundef zeroext i1 @_ZN10VectorNode8is_shiftEP4Node(ptr noundef %6) #8
+  br i1 %184, label %185, label %264
 
-186:                                              ; preds = %184
-  %187 = load ptr, ptr %0, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 208
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %193 = load i32, ptr %192, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  %195 = load ptr, ptr %194, align 8
-  %196 = sext i32 %193 to i64
-  %197 = getelementptr inbounds i32, ptr %195, i64 %196
-  %198 = load i32, ptr %197, align 4
-  %199 = getelementptr inbounds nuw i8, ptr %187, i64 224
-  %200 = load ptr, ptr %199, align 8
-  %201 = sext i32 %198 to i64
-  %202 = getelementptr inbounds ptr, ptr %200, i64 %201
-  %203 = load ptr, ptr %202, align 8
-  %204 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %203) #8
-  %205 = load ptr, ptr %6, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 40
-  %207 = load ptr, ptr %206, align 8
-  %208 = tail call noundef ptr %207(ptr noundef nonnull align 8 dereferenceable(52) %6) #8
-  %209 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
-  %213 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 80, ptr noundef nonnull %212) #8
-  %214 = icmp ne ptr %213, null
-  tail call void @llvm.assume(i1 %214)
-  %215 = icmp eq ptr %208, %209
-  %216 = select i1 %215, i32 31, i32 63
-  %217 = load ptr, ptr %210, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %219 = load i32, ptr %218, align 8
-  %220 = load ptr, ptr %6, align 8
-  %221 = load ptr, ptr %220, align 8
-  %222 = tail call noundef i32 %221(ptr noundef nonnull align 8 dereferenceable(52) %6) #8
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %213, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %224 = getelementptr inbounds nuw i8, ptr %217, i64 80
-  %225 = load i32, ptr %224, align 8
-  %226 = add nsw i32 %225, 1
-  store i32 %226, ptr %224, align 8
-  store i32 %225, ptr %223, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %213, i64 12
-  store i32 2, ptr %227, align 4
-  %228 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  %229 = getelementptr inbounds nuw i8, ptr %217, i64 16
-  %230 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %229) #8
-  store i32 2, ptr %228, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %213, i64 20
-  store i32 2, ptr %231, align 4
-  %232 = getelementptr inbounds nuw i8, ptr %213, i64 24
-  store ptr %230, ptr %232, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %230, i8 0, i64 16, i1 false)
-  %233 = getelementptr inbounds nuw i8, ptr %217, i64 64
-  %234 = getelementptr inbounds nuw i8, ptr %213, i64 32
-  %235 = ptrtoint ptr %229 to i64
-  store i64 %235, ptr %234, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %213, i64 40
-  %237 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %229) #8
-  store i32 0, ptr %236, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %213, i64 44
-  store i32 4, ptr %238, align 4
-  %239 = getelementptr inbounds nuw i8, ptr %213, i64 48
-  store ptr %237, ptr %239, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %237, i8 0, i64 32, i1 false)
-  %240 = getelementptr inbounds nuw i8, ptr %213, i64 56
-  store i64 %235, ptr %240, align 8
-  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %233, ptr noundef nonnull align 8 dereferenceable(80) %213) #8
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV24VTransformShiftCountNode, i64 16), ptr %213, align 8
-  %241 = getelementptr inbounds nuw i8, ptr %213, i64 64
-  store i32 %219, ptr %241, align 8
-  %242 = getelementptr inbounds nuw i8, ptr %213, i64 68
-  store i8 %204, ptr %242, align 4
-  %243 = getelementptr inbounds nuw i8, ptr %213, i64 72
-  store i32 %216, ptr %243, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %213, i64 76
-  store i32 %222, ptr %244, align 4
-  %245 = load ptr, ptr %232, align 8
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  store ptr %182, ptr %246, align 8
-  %247 = getelementptr inbounds nuw i8, ptr %182, i64 40
-  %248 = load i32, ptr %247, align 8
-  %249 = getelementptr inbounds nuw i8, ptr %182, i64 44
-  %250 = load i32, ptr %249, align 4
-  %251 = icmp eq i32 %248, %250
-  br i1 %251, label %252, label %_ZN14VTransformNode7set_reqEjPS_.exit77
+185:                                              ; preds = %183
+  %186 = load ptr, ptr %0, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 208
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 32
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %192 = load i32, ptr %191, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %190, i64 8
+  %194 = load ptr, ptr %193, align 8
+  %195 = sext i32 %192 to i64
+  %196 = getelementptr inbounds i32, ptr %194, i64 %195
+  %197 = load i32, ptr %196, align 4
+  %198 = getelementptr inbounds nuw i8, ptr %186, i64 224
+  %199 = load ptr, ptr %198, align 8
+  %200 = sext i32 %197 to i64
+  %201 = getelementptr inbounds ptr, ptr %199, i64 %200
+  %202 = load ptr, ptr %201, align 8
+  %203 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %202) #8
+  %204 = load ptr, ptr %6, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 40
+  %206 = load ptr, ptr %205, align 8
+  %207 = tail call noundef ptr %206(ptr noundef nonnull align 8 dereferenceable(52) %6) #8
+  %208 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %210 = load ptr, ptr %209, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
+  %212 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 80, ptr noundef nonnull %211) #8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %212) ]
+  %213 = icmp eq ptr %207, %208
+  %214 = select i1 %213, i32 31, i32 63
+  %215 = load ptr, ptr %209, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %217 = load i32, ptr %216, align 8
+  %218 = load ptr, ptr %6, align 8
+  %219 = load ptr, ptr %218, align 8
+  %220 = tail call noundef i32 %219(ptr noundef nonnull align 8 dereferenceable(52) %6) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %212, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %215, i64 80
+  %223 = load i32, ptr %222, align 8
+  %224 = add nsw i32 %223, 1
+  store i32 %224, ptr %222, align 8
+  store i32 %223, ptr %221, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %212, i64 12
+  store i32 2, ptr %225, align 4
+  %226 = getelementptr inbounds nuw i8, ptr %212, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %228 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %227) #8
+  store i32 2, ptr %226, align 8
+  %229 = getelementptr inbounds nuw i8, ptr %212, i64 20
+  store i32 2, ptr %229, align 4
+  %230 = getelementptr inbounds nuw i8, ptr %212, i64 24
+  store ptr %228, ptr %230, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %228, i8 0, i64 16, i1 false)
+  %231 = getelementptr inbounds nuw i8, ptr %215, i64 64
+  %232 = getelementptr inbounds nuw i8, ptr %212, i64 32
+  %233 = ptrtoint ptr %227 to i64
+  store i64 %233, ptr %232, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %212, i64 40
+  %235 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %227) #8
+  store i32 0, ptr %234, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %212, i64 44
+  store i32 4, ptr %236, align 4
+  %237 = getelementptr inbounds nuw i8, ptr %212, i64 48
+  store ptr %235, ptr %237, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %235, i8 0, i64 32, i1 false)
+  %238 = getelementptr inbounds nuw i8, ptr %212, i64 56
+  store i64 %233, ptr %238, align 8
+  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %231, ptr noundef nonnull align 8 dereferenceable(80) %212) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV24VTransformShiftCountNode, i64 16), ptr %212, align 8
+  %239 = getelementptr inbounds nuw i8, ptr %212, i64 64
+  store i32 %217, ptr %239, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %212, i64 68
+  store i8 %203, ptr %240, align 4
+  %241 = getelementptr inbounds nuw i8, ptr %212, i64 72
+  store i32 %214, ptr %241, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %212, i64 76
+  store i32 %220, ptr %242, align 4
+  %243 = load ptr, ptr %230, align 8
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  store ptr %181, ptr %244, align 8
+  %245 = getelementptr inbounds nuw i8, ptr %181, i64 40
+  %246 = load i32, ptr %245, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %181, i64 44
+  %248 = load i32, ptr %247, align 4
+  %249 = icmp eq i32 %246, %248
+  br i1 %249, label %250, label %_ZN14VTransformNode7set_reqEjPS_.exit77
 
-252:                                              ; preds = %186
-  %253 = add nsw i32 %248, 1
-  %254 = icmp sgt i32 %248, -1
-  %255 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %253)
-  %256 = icmp samesign ult i32 %255, 2
-  %or.cond.i.i.i.i.i.i.i74 = select i1 %254, i1 %256, i1 false
-  %257 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %253, i1 true)
-  %258 = sub nuw nsw i32 32, %257
-  %259 = shl nuw i32 1, %258
-  %.0.i.i.i.i.i.i.i75 = select i1 %or.cond.i.i.i.i.i.i.i74, i32 %253, i32 %259
-  tail call void @_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %247, i32 noundef %.0.i.i.i.i.i.i.i75)
-  %.pre.i.i.i.i76 = load i32, ptr %247, align 8
+250:                                              ; preds = %185
+  %251 = add nsw i32 %246, 1
+  %252 = icmp sgt i32 %246, -1
+  %253 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %251)
+  %254 = icmp samesign ult i32 %253, 2
+  %or.cond.i.i.i.i.i.i.i74 = select i1 %252, i1 %254, i1 false
+  %255 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %251, i1 true)
+  %256 = sub nuw nsw i32 32, %255
+  %257 = shl nuw i32 1, %256
+  %.0.i.i.i.i.i.i.i75 = select i1 %or.cond.i.i.i.i.i.i.i74, i32 %251, i32 %257
+  tail call void @_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %245, i32 noundef %.0.i.i.i.i.i.i.i75)
+  %.pre.i.i.i.i76 = load i32, ptr %245, align 8
   br label %_ZN14VTransformNode7set_reqEjPS_.exit77
 
-_ZN14VTransformNode7set_reqEjPS_.exit77:          ; preds = %186, %252
-  %260 = phi i32 [ %.pre.i.i.i.i76, %252 ], [ %248, %186 ]
-  %261 = add nsw i32 %260, 1
-  store i32 %261, ptr %247, align 8
-  %262 = getelementptr inbounds nuw i8, ptr %182, i64 48
-  %263 = load ptr, ptr %262, align 8
-  %264 = sext i32 %260 to i64
-  %265 = getelementptr inbounds ptr, ptr %263, i64 %264
-  store ptr %213, ptr %265, align 8
+_ZN14VTransformNode7set_reqEjPS_.exit77:          ; preds = %185, %250
+  %258 = phi i32 [ %.pre.i.i.i.i76, %250 ], [ %246, %185 ]
+  %259 = add nsw i32 %258, 1
+  store i32 %259, ptr %245, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %181, i64 48
+  %261 = load ptr, ptr %260, align 8
+  %262 = sext i32 %258 to i64
+  %263 = getelementptr inbounds ptr, ptr %261, i64 %262
+  store ptr %212, ptr %263, align 8
   br label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit
 
-266:                                              ; preds = %184, %181
-  %267 = load ptr, ptr %0, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %267, i64 208
+264:                                              ; preds = %183, %180
+  %265 = load ptr, ptr %0, align 8
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 208
+  %267 = load ptr, ptr %266, align 8
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
   %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
-  %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %273 = load i32, ptr %272, align 8
-  %274 = getelementptr inbounds nuw i8, ptr %271, i64 8
-  %275 = load ptr, ptr %274, align 8
-  %276 = sext i32 %273 to i64
-  %277 = getelementptr inbounds i32, ptr %275, i64 %276
-  %278 = load i32, ptr %277, align 4
-  %279 = getelementptr inbounds nuw i8, ptr %267, i64 224
-  %280 = load ptr, ptr %279, align 8
-  %281 = sext i32 %278 to i64
-  %282 = getelementptr inbounds ptr, ptr %280, i64 %281
-  %283 = load ptr, ptr %282, align 8
-  br i1 %183, label %284, label %336
+  %270 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %271 = load i32, ptr %270, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %269, i64 8
+  %273 = load ptr, ptr %272, align 8
+  %274 = sext i32 %271 to i64
+  %275 = getelementptr inbounds i32, ptr %273, i64 %274
+  %276 = load i32, ptr %275, align 4
+  %277 = getelementptr inbounds nuw i8, ptr %265, i64 224
+  %278 = load ptr, ptr %277, align 8
+  %279 = sext i32 %276 to i64
+  %280 = getelementptr inbounds ptr, ptr %278, i64 %279
+  %281 = load ptr, ptr %280, align 8
+  br i1 %182, label %282, label %333
 
-284:                                              ; preds = %266
-  %285 = tail call noundef zeroext i1 @_ZN10VectorNode16is_scalar_rotateEP4Node(ptr noundef nonnull %6) #8
-  br i1 %285, label %286, label %336
+282:                                              ; preds = %264
+  %283 = tail call noundef zeroext i1 @_ZN10VectorNode16is_scalar_rotateEP4Node(ptr noundef nonnull %6) #8
+  br i1 %283, label %284, label %333
 
-286:                                              ; preds = %284
-  %287 = getelementptr inbounds nuw i8, ptr %283, i64 16
-  %288 = load i32, ptr %287, align 8
-  %289 = icmp ne i32 %288, 4
-  %.not6586 = icmp eq ptr %283, null
-  %.not65 = select i1 %289, i1 true, i1 %.not6586
-  br i1 %.not65, label %336, label %290
+284:                                              ; preds = %282
+  %285 = getelementptr inbounds nuw i8, ptr %281, i64 16
+  %286 = load i32, ptr %285, align 8
+  %287 = icmp ne i32 %286, 4
+  %.not6586 = icmp eq ptr %281, null
+  %.not65 = select i1 %287, i1 true, i1 %.not6586
+  br i1 %.not65, label %333, label %288
 
-290:                                              ; preds = %286
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %292, i64 16
-  %294 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 64, ptr noundef nonnull %293) #8
-  %295 = icmp ne ptr %294, null
-  tail call void @llvm.assume(i1 %295)
-  %296 = load ptr, ptr %291, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %294, align 8
-  %297 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  %298 = getelementptr inbounds nuw i8, ptr %296, i64 80
-  %299 = load i32, ptr %298, align 8
-  %300 = add nsw i32 %299, 1
-  store i32 %300, ptr %298, align 8
-  store i32 %299, ptr %297, align 8
-  %301 = getelementptr inbounds nuw i8, ptr %294, i64 12
-  store i32 2, ptr %301, align 4
-  %302 = getelementptr inbounds nuw i8, ptr %294, i64 16
-  %303 = getelementptr inbounds nuw i8, ptr %296, i64 16
-  %304 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %303) #8
-  store i32 2, ptr %302, align 8
-  %305 = getelementptr inbounds nuw i8, ptr %294, i64 20
-  store i32 2, ptr %305, align 4
-  %306 = getelementptr inbounds nuw i8, ptr %294, i64 24
-  store ptr %304, ptr %306, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %304, i8 0, i64 16, i1 false)
-  %307 = getelementptr inbounds nuw i8, ptr %296, i64 64
-  %308 = getelementptr inbounds nuw i8, ptr %294, i64 32
-  %309 = ptrtoint ptr %303 to i64
-  store i64 %309, ptr %308, align 8
-  %310 = getelementptr inbounds nuw i8, ptr %294, i64 40
-  %311 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %303) #8
-  store i32 0, ptr %310, align 8
-  %312 = getelementptr inbounds nuw i8, ptr %294, i64 44
-  store i32 4, ptr %312, align 4
-  %313 = getelementptr inbounds nuw i8, ptr %294, i64 48
-  store ptr %311, ptr %313, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %311, i8 0, i64 32, i1 false)
-  %314 = getelementptr inbounds nuw i8, ptr %294, i64 56
-  store i64 %309, ptr %314, align 8
-  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %307, ptr noundef nonnull align 8 dereferenceable(64) %294) #8
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV21VTransformConvI2LNode, i64 16), ptr %294, align 8
-  %315 = load ptr, ptr %306, align 8
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
-  store ptr %182, ptr %316, align 8
-  %317 = getelementptr inbounds nuw i8, ptr %182, i64 40
-  %318 = load i32, ptr %317, align 8
-  %319 = getelementptr inbounds nuw i8, ptr %182, i64 44
-  %320 = load i32, ptr %319, align 4
-  %321 = icmp eq i32 %318, %320
-  br i1 %321, label %322, label %_ZN14VTransformNode7set_reqEjPS_.exit81
+288:                                              ; preds = %284
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %290 = load ptr, ptr %289, align 8
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 16
+  %292 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 64, ptr noundef nonnull %291) #8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %292) ]
+  %293 = load ptr, ptr %289, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %292, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %292, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %293, i64 80
+  %296 = load i32, ptr %295, align 8
+  %297 = add nsw i32 %296, 1
+  store i32 %297, ptr %295, align 8
+  store i32 %296, ptr %294, align 8
+  %298 = getelementptr inbounds nuw i8, ptr %292, i64 12
+  store i32 2, ptr %298, align 4
+  %299 = getelementptr inbounds nuw i8, ptr %292, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %293, i64 16
+  %301 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %300) #8
+  store i32 2, ptr %299, align 8
+  %302 = getelementptr inbounds nuw i8, ptr %292, i64 20
+  store i32 2, ptr %302, align 4
+  %303 = getelementptr inbounds nuw i8, ptr %292, i64 24
+  store ptr %301, ptr %303, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %301, i8 0, i64 16, i1 false)
+  %304 = getelementptr inbounds nuw i8, ptr %293, i64 64
+  %305 = getelementptr inbounds nuw i8, ptr %292, i64 32
+  %306 = ptrtoint ptr %300 to i64
+  store i64 %306, ptr %305, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %292, i64 40
+  %308 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %300) #8
+  store i32 0, ptr %307, align 8
+  %309 = getelementptr inbounds nuw i8, ptr %292, i64 44
+  store i32 4, ptr %309, align 4
+  %310 = getelementptr inbounds nuw i8, ptr %292, i64 48
+  store ptr %308, ptr %310, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %308, i8 0, i64 32, i1 false)
+  %311 = getelementptr inbounds nuw i8, ptr %292, i64 56
+  store i64 %306, ptr %311, align 8
+  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %304, ptr noundef nonnull align 8 dereferenceable(64) %292) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV21VTransformConvI2LNode, i64 16), ptr %292, align 8
+  %312 = load ptr, ptr %303, align 8
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
+  store ptr %181, ptr %313, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %181, i64 40
+  %315 = load i32, ptr %314, align 8
+  %316 = getelementptr inbounds nuw i8, ptr %181, i64 44
+  %317 = load i32, ptr %316, align 4
+  %318 = icmp eq i32 %315, %317
+  br i1 %318, label %319, label %_ZN14VTransformNode7set_reqEjPS_.exit81
 
-322:                                              ; preds = %290
-  %323 = add nsw i32 %318, 1
-  %324 = icmp sgt i32 %318, -1
-  %325 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %323)
-  %326 = icmp samesign ult i32 %325, 2
-  %or.cond.i.i.i.i.i.i.i78 = select i1 %324, i1 %326, i1 false
-  %327 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %323, i1 true)
-  %328 = sub nuw nsw i32 32, %327
-  %329 = shl nuw i32 1, %328
-  %.0.i.i.i.i.i.i.i79 = select i1 %or.cond.i.i.i.i.i.i.i78, i32 %323, i32 %329
-  tail call void @_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %317, i32 noundef %.0.i.i.i.i.i.i.i79)
-  %.pre.i.i.i.i80 = load i32, ptr %317, align 8
+319:                                              ; preds = %288
+  %320 = add nsw i32 %315, 1
+  %321 = icmp sgt i32 %315, -1
+  %322 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %320)
+  %323 = icmp samesign ult i32 %322, 2
+  %or.cond.i.i.i.i.i.i.i78 = select i1 %321, i1 %323, i1 false
+  %324 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %320, i1 true)
+  %325 = sub nuw nsw i32 32, %324
+  %326 = shl nuw i32 1, %325
+  %.0.i.i.i.i.i.i.i79 = select i1 %or.cond.i.i.i.i.i.i.i78, i32 %320, i32 %326
+  tail call void @_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %314, i32 noundef %.0.i.i.i.i.i.i.i79)
+  %.pre.i.i.i.i80 = load i32, ptr %314, align 8
   br label %_ZN14VTransformNode7set_reqEjPS_.exit81
 
-_ZN14VTransformNode7set_reqEjPS_.exit81:          ; preds = %290, %322
-  %330 = phi i32 [ %.pre.i.i.i.i80, %322 ], [ %318, %290 ]
-  %331 = add nsw i32 %330, 1
-  store i32 %331, ptr %317, align 8
-  %332 = getelementptr inbounds nuw i8, ptr %182, i64 48
-  %333 = load ptr, ptr %332, align 8
-  %334 = sext i32 %330 to i64
-  %335 = getelementptr inbounds ptr, ptr %333, i64 %334
-  store ptr %294, ptr %335, align 8
-  br label %336
+_ZN14VTransformNode7set_reqEjPS_.exit81:          ; preds = %288, %319
+  %327 = phi i32 [ %.pre.i.i.i.i80, %319 ], [ %315, %288 ]
+  %328 = add nsw i32 %327, 1
+  store i32 %328, ptr %314, align 8
+  %329 = getelementptr inbounds nuw i8, ptr %181, i64 48
+  %330 = load ptr, ptr %329, align 8
+  %331 = sext i32 %327 to i64
+  %332 = getelementptr inbounds ptr, ptr %330, i64 %331
+  store ptr %292, ptr %332, align 8
+  br label %333
 
-336:                                              ; preds = %_ZN14VTransformNode7set_reqEjPS_.exit81, %286, %284, %266
-  %.053 = phi ptr [ %294, %_ZN14VTransformNode7set_reqEjPS_.exit81 ], [ %182, %286 ], [ %182, %284 ], [ %182, %266 ]
-  %337 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 16
-  %340 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 80, ptr noundef nonnull %339) #8
-  %341 = icmp ne ptr %340, null
-  tail call void @llvm.assume(i1 %341)
-  %342 = load ptr, ptr %337, align 8
-  %343 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %344 = load i32, ptr %343, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %340, align 8
-  %345 = getelementptr inbounds nuw i8, ptr %340, i64 8
-  %346 = getelementptr inbounds nuw i8, ptr %342, i64 80
-  %347 = load i32, ptr %346, align 8
-  %348 = add nsw i32 %347, 1
-  store i32 %348, ptr %346, align 8
-  store i32 %347, ptr %345, align 8
-  %349 = getelementptr inbounds nuw i8, ptr %340, i64 12
+333:                                              ; preds = %_ZN14VTransformNode7set_reqEjPS_.exit81, %284, %282, %264
+  %.053 = phi ptr [ %292, %_ZN14VTransformNode7set_reqEjPS_.exit81 ], [ %181, %284 ], [ %181, %282 ], [ %181, %264 ]
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %335 = load ptr, ptr %334, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 16
+  %337 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 80, ptr noundef nonnull %336) #8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %337) ]
+  %338 = load ptr, ptr %334, align 8
+  %339 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %340 = load i32, ptr %339, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %337, align 8
+  %341 = getelementptr inbounds nuw i8, ptr %337, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %338, i64 80
+  %343 = load i32, ptr %342, align 8
+  %344 = add nsw i32 %343, 1
+  store i32 %344, ptr %342, align 8
+  store i32 %343, ptr %341, align 8
+  %345 = getelementptr inbounds nuw i8, ptr %337, i64 12
+  store i32 2, ptr %345, align 4
+  %346 = getelementptr inbounds nuw i8, ptr %337, i64 16
+  %347 = getelementptr inbounds nuw i8, ptr %338, i64 16
+  %348 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %347) #8
+  store i32 2, ptr %346, align 8
+  %349 = getelementptr inbounds nuw i8, ptr %337, i64 20
   store i32 2, ptr %349, align 4
-  %350 = getelementptr inbounds nuw i8, ptr %340, i64 16
-  %351 = getelementptr inbounds nuw i8, ptr %342, i64 16
-  %352 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %351) #8
-  store i32 2, ptr %350, align 8
-  %353 = getelementptr inbounds nuw i8, ptr %340, i64 20
-  store i32 2, ptr %353, align 4
-  %354 = getelementptr inbounds nuw i8, ptr %340, i64 24
-  store ptr %352, ptr %354, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %352, i8 0, i64 16, i1 false)
-  %355 = getelementptr inbounds nuw i8, ptr %342, i64 64
-  %356 = getelementptr inbounds nuw i8, ptr %340, i64 32
-  %357 = ptrtoint ptr %351 to i64
-  store i64 %357, ptr %356, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %340, i64 40
-  %359 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %351) #8
-  store i32 0, ptr %358, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %340, i64 44
-  store i32 4, ptr %360, align 4
-  %361 = getelementptr inbounds nuw i8, ptr %340, i64 48
-  store ptr %359, ptr %361, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %359, i8 0, i64 32, i1 false)
-  %362 = getelementptr inbounds nuw i8, ptr %340, i64 56
-  store i64 %357, ptr %362, align 8
-  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %355, ptr noundef nonnull align 8 dereferenceable(80) %340) #8
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV23VTransformReplicateNode, i64 16), ptr %340, align 8
-  %363 = getelementptr inbounds nuw i8, ptr %340, i64 64
-  store i32 %344, ptr %363, align 8
-  %364 = getelementptr inbounds nuw i8, ptr %340, i64 72
-  store ptr %283, ptr %364, align 8
-  %365 = load ptr, ptr %354, align 8
-  %366 = getelementptr inbounds nuw i8, ptr %365, i64 8
-  store ptr %.053, ptr %366, align 8
-  %367 = getelementptr inbounds nuw i8, ptr %.053, i64 40
-  %368 = load i32, ptr %367, align 8
-  %369 = getelementptr inbounds nuw i8, ptr %.053, i64 44
-  %370 = load i32, ptr %369, align 4
-  %371 = icmp eq i32 %368, %370
-  br i1 %371, label %372, label %_ZN14VTransformNode7set_reqEjPS_.exit85
+  %350 = getelementptr inbounds nuw i8, ptr %337, i64 24
+  store ptr %348, ptr %350, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %348, i8 0, i64 16, i1 false)
+  %351 = getelementptr inbounds nuw i8, ptr %338, i64 64
+  %352 = getelementptr inbounds nuw i8, ptr %337, i64 32
+  %353 = ptrtoint ptr %347 to i64
+  store i64 %353, ptr %352, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %337, i64 40
+  %355 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %347) #8
+  store i32 0, ptr %354, align 8
+  %356 = getelementptr inbounds nuw i8, ptr %337, i64 44
+  store i32 4, ptr %356, align 4
+  %357 = getelementptr inbounds nuw i8, ptr %337, i64 48
+  store ptr %355, ptr %357, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %355, i8 0, i64 32, i1 false)
+  %358 = getelementptr inbounds nuw i8, ptr %337, i64 56
+  store i64 %353, ptr %358, align 8
+  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %351, ptr noundef nonnull align 8 dereferenceable(80) %337) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV23VTransformReplicateNode, i64 16), ptr %337, align 8
+  %359 = getelementptr inbounds nuw i8, ptr %337, i64 64
+  store i32 %340, ptr %359, align 8
+  %360 = getelementptr inbounds nuw i8, ptr %337, i64 72
+  store ptr %281, ptr %360, align 8
+  %361 = load ptr, ptr %350, align 8
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 8
+  store ptr %.053, ptr %362, align 8
+  %363 = getelementptr inbounds nuw i8, ptr %.053, i64 40
+  %364 = load i32, ptr %363, align 8
+  %365 = getelementptr inbounds nuw i8, ptr %.053, i64 44
+  %366 = load i32, ptr %365, align 4
+  %367 = icmp eq i32 %364, %366
+  br i1 %367, label %368, label %_ZN14VTransformNode7set_reqEjPS_.exit85
 
-372:                                              ; preds = %336
-  %373 = add nsw i32 %368, 1
-  %374 = icmp sgt i32 %368, -1
-  %375 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %373)
-  %376 = icmp samesign ult i32 %375, 2
-  %or.cond.i.i.i.i.i.i.i82 = select i1 %374, i1 %376, i1 false
-  %377 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %373, i1 true)
-  %378 = sub nuw nsw i32 32, %377
-  %379 = shl nuw i32 1, %378
-  %.0.i.i.i.i.i.i.i83 = select i1 %or.cond.i.i.i.i.i.i.i82, i32 %373, i32 %379
-  tail call void @_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %367, i32 noundef %.0.i.i.i.i.i.i.i83)
-  %.pre.i.i.i.i84 = load i32, ptr %367, align 8
+368:                                              ; preds = %333
+  %369 = add nsw i32 %364, 1
+  %370 = icmp sgt i32 %364, -1
+  %371 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %369)
+  %372 = icmp samesign ult i32 %371, 2
+  %or.cond.i.i.i.i.i.i.i82 = select i1 %370, i1 %372, i1 false
+  %373 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %369, i1 true)
+  %374 = sub nuw nsw i32 32, %373
+  %375 = shl nuw i32 1, %374
+  %.0.i.i.i.i.i.i.i83 = select i1 %or.cond.i.i.i.i.i.i.i82, i32 %369, i32 %375
+  tail call void @_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %363, i32 noundef %.0.i.i.i.i.i.i.i83)
+  %.pre.i.i.i.i84 = load i32, ptr %363, align 8
   br label %_ZN14VTransformNode7set_reqEjPS_.exit85
 
-_ZN14VTransformNode7set_reqEjPS_.exit85:          ; preds = %336, %372
-  %380 = phi i32 [ %.pre.i.i.i.i84, %372 ], [ %368, %336 ]
-  %381 = add nsw i32 %380, 1
-  store i32 %381, ptr %367, align 8
-  %382 = getelementptr inbounds nuw i8, ptr %.053, i64 48
-  %383 = load ptr, ptr %382, align 8
-  %384 = sext i32 %380 to i64
-  %385 = getelementptr inbounds ptr, ptr %383, i64 %384
-  store ptr %340, ptr %385, align 8
+_ZN14VTransformNode7set_reqEjPS_.exit85:          ; preds = %333, %368
+  %376 = phi i32 [ %.pre.i.i.i.i84, %368 ], [ %364, %333 ]
+  %377 = add nsw i32 %376, 1
+  store i32 %377, ptr %363, align 8
+  %378 = getelementptr inbounds nuw i8, ptr %.053, i64 48
+  %379 = load ptr, ptr %378, align 8
+  %380 = sext i32 %376 to i64
+  %381 = getelementptr inbounds ptr, ptr %379, i64 %380
+  store ptr %337, ptr %381, align 8
   br label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit
 
-386:                                              ; preds = %99
-  %387 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %387, align 1
+382:                                              ; preds = %99
+  %383 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %383, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 252) #9
   unreachable
 
 _ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit: ; preds = %30, %61, %90, %93, %70, %64, %41, %33, %10, %_ZN14VTransformNode7set_reqEjPS_.exit85, %_ZN14VTransformNode7set_reqEjPS_.exit77, %_ZN14VTransformNode7set_reqEjPS_.exit
-  %.0 = phi ptr [ %340, %_ZN14VTransformNode7set_reqEjPS_.exit85 ], [ null, %90 ], [ null, %61 ], [ %134, %_ZN14VTransformNode7set_reqEjPS_.exit ], [ %213, %_ZN14VTransformNode7set_reqEjPS_.exit77 ], [ %35, %33 ], [ null, %10 ], [ %66, %64 ], [ null, %41 ], [ %95, %93 ], [ null, %70 ], [ null, %30 ]
+  %.0 = phi ptr [ %337, %_ZN14VTransformNode7set_reqEjPS_.exit85 ], [ null, %90 ], [ null, %61 ], [ %134, %_ZN14VTransformNode7set_reqEjPS_.exit ], [ %212, %_ZN14VTransformNode7set_reqEjPS_.exit77 ], [ %35, %33 ], [ null, %10 ], [ %66, %64 ], [ null, %41 ], [ %95, %93 ], [ null, %70 ], [ null, %30 ]
   ret ptr %.0
 }
 

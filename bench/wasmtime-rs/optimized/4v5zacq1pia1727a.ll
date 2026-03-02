@@ -50,27 +50,26 @@ define range(i8 -1, 3) i8 @"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..Partial
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h5ad1a1ef0c44f338E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1) unnamed_addr #1 {
-  %3 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = load i64, ptr %1, align 8, !noundef !3
-  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = icmp ult i64 %4, %7
-  br i1 %8, label %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h64f3a1ab3e9925a4E.exit", label %9, !prof !7
+define noundef i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h5ad1a1ef0c44f338E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %3 = load i64, ptr %1, align 8, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load i64, ptr %5, align 8, !noundef !3
+  %7 = icmp ult i64 %3, %6
+  br i1 %7, label %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h64f3a1ab3e9925a4E.exit", label %8, !prof !7
 
-9:                                                ; preds = %2
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %4, i64 %7, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.12) #10
+8:                                                ; preds = %2
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %3, i64 %6, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.12) #10
   unreachable
 
 "_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h64f3a1ab3e9925a4E.exit": ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %11, i64 %4
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 200
-  %14 = load i64, ptr %13, align 8, !noundef !3
-  ret i64 %14
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
+  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %10, i64 %3
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
+  %13 = load i64, ptr %12, align 8, !noundef !3
+  ret i64 %13
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -178,8 +177,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdff3f4baf7a6049aE"(i64 %2, i1 zeroext false)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
-  %7 = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %7)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %1, i64 %2, i1 false)
   store i64 %5, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -209,12 +207,12 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %14 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17hca10904dce80c85eE"(ptr nonnull align 8 %7)
           to label %16 unwind label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %.lr.ph, %31
+.loopexit:                                        ; preds = %.lr.ph, %30
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %15
 
-.loopexit.split-lp:                               ; preds = %3, %32
+.loopexit.split-lp:                               ; preds = %3, %31
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %15
@@ -222,75 +220,74 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 15:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr158drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$cranelift_isle..serialize..Candidate$C$alloc..alloc..Global$GT$$GT$17hb35f008c3f2c6b60E"(ptr nonnull align 8 %6) #11
-          to label %39 unwind label %37
+          to label %38 unwind label %36
 
 16:                                               ; preds = %3
   %17 = extractvalue { ptr, i64 } %14, 0
   %18 = extractvalue { ptr, i64 } %14, 1
   %19 = getelementptr inbounds { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }, ptr %1, i64 %2
-  %20 = icmp ne ptr %1, null
-  call void @llvm.assume(i1 %20)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   store ptr %1, ptr %5, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %19, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %21 = icmp eq i64 %18, 0
-  br i1 %21, label %.thread, label %.lr.ph
+  %20 = icmp eq i64 %18, 0
+  br i1 %20, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %16, %34
-  %22 = phi i64 [ %.pr, %34 ], [ %18, %16 ]
-  %23 = add i64 %22, -1
-  store i64 %23, ptr %.sroa.2.0..sroa_idx, align 8
-  %24 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f86fdf1df8f12d2E"(ptr nonnull align 8 %5)
-          to label %25 unwind label %.loopexit
+.lr.ph:                                           ; preds = %16, %33
+  %21 = phi i64 [ %.pr, %33 ], [ %18, %16 ]
+  %22 = add i64 %21, -1
+  store i64 %22, ptr %.sroa.2.0..sroa_idx, align 8
+  %23 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f86fdf1df8f12d2E"(ptr nonnull align 8 %5)
+          to label %24 unwind label %.loopexit
 
-25:                                               ; preds = %.lr.ph
-  %26 = extractvalue { i64, ptr } %24, 0
-  %27 = extractvalue { i64, ptr } %24, 1
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread, label %29
+24:                                               ; preds = %.lr.ph
+  %25 = extractvalue { i64, ptr } %23, 0
+  %26 = extractvalue { i64, ptr } %23, 1
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.thread, label %28
 
-.thread:                                          ; preds = %25, %34, %16
+.thread:                                          ; preds = %24, %33, %16
   store i64 %2, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   ret void
 
-29:                                               ; preds = %25
-  store i64 %26, ptr %13, align 8
-  %30 = icmp ult i64 %26, %18
-  br i1 %30, label %31, label %32, !prof !7
+28:                                               ; preds = %24
+  store i64 %25, ptr %13, align 8
+  %29 = icmp ult i64 %25, %18
+  br i1 %29, label %30, label %31, !prof !7
 
-31:                                               ; preds = %29
-  invoke void @"_ZN75_$LT$cranelift_isle..serialize..Candidate$u20$as$u20$core..clone..Clone$GT$5clone17h3a9b1bbe3f331158E"(ptr nonnull sret({ { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }) align 8 %4, ptr nonnull align 8 %27)
-          to label %34 unwind label %.loopexit
+30:                                               ; preds = %28
+  invoke void @"_ZN75_$LT$cranelift_isle..serialize..Candidate$u20$as$u20$core..clone..Clone$GT$5clone17h3a9b1bbe3f331158E"(ptr nonnull sret({ { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }) align 8 %4, ptr nonnull align 8 %26)
+          to label %33 unwind label %.loopexit
 
-32:                                               ; preds = %29
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %26, i64 %18, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.10) #10
-          to label %33 unwind label %.loopexit.split-lp
+31:                                               ; preds = %28
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %25, i64 %18, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.10) #10
+          to label %32 unwind label %.loopexit.split-lp
 
-33:                                               ; preds = %32
+32:                                               ; preds = %31
   unreachable
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds { [3 x i64] }, ptr %17, i64 %26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds { [3 x i64] }, ptr %17, i64 %25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %36 = icmp eq i64 %.pr, 0
-  br i1 %36, label %.thread, label %.lr.ph
+  %35 = icmp eq i64 %.pr, 0
+  br i1 %35, label %.thread, label %.lr.ph
 
-37:                                               ; preds = %39, %15
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %38, %15
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
-39:                                               ; preds = %15
+38:                                               ; preds = %15
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..serialize..Candidate$GT$$GT$17h7c61ec9bbd1427deE"(ptr nonnull align 8 %7) #11
-          to label %40 unwind label %37
+          to label %39 unwind label %36
 
-40:                                               ; preds = %39
+39:                                               ; preds = %38
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -314,12 +311,12 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %14 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17he21f62da4e9117bfE"(ptr nonnull align 8 %7)
           to label %16 unwind label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %.lr.ph, %31
+.loopexit:                                        ; preds = %.lr.ph, %30
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %15
 
-.loopexit.split-lp:                               ; preds = %3, %32
+.loopexit.split-lp:                               ; preds = %3, %31
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %15
@@ -327,75 +324,74 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 15:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr163drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$cranelift_isle..serialize..EqualCandidate$C$alloc..alloc..Global$GT$$GT$17h838b45d136943361E"(ptr nonnull align 8 %6) #11
-          to label %39 unwind label %37
+          to label %38 unwind label %36
 
 16:                                               ; preds = %3
   %17 = extractvalue { ptr, i64 } %14, 0
   %18 = extractvalue { ptr, i64 } %14, 1
   %19 = getelementptr inbounds { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %1, i64 %2
-  %20 = icmp ne ptr %1, null
-  call void @llvm.assume(i1 %20)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   store ptr %1, ptr %5, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %19, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %21 = icmp eq i64 %18, 0
-  br i1 %21, label %.thread, label %.lr.ph
+  %20 = icmp eq i64 %18, 0
+  br i1 %20, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %16, %34
-  %22 = phi i64 [ %.pr, %34 ], [ %18, %16 ]
-  %23 = add i64 %22, -1
-  store i64 %23, ptr %.sroa.2.0..sroa_idx, align 8
-  %24 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3bc77710cb1e7497E"(ptr nonnull align 8 %5)
-          to label %25 unwind label %.loopexit
+.lr.ph:                                           ; preds = %16, %33
+  %21 = phi i64 [ %.pr, %33 ], [ %18, %16 ]
+  %22 = add i64 %21, -1
+  store i64 %22, ptr %.sroa.2.0..sroa_idx, align 8
+  %23 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3bc77710cb1e7497E"(ptr nonnull align 8 %5)
+          to label %24 unwind label %.loopexit
 
-25:                                               ; preds = %.lr.ph
-  %26 = extractvalue { i64, ptr } %24, 0
-  %27 = extractvalue { i64, ptr } %24, 1
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread, label %29
+24:                                               ; preds = %.lr.ph
+  %25 = extractvalue { i64, ptr } %23, 0
+  %26 = extractvalue { i64, ptr } %23, 1
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.thread, label %28
 
-.thread:                                          ; preds = %25, %34, %16
+.thread:                                          ; preds = %24, %33, %16
   store i64 %2, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   ret void
 
-29:                                               ; preds = %25
-  store i64 %26, ptr %13, align 8
-  %30 = icmp ult i64 %26, %18
-  br i1 %30, label %31, label %32, !prof !7
+28:                                               ; preds = %24
+  store i64 %25, ptr %13, align 8
+  %29 = icmp ult i64 %25, %18
+  br i1 %29, label %30, label %31, !prof !7
 
-31:                                               ; preds = %29
-  invoke void @"_ZN80_$LT$cranelift_isle..serialize..EqualCandidate$u20$as$u20$core..clone..Clone$GT$5clone17h5b75841a52d99705E"(ptr nonnull sret({ { i64, i8, [7 x i8] }, i16, [3 x i16] }) align 8 %4, ptr nonnull align 8 %27)
-          to label %34 unwind label %.loopexit
+30:                                               ; preds = %28
+  invoke void @"_ZN80_$LT$cranelift_isle..serialize..EqualCandidate$u20$as$u20$core..clone..Clone$GT$5clone17h5b75841a52d99705E"(ptr nonnull sret({ { i64, i8, [7 x i8] }, i16, [3 x i16] }) align 8 %4, ptr nonnull align 8 %26)
+          to label %33 unwind label %.loopexit
 
-32:                                               ; preds = %29
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %26, i64 %18, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.10) #10
-          to label %33 unwind label %.loopexit.split-lp
+31:                                               ; preds = %28
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %25, i64 %18, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.10) #10
+          to label %32 unwind label %.loopexit.split-lp
 
-33:                                               ; preds = %32
+32:                                               ; preds = %31
   unreachable
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds { [3 x i64] }, ptr %17, i64 %26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds { [3 x i64] }, ptr %17, i64 %25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %36 = icmp eq i64 %.pr, 0
-  br i1 %36, label %.thread, label %.lr.ph
+  %35 = icmp eq i64 %.pr, 0
+  br i1 %35, label %.thread, label %.lr.ph
 
-37:                                               ; preds = %39, %15
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %38, %15
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
-39:                                               ; preds = %15
+38:                                               ; preds = %15
   invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..serialize..EqualCandidate$GT$$GT$17h184063adc254bb81E"(ptr nonnull align 8 %7) #11
-          to label %40 unwind label %37
+          to label %39 unwind label %36
 
-40:                                               ; preds = %39
+39:                                               ; preds = %38
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -765,223 +761,217 @@ define hidden noundef zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr align 8 %0, i64 %1, ptr readonly align 8 captures(address_is_null) %2, ptr readonly align 2 captures(address_is_null) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr align 8 %0, i64 %1, ptr readonly align 8 captures(none) %2, ptr readonly align 2 captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca i16, align 2
   %6 = alloca { i8, [31 x i8] }, align 16
   %7 = alloca i16, align 2
   %8 = alloca { i8, [31 x i8] }, align 16
   %9 = alloca { ptr, ptr, {} }, align 8
   %10 = getelementptr inbounds i64, ptr %0, i64 %1
-  %11 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %11)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   store ptr %0, ptr %9, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %10, ptr %12, align 8
-  %13 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %9)
-  %.not5154 = icmp eq ptr %13, null
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %10, ptr %11, align 8
+  %12 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %9)
+  %.not5154 = icmp eq ptr %12, null
   br i1 %.not5154, label %.outer._crit_edge, label %.lr.ph52.lr.ph
 
 .lr.ph52.lr.ph:                                   ; preds = %4
-  %14 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = icmp ne ptr %3, null
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.lr.ph52.lr.ph, %.outer.backedge
-  %20 = phi ptr [ %13, %.lr.ph52.lr.ph ], [ %41, %.outer.backedge ]
+  %17 = phi ptr [ %12, %.lr.ph52.lr.ph ], [ %38, %.outer.backedge ]
   %.0.ph55 = phi i64 [ 0, %.lr.ph52.lr.ph ], [ %.0.ph.be, %.outer.backedge ]
-  br label %22
+  br label %19
 
 .loopexit:                                        ; preds = %.backedge, %.preheader
-  %21 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %9)
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.outer._crit_edge, label %22
+  %18 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %9)
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %.outer._crit_edge, label %19
 
-22:                                               ; preds = %.lr.ph52, %.loopexit
-  %23 = phi ptr [ %20, %.lr.ph52 ], [ %21, %.loopexit ]
-  %.val12 = load i64, ptr %23, align 8, !noundef !3
+19:                                               ; preds = %.lr.ph52, %.loopexit
+  %20 = phi ptr [ %17, %.lr.ph52 ], [ %18, %.loopexit ]
+  %.val12 = load i64, ptr %20, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %24 = load i64, ptr %15, align 8, !noundef !3
-  %25 = icmp ult i64 %.val12, %24
-  br i1 %25, label %26, label %31, !prof !7
+  %21 = load i64, ptr %13, align 8, !noundef !3
+  %22 = icmp ult i64 %.val12, %21
+  br i1 %22, label %23, label %28, !prof !7
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %28 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %27, i64 %.val12
-  call void @llvm.assume(i1 %17)
-  %29 = load i16, ptr %3, align 2, !range !11, !noundef !3
-  %30 = load i16, ptr %18, align 2, !noundef !3
-  switch i16 %29, label %.unreachabledefault [
-    i16 0, label %32
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
+  %25 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %24, i64 %.val12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
+  %26 = load i16, ptr %3, align 2, !range !11, !noundef !3
+  %27 = load i16, ptr %15, align 2, !noundef !3
+  switch i16 %26, label %.unreachabledefault [
+    i16 0, label %29
     i16 1, label %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit"
-    i16 2, label %34
+    i16 2, label %31
   ]
 
-31:                                               ; preds = %22
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val12, i64 %24, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.14) #10
+28:                                               ; preds = %19
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val12, i64 %21, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.14) #10
   unreachable
 
-.unreachabledefault:                              ; preds = %26
+.unreachabledefault:                              ; preds = %23
   unreachable
 
-default.unreachable:                              ; preds = %45
+default.unreachable:                              ; preds = %42
   unreachable
 
-32:                                               ; preds = %26
-  call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %8, ptr nonnull align 8 %28, i16 %30)
-  %33 = load i8, ptr %8, align 16, !range !10, !noundef !3
-  %.not19 = icmp eq i8 %33, 4
+29:                                               ; preds = %23
+  call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %8, ptr nonnull align 8 %25, i16 %27)
+  %30 = load i8, ptr %8, align 16, !range !10, !noundef !3
+  %.not19 = icmp eq i8 %30, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not19, label %.preheader, label %.outer.backedge
 
-34:                                               ; preds = %26
-  store i16 %30, ptr %7, align 2
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 120
-  %36 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %35, ptr nonnull align 2 %7)
+31:                                               ; preds = %23
+  store i16 %27, ptr %7, align 2
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 120
+  %33 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %32, ptr nonnull align 2 %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %36, label %.outer.backedge, label %.preheader
+  br i1 %33, label %.outer.backedge, label %.preheader
 
-.preheader:                                       ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit", %32, %34
-  %37 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %9)
-  %.not1050 = icmp eq ptr %37, null
+.preheader:                                       ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit", %29, %31
+  %34 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %9)
+  %.not1050 = icmp eq ptr %34, null
   br i1 %.not1050, label %.loopexit, label %.lr.ph
 
-"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit": ; preds = %26
-  %38 = load i16, ptr %19, align 2, !noundef !3
-  %39 = getelementptr inbounds nuw i8, ptr %28, i64 72
-  %40 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3927dd440712909E"(ptr nonnull align 8 %39, i16 %30, i16 %38)
+"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit": ; preds = %23
+  %35 = load i16, ptr %16, align 2, !noundef !3
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 72
+  %37 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3927dd440712909E"(ptr nonnull align 8 %36, i16 %27, i16 %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %40, label %.outer.backedge, label %.preheader
+  br i1 %37, label %.outer.backedge, label %.preheader
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.loopexit, %4
   %.0.ph.lcssa49 = phi i64 [ %.0.ph55, %.loopexit ], [ 0, %4 ], [ %.0.ph.be, %.outer.backedge ]
   ret i64 %.0.ph.lcssa49
 
-.outer.backedge:                                  ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit", %32, %34, %60
+.outer.backedge:                                  ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit", %29, %31, %57
   %.0.ph.be = add i64 %.0.ph55, 1
-  %41 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %9)
-  %.not51 = icmp eq ptr %41, null
+  %38 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %9)
+  %.not51 = icmp eq ptr %38, null
   br i1 %.not51, label %.outer._crit_edge, label %.lr.ph52
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
-  %42 = phi ptr [ %59, %.backedge ], [ %37, %.preheader ]
-  %.val15 = load i64, ptr %42, align 8, !noundef !3
+  %39 = phi ptr [ %56, %.backedge ], [ %34, %.preheader ]
+  %.val15 = load i64, ptr %39, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %43 = load i64, ptr %15, align 8, !noundef !3
-  %44 = icmp ult i64 %.val15, %43
-  br i1 %44, label %45, label %50, !prof !7
+  %40 = load i64, ptr %13, align 8, !noundef !3
+  %41 = icmp ult i64 %.val15, %40
+  br i1 %41, label %42, label %47, !prof !7
 
-45:                                               ; preds = %.lr.ph
-  %46 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %47 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %46, i64 %.val15
-  %48 = load i16, ptr %3, align 2, !range !11, !noundef !3
-  %49 = load i16, ptr %18, align 2, !noundef !3
-  switch i16 %48, label %default.unreachable [
-    i16 0, label %51
+42:                                               ; preds = %.lr.ph
+  %43 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
+  %44 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %43, i64 %.val15
+  %45 = load i16, ptr %3, align 2, !range !11, !noundef !3
+  %46 = load i16, ptr %15, align 2, !noundef !3
+  switch i16 %45, label %default.unreachable [
+    i16 0, label %48
     i16 1, label %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18"
-    i16 2, label %53
+    i16 2, label %50
   ]
 
-50:                                               ; preds = %.lr.ph
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val15, i64 %43, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.14) #10
+47:                                               ; preds = %.lr.ph
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val15, i64 %40, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.14) #10
   unreachable
 
-51:                                               ; preds = %45
-  call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %6, ptr nonnull align 8 %47, i16 %49)
-  %52 = load i8, ptr %6, align 16, !range !10, !noundef !3
-  %.not20 = icmp eq i8 %52, 4
+48:                                               ; preds = %42
+  call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %6, ptr nonnull align 8 %44, i16 %46)
+  %49 = load i8, ptr %6, align 16, !range !10, !noundef !3
+  %.not20 = icmp eq i8 %49, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not20, label %.backedge, label %60
+  br i1 %.not20, label %.backedge, label %57
 
-53:                                               ; preds = %45
-  store i16 %49, ptr %5, align 2
-  %54 = getelementptr inbounds nuw i8, ptr %47, i64 120
-  %55 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %54, ptr nonnull align 2 %5)
+50:                                               ; preds = %42
+  store i16 %46, ptr %5, align 2
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 120
+  %52 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %51, ptr nonnull align 2 %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %55, label %60, label %.backedge
+  br i1 %52, label %57, label %.backedge
 
-"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18": ; preds = %45
-  %56 = load i16, ptr %19, align 2, !noundef !3
-  %57 = getelementptr inbounds nuw i8, ptr %47, i64 72
-  %58 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3927dd440712909E"(ptr nonnull align 8 %57, i16 %49, i16 %56)
+"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18": ; preds = %42
+  %53 = load i16, ptr %16, align 2, !noundef !3
+  %54 = getelementptr inbounds nuw i8, ptr %44, i64 72
+  %55 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3927dd440712909E"(ptr nonnull align 8 %54, i16 %46, i16 %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %58, label %60, label %.backedge
+  br i1 %55, label %57, label %.backedge
 
-.backedge:                                        ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18", %51, %53
-  %59 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %9)
-  %.not10 = icmp eq ptr %59, null
+.backedge:                                        ; preds = %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18", %48, %50
+  %56 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %9)
+  %.not10 = icmp eq ptr %56, null
   br i1 %.not10, label %.loopexit, label %.lr.ph
 
-60:                                               ; preds = %53, %51, %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18"
-  %61 = load i64, ptr %23, align 8, !noundef !3
-  %62 = load i64, ptr %42, align 8, !noundef !3
-  store i64 %62, ptr %23, align 8
-  store i64 %61, ptr %42, align 8
+57:                                               ; preds = %50, %48, %"_ZN14cranelift_isle9serialize14HasControlFlow9partition28_$u7b$$u7b$closure$u7d$$u7d$17hfff108d51210a57bE.exit18"
+  %58 = load i64, ptr %20, align 8, !noundef !3
+  %59 = load i64, ptr %39, align 8, !noundef !3
+  store i64 %59, ptr %20, align 8
+  store i64 %58, ptr %39, align 8
   br label %.outer.backedge
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc981b5f4E(ptr align 8 %0, i64 %1, ptr readonly align 8 captures(address_is_null) %2, ptr readonly align 8 captures(address_is_null) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc981b5f4E(ptr align 8 %0, i64 %1, ptr readonly align 8 captures(none) %2, ptr readonly align 8 captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, ptr, {} }, align 8
   %6 = getelementptr inbounds i64, ptr %0, i64 %1
-  %7 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %7)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   store ptr %0, ptr %5, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %6, ptr %8, align 8
-  %9 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %5)
-  %.not3739 = icmp eq ptr %9, null
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %6, ptr %7, align 8
+  %8 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %5)
+  %.not3739 = icmp eq ptr %8, null
   br i1 %.not3739, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %4
-  %10 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = icmp ne ptr %3, null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
-  %14 = phi ptr [ %9, %.lr.ph.lr.ph ], [ %27, %.outer.backedge ]
+  %11 = phi ptr [ %8, %.lr.ph.lr.ph ], [ %24, %.outer.backedge ]
   %.0.ph40 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.0.ph.be, %.outer.backedge ]
-  br label %16
+  br label %13
 
 .loopexit:                                        ; preds = %.preheader
-  %15 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %5)
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %.outer._crit_edge, label %16
+  %12 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %5)
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %.outer._crit_edge, label %13
 
-16:                                               ; preds = %.lr.ph, %.loopexit
-  %17 = phi ptr [ %14, %.lr.ph ], [ %15, %.loopexit ]
-  %.val12 = load i64, ptr %17, align 8, !noundef !3
-  %18 = load i64, ptr %11, align 8, !noundef !3
-  %19 = icmp ult i64 %.val12, %18
-  br i1 %19, label %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit", label %20, !prof !7
+13:                                               ; preds = %.lr.ph, %.loopexit
+  %14 = phi ptr [ %11, %.lr.ph ], [ %12, %.loopexit ]
+  %.val12 = load i64, ptr %14, align 8, !noundef !3
+  %15 = load i64, ptr %9, align 8, !noundef !3
+  %16 = icmp ult i64 %.val12, %15
+  br i1 %16, label %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit", label %17, !prof !7
 
-20:                                               ; preds = %16
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val12, i64 %18, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.13) #10
+17:                                               ; preds = %13
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val12, i64 %15, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.13) #10
   unreachable
 
-"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit": ; preds = %16
-  %21 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
-  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %21, i64 %.val12
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 200
-  %24 = load i64, ptr %23, align 8, !noundef !3
-  call void @llvm.assume(i1 %13)
-  %25 = load i64, ptr %3, align 8, !noundef !3
-  %.not17 = icmp slt i64 %24, %25
+"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit": ; preds = %13
+  %18 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
+  %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %18, i64 %.val12
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 200
+  %21 = load i64, ptr %20, align 8, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
+  %22 = load i64, ptr %3, align 8, !noundef !3
+  %.not17 = icmp slt i64 %21, %22
   br i1 %.not17, label %.preheader, label %.outer.backedge
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.loopexit, %4
@@ -989,39 +979,39 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc
   ret i64 %.0.ph.lcssa36
 
 .preheader:                                       ; preds = %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit", %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16"
-  %26 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %5)
-  %.not10 = icmp eq ptr %26, null
-  br i1 %.not10, label %.loopexit, label %28
+  %23 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %5)
+  %.not10 = icmp eq ptr %23, null
+  br i1 %.not10, label %.loopexit, label %25
 
-.outer.backedge:                                  ; preds = %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit", %37
+.outer.backedge:                                  ; preds = %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit", %34
   %.0.ph.be = add i64 %.0.ph40, 1
-  %27 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %5)
-  %.not37 = icmp eq ptr %27, null
+  %24 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %5)
+  %.not37 = icmp eq ptr %24, null
   br i1 %.not37, label %.outer._crit_edge, label %.lr.ph
 
-28:                                               ; preds = %.preheader
-  %.val15 = load i64, ptr %26, align 8, !noundef !3
-  %29 = load i64, ptr %11, align 8, !noundef !3
-  %30 = icmp ult i64 %.val15, %29
-  br i1 %30, label %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16", label %31, !prof !7
+25:                                               ; preds = %.preheader
+  %.val15 = load i64, ptr %23, align 8, !noundef !3
+  %26 = load i64, ptr %9, align 8, !noundef !3
+  %27 = icmp ult i64 %.val15, %26
+  br i1 %27, label %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16", label %28, !prof !7
 
-31:                                               ; preds = %28
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val15, i64 %29, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.13) #10
+28:                                               ; preds = %25
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val15, i64 %26, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.13) #10
   unreachable
 
-"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16": ; preds = %28
-  %32 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
-  %33 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %32, i64 %.val15
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 200
-  %35 = load i64, ptr %34, align 8, !noundef !3
-  %36 = load i64, ptr %3, align 8, !noundef !3
-  %.not18 = icmp slt i64 %35, %36
-  br i1 %.not18, label %.preheader, label %37
+"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16": ; preds = %25
+  %29 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
+  %30 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %29, i64 %.val15
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 200
+  %32 = load i64, ptr %31, align 8, !noundef !3
+  %33 = load i64, ptr %3, align 8, !noundef !3
+  %.not18 = icmp slt i64 %32, %33
+  br i1 %.not18, label %.preheader, label %34
 
-37:                                               ; preds = %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16"
-  %38 = load i64, ptr %17, align 8, !noundef !3
-  store i64 %.val15, ptr %17, align 8
-  store i64 %38, ptr %26, align 8
+34:                                               ; preds = %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16"
+  %35 = load i64, ptr %14, align 8, !noundef !3
+  store i64 %.val15, ptr %14, align 8
+  store i64 %35, ptr %23, align 8
   br label %.outer.backedge
 }
 
@@ -1077,7 +1067,7 @@ define { ptr, i64 } @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$cl
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4359db74af2d2730E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(address_is_null) %1, i64 %2) unnamed_addr #0 {
+define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4359db74af2d2730E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, i64 %2) unnamed_addr #0 {
   %4 = alloca { i8, [31 x i8] }, align 16
   %5 = alloca { i8, [31 x i8] }, align 16
   %6 = alloca { i8, [31 x i8] }, align 16
@@ -1085,7 +1075,7 @@ define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$clos
   %8 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   switch i64 %2, label %10 [
     i64 0, label %9
-    i64 1, label %47
+    i64 1, label %46
   ], !prof !12
 
 9:                                                ; preds = %3
@@ -1094,81 +1084,80 @@ define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$clos
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %.val = load i64, ptr %1, align 8, !noundef !3
   %.val2 = load i64, ptr %11, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %13 = load ptr, ptr %8, align 8, !nonnull !3, !align !4, !noundef !3
+  %12 = load ptr, ptr %8, align 8, !nonnull !3, !align !4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !4, !noundef !3
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load i64, ptr %15, align 8, !noundef !3
-  %17 = icmp ult i64 %.val, %16
-  br i1 %17, label %18, label %27, !prof !7
+  %13 = load ptr, ptr %12, align 8, !nonnull !3, !align !4, !noundef !3
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !3
+  %16 = icmp ult i64 %.val, %15
+  br i1 %16, label %17, label %26, !prof !7
 
-18:                                               ; preds = %10
-  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %20 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
-  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %20, i64 %.val
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !9, !noundef !3
-  %24 = load i16, ptr %23, align 2, !noundef !3
-  call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %5, ptr nonnull align 8 %21, i16 %24)
-  %25 = load i8, ptr %5, align 16, !range !10, !noundef !3
-  %26 = icmp eq i8 %25, 4
-  br i1 %26, label %28, label %"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit.i"
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %19 = load ptr, ptr %18, align 8, !nonnull !3, !noundef !3
+  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %19, i64 %.val
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !9, !noundef !3
+  %23 = load i16, ptr %22, align 2, !noundef !3
+  call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %5, ptr nonnull align 8 %20, i16 %23)
+  %24 = load i8, ptr %5, align 16, !range !10, !noundef !3
+  %25 = icmp eq i8 %24, 4
+  br i1 %25, label %27, label %"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit.i"
 
-27:                                               ; preds = %10
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val, i64 %16, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.17) #10
+26:                                               ; preds = %10
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val, i64 %15, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.17) #10
   unreachable
 
-28:                                               ; preds = %18
+27:                                               ; preds = %17
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.18) #10
   unreachable
 
-"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit.i": ; preds = %18
+"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit.i": ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %29 = load ptr, ptr %8, align 8, !nonnull !3, !align !4, !noundef !3
+  %28 = load ptr, ptr %8, align 8, !nonnull !3, !align !4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %30 = load ptr, ptr %29, align 8, !nonnull !3, !align !4, !noundef !3
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load i64, ptr %31, align 8, !noundef !3
-  %33 = icmp ult i64 %.val2, %32
-  br i1 %33, label %34, label %43, !prof !7
+  %29 = load ptr, ptr %28, align 8, !nonnull !3, !align !4, !noundef !3
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load i64, ptr %30, align 8, !noundef !3
+  %32 = icmp ult i64 %.val2, %31
+  br i1 %32, label %33, label %42, !prof !7
 
-34:                                               ; preds = %"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit.i"
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %36 = load ptr, ptr %35, align 8, !nonnull !3, !noundef !3
-  %37 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %36, i64 %.val2
-  %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %39 = load ptr, ptr %38, align 8, !nonnull !3, !align !9, !noundef !3
-  %40 = load i16, ptr %39, align 2, !noundef !3
-  call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %4, ptr nonnull align 8 %37, i16 %40)
-  %41 = load i8, ptr %4, align 16, !range !10, !noundef !3
-  %42 = icmp eq i8 %41, 4
-  br i1 %42, label %44, label %"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17hebb0daa0d6467d2fE.exit"
+33:                                               ; preds = %"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit.i"
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %35 = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
+  %36 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %35, i64 %.val2
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !9, !noundef !3
+  %39 = load i16, ptr %38, align 2, !noundef !3
+  call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %4, ptr nonnull align 8 %36, i16 %39)
+  %40 = load i8, ptr %4, align 16, !range !10, !noundef !3
+  %41 = icmp eq i8 %40, 4
+  br i1 %41, label %43, label %"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17hebb0daa0d6467d2fE.exit"
 
-43:                                               ; preds = %"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit.i"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val2, i64 %32, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.17) #10
+42:                                               ; preds = %"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit.i"
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val2, i64 %31, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.17) #10
   unreachable
 
-44:                                               ; preds = %34
+43:                                               ; preds = %33
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.18) #10
   unreachable
 
-"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17hebb0daa0d6467d2fE.exit": ; preds = %34
+"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17hebb0daa0d6467d2fE.exit": ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %45 = call zeroext i1 @"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE"(ptr nonnull align 16 %7, ptr nonnull align 16 %6)
+  %44 = call zeroext i1 @"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE"(ptr nonnull align 16 %7, ptr nonnull align 16 %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %46 = xor i1 %45, true
-  ret i1 %46
+  %45 = xor i1 %44, true
+  ret i1 %45
 
-47:                                               ; preds = %3
+46:                                               ; preds = %3
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 1, i64 1, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.26) #10
   unreachable
 }

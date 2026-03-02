@@ -4508,6 +4508,7 @@ _ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12MachineI
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i35 = load i64, ptr %.sroa.08.0.i16.i.i, align 8
   %1381 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i35, -8
   %1382 = inttoptr i64 %1381 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1382) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i17.i.i = load i64, ptr %1382, align 8
   %1383 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i17.i.i, 4
   %.not.i.i.i.i18.i.i = icmp eq i64 %1383, 0

@@ -7108,8 +7108,7 @@ dt_masks_dynbuf_free.exit494:                     ; preds = %._crit_edge619, %29
 
 g_list_next_wraparound.exit:                      ; preds = %.g_list_next_wraparound.exit_crit_edge, %307
   %.pre = phi ptr [ %.pre.pre, %.g_list_next_wraparound.exit_crit_edge ], [ null, %307 ]
-  %.not.i496 = icmp ne ptr %306, null
-  call void @llvm.assume(i1 %.not.i496)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %306) ]
   br label %g_list_next_wraparound.exit.thread
 
 g_list_next_wraparound.exit.thread:               ; preds = %g_list_next_wraparound.exit, %307

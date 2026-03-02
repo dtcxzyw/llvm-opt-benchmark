@@ -260,7 +260,7 @@ define hidden void @zim_Dom_Implementation_createDocumentType(ptr noundef readon
   %29 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %28, ptr noundef nonnull %24, ptr noundef null) #6
   br label %30
 
-30:                                               ; preds = %2, %26, %27, %15
+30:                                               ; preds = %26, %27, %2, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -496,7 +496,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr noundef readonly ca
   %101 = call i32 @php_libxml_increment_doc_ref(ptr noundef nonnull %.0, ptr noundef nonnull %61) #6
   br label %102
 
-102:                                              ; preds = %2, %92, %94, %84, %66, %60, %37, %33, %22
+102:                                              ; preds = %92, %94, %2, %84, %66, %60, %37, %33, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -783,7 +783,7 @@ define hidden void @zim_Dom_Implementation_createHTMLDocument(ptr noundef readon
   store ptr %43, ptr %45, align 8, !tbaa !69
   br label %46
 
-46:                                               ; preds = %2, %11, %38, %.critedge
+46:                                               ; preds = %11, %38, %.critedge, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

@@ -33,9 +33,9 @@ define hidden noundef ptr @_ZN4core3ops8function5FnMut8call_mut17he3213766da2ae5
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !5, !nonnull !8, !noundef !8
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !5, !noundef !8
+  %.0.in.idx.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !5, !noundef !8
   %5 = icmp ult i16 %.0.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -118,9 +118,9 @@ define hidden noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
   %.sroa.3.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.3.0.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i, align 8, !noalias !32, !nonnull !8, !noundef !8
   %4 = icmp eq i64 %3, 0
-  %spec.select.idx.i.i.i = select i1 %4, i64 4, i64 0
-  %spec.select.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i, i64 %spec.select.idx.i.i.i
-  %.0.i.i.i = load i16, ptr %spec.select.i.i.i, align 4, !noalias !32, !noundef !8
+  %.0.in.idx.i.i.i = select i1 %4, i64 4, i64 0
+  %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i, i64 %.0.in.idx.i.i.i
+  %.0.i.i.i = load i16, ptr %.0.in.i.i.i, align 4, !noalias !32, !noundef !8
   %5 = icmp ult i16 %.0.i.i.i, 273
   br i1 %5, label %14, label %13
 
@@ -2653,9 +2653,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h021
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1615, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1615, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1615, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -2727,9 +2727,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h0a8
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1632, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1632, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1632, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -2801,9 +2801,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h0d7
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1649, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1649, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1649, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -2875,9 +2875,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h0e9
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1666, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1666, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1666, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -2949,9 +2949,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h10c
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1683, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1683, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1683, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3023,9 +3023,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h149
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1700, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1700, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1700, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3097,9 +3097,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h14a
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1717, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1717, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1717, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3171,9 +3171,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h1e6
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1734, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1734, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1734, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3245,9 +3245,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h1fa
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1751, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1751, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1751, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3319,9 +3319,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h2c3
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1768, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1768, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1768, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3393,9 +3393,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h31b
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1785, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1785, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1785, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3467,9 +3467,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h356
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1802, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1802, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1802, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3541,9 +3541,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h372
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1819, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1819, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1819, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3615,9 +3615,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h3b3
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1836, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1836, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1836, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3689,9 +3689,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h448
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1853, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1853, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1853, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3775,9 +3775,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h47b
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1870, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1870, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1870, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3849,9 +3849,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h54a
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1887, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1887, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1887, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -3923,9 +3923,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h5d4
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1904, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1904, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1904, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4023,9 +4023,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h610
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1921, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1921, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1921, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4097,9 +4097,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h637
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1938, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1938, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1938, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4171,9 +4171,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h66e
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1955, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1955, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1955, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4245,9 +4245,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h6d0
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1972, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1972, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1972, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4345,9 +4345,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h7e5
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !1989, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !1989, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !1989, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4419,9 +4419,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h80c
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2006, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2006, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2006, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4493,9 +4493,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h84b
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2023, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2023, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2023, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4567,9 +4567,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h86b
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2040, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2040, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2040, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4641,9 +4641,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h8c3
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2057, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2057, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2057, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4715,9 +4715,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h8e5
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2074, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2074, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2074, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4789,9 +4789,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17h96a
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2091, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2091, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2091, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4889,9 +4889,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17ha75
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2108, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2108, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2108, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -4963,9 +4963,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17hae9
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2125, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2125, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2125, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5037,9 +5037,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17haf6
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2142, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2142, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2142, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5111,9 +5111,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17hb7d
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2159, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2159, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2159, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5185,9 +5185,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17hbba
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2176, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2176, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2176, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5259,9 +5259,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17hbf7
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2193, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2193, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2193, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5333,9 +5333,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17hc74
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2210, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2210, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2210, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5407,9 +5407,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17hd25
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2227, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2227, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2227, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5481,9 +5481,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17hd67
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2244, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2244, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2244, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5555,9 +5555,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17hd76
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2261, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2261, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2261, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5629,9 +5629,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17hd91
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2278, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2278, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2278, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5703,9 +5703,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17hdc9
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2295, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2295, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2295, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5777,9 +5777,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17he03
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2312, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2312, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2312, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5851,9 +5851,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17he0b
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2329, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2329, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2329, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -5925,9 +5925,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17he7e
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2346, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2346, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2346, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6025,9 +6025,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17hf87
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2363, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2363, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2363, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6099,9 +6099,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8find_map17hfb1
   %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !2380, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %.0.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i, align 4, !noalias !2380, !noundef !8
+  %.0.in.idx.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !2380, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6226,9 +6226,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h033
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2397, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2397, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2397, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6300,9 +6300,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0c5
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2414, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2414, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2414, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6374,9 +6374,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0cf
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2431, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2431, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2431, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6448,9 +6448,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0fe
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2448, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2448, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2448, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6522,9 +6522,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h10b
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2465, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2465, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2465, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6596,9 +6596,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1a0
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2482, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2482, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2482, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6670,9 +6670,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1f5
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2499, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2499, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2499, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6744,9 +6744,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h277
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2516, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2516, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2516, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6818,9 +6818,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2e3
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2533, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2533, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2533, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6892,9 +6892,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2f7
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2550, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2550, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2550, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -6966,9 +6966,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h31e
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2567, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2567, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2567, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7040,9 +7040,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h32a
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2584, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2584, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2584, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7114,9 +7114,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h35c
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2601, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2601, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2601, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7188,9 +7188,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h368
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2618, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2618, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2618, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7262,9 +7262,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h393
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2635, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2635, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2635, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7336,9 +7336,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4c1
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2652, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2652, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2652, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7410,9 +7410,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h599
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2669, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2669, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2669, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7484,9 +7484,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5fb
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2686, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2686, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2686, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7558,9 +7558,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h61c
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2703, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2703, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2703, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7632,9 +7632,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h668
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2720, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2720, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2720, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7706,9 +7706,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h677
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2737, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2737, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2737, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7780,9 +7780,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h696
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2754, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2754, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2754, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7854,9 +7854,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6fa
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2771, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2771, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2771, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -7928,9 +7928,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h72d
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2788, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2788, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2788, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -8029,9 +8029,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h79f
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2805, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2805, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2805, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -8103,9 +8103,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h83c
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2822, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2822, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2822, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -8177,9 +8177,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h867
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2839, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2839, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2839, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -8251,9 +8251,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9ec
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2856, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2856, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2856, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -8325,9 +8325,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17ha47
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2873, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2873, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2873, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -8399,9 +8399,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17ha6d
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2890, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2890, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2890, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -8473,9 +8473,9 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17ha9
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2907, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2907, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2907, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E.exit.i.i.i", label %14
 
@@ -8555,9 +8555,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17had6
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2924, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2924, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2924, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -8629,9 +8629,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb49
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2941, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2941, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2941, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -8703,9 +8703,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb75
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2958, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2958, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2958, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -8804,9 +8804,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc9c
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2975, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2975, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2975, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -8905,9 +8905,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd43
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !2992, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !2992, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !2992, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -8979,9 +8979,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd7f
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !3009, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !3009, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !3009, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -9053,9 +9053,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd9d
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !3026, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !3026, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !3026, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -9127,9 +9127,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hded
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !3043, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !3043, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !3043, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -9201,9 +9201,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17he55
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !3060, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !3060, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !3060, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -9275,9 +9275,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17he89
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !3077, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !3077, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !3077, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -9349,9 +9349,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hef7
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !3094, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !3094, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !3094, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -9423,9 +9423,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf16
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !3111, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !3111, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !3111, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -9497,9 +9497,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf3e
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !3128, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !3128, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !3128, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -9571,9 +9571,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf65
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !3145, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !3145, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !3145, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -9645,9 +9645,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf9e
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !3162, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !3162, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !3162, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -9719,9 +9719,9 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hfe1
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !3179, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !3179, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !3179, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -9829,14 +9829,14 @@ define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalia
   %8 = load i64, ptr %7, align 8, !noundef !8
   switch i64 %6, label %11 [
     i64 0, label %9
-    i64 1, label %17
+    i64 1, label %16
   ]
 
 9:                                                ; preds = %2
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %12, label %11
 
-11:                                               ; preds = %2, %17, %9
+11:                                               ; preds = %2, %16, %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3202)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !3211
@@ -9844,16 +9844,15 @@ define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalia
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3205
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h534f672a0d29ce70E.exit"
 
-12:                                               ; preds = %19, %9
-  %.sroa.6.0.ph = phi i64 [ 0, %9 ], [ %22, %19 ]
-  %.sroa.0.0.ph = phi ptr [ @anon.3a78179b6339bfc9f609f545e69e1375.3, %9 ], [ %20, %19 ]
+12:                                               ; preds = %18, %9
+  %.sroa.6.0.ph = phi i64 [ 0, %9 ], [ %21, %18 ]
+  %.sroa.0.0.ph = phi ptr [ @anon.3a78179b6339bfc9f609f545e69e1375.3, %9 ], [ %19, %18 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3213)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3216)
   %13 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4ad7ff70d8a9ade6E"(i64 noundef %.sroa.6.0.ph, i1 noundef zeroext false), !noalias !3219
   %14 = extractvalue { i64, ptr } %13, 0
   %15 = extractvalue { i64, ptr } %13, 1
-  %16 = icmp ne ptr %15, null
-  tail call void @llvm.assume(i1 %16)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %.sroa.0.0.ph, i64 %.sroa.6.0.ph, i1 false), !noalias !3222
   store i64 %14, ptr %0, align 8, !alias.scope !3223, !noalias !3224
   %.sroa.42.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9865,14 +9864,14 @@ define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalia
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h534f672a0d29ce70E.exit": ; preds = %11, %12
   ret void
 
-17:                                               ; preds = %2
-  %18 = icmp eq i64 %8, 0
-  br i1 %18, label %19, label %11
+16:                                               ; preds = %2
+  %17 = icmp eq i64 %8, 0
+  br i1 %17, label %18, label %11
 
-19:                                               ; preds = %17
-  %20 = load ptr, ptr %4, align 8, !nonnull !8, !align !3225, !noundef !8
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = load i64, ptr %21, align 8, !noundef !8
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %4, align 8, !nonnull !8, !align !3225, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !noundef !8
   br label %12
 }
 
@@ -10016,7 +10015,7 @@ define hidden void @"_ZN6syntax10validation5block19validate_block_expr28_$u7b$$u
 
 14:                                               ; preds = %8
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2)
-          to label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h449d657a8b79efb9E.exit" unwind label %47
+          to label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h449d657a8b79efb9E.exit" unwind label %46
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -10078,34 +10077,33 @@ define hidden void @"_ZN6syntax10validation5block19validate_block_expr28_$u7b$$u
 36:                                               ; preds = %34
   %37 = extractvalue { i64, ptr } %35, 0
   %38 = extractvalue { i64, ptr } %35, 1
-  %39 = icmp ne ptr %38, null
-  tail call void @llvm.assume(i1 %39)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %38, ptr noundef nonnull align 1 dereferenceable(55) @anon.3a78179b6339bfc9f609f545e69e1375.11.llvm.6473071382847885441, i64 55, i1 false)
   store i64 %37, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %38, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 55, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.0.i.i, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %32, ptr %41, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %43 = load i32, ptr %42, align 4, !noalias !3251, !noundef !8
-  %44 = add i32 %43, -1
-  store i32 %44, ptr %42, align 4, !noalias !3251
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h449d657a8b79efb9E.exit10"
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %.0.i.i, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %32, ptr %40, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %42 = load i32, ptr %41, align 4, !noalias !3251, !noundef !8
+  %43 = add i32 %42, -1
+  store i32 %43, ptr %41, align 4, !noalias !3251
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h449d657a8b79efb9E.exit10"
 
-46:                                               ; preds = %36
+45:                                               ; preds = %36
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2), !noalias !3251
   br label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h449d657a8b79efb9E.exit10"
 
-"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h449d657a8b79efb9E.exit10": ; preds = %36, %46
+"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h449d657a8b79efb9E.exit10": ; preds = %36, %45
   ret void
 
-47:                                               ; preds = %14
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %14
+  %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20
   unreachable
@@ -10154,179 +10152,178 @@ define noundef ptr @"_ZN94_$LT$syntax..ast..traits..DocCommentIter$u20$as$u20$co
   ]
 
 9:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i"
-  %10 = icmp ne ptr %8, null
-  call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %12 = load i32, ptr %11, align 4, !noalias !3263, !noundef !8
-  %13 = add i32 %12, -1
-  store i32 %13, ptr %11, align 4, !noalias !3263
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i.backedge"
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %11 = load i32, ptr %10, align 4, !noalias !3263, !noundef !8
+  %12 = add i32 %11, -1
+  store i32 %12, ptr %10, align 4, !noalias !3263
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i.backedge"
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i.i.i.i": ; preds = %9
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %8), !noalias !3272
   br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i.backedge"
 
 "_ZN5rowan13utility_types24NodeOrToken$LT$N$C$T$GT$10into_token17h1b228ac2380330ddE.exit.i.i.i.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i"
-  %15 = icmp eq ptr %spec.select.i.i.i, null
-  br i1 %15, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i.backedge", label %16
+  %14 = icmp eq ptr %spec.select.i.i.i, null
+  br i1 %14, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i.backedge", label %15
 
-16:                                               ; preds = %"_ZN5rowan13utility_types24NodeOrToken$LT$N$C$T$GT$10into_token17h1b228ac2380330ddE.exit.i.i.i.i"
-  %17 = load i64, ptr %spec.select.i.i.i, align 8, !range !4, !noalias !3273, !noundef !8
+15:                                               ; preds = %"_ZN5rowan13utility_types24NodeOrToken$LT$N$C$T$GT$10into_token17h1b228ac2380330ddE.exit.i.i.i.i"
+  %16 = load i64, ptr %spec.select.i.i.i, align 8, !range !4, !noalias !3273, !noundef !8
   %.sroa.3.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i.i, align 8, !noalias !3273, !nonnull !8, !noundef !8
-  %18 = icmp eq i64 %17, 0
-  %spec.select.idx.i.i.i.i.i.i.i = select i1 %18, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i.i, align 4, !noalias !3273, !noundef !8
-  %19 = icmp ult i16 %.0.i.i.i.i.i.i.i, 273
-  br i1 %19, label %28, label %27
+  %17 = icmp eq i64 %16, 0
+  %.0.in.idx.i.i.i.i.i.i.i = select i1 %17, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i.i, align 4, !noalias !3273, !noundef !8
+  %18 = icmp ult i16 %.0.i.i.i.i.i.i.i, 273
+  br i1 %18, label %27, label %26
 
-20:                                               ; preds = %27
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %26
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %22 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 48
-  %23 = load i32, ptr %22, align 4, !noalias !3276, !noundef !8
-  %24 = add i32 %23, -1
-  store i32 %24, ptr %22, align 4, !noalias !3276
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %common.resume.i.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 48
+  %22 = load i32, ptr %21, align 4, !noalias !3276, !noundef !8
+  %23 = add i32 %22, -1
+  store i32 %23, ptr %21, align 4, !noalias !3276
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %common.resume.i.i.i.i
 
-26:                                               ; preds = %20
+25:                                               ; preds = %19
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i.i.i)
-          to label %common.resume.i.i.i.i unwind label %36
+          to label %common.resume.i.i.i.i unwind label %35
 
-27:                                               ; preds = %16
+26:                                               ; preds = %15
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.68.llvm.16164356047720175345, i64 noundef 50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.70.llvm.16164356047720175345) #19
-          to label %.noexc3.i.i.i.i.i.i unwind label %20
+          to label %.noexc3.i.i.i.i.i.i unwind label %19
 
-.noexc3.i.i.i.i.i.i:                              ; preds = %27
+.noexc3.i.i.i.i.i.i:                              ; preds = %26
   unreachable
 
-28:                                               ; preds = %16
-  %29 = icmp eq i16 %.0.i.i.i.i.i.i.i, 127
-  br i1 %29, label %_ZN4core3ops8function6FnOnce9call_once17hd9153d98594ab0a9E.exit.i.i.i.i, label %30
+27:                                               ; preds = %15
+  %28 = icmp eq i16 %.0.i.i.i.i.i.i.i, 127
+  br i1 %28, label %_ZN4core3ops8function6FnOnce9call_once17hd9153d98594ab0a9E.exit.i.i.i.i, label %29
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 48
-  %32 = load i32, ptr %31, align 4, !noalias !3283, !noundef !8
-  %33 = add i32 %32, -1
-  store i32 %33, ptr %31, align 4, !noalias !3283
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i.backedge"
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 48
+  %31 = load i32, ptr %30, align 4, !noalias !3283, !noundef !8
+  %32 = add i32 %31, -1
+  store i32 %32, ptr %30, align 4, !noalias !3283
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i.backedge"
 
-35:                                               ; preds = %30
+34:                                               ; preds = %29
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i.i.i), !noalias !3283
   br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i.backedge"
 
-36:                                               ; preds = %26
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %25
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20
   unreachable
 
-common.resume.i.i.i.i:                            ; preds = %50, %44, %26, %20
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %21, %20 ], [ %21, %26 ], [ %lpad.phi.i.i, %50 ], [ %lpad.phi.i.i, %44 ]
+common.resume.i.i.i.i:                            ; preds = %49, %43, %25, %19
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %20, %19 ], [ %20, %25 ], [ %lpad.phi.i.i, %49 ], [ %lpad.phi.i.i, %43 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
-_ZN4core3ops8function6FnOnce9call_once17hd9153d98594ab0a9E.exit.i.i.i.i: ; preds = %28
+_ZN4core3ops8function6FnOnce9call_once17hd9153d98594ab0a9E.exit.i.i.i.i: ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3290
   store ptr %spec.select.i.i.i, ptr %3, align 8, !noalias !3290
-  %38 = invoke { ptr, i64 } @_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+  %37 = invoke { ptr, i64 } @_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i.i.i unwind label %.loopexit.i.i
 
 .noexc.i.i.i.i.i:                                 ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd9153d98594ab0a9E.exit.i.i.i.i
-  %39 = extractvalue { ptr, i64 } %38, 0
-  %40 = extractvalue { ptr, i64 } %38, 1
+  %38 = extractvalue { ptr, i64 } %37, 0
+  %39 = extractvalue { ptr, i64 } %37, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !3295
   store ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, ptr %2, align 8, !noalias !3295
   store ptr getelementptr inbounds nuw (i8, ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, i64 216), ptr %4, align 8, !noalias !3295
-  %41 = invoke noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h4b95028fb42199c3E.llvm.15484593084965490010"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %39, i64 noundef %40)
+  %40 = invoke noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h4b95028fb42199c3E.llvm.15484593084965490010"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %39)
           to label %.noexc8.i.i.i.i.i unwind label %.loopexit.i.i
 
 .noexc8.i.i.i.i.i:                                ; preds = %.noexc.i.i.i.i.i
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %51
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %50
 
-43:                                               ; preds = %.noexc8.i.i.i.i.i
+42:                                               ; preds = %.noexc8.i.i.i.i.i
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.82b27cccaf6c1d93c3497edc733a2d28.80.llvm.15484593084965490010) #19
           to label %.noexc9.i.i.i.i.i unwind label %.loopexit.split-lp.i.i
 
-.noexc9.i.i.i.i.i:                                ; preds = %43
+.noexc9.i.i.i.i.i:                                ; preds = %42
   unreachable
 
 .loopexit.i.i:                                    ; preds = %.noexc.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hd9153d98594ab0a9E.exit.i.i.i.i
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %44
+  br label %43
 
-.loopexit.split-lp.i.i:                           ; preds = %43
+.loopexit.split-lp.i.i:                           ; preds = %42
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %44
+  br label %43
 
-44:                                               ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
+43:                                               ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3304)
   call void @llvm.experimental.noalias.scope.decl(metadata !3307)
   call void @llvm.experimental.noalias.scope.decl(metadata !3310)
   call void @llvm.experimental.noalias.scope.decl(metadata !3313)
-  %45 = load ptr, ptr %3, align 8, !alias.scope !3316, !noalias !3290, !nonnull !8, !noundef !8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %47 = load i32, ptr %46, align 4, !noalias !3316, !noundef !8
-  %48 = add i32 %47, -1
-  store i32 %48, ptr %46, align 4, !noalias !3316
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %common.resume.i.i.i.i
+  %44 = load ptr, ptr %3, align 8, !alias.scope !3316, !noalias !3290, !nonnull !8, !noundef !8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
+  %46 = load i32, ptr %45, align 4, !noalias !3316, !noundef !8
+  %47 = add i32 %46, -1
+  store i32 %47, ptr %45, align 4, !noalias !3316
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %common.resume.i.i.i.i
 
-50:                                               ; preds = %44
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %45)
-          to label %common.resume.i.i.i.i unwind label %61
+49:                                               ; preds = %43
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %44)
+          to label %common.resume.i.i.i.i unwind label %60
 
-51:                                               ; preds = %.noexc8.i.i.i.i.i
-  %52 = getelementptr inbounds nuw i8, ptr %41, i64 17
-  %53 = load i8, ptr %52, align 1, !range !3317, !noundef !8
+50:                                               ; preds = %.noexc8.i.i.i.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 17
+  %52 = load i8, ptr %51, align 1, !range !3317, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !3295
-  %.not15.i.i.i.i.i = icmp eq i8 %53, 2
-  br i1 %.not15.i.i.i.i.i, label %54, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1c3a314789a2f3eE.exit.i
+  %.not15.i.i.i.i.i = icmp eq i8 %52, 2
+  br i1 %.not15.i.i.i.i.i, label %53, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1c3a314789a2f3eE.exit.i
 
-54:                                               ; preds = %51
+53:                                               ; preds = %50
   call void @llvm.experimental.noalias.scope.decl(metadata !3318)
   call void @llvm.experimental.noalias.scope.decl(metadata !3321)
   call void @llvm.experimental.noalias.scope.decl(metadata !3324)
   call void @llvm.experimental.noalias.scope.decl(metadata !3327)
-  %55 = load ptr, ptr %3, align 8, !alias.scope !3330, !noalias !3290, !nonnull !8, !noundef !8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  %57 = load i32, ptr %56, align 4, !noalias !3330, !noundef !8
-  %58 = add i32 %57, -1
-  store i32 %58, ptr %56, align 4, !noalias !3330
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread8.i.i"
+  %54 = load ptr, ptr %3, align 8, !alias.scope !3330, !noalias !3290, !nonnull !8, !noundef !8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
+  %56 = load i32, ptr %55, align 4, !noalias !3330, !noundef !8
+  %57 = add i32 %56, -1
+  store i32 %57, ptr %55, align 4, !noalias !3330
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread8.i.i"
 
-60:                                               ; preds = %54
-  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %55), !noalias !3330
+59:                                               ; preds = %53
+  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %54), !noalias !3330
   br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread8.i.i"
 
-61:                                               ; preds = %50
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %49
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20
   unreachable
 
-"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread8.i.i": ; preds = %60, %54
+"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread8.i.i": ; preds = %59, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3290
   br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i.backedge"
 
-"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i.backedge": ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread8.i.i", %35, %30, %"_ZN5rowan13utility_types24NodeOrToken$LT$N$C$T$GT$10into_token17h1b228ac2380330ddE.exit.i.i.i.i", %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i.i.i.i", %9
+"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i.backedge": ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread8.i.i", %34, %29, %"_ZN5rowan13utility_types24NodeOrToken$LT$N$C$T$GT$10into_token17h1b228ac2380330ddE.exit.i.i.i.i", %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i.i.i.i.i", %9
   br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i"
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1c3a314789a2f3eE.exit.i: ; preds = %51
-  %63 = load ptr, ptr %3, align 8, !noalias !3290, !nonnull !8, !noundef !8
+_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1c3a314789a2f3eE.exit.i: ; preds = %50
+  %62 = load ptr, ptr %3, align 8, !noalias !3290, !nonnull !8, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3290
   br label %_ZN4core4iter6traits8iterator8Iterator8find_map17hbbff5cbc18fba73fE.exit
 
 _ZN4core4iter6traits8iterator8Iterator8find_map17hbbff5cbc18fba73fE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i", %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1c3a314789a2f3eE.exit.i
-  %.0.i3.i = phi ptr [ %63, %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1c3a314789a2f3eE.exit.i ], [ null, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i" ]
+  %.0.i3.i = phi ptr [ %62, %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha1c3a314789a2f3eE.exit.i ], [ null, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he8b61f5c3983038eE.exit.thread.i.i" ]
   ret ptr %.0.i3.i
 }
 
@@ -10364,229 +10361,228 @@ define { i64, ptr } @"_ZN98_$LT$syntax..ast..traits..AttrDocCommentIter$u20$as$u
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %7
 
-7:                                                ; preds = %79, %.lr.ph.i.i
-  %8 = phi i64 [ %5, %.lr.ph.i.i ], [ %81, %79 ]
-  %.pn.i.i = phi { i64, ptr } [ %4, %.lr.ph.i.i ], [ %80, %79 ]
+7:                                                ; preds = %78, %.lr.ph.i.i
+  %8 = phi i64 [ %5, %.lr.ph.i.i ], [ %80, %78 ]
+  %.pn.i.i = phi { i64, ptr } [ %4, %.lr.ph.i.i ], [ %79, %78 ]
   %spec.select.i18.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
   %9 = icmp eq i64 %8, 0
-  %10 = icmp ne ptr %spec.select.i18.i.i, null
-  call void @llvm.assume(i1 %10)
-  %11 = load i64, ptr %spec.select.i18.i.i, align 8, !range !4, !noalias !8, !noundef !8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i18.i.i) ]
+  %10 = load i64, ptr %spec.select.i18.i.i, align 8, !range !4, !noalias !8, !noundef !8
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i18.i.i, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !8, !nonnull !8, !noundef !8
-  %12 = icmp eq i64 %11, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %12, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !8, !noundef !8
-  %13 = icmp ult i16 %.0.i.i.i.i.i.i, 273
-  br i1 %9, label %14, label %33
+  %11 = icmp eq i64 %10, 0
+  %.0.in.idx.i.i.i.i.i.i = select i1 %11, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !8, !noundef !8
+  %12 = icmp ult i16 %.0.i.i.i.i.i.i, 273
+  br i1 %9, label %13, label %32
 
-14:                                               ; preds = %7
-  br i1 %13, label %23, label %22
+13:                                               ; preds = %7
+  br i1 %12, label %22, label %21
 
-15:                                               ; preds = %22
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %21
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %17 = getelementptr inbounds nuw i8, ptr %spec.select.i18.i.i, i64 48
-  %18 = load i32, ptr %17, align 4, !noalias !3334, !noundef !8
-  %19 = add i32 %18, -1
-  store i32 %19, ptr %17, align 4, !noalias !3334
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %common.resume.i.i.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %spec.select.i18.i.i, i64 48
+  %17 = load i32, ptr %16, align 4, !noalias !3334, !noundef !8
+  %18 = add i32 %17, -1
+  store i32 %18, ptr %16, align 4, !noalias !3334
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %common.resume.i.i.i.i
 
-21:                                               ; preds = %15
+20:                                               ; preds = %14
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i18.i.i)
-          to label %common.resume.i.i.i.i unwind label %31
+          to label %common.resume.i.i.i.i unwind label %30
 
-22:                                               ; preds = %14
+21:                                               ; preds = %13
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.68.llvm.16164356047720175345, i64 noundef 50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.70.llvm.16164356047720175345) #19
-          to label %.noexc3.i.i.i.i.i unwind label %15
+          to label %.noexc3.i.i.i.i.i unwind label %14
 
-.noexc3.i.i.i.i.i:                                ; preds = %22
+.noexc3.i.i.i.i.i:                                ; preds = %21
   unreachable
 
-23:                                               ; preds = %14
-  %24 = icmp eq i16 %.0.i.i.i.i.i.i, 234
-  br i1 %24, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e0916f039efc3f7E.exit.i, label %25
+22:                                               ; preds = %13
+  %23 = icmp eq i16 %.0.i.i.i.i.i.i, 234
+  br i1 %23, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e0916f039efc3f7E.exit.i, label %24
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %spec.select.i18.i.i, i64 48
-  %27 = load i32, ptr %26, align 4, !noalias !3341, !noundef !8
-  %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !noalias !3341
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %79
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i18.i.i, i64 48
+  %26 = load i32, ptr %25, align 4, !noalias !3341, !noundef !8
+  %27 = add i32 %26, -1
+  store i32 %27, ptr %25, align 4, !noalias !3341
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %78
 
-30:                                               ; preds = %25
+29:                                               ; preds = %24
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i18.i.i), !noalias !3341
-  br label %79
+  br label %78
 
-31:                                               ; preds = %21
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %20
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20
   unreachable
 
-common.resume.i.i.i.i:                            ; preds = %64, %58, %40, %34, %21, %15
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %35, %34 ], [ %16, %15 ], [ %16, %21 ], [ %35, %40 ], [ %lpad.phi.i.i, %64 ], [ %lpad.phi.i.i, %58 ]
+common.resume.i.i.i.i:                            ; preds = %63, %57, %39, %33, %20, %14
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %34, %33 ], [ %15, %14 ], [ %15, %20 ], [ %34, %39 ], [ %lpad.phi.i.i, %63 ], [ %lpad.phi.i.i, %57 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
-33:                                               ; preds = %7
-  br i1 %13, label %42, label %41
+32:                                               ; preds = %7
+  br i1 %12, label %41, label %40
 
-34:                                               ; preds = %41
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %40
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %36 = getelementptr inbounds nuw i8, ptr %spec.select.i18.i.i, i64 48
-  %37 = load i32, ptr %36, align 4, !noalias !3348, !noundef !8
-  %38 = add i32 %37, -1
-  store i32 %38, ptr %36, align 4, !noalias !3348
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %common.resume.i.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %spec.select.i18.i.i, i64 48
+  %36 = load i32, ptr %35, align 4, !noalias !3348, !noundef !8
+  %37 = add i32 %36, -1
+  store i32 %37, ptr %35, align 4, !noalias !3348
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %common.resume.i.i.i.i
 
-40:                                               ; preds = %34
+39:                                               ; preds = %33
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i18.i.i)
-          to label %common.resume.i.i.i.i unwind label %50
+          to label %common.resume.i.i.i.i unwind label %49
 
-41:                                               ; preds = %33
+40:                                               ; preds = %32
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.68.llvm.16164356047720175345, i64 noundef 50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18f6a5e49dd59df98f7d24ab3eb6dd84.70.llvm.16164356047720175345) #19
-          to label %.noexc3.i13.i.i.i.i unwind label %34
+          to label %.noexc3.i13.i.i.i.i unwind label %33
 
-.noexc3.i13.i.i.i.i:                              ; preds = %41
+.noexc3.i13.i.i.i.i:                              ; preds = %40
   unreachable
 
-42:                                               ; preds = %33
-  %43 = icmp eq i16 %.0.i.i.i.i.i.i, 127
-  br i1 %43, label %"_ZN81_$LT$syntax..ast..generated..tokens..Comment$u20$as$u20$syntax..ast..AstToken$GT$4cast17habcc8ccbee744ee4E.exit.i.i.i.i", label %44
+41:                                               ; preds = %32
+  %42 = icmp eq i16 %.0.i.i.i.i.i.i, 127
+  br i1 %42, label %"_ZN81_$LT$syntax..ast..generated..tokens..Comment$u20$as$u20$syntax..ast..AstToken$GT$4cast17habcc8ccbee744ee4E.exit.i.i.i.i", label %43
 
-44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %spec.select.i18.i.i, i64 48
-  %46 = load i32, ptr %45, align 4, !noalias !3355, !noundef !8
-  %47 = add i32 %46, -1
-  store i32 %47, ptr %45, align 4, !noalias !3355
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %79
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds nuw i8, ptr %spec.select.i18.i.i, i64 48
+  %45 = load i32, ptr %44, align 4, !noalias !3355, !noundef !8
+  %46 = add i32 %45, -1
+  store i32 %46, ptr %44, align 4, !noalias !3355
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %78
 
-49:                                               ; preds = %44
+48:                                               ; preds = %43
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %spec.select.i18.i.i), !noalias !3355
-  br label %79
+  br label %78
 
-50:                                               ; preds = %40
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %39
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20
   unreachable
 
-"_ZN81_$LT$syntax..ast..generated..tokens..Comment$u20$as$u20$syntax..ast..AstToken$GT$4cast17habcc8ccbee744ee4E.exit.i.i.i.i": ; preds = %42
+"_ZN81_$LT$syntax..ast..generated..tokens..Comment$u20$as$u20$syntax..ast..AstToken$GT$4cast17habcc8ccbee744ee4E.exit.i.i.i.i": ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3362
   store ptr %spec.select.i18.i.i, ptr %3, align 8, !noalias !3362
-  %52 = invoke { ptr, i64 } @_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+  %51 = invoke { ptr, i64 } @_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i.i.i unwind label %.loopexit.i.i
 
 .noexc.i.i.i.i.i:                                 ; preds = %"_ZN81_$LT$syntax..ast..generated..tokens..Comment$u20$as$u20$syntax..ast..AstToken$GT$4cast17habcc8ccbee744ee4E.exit.i.i.i.i"
-  %53 = extractvalue { ptr, i64 } %52, 0
-  %54 = extractvalue { ptr, i64 } %52, 1
+  %52 = extractvalue { ptr, i64 } %51, 0
+  %53 = extractvalue { ptr, i64 } %51, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !3367
   store ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, ptr %2, align 8, !noalias !3367
   store ptr getelementptr inbounds nuw (i8, ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, i64 216), ptr %6, align 8, !noalias !3367
-  %55 = invoke noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h4b95028fb42199c3E.llvm.15484593084965490010"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %53, i64 noundef %54)
+  %54 = invoke noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h4b95028fb42199c3E.llvm.15484593084965490010"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %53)
           to label %.noexc8.i.i.i.i.i unwind label %.loopexit.i.i
 
 .noexc8.i.i.i.i.i:                                ; preds = %.noexc.i.i.i.i.i
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %65
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %64
 
-57:                                               ; preds = %.noexc8.i.i.i.i.i
+56:                                               ; preds = %.noexc8.i.i.i.i.i
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.82b27cccaf6c1d93c3497edc733a2d28.80.llvm.15484593084965490010) #19
           to label %.noexc9.i.i.i.i.i unwind label %.loopexit.split-lp.i.i
 
-.noexc9.i.i.i.i.i:                                ; preds = %57
+.noexc9.i.i.i.i.i:                                ; preds = %56
   unreachable
 
 .loopexit.i.i:                                    ; preds = %.noexc.i.i.i.i.i, %"_ZN81_$LT$syntax..ast..generated..tokens..Comment$u20$as$u20$syntax..ast..AstToken$GT$4cast17habcc8ccbee744ee4E.exit.i.i.i.i"
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %57
 
-.loopexit.split-lp.i.i:                           ; preds = %57
+.loopexit.split-lp.i.i:                           ; preds = %56
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %57
 
-58:                                               ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
+57:                                               ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3376)
   call void @llvm.experimental.noalias.scope.decl(metadata !3379)
   call void @llvm.experimental.noalias.scope.decl(metadata !3382)
   call void @llvm.experimental.noalias.scope.decl(metadata !3385)
-  %59 = load ptr, ptr %3, align 8, !alias.scope !3388, !noalias !3362, !nonnull !8, !noundef !8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
-  %61 = load i32, ptr %60, align 4, !noalias !3388, !noundef !8
-  %62 = add i32 %61, -1
-  store i32 %62, ptr %60, align 4, !noalias !3388
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %common.resume.i.i.i.i
+  %58 = load ptr, ptr %3, align 8, !alias.scope !3388, !noalias !3362, !nonnull !8, !noundef !8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  %60 = load i32, ptr %59, align 4, !noalias !3388, !noundef !8
+  %61 = add i32 %60, -1
+  store i32 %61, ptr %59, align 4, !noalias !3388
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %common.resume.i.i.i.i
 
-64:                                               ; preds = %58
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %59)
-          to label %common.resume.i.i.i.i unwind label %75
+63:                                               ; preds = %57
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %58)
+          to label %common.resume.i.i.i.i unwind label %74
 
-65:                                               ; preds = %.noexc8.i.i.i.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %55, i64 17
-  %67 = load i8, ptr %66, align 1, !range !3317, !noundef !8
+64:                                               ; preds = %.noexc8.i.i.i.i.i
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 17
+  %66 = load i8, ptr %65, align 1, !range !3317, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !3367
-  %.not15.i.i.i.i.i = icmp eq i8 %67, 2
-  br i1 %.not15.i.i.i.i.i, label %68, label %77
+  %.not15.i.i.i.i.i = icmp eq i8 %66, 2
+  br i1 %.not15.i.i.i.i.i, label %67, label %76
 
-68:                                               ; preds = %65
+67:                                               ; preds = %64
   call void @llvm.experimental.noalias.scope.decl(metadata !3389)
   call void @llvm.experimental.noalias.scope.decl(metadata !3392)
   call void @llvm.experimental.noalias.scope.decl(metadata !3395)
   call void @llvm.experimental.noalias.scope.decl(metadata !3398)
-  %69 = load ptr, ptr %3, align 8, !alias.scope !3401, !noalias !3362, !nonnull !8, !noundef !8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
-  %71 = load i32, ptr %70, align 4, !noalias !3401, !noundef !8
-  %72 = add i32 %71, -1
-  store i32 %72, ptr %70, align 4, !noalias !3401
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %"_ZN4core6option15Option$LT$T$GT$6filter17h3733917fb353a33eE.exit.thread5.i.i.i.i"
+  %68 = load ptr, ptr %3, align 8, !alias.scope !3401, !noalias !3362, !nonnull !8, !noundef !8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
+  %70 = load i32, ptr %69, align 4, !noalias !3401, !noundef !8
+  %71 = add i32 %70, -1
+  store i32 %71, ptr %69, align 4, !noalias !3401
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %"_ZN4core6option15Option$LT$T$GT$6filter17h3733917fb353a33eE.exit.thread5.i.i.i.i"
 
-74:                                               ; preds = %68
-  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %69), !noalias !3401
+73:                                               ; preds = %67
+  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %68), !noalias !3401
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h3733917fb353a33eE.exit.thread5.i.i.i.i"
 
-75:                                               ; preds = %64
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %63
+  %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20
   unreachable
 
-"_ZN4core6option15Option$LT$T$GT$6filter17h3733917fb353a33eE.exit.thread5.i.i.i.i": ; preds = %74, %68
+"_ZN4core6option15Option$LT$T$GT$6filter17h3733917fb353a33eE.exit.thread5.i.i.i.i": ; preds = %73, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3362
-  br label %79
+  br label %78
 
-77:                                               ; preds = %65
-  %78 = load ptr, ptr %3, align 8, !noalias !3362, !nonnull !8, !noundef !8
+76:                                               ; preds = %64
+  %77 = load ptr, ptr %3, align 8, !noalias !3362, !nonnull !8, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3362
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e0916f039efc3f7E.exit.i
 
-79:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h3733917fb353a33eE.exit.thread5.i.i.i.i", %49, %44, %30, %25
-  %80 = call { i64, ptr } @"_ZN95_$LT$rowan..cursor..SyntaxElementChildren$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bfc46e37b2e7d2cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
-  %81 = extractvalue { i64, ptr } %80, 0
-  %82 = icmp eq i64 %81, 2
-  br i1 %82, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h30aa81ea335a980aE.exit, label %7
+78:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h3733917fb353a33eE.exit.thread5.i.i.i.i", %48, %43, %29, %24
+  %79 = call { i64, ptr } @"_ZN95_$LT$rowan..cursor..SyntaxElementChildren$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bfc46e37b2e7d2cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  %80 = extractvalue { i64, ptr } %79, 0
+  %81 = icmp eq i64 %80, 2
+  br i1 %81, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h30aa81ea335a980aE.exit, label %7
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e0916f039efc3f7E.exit.i: ; preds = %23, %77
-  %.sroa.3.0.i.i = phi ptr [ %78, %77 ], [ %spec.select.i18.i.i, %23 ]
-  %.sroa.0.0.i.i = phi i64 [ 1, %77 ], [ 0, %23 ]
-  %83 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e0916f039efc3f7E.exit.i: ; preds = %22, %76
+  %.sroa.3.0.i.i = phi ptr [ %77, %76 ], [ %spec.select.i18.i.i, %22 ]
+  %.sroa.0.0.i.i = phi i64 [ 1, %76 ], [ 0, %22 ]
+  %82 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
   br label %_ZN4core4iter6traits8iterator8Iterator8find_map17h30aa81ea335a980aE.exit
 
-_ZN4core4iter6traits8iterator8Iterator8find_map17h30aa81ea335a980aE.exit: ; preds = %79, %1, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e0916f039efc3f7E.exit.i
-  %.pn.i = phi { i64, ptr } [ %83, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e0916f039efc3f7E.exit.i ], [ { i64 2, ptr poison }, %1 ], [ { i64 2, ptr poison }, %79 ]
-  %.sroa.3.0.i.ph.pn.i = phi ptr [ %.sroa.3.0.i.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e0916f039efc3f7E.exit.i ], [ undef, %1 ], [ %spec.select.i18.i.i, %79 ]
-  %84 = insertvalue { i64, ptr } %.pn.i, ptr %.sroa.3.0.i.ph.pn.i, 1
-  ret { i64, ptr } %84
+_ZN4core4iter6traits8iterator8Iterator8find_map17h30aa81ea335a980aE.exit: ; preds = %78, %1, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e0916f039efc3f7E.exit.i
+  %.pn.i = phi { i64, ptr } [ %82, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e0916f039efc3f7E.exit.i ], [ { i64 2, ptr poison }, %1 ], [ { i64 2, ptr poison }, %78 ]
+  %.sroa.3.0.i.ph.pn.i = phi ptr [ %.sroa.3.0.i.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7e0916f039efc3f7E.exit.i ], [ undef, %1 ], [ %spec.select.i18.i.i, %78 ]
+  %83 = insertvalue { i64, ptr } %.pn.i, ptr %.sroa.3.0.i.ph.pn.i, 1
+  ret { i64, ptr } %83
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10601,9 +10597,9 @@ define hidden noundef ptr @"_ZN92_$LT$syntax..ast..AstChildren$LT$N$GT$$u20$as$u
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3402, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3402, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3402, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -10675,9 +10671,9 @@ define hidden noundef ptr @"_ZN92_$LT$syntax..ast..AstChildren$LT$N$GT$$u20$as$u
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3419, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3419, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3419, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -10749,9 +10745,9 @@ define hidden noundef ptr @"_ZN92_$LT$syntax..ast..AstChildren$LT$N$GT$$u20$as$u
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3436, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3436, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3436, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -10823,9 +10819,9 @@ define hidden noundef ptr @"_ZN92_$LT$syntax..ast..AstChildren$LT$N$GT$$u20$as$u
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3453, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3453, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3453, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -10923,9 +10919,9 @@ define hidden noundef ptr @"_ZN92_$LT$syntax..ast..AstChildren$LT$N$GT$$u20$as$u
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3470, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3470, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3470, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -11023,9 +11019,9 @@ define hidden noundef ptr @"_ZN92_$LT$syntax..ast..AstChildren$LT$N$GT$$u20$as$u
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3487, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3487, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3487, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -11097,9 +11093,9 @@ define hidden noundef ptr @"_ZN92_$LT$syntax..ast..AstChildren$LT$N$GT$$u20$as$u
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3504, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3504, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3504, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -11197,9 +11193,9 @@ define hidden noundef ptr @"_ZN92_$LT$syntax..ast..AstChildren$LT$N$GT$$u20$as$u
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3521, !nonnull !8, !noundef !8
   %5 = icmp eq i64 %4, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3521, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %5, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3521, !noundef !8
   %6 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %6, label %15, label %14
 
@@ -11319,9 +11315,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h035af122d60f3061E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3541, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3541, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3541, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -11476,9 +11472,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h04c5cf1187898a18E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3591, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3591, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3591, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -11633,9 +11629,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h0cc6ef408fa6ce36E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3641, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3641, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3641, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -11790,9 +11786,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h1b8c653112806bb6E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3691, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3691, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3691, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -12032,9 +12028,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h2720ca94ef76cf50E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3774, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3774, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3774, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -12189,9 +12185,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h2c62c96f4fd18a3dE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3824, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3824, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3824, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -12449,9 +12445,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h3a0f79308778fa1cE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3907, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3907, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3907, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -12606,9 +12602,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h3bccc64872757a3bE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !3957, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !3957, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !3957, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -12763,9 +12759,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h3f5027bc5829ee7eE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4007, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4007, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4007, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -12920,9 +12916,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h3ffa2a4dfb349cadE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4057, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4057, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4057, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -13077,9 +13073,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h53dd8a31b3570a09E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4107, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4107, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4107, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -13234,9 +13230,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h57cde0a21f1d2dcdE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4157, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4157, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4157, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -13391,9 +13387,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h5e15680623225bc6E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4207, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4207, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4207, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -13754,9 +13750,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h6ab359bc08cfc6f2E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4323, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4323, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4323, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -13911,9 +13907,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h727c1413f4033f14E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4373, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4373, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4373, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -14068,9 +14064,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h76a17a8f572de0aeE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4423, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4423, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4423, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -14225,9 +14221,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h7d769b4a28e07b5fE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4473, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4473, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4473, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -14382,9 +14378,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h81c87b0172969751E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4523, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4523, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4523, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -14539,9 +14535,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h8b0da3952752fc56E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4573, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4573, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4573, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -14696,9 +14692,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17h9e9ba736327fe46fE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4623, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4623, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4623, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -14853,9 +14849,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17ha022a49d50141217E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4673, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4673, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4673, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -15010,9 +15006,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17ha1c804c28b3440d5E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4723, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4723, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4723, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -15167,9 +15163,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17ha436cd65c0d74724E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4773, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4773, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4773, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -15324,9 +15320,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17ha43df337597fa022E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4823, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4823, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4823, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -15481,9 +15477,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hb45bf99e62838512E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4873, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4873, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4873, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -15638,9 +15634,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hc25b44b34fb01366E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4923, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4923, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4923, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -15795,9 +15791,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hcdbff7759112d44dE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !4973, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !4973, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !4973, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -15952,9 +15948,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hcf11018d06ba620fE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !5023, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !5023, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !5023, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -16109,9 +16105,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hd265be8cb0745b26E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !5073, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !5073, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !5073, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -16266,9 +16262,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hd9f61be126cb261aE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !5123, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !5123, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !5123, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -16423,9 +16419,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17he107e74d7ca1c412E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !5173, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !5173, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !5173, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -16580,9 +16576,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17heda1f0e3e0675b65E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !5223, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !5223, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !5223, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -16737,9 +16733,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hf4aa8a6a844be594E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !5273, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !5273, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !5273, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -16894,9 +16890,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hf5a7ddba1d6d5d8fE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !5323, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !5323, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !5323, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -17051,9 +17047,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hfaa6befc53e59c17E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !5373, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !5373, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !5373, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -17208,9 +17204,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hfbfb663bdcfe781aE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !5423, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !5423, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !5423, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -17365,9 +17361,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hfc5b05eb5514d159E(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !5473, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !5473, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !5473, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -17522,9 +17518,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hfe7b984479a657ffE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !5523, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !5523, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !5523, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -17679,9 +17675,9 @@ define hidden noundef ptr @_ZN6syntax3ast7support5child17hfff8ecb8ffca1e7dE(ptr 
   %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !5573, !nonnull !8, !noundef !8
   %14 = icmp eq i64 %13, 0
-  %spec.select.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = load i16, ptr %spec.select.i.i.i.i.i.i, align 4, !noalias !5573, !noundef !8
+  %.0.in.idx.i.i.i.i.i.i = select i1 %14, i64 4, i64 0
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !5573, !noundef !8
   %15 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %15, label %24, label %23
 
@@ -18409,9 +18405,9 @@ define void @_ZN6syntax3ted10insert_all17h59a41d7cef9e1699E(ptr noalias noundef 
   %.sroa.3.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.3.0.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i, align 8, !noalias !5837, !nonnull !8, !noundef !8
   %33 = icmp eq i64 %32, 0
-  %spec.select.idx.i.i.i = select i1 %33, i64 4, i64 0
-  %spec.select.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i, i64 %spec.select.idx.i.i.i
-  %.0.i.i.i = load i16, ptr %spec.select.i.i.i, align 4, !noalias !5837, !noundef !8
+  %.0.in.idx.i.i.i = select i1 %33, i64 4, i64 0
+  %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i, i64 %.0.in.idx.i.i.i
+  %.0.i.i.i = load i16, ptr %.0.in.i.i.i, align 4, !noalias !5837, !noundef !8
   %34 = icmp ult i16 %.0.i.i.i, 273
   br i1 %34, label %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit.i", label %.invoke
 
@@ -18429,9 +18425,9 @@ define void @_ZN6syntax3ted10insert_all17h59a41d7cef9e1699E(ptr noalias noundef 
   %.sroa.3.0.in.i.i1.i.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.3.0.i.i2.i.i = load ptr, ptr %.sroa.3.0.in.i.i1.i.i, align 8, !noalias !5842, !nonnull !8, !noundef !8
   %38 = icmp eq i64 %37, 0
-  %spec.select.idx.i3.i.i = select i1 %38, i64 4, i64 0
-  %spec.select.i4.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i.i, i64 %spec.select.idx.i3.i.i
-  %.0.i5.i.i = load i16, ptr %spec.select.i4.i.i, align 4, !noalias !5842, !noundef !8
+  %.0.in.idx.i3.i.i = select i1 %38, i64 4, i64 0
+  %.0.in.i4.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i.i, i64 %.0.in.idx.i3.i.i
+  %.0.i5.i.i = load i16, ptr %.0.in.i4.i.i, align 4, !noalias !5842, !noundef !8
   %39 = icmp ult i16 %.0.i5.i.i, 273
   br i1 %39, label %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit.i", label %.invoke
 
@@ -18455,9 +18451,9 @@ define void @_ZN6syntax3ted10insert_all17h59a41d7cef9e1699E(ptr noalias noundef 
   %.sroa.3.0.in.i.i.i40.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.sroa.3.0.i.i.i41.i = load ptr, ptr %.sroa.3.0.in.i.i.i40.i, align 8, !noalias !5851, !nonnull !8, !noundef !8
   %48 = icmp eq i64 %47, 0
-  %spec.select.idx.i.i42.i = select i1 %48, i64 4, i64 0
-  %spec.select.i.i43.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i41.i, i64 %spec.select.idx.i.i42.i
-  %.0.i.i44.i = load i16, ptr %spec.select.i.i43.i, align 4, !noalias !5851, !noundef !8
+  %.0.in.idx.i.i42.i = select i1 %48, i64 4, i64 0
+  %.0.in.i.i43.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i41.i, i64 %.0.in.idx.i.i42.i
+  %.0.i.i44.i = load i16, ptr %.0.in.i.i43.i, align 4, !noalias !5851, !noundef !8
   %49 = icmp ult i16 %.0.i.i44.i, 273
   br i1 %49, label %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit51.i", label %.invoke
 
@@ -18468,9 +18464,9 @@ define void @_ZN6syntax3ted10insert_all17h59a41d7cef9e1699E(ptr noalias noundef 
   %.sroa.3.0.in.i.i1.i46.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.3.0.i.i2.i47.i = load ptr, ptr %.sroa.3.0.in.i.i1.i46.i, align 8, !noalias !5856, !nonnull !8, !noundef !8
   %53 = icmp eq i64 %52, 0
-  %spec.select.idx.i3.i48.i = select i1 %53, i64 4, i64 0
-  %spec.select.i4.i49.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i47.i, i64 %spec.select.idx.i3.i48.i
-  %.0.i5.i50.i = load i16, ptr %spec.select.i4.i49.i, align 4, !noalias !5856, !noundef !8
+  %.0.in.idx.i3.i48.i = select i1 %53, i64 4, i64 0
+  %.0.in.i4.i49.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i47.i, i64 %.0.in.idx.i3.i48.i
+  %.0.i5.i50.i = load i16, ptr %.0.in.i4.i49.i, align 4, !noalias !5856, !noundef !8
   %54 = icmp ult i16 %.0.i5.i50.i, 273
   br i1 %54, label %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit51.i", label %.invoke
 
@@ -18492,9 +18488,9 @@ define void @_ZN6syntax3ted10insert_all17h59a41d7cef9e1699E(ptr noalias noundef 
   %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !5857, !nonnull !8, !noundef !8
   %60 = icmp eq i64 %59, 0
-  %spec.select.idx.i.i.i.i = select i1 %60, i64 4, i64 0
-  %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i
-  %.0.i.i.i.i = load i16, ptr %spec.select.i.i.i.i, align 4, !noalias !5857, !noundef !8
+  %.0.in.idx.i.i.i.i = select i1 %60, i64 4, i64 0
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !5857, !noundef !8
   %61 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %61, label %70, label %69
 
@@ -18696,9 +18692,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %105
   %.sroa.3.0.in.i.i1.i70.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.3.0.i.i2.i71.i = load ptr, ptr %.sroa.3.0.in.i.i1.i70.i, align 8, !noalias !5914, !nonnull !8, !noundef !8
   %132 = icmp eq i64 %131, 0
-  %spec.select.idx.i3.i72.i = select i1 %132, i64 4, i64 0
-  %spec.select.i4.i73.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i71.i, i64 %spec.select.idx.i3.i72.i
-  %.0.i5.i74.i = load i16, ptr %spec.select.i4.i73.i, align 4, !noalias !5914, !noundef !8
+  %.0.in.idx.i3.i72.i = select i1 %132, i64 4, i64 0
+  %.0.in.i4.i73.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i71.i, i64 %.0.in.idx.i3.i72.i
+  %.0.i5.i74.i = load i16, ptr %.0.in.i4.i73.i, align 4, !noalias !5914, !noundef !8
   %133 = icmp ult i16 %.0.i5.i74.i, 273
   br i1 %133, label %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit75.i", label %.invoke
 
@@ -18720,9 +18716,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %105
   %.sroa.3.0.in.i.i.i77.i = getelementptr inbounds nuw i8, ptr %139, i64 8
   %.sroa.3.0.i.i.i78.i = load ptr, ptr %.sroa.3.0.in.i.i.i77.i, align 8, !noalias !5925, !nonnull !8, !noundef !8
   %141 = icmp eq i64 %140, 0
-  %spec.select.idx.i.i79.i = select i1 %141, i64 4, i64 0
-  %spec.select.i.i80.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i78.i, i64 %spec.select.idx.i.i79.i
-  %.0.i.i81.i = load i16, ptr %spec.select.i.i80.i, align 4, !noalias !5925, !noundef !8
+  %.0.in.idx.i.i79.i = select i1 %141, i64 4, i64 0
+  %.0.in.i.i80.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i78.i, i64 %.0.in.idx.i.i79.i
+  %.0.i.i81.i = load i16, ptr %.0.in.i.i80.i, align 4, !noalias !5925, !noundef !8
   %142 = icmp ult i16 %.0.i.i81.i, 273
   br i1 %142, label %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit88.i", label %.invoke
 
@@ -18733,9 +18729,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %105
   %.sroa.3.0.in.i.i1.i83.i = getelementptr inbounds nuw i8, ptr %144, i64 8
   %.sroa.3.0.i.i2.i84.i = load ptr, ptr %.sroa.3.0.in.i.i1.i83.i, align 8, !noalias !5930, !nonnull !8, !noundef !8
   %146 = icmp eq i64 %145, 0
-  %spec.select.idx.i3.i85.i = select i1 %146, i64 4, i64 0
-  %spec.select.i4.i86.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i84.i, i64 %spec.select.idx.i3.i85.i
-  %.0.i5.i87.i = load i16, ptr %spec.select.i4.i86.i, align 4, !noalias !5930, !noundef !8
+  %.0.in.idx.i3.i85.i = select i1 %146, i64 4, i64 0
+  %.0.in.i4.i86.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i84.i, i64 %.0.in.idx.i3.i85.i
+  %.0.i5.i87.i = load i16, ptr %.0.in.i4.i86.i, align 4, !noalias !5930, !noundef !8
   %147 = icmp ult i16 %.0.i5.i87.i, 273
   br i1 %147, label %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit88.i", label %.invoke
 
@@ -18770,9 +18766,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %105
   %.sroa.3.0.in.i.i.i.i92.i = getelementptr inbounds nuw i8, ptr %149, i64 8
   %.sroa.3.0.i.i.i.i93.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i92.i, align 8, !noalias !5931, !nonnull !8, !noundef !8
   %154 = icmp eq i64 %153, 0
-  %spec.select.idx.i.i.i94.i = select i1 %154, i64 4, i64 0
-  %spec.select.i.i.i95.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i93.i, i64 %spec.select.idx.i.i.i94.i
-  %.0.i.i.i96.i = load i16, ptr %spec.select.i.i.i95.i, align 4, !noalias !5931, !noundef !8
+  %.0.in.idx.i.i.i94.i = select i1 %154, i64 4, i64 0
+  %.0.in.i.i.i95.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i93.i, i64 %.0.in.idx.i.i.i94.i
+  %.0.i.i.i96.i = load i16, ptr %.0.in.i.i.i95.i, align 4, !noalias !5931, !noundef !8
   %155 = icmp ult i16 %.0.i.i.i96.i, 273
   br i1 %155, label %164, label %163
 
@@ -19485,9 +19481,9 @@ define internal fastcc noundef ptr @_ZN6syntax3ted10ws_between17h22f1c6f3c0a0d4d
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !6050, !nonnull !8, !noundef !8
   %12 = icmp eq i64 %11, 0
-  %spec.select.idx.i.i = select i1 %12, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
-  %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !6050, !noundef !8
+  %.0.in.idx.i.i = select i1 %12, i64 4, i64 0
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %.0.in.idx.i.i
+  %.0.i.i = load i16, ptr %.0.in.i.i, align 4, !noalias !6050, !noundef !8
   %13 = icmp ult i16 %.0.i.i, 273
   br i1 %13, label %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit", label %14
 
@@ -19502,9 +19498,9 @@ define internal fastcc noundef ptr @_ZN6syntax3ted10ws_between17h22f1c6f3c0a0d4d
   %.sroa.3.0.in.i.i1.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.3.0.i.i2.i = load ptr, ptr %.sroa.3.0.in.i.i1.i, align 8, !noalias !6054, !nonnull !8, !noundef !8
   %18 = icmp eq i64 %17, 0
-  %spec.select.idx.i3.i = select i1 %18, i64 4, i64 0
-  %spec.select.i4.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i, i64 %spec.select.idx.i3.i
-  %.0.i5.i = load i16, ptr %spec.select.i4.i, align 4, !noalias !6054, !noundef !8
+  %.0.in.idx.i3.i = select i1 %18, i64 4, i64 0
+  %.0.in.i4.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i, i64 %.0.in.idx.i3.i
+  %.0.i5.i = load i16, ptr %.0.in.i4.i, align 4, !noalias !6054, !noundef !8
   %19 = icmp ult i16 %.0.i5.i, 273
   br i1 %19, label %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit", label %20
 
@@ -19533,9 +19529,9 @@ define internal fastcc noundef ptr @_ZN6syntax3ted10ws_between17h22f1c6f3c0a0d4d
   %.sroa.3.0.in.i.i.i18 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.3.0.i.i.i19 = load ptr, ptr %.sroa.3.0.in.i.i.i18, align 8, !noalias !6061, !nonnull !8, !noundef !8
   %29 = icmp eq i64 %28, 0
-  %spec.select.idx.i.i20 = select i1 %29, i64 4, i64 0
-  %spec.select.i.i21 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i19, i64 %spec.select.idx.i.i20
-  %.0.i.i22 = load i16, ptr %spec.select.i.i21, align 4, !noalias !6061, !noundef !8
+  %.0.in.idx.i.i20 = select i1 %29, i64 4, i64 0
+  %.0.in.i.i21 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i19, i64 %.0.in.idx.i.i20
+  %.0.i.i22 = load i16, ptr %.0.in.i.i21, align 4, !noalias !6061, !noundef !8
   %30 = icmp ult i16 %.0.i.i22, 273
   br i1 %30, label %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit29.thread", label %31
 
@@ -19550,9 +19546,9 @@ define internal fastcc noundef ptr @_ZN6syntax3ted10ws_between17h22f1c6f3c0a0d4d
   %.sroa.3.0.in.i.i1.i24 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.3.0.i.i2.i25 = load ptr, ptr %.sroa.3.0.in.i.i1.i24, align 8, !noalias !6065, !nonnull !8, !noundef !8
   %35 = icmp eq i64 %34, 0
-  %spec.select.idx.i3.i26 = select i1 %35, i64 4, i64 0
-  %spec.select.i4.i27 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i25, i64 %spec.select.idx.i3.i26
-  %.0.i5.i28 = load i16, ptr %spec.select.i4.i27, align 4, !noalias !6065, !noundef !8
+  %.0.in.idx.i3.i26 = select i1 %35, i64 4, i64 0
+  %.0.in.i4.i27 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i25, i64 %.0.in.idx.i3.i26
+  %.0.i5.i28 = load i16, ptr %.0.in.i4.i27, align 4, !noalias !6065, !noundef !8
   %36 = icmp ult i16 %.0.i5.i28, 273
   br i1 %36, label %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit29", label %37
 
@@ -19585,9 +19581,9 @@ define internal fastcc noundef ptr @_ZN6syntax3ted10ws_between17h22f1c6f3c0a0d4d
 
 41:                                               ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit55"
   %42 = icmp eq i64 %21, 0
-  %spec.select.idx.i3.i65 = select i1 %42, i64 4, i64 0
-  %spec.select.i4.i66 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i64, i64 %spec.select.idx.i3.i65
-  %.0.i5.i67 = load i16, ptr %spec.select.i4.i66, align 4, !noalias !6066, !noundef !8
+  %.0.in.idx.i3.i65 = select i1 %42, i64 4, i64 0
+  %.0.in.i4.i66 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i64, i64 %.0.in.idx.i3.i65
+  %.0.i5.i67 = load i16, ptr %.0.in.i4.i66, align 4, !noalias !6066, !noundef !8
   %43 = icmp ult i16 %.0.i5.i67, 273
   br i1 %trunc.i, label %46, label %44
 
@@ -19611,9 +19607,9 @@ define internal fastcc noundef ptr @_ZN6syntax3ted10ws_between17h22f1c6f3c0a0d4d
 
 49:                                               ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit68"
   %50 = icmp eq i64 %39, 0
-  %spec.select.idx.i3.i78 = select i1 %50, i64 4, i64 0
-  %spec.select.i4.i79 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i77, i64 %spec.select.idx.i3.i78
-  %.0.i5.i80 = load i16, ptr %spec.select.i4.i79, align 4, !noalias !6069, !noundef !8
+  %.0.in.idx.i3.i78 = select i1 %50, i64 4, i64 0
+  %.0.in.i4.i79 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i2.i77, i64 %.0.in.idx.i3.i78
+  %.0.i5.i80 = load i16, ptr %.0.in.i4.i79, align 4, !noalias !6069, !noundef !8
   %51 = icmp ult i16 %.0.i5.i80, 273
   br i1 %trunc.i17, label %54, label %52
 

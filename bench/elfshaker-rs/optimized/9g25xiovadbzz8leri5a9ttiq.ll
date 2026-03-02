@@ -4320,16 +4320,16 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   br i1 %12, label %49, label %41
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.0.014 = phi ptr [ %26, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.sroa.06.013 = phi ptr [ %24, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %.sroa.010.012 = phi ptr [ %27, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %.sroa.013.011 = phi ptr [ %39, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %.sroa.015.010 = phi ptr [ %38, %.lr.ph ], [ %6, %.lr.ph.preheader ]
-  %.sroa.017.09 = phi ptr [ %40, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %.sroa.018.08 = phi i64 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %13 = add nuw nsw i64 %.sroa.018.08, 1
-  %.sroa.06.0.val = load ptr, ptr %.sroa.06.013, align 8, !nonnull !3, !align !65, !noundef !3
-  %.sroa.0.0.val = load ptr, ptr %.sroa.0.014, align 8, !nonnull !3, !align !65, !noundef !3
+  %.sroa.0.010 = phi ptr [ %26, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.sroa.06.09 = phi ptr [ %24, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %.sroa.010.08 = phi ptr [ %27, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.sroa.013.07 = phi ptr [ %39, %.lr.ph ], [ %8, %.lr.ph.preheader ]
+  %.sroa.015.06 = phi ptr [ %38, %.lr.ph ], [ %6, %.lr.ph.preheader ]
+  %.sroa.017.05 = phi ptr [ %40, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+  %.sroa.018.04 = phi i64 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %13 = add nuw nsw i64 %.sroa.018.04, 1
+  %.sroa.06.0.val = load ptr, ptr %.sroa.06.09, align 8, !nonnull !3, !align !65, !noundef !3
+  %.sroa.0.0.val = load ptr, ptr %.sroa.0.010, align 8, !nonnull !3, !align !65, !noundef !3
   %14 = getelementptr i8, ptr %.sroa.06.0.val, i64 8
   %.val.i.i = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
   %15 = getelementptr i8, ptr %.sroa.06.0.val, i64 16
@@ -4347,14 +4347,14 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %22 = icmp sgt i64 %spec.store.select.i.i.i.i, -1
   %.v = select i1 %22, ptr %.sroa.0.0.val, ptr %.sroa.06.0.val
   %23 = ptrtoint ptr %.v to i64
-  store i64 %23, ptr %.sroa.010.012, align 8, !noalias !572
+  store i64 %23, ptr %.sroa.010.08, align 8, !noalias !572
   %spec.store.select.i.i.i.i.lobit = lshr i64 %spec.store.select.i.i.i.i, 63
-  %24 = getelementptr inbounds nuw ptr, ptr %.sroa.06.013, i64 %spec.store.select.i.i.i.i.lobit
+  %24 = getelementptr inbounds nuw ptr, ptr %.sroa.06.09, i64 %spec.store.select.i.i.i.i.lobit
   %25 = zext i1 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %.sroa.0.014, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.010.012, i64 8
-  %.sroa.015.0.val = load ptr, ptr %.sroa.015.010, align 8, !nonnull !3, !align !65, !noundef !3
-  %.sroa.013.0.val = load ptr, ptr %.sroa.013.011, align 8, !nonnull !3, !align !65, !noundef !3
+  %26 = getelementptr inbounds nuw ptr, ptr %.sroa.0.010, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.010.08, i64 8
+  %.sroa.015.0.val = load ptr, ptr %.sroa.015.06, align 8, !nonnull !3, !align !65, !noundef !3
+  %.sroa.013.0.val = load ptr, ptr %.sroa.013.07, align 8, !nonnull !3, !align !65, !noundef !3
   %28 = getelementptr i8, ptr %.sroa.015.0.val, i64 8
   %.val.i.i24 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
   %29 = getelementptr i8, ptr %.sroa.015.0.val, i64 16
@@ -4370,14 +4370,14 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %35 = icmp eq i32 %33, 0
   %spec.store.select.i.i.i.i29 = select i1 %35, i64 %32, i64 %34
   %36 = icmp sgt i64 %spec.store.select.i.i.i.i29, -1
-  %.v23 = select i1 %36, ptr %.sroa.015.0.val, ptr %.sroa.013.0.val
-  %37 = ptrtoint ptr %.v23 to i64
-  store i64 %37, ptr %.sroa.017.09, align 8, !noalias !580
+  %.v19 = select i1 %36, ptr %.sroa.015.0.val, ptr %.sroa.013.0.val
+  %37 = ptrtoint ptr %.v19 to i64
+  store i64 %37, ptr %.sroa.017.05, align 8, !noalias !580
   %.neg.i = sext i1 %36 to i64
-  %38 = getelementptr ptr, ptr %.sroa.015.010, i64 %.neg.i
+  %38 = getelementptr ptr, ptr %.sroa.015.06, i64 %.neg.i
   %spec.store.select.i.i.i.i29.lobit = ashr i64 %spec.store.select.i.i.i.i29, 63
-  %39 = getelementptr ptr, ptr %.sroa.013.011, i64 %spec.store.select.i.i.i.i29.lobit
-  %40 = getelementptr inbounds i8, ptr %.sroa.017.09, i64 -8
+  %39 = getelementptr ptr, ptr %.sroa.013.07, i64 %spec.store.select.i.i.i.i29.lobit
+  %40 = getelementptr inbounds i8, ptr %.sroa.017.05, i64 -8
   %exitcond.not = icmp eq i64 %13, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 

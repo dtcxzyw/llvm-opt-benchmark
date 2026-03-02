@@ -4857,8 +4857,7 @@ declare i32 @s_p_handle_boolean(ptr noundef, ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_handle_expline_merge(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %.not.i = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %5 = load i8, ptr %2, align 1
   %.not8.i.i = icmp eq i8 %5, 0
   br i1 %.not8.i.i, label %_conf_hashtbl_index.exit.i, label %.lr.ph.i.i

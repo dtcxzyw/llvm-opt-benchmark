@@ -19794,8 +19794,7 @@ thread-pre-split:                                 ; preds = %664
           to label %.noexc474 unwind label %692
 
 .noexc474:                                        ; preds = %670
-  %.not.i.i.i473 = icmp ne ptr %671, null
-  call void @llvm.assume(i1 %.not.i.i.i473)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %671) ]
   %672 = load i32, ptr %671, align 8, !tbaa !84
   %673 = icmp eq i32 %672, 9
   %674 = getelementptr inbounds nuw i8, ptr %671, i64 8
@@ -20611,8 +20610,7 @@ _ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3
           to label %.noexc552 unwind label %1074
 
 .noexc552:                                        ; preds = %1025
-  %.not.i.i.i551 = icmp ne ptr %1026, null
-  call void @llvm.assume(i1 %.not.i.i.i551)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1026) ]
   %1027 = load i32, ptr %1026, align 8, !tbaa !84
   %1028 = icmp eq i32 %1027, 9
   %1029 = getelementptr inbounds nuw i8, ptr %1026, i64 8
@@ -20768,8 +20766,7 @@ _ZN4Luau8PropertyD2Ev.exit:                       ; preds = %_ZNSt6vectorINSt7__
           to label %.noexc570 unwind label %1107
 
 .noexc570:                                        ; preds = %1085
-  %.not.i.i.i569 = icmp ne ptr %1086, null
-  call void @llvm.assume(i1 %.not.i.i.i569)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1086) ]
   %1087 = load i32, ptr %1086, align 8, !tbaa !84
   %1088 = icmp eq i32 %1087, 9
   %1089 = getelementptr inbounds nuw i8, ptr %1086, i64 8
@@ -38741,8 +38738,7 @@ _ZN4Luau10getMutableINS_16VariadicTypePackEEEPT_PNS_15PendingTypePackE.exit.sink
   %.not.i = icmp eq ptr %16, null
   %.162 = select i1 %.not.i, ptr %2, ptr %16
   %17 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef %.162)
-  %.not.i.i.i = icmp ne ptr %17, null
-  tail call void @llvm.assume(i1 %.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !47
   %20 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %19)
@@ -39956,8 +39952,7 @@ _ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.spl
   %.not.i = icmp eq ptr %5, null
   %. = select i1 %.not.i, ptr %4, ptr %5
   %6 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef %.)
-  %.not.i.i.i = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i64, ptr %7, align 4
@@ -51808,8 +51803,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau16SkipCacheForType5vis
 
 _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %3
   %8 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef nonnull %1)
-  %.not.i.i = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 288
   %10 = load i8, ptr %9, align 8, !tbaa !483, !range !43, !noundef !44
   %11 = trunc nuw i8 %10 to i1

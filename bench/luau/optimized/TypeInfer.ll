@@ -24750,8 +24750,7 @@ _ZN4Luau11TypeChecker9freshTypeERKSt10shared_ptrINS_5ScopeEE.exit: ; preds = %47
           to label %.noexc142 unwind label %548
 
 .noexc142:                                        ; preds = %_ZN4Luau11TypeChecker9freshTypeERKSt10shared_ptrINS_5ScopeEE.exit
-  %.not.i.i141 = icmp ne ptr %477, null
-  call void @llvm.assume(i1 %.not.i.i141)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %477) ]
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 32
   store i8 1, ptr %478, align 8, !tbaa !916
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -76972,8 +76971,7 @@ _ZN4Luau8TypePackD2Ev.exit:                       ; preds = %_ZN4Luau7VariantIJN
           to label %.noexc unwind label %227
 
 .noexc:                                           ; preds = %_ZN4Luau8TypePackD2Ev.exit
-  %.not.i.i161 = icmp ne ptr %182, null
-  call void @llvm.assume(i1 %.not.i.i161)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %182) ]
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load ptr, ptr %183, align 8, !tbaa !679
   %185 = invoke ptr @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EERS8_(ptr noundef nonnull align 8 dereferenceable(24) %183, ptr %184, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -93879,8 +93877,7 @@ _ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %293
           to label %.noexc134 unwind label %320
 
 .noexc134:                                        ; preds = %298
-  %.not.i.i133 = icmp ne ptr %299, null
-  call void @llvm.assume(i1 %.not.i.i133)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %299) ]
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
   %301 = load ptr, ptr %300, align 8, !tbaa !1070
   %302 = invoke noundef ptr @_ZN4Luau12Substitution5cloneEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(472) %10, ptr noundef %301)
@@ -101907,8 +101904,7 @@ _ZN4Luau3getINS_12FreeTypePackEEEPKT_PKNS_11TypePackVarE.exit:
   %3 = alloca %"struct.Luau::TypePackVar", align 8
   %4 = alloca %"class.Luau::Variant.511", align 8
   %5 = alloca %"struct.Luau::FreeTypePack", align 8
-  %.not.i.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

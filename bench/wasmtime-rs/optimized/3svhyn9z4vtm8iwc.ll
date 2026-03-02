@@ -615,18 +615,16 @@ define void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @_ZN4core3ops8function2Fn4call17h595849e278e5b177E(ptr readnone align 1 captures(none) %0, ptr align 16 %1) unnamed_addr #1 {
-  %3 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = tail call zeroext i1 @_ZN14cranelift_isle5lexer5Token6is_int17h32e246d0da8e0fcaE(ptr nonnull align 16 %1)
-  ret i1 %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %3 = tail call zeroext i1 @_ZN14cranelift_isle5lexer5Token6is_int17h32e246d0da8e0fcaE(ptr nonnull align 16 %1)
+  ret i1 %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @_ZN4core3ops8function2Fn4call17hc521e6cf04d56de2E(ptr readnone align 1 captures(none) %0, ptr align 16 %1) unnamed_addr #1 {
-  %3 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = tail call zeroext i1 @_ZN14cranelift_isle5lexer5Token6is_sym17h70f056fc40d88988E(ptr nonnull align 16 %1)
-  ret i1 %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %3 = tail call zeroext i1 @_ZN14cranelift_isle5lexer5Token6is_sym17h70f056fc40d88988E(ptr nonnull align 16 %1)
+  ret i1 %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -637,12 +635,10 @@ define hidden { i64, i64 } @_ZN4core3ops8function5FnMut8call_mut17h36cdd2efb3d15
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17h60e8ef0d9f2cd9c2E(ptr readnone align 1 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i8 @"_ZN4core3cmp5impls48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$i64$GT$3cmp17h4746a50742e65d55E"(ptr nonnull align 8 %1, ptr nonnull align 8 %2), !range !6
-  ret i8 %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %4 = tail call i8 @"_ZN4core3cmp5impls48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$i64$GT$3cmp17h4746a50742e65d55E"(ptr nonnull align 8 %1, ptr nonnull align 8 %2), !range !6
+  ret i8 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -659,12 +655,10 @@ define hidden { i64, i64 } @_ZN4core3ops8function5FnMut8call_mut17h74f077339e569
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17h802c2afe785edb3aE(ptr readnone align 1 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17h8fb2a1ce22a02f5bE"(ptr nonnull align 8 %1, ptr nonnull align 8 %2), !range !6
-  ret i8 %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %4 = tail call i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17h8fb2a1ce22a02f5bE"(ptr nonnull align 8 %1, ptr nonnull align 8 %2), !range !6
+  ret i8 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -685,22 +679,18 @@ define hidden void @_ZN4core3ops8function5FnMut8call_mut17hb0e14f4a96ffa027E(ptr
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17hc39cda20f896c247E(ptr readnone align 1 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i8 @_ZN4core4iter6traits8iterator8Iterator10max_by_key7compare17h7c5fdb8df4c43cf1E(ptr nonnull align 8 %1, ptr nonnull align 8 %2), !range !6
-  ret i8 %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %4 = tail call i8 @_ZN4core4iter6traits8iterator8Iterator10max_by_key7compare17h7c5fdb8df4c43cf1E(ptr nonnull align 8 %1, ptr nonnull align 8 %2), !range !6
+  ret i8 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17hd14eb063548aa8ecE(ptr readnone align 1 captures(none) %0, ptr align 2 %1, ptr align 2 %2) unnamed_addr #1 {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call zeroext i1 @_ZN4core3cmp10PartialOrd2lt17hf6ce708cf04e8a88E(ptr nonnull align 2 %1, ptr nonnull align 2 %2)
-  ret i1 %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %4 = tail call zeroext i1 @_ZN4core3cmp10PartialOrd2lt17hf6ce708cf04e8a88E(ptr nonnull align 2 %1, ptr nonnull align 2 %2)
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -758,13 +748,12 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h19a6bc627cb81976E"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h96ad2cefb00c3d76E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h96ad2cefb00c3d76E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -846,26 +835,24 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h4f0caad024044f5eE"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h4ca6c23f4ab581c1E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h4ca6c23f4ab581c1E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h596cb4bf20ca773cE"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hc03b9ad242d2f04eE"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hc03b9ad242d2f04eE"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -917,13 +904,12 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h6bb21f8b7509d01fE"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h6ef611ccae139a20E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h6ef611ccae139a20E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -945,13 +931,12 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h6fec7d8fbd8175f2E"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h4a9dfe09580c7088E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h4a9dfe09580c7088E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -988,26 +973,24 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h818de8c750f0d292E"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h75207a5878223032E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h75207a5878223032E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h8379e4d54d25a83eE"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hfaaa1a1229da32dfE"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hfaaa1a1229da32dfE"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1044,26 +1027,24 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h93b0ec4c1994611cE"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h8738ed3dfa001d70E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h8738ed3dfa001d70E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h9932a0ce695ab8cdE"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hbc41d8bafce609a3E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hbc41d8bafce609a3E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1085,26 +1066,24 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17ha2ff1f0a8fd5cdd8E"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hc50f0a9b3686b206E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hc50f0a9b3686b206E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hb1c374ff92f21eeeE"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h8173b5685a88698dE"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h8173b5685a88698dE"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1141,13 +1120,12 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hc88373752f68e931E"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h7e2b2c841c3f1684E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h7e2b2c841c3f1684E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1169,13 +1147,12 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hce41b94c71c05c37E"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h6cc97328efc11a8aE"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h6cc97328efc11a8aE"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1194,13 +1171,12 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
 define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hd82472406937d3daE"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  %7 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hf89c9abf5e319400E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
+  %6 = call i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hf89c9abf5e319400E"(ptr nonnull align 8 %4, ptr nonnull align 8 %1, i64 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %7
+  ret i64 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1295,22 +1271,18 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17h0020ec4c3e39391aE(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
-  %3 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h55342696dfae50c4E"(ptr nonnull align 8 %0, ptr nonnull align 8 %1), !range !6
-  ret i8 %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %3 = tail call i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h55342696dfae50c4E"(ptr nonnull align 8 %0, ptr nonnull align 8 %1), !range !6
+  ret i8 %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17h21ae499243891063E(ptr align 1 %0, ptr align 1 %1) unnamed_addr #1 {
-  %3 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i8 @"_ZN74_$LT$cranelift_isle..serialize..BindingState$u20$as$u20$core..cmp..Ord$GT$3cmp17hd281b433fef93bf3E"(ptr nonnull align 1 %0, ptr nonnull align 1 %1), !range !6
-  ret i8 %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %3 = tail call i8 @"_ZN74_$LT$cranelift_isle..serialize..BindingState$u20$as$u20$core..cmp..Ord$GT$3cmp17hd281b433fef93bf3E"(ptr nonnull align 1 %0, ptr nonnull align 1 %1), !range !6
+  ret i8 %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1343,8 +1315,7 @@ define hidden i64 @_ZN4core3ops8function6FnOnce9call_once17h8984cf9948923db1E(i6
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN4core3ops8function6FnOnce9call_once17hb1eb4376f337cc1cE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   tail call void @"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17he41b57aed348051bE"(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nonnull align 1 %1, i64 %2)
   ret void
 }
@@ -3480,8 +3451,7 @@ define void @"_ZN4core3ptr180drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIte
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hff70f406d2ae8a74E"(ptr align 8 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %3)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   tail call void @"_ZN9hashbrown3raw13RawTableInner15rehash_in_place28_$u7b$$u7b$closure$u7d$$u7d$17hd8b99da239a3f998E"(ptr nonnull align 8 %2, ptr nonnull align 8 %0)
   ret void
 }
@@ -18655,8 +18625,7 @@ define void @"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u2
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbabb838d7f2c6c03E"(ptr align 8 %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %3)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   tail call void @"_ZN9hashbrown3raw13RawTableInner15rehash_in_place28_$u7b$$u7b$closure$u7d$$u7d$17hd8b99da239a3f998E"(ptr nonnull align 8 %2, ptr nonnull align 8 %0)
   ret void
 }

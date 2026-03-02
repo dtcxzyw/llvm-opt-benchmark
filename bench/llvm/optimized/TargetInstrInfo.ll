@@ -2660,6 +2660,7 @@ _ZL11canFoldCopyRKN4llvm12MachineInstrERKNS_15TargetInstrInfoEj.exit: ; preds = 
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8
   %217 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %218 = inttoptr i64 %217 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %218) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i114 = load i64, ptr %218, align 8
   %219 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i114, 4
   %.not.i.i.i115 = icmp eq i64 %219, 0
@@ -3118,6 +3119,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.0.copyload.i, align 8
   %2 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
   %3 = inttoptr i64 %2 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %3, align 8
   %4 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
   %.not.i.i = icmp eq i64 %4, 0
@@ -3444,6 +3446,7 @@ define dso_local void @_ZNK4llvm15TargetInstrInfo9lowerCopyEPNS_12MachineInstrEP
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8
   %58 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %59 = inttoptr i64 %58 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %59) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %59, align 8
   %60 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %60, 0

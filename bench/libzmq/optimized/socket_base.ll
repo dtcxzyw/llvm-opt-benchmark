@@ -9686,73 +9686,72 @@ _ZNSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3zmq6pipe_t
 
 _ZN3zmq13socket_base_t9inprocs_t10erase_pipeEPKNS_6pipe_tE.exit: ; preds = %21, %2, %_ZNSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3zmq6pipe_tESt4lessIS5_ESaISt4pairIKS5_S8_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISD_E.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1640
-  %24 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %24)
-  %25 = load ptr, ptr %23, align 8, !tbaa !218
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1648
-  %27 = load ptr, ptr %26, align 8, !tbaa !218
-  %28 = icmp eq ptr %25, %27
-  br i1 %28, label %_ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit, label %29
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %24 = load ptr, ptr %23, align 8, !tbaa !218
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1648
+  %26 = load ptr, ptr %25, align 8, !tbaa !218
+  %27 = icmp eq ptr %24, %26
+  br i1 %27, label %_ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit, label %28
 
-29:                                               ; preds = %_ZN3zmq13socket_base_t9inprocs_t10erase_pipeEPKNS_6pipe_tE.exit
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %31 = load i32, ptr %30, align 8, !tbaa !134
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %27, i64 -8
-  %34 = load ptr, ptr %33, align 8, !tbaa !3, !nonnull !98, !noundef !98
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  store i32 %31, ptr %35, align 8, !tbaa !134
-  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %32
-  store ptr %34, ptr %36, align 8, !tbaa !3
-  store ptr %33, ptr %26, align 8, !tbaa !133
+28:                                               ; preds = %_ZN3zmq13socket_base_t9inprocs_t10erase_pipeEPKNS_6pipe_tE.exit
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %30 = load i32, ptr %29, align 8, !tbaa !134
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds i8, ptr %26, i64 -8
+  %33 = load ptr, ptr %32, align 8, !tbaa !3, !nonnull !98, !noundef !98
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
+  store i32 %30, ptr %34, align 8, !tbaa !134
+  %35 = getelementptr inbounds nuw ptr, ptr %24, i64 %31
+  store ptr %33, ptr %35, align 8, !tbaa !3
+  store ptr %32, ptr %25, align 8, !tbaa !133
   br label %_ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit
 
-_ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit: ; preds = %_ZN3zmq13socket_base_t9inprocs_t10erase_pipeEPKNS_6pipe_tE.exit, %29
-  %37 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq6pipe_t17get_endpoint_pairEv(ptr noundef nonnull align 8 dereferenceable(328) %1)
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %39 = load i32, ptr %38, align 8, !tbaa !119
-  %40 = icmp eq i32 %39, 1
-  %.idx.i = select i1 %40, i64 0, i64 32
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !16
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %.loopexit, label %45
+_ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit: ; preds = %_ZN3zmq13socket_base_t9inprocs_t10erase_pipeEPKNS_6pipe_tE.exit, %28
+  %36 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq6pipe_t17get_endpoint_pairEv(ptr noundef nonnull align 8 dereferenceable(328) %1)
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %38 = load i32, ptr %37, align 8, !tbaa !119
+  %39 = icmp eq i32 %38, 1
+  %.idx.i = select i1 %39, i64 0, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load i64, ptr %41, align 8, !tbaa !16
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %.loopexit, label %44
 
-45:                                               ; preds = %_ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1528
-  %47 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S6_IPN3zmq5own_tEPNS8_6pipe_tEEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE11equal_rangeERS7_(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull align 8 dereferenceable(32) %41)
-  %48 = extractvalue { ptr, ptr } %47, 0
-  %49 = extractvalue { ptr, ptr } %47, 1
-  %.not14 = icmp eq ptr %48, %49
+44:                                               ; preds = %_ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1528
+  %46 = tail call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S6_IPN3zmq5own_tEPNS8_6pipe_tEEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE11equal_rangeERS7_(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(32) %40)
+  %47 = extractvalue { ptr, ptr } %46, 0
+  %48 = extractvalue { ptr, ptr } %46, 1
+  %.not14 = icmp eq ptr %47, %48
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %45, %55
-  %.sroa.0.015 = phi ptr [ %56, %55 ], [ %48, %45 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.015, i64 72
-  %51 = load ptr, ptr %50, align 8, !tbaa !202
-  %52 = icmp eq ptr %51, %1
-  br i1 %52, label %53, label %55
+.lr.ph:                                           ; preds = %44, %54
+  %.sroa.0.015 = phi ptr [ %55, %54 ], [ %47, %44 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.015, i64 72
+  %50 = load ptr, ptr %49, align 8, !tbaa !202
+  %51 = icmp eq ptr %50, %1
+  br i1 %51, label %52, label %54
 
-53:                                               ; preds = %.lr.ph
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.015, i64 72
-  store ptr null, ptr %54, align 8, !tbaa !202
+52:                                               ; preds = %.lr.ph
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.015, i64 72
+  store ptr null, ptr %53, align 8, !tbaa !202
   br label %.loopexit
 
-55:                                               ; preds = %.lr.ph
-  %56 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.015) #40
-  %.not = icmp eq ptr %56, %49
+54:                                               ; preds = %.lr.ph
+  %55 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.015) #40
+  %.not = icmp eq ptr %55, %48
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !219
 
-.loopexit:                                        ; preds = %55, %45, %53, %_ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit
-  %57 = tail call noundef zeroext i1 @_ZNK3zmq5own_t14is_terminatingEv(ptr noundef nonnull align 8 dereferenceable(1444) %0)
-  br i1 %57, label %58, label %59
+.loopexit:                                        ; preds = %54, %44, %52, %_ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit
+  %56 = tail call noundef zeroext i1 @_ZNK3zmq5own_t14is_terminatingEv(ptr noundef nonnull align 8 dereferenceable(1444) %0)
+  br i1 %56, label %57, label %58
 
-58:                                               ; preds = %.loopexit
+57:                                               ; preds = %.loopexit
   tail call void @_ZN3zmq5own_t19unregister_term_ackEv(ptr noundef nonnull align 8 dereferenceable(1444) %0)
-  br label %59
+  br label %58
 
-59:                                               ; preds = %58, %.loopexit
+58:                                               ; preds = %57, %.loopexit
   ret void
 }
 

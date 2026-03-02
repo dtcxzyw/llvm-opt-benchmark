@@ -160,7 +160,7 @@ define hidden void @zim_SplFixedArray___construct(ptr noundef readonly captures(
   store i64 -1, ptr %25, align 8, !tbaa !14
   br label %spl_fixedarray_init.exit
 
-spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i, %2, %24, %13, %12
+spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i, %24, %13, %2, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -286,7 +286,7 @@ spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i, %23
   tail call void @zend_hash_clean(ptr noundef %6) #12
   br label %57
 
-57:                                               ; preds = %.critedge, %._crit_edge, %9
+57:                                               ; preds = %9, %.critedge, %._crit_edge
   ret void
 }
 
@@ -604,7 +604,7 @@ spl_fixedarray_init_non_empty_struct.exit.thread: ; preds = %15
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #12
   br label %82
 
-82:                                               ; preds = %2, %spl_fixedarray_init_non_empty_struct.exit.thread, %12, %80
+82:                                               ; preds = %spl_fixedarray_init_non_empty_struct.exit.thread, %12, %80, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -642,7 +642,7 @@ define hidden void @zim_SplFixedArray_count(ptr noundef readonly captures(none) 
   store i32 4, ptr %10, align 8, !tbaa !8
   br label %11
 
-11:                                               ; preds = %.critedge, %5
+11:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -707,7 +707,7 @@ define hidden void @zim_SplFixedArray_toArray(ptr noundef readonly captures(none
   store i32 7, ptr %33, align 8, !tbaa !8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %28, %11, %32, %5
+.loopexit:                                        ; preds = %28, %11, %5, %32
   ret void
 }
 
@@ -1033,7 +1033,7 @@ spl_fixedarray_init.exit140:                      ; preds = %.lr.ph.i.i137
   store i64 -1, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !4
   br label %.critedge
 
-.critedge:                                        ; preds = %2, %.split.us, %47, %.loopexit
+.critedge:                                        ; preds = %.split.us, %47, %2, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1067,7 +1067,7 @@ define hidden void @zim_SplFixedArray_getSize(ptr noundef readonly captures(none
   store i32 4, ptr %10, align 8, !tbaa !8
   br label %11
 
-11:                                               ; preds = %.critedge, %5
+11:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -1306,13 +1306,13 @@ define hidden void @zim_SplFixedArray_offsetGet(ptr noundef readonly captures(no
 
 13:                                               ; preds = %8
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #12
-  br label %.sink.split31
+  br label %.sink.split28
 
 14:                                               ; preds = %8
   %15 = call fastcc i64 @spl_offset_convert_to_long(ptr noundef nonnull %12)
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !44
   %.not9.i = icmp eq ptr %16, null
-  br i1 %.not9.i, label %17, label %.sink.split31
+  br i1 %.not9.i, label %17, label %.sink.split28
 
 17:                                               ; preds = %14
   %18 = icmp slt i64 %15, 0
@@ -1326,14 +1326,14 @@ define hidden void @zim_SplFixedArray_offsetGet(ptr noundef readonly captures(no
 21:                                               ; preds = %19, %17
   %22 = load ptr, ptr @spl_ce_OutOfBoundsException, align 8, !tbaa !42
   %23 = call ptr @zend_throw_exception(ptr noundef %22, ptr noundef nonnull @.str.10, i64 noundef 0) #12
-  br label %.sink.split31
+  br label %.sink.split28
 
 spl_fixedarray_object_read_dimension_helper.exit: ; preds = %19
   %24 = getelementptr inbounds i8, ptr %10, i64 -24
   %25 = load ptr, ptr %24, align 8, !tbaa !29
   %26 = getelementptr inbounds nuw %struct._zval_struct, ptr %25, i64 %15
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %.sink.split31, label %27
+  br i1 %.not, label %.sink.split28, label %27
 
 27:                                               ; preds = %spl_fixedarray_object_read_dimension_helper.exit
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1357,9 +1357,9 @@ spl_fixedarray_object_read_dimension_helper.exit: ; preds = %19
   br i1 %.not21, label %44, label %.sink.split
 
 .sink.split:                                      ; preds = %31, %34
-  %.sink30 = phi i32 [ %38, %34 ], [ %29, %31 ]
+  %.sink33 = phi i32 [ %38, %34 ], [ %29, %31 ]
   %.sink.in = phi ptr [ %36, %34 ], [ %26, %31 ]
-  %40 = and i32 %.sink30, 65280
+  %40 = and i32 %.sink33, 65280
   %41 = icmp ne i32 %40, 0
   call void @llvm.assume(i1 %41)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !8
@@ -1374,15 +1374,15 @@ spl_fixedarray_object_read_dimension_helper.exit: ; preds = %19
   %46 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !8
   store ptr %45, ptr %1, align 8, !tbaa !8
-  br label %.sink.split31
+  br label %.sink.split28
 
-.sink.split31:                                    ; preds = %spl_fixedarray_object_read_dimension_helper.exit, %13, %21, %14, %44
-  %.sink32 = phi i32 [ %47, %44 ], [ 1, %14 ], [ 1, %21 ], [ 1, %13 ], [ 1, %spl_fixedarray_object_read_dimension_helper.exit ]
+.sink.split28:                                    ; preds = %spl_fixedarray_object_read_dimension_helper.exit, %13, %21, %14, %44
+  %.sink29 = phi i32 [ %47, %44 ], [ 1, %14 ], [ 1, %21 ], [ 1, %13 ], [ 1, %spl_fixedarray_object_read_dimension_helper.exit ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.sink32, ptr %48, align 8, !tbaa !8
+  store i32 %.sink29, ptr %48, align 8, !tbaa !8
   br label %49
 
-49:                                               ; preds = %.sink.split31, %2
+49:                                               ; preds = %.sink.split28, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1553,7 +1553,7 @@ define hidden void @zim_SplFixedArray_offsetUnset(ptr noundef readonly captures(
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %spl_fixedarray_object_unset_dimension_helper.exit
 
-spl_fixedarray_object_unset_dimension_helper.exit: ; preds = %2, %23, %20, %9
+spl_fixedarray_object_unset_dimension_helper.exit: ; preds = %23, %20, %9, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1574,7 +1574,7 @@ define hidden void @zim_SplFixedArray_getIterator(ptr noundef %0, ptr noundef %1
   %7 = tail call i32 @zend_create_internal_iterator_zval(ptr noundef %1, ptr noundef nonnull %6) #12
   br label %8
 
-8:                                                ; preds = %.critedge, %5
+8:                                                ; preds = %5, %.critedge
   ret void
 }
 
@@ -1663,8 +1663,7 @@ define hidden noundef i32 @zm_startup_spl_fixedarray(i32 noundef %0, i32 noundef
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %13, i32 noundef 4, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = call ptr @zend_hash_str_find(ptr noundef nonnull %14, ptr noundef nonnull @.str.12, i64 noundef 8) #12
-  %.not.i36.i = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %.not.i36.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
   %16 = load ptr, ptr %15, align 8, !tbaa !8, !nonnull !43, !noundef !43
   %17 = load ptr, ptr @zend_known_strings, align 8, !tbaa !81
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 600
@@ -1757,38 +1756,37 @@ define internal noundef nonnull ptr @spl_fixedarray_new(ptr noundef %0) #0 {
   tail call void @zend_object_std_init(ptr noundef nonnull %13, ptr noundef %0) #12
   tail call void @object_properties_init(ptr noundef nonnull %13, ptr noundef %0) #12
   %14 = load ptr, ptr @spl_ce_SplFixedArray, align 8
-  %15 = icmp ne ptr %0, null
-  %.not = icmp eq ptr %0, %14
-  br i1 %.not, label %.critedge.i, label %.lr.ph.i
+  %15 = icmp eq ptr %0, %14
+  br i1 %15, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.029.i = phi ptr [ %17, %.lr.ph.i ], [ %0, %1 ]
   %16 = getelementptr inbounds nuw i8, ptr %.029.i, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !8
-  %18 = icmp ne ptr %17, null
-  %19 = icmp ne ptr %17, %14
-  %or.cond25.not.i = and i1 %18, %19
-  br i1 %or.cond25.not.i, label %.lr.ph.i, label %._crit_edge.i
+  %.not.i = icmp eq ptr %17, null
+  %18 = icmp eq ptr %17, %14
+  %or.cond25.i = or i1 %.not.i, %18
+  br i1 %or.cond25.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load ptr, ptr @zend_known_strings, align 8, !tbaa !81
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 576
-  %23 = load ptr, ptr %22, align 8, !tbaa !83
-  %24 = tail call ptr @zend_hash_find(ptr noundef nonnull %20, ptr noundef %23) #12
-  %.not.i.i = icmp ne ptr %24, null
-  tail call void @llvm.assume(i1 %.not.i.i)
-  %25 = load ptr, ptr %24, align 8, !tbaa !8, !nonnull !43, !noundef !43
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !8
-  %28 = icmp eq ptr %27, %17
-  %spec.store.select.i = select i1 %28, ptr null, ptr %25
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %spec.store.select.i, ptr %29, align 8, !tbaa !103
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = load ptr, ptr @zend_known_strings, align 8, !tbaa !81
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 576
+  %22 = load ptr, ptr %21, align 8, !tbaa !83
+  %23 = tail call ptr @zend_hash_find(ptr noundef nonnull %19, ptr noundef %22) #12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
+  %24 = load ptr, ptr %23, align 8, !tbaa !8, !nonnull !43, !noundef !43
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !8
+  %27 = icmp eq ptr %26, %17
+  %spec.store.select.i = select i1 %27, ptr null, ptr %24
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr %spec.store.select.i, ptr %28, align 8, !tbaa !103
   br label %spl_fixedarray_object_new_ex.exit
 
 .critedge.i:                                      ; preds = %1
-  tail call void @llvm.assume(i1 %15)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   br label %spl_fixedarray_object_new_ex.exit
 
 spl_fixedarray_object_new_ex.exit:                ; preds = %._crit_edge.i, %.critedge.i
@@ -2634,42 +2632,42 @@ spl_fixedarray_init.exit.i:                       ; preds = %17
 
 spl_fixedarray_copy_ctor.exit:                    ; preds = %41, %spl_fixedarray_init.exit.i, %3
   %42 = load ptr, ptr @spl_ce_SplFixedArray, align 8
-  %43 = icmp ne ptr %0, null
-  %44 = icmp ne ptr %0, %42
-  %or.cond25.not28 = select i1 %43, i1 %44, i1 false
-  br i1 %or.cond25.not28, label %.lr.ph, label %.critedge
+  %.not27 = icmp eq ptr %0, null
+  %43 = icmp eq ptr %0, %42
+  %or.cond2528 = select i1 %.not27, i1 true, i1 %43
+  br i1 %or.cond2528, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %spl_fixedarray_copy_ctor.exit, %.lr.ph
-  %.029 = phi ptr [ %46, %.lr.ph ], [ %0, %spl_fixedarray_copy_ctor.exit ]
-  %45 = getelementptr inbounds nuw i8, ptr %.029, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !8
-  %47 = icmp ne ptr %46, null
-  %48 = icmp ne ptr %46, %42
-  %or.cond25.not = select i1 %47, i1 %48, i1 false
-  br i1 %or.cond25.not, label %.lr.ph, label %._crit_edge
+  %.029 = phi ptr [ %45, %.lr.ph ], [ %0, %spl_fixedarray_copy_ctor.exit ]
+  %44 = getelementptr inbounds nuw i8, ptr %.029, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !8
+  %.not = icmp eq ptr %45, null
+  %46 = icmp eq ptr %45, %42
+  %or.cond25 = select i1 %.not, i1 true, i1 %46
+  br i1 %or.cond25, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %50 = load ptr, ptr @zend_known_strings, align 8, !tbaa !81
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 576
-  %52 = load ptr, ptr %51, align 8, !tbaa !83
-  %53 = tail call ptr @zend_hash_find(ptr noundef nonnull %49, ptr noundef %52) #12
-  %.not.i = icmp ne ptr %53, null
-  tail call void @llvm.assume(i1 %.not.i)
-  %54 = load ptr, ptr %53, align 8, !tbaa !8, !nonnull !43, !noundef !43
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !8
-  %57 = icmp eq ptr %56, %46
-  %spec.store.select = select i1 %57, ptr null, ptr %54
-  %58 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %spec.store.select, ptr %58, align 8, !tbaa !103
-  br label %59
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %45) ]
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %48 = load ptr, ptr @zend_known_strings, align 8, !tbaa !81
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 576
+  %50 = load ptr, ptr %49, align 8, !tbaa !83
+  %51 = tail call ptr @zend_hash_find(ptr noundef nonnull %47, ptr noundef %50) #12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %51) ]
+  %52 = load ptr, ptr %51, align 8, !tbaa !8, !nonnull !43, !noundef !43
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !8
+  %55 = icmp eq ptr %54, %45
+  %spec.store.select = select i1 %55, ptr null, ptr %52
+  %56 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %spec.store.select, ptr %56, align 8, !tbaa !103
+  br label %57
 
 .critedge:                                        ; preds = %spl_fixedarray_copy_ctor.exit
-  tail call void @llvm.assume(i1 %43)
-  br label %59
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  br label %57
 
-59:                                               ; preds = %.critedge, %._crit_edge
+57:                                               ; preds = %.critedge, %._crit_edge
   ret ptr %15
 }
 

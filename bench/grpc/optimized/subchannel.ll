@@ -1880,6 +1880,7 @@ define linkonce_odr noundef i64 @_ZN4absl12lts_2024072218container_internal12raw
 .thread29.i.i:                                    ; preds = %.lr.ph.i.i
   %52 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.30", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 %48
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %53) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE12find_non_sooIPS7_EENSF_8iteratorERKT_m.exit.i
 
 54:                                               ; preds = %.lr.ph.i.i
@@ -10608,11 +10609,12 @@ define linkonce_odr void @_ZNK4absl12lts_2024072218container_internal12raw_hash_
   %32 = xor i128 %31, %30
   %33 = trunc i128 %32 to i64
   %34 = tail call noundef i64 @_ZN4absl12lts_2024072218container_internal21PrepareInsertAfterSooEmmRNS1_12CommonFieldsE(i64 noundef %33, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(32) %5), !noalias !549
-  %35 = load ptr, ptr %15, align 8, !tbaa !82, !noalias !549, !nonnull !146, !noundef !146
+  %35 = load ptr, ptr %15, align 8, !tbaa !82, !noalias !549
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !82, !noalias !549
   %38 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.30", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %34
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE26find_or_prepare_insert_sooIS8_EESt4pairINSF_8iteratorEbERKT_.exit.i
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE26find_or_prepare_insert_sooIS8_EESt4pairINSF_8iteratorEbERKT_.exit.i: ; preds = %19, %14, %12
@@ -10724,7 +10726,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %49 = add i64 %.sroa.7.0, %48
   %50 = and i64 %49, %20
   %51 = tail call noundef i64 @_ZN4absl12lts_2024072218container_internal19PrepareInsertNonSooERNS1_12CommonFieldsEmNS1_8FindInfoERKNS1_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %19, i64 %50, i64 %.sroa.14.0, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_10Subchannel33ConnectivityStateWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE18GetPolicyFunctionsEvE5value)
-  %52 = load ptr, ptr %4, align 8, !tbaa !82, !nonnull !146, !noundef !146
+  %52 = load ptr, ptr %4, align 8, !tbaa !82
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %51
   %.sroa.0.0.copyload.i.i.i.i22 = load ptr, ptr %29, align 8, !tbaa !82
   %54 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.30", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %51
@@ -10741,10 +10743,11 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %60
 
 60:                                               ; preds = %.thread, %.critedge21
-  %.sink74 = phi ptr [ %53, %.thread ], [ %59, %.critedge21 ]
+  %.sink75 = phi ptr [ %53, %.thread ], [ %59, %.critedge21 ]
   %.sink73 = phi ptr [ %54, %.thread ], [ %58, %.critedge21 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge21 ]
-  store ptr %.sink74, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink75) ]
+  store ptr %.sink75, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink73, ptr %.sroa.4.0..sroa_idx, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16

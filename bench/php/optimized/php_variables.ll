@@ -1242,34 +1242,33 @@ zval_ptr_dtor_nogc.exit271:                       ; preds = %285, %280, %277, %.
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @php_register_known_variable(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
-  %5 = icmp ne ptr %0, null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %5 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %5)
-  %6 = icmp ne i64 %1, 0
-  tail call void @llvm.assume(i1 %6)
-  %7 = load ptr, ptr %3, align 8, !tbaa !11
-  %8 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !23
-  %9 = tail call ptr %8(ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext false) #18
-  %10 = tail call ptr @zend_hash_update_ind(ptr noundef %7, ptr noundef %9, ptr noundef %2) #18
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !11
-  %13 = and i32 %12, 64
-  %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %14, label %zend_string_release_ex.exit
+  %6 = load ptr, ptr %3, align 8, !tbaa !11
+  %7 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !23
+  %8 = tail call ptr %7(ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext false) #18
+  %9 = tail call ptr @zend_hash_update_ind(ptr noundef %6, ptr noundef %8, ptr noundef %2) #18
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !11
+  %12 = and i32 %11, 64
+  %.not.i = icmp eq i32 %12, 0
+  br i1 %.not.i, label %13, label %zend_string_release_ex.exit
 
-14:                                               ; preds = %4
-  %15 = load i32, ptr %9, align 4, !tbaa !12
-  %16 = icmp ne i32 %15, 0
-  tail call void @llvm.assume(i1 %16)
-  %17 = add i32 %15, -1
-  store i32 %17, ptr %9, align 4, !tbaa !12
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %zend_string_release_ex.exit
+13:                                               ; preds = %4
+  %14 = load i32, ptr %8, align 4, !tbaa !12
+  %15 = icmp ne i32 %14, 0
+  tail call void @llvm.assume(i1 %15)
+  %16 = add i32 %14, -1
+  store i32 %16, ptr %8, align 4, !tbaa !12
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %zend_string_release_ex.exit
 
-19:                                               ; preds = %14
-  tail call void @_efree(ptr noundef nonnull %9) #18
+18:                                               ; preds = %13
+  tail call void @_efree(ptr noundef nonnull %8) #18
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %4, %14, %19
+zend_string_release_ex.exit:                      ; preds = %4, %13, %18
   ret void
 }
 

@@ -7386,8 +7386,7 @@ define ptr @stbi_zlib_compress(ptr noundef %0, i32 noundef %1, ptr noundef write
 7:                                                ; preds = %4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %3, i32 5)
   %malloc = tail call dereferenceable_or_null(10) ptr @malloc(i64 10)
-  %.not18.i = icmp ne ptr %malloc, null
-  tail call void @llvm.assume(i1 %.not18.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %malloc) ]
   %8 = getelementptr inbounds nuw i8, ptr %malloc, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %malloc, i64 8
   store i32 2, ptr %malloc, align 4, !tbaa !8

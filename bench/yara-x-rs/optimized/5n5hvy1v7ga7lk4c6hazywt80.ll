@@ -383,20 +383,19 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h75924bb297559fc
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17ha63d9cba50d068d3E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %1, %2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %5 = icmp eq ptr %1, %2
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 1
+  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h475b7311ccc2adbfE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.cfe99184cf4cf3d5fcc1f691f01e1203.0)
+  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h475b7311ccc2adbfE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.cfe99184cf4cf3d5fcc1f691f01e1203.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = icmp eq ptr %7, %2
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %6, %2
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0
@@ -802,7 +801,7 @@ _ZN5rowan6cursor10SyntaxNode20preorder_with_tokens17h29bb23a024cbbb0cE.exit: ; p
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.val36 = load ptr, ptr %1, align 8, !nonnull !3
+  %.val36 = load ptr, ptr %1, align 8
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val37 = load ptr, ptr %64, align 8, !nonnull !3
   %65 = getelementptr inbounds nuw i8, ptr %.val37, i64 24
@@ -895,6 +894,7 @@ _ZN5rowan6cursor10SyntaxNode20preorder_with_tokens17h29bb23a024cbbb0cE.exit: ; p
   br i1 %exitcond.not, label %84, label %81
 
 81:                                               ; preds = %79
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val36) ]
   %82 = load ptr, ptr %65, align 8, !invariant.load !3, !noalias !57, !nonnull !3
   %83 = invoke noundef zeroext i1 %82(ptr noundef nonnull align 1 %.val36, ptr noalias noundef nonnull readonly align 1 @anon.cfe99184cf4cf3d5fcc1f691f01e1203.38, i64 noundef 2)
           to label %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit51 unwind label %.loopexit
@@ -911,6 +911,7 @@ _ZN5rowan6cursor10SyntaxNode20preorder_with_tokens17h29bb23a024cbbb0cE.exit: ; p
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8
   store ptr @"_ZN69_$LT$rowan..api..SyntaxToken$LT$L$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h72e36e1a5d91bd93E", ptr %.sroa.411.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val36) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !60
   store ptr @anon.cfe99184cf4cf3d5fcc1f691f01e1203.37, ptr %5, align 8
   store i64 2, ptr %.sroa.585.0..sroa_idx, align 8
@@ -932,6 +933,7 @@ _ZN5rowan6cursor10SyntaxNode20preorder_with_tokens17h29bb23a024cbbb0cE.exit: ; p
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8
   store ptr @"_ZN68_$LT$rowan..api..SyntaxNode$LT$L$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h1dc2c3b3d3d68c96E", ptr %.sroa.415.0..sroa_idx, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val36) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !63
   store ptr @anon.cfe99184cf4cf3d5fcc1f691f01e1203.37, ptr %4, align 8
   store i64 2, ptr %.sroa.579.0..sroa_idx, align 8

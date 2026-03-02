@@ -1262,8 +1262,7 @@ thread-pre-split385:                              ; preds = %194
   unreachable
 
 247:                                              ; preds = %238
-  %.not357 = icmp ne ptr %198, null
-  call void @llvm.assume(i1 %.not357)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %198) ]
   %248 = load i32, ptr %198, align 4
   %249 = icmp eq i32 %248, 27
   br i1 %249, label %thread-pre-split387, label %252

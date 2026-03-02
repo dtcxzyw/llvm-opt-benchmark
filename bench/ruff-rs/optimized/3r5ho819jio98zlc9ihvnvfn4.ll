@@ -50,35 +50,32 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %21 = getelementptr i8, ptr %.sroa.04.0, i64 8
   %.sroa.04.0.val14 = load ptr, ptr %21, align 8
   %22 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0.0.val13)
-  %23 = icmp ne ptr %.sroa.04.0.val14, null
-  tail call void @llvm.assume(i1 %23)
-  %24 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.04.0.val14)
-  %25 = icmp ult i64 %24, %22
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.04.0.val14) ]
+  %23 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.04.0.val14)
+  %24 = icmp ult i64 %23, %22
   %.sroa.0.0.val = load ptr, ptr %20, align 8, !nonnull !9, !align !10, !noundef !9
-  %26 = getelementptr i8, ptr %.sroa.08.0, i64 8
-  %.sroa.08.0.val12 = load ptr, ptr %26, align 8
-  %27 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0.0.val)
-  %28 = icmp ne ptr %.sroa.08.0.val12, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.08.0.val12)
-  %30 = icmp ult i64 %29, %27
-  %31 = xor i1 %25, %30
-  br i1 %31, label %_ZN4core5slice4sort6shared5pivot7median317hf66c7438aedd532aE.exit, label %32
+  %25 = getelementptr i8, ptr %.sroa.08.0, i64 8
+  %.sroa.08.0.val12 = load ptr, ptr %25, align 8
+  %26 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0.0.val)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.08.0.val12) ]
+  %27 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.08.0.val12)
+  %28 = icmp ult i64 %27, %26
+  %29 = xor i1 %24, %28
+  br i1 %29, label %_ZN4core5slice4sort6shared5pivot7median317hf66c7438aedd532aE.exit, label %30
 
-32:                                               ; preds = %19
+30:                                               ; preds = %19
   %.sroa.04.0.val = load ptr, ptr %21, align 8, !nonnull !9, !align !10, !noundef !9
-  %.sroa.08.0.val = load ptr, ptr %26, align 8
-  %33 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.04.0.val)
-  %34 = icmp ne ptr %.sroa.08.0.val, null
-  tail call void @llvm.assume(i1 %34)
-  %35 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.08.0.val)
-  %36 = icmp ult i64 %35, %33
-  %37 = xor i1 %25, %36
-  %..i = select i1 %37, ptr %.sroa.08.0, ptr %.sroa.04.0
+  %.sroa.08.0.val = load ptr, ptr %25, align 8
+  %31 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.04.0.val)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.08.0.val) ]
+  %32 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.08.0.val)
+  %33 = icmp ult i64 %32, %31
+  %34 = xor i1 %24, %33
+  %..i = select i1 %34, ptr %.sroa.08.0, ptr %.sroa.04.0
   br label %_ZN4core5slice4sort6shared5pivot7median317hf66c7438aedd532aE.exit
 
-_ZN4core5slice4sort6shared5pivot7median317hf66c7438aedd532aE.exit: ; preds = %19, %32
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0, %19 ], [ %..i, %32 ]
+_ZN4core5slice4sort6shared5pivot7median317hf66c7438aedd532aE.exit: ; preds = %19, %30
+  %.sroa.0.0.i = phi ptr [ %.sroa.0.0, %19 ], [ %..i, %30 ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -187,34 +184,32 @@ define hidden noundef range(i64 0, 1152921504606846976) i64 @_ZN4core5slice4sort
   %15 = getelementptr i8, ptr %7, i64 8
   %.val6 = load ptr, ptr %15, align 8
   %16 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val5)
-  %17 = icmp ne ptr %.val6, null
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val6)
-  %19 = icmp ult i64 %18, %16
-  %20 = getelementptr i8, ptr %8, i64 8
-  %.val4 = load ptr, ptr %20, align 8
-  %21 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val5)
-  %22 = icmp ne ptr %.val4, null
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val4)
-  %24 = icmp ult i64 %23, %21
-  %25 = xor i1 %19, %24
-  br i1 %25, label %_ZN4core5slice4sort6shared5pivot7median317hf66c7438aedd532aE.exit, label %26
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val6) ]
+  %17 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val6)
+  %18 = icmp ult i64 %17, %16
+  %19 = getelementptr i8, ptr %8, i64 8
+  %.val4 = load ptr, ptr %19, align 8
+  %20 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val4) ]
+  %21 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val4)
+  %22 = icmp ult i64 %21, %20
+  %23 = xor i1 %18, %22
+  br i1 %23, label %_ZN4core5slice4sort6shared5pivot7median317hf66c7438aedd532aE.exit, label %24
 
-26:                                               ; preds = %13
-  %27 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val6)
-  %28 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val4)
-  %29 = icmp ult i64 %28, %27
-  %30 = xor i1 %19, %29
-  %..i = select i1 %30, ptr %8, ptr %7
+24:                                               ; preds = %13
+  %25 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val6)
+  %26 = tail call noundef i64 @_ZN22ruff_annotate_snippets8renderer12display_list23DisplaySourceAnnotation3len17hdf8ec4bf583fed1eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.val4)
+  %27 = icmp ult i64 %26, %25
+  %28 = xor i1 %18, %27
+  %..i = select i1 %28, ptr %8, ptr %7
   br label %_ZN4core5slice4sort6shared5pivot7median317hf66c7438aedd532aE.exit
 
-_ZN4core5slice4sort6shared5pivot7median317hf66c7438aedd532aE.exit: ; preds = %26, %13, %11
-  %.sroa.0.0.i.sink = phi ptr [ %12, %11 ], [ %0, %13 ], [ %..i, %26 ]
-  %31 = ptrtoint ptr %.sroa.0.0.i.sink to i64
-  %32 = ptrtoint ptr %0 to i64
-  %33 = sub nuw i64 %31, %32
-  %.sroa.0.0 = lshr exact i64 %33, 4
+_ZN4core5slice4sort6shared5pivot7median317hf66c7438aedd532aE.exit: ; preds = %24, %13, %11
+  %.sroa.0.0.i.sink = phi ptr [ %12, %11 ], [ %0, %13 ], [ %..i, %24 ]
+  %29 = ptrtoint ptr %.sroa.0.0.i.sink to i64
+  %30 = ptrtoint ptr %0 to i64
+  %31 = sub nuw i64 %29, %30
+  %.sroa.0.0 = lshr exact i64 %31, 4
   ret i64 %.sroa.0.0
 }
 
@@ -320,33 +315,32 @@ define void @_ZN4core5slice4sort6stable14driftsort_main17h38a913aaac6e0619E(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN5alloc5slice99_$LT$impl$u20$core..slice..sort..stable..BufGuard$LT$T$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$13with_capacity17ha867b736bc9e8448E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %.sroa.0.0.sroa.speculated.i17)
   %7 = invoke { ptr, i64 } @"_ZN5alloc5slice99_$LT$impl$u20$core..slice..sort..stable..BufGuard$LT$T$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$19as_uninit_slice_mut17hbae5d79d3cf0e5a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %8 unwind label %15
+          to label %8 unwind label %14
 
 8:                                                ; preds = %3
   %9 = extractvalue { ptr, i64 } %7, 1
   %10 = extractvalue { ptr, i64 } %7, 0
   %11 = icmp ult i64 %1, 65
-  %12 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   invoke void @_ZN4core5slice4sort6stable5drift4sort17h131b53360f3377dbE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %10, i64 noundef %9, i1 noundef zeroext %11, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %13 unwind label %15
+          to label %12 unwind label %14
 
-13:                                               ; preds = %8
+12:                                               ; preds = %8
   call void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$ruff_annotate_snippets..renderer..display_list..DisplaySourceAnnotation$GT$$GT$17ha53ac5f6632d7247E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-14:                                               ; preds = %15
+13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-15:                                               ; preds = %8, %3
+14:                                               ; preds = %8, %3
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$ruff_annotate_snippets..renderer..display_list..DisplaySourceAnnotation$GT$$GT$17ha53ac5f6632d7247E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #14
-          to label %14 unwind label %16
+          to label %13 unwind label %15
 
-16:                                               ; preds = %15
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %14
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #15
   unreachable
@@ -363,47 +357,46 @@ define void @_ZN4core5slice4sort6stable14driftsort_main17h3e6638401c88d926E(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 103
-  br i1 %8, label %17, label %9
+  br i1 %8, label %16, label %9
 
 9:                                                ; preds = %3
   call void @"_ZN5alloc5slice99_$LT$impl$u20$core..slice..sort..stable..BufGuard$LT$T$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$13with_capacity17h4e93bb8233e9d1aaE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %.sroa.0.0.sroa.speculated.i16)
   %10 = invoke { ptr, i64 } @"_ZN5alloc5slice99_$LT$impl$u20$core..slice..sort..stable..BufGuard$LT$T$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$19as_uninit_slice_mut17h60d9e7220ed6e746E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %11 unwind label %21
+          to label %11 unwind label %20
 
 11:                                               ; preds = %9
   %12 = extractvalue { ptr, i64 } %10, 1
   %13 = extractvalue { ptr, i64 } %10, 0
   %14 = icmp ult i64 %1, 65
-  %15 = icmp ne ptr %13, null
-  call void @llvm.assume(i1 %15)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   invoke void @_ZN4core5slice4sort6stable5drift4sort17h72be2c534540d9bdE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %13, i64 noundef %12, i1 noundef zeroext %14, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %16 unwind label %21
+          to label %15 unwind label %20
 
-16:                                               ; preds = %11
+15:                                               ; preds = %11
   call void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$ruff_annotate_snippets..snippet..Annotation$GT$$GT$17h2fe26da35464ed19E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  br label %19
+  br label %18
 
-17:                                               ; preds = %3
-  %18 = icmp ult i64 %1, 65
-  call void @_ZN4core5slice4sort6stable5drift4sort17h72be2c534540d9bdE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %5, i64 noundef 102, i1 noundef zeroext %18, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-  br label %19
+16:                                               ; preds = %3
+  %17 = icmp ult i64 %1, 65
+  call void @_ZN4core5slice4sort6stable5drift4sort17h72be2c534540d9bdE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %5, i64 noundef 102, i1 noundef zeroext %17, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  br label %18
 
-19:                                               ; preds = %17, %16
+18:                                               ; preds = %16, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-20:                                               ; preds = %21
+19:                                               ; preds = %20
   resume { ptr, i32 } %lpad.thr_comm
 
-21:                                               ; preds = %11, %9
+20:                                               ; preds = %11, %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$ruff_annotate_snippets..snippet..Annotation$GT$$GT$17h2fe26da35464ed19E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #14
-          to label %20 unwind label %22
+          to label %19 unwind label %21
 
-22:                                               ; preds = %21
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #15
   unreachable
@@ -420,47 +413,46 @@ define void @_ZN4core5slice4sort6stable14driftsort_main17hfd63fdf4a7843383E(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = icmp ult i64 %.sroa.0.0.sroa.speculated.i16, 257
-  br i1 %8, label %17, label %9
+  br i1 %8, label %16, label %9
 
 9:                                                ; preds = %3
   call void @"_ZN5alloc5slice99_$LT$impl$u20$core..slice..sort..stable..BufGuard$LT$T$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$13with_capacity17hf2de484645363c5cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %.sroa.0.0.sroa.speculated.i16)
   %10 = invoke { ptr, i64 } @"_ZN5alloc5slice99_$LT$impl$u20$core..slice..sort..stable..BufGuard$LT$T$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$19as_uninit_slice_mut17hd8e5141cdd1ece4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %11 unwind label %21
+          to label %11 unwind label %20
 
 11:                                               ; preds = %9
   %12 = extractvalue { ptr, i64 } %10, 1
   %13 = extractvalue { ptr, i64 } %10, 0
   %14 = icmp ult i64 %1, 65
-  %15 = icmp ne ptr %13, null
-  call void @llvm.assume(i1 %15)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   invoke void @_ZN4core5slice4sort6stable5drift4sort17h05bfbd480573c818E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %13, i64 noundef %12, i1 noundef zeroext %14, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %16 unwind label %21
+          to label %15 unwind label %20
 
-16:                                               ; preds = %11
+15:                                               ; preds = %11
   call void @"_ZN4core3ptr135drop_in_place$LT$alloc..vec..Vec$LT$$LP$usize$C$$RF$ruff_annotate_snippets..renderer..display_list..DisplaySourceAnnotation$RP$$GT$$GT$17h4415513cf25ccd38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  br label %19
+  br label %18
 
-17:                                               ; preds = %3
-  %18 = icmp ult i64 %1, 65
-  call void @_ZN4core5slice4sort6stable5drift4sort17h05bfbd480573c818E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %5, i64 noundef 256, i1 noundef zeroext %18, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-  br label %19
+16:                                               ; preds = %3
+  %17 = icmp ult i64 %1, 65
+  call void @_ZN4core5slice4sort6stable5drift4sort17h05bfbd480573c818E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %5, i64 noundef 256, i1 noundef zeroext %17, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  br label %18
 
-19:                                               ; preds = %17, %16
+18:                                               ; preds = %16, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-20:                                               ; preds = %21
+19:                                               ; preds = %20
   resume { ptr, i32 } %lpad.thr_comm
 
-21:                                               ; preds = %11, %9
+20:                                               ; preds = %11, %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr135drop_in_place$LT$alloc..vec..Vec$LT$$LP$usize$C$$RF$ruff_annotate_snippets..renderer..display_list..DisplaySourceAnnotation$RP$$GT$$GT$17h4415513cf25ccd38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #14
-          to label %20 unwind label %22
+          to label %19 unwind label %21
 
-22:                                               ; preds = %21
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #15
   unreachable

@@ -262,8 +262,7 @@ define dso_local void @_ZN5clang22RewriteIncludesInInputERNS_12PreprocessorEPN4l
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 448
   %.sroa.0.0.copyload.i.i = load i32, ptr %46, align 8, !tbaa !275
   %47 = tail call noundef ptr @_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(696) %9, i32 %.sroa.0.0.copyload.i.i), !noalias !276
-  %.not.not.i.i = icmp ne ptr %47, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %47) ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %48, align 8, !noalias !276
   %49 = and i64 %.0.copyload.i.i.i.i.i.i, -8
@@ -417,11 +416,11 @@ _ZNSt8_Rb_treeIN5clang14SourceLocationESt4pairIKS1_PKNS0_6ModuleEESt10_Select1st
   %108 = load i64, ptr %39, align 8, !tbaa !273
   %109 = add i64 %108, 1
   store i64 %109, ptr %39, align 8, !tbaa !273
-  %.pr37.pre = load i16, ptr %84, align 8, !tbaa !366
+  %.pr36.pre = load i16, ptr %84, align 8, !tbaa !366
   br label %_ZN12_GLOBAL__N_117InclusionRewriter17handleModuleBeginERN5clang5TokenE.exit
 
 _ZN12_GLOBAL__N_117InclusionRewriter17handleModuleBeginERN5clang5TokenE.exit: ; preds = %_ZNSt8_Rb_treeIN5clang14SourceLocationESt4pairIKS1_PKNS0_6ModuleEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE10_M_insert_IS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i.i, %97, %86
-  %110 = phi i16 [ %87, %86 ], [ 453, %97 ], [ %.pr37.pre, %_ZNSt8_Rb_treeIN5clang14SourceLocationESt4pairIKS1_PKNS0_6ModuleEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE10_M_insert_IS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i.i ]
+  %110 = phi i16 [ %87, %86 ], [ 453, %97 ], [ %.pr36.pre, %_ZNSt8_Rb_treeIN5clang14SourceLocationESt4pairIKS1_PKNS0_6ModuleEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE10_M_insert_IS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i.i ]
   %.not = icmp eq i16 %110, 1
   br i1 %.not, label %111, label %86, !llvm.loop !375
 
@@ -431,13 +430,13 @@ _ZN12_GLOBAL__N_117InclusionRewriter17handleModuleBeginERN5clang5TokenE.exit: ; 
   %.sroa.0.0.copyload.i = load i32, ptr %112, align 8, !tbaa !275
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !376
   %113 = call noundef ptr @_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(696) %9, i32 %.sroa.0.0.copyload.i), !noalias !379
-  %.not.not.i.i27 = icmp eq ptr %113, null
-  br i1 %.not.not.i.i27, label %_ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.thread.i, label %_ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.i
+  %.not.not.i.i = icmp eq ptr %113, null
+  br i1 %.not.not.i.i, label %_ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.thread.i, label %_ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.i
 
 _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.i: ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %.0.copyload.i.i.i.i.i.i28 = load i64, ptr %114, align 8, !noalias !379
-  %115 = and i64 %.0.copyload.i.i.i.i.i.i28, -8
+  %.0.copyload.i.i.i.i.i.i27 = load i64, ptr %114, align 8, !noalias !379
+  %115 = and i64 %.0.copyload.i.i.i.i.i.i27, -8
   %116 = inttoptr i64 %115 to ptr
   %117 = load ptr, ptr %51, align 8, !tbaa !279, !noalias !379
   %118 = load ptr, ptr %53, align 8, !tbaa !358, !noalias !379
@@ -460,16 +459,16 @@ _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.
 _ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit: ; preds = %120, %_ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.thread.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull readonly align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !385
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.sroa.0.0.copyload.i29 = load i32, ptr %112, align 8, !tbaa !275
+  %.sroa.0.0.copyload.i28 = load i32, ptr %112, align 8, !tbaa !275
+  call fastcc void @_ZN12_GLOBAL__N_117InclusionRewriter7ProcessEN5clang6FileIDENS1_6SrcMgr18CharacteristicKindE(ptr noundef nonnull align 8 dereferenceable(284) %10, i32 %.sroa.0.0.copyload.i28, i32 noundef 0)
+  %.sroa.0.0.copyload.i29 = load i32, ptr %46, align 8, !tbaa !275
   call fastcc void @_ZN12_GLOBAL__N_117InclusionRewriter7ProcessEN5clang6FileIDENS1_6SrcMgr18CharacteristicKindE(ptr noundef nonnull align 8 dereferenceable(284) %10, i32 %.sroa.0.0.copyload.i29, i32 noundef 0)
-  %.sroa.0.0.copyload.i30 = load i32, ptr %46, align 8, !tbaa !275
-  call fastcc void @_ZN12_GLOBAL__N_117InclusionRewriter7ProcessEN5clang6FileIDENS1_6SrcMgr18CharacteristicKindE(ptr noundef nonnull align 8 dereferenceable(284) %10, i32 %.sroa.0.0.copyload.i30, i32 noundef 0)
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %122 = load ptr, ptr %121, align 8, !tbaa !386
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %124 = load ptr, ptr %123, align 8, !tbaa !390
-  %.not.i31 = icmp eq ptr %122, %124
-  br i1 %.not.i31, label %_ZN4llvm11raw_ostream5flushEv.exit, label %125
+  %.not.i30 = icmp eq ptr %122, %124
+  br i1 %.not.i30, label %_ZN4llvm11raw_ostream5flushEv.exit, label %125
 
 125:                                              ; preds = %_ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit
   call void @_ZN4llvm11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #18

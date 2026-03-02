@@ -3669,8 +3669,7 @@ define noundef i32 @dt_iop_show_hide_header_buttons(ptr noundef readonly capture
   %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %7) #25
   %48 = tail call ptr @gtk_container_get_children(ptr noundef %47) #25
   %49 = tail call ptr @g_list_last(ptr noundef %48) #25
-  %.not95120 = icmp ne ptr %49, null
-  tail call void @llvm.assume(i1 %.not95120)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   %50 = tail call i64 @gtk_button_get_type() #27
   %51 = icmp ne i32 %.072, 0
   %52 = icmp eq i32 %3, 0

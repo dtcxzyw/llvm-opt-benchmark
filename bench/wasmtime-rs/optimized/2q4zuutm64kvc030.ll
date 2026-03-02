@@ -17,25 +17,24 @@ define zeroext i1 @_ZN4core3cmp9PartialEq2ne17h02e98a6ba4f0885eE(ptr align 8 %0,
 define void @_ZN4core4hash4Hash10hash_slice17h8efb0394a0124198E(ptr align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #1 {
   %4 = alloca { ptr, ptr, {} }, align 8
   %5 = getelementptr inbounds i64, ptr %0, i64 %1
-  %6 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   store ptr %0, ptr %4, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %5, ptr %7, align 8
-  %8 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee65b00b5bd0f6d6E"(ptr nonnull align 8 %4)
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %5, ptr %6, align 8
+  %7 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee65b00b5bd0f6d6E"(ptr nonnull align 8 %4)
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %10 = phi ptr [ %12, %.lr.ph ], [ %8, %3 ]
-  %11 = load i64, ptr %10, align 8, !noundef !3
-  call void @_ZN4core4hash6Hasher11write_usize17hcd98c23575c67417E(ptr align 8 %2, i64 %11)
-  %12 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee65b00b5bd0f6d6E"(ptr nonnull align 8 %4)
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %._crit_edge, label %.lr.ph
+  %9 = phi ptr [ %11, %.lr.ph ], [ %7, %3 ]
+  %10 = load i64, ptr %9, align 8, !noundef !3
+  call void @_ZN4core4hash6Hasher11write_usize17hcd98c23575c67417E(ptr align 8 %2, i64 %10)
+  %11 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee65b00b5bd0f6d6E"(ptr nonnull align 8 %4)
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

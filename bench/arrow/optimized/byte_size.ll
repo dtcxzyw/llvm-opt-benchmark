@@ -5342,8 +5342,7 @@ _ZN5arrow6StatusD2Ev.exit105:                     ; preds = %_ZN5arrow6StatusD2E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
   %328 = load ptr, ptr %327, align 8, !tbaa !106, !noalias !351, !nonnull !65, !noundef !65
   %329 = tail call ptr @__dynamic_cast(ptr nonnull %328, ptr nonnull @_ZTIN5arrow8DataTypeE, ptr nonnull @_ZTIN5arrow14FixedWidthTypeE, i64 0) #21, !noalias !351
-  %.not.not.i = icmp ne ptr %329, null
-  tail call void @llvm.assume(i1 %.not.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %329) ]
   store ptr %329, ptr %24, align 8, !tbaa !352, !alias.scope !348, !noalias !345
   %330 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %331 = getelementptr inbounds nuw i8, ptr %327, i64 8
@@ -5546,8 +5545,7 @@ _ZN5arrow6StatusD2Ev.exit109:                     ; preds = %_ZN5arrow6StatusD2E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
   %426 = load ptr, ptr %425, align 8, !tbaa !106, !noalias !371, !nonnull !65, !noundef !65
   %427 = tail call ptr @__dynamic_cast(ptr nonnull %426, ptr nonnull @_ZTIN5arrow8DataTypeE, ptr nonnull @_ZTIN5arrow14FixedWidthTypeE, i64 0) #21, !noalias !371
-  %.not.not.i143 = icmp ne ptr %427, null
-  tail call void @llvm.assume(i1 %.not.not.i143)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %427) ]
   store ptr %427, ptr %14, align 8, !tbaa !352, !alias.scope !368, !noalias !365
   %428 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %429 = getelementptr inbounds nuw i8, ptr %425, i64 8

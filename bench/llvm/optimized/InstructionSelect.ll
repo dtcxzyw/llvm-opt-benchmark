@@ -891,6 +891,7 @@ _ZSteqIJPN4llvm17MachineBasicBlockEPS2_S3_EJS2_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_I
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %105, align 8
   %106 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %107 = inttoptr i64 %106 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %107) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %107, align 8
   %108 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i76 = icmp eq i64 %108, 0
@@ -925,6 +926,7 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit:        ; preds = %_ZNK4llvm14ilist_it
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %117, align 8
   %118 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %119 = inttoptr i64 %118 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i77 = load i64, ptr %119, align 8
   %120 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i77, 4
   %.not.i.i.i.i78 = icmp eq i64 %120, 0
@@ -1265,6 +1267,7 @@ _ZNK4llvm6detail12DenseSetImplIPNS_17MachineBasicBlockENS_8DenseMapIS3_NS0_13Den
   br i1 %.not.i.i.i88, label %_ZN4llvm17MachineBasicBlock5clearEv.exit, label %.lr.ph.i.i.i, !llvm.loop !397
 
 262:                                              ; preds = %_ZNK4llvm6detail12DenseSetImplIPNS_17MachineBasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %223) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i90 = load i64, ptr %223, align 8
   %263 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i90, 4
   %.not.i.i.i.i91 = icmp eq i64 %263, 0
@@ -1298,6 +1301,7 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit99:      ; preds = %_ZNK4llvm14ilist_it
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i101 = load i64, ptr %.sroa.0142.0176, align 8
   %272 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i101, -8
   %273 = inttoptr i64 %272 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %273) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i102 = load i64, ptr %273, align 8
   %274 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i102, 4
   %.not.i.i.i.i103 = icmp eq i64 %274, 0
@@ -3880,6 +3884,7 @@ define linkonce_odr hidden void @_ZN4llvm17InstructionSelect20MIIteratorMaintain
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.0.copyload.i, align 8
   %6 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %7 = inttoptr i64 %6 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %7, align 8
   %8 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %8, 0

@@ -32,12 +32,11 @@ define void @__rust_dealloc(ptr noundef %0, i64 noundef %1, i64 noundef %2) unna
   %4 = add i64 %2, -1
   %5 = icmp sgt i64 %4, -1
   tail call void @llvm.assume(i1 %5)
-  %6 = icmp ne ptr %0, null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %6 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %6)
-  %7 = icmp ne i64 %1, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call noundef i32 @_ZN17tikv_jemallocator15layout_to_flags17h8467d102b0d8c6a3E(i64 noundef range(i64 1, -9223372036854775807) %2, i64 noundef %1)
-  tail call void @_rjem_sdallocx(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %8) #3
+  %7 = tail call noundef i32 @_ZN17tikv_jemallocator15layout_to_flags17h8467d102b0d8c6a3E(i64 noundef range(i64 1, -9223372036854775807) %2, i64 noundef %1)
+  tail call void @_rjem_sdallocx(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %7) #3
   ret void
 }
 

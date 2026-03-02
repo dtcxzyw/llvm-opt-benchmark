@@ -6126,6 +6126,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10: ; preds = %.lr.p
   %.us-phi = phi i64 [ %31, %.lr.ph.i.split.us ], [ %40, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10 ]
   %.us-phi15 = phi ptr [ %32, %.lr.ph.i.split.us ], [ %41, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10 ]
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 %.us-phi
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %44) ]
   br label %.loopexit
 
 45:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10, %.lr.ph.i.split
@@ -6232,6 +6233,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10: ; preds = %.lr.p
   %.us-phi = phi i64 [ %31, %.lr.ph.i.split.us ], [ %40, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10 ]
   %.us-phi15 = phi ptr [ %32, %.lr.ph.i.split.us ], [ %41, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10 ]
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 %.us-phi
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %44) ]
   br label %.loopexit
 
 45:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10, %.lr.ph.i.split
@@ -6338,6 +6340,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10: ; preds = %.lr.p
   %.us-phi = phi i64 [ %31, %.lr.ph.i.split.us ], [ %40, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10 ]
   %.us-phi15 = phi ptr [ %32, %.lr.ph.i.split.us ], [ %41, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10 ]
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 %.us-phi
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %44) ]
   br label %.loopexit
 
 45:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i10, %.lr.ph.i.split

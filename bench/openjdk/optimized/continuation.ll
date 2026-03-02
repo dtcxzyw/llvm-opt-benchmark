@@ -1035,66 +1035,65 @@ _ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12Continuation16last_java_vframeE6HandleP11RegisterMap(ptr readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12Continuation16last_java_vframeE6HandleP11RegisterMap(ptr readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZNK6HandleclEv.exit:
   %2 = alloca %class.frame, align 8
-  %3 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = load ptr, ptr %0, align 8
-  %5 = load i32, ptr @_ZN28jdk_internal_vm_Continuation12_tail_offsetE, align 4
-  %6 = sext i32 %5 to i64
-  %7 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %6) #18
-  %.not.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i, label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread, label %9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %3 = load ptr, ptr %0, align 8
+  %4 = load i32, ptr @_ZN28jdk_internal_vm_Continuation12_tail_offsetE, align 4
+  %5 = sext i32 %4 to i64
+  %6 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %5) #18
+  %.not.i.i = icmp eq ptr %7, null
+  br i1 %.not.i.i, label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread, label %8
 
-9:                                                ; preds = %_ZNK6HandleclEv.exit
-  %10 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
-  %11 = ptrtoint ptr %8 to i64
-  %12 = sext i32 %10 to i64
-  %13 = add nsw i64 %12, %11
-  %14 = inttoptr i64 %13 to ptr
-  %15 = load volatile i32, ptr %14, align 4
-  %16 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_bottom_offsetE, align 4
-  %17 = sext i32 %16 to i64
-  %18 = add nsw i64 %17, %11
-  %19 = inttoptr i64 %18 to ptr
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %15, %20
-  br i1 %21, label %_ZNK19ContinuationWrapper8is_emptyEv.exit, label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12
+8:                                                ; preds = %_ZNK6HandleclEv.exit
+  %9 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
+  %10 = ptrtoint ptr %7 to i64
+  %11 = sext i32 %9 to i64
+  %12 = add nsw i64 %11, %10
+  %13 = inttoptr i64 %12 to ptr
+  %14 = load volatile i32, ptr %13, align 4
+  %15 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_bottom_offsetE, align 4
+  %16 = sext i32 %15 to i64
+  %17 = add nsw i64 %16, %10
+  %18 = inttoptr i64 %17 to ptr
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp eq i32 %14, %19
+  br i1 %20, label %_ZNK19ContinuationWrapper8is_emptyEv.exit, label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12
 
-_ZNK19ContinuationWrapper8is_emptyEv.exit:        ; preds = %9
-  %22 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
-  %23 = sext i32 %22 to i64
-  %24 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %23) #18
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread, label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12
+_ZNK19ContinuationWrapper8is_emptyEv.exit:        ; preds = %8
+  %21 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
+  %22 = sext i32 %21 to i64
+  %23 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %22) #18
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread, label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12
 
-_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12: ; preds = %_ZNK19ContinuationWrapper8is_emptyEv.exit, %9
-  %27 = load ptr, ptr %0, align 8
-  call void @_ZN12Continuation10last_frameEP7oopDescP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef %27, ptr noundef %1)
-  %28 = call noundef ptr @_ZN6vframe10new_vframeEPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull %2, ptr noundef %1, ptr noundef null) #18
-  %.not14 = icmp eq ptr %28, null
+_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12: ; preds = %_ZNK19ContinuationWrapper8is_emptyEv.exit, %8
+  %26 = load ptr, ptr %0, align 8
+  call void @_ZN12Continuation10last_frameEP7oopDescP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef %26, ptr noundef %1)
+  %27 = call noundef ptr @_ZN6vframe10new_vframeEPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull %2, ptr noundef %1, ptr noundef null) #18
+  %.not14 = icmp eq ptr %27, null
   br i1 %.not14, label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12, %33
-  %.015 = phi ptr [ %36, %33 ], [ %28, %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12 ]
-  %29 = load ptr, ptr %.015, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(5064) %.015) #18
-  br i1 %32, label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread, label %33
+.lr.ph:                                           ; preds = %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12, %32
+  %.015 = phi ptr [ %35, %32 ], [ %27, %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12 ]
+  %28 = load ptr, ptr %.015, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(5064) %.015) #18
+  br i1 %31, label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread, label %32
 
-33:                                               ; preds = %.lr.ph
-  %34 = load ptr, ptr %.015, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(5064) %.015) #18
-  %.not = icmp eq ptr %36, null
+32:                                               ; preds = %.lr.ph
+  %33 = load ptr, ptr %.015, align 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(5064) %.015) #18
+  %.not = icmp eq ptr %35, null
   br i1 %.not, label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread, label %.lr.ph, !llvm.loop !23
 
-_ZNK19ContinuationWrapper8is_emptyEv.exit.thread: ; preds = %33, %.lr.ph, %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12, %_ZNK6HandleclEv.exit, %_ZNK19ContinuationWrapper8is_emptyEv.exit
-  %.07 = phi ptr [ null, %_ZNK19ContinuationWrapper8is_emptyEv.exit ], [ null, %_ZNK6HandleclEv.exit ], [ null, %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12 ], [ null, %33 ], [ %.015, %.lr.ph ]
+_ZNK19ContinuationWrapper8is_emptyEv.exit.thread: ; preds = %32, %.lr.ph, %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12, %_ZNK6HandleclEv.exit, %_ZNK19ContinuationWrapper8is_emptyEv.exit
+  %.07 = phi ptr [ null, %_ZNK19ContinuationWrapper8is_emptyEv.exit ], [ null, %_ZNK6HandleclEv.exit ], [ null, %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread12 ], [ null, %32 ], [ %.015, %.lr.ph ]
   ret ptr %.07
 }
 

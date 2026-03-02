@@ -16558,68 +16558,67 @@ _ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyh
   br label %17
 
 17:                                               ; preds = %17, %.lr.ph.i.i1
-  %.sroa.03.05.i.i = phi ptr [ %15, %.lr.ph.i.i1 ], [ %22, %17 ]
-  %18 = icmp ne ptr %.sroa.03.05.i.i, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.03.05.i.i, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !50, !nonnull !11, !noundef !11
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !50
+  %.sroa.03.05.i.i = phi ptr [ %15, %.lr.ph.i.i1 ], [ %21, %17 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.05.i.i) ]
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.03.05.i.i, i64 40
+  %19 = load ptr, ptr %18, align 8, !tbaa !50, !nonnull !11, !noundef !11
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %21 = load ptr, ptr %20, align 8, !tbaa !50
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %.sroa.03.05.i.i, align 8, !tbaa !194
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.03.05.i.i, i64 48
-  %24 = load ptr, ptr %23, align 8, !tbaa !52
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store ptr %20, ptr %25, align 8, !tbaa !50
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  store ptr %24, ptr %26, align 8, !tbaa !52
-  %27 = load i64, ptr %16, align 8, !tbaa !46
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !50
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !52
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  store ptr %29, ptr %32, align 8, !tbaa !50
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  store ptr %31, ptr %33, align 8, !tbaa !52
-  %34 = add i64 %27, -2
-  store i64 %34, ptr %16, align 8, !tbaa !46
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.03.05.i.i, i64 48
+  %23 = load ptr, ptr %22, align 8, !tbaa !52
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store ptr %19, ptr %24, align 8, !tbaa !50
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  store ptr %23, ptr %25, align 8, !tbaa !52
+  %26 = load i64, ptr %16, align 8, !tbaa !46
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 40
+  %28 = load ptr, ptr %27, align 8, !tbaa !50
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 48
+  %30 = load ptr, ptr %29, align 8, !tbaa !52
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  store ptr %28, ptr %31, align 8, !tbaa !50
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  store ptr %30, ptr %32, align 8, !tbaa !52
+  %33 = add i64 %26, -2
+  store i64 %33, ptr %16, align 8, !tbaa !46
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.03.05.i.i, align 8, !tbaa !194
-  %35 = icmp ugt ptr %.sroa.03.05.i.i, %.sroa.0.0.copyload.i.i.i.i.i
-  %spec.select.i.i.i.i = select i1 %35, ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %.sroa.03.05.i.i
+  %34 = icmp ugt ptr %.sroa.03.05.i.i, %.sroa.0.0.copyload.i.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %34, ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %.sroa.03.05.i.i
   tail call void @_ZdlPvm(ptr noundef %spec.select.i.i.i.i, i64 noundef 112) #40
-  %.not.i.i2 = icmp eq ptr %22, %13
+  %.not.i.i2 = icmp eq ptr %21, %13
   br i1 %.not.i.i2, label %_ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEE11edges_clearEv.exit, label %17, !llvm.loop !195
 
 _ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEE11edges_clearEv.exit: ; preds = %17, %_ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEE14vertices_clearEv.exit
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !65
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %40 = load ptr, ptr %39, align 8, !tbaa !66
-  %.not2.i.i3 = icmp eq ptr %40, %38
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %37 = load ptr, ptr %36, align 8, !tbaa !65
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  %39 = load ptr, ptr %38, align 8, !tbaa !66
+  %.not2.i.i3 = icmp eq ptr %39, %37
   br i1 %.not2.i.i3, label %_ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEE11faces_clearEv.exit, label %.lr.ph.i.i4
 
 .lr.ph.i.i4:                                      ; preds = %_ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEE11edges_clearEv.exit, %.lr.ph.i.i4
-  %.sroa.01.03.i.i5 = phi ptr [ %42, %.lr.ph.i.i4 ], [ %40, %_ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEE11edges_clearEv.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i.i5, i64 40
-  %42 = load ptr, ptr %41, align 8, !tbaa !66
+  %.sroa.01.03.i.i5 = phi ptr [ %41, %.lr.ph.i.i4 ], [ %39, %_ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEE11edges_clearEv.exit ]
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i.i5, i64 40
+  %41 = load ptr, ptr %40, align 8, !tbaa !66
   tail call void @_ZdlPvm(ptr noundef %.sroa.01.03.i.i5, i64 noundef 56) #40
-  %.not.i.i6 = icmp eq ptr %42, %38
+  %.not.i.i6 = icmp eq ptr %41, %37
   br i1 %.not.i.i6, label %._crit_edge.loopexit.i.i7, label %.lr.ph.i.i4, !llvm.loop !196
 
 ._crit_edge.loopexit.i.i7:                        ; preds = %.lr.ph.i.i4
-  %.pre.i.i8 = load ptr, ptr %37, align 8, !tbaa !65
+  %.pre.i.i8 = load ptr, ptr %36, align 8, !tbaa !65
   br label %_ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEE11faces_clearEv.exit
 
 _ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEE11faces_clearEv.exit: ; preds = %_ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEE11edges_clearEv.exit, %._crit_edge.loopexit.i.i7
-  %43 = phi ptr [ %.pre.i.i8, %._crit_edge.loopexit.i.i7 ], [ %38, %_ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEE11edges_clearEv.exit ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 0, ptr %44, align 8, !tbaa !53
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  store ptr %43, ptr %45, align 8, !tbaa !66
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  store ptr %43, ptr %46, align 8, !tbaa !68
+  %42 = phi ptr [ %.pre.i.i8, %._crit_edge.loopexit.i.i7 ], [ %37, %_ZN4CGAL15HalfedgeDS_listINS_5EpickENS_28I_Polyhedron_derived_items_3INS_18Polyhedron_items_3EEESaIiEE11edges_clearEv.exit ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 0, ptr %43, align 8, !tbaa !53
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  store ptr %42, ptr %44, align 8, !tbaa !66
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  store ptr %42, ptr %45, align 8, !tbaa !68
   ret void
 }
 
@@ -17643,7 +17642,7 @@ define linkonce_odr dso_local void @_ZN4CGAL13convex_hull_3IN9__gnu_cxx17__norma
   %6 = alloca %"class.CGAL::internal::Static_filters_predicates::Collinear_3", align 1
   %7 = alloca %"class.CGAL::Filtered_predicate_RT_FT.175", align 1
   %8 = icmp eq ptr %0, %1
-  br i1 %8, label %104, label %9
+  br i1 %8, label %102, label %9
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -17724,20 +17723,20 @@ _ZNK4CGAL8internal25Static_filters_predicates7Equal_3INS_20Filtered_kernel_baseI
 39:                                               ; preds = %_ZNSt7__cxx114listIN4CGAL7Point_3INS1_5EpickEEESaIS4_EEC2IN9__gnu_cxx17__normal_iteratorIPS4_St6vectorIS4_S5_EEEvEET_SE_RKS5_.exit
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %108
+  br label %106
 
 .preheader:                                       ; preds = %26, %_ZNK4CGAL8internal25Static_filters_predicates7Equal_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_3IS6_EESE_.exit
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.052.0, i64 16
-  br label %57
+  br label %56
 
 .critedge:                                        ; preds = %25
   %42 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #42
-          to label %_ZN4CGAL13Convex_hull_38internal19add_isolated_pointsINS_7Point_3INS_5EpickEEENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvRKT_RT0_.exit unwind label %55
+          to label %_ZN4CGAL13Convex_hull_38internal19add_isolated_pointsINS_7Point_3INS_5EpickEEENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvRKT_RT0_.exit unwind label %54
 
 _ZN4CGAL13Convex_hull_38internal19add_isolated_pointsINS_7Point_3INS_5EpickEEENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvRKT_RT0_.exit: ; preds = %.critedge
   store ptr null, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !42
+  %44 = load ptr, ptr %43, align 8, !tbaa !42, !nonnull !11, !noundef !11
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr %44, ptr %45, align 8, !tbaa !43
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 40
@@ -17751,183 +17750,179 @@ _ZN4CGAL13Convex_hull_38internal19add_isolated_pointsINS_7Point_3INS_5EpickEEENS
   %51 = load i64, ptr %50, align 8, !tbaa !35
   %52 = add i64 %51, 1
   store i64 %52, ptr %50, align 8, !tbaa !35
-  %53 = icmp ne ptr %44, null
-  call void @llvm.assume(i1 %53)
-  %54 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
-  br label %101
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
+  br label %99
 
-55:                                               ; preds = %.critedge
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %.critedge
+  %55 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %105
 
-57:                                               ; preds = %.preheader, %61
-  %.sroa.045.0.in = phi ptr [ %.sroa.045.0, %61 ], [ %.sroa.052.0, %.preheader ]
+56:                                               ; preds = %.preheader, %60
+  %.sroa.045.0.in = phi ptr [ %.sroa.045.0, %60 ], [ %.sroa.052.0, %.preheader ]
   %.sroa.045.0 = load ptr, ptr %.sroa.045.0.in, align 8, !tbaa !206
   %.not65 = icmp eq ptr %.sroa.045.0, %5
-  br i1 %.not65, label %64, label %58
+  br i1 %.not65, label %63, label %57
 
-58:                                               ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.045.0, i64 16
-  %60 = invoke noundef zeroext i1 @_ZNK4CGAL8internal25Static_filters_predicates11Collinear_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_3IS6_EESE_SE_(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %59)
-          to label %61 unwind label %62
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.045.0, i64 16
+  %59 = invoke noundef zeroext i1 @_ZNK4CGAL8internal25Static_filters_predicates11Collinear_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_3IS6_EESE_SE_(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %58)
+          to label %60 unwind label %61
 
-61:                                               ; preds = %58
-  br i1 %60, label %57, label %.critedge2, !llvm.loop !215
+60:                                               ; preds = %57
+  br i1 %59, label %56, label %.critedge2, !llvm.loop !215
 
-62:                                               ; preds = %58
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %57
+  %62 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %105
 
-64:                                               ; preds = %57
+63:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %65 = load ptr, ptr %5, align 8, !tbaa !206
-  %.not.i = icmp eq ptr %65, %5
+  %64 = load ptr, ptr %5, align 8, !tbaa !206
+  %.not.i = icmp eq ptr %64, %5
   br i1 %.not.i, label %.loopexit66, label %.preheader.i
 
-.preheader.i:                                     ; preds = %64
-  %66 = load ptr, ptr %65, align 8, !tbaa !206
-  %.not1516.i = icmp eq ptr %66, %5
+.preheader.i:                                     ; preds = %63
+  %65 = load ptr, ptr %64, align 8, !tbaa !206
+  %.not1516.i = icmp eq ptr %65, %5
   br i1 %.not1516.i, label %.loopexit66, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.noexc31
-  %67 = phi ptr [ %77, %.noexc31 ], [ %66, %.preheader.i ]
-  %.sroa.4.118.i = phi ptr [ %spec.select14.i, %.noexc31 ], [ %65, %.preheader.i ]
-  %.sroa.013.117.i = phi ptr [ %spec.select.i, %.noexc31 ], [ %65, %.preheader.i ]
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.013.117.i, i64 16
-  %70 = load ptr, ptr %5, align 8, !tbaa !206
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %72 = invoke noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors24Less_distance_to_point_3INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_3IST_EES16_S16_EEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %69)
+  %66 = phi ptr [ %76, %.noexc31 ], [ %65, %.preheader.i ]
+  %.sroa.4.118.i = phi ptr [ %spec.select14.i, %.noexc31 ], [ %64, %.preheader.i ]
+  %.sroa.013.117.i = phi ptr [ %spec.select.i, %.noexc31 ], [ %64, %.preheader.i ]
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.013.117.i, i64 16
+  %69 = load ptr, ptr %5, align 8, !tbaa !206
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %71 = invoke noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors24Less_distance_to_point_3INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_3IST_EES16_S16_EEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %68)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.4.118.i, i64 16
-  %74 = load ptr, ptr %5, align 8, !tbaa !206
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = invoke noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors24Less_distance_to_point_3INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_3IST_EES16_S16_EEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) %68)
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.4.118.i, i64 16
+  %73 = load ptr, ptr %5, align 8, !tbaa !206
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = invoke noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors24Less_distance_to_point_3INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_3IST_EES16_S16_EEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %67)
           to label %.noexc31 unwind label %.loopexit
 
 .noexc31:                                         ; preds = %.noexc
-  %spec.select.i = select i1 %72, ptr %67, ptr %.sroa.013.117.i
-  %spec.select14.i = select i1 %76, ptr %67, ptr %.sroa.4.118.i
-  %77 = load ptr, ptr %67, align 8, !tbaa !206
-  %.not15.i = icmp eq ptr %77, %5
+  %spec.select.i = select i1 %71, ptr %66, ptr %.sroa.013.117.i
+  %spec.select14.i = select i1 %75, ptr %66, ptr %.sroa.4.118.i
+  %76 = load ptr, ptr %66, align 8, !tbaa !206
+  %.not15.i = icmp eq ptr %76, %5
   br i1 %.not15.i, label %.loopexit66, label %.lr.ph.i, !llvm.loop !216
 
-.loopexit66:                                      ; preds = %.noexc31, %.preheader.i, %64
-  %.sroa.013.0.i = phi ptr [ %65, %64 ], [ %65, %.preheader.i ], [ %spec.select.i, %.noexc31 ]
-  %.sroa.4.0.i = phi ptr [ %65, %64 ], [ %65, %.preheader.i ], [ %spec.select14.i, %.noexc31 ]
-  %78 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #42
-          to label %79 unwind label %.loopexit.split-lp
+.loopexit66:                                      ; preds = %.noexc31, %.preheader.i, %63
+  %.sroa.013.0.i = phi ptr [ %64, %63 ], [ %64, %.preheader.i ], [ %spec.select.i, %.noexc31 ]
+  %.sroa.4.0.i = phi ptr [ %64, %63 ], [ %64, %.preheader.i ], [ %spec.select14.i, %.noexc31 ]
+  %77 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #42
+          to label %78 unwind label %.loopexit.split-lp
 
-79:                                               ; preds = %.loopexit66
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i, i64 16
-  store ptr null, ptr %78, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !42
-  %83 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  store ptr %82, ptr %83, align 8, !tbaa !43
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 40
-  %85 = load ptr, ptr %84, align 8, !tbaa !45
-  %86 = getelementptr inbounds nuw i8, ptr %78, i64 40
-  store ptr %85, ptr %86, align 8, !tbaa !45
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  store ptr %78, ptr %87, align 8, !tbaa !43
-  store ptr %78, ptr %84, align 8, !tbaa !45
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %89 = load i64, ptr %88, align 8, !tbaa !35
-  %90 = add i64 %89, 1
-  store i64 %90, ptr %88, align 8, !tbaa !35
-  %91 = icmp ne ptr %82, null
-  call void @llvm.assume(i1 %91)
-  %92 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %80, i64 24, i1 false)
-  %93 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #42
-          to label %94 unwind label %.loopexit.split-lp
+78:                                               ; preds = %.loopexit66
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i, i64 16
+  store ptr null, ptr %77, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %81 = load ptr, ptr %80, align 8, !tbaa !42, !nonnull !11, !noundef !11
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  store ptr %81, ptr %82, align 8, !tbaa !43
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  %84 = load ptr, ptr %83, align 8, !tbaa !45
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 40
+  store ptr %84, ptr %85, align 8, !tbaa !45
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  store ptr %77, ptr %86, align 8, !tbaa !43
+  store ptr %77, ptr %83, align 8, !tbaa !45
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %88 = load i64, ptr %87, align 8, !tbaa !35
+  %89 = add i64 %88, 1
+  store i64 %89, ptr %87, align 8, !tbaa !35
+  %90 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %79, i64 24, i1 false)
+  %91 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #42
+          to label %92 unwind label %.loopexit.split-lp
 
-94:                                               ; preds = %79
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i, i64 16
-  store ptr null, ptr %93, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  store ptr %82, ptr %96, align 8, !tbaa !43
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 40
-  store ptr %78, ptr %97, align 8, !tbaa !45
-  store ptr %93, ptr %83, align 8, !tbaa !43
-  store ptr %93, ptr %84, align 8, !tbaa !45
-  %98 = add i64 %89, 2
-  store i64 %98, ptr %88, align 8, !tbaa !35
-  %99 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false)
+92:                                               ; preds = %78
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i, i64 16
+  store ptr null, ptr %91, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 32
+  store ptr %81, ptr %94, align 8, !tbaa !43
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 40
+  store ptr %77, ptr %95, align 8, !tbaa !45
+  store ptr %91, ptr %82, align 8, !tbaa !43
+  store ptr %91, ptr %83, align 8, !tbaa !45
+  %96 = add i64 %88, 2
+  store i64 %96, ptr %87, align 8, !tbaa !35
+  %97 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %101
+  br label %99
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.noexc
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %100
+  br label %98
 
-.loopexit.split-lp:                               ; preds = %.loopexit66, %79
+.loopexit.split-lp:                               ; preds = %.loopexit66, %78
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %100
+  br label %98
 
-100:                                              ; preds = %.loopexit.split-lp, %.loopexit
+98:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %107
+  br label %105
 
-.critedge2:                                       ; preds = %61
+.critedge2:                                       ; preds = %60
   invoke void @_ZN4CGAL13Convex_hull_38internal23ch_quickhull_face_graphISt14_List_iteratorINS_7Point_3INS_5EpickEEEENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEENS_20Convex_hull_traits_3IS5_SC_St17integral_constantIbLb1EEEEEEvRNSt7__cxx114listINT1_7Point_3ESaISK_EEET_SO_SO_RT0_RKSJ_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %21, ptr nonnull %.sroa.052.0, ptr nonnull %.sroa.045.0, ptr noundef nonnull align 8 dereferenceable(105) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %101 unwind label %105
+          to label %99 unwind label %103
 
-101:                                              ; preds = %94, %.critedge2, %_ZN4CGAL13Convex_hull_38internal19add_isolated_pointsINS_7Point_3INS_5EpickEEENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvRKT_RT0_.exit
+99:                                               ; preds = %92, %.critedge2, %_ZN4CGAL13Convex_hull_38internal19add_isolated_pointsINS_7Point_3INS_5EpickEEENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvRKT_RT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %102 = load ptr, ptr %5, align 8, !tbaa !206
-  %.not8.i.i = icmp eq ptr %102, %5
+  %100 = load ptr, ptr %5, align 8, !tbaa !206
+  %.not8.i.i = icmp eq ptr %100, %5
   br i1 %.not8.i.i, label %_ZNSt7__cxx1110_List_baseIN4CGAL7Point_3INS1_5EpickEEESaIS4_EED2Ev.exit, label %.lr.ph.i.i36
 
-.lr.ph.i.i36:                                     ; preds = %101, %.lr.ph.i.i36
-  %.09.i.i = phi ptr [ %103, %.lr.ph.i.i36 ], [ %102, %101 ]
-  %103 = load ptr, ptr %.09.i.i, align 8, !tbaa !206
+.lr.ph.i.i36:                                     ; preds = %99, %.lr.ph.i.i36
+  %.09.i.i = phi ptr [ %101, %.lr.ph.i.i36 ], [ %100, %99 ]
+  %101 = load ptr, ptr %.09.i.i, align 8, !tbaa !206
   call void @_ZdlPvm(ptr noundef nonnull %.09.i.i, i64 noundef 40) #40
-  %.not.i.i37 = icmp eq ptr %103, %5
+  %.not.i.i37 = icmp eq ptr %101, %5
   br i1 %.not.i.i37, label %_ZNSt7__cxx1110_List_baseIN4CGAL7Point_3INS1_5EpickEEESaIS4_EED2Ev.exit, label %.lr.ph.i.i36, !llvm.loop !213
 
-_ZNSt7__cxx1110_List_baseIN4CGAL7Point_3INS1_5EpickEEESaIS4_EED2Ev.exit: ; preds = %.lr.ph.i.i36, %101
+_ZNSt7__cxx1110_List_baseIN4CGAL7Point_3INS1_5EpickEEESaIS4_EED2Ev.exit: ; preds = %.lr.ph.i.i36, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %104
+  br label %102
 
-104:                                              ; preds = %4, %_ZNSt7__cxx1110_List_baseIN4CGAL7Point_3INS1_5EpickEEESaIS4_EED2Ev.exit
+102:                                              ; preds = %4, %_ZNSt7__cxx1110_List_baseIN4CGAL7Point_3INS1_5EpickEEESaIS4_EED2Ev.exit
   ret void
 
-105:                                              ; preds = %.critedge2
-  %106 = landingpad { ptr, i32 }
+103:                                              ; preds = %.critedge2
+  %104 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %105
 
-107:                                              ; preds = %62, %100, %105, %55
-  %.pn27 = phi { ptr, i32 } [ %56, %55 ], [ %63, %62 ], [ %lpad.phi, %100 ], [ %106, %105 ]
+105:                                              ; preds = %61, %98, %103, %54
+  %.pn27 = phi { ptr, i32 } [ %55, %54 ], [ %62, %61 ], [ %lpad.phi, %98 ], [ %104, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %108
+  br label %106
 
-108:                                              ; preds = %107, %39
-  %.pn27.pn = phi { ptr, i32 } [ %.pn27, %107 ], [ %40, %39 ]
-  %109 = load ptr, ptr %5, align 8, !tbaa !206
-  %.not8.i.i38 = icmp eq ptr %109, %5
+106:                                              ; preds = %105, %39
+  %.pn27.pn = phi { ptr, i32 } [ %.pn27, %105 ], [ %40, %39 ]
+  %107 = load ptr, ptr %5, align 8, !tbaa !206
+  %.not8.i.i38 = icmp eq ptr %107, %5
   br i1 %.not8.i.i38, label %.body, label %.lr.ph.i.i39
 
-.lr.ph.i.i39:                                     ; preds = %108, %.lr.ph.i.i39
-  %.09.i.i40 = phi ptr [ %110, %.lr.ph.i.i39 ], [ %109, %108 ]
-  %110 = load ptr, ptr %.09.i.i40, align 8, !tbaa !206
+.lr.ph.i.i39:                                     ; preds = %106, %.lr.ph.i.i39
+  %.09.i.i40 = phi ptr [ %108, %.lr.ph.i.i39 ], [ %107, %106 ]
+  %108 = load ptr, ptr %.09.i.i40, align 8, !tbaa !206
   call void @_ZdlPvm(ptr noundef nonnull %.09.i.i40, i64 noundef 40) #40
-  %.not.i.i41 = icmp eq ptr %110, %5
+  %.not.i.i41 = icmp eq ptr %108, %5
   br i1 %.not.i.i41, label %.body, label %.lr.ph.i.i39, !llvm.loop !213
 
-.body:                                            ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i39, %108, %17
-  %.pn27.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn27.pn, %108 ], [ %.pn27.pn, %.lr.ph.i.i39 ], [ %18, %.lr.ph.i.i.i ]
+.body:                                            ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i39, %106, %17
+  %.pn27.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn27.pn, %106 ], [ %.pn27.pn, %.lr.ph.i.i39 ], [ %18, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn27.pn.pn
 }
@@ -27290,7 +27285,7 @@ define linkonce_odr dso_local ptr @_ZN4CGAL16make_tetrahedronINS_12Polyhedron_3I
   %6 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #42
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !42
+  %8 = load ptr, ptr %7, align 8, !tbaa !42, !nonnull !11, !noundef !11
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %8, ptr %9, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -27304,339 +27299,335 @@ define linkonce_odr dso_local ptr @_ZN4CGAL16make_tetrahedronINS_12Polyhedron_3I
   %15 = load i64, ptr %14, align 8, !tbaa !35
   %16 = add i64 %15, 1
   store i64 %16, ptr %14, align 8, !tbaa !35
-  %17 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #42
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr %8, ptr %19, align 8, !tbaa !43
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store ptr %6, ptr %20, align 8, !tbaa !45
-  store ptr %18, ptr %9, align 8, !tbaa !43
-  store ptr %18, ptr %10, align 8, !tbaa !45
-  %21 = add i64 %15, 2
-  store i64 %21, ptr %14, align 8, !tbaa !35
-  %22 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #42
-  store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store ptr %8, ptr %23, align 8, !tbaa !43
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  store ptr %18, ptr %24, align 8, !tbaa !45
-  store ptr %22, ptr %19, align 8, !tbaa !43
-  store ptr %22, ptr %10, align 8, !tbaa !45
-  %25 = add i64 %15, 3
-  store i64 %25, ptr %14, align 8, !tbaa !35
-  %26 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #42
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store ptr %8, ptr %27, align 8, !tbaa !43
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %22, ptr %28, align 8, !tbaa !45
-  store ptr %26, ptr %23, align 8, !tbaa !43
-  store ptr %26, ptr %10, align 8, !tbaa !45
-  %29 = add i64 %15, 4
-  store i64 %29, ptr %14, align 8, !tbaa !35
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %34 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #42
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %36, i8 0, i64 104, i1 false)
-  store ptr %35, ptr %34, align 8, !tbaa !194
-  store ptr %34, ptr %35, align 8, !tbaa !194
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %38 = load ptr, ptr %37, align 8, !tbaa !49, !nonnull !11, !noundef !11
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %41 = load ptr, ptr %40, align 8, !tbaa !52
-  %42 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  store ptr %41, ptr %42, align 8, !tbaa !52
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store ptr %34, ptr %43, align 8, !tbaa !50
-  store ptr %34, ptr %40, align 8, !tbaa !52
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %45 = load i64, ptr %44, align 8, !tbaa !46
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %34, align 8, !tbaa !194
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 40
-  store ptr %38, ptr %46, align 8, !tbaa !50
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 48
-  store ptr %34, ptr %47, align 8, !tbaa !52
-  store ptr %.sroa.0.0.copyload.i.i.i, ptr %39, align 8, !tbaa !50
-  store ptr %.sroa.0.0.copyload.i.i.i, ptr %40, align 8, !tbaa !52
-  %48 = add i64 %45, 2
-  store i64 %48, ptr %44, align 8, !tbaa !46
-  %49 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #42
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %51, i8 0, i64 88, i1 false)
-  store ptr %50, ptr %49, align 8, !tbaa !194
-  store ptr %49, ptr %50, align 8, !tbaa !194
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  store ptr %.sroa.0.0.copyload.i.i.i, ptr %53, align 8, !tbaa !52
-  store ptr %49, ptr %46, align 8, !tbaa !50
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 96
-  store ptr %38, ptr %54, align 8, !tbaa !50
-  %55 = getelementptr inbounds nuw i8, ptr %49, i64 104
-  store ptr %49, ptr %55, align 8, !tbaa !52
-  store ptr %50, ptr %52, align 8, !tbaa !50
-  store ptr %50, ptr %40, align 8, !tbaa !52
-  %56 = add i64 %45, 4
-  store i64 %56, ptr %44, align 8, !tbaa !46
-  %57 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #42
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %60, i8 0, i64 64, i1 false)
-  store ptr %58, ptr %57, align 8, !tbaa !194
-  store ptr %57, ptr %58, align 8, !tbaa !194
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %62 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  store ptr %50, ptr %62, align 8, !tbaa !52
-  store ptr %57, ptr %54, align 8, !tbaa !50
-  %63 = getelementptr inbounds nuw i8, ptr %57, i64 96
-  store ptr %38, ptr %63, align 8, !tbaa !50
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 104
-  store ptr %57, ptr %64, align 8, !tbaa !52
-  store ptr %58, ptr %61, align 8, !tbaa !50
-  store ptr %58, ptr %40, align 8, !tbaa !52
-  %65 = add i64 %45, 6
-  store i64 %65, ptr %44, align 8, !tbaa !46
-  store ptr %49, ptr %36, align 8, !tbaa !194
-  %66 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %34, ptr %66, align 8, !tbaa !194
-  store ptr %57, ptr %51, align 8, !tbaa !194
-  %67 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store ptr %49, ptr %67, align 8, !tbaa !194
-  store ptr %34, ptr %59, align 8, !tbaa !194
-  %68 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %57, ptr %68, align 8, !tbaa !194
-  %69 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr %22, ptr %69, align 8, !tbaa !488
-  %70 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr %18, ptr %70, align 8, !tbaa !488
-  %71 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store ptr %6, ptr %71, align 8, !tbaa !488
-  store ptr %34, ptr %22, align 8, !tbaa !194
-  store ptr %49, ptr %18, align 8, !tbaa !194
-  store ptr %57, ptr %6, align 8, !tbaa !194
-  %72 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %74 = load ptr, ptr %73, align 8, !tbaa !65
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 40
-  store ptr %74, ptr %75, align 8, !tbaa !66
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 48
-  %77 = load ptr, ptr %76, align 8, !tbaa !68
-  %78 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  store ptr %77, ptr %78, align 8, !tbaa !68
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  store ptr %72, ptr %79, align 8, !tbaa !66
-  store ptr %72, ptr %76, align 8, !tbaa !68
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %81 = load i64, ptr %80, align 8, !tbaa !53
-  %82 = add i64 %81, 1
-  store i64 %82, ptr %80, align 8, !tbaa !53
-  %83 = icmp ne ptr %74, null
-  tail call void @llvm.assume(i1 %83)
-  %84 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  store ptr %72, ptr %84, align 8, !tbaa !489
-  %85 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store ptr %72, ptr %85, align 8, !tbaa !489
-  %86 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  store ptr %72, ptr %86, align 8, !tbaa !489
-  store ptr %34, ptr %72, align 8, !tbaa !194
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %34, align 8, !tbaa !194
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
-  store ptr %58, ptr %87, align 8, !tbaa !194
-  %88 = getelementptr inbounds nuw i8, ptr %57, i64 72
-  store ptr %.sroa.0.0.copyload.i.i, ptr %88, align 8, !tbaa !194
-  %89 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  store ptr %50, ptr %89, align 8, !tbaa !194
-  %90 = getelementptr inbounds nuw i8, ptr %49, i64 72
-  store ptr %58, ptr %90, align 8, !tbaa !194
-  %91 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  store ptr %.sroa.0.0.copyload.i.i, ptr %91, align 8, !tbaa !194
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 16
-  store ptr %50, ptr %92, align 8, !tbaa !194
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 24
-  store ptr %6, ptr %93, align 8, !tbaa !488
-  %94 = getelementptr inbounds nuw i8, ptr %49, i64 80
-  store ptr %22, ptr %94, align 8, !tbaa !488
-  %95 = getelementptr inbounds nuw i8, ptr %57, i64 80
-  store ptr %18, ptr %95, align 8, !tbaa !488
-  %96 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #42
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 56
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %98, i8 0, i64 104, i1 false)
-  store ptr %97, ptr %96, align 8, !tbaa !194
-  store ptr %96, ptr %97, align 8, !tbaa !194
-  %99 = load ptr, ptr %37, align 8, !tbaa !49, !nonnull !11, !noundef !11
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 48
-  %102 = load ptr, ptr %101, align 8, !tbaa !52
-  %103 = getelementptr inbounds nuw i8, ptr %96, i64 48
-  store ptr %102, ptr %103, align 8, !tbaa !52
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 40
-  store ptr %96, ptr %104, align 8, !tbaa !50
-  store ptr %96, ptr %101, align 8, !tbaa !52
-  %.sroa.0.0.copyload.i.i.i229 = load ptr, ptr %96, align 8, !tbaa !194
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i229, i64 40
-  store ptr %99, ptr %105, align 8, !tbaa !50
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i229, i64 48
-  store ptr %96, ptr %106, align 8, !tbaa !52
-  store ptr %.sroa.0.0.copyload.i.i.i229, ptr %100, align 8, !tbaa !50
-  store ptr %.sroa.0.0.copyload.i.i.i229, ptr %101, align 8, !tbaa !52
-  %107 = add i64 %45, 8
-  store i64 %107, ptr %44, align 8, !tbaa !46
-  %108 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #42
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %110, i8 0, i64 88, i1 false)
-  store ptr %109, ptr %108, align 8, !tbaa !194
-  store ptr %108, ptr %109, align 8, !tbaa !194
-  %111 = getelementptr inbounds nuw i8, ptr %108, i64 40
-  %112 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  store ptr %.sroa.0.0.copyload.i.i.i229, ptr %112, align 8, !tbaa !52
-  store ptr %108, ptr %105, align 8, !tbaa !50
-  %113 = getelementptr inbounds nuw i8, ptr %108, i64 96
-  store ptr %99, ptr %113, align 8, !tbaa !50
-  %114 = getelementptr inbounds nuw i8, ptr %108, i64 104
-  store ptr %108, ptr %114, align 8, !tbaa !52
-  store ptr %109, ptr %111, align 8, !tbaa !50
-  store ptr %109, ptr %101, align 8, !tbaa !52
-  %115 = add i64 %45, 10
-  store i64 %115, ptr %44, align 8, !tbaa !46
-  %116 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #42
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 56
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %119, i8 0, i64 64, i1 false)
-  store ptr %117, ptr %116, align 8, !tbaa !194
-  store ptr %116, ptr %117, align 8, !tbaa !194
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 40
-  %121 = getelementptr inbounds nuw i8, ptr %116, i64 48
-  store ptr %109, ptr %121, align 8, !tbaa !52
-  store ptr %116, ptr %113, align 8, !tbaa !50
-  %122 = getelementptr inbounds nuw i8, ptr %116, i64 96
-  store ptr %99, ptr %122, align 8, !tbaa !50
-  %123 = getelementptr inbounds nuw i8, ptr %116, i64 104
-  store ptr %116, ptr %123, align 8, !tbaa !52
-  store ptr %117, ptr %120, align 8, !tbaa !50
-  store ptr %117, ptr %101, align 8, !tbaa !52
-  %124 = add i64 %45, 12
-  store i64 %124, ptr %44, align 8, !tbaa !46
-  %125 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  store ptr %26, ptr %125, align 8, !tbaa !488
-  %126 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  store ptr %26, ptr %126, align 8, !tbaa !488
-  %127 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store ptr %26, ptr %127, align 8, !tbaa !488
-  store ptr %96, ptr %26, align 8, !tbaa !194
-  store ptr %96, ptr %87, align 8, !tbaa !194
-  %128 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store ptr %.sroa.0.0.copyload.i.i, ptr %128, align 8, !tbaa !194
-  store ptr %108, ptr %91, align 8, !tbaa !194
-  %129 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  store ptr %50, ptr %129, align 8, !tbaa !194
-  store ptr %116, ptr %89, align 8, !tbaa !194
-  %130 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store ptr %58, ptr %130, align 8, !tbaa !194
-  store ptr %109, ptr %98, align 8, !tbaa !194
-  %131 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  store ptr %96, ptr %131, align 8, !tbaa !194
-  store ptr %117, ptr %110, align 8, !tbaa !194
-  %132 = getelementptr inbounds nuw i8, ptr %116, i64 72
-  store ptr %108, ptr %132, align 8, !tbaa !194
-  %.sroa.0.0.copyload.i.i234 = load ptr, ptr %96, align 8, !tbaa !194
-  store ptr %.sroa.0.0.copyload.i.i234, ptr %118, align 8, !tbaa !194
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i234, i64 16
-  store ptr %116, ptr %133, align 8, !tbaa !194
-  %.sroa.0.0.copyload.i.i235 = load ptr, ptr %108, align 8, !tbaa !194
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i235, i64 8
-  store ptr %.sroa.0.0.copyload.i.i, ptr %134, align 8, !tbaa !194
-  store ptr %.sroa.0.0.copyload.i.i235, ptr %92, align 8, !tbaa !194
-  %.sroa.0.0.copyload.i.i236 = load ptr, ptr %116, align 8, !tbaa !194
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i236, i64 8
-  store ptr %50, ptr %135, align 8, !tbaa !194
-  store ptr %.sroa.0.0.copyload.i.i236, ptr %90, align 8, !tbaa !194
-  %.sroa.0.0.copyload.i.i237 = load ptr, ptr %96, align 8, !tbaa !194
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i237, i64 8
-  store ptr %58, ptr %136, align 8, !tbaa !194
-  store ptr %.sroa.0.0.copyload.i.i237, ptr %88, align 8, !tbaa !194
-  %.sroa.0.0.copyload.i.i238 = load ptr, ptr %96, align 8, !tbaa !194
-  %137 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i238, i64 24
-  store ptr %6, ptr %137, align 8, !tbaa !488
-  %.sroa.0.0.copyload.i.i239 = load ptr, ptr %108, align 8, !tbaa !194
-  %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i239, i64 24
-  store ptr %22, ptr %138, align 8, !tbaa !488
-  %.sroa.0.0.copyload.i.i240 = load ptr, ptr %116, align 8, !tbaa !194
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i240, i64 24
-  store ptr %18, ptr %139, align 8, !tbaa !488
-  %140 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 40
-  store ptr %74, ptr %141, align 8, !tbaa !66
-  %142 = load ptr, ptr %76, align 8, !tbaa !68
-  %143 = getelementptr inbounds nuw i8, ptr %140, i64 48
-  store ptr %142, ptr %143, align 8, !tbaa !68
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 40
-  store ptr %140, ptr %144, align 8, !tbaa !66
-  store ptr %140, ptr %76, align 8, !tbaa !68
-  %145 = add i64 %81, 2
-  store i64 %145, ptr %80, align 8, !tbaa !53
-  store ptr %.sroa.0.0.copyload.i.i, ptr %140, align 8, !tbaa !194
-  %146 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 32
-  store ptr %140, ptr %146, align 8, !tbaa !489
-  %147 = getelementptr inbounds nuw i8, ptr %96, i64 32
-  store ptr %140, ptr %147, align 8, !tbaa !489
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i239, i64 32
-  store ptr %140, ptr %148, align 8, !tbaa !489
-  %149 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42
-  %150 = load ptr, ptr %73, align 8, !tbaa !65, !nonnull !11, !noundef !11
-  %151 = getelementptr inbounds nuw i8, ptr %149, i64 40
-  store ptr %150, ptr %151, align 8, !tbaa !66
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 48
-  %153 = load ptr, ptr %152, align 8, !tbaa !68
-  %154 = getelementptr inbounds nuw i8, ptr %149, i64 48
-  store ptr %153, ptr %154, align 8, !tbaa !68
-  %155 = getelementptr inbounds nuw i8, ptr %153, i64 40
-  store ptr %149, ptr %155, align 8, !tbaa !66
-  store ptr %149, ptr %152, align 8, !tbaa !68
-  %156 = add i64 %81, 3
-  store i64 %156, ptr %80, align 8, !tbaa !53
-  store ptr %50, ptr %149, align 8, !tbaa !194
-  %157 = getelementptr inbounds nuw i8, ptr %49, i64 88
-  store ptr %149, ptr %157, align 8, !tbaa !489
-  %158 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  store ptr %149, ptr %158, align 8, !tbaa !489
-  %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i240, i64 32
-  store ptr %149, ptr %159, align 8, !tbaa !489
-  %160 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42
-  %161 = load ptr, ptr %73, align 8, !tbaa !65, !nonnull !11, !noundef !11
-  %162 = getelementptr inbounds nuw i8, ptr %160, i64 40
-  store ptr %161, ptr %162, align 8, !tbaa !66
-  %163 = getelementptr inbounds nuw i8, ptr %161, i64 48
-  %164 = load ptr, ptr %163, align 8, !tbaa !68
-  %165 = getelementptr inbounds nuw i8, ptr %160, i64 48
-  store ptr %164, ptr %165, align 8, !tbaa !68
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 40
-  store ptr %160, ptr %166, align 8, !tbaa !66
-  store ptr %160, ptr %163, align 8, !tbaa !68
-  %167 = add i64 %81, 4
-  store i64 %167, ptr %80, align 8, !tbaa !53
-  store ptr %58, ptr %160, align 8, !tbaa !194
-  %168 = getelementptr inbounds nuw i8, ptr %57, i64 88
-  store ptr %160, ptr %168, align 8, !tbaa !489
-  %169 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  store ptr %160, ptr %169, align 8, !tbaa !489
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i238, i64 32
-  store ptr %160, ptr %170, align 8, !tbaa !489
-  %.sroa.0.0.copyload.i.i244 = load ptr, ptr %58, align 8, !tbaa !194
+  %17 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #42
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store ptr %8, ptr %18, align 8, !tbaa !43
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store ptr %6, ptr %19, align 8, !tbaa !45
+  store ptr %17, ptr %9, align 8, !tbaa !43
+  store ptr %17, ptr %10, align 8, !tbaa !45
+  %20 = add i64 %15, 2
+  store i64 %20, ptr %14, align 8, !tbaa !35
+  %21 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #42
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store ptr %8, ptr %22, align 8, !tbaa !43
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  store ptr %17, ptr %23, align 8, !tbaa !45
+  store ptr %21, ptr %18, align 8, !tbaa !43
+  store ptr %21, ptr %10, align 8, !tbaa !45
+  %24 = add i64 %15, 3
+  store i64 %24, ptr %14, align 8, !tbaa !35
+  %25 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #42
+  store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store ptr %8, ptr %26, align 8, !tbaa !43
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  store ptr %21, ptr %27, align 8, !tbaa !45
+  store ptr %25, ptr %22, align 8, !tbaa !43
+  store ptr %25, ptr %10, align 8, !tbaa !45
+  %28 = add i64 %15, 4
+  store i64 %28, ptr %14, align 8, !tbaa !35
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  %33 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #42
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %35, i8 0, i64 104, i1 false)
+  store ptr %34, ptr %33, align 8, !tbaa !194
+  store ptr %33, ptr %34, align 8, !tbaa !194
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %37 = load ptr, ptr %36, align 8, !tbaa !49, !nonnull !11, !noundef !11
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  %40 = load ptr, ptr %39, align 8, !tbaa !52
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store ptr %40, ptr %41, align 8, !tbaa !52
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  store ptr %33, ptr %42, align 8, !tbaa !50
+  store ptr %33, ptr %39, align 8, !tbaa !52
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %44 = load i64, ptr %43, align 8, !tbaa !46
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %33, align 8, !tbaa !194
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 40
+  store ptr %37, ptr %45, align 8, !tbaa !50
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 48
+  store ptr %33, ptr %46, align 8, !tbaa !52
+  store ptr %.sroa.0.0.copyload.i.i.i, ptr %38, align 8, !tbaa !50
+  store ptr %.sroa.0.0.copyload.i.i.i, ptr %39, align 8, !tbaa !52
+  %47 = add i64 %44, 2
+  store i64 %47, ptr %43, align 8, !tbaa !46
+  %48 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #42
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %50, i8 0, i64 88, i1 false)
+  store ptr %49, ptr %48, align 8, !tbaa !194
+  store ptr %48, ptr %49, align 8, !tbaa !194
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 48
+  store ptr %.sroa.0.0.copyload.i.i.i, ptr %52, align 8, !tbaa !52
+  store ptr %48, ptr %45, align 8, !tbaa !50
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 96
+  store ptr %37, ptr %53, align 8, !tbaa !50
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 104
+  store ptr %48, ptr %54, align 8, !tbaa !52
+  store ptr %49, ptr %51, align 8, !tbaa !50
+  store ptr %49, ptr %39, align 8, !tbaa !52
+  %55 = add i64 %44, 4
+  store i64 %55, ptr %43, align 8, !tbaa !46
+  %56 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #42
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %59, i8 0, i64 64, i1 false)
+  store ptr %57, ptr %56, align 8, !tbaa !194
+  store ptr %56, ptr %57, align 8, !tbaa !194
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  store ptr %49, ptr %61, align 8, !tbaa !52
+  store ptr %56, ptr %53, align 8, !tbaa !50
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 96
+  store ptr %37, ptr %62, align 8, !tbaa !50
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 104
+  store ptr %56, ptr %63, align 8, !tbaa !52
+  store ptr %57, ptr %60, align 8, !tbaa !50
+  store ptr %57, ptr %39, align 8, !tbaa !52
+  %64 = add i64 %44, 6
+  store i64 %64, ptr %43, align 8, !tbaa !46
+  store ptr %48, ptr %35, align 8, !tbaa !194
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store ptr %33, ptr %65, align 8, !tbaa !194
+  store ptr %56, ptr %50, align 8, !tbaa !194
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  store ptr %48, ptr %66, align 8, !tbaa !194
+  store ptr %33, ptr %58, align 8, !tbaa !194
+  %67 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store ptr %56, ptr %67, align 8, !tbaa !194
+  %68 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  store ptr %21, ptr %68, align 8, !tbaa !488
+  %69 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  store ptr %17, ptr %69, align 8, !tbaa !488
+  %70 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  store ptr %6, ptr %70, align 8, !tbaa !488
+  store ptr %33, ptr %21, align 8, !tbaa !194
+  store ptr %48, ptr %17, align 8, !tbaa !194
+  store ptr %56, ptr %6, align 8, !tbaa !194
+  %71 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %73 = load ptr, ptr %72, align 8, !tbaa !65, !nonnull !11, !noundef !11
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 40
+  store ptr %73, ptr %74, align 8, !tbaa !66
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 48
+  %76 = load ptr, ptr %75, align 8, !tbaa !68
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 48
+  store ptr %76, ptr %77, align 8, !tbaa !68
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 40
+  store ptr %71, ptr %78, align 8, !tbaa !66
+  store ptr %71, ptr %75, align 8, !tbaa !68
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %80 = load i64, ptr %79, align 8, !tbaa !53
+  %81 = add i64 %80, 1
+  store i64 %81, ptr %79, align 8, !tbaa !53
+  %82 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store ptr %71, ptr %82, align 8, !tbaa !489
+  %83 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  store ptr %71, ptr %83, align 8, !tbaa !489
+  %84 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  store ptr %71, ptr %84, align 8, !tbaa !489
+  store ptr %33, ptr %71, align 8, !tbaa !194
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %33, align 8, !tbaa !194
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
+  store ptr %57, ptr %85, align 8, !tbaa !194
+  %86 = getelementptr inbounds nuw i8, ptr %56, i64 72
+  store ptr %.sroa.0.0.copyload.i.i, ptr %86, align 8, !tbaa !194
+  %87 = getelementptr inbounds nuw i8, ptr %56, i64 64
+  store ptr %49, ptr %87, align 8, !tbaa !194
+  %88 = getelementptr inbounds nuw i8, ptr %48, i64 72
+  store ptr %57, ptr %88, align 8, !tbaa !194
+  %89 = getelementptr inbounds nuw i8, ptr %48, i64 64
+  store ptr %.sroa.0.0.copyload.i.i, ptr %89, align 8, !tbaa !194
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 16
+  store ptr %49, ptr %90, align 8, !tbaa !194
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 24
+  store ptr %6, ptr %91, align 8, !tbaa !488
+  %92 = getelementptr inbounds nuw i8, ptr %48, i64 80
+  store ptr %21, ptr %92, align 8, !tbaa !488
+  %93 = getelementptr inbounds nuw i8, ptr %56, i64 80
+  store ptr %17, ptr %93, align 8, !tbaa !488
+  %94 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #42
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %96, i8 0, i64 104, i1 false)
+  store ptr %95, ptr %94, align 8, !tbaa !194
+  store ptr %94, ptr %95, align 8, !tbaa !194
+  %97 = load ptr, ptr %36, align 8, !tbaa !49, !nonnull !11, !noundef !11
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 48
+  %100 = load ptr, ptr %99, align 8, !tbaa !52
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 48
+  store ptr %100, ptr %101, align 8, !tbaa !52
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 40
+  store ptr %94, ptr %102, align 8, !tbaa !50
+  store ptr %94, ptr %99, align 8, !tbaa !52
+  %.sroa.0.0.copyload.i.i.i229 = load ptr, ptr %94, align 8, !tbaa !194
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i229, i64 40
+  store ptr %97, ptr %103, align 8, !tbaa !50
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i229, i64 48
+  store ptr %94, ptr %104, align 8, !tbaa !52
+  store ptr %.sroa.0.0.copyload.i.i.i229, ptr %98, align 8, !tbaa !50
+  store ptr %.sroa.0.0.copyload.i.i.i229, ptr %99, align 8, !tbaa !52
+  %105 = add i64 %44, 8
+  store i64 %105, ptr %43, align 8, !tbaa !46
+  %106 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #42
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %108, i8 0, i64 88, i1 false)
+  store ptr %107, ptr %106, align 8, !tbaa !194
+  store ptr %106, ptr %107, align 8, !tbaa !194
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 48
+  store ptr %.sroa.0.0.copyload.i.i.i229, ptr %110, align 8, !tbaa !52
+  store ptr %106, ptr %103, align 8, !tbaa !50
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 96
+  store ptr %97, ptr %111, align 8, !tbaa !50
+  %112 = getelementptr inbounds nuw i8, ptr %106, i64 104
+  store ptr %106, ptr %112, align 8, !tbaa !52
+  store ptr %107, ptr %109, align 8, !tbaa !50
+  store ptr %107, ptr %99, align 8, !tbaa !52
+  %113 = add i64 %44, 10
+  store i64 %113, ptr %43, align 8, !tbaa !46
+  %114 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #42
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %117, i8 0, i64 64, i1 false)
+  store ptr %115, ptr %114, align 8, !tbaa !194
+  store ptr %114, ptr %115, align 8, !tbaa !194
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %114, i64 48
+  store ptr %107, ptr %119, align 8, !tbaa !52
+  store ptr %114, ptr %111, align 8, !tbaa !50
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 96
+  store ptr %97, ptr %120, align 8, !tbaa !50
+  %121 = getelementptr inbounds nuw i8, ptr %114, i64 104
+  store ptr %114, ptr %121, align 8, !tbaa !52
+  store ptr %115, ptr %118, align 8, !tbaa !50
+  store ptr %115, ptr %99, align 8, !tbaa !52
+  %122 = add i64 %44, 12
+  store i64 %122, ptr %43, align 8, !tbaa !46
+  %123 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  store ptr %25, ptr %123, align 8, !tbaa !488
+  %124 = getelementptr inbounds nuw i8, ptr %106, i64 24
+  store ptr %25, ptr %124, align 8, !tbaa !488
+  %125 = getelementptr inbounds nuw i8, ptr %114, i64 24
+  store ptr %25, ptr %125, align 8, !tbaa !488
+  store ptr %94, ptr %25, align 8, !tbaa !194
+  store ptr %94, ptr %85, align 8, !tbaa !194
+  %126 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  store ptr %.sroa.0.0.copyload.i.i, ptr %126, align 8, !tbaa !194
+  store ptr %106, ptr %89, align 8, !tbaa !194
+  %127 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  store ptr %49, ptr %127, align 8, !tbaa !194
+  store ptr %114, ptr %87, align 8, !tbaa !194
+  %128 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  store ptr %57, ptr %128, align 8, !tbaa !194
+  store ptr %107, ptr %96, align 8, !tbaa !194
+  %129 = getelementptr inbounds nuw i8, ptr %106, i64 72
+  store ptr %94, ptr %129, align 8, !tbaa !194
+  store ptr %115, ptr %108, align 8, !tbaa !194
+  %130 = getelementptr inbounds nuw i8, ptr %114, i64 72
+  store ptr %106, ptr %130, align 8, !tbaa !194
+  %.sroa.0.0.copyload.i.i234 = load ptr, ptr %94, align 8, !tbaa !194
+  store ptr %.sroa.0.0.copyload.i.i234, ptr %116, align 8, !tbaa !194
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i234, i64 16
+  store ptr %114, ptr %131, align 8, !tbaa !194
+  %.sroa.0.0.copyload.i.i235 = load ptr, ptr %106, align 8, !tbaa !194
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i235, i64 8
+  store ptr %.sroa.0.0.copyload.i.i, ptr %132, align 8, !tbaa !194
+  store ptr %.sroa.0.0.copyload.i.i235, ptr %90, align 8, !tbaa !194
+  %.sroa.0.0.copyload.i.i236 = load ptr, ptr %114, align 8, !tbaa !194
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i236, i64 8
+  store ptr %49, ptr %133, align 8, !tbaa !194
+  store ptr %.sroa.0.0.copyload.i.i236, ptr %88, align 8, !tbaa !194
+  %.sroa.0.0.copyload.i.i237 = load ptr, ptr %94, align 8, !tbaa !194
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i237, i64 8
+  store ptr %57, ptr %134, align 8, !tbaa !194
+  store ptr %.sroa.0.0.copyload.i.i237, ptr %86, align 8, !tbaa !194
+  %.sroa.0.0.copyload.i.i238 = load ptr, ptr %94, align 8, !tbaa !194
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i238, i64 24
+  store ptr %6, ptr %135, align 8, !tbaa !488
+  %.sroa.0.0.copyload.i.i239 = load ptr, ptr %106, align 8, !tbaa !194
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i239, i64 24
+  store ptr %21, ptr %136, align 8, !tbaa !488
+  %.sroa.0.0.copyload.i.i240 = load ptr, ptr %114, align 8, !tbaa !194
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i240, i64 24
+  store ptr %17, ptr %137, align 8, !tbaa !488
+  %138 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 40
+  store ptr %73, ptr %139, align 8, !tbaa !66
+  %140 = load ptr, ptr %75, align 8, !tbaa !68
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 48
+  store ptr %140, ptr %141, align 8, !tbaa !68
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 40
+  store ptr %138, ptr %142, align 8, !tbaa !66
+  store ptr %138, ptr %75, align 8, !tbaa !68
+  %143 = add i64 %80, 2
+  store i64 %143, ptr %79, align 8, !tbaa !53
+  store ptr %.sroa.0.0.copyload.i.i, ptr %138, align 8, !tbaa !194
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 32
+  store ptr %138, ptr %144, align 8, !tbaa !489
+  %145 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  store ptr %138, ptr %145, align 8, !tbaa !489
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i239, i64 32
+  store ptr %138, ptr %146, align 8, !tbaa !489
+  %147 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42
+  %148 = load ptr, ptr %72, align 8, !tbaa !65, !nonnull !11, !noundef !11
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 40
+  store ptr %148, ptr %149, align 8, !tbaa !66
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 48
+  %151 = load ptr, ptr %150, align 8, !tbaa !68
+  %152 = getelementptr inbounds nuw i8, ptr %147, i64 48
+  store ptr %151, ptr %152, align 8, !tbaa !68
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 40
+  store ptr %147, ptr %153, align 8, !tbaa !66
+  store ptr %147, ptr %150, align 8, !tbaa !68
+  %154 = add i64 %80, 3
+  store i64 %154, ptr %79, align 8, !tbaa !53
+  store ptr %49, ptr %147, align 8, !tbaa !194
+  %155 = getelementptr inbounds nuw i8, ptr %48, i64 88
+  store ptr %147, ptr %155, align 8, !tbaa !489
+  %156 = getelementptr inbounds nuw i8, ptr %106, i64 32
+  store ptr %147, ptr %156, align 8, !tbaa !489
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i240, i64 32
+  store ptr %147, ptr %157, align 8, !tbaa !489
+  %158 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42
+  %159 = load ptr, ptr %72, align 8, !tbaa !65, !nonnull !11, !noundef !11
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 40
+  store ptr %159, ptr %160, align 8, !tbaa !66
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 48
+  %162 = load ptr, ptr %161, align 8, !tbaa !68
+  %163 = getelementptr inbounds nuw i8, ptr %158, i64 48
+  store ptr %162, ptr %163, align 8, !tbaa !68
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 40
+  store ptr %158, ptr %164, align 8, !tbaa !66
+  store ptr %158, ptr %161, align 8, !tbaa !68
+  %165 = add i64 %80, 4
+  store i64 %165, ptr %79, align 8, !tbaa !53
+  store ptr %57, ptr %158, align 8, !tbaa !194
+  %166 = getelementptr inbounds nuw i8, ptr %56, i64 88
+  store ptr %158, ptr %166, align 8, !tbaa !489
+  %167 = getelementptr inbounds nuw i8, ptr %114, i64 32
+  store ptr %158, ptr %167, align 8, !tbaa !489
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i238, i64 32
+  store ptr %158, ptr %168, align 8, !tbaa !489
+  %.sroa.0.0.copyload.i.i244 = load ptr, ptr %57, align 8, !tbaa !194
   ret ptr %.sroa.0.0.copyload.i.i244
 }
 
@@ -51227,7 +51218,7 @@ _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_li
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429.thread: ; preds = %36, %.noexc355
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %417
+  br label %416
 
 _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEEET_ST_ST_.exit.thread: ; preds = %.preheader.i.i, %.lr.ph.i.i.i.i.preheader.i.i, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEESaISL_EEC2IN9__gnu_cxx17__normal_iteratorIPKSL_SN_EEvEET_SU_RKSM_.exit.thread, %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEEET_ST_ST_.exit
   %46 = phi i32 [ %35, %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEEET_ST_ST_.exit ], [ 0, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEESaISL_EEC2IN9__gnu_cxx17__normal_iteratorIPKSL_SN_EEvEET_SU_RKSM_.exit.thread ], [ %35, %.lr.ph.i.i.i.i.preheader.i.i ], [ %35, %.preheader.i.i ]
@@ -51289,7 +51280,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL8internal22In_place_list_iterat
 .body360.thread:                                  ; preds = %65
   %74 = landingpad { ptr, i32 }
           cleanup
-  br label %410
+  br label %409
 
 _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %61, %71
   %.sink.i614 = phi ptr [ %66, %71 ], [ null, %61 ]
@@ -51469,7 +51460,7 @@ _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_3
 138:                                              ; preds = %204, %120
   %139 = landingpad { ptr, i32 }
           cleanup
-  br label %386
+  br label %385
 
 140:                                              ; preds = %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE7reserveEm.exit, %.critedge7
   %indvars.iv738 = phi i64 [ 0, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE7reserveEm.exit ], [ %indvars.iv.next739, %.critedge7 ]
@@ -51629,19 +51620,19 @@ _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_3
   %197 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %386
+  br label %385
 
 198:                                              ; preds = %.noexc300
   %199 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %386
+  br label %385
 
 200:                                              ; preds = %.noexc305
   %201 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %386
+  br label %385
 
 .critedge7:                                       ; preds = %140, %147, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit253, %155
   %indvars.iv.next739 = add nuw nsw i64 %indvars.iv738, 1
@@ -51713,7 +51704,7 @@ _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_3
 233:                                              ; preds = %214
   %234 = landingpad { ptr, i32 }
           cleanup
-  br label %386
+  br label %385
 
 .critedge689:                                     ; preds = %219, %206
   %235 = phi i64 [ %228, %219 ], [ %207, %206 ]
@@ -51726,7 +51717,7 @@ _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_3
 238:                                              ; preds = %204
   store ptr null, ptr %205, align 8
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %240 = load ptr, ptr %239, align 8, !tbaa !65
+  %240 = load ptr, ptr %239, align 8, !tbaa !65, !nonnull !11, !noundef !11
   %241 = getelementptr inbounds nuw i8, ptr %205, i64 40
   store ptr %240, ptr %241, align 8, !tbaa !66
   %242 = getelementptr inbounds nuw i8, ptr %240, i64 48
@@ -51740,97 +51731,95 @@ _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_3
   %247 = load i64, ptr %246, align 8, !tbaa !53
   %248 = add i64 %247, 1
   store i64 %248, ptr %246, align 8, !tbaa !53
-  %249 = icmp ne ptr %240, null
-  call void @llvm.assume(i1 %249)
-  %250 = add nuw nsw i64 %47, 4294967295
-  %251 = and i64 %250, 4294967295
-  %252 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator", ptr %.sroa.0515.0608, i64 %251
-  %.sroa.058.0.copyload = load ptr, ptr %252, align 8, !tbaa !194
+  %249 = add nuw nsw i64 %47, 4294967295
+  %250 = and i64 %249, 4294967295
+  %251 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator", ptr %.sroa.0515.0608, i64 %250
+  %.sroa.058.0.copyload = load ptr, ptr %251, align 8, !tbaa !194
   store ptr %.sroa.058.0.copyload, ptr %205, align 8, !tbaa !194
-  %253 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %254 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %255 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %256 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %257 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %258 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  br label %263
+  %252 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %256 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  br label %262
 
-259:                                              ; preds = %361
-  %260 = load ptr, ptr %12, align 8, !tbaa !1073, !noalias !1079
-  %261 = load i64, ptr %115, align 8, !tbaa !1074, !noalias !1082
-  %.idx731 = shl nsw i64 %261, 4
-  %262 = getelementptr inbounds i8, ptr %260, i64 %.idx731
-  %.not701728 = icmp eq i64 %261, 0
+258:                                              ; preds = %360
+  %259 = load ptr, ptr %12, align 8, !tbaa !1073, !noalias !1079
+  %260 = load i64, ptr %115, align 8, !tbaa !1074, !noalias !1082
+  %.idx731 = shl nsw i64 %260, 4
+  %261 = getelementptr inbounds i8, ptr %259, i64 %.idx731
+  %.not701728 = icmp eq i64 %260, 0
   br i1 %.not701728, label %.preheader.preheader, label %.lr.ph
 
-263:                                              ; preds = %238, %361
-  %indvars.iv749 = phi i64 [ 0, %238 ], [ %indvars.iv.next750, %361 ]
-  %.0217726 = phi i32 [ 1, %238 ], [ %364, %361 ]
-  %264 = zext i32 %.0217726 to i64
-  %265 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.sroa.0532.0576593605, i64 %264
-  %.sroa.047.0.copyload = load ptr, ptr %265, align 8, !tbaa !488
-  %266 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator", ptr %.sroa.0515.0608, i64 %indvars.iv749
-  %267 = load i64, ptr %266, align 8
-  %268 = inttoptr i64 %267 to ptr
-  %269 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator", ptr %.sroa.0515.0608, i64 %264
-  %270 = load i64, ptr %269, align 8, !tbaa !194
-  %271 = inttoptr i64 %270 to ptr
-  %272 = lshr i64 %indvars.iv749, 6
-  %.zext681 = and i64 %272, 67108863
-  %273 = getelementptr inbounds nuw i64, ptr %.sroa.0499.0, i64 %.zext681
-  %274 = and i64 %indvars.iv749, 63
-  %275 = load i64, ptr %273, align 8, !tbaa !130
-  %276 = lshr i64 %275, %274
-  %277 = trunc i64 %276 to i32
-  %spec.select = and i32 %277, 1
-  %278 = lshr i32 %.0217726, 6
-  %.zext683 = zext nneg i32 %278 to i64
-  %279 = getelementptr inbounds nuw i64, ptr %.sroa.0499.0, i64 %.zext683
-  %280 = and i64 %264, 63
-  %281 = shl nuw i64 1, %280
-  %282 = load i64, ptr %279, align 8, !tbaa !130
-  %283 = and i64 %282, %281
-  %.not703 = icmp eq i64 %283, 0
-  %284 = or disjoint i32 %spec.select, 2
-  %spec.select246 = select i1 %.not703, i32 %spec.select, i32 %284
+262:                                              ; preds = %238, %360
+  %indvars.iv749 = phi i64 [ 0, %238 ], [ %indvars.iv.next750, %360 ]
+  %.0217726 = phi i32 [ 1, %238 ], [ %363, %360 ]
+  %263 = zext i32 %.0217726 to i64
+  %264 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.sroa.0532.0576593605, i64 %263
+  %.sroa.047.0.copyload = load ptr, ptr %264, align 8, !tbaa !488
+  %265 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator", ptr %.sroa.0515.0608, i64 %indvars.iv749
+  %266 = load i64, ptr %265, align 8
+  %267 = inttoptr i64 %266 to ptr
+  %268 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator", ptr %.sroa.0515.0608, i64 %263
+  %269 = load i64, ptr %268, align 8, !tbaa !194
+  %270 = inttoptr i64 %269 to ptr
+  %271 = lshr i64 %indvars.iv749, 6
+  %.zext681 = and i64 %271, 67108863
+  %272 = getelementptr inbounds nuw i64, ptr %.sroa.0499.0, i64 %.zext681
+  %273 = and i64 %indvars.iv749, 63
+  %274 = load i64, ptr %272, align 8, !tbaa !130
+  %275 = lshr i64 %274, %273
+  %276 = trunc i64 %275 to i32
+  %spec.select = and i32 %276, 1
+  %277 = lshr i32 %.0217726, 6
+  %.zext683 = zext nneg i32 %277 to i64
+  %278 = getelementptr inbounds nuw i64, ptr %.sroa.0499.0, i64 %.zext683
+  %279 = and i64 %263, 63
+  %280 = shl nuw i64 1, %279
+  %281 = load i64, ptr %278, align 8, !tbaa !130
+  %282 = and i64 %281, %280
+  %.not703 = icmp eq i64 %282, 0
+  %283 = or disjoint i32 %spec.select, 2
+  %spec.select246 = select i1 %.not703, i32 %spec.select, i32 %283
   %.not230 = icmp eq i32 %spec.select246, 0
-  br i1 %.not230, label %361, label %285
+  br i1 %.not230, label %360, label %284
 
-285:                                              ; preds = %263
-  %.sroa.0.0.copyload.i.i406 = load ptr, ptr %271, align 8, !tbaa !194
-  %.sroa.0.0.copyload.i.i407 = load ptr, ptr %268, align 8, !tbaa !194
+284:                                              ; preds = %262
+  %.sroa.0.0.copyload.i.i406 = load ptr, ptr %270, align 8, !tbaa !194
+  %.sroa.0.0.copyload.i.i407 = load ptr, ptr %267, align 8, !tbaa !194
   switch i32 %spec.select246, label %default.unreachable776 [
-    i32 1, label %286
-    i32 2, label %298
-    i32 3, label %310
+    i32 1, label %285
+    i32 2, label %297
+    i32 3, label %309
   ]
 
-286:                                              ; preds = %285
-  %287 = getelementptr inbounds nuw i8, ptr %271, i64 16
-  %.sroa.0.0.copyload.i.i.i.i408 = load ptr, ptr %287, align 8, !tbaa !194
+285:                                              ; preds = %284
+  %286 = getelementptr inbounds nuw i8, ptr %270, i64 16
+  %.sroa.0.0.copyload.i.i.i.i408 = load ptr, ptr %286, align 8, !tbaa !194
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %288 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i.i408 to i64
-  store i64 %288, ptr %16, align 8, !tbaa !194
-  %289 = ptrtoint ptr %.sroa.0.0.copyload.i.i407 to i64
-  store i64 %289, ptr %257, align 8, !tbaa !194
-  %290 = load ptr, ptr %12, align 8, !tbaa !1073
-  %291 = load i64, ptr %115, align 8, !tbaa !1074
-  %292 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %290, i64 %291
-  %293 = load i64, ptr %116, align 8, !tbaa !1072
-  %.not709 = icmp eq i64 %291, %293
+  %287 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i.i408 to i64
+  store i64 %287, ptr %16, align 8, !tbaa !194
+  %288 = ptrtoint ptr %.sroa.0.0.copyload.i.i407 to i64
+  store i64 %288, ptr %256, align 8, !tbaa !194
+  %289 = load ptr, ptr %12, align 8, !tbaa !1073
+  %290 = load i64, ptr %115, align 8, !tbaa !1074
+  %291 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %289, i64 %290
+  %292 = load i64, ptr %116, align 8, !tbaa !1072
+  %.not709 = icmp eq i64 %290, %292
   br i1 %.not709, label %.noexc310, label %.noexc309, !prof !145
 
-.noexc309:                                        ; preds = %286
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %292, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
-  %294 = load i64, ptr %115, align 8, !tbaa !1074
-  %295 = add i64 %294, 1
-  store i64 %295, ptr %115, align 8, !tbaa !1074
+.noexc309:                                        ; preds = %285
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %291, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
+  %293 = load i64, ptr %115, align 8, !tbaa !1074
+  %294 = add i64 %293, 1
+  store i64 %294, ptr %115, align 8, !tbaa !1074
   br label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit255
 
-.noexc310:                                        ; preds = %286
+.noexc310:                                        ; preds = %285
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyISR_JSN_EEEEENS0_12vec_iteratorIPSN_Lb0EEESY_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.383") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %292, i64 noundef 1, ptr nonnull %16)
-          to label %.noexc311 unwind label %296
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyISR_JSN_EEEEENS0_12vec_iteratorIPSN_Lb0EEESY_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.383") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %291, i64 noundef 1, ptr nonnull %16)
+          to label %.noexc311 unwind label %295
 
 .noexc311:                                        ; preds = %.noexc310
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -51839,40 +51828,40 @@ _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_3
 _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit255: ; preds = %.noexc311, %.noexc309
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store ptr %.sroa.0.0.copyload.i.i.i.i408, ptr %.sroa.047.0.copyload, align 8, !tbaa !194
-  br label %352
+  br label %351
 
-296:                                              ; preds = %.noexc310
-  %297 = landingpad { ptr, i32 }
+295:                                              ; preds = %.noexc310
+  %296 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %386
+  br label %385
 
-298:                                              ; preds = %285
-  %299 = getelementptr inbounds nuw i8, ptr %268, i64 8
-  %.sroa.0.0.copyload.i.i409 = load ptr, ptr %299, align 8, !tbaa !194
+297:                                              ; preds = %284
+  %298 = getelementptr inbounds nuw i8, ptr %267, i64 8
+  %.sroa.0.0.copyload.i.i409 = load ptr, ptr %298, align 8, !tbaa !194
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %300 = ptrtoint ptr %.sroa.0.0.copyload.i.i406 to i64
-  store i64 %300, ptr %17, align 8, !tbaa !194
-  %301 = ptrtoint ptr %.sroa.0.0.copyload.i.i409 to i64
-  store i64 %301, ptr %256, align 8, !tbaa !194
-  %302 = load ptr, ptr %12, align 8, !tbaa !1073
-  %303 = load i64, ptr %115, align 8, !tbaa !1074
-  %304 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %302, i64 %303
-  %305 = load i64, ptr %116, align 8, !tbaa !1072
-  %.not708 = icmp eq i64 %303, %305
+  %299 = ptrtoint ptr %.sroa.0.0.copyload.i.i406 to i64
+  store i64 %299, ptr %17, align 8, !tbaa !194
+  %300 = ptrtoint ptr %.sroa.0.0.copyload.i.i409 to i64
+  store i64 %300, ptr %255, align 8, !tbaa !194
+  %301 = load ptr, ptr %12, align 8, !tbaa !1073
+  %302 = load i64, ptr %115, align 8, !tbaa !1074
+  %303 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %301, i64 %302
+  %304 = load i64, ptr %116, align 8, !tbaa !1072
+  %.not708 = icmp eq i64 %302, %304
   br i1 %.not708, label %.noexc315, label %.noexc314, !prof !145
 
-.noexc314:                                        ; preds = %298
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %304, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
-  %306 = load i64, ptr %115, align 8, !tbaa !1074
-  %307 = add i64 %306, 1
-  store i64 %307, ptr %115, align 8, !tbaa !1074
+.noexc314:                                        ; preds = %297
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %303, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
+  %305 = load i64, ptr %115, align 8, !tbaa !1074
+  %306 = add i64 %305, 1
+  store i64 %306, ptr %115, align 8, !tbaa !1074
   br label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit257
 
-.noexc315:                                        ; preds = %298
+.noexc315:                                        ; preds = %297
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyISR_JSN_EEEEENS0_12vec_iteratorIPSN_Lb0EEESY_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.383") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %304, i64 noundef 1, ptr nonnull %17)
-          to label %.noexc316 unwind label %308
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyISR_JSN_EEEEENS0_12vec_iteratorIPSN_Lb0EEESY_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.383") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %303, i64 noundef 1, ptr nonnull %17)
+          to label %.noexc316 unwind label %307
 
 .noexc316:                                        ; preds = %.noexc315
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -51881,70 +51870,70 @@ _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_3
 _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit257: ; preds = %.noexc316, %.noexc314
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   store ptr %.sroa.0.0.copyload.i.i406, ptr %.sroa.047.0.copyload, align 8, !tbaa !194
-  br label %352
+  br label %351
 
-308:                                              ; preds = %.noexc315
-  %309 = landingpad { ptr, i32 }
+307:                                              ; preds = %.noexc315
+  %308 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %386
+  br label %385
 
-310:                                              ; preds = %285
+309:                                              ; preds = %284
   %.sroa.0.0.copyload.i.i410 = load ptr, ptr %.sroa.047.0.copyload, align 8, !tbaa !194
   %.not704 = icmp eq ptr %.sroa.0.0.copyload.i.i410, null
-  br i1 %.not704, label %.critedge248._crit_edge, label %311
+  br i1 %.not704, label %.critedge248._crit_edge, label %310
 
-311:                                              ; preds = %310
-  %312 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i410, i64 32
-  %.sroa.0.0.copyload.i.i.i411 = load ptr, ptr %312, align 8, !tbaa !489
-  %313 = icmp eq ptr %.sroa.0.0.copyload.i.i.i411, null
-  br i1 %313, label %.critedge11, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEneERKS7_.exit.thread
+310:                                              ; preds = %309
+  %311 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i410, i64 32
+  %.sroa.0.0.copyload.i.i.i411 = load ptr, ptr %311, align 8, !tbaa !489
+  %312 = icmp eq ptr %.sroa.0.0.copyload.i.i.i411, null
+  br i1 %312, label %.critedge11, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEneERKS7_.exit.thread
 
-_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEneERKS7_.exit.thread: ; preds = %311, %.critedge248
-  %.sroa.5450.0725 = phi ptr [ %.sroa.0.0.copyload.i.i3.i, %.critedge248 ], [ %.sroa.0.0.copyload.i.i410, %311 ]
-  %.sroa.10.0724 = phi i32 [ %spec.select692, %.critedge248 ], [ 0, %311 ]
-  %314 = getelementptr inbounds nuw i8, ptr %.sroa.5450.0725, i64 32
-  %.sroa.0.0.copyload.i.i.i412 = load ptr, ptr %314, align 8, !tbaa !489
-  %315 = icmp eq ptr %.sroa.0.0.copyload.i.i.i412, null
-  br i1 %315, label %.critedge11, label %.critedge248
+_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEneERKS7_.exit.thread: ; preds = %310, %.critedge248
+  %.sroa.5450.0725 = phi ptr [ %.sroa.0.0.copyload.i.i3.i, %.critedge248 ], [ %.sroa.0.0.copyload.i.i410, %310 ]
+  %.sroa.10.0724 = phi i32 [ %spec.select692, %.critedge248 ], [ 0, %310 ]
+  %313 = getelementptr inbounds nuw i8, ptr %.sroa.5450.0725, i64 32
+  %.sroa.0.0.copyload.i.i.i412 = load ptr, ptr %313, align 8, !tbaa !489
+  %314 = icmp eq ptr %.sroa.0.0.copyload.i.i.i412, null
+  br i1 %314, label %.critedge11, label %.critedge248
 
 .critedge248:                                     ; preds = %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEneERKS7_.exit.thread
-  %316 = getelementptr inbounds nuw i8, ptr %.sroa.5450.0725, i64 8
-  %.sroa.0.0.copyload.i.i.i413 = load ptr, ptr %316, align 8, !tbaa !194
+  %315 = getelementptr inbounds nuw i8, ptr %.sroa.5450.0725, i64 8
+  %.sroa.0.0.copyload.i.i.i413 = load ptr, ptr %315, align 8, !tbaa !194
   %.sroa.0.0.copyload.i.i3.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i413, align 8, !tbaa !194
-  %317 = icmp eq ptr %.sroa.0.0.copyload.i.i3.i, %.sroa.0.0.copyload.i.i410
-  %318 = zext i1 %317 to i32
-  %spec.select692 = add nuw nsw i32 %.sroa.10.0724, %318
-  %319 = icmp ne ptr %.sroa.0.0.copyload.i.i3.i, %.sroa.0.0.copyload.i.i410
-  %320 = icmp ne i32 %spec.select692, 1
-  %or.cond691 = select i1 %319, i1 true, i1 %320
+  %316 = icmp eq ptr %.sroa.0.0.copyload.i.i3.i, %.sroa.0.0.copyload.i.i410
+  %317 = zext i1 %316 to i32
+  %spec.select692 = add nuw nsw i32 %.sroa.10.0724, %317
+  %318 = icmp ne ptr %.sroa.0.0.copyload.i.i3.i, %.sroa.0.0.copyload.i.i410
+  %319 = icmp ne i32 %spec.select692, 1
+  %or.cond691 = select i1 %318, i1 true, i1 %319
   br i1 %or.cond691, label %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEneERKS7_.exit.thread, label %.critedge248._crit_edge
 
-.critedge248._crit_edge:                          ; preds = %.critedge248, %310
+.critedge248._crit_edge:                          ; preds = %.critedge248, %309
   store ptr %.sroa.0.0.copyload.i.i406, ptr %.sroa.047.0.copyload, align 8, !tbaa !194
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %321 = ptrtoint ptr %.sroa.0.0.copyload.i.i406 to i64
-  store i64 %321, ptr %18, align 8, !tbaa !194
-  %322 = ptrtoint ptr %.sroa.0.0.copyload.i.i407 to i64
-  store i64 %322, ptr %255, align 8, !tbaa !194
-  %323 = load ptr, ptr %12, align 8, !tbaa !1073
-  %324 = load i64, ptr %115, align 8, !tbaa !1074
-  %325 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %323, i64 %324
-  %326 = load i64, ptr %116, align 8, !tbaa !1072
-  %.not705 = icmp eq i64 %324, %326
+  %320 = ptrtoint ptr %.sroa.0.0.copyload.i.i406 to i64
+  store i64 %320, ptr %18, align 8, !tbaa !194
+  %321 = ptrtoint ptr %.sroa.0.0.copyload.i.i407 to i64
+  store i64 %321, ptr %254, align 8, !tbaa !194
+  %322 = load ptr, ptr %12, align 8, !tbaa !1073
+  %323 = load i64, ptr %115, align 8, !tbaa !1074
+  %324 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %322, i64 %323
+  %325 = load i64, ptr %116, align 8, !tbaa !1072
+  %.not705 = icmp eq i64 %323, %325
   br i1 %.not705, label %.noexc320, label %.noexc319, !prof !145
 
 .noexc319:                                        ; preds = %.critedge248._crit_edge
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %325, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
-  %327 = load i64, ptr %115, align 8, !tbaa !1074
-  %328 = add i64 %327, 1
-  store i64 %328, ptr %115, align 8, !tbaa !1074
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %324, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
+  %326 = load i64, ptr %115, align 8, !tbaa !1074
+  %327 = add i64 %326, 1
+  store i64 %327, ptr %115, align 8, !tbaa !1074
   br label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit259
 
 .noexc320:                                        ; preds = %.critedge248._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyISR_JSN_EEEEENS0_12vec_iteratorIPSN_Lb0EEESY_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.383") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %325, i64 noundef 1, ptr nonnull %18)
-          to label %.noexc321 unwind label %329
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyISR_JSN_EEEEENS0_12vec_iteratorIPSN_Lb0EEESY_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.383") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %324, i64 noundef 1, ptr nonnull %18)
+          to label %.noexc321 unwind label %328
 
 .noexc321:                                        ; preds = %.noexc320
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -51952,41 +51941,41 @@ _ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Poly
 
 _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit259: ; preds = %.noexc321, %.noexc319
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %352
+  br label %351
 
-329:                                              ; preds = %.noexc320
-  %330 = landingpad { ptr, i32 }
+328:                                              ; preds = %.noexc320
+  %329 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %386
+  br label %385
 
-.critedge11:                                      ; preds = %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEneERKS7_.exit.thread, %311
-  %.sroa.0457.0 = phi ptr [ %.sroa.0.0.copyload.i.i410, %311 ], [ %.sroa.5450.0725, %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEneERKS7_.exit.thread ]
-  %331 = ptrtoint ptr %.sroa.0457.0 to i64
-  %332 = getelementptr inbounds nuw i8, ptr %.sroa.0457.0, i64 8
-  %.sroa.0.0.copyload.i.i415 = load ptr, ptr %332, align 8, !tbaa !194
+.critedge11:                                      ; preds = %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEneERKS7_.exit.thread, %310
+  %.sroa.0457.0 = phi ptr [ %.sroa.0.0.copyload.i.i410, %310 ], [ %.sroa.5450.0725, %_ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEneERKS7_.exit.thread ]
+  %330 = ptrtoint ptr %.sroa.0457.0 to i64
+  %331 = getelementptr inbounds nuw i8, ptr %.sroa.0457.0, i64 8
+  %.sroa.0.0.copyload.i.i415 = load ptr, ptr %331, align 8, !tbaa !194
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  store i64 %331, ptr %19, align 8, !tbaa !194
-  %333 = ptrtoint ptr %.sroa.0.0.copyload.i.i407 to i64
-  store i64 %333, ptr %253, align 8, !tbaa !194
-  %334 = load ptr, ptr %12, align 8, !tbaa !1073
-  %335 = load i64, ptr %115, align 8, !tbaa !1074
-  %336 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %334, i64 %335
-  %337 = load i64, ptr %116, align 8, !tbaa !1072
-  %.not706 = icmp eq i64 %335, %337
+  store i64 %330, ptr %19, align 8, !tbaa !194
+  %332 = ptrtoint ptr %.sroa.0.0.copyload.i.i407 to i64
+  store i64 %332, ptr %252, align 8, !tbaa !194
+  %333 = load ptr, ptr %12, align 8, !tbaa !1073
+  %334 = load i64, ptr %115, align 8, !tbaa !1074
+  %335 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %333, i64 %334
+  %336 = load i64, ptr %116, align 8, !tbaa !1072
+  %.not706 = icmp eq i64 %334, %336
   br i1 %.not706, label %.noexc325, label %.noexc324, !prof !145
 
 .noexc324:                                        ; preds = %.critedge11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %336, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
-  %338 = load i64, ptr %115, align 8, !tbaa !1074
-  %339 = add i64 %338, 1
-  store i64 %339, ptr %115, align 8, !tbaa !1074
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %335, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
+  %337 = load i64, ptr %115, align 8, !tbaa !1074
+  %338 = add i64 %337, 1
+  store i64 %338, ptr %115, align 8, !tbaa !1074
   br label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit261
 
 .noexc325:                                        ; preds = %.critedge11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyISR_JSN_EEEEENS0_12vec_iteratorIPSN_Lb0EEESY_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.383") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %336, i64 noundef 1, ptr nonnull %19)
-          to label %.noexc326 unwind label %348
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyISR_JSN_EEEEENS0_12vec_iteratorIPSN_Lb0EEESY_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.383") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %335, i64 noundef 1, ptr nonnull %19)
+          to label %.noexc326 unwind label %347
 
 .noexc326:                                        ; preds = %.noexc325
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -51994,30 +51983,30 @@ _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_3
   br label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit261
 
 _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit261: ; preds = %.noexc326, %.noexc324
-  %340 = phi i64 [ %.pre761, %.noexc326 ], [ %339, %.noexc324 ]
+  %339 = phi i64 [ %.pre761, %.noexc326 ], [ %338, %.noexc324 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %341 = ptrtoint ptr %.sroa.0.0.copyload.i.i406 to i64
-  store i64 %341, ptr %20, align 8, !tbaa !194
-  %342 = ptrtoint ptr %.sroa.0.0.copyload.i.i415 to i64
-  store i64 %342, ptr %254, align 8, !tbaa !194
-  %343 = load ptr, ptr %12, align 8, !tbaa !1073
-  %344 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %343, i64 %340
-  %345 = load i64, ptr %116, align 8, !tbaa !1072
-  %.not707 = icmp eq i64 %340, %345
+  %340 = ptrtoint ptr %.sroa.0.0.copyload.i.i406 to i64
+  store i64 %340, ptr %20, align 8, !tbaa !194
+  %341 = ptrtoint ptr %.sroa.0.0.copyload.i.i415 to i64
+  store i64 %341, ptr %253, align 8, !tbaa !194
+  %342 = load ptr, ptr %12, align 8, !tbaa !1073
+  %343 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %342, i64 %339
+  %344 = load i64, ptr %116, align 8, !tbaa !1072
+  %.not707 = icmp eq i64 %339, %344
   br i1 %.not707, label %.noexc330, label %.noexc329, !prof !145
 
 .noexc329:                                        ; preds = %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit261
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %344, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
-  %346 = load i64, ptr %115, align 8, !tbaa !1074
-  %347 = add i64 %346, 1
-  store i64 %347, ptr %115, align 8, !tbaa !1074
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %343, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
+  %345 = load i64, ptr %115, align 8, !tbaa !1074
+  %346 = add i64 %345, 1
+  store i64 %346, ptr %115, align 8, !tbaa !1074
   br label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit263
 
 .noexc330:                                        ; preds = %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit261
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyISR_JSN_EEEEENS0_12vec_iteratorIPSN_Lb0EEESY_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.383") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %344, i64 noundef 1, ptr nonnull %20)
-          to label %.noexc331 unwind label %350
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyISR_JSN_EEEEENS0_12vec_iteratorIPSN_Lb0EEESY_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.383") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %343, i64 noundef 1, ptr nonnull %20)
+          to label %.noexc331 unwind label %349
 
 .noexc331:                                        ; preds = %.noexc330
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -52025,45 +52014,45 @@ _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_3
 
 _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit263: ; preds = %.noexc331, %.noexc329
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %352
+  br label %351
 
-348:                                              ; preds = %.noexc325
-  %349 = landingpad { ptr, i32 }
+347:                                              ; preds = %.noexc325
+  %348 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %386
+  br label %385
 
-350:                                              ; preds = %.noexc330
-  %351 = landingpad { ptr, i32 }
+349:                                              ; preds = %.noexc330
+  %350 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %386
+  br label %385
 
-default.unreachable776:                           ; preds = %285
+default.unreachable776:                           ; preds = %284
   unreachable
 
-352:                                              ; preds = %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit259, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit263, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit257, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit255
+351:                                              ; preds = %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit259, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit263, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit257, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit255
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  store i64 %267, ptr %21, align 8, !tbaa !194
-  store i64 %270, ptr %258, align 8, !tbaa !194
-  %353 = load ptr, ptr %12, align 8, !tbaa !1073
-  %354 = load i64, ptr %115, align 8, !tbaa !1074
-  %355 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %353, i64 %354
-  %356 = load i64, ptr %116, align 8, !tbaa !1072
-  %.not710 = icmp eq i64 %354, %356
+  store i64 %266, ptr %21, align 8, !tbaa !194
+  store i64 %269, ptr %257, align 8, !tbaa !194
+  %352 = load ptr, ptr %12, align 8, !tbaa !1073
+  %353 = load i64, ptr %115, align 8, !tbaa !1074
+  %354 = getelementptr inbounds nuw %"struct.std::pair.379", ptr %352, i64 %353
+  %355 = load i64, ptr %116, align 8, !tbaa !1072
+  %.not710 = icmp eq i64 %353, %355
   br i1 %.not710, label %.noexc335, label %.noexc334, !prof !145
 
-.noexc334:                                        ; preds = %352
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %355, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
-  %357 = load i64, ptr %115, align 8, !tbaa !1074
-  %358 = add i64 %357, 1
-  store i64 %358, ptr %115, align 8, !tbaa !1074
+.noexc334:                                        ; preds = %351
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %354, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
+  %356 = load i64, ptr %115, align 8, !tbaa !1074
+  %357 = add i64 %356, 1
+  store i64 %357, ptr %115, align 8, !tbaa !1074
   br label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit265
 
-.noexc335:                                        ; preds = %352
+.noexc335:                                        ; preds = %351
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyISR_JSN_EEEEENS0_12vec_iteratorIPSN_Lb0EEESY_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.383") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %355, i64 noundef 1, ptr nonnull %21)
-          to label %.noexc336 unwind label %359
+  invoke void @_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE37priv_insert_forward_range_no_capacityINS0_3dtl20insert_emplace_proxyISR_JSN_EEEEENS0_12vec_iteratorIPSN_Lb0EEESY_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.383") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %354, i64 noundef 1, ptr nonnull %21)
+          to label %.noexc336 unwind label %358
 
 .noexc336:                                        ; preds = %.noexc335
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -52071,127 +52060,127 @@ default.unreachable776:                           ; preds = %285
 
 _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit265: ; preds = %.noexc336, %.noexc334
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %.sroa.017.0.copyload.pre = load ptr, ptr %266, align 8, !tbaa !194
-  br label %361
+  %.sroa.017.0.copyload.pre = load ptr, ptr %265, align 8, !tbaa !194
+  br label %360
 
-359:                                              ; preds = %.noexc335
-  %360 = landingpad { ptr, i32 }
+358:                                              ; preds = %.noexc335
+  %359 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %386
+  br label %385
 
-361:                                              ; preds = %263, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit265
-  %.sroa.017.0.copyload = phi ptr [ %268, %263 ], [ %.sroa.017.0.copyload.pre, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit265 ]
-  %362 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload, i64 32
-  store ptr %205, ptr %362, align 8, !tbaa !489
+360:                                              ; preds = %262, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit265
+  %.sroa.017.0.copyload = phi ptr [ %267, %262 ], [ %.sroa.017.0.copyload.pre, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvE9push_backEOSN_.exit265 ]
+  %361 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload, i64 32
+  store ptr %205, ptr %361, align 8, !tbaa !489
   %indvars.iv.next750 = add nuw nsw i64 %indvars.iv749, 1
-  %363 = add i32 %.0217726, 1
-  %364 = urem i32 %363, %46
+  %362 = add i32 %.0217726, 1
+  %363 = urem i32 %362, %46
   %exitcond753.not = icmp eq i64 %indvars.iv.next750, %wide.trip.count
-  br i1 %exitcond753.not, label %259, label %263, !llvm.loop !1085
+  br i1 %exitcond753.not, label %258, label %262, !llvm.loop !1085
 
-.lr.ph:                                           ; preds = %259, %.lr.ph
-  %.sroa.0443.0729 = phi ptr [ %368, %.lr.ph ], [ %260, %259 ]
+.lr.ph:                                           ; preds = %258, %.lr.ph
+  %.sroa.0443.0729 = phi ptr [ %367, %.lr.ph ], [ %259, %258 ]
   %.sroa.015.0.copyload = load ptr, ptr %.sroa.0443.0729, align 8, !tbaa !194
-  %365 = getelementptr inbounds nuw i8, ptr %.sroa.0443.0729, i64 8
-  %.sroa.014.0.copyload = load ptr, ptr %365, align 8, !tbaa !194
-  %366 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.copyload, i64 8
-  store ptr %.sroa.014.0.copyload, ptr %366, align 8, !tbaa !194
-  %367 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.copyload, i64 16
-  store ptr %.sroa.015.0.copyload, ptr %367, align 8, !tbaa !194
-  %368 = getelementptr inbounds nuw i8, ptr %.sroa.0443.0729, i64 16
-  %.not701 = icmp eq ptr %368, %262
+  %364 = getelementptr inbounds nuw i8, ptr %.sroa.0443.0729, i64 8
+  %.sroa.014.0.copyload = load ptr, ptr %364, align 8, !tbaa !194
+  %365 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.copyload, i64 8
+  store ptr %.sroa.014.0.copyload, ptr %365, align 8, !tbaa !194
+  %366 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.copyload, i64 16
+  store ptr %.sroa.015.0.copyload, ptr %366, align 8, !tbaa !194
+  %367 = getelementptr inbounds nuw i8, ptr %.sroa.0443.0729, i64 16
+  %.not701 = icmp eq ptr %367, %261
   br i1 %.not701, label %.preheader.preheader, label %.lr.ph, !llvm.loop !1086
 
-.preheader.preheader:                             ; preds = %.lr.ph, %259
+.preheader.preheader:                             ; preds = %.lr.ph, %258
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERSA_.exit
   %indvars.iv754 = phi i64 [ %indvars.iv.next755, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERSA_.exit ], [ 0, %.preheader.preheader ]
-  %369 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.sroa.0532.0576593605, i64 %indvars.iv754
-  %.sroa.0.0.copyload = load ptr, ptr %369, align 8, !tbaa !488
+  %368 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.125", ptr %.sroa.0532.0576593605, i64 %indvars.iv754
+  %.sroa.0.0.copyload = load ptr, ptr %368, align 8, !tbaa !488
   %.sroa.0.0.copyload.i.i.i416 = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !194
   %.not.i417 = icmp eq ptr %.sroa.0.0.copyload.i.i.i416, null
-  br i1 %.not.i417, label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERSA_.exit, label %370
+  br i1 %.not.i417, label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERSA_.exit, label %369
 
-370:                                              ; preds = %.preheader
-  %371 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i416, i64 24
-  %.sroa.0.0.copyload.i.i20.i = load ptr, ptr %371, align 8, !tbaa !488
+369:                                              ; preds = %.preheader
+  %370 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i416, i64 24
+  %.sroa.0.0.copyload.i.i20.i = load ptr, ptr %370, align 8, !tbaa !488
   %.not32.i = icmp eq ptr %.sroa.0.0.copyload.i.i20.i, %.sroa.0.0.copyload
-  br i1 %.not32.i, label %373, label %372
+  br i1 %.not32.i, label %372, label %371
 
-372:                                              ; preds = %370
+371:                                              ; preds = %369
   %.sroa.0.0.copyload.i.i21.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i416, align 8, !tbaa !194
   store ptr %.sroa.0.0.copyload.i.i21.i, ptr %.sroa.0.0.copyload, align 8, !tbaa !194
+  br label %372
+
+372:                                              ; preds = %371, %369
+  %.sroa.028.0.i = phi ptr [ %.sroa.0.0.copyload.i.i21.i, %371 ], [ %.sroa.0.0.copyload.i.i.i416, %369 ]
   br label %373
 
-373:                                              ; preds = %372, %370
-  %.sroa.028.0.i = phi ptr [ %.sroa.0.0.copyload.i.i21.i, %372 ], [ %.sroa.0.0.copyload.i.i.i416, %370 ]
-  br label %374
+373:                                              ; preds = %377, %372
+  %.sroa.029.1.i = phi ptr [ %.sroa.028.0.i, %372 ], [ %.sroa.0.0.copyload.i.i24.i, %377 ]
+  %374 = getelementptr inbounds nuw i8, ptr %.sroa.029.1.i, i64 32
+  %.sroa.0.0.copyload.i.i22.i = load ptr, ptr %374, align 8, !tbaa !489
+  %375 = icmp eq ptr %.sroa.0.0.copyload.i.i22.i, null
+  br i1 %375, label %376, label %377
 
-374:                                              ; preds = %378, %373
-  %.sroa.029.1.i = phi ptr [ %.sroa.028.0.i, %373 ], [ %.sroa.0.0.copyload.i.i24.i, %378 ]
-  %375 = getelementptr inbounds nuw i8, ptr %.sroa.029.1.i, i64 32
-  %.sroa.0.0.copyload.i.i22.i = load ptr, ptr %375, align 8, !tbaa !489
-  %376 = icmp eq ptr %.sroa.0.0.copyload.i.i22.i, null
-  br i1 %376, label %377, label %378
-
-377:                                              ; preds = %374
+376:                                              ; preds = %373
   store ptr %.sroa.029.1.i, ptr %.sroa.0.0.copyload, align 8, !tbaa !194
   br label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERSA_.exit
 
-378:                                              ; preds = %374
-  %379 = getelementptr inbounds nuw i8, ptr %.sroa.029.1.i, i64 8
-  %.sroa.0.0.copyload.i.i23.i = load ptr, ptr %379, align 8, !tbaa !194
+377:                                              ; preds = %373
+  %378 = getelementptr inbounds nuw i8, ptr %.sroa.029.1.i, i64 8
+  %.sroa.0.0.copyload.i.i23.i = load ptr, ptr %378, align 8, !tbaa !194
   %.sroa.0.0.copyload.i.i24.i = load ptr, ptr %.sroa.0.0.copyload.i.i23.i, align 8, !tbaa !194
   %.not33.i = icmp eq ptr %.sroa.0.0.copyload.i.i24.i, %.sroa.028.0.i
-  br i1 %.not33.i, label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERSA_.exit, label %374, !llvm.loop !1087
+  br i1 %.not33.i, label %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERSA_.exit, label %373, !llvm.loop !1087
 
-_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERSA_.exit: ; preds = %378, %377, %.preheader
+_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERSA_.exit: ; preds = %377, %376, %.preheader
   %indvars.iv.next755 = add nuw nsw i64 %indvars.iv754, 1
   %exitcond758.not = icmp eq i64 %indvars.iv.next755, %wide.trip.count
   br i1 %exitcond758.not, label %.loopexit, label %.preheader, !llvm.loop !1088
 
 .loopexit:                                        ; preds = %169, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERSA_.exit
   %.sroa.0188.6 = phi ptr [ %205, %_ZN4CGAL8internal24adjust_incoming_halfedgeINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E17vertex_descriptorERSA_.exit ], [ null, %169 ]
-  %380 = load i64, ptr %116, align 8, !tbaa !1072
-  %.not.i.i418 = icmp eq i64 %380, 0
-  br i1 %.not.i.i418, label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit, label %381
+  %379 = load i64, ptr %116, align 8, !tbaa !1072
+  %.not.i.i418 = icmp eq i64 %379, 0
+  br i1 %.not.i.i418, label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit, label %380
 
-381:                                              ; preds = %.loopexit
-  %382 = load ptr, ptr %12, align 8, !tbaa !1073
-  %383 = icmp eq ptr %114, %382
-  br i1 %383, label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit, label %384
+380:                                              ; preds = %.loopexit
+  %381 = load ptr, ptr %12, align 8, !tbaa !1073
+  %382 = icmp eq ptr %114, %381
+  br i1 %382, label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit, label %383
 
-384:                                              ; preds = %381
-  %385 = shl i64 %380, 4
-  call void @_ZdlPvm(ptr noundef %382, i64 noundef %385) #29
+383:                                              ; preds = %380
+  %384 = shl i64 %379, 4
+  call void @_ZdlPvm(ptr noundef %381, i64 noundef %384) #29
   br label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit
 
-_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit: ; preds = %.loopexit, %381, %384
+_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit: ; preds = %.loopexit, %380, %383
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge5
 
-386:                                              ; preds = %329, %348, %350, %296, %308, %359, %233, %196, %198, %200, %138
-  %.pn237.pn = phi { ptr, i32 } [ %349, %348 ], [ %297, %296 ], [ %360, %359 ], [ %139, %138 ], [ %309, %308 ], [ %201, %200 ], [ %199, %198 ], [ %197, %196 ], [ %351, %350 ], [ %234, %233 ], [ %330, %329 ]
-  %387 = load i64, ptr %116, align 8, !tbaa !1072
-  %.not.i.i419 = icmp eq i64 %387, 0
-  br i1 %.not.i.i419, label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit420, label %388
+385:                                              ; preds = %328, %347, %349, %295, %307, %358, %233, %196, %198, %200, %138
+  %.pn237.pn = phi { ptr, i32 } [ %348, %347 ], [ %296, %295 ], [ %359, %358 ], [ %139, %138 ], [ %308, %307 ], [ %201, %200 ], [ %199, %198 ], [ %197, %196 ], [ %350, %349 ], [ %234, %233 ], [ %329, %328 ]
+  %386 = load i64, ptr %116, align 8, !tbaa !1072
+  %.not.i.i419 = icmp eq i64 %386, 0
+  br i1 %.not.i.i419, label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit420, label %387
 
-388:                                              ; preds = %386
-  %389 = load ptr, ptr %12, align 8, !tbaa !1073
-  %390 = icmp eq ptr %114, %389
-  br i1 %390, label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit420, label %391
+387:                                              ; preds = %385
+  %388 = load ptr, ptr %12, align 8, !tbaa !1073
+  %389 = icmp eq ptr %114, %388
+  br i1 %389, label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit420, label %390
 
-391:                                              ; preds = %388
-  %392 = shl i64 %387, 4
-  call void @_ZdlPvm(ptr noundef %389, i64 noundef %392) #29
+390:                                              ; preds = %387
+  %391 = shl i64 %386, 4
+  call void @_ZdlPvm(ptr noundef %388, i64 noundef %391) #29
   br label %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit420
 
-_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit420: ; preds = %386, %388, %391
+_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit420: ; preds = %385, %387, %390
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not.i.i423 = icmp eq ptr %.sroa.0499.0, null
-  br i1 %.not.i.i423, label %.body360, label %403
+  br i1 %.not.i.i423, label %.body360, label %402
 
 .critedge5:                                       ; preds = %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEppEv.exit.i, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit
   %.sroa.0188.4 = phi ptr [ %.sroa.0188.6, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit ], [ null, %_ZN4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEppEv.exit.i ]
@@ -52200,53 +52189,53 @@ _ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_3
 
 .critedge5.thread:                                ; preds = %108, %.critedge5
   %.sroa.0188.4780 = phi ptr [ %.sroa.0188.4, %.critedge5 ], [ null, %108 ]
-  %393 = ptrtoint ptr %.sroa.33511.0 to i64
-  %394 = ptrtoint ptr %.sroa.0499.0 to i64
-  %395 = sub i64 %393, %394
-  %396 = ashr exact i64 %395, 3
-  %397 = sub nsw i64 0, %396
-  %398 = getelementptr inbounds i64, ptr %.sroa.33511.0, i64 %397
-  call void @_ZdlPvm(ptr noundef %398, i64 noundef %395) #40
+  %392 = ptrtoint ptr %.sroa.33511.0 to i64
+  %393 = ptrtoint ptr %.sroa.0499.0 to i64
+  %394 = sub i64 %392, %393
+  %395 = ashr exact i64 %394, 3
+  %396 = sub nsw i64 0, %395
+  %397 = getelementptr inbounds i64, ptr %.sroa.33511.0, i64 %396
+  call void @_ZdlPvm(ptr noundef %397, i64 noundef %394) #40
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %.critedge5, %.critedge5.thread
   %.sroa.0188.4781 = phi ptr [ %.sroa.0188.4, %.critedge5 ], [ %.sroa.0188.4780, %.critedge5.thread ]
   %.not.i.i.i422 = icmp eq ptr %.sroa.0515.0608, null
-  br i1 %.not.i.i.i422, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit, label %399
+  br i1 %.not.i.i.i422, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit, label %398
 
-399:                                              ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
-  %400 = ptrtoint ptr %.sink.i614 to i64
-  %401 = ptrtoint ptr %.sroa.0515.0608 to i64
-  %402 = sub i64 %400, %401
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0515.0608, i64 noundef %402) #40
+398:                                              ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
+  %399 = ptrtoint ptr %.sink.i614 to i64
+  %400 = ptrtoint ptr %.sroa.0515.0608 to i64
+  %401 = sub i64 %399, %400
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0515.0608, i64 noundef %401) #40
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit
 
-403:                                              ; preds = %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit420
-  %404 = ptrtoint ptr %.sroa.33511.0 to i64
-  %405 = ptrtoint ptr %.sroa.0499.0 to i64
-  %406 = sub i64 %404, %405
-  %407 = ashr exact i64 %406, 3
-  %408 = sub nsw i64 0, %407
-  %409 = getelementptr inbounds i64, ptr %.sroa.33511.0, i64 %408
-  call void @_ZdlPvm(ptr noundef %409, i64 noundef %406) #40
+402:                                              ; preds = %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit420
+  %403 = ptrtoint ptr %.sroa.33511.0 to i64
+  %404 = ptrtoint ptr %.sroa.0499.0 to i64
+  %405 = sub i64 %403, %404
+  %406 = ashr exact i64 %405, 3
+  %407 = sub nsw i64 0, %406
+  %408 = getelementptr inbounds i64, ptr %.sroa.33511.0, i64 %407
+  call void @_ZdlPvm(ptr noundef %408, i64 noundef %405) #40
   br label %.body360
 
-.body360:                                         ; preds = %403, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit420
+.body360:                                         ; preds = %402, %_ZN5boost9container6vectorISt4pairIN4CGAL8internal22In_place_list_iteratorINS3_33HalfedgeDS_in_place_list_halfedgeINS3_21I_Polyhedron_halfedgeINS3_24HalfedgeDS_halfedge_baseINS3_21HalfedgeDS_list_typesINS3_5EpickENS3_28I_Polyhedron_derived_items_3INS3_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESH_SH_EEEEEESaISK_EEESM_ENS0_22small_vector_allocatorISN_NS0_13new_allocatorIvEEvEEvED2Ev.exit420
   %.not.i.i.i428 = icmp eq ptr %.sroa.0515.0608, null
-  br i1 %.not.i.i.i428, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429, label %410
+  br i1 %.not.i.i.i428, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429, label %409
 
-410:                                              ; preds = %.body360.thread, %.body360
+409:                                              ; preds = %.body360.thread, %.body360
   %.pn237.pn.pn.pn646 = phi { ptr, i32 } [ %74, %.body360.thread ], [ %.pn237.pn, %.body360 ]
   %.sroa.0515.0609641 = phi ptr [ %64, %.body360.thread ], [ %.sroa.0515.0608, %.body360 ]
   %.sink.i615640 = phi ptr [ %66, %.body360.thread ], [ %.sink.i614, %.body360 ]
-  %411 = ptrtoint ptr %.sink.i615640 to i64
-  %412 = ptrtoint ptr %.sroa.0515.0609641 to i64
-  %413 = sub i64 %411, %412
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0515.0609641, i64 noundef %413) #40
+  %410 = ptrtoint ptr %.sink.i615640 to i64
+  %411 = ptrtoint ptr %.sroa.0515.0609641 to i64
+  %412 = sub i64 %410, %411
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0515.0609641, i64 noundef %412) #40
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429
 
-_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit: ; preds = %399, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS1_IPSN_SS_EEET0_T_SX_SW_.exit
-  %.sroa.0188.0 = phi ptr [ null, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS1_IPSN_SS_EEET0_T_SX_SW_.exit ], [ %.sroa.0188.4781, %399 ], [ %.sroa.0188.4781, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit ]
+_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit: ; preds = %398, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS1_IPSN_SS_EEET0_T_SX_SW_.exit
+  %.sroa.0188.0 = phi ptr [ null, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEENS1_IPSN_SS_EEET0_T_SX_SW_.exit ], [ %.sroa.0188.4781, %398 ], [ %.sroa.0188.4781, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit ]
   %.not.i.i.i430 = icmp eq ptr %.sroa.0532.0576593605, null
   br i1 %.not.i.i.i430, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEESaISL_EED2Ev.exit, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit.thread
 
@@ -52254,33 +52243,33 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
   %.sroa.0188.0661 = phi ptr [ %.sroa.0188.0, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit ], [ null, %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEEET_ST_ST_.exit ]
   %.sroa.25.0568594602660 = phi ptr [ %.sroa.25.0568594603, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit ], [ %31, %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEEET_ST_ST_.exit ]
   %.sroa.0532.0576593604659 = phi ptr [ %.sroa.0532.0576593605, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit ], [ %30, %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEEET_ST_ST_.exit ]
-  %414 = phi i64 [ %48, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit ], [ %33, %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEEET_ST_ST_.exit ]
-  %415 = ptrtoint ptr %.sroa.25.0568594602660 to i64
-  %416 = sub i64 %415, %414
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0532.0576593604659, i64 noundef %416) #40
+  %413 = phi i64 [ %48, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit ], [ %33, %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPN4CGAL8internal22In_place_list_iteratorINS2_31HalfedgeDS_in_place_list_vertexINS2_19I_Polyhedron_vertexINS2_22HalfedgeDS_vertex_baseINS2_21HalfedgeDS_list_typesINS2_5EpickENS2_28I_Polyhedron_derived_items_3INS2_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS2_7Point_3IS9_EEEEEEEESaISL_EEESt6vectorISN_SaISN_EEEEET_ST_ST_.exit ]
+  %414 = ptrtoint ptr %.sroa.25.0568594602660 to i64
+  %415 = sub i64 %414, %413
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0532.0576593604659, i64 noundef %415) #40
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEESaISL_EED2Ev.exit
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEESaISL_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit.thread
   %.sroa.0188.0662 = phi ptr [ %.sroa.0188.0, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit ], [ %.sroa.0188.0661, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit.thread ]
   ret ptr %.sroa.0188.0662
 
-_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429: ; preds = %75, %.body360, %410
-  %.pn243 = phi { ptr, i32 } [ %.pn237.pn, %.body360 ], [ %.pn237.pn.pn.pn646, %410 ], [ %76, %75 ]
+_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429: ; preds = %75, %.body360, %409
+  %.pn243 = phi { ptr, i32 } [ %.pn237.pn, %.body360 ], [ %.pn237.pn.pn.pn646, %409 ], [ %76, %75 ]
   %.not.i.i.i432 = icmp eq ptr %.sroa.0532.0576593605, null
-  br i1 %.not.i.i.i432, label %.body, label %417
+  br i1 %.not.i.i.i432, label %.body, label %416
 
-417:                                              ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429.thread, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429
+416:                                              ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429.thread, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429
   %.pn243669 = phi { ptr, i32 } [ %45, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429.thread ], [ %.pn243, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429 ]
   %.sroa.25.0569668 = phi ptr [ %31, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429.thread ], [ %.sroa.25.0568594603, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429 ]
   %.sroa.0532.0577667 = phi ptr [ %30, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429.thread ], [ %.sroa.0532.0576593605, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429 ]
-  %418 = phi i64 [ %33, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429.thread ], [ %48, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429 ]
-  %419 = ptrtoint ptr %.sroa.25.0569668 to i64
-  %420 = sub i64 %419, %418
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0532.0577667, i64 noundef %420) #40
+  %417 = phi i64 [ %33, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429.thread ], [ %48, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429 ]
+  %418 = ptrtoint ptr %.sroa.25.0569668 to i64
+  %419 = sub i64 %418, %417
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0532.0577667, i64 noundef %419) #40
   br label %.body
 
-.body:                                            ; preds = %417, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429
-  %.pn243.pn = phi { ptr, i32 } [ %.pn243, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429 ], [ %.pn243669, %417 ]
+.body:                                            ; preds = %416, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429
+  %.pn243.pn = phi { ptr, i32 } [ %.pn243, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_24HalfedgeDS_halfedge_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EESE_SE_EEEEEESaISH_EEESaISJ_EED2Ev.exit429 ], [ %.pn243669, %416 ]
   resume { ptr, i32 } %.pn243.pn
 }
 
@@ -52316,7 +52305,7 @@ define linkonce_odr dso_local ptr @_ZN4CGAL5Euler10split_faceINS_12Polyhedron_3I
   %19 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #42
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %21 = load ptr, ptr %20, align 8, !tbaa !65
+  %21 = load ptr, ptr %20, align 8, !tbaa !65, !nonnull !11, !noundef !11
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr %21, ptr %22, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 48
@@ -52330,58 +52319,56 @@ define linkonce_odr dso_local ptr @_ZN4CGAL5Euler10split_faceINS_12Polyhedron_3I
   %28 = load i64, ptr %27, align 8, !tbaa !53
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8, !tbaa !53
-  %30 = icmp ne ptr %21, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0.0.copyload.i.i.i32 = load ptr, ptr %31, align 8, !tbaa !194
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload.i.i.i32 = load ptr, ptr %30, align 8, !tbaa !194
   store ptr %.sroa.0.0.copyload.i.i.i32, ptr %6, align 8, !tbaa !194
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i32, i64 16
-  store ptr %4, ptr %32, align 8, !tbaa !194
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i32, i64 16
+  store ptr %4, ptr %31, align 8, !tbaa !194
   %.sroa.0.0.copyload.i.i20.i = load ptr, ptr %4, align 8, !tbaa !194
-  store ptr %.sroa.0.0.copyload.i.i20.i, ptr %31, align 8, !tbaa !194
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i20.i, i64 16
-  store ptr %1, ptr %33, align 8, !tbaa !194
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i21.i = load ptr, ptr %34, align 8, !tbaa !488
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.sroa.0.0.copyload.i.i21.i, ptr %35, align 8, !tbaa !488
+  store ptr %.sroa.0.0.copyload.i.i20.i, ptr %30, align 8, !tbaa !194
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i20.i, i64 16
+  store ptr %1, ptr %32, align 8, !tbaa !194
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i21.i = load ptr, ptr %33, align 8, !tbaa !488
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %.sroa.0.0.copyload.i.i21.i, ptr %34, align 8, !tbaa !488
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8, !tbaa !194
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0.0.copyload.i.i.i35 = load ptr, ptr %36, align 8, !tbaa !194
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
-  store ptr %.sroa.0.0.copyload.i.i.i35, ptr %37, align 8, !tbaa !194
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i35, i64 16
-  store ptr %.sroa.0.0.copyload.i.i, ptr %38, align 8, !tbaa !194
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i.i.i35 = load ptr, ptr %35, align 8, !tbaa !194
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
+  store ptr %.sroa.0.0.copyload.i.i.i35, ptr %36, align 8, !tbaa !194
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i35, i64 16
+  store ptr %.sroa.0.0.copyload.i.i, ptr %37, align 8, !tbaa !194
   %.sroa.0.0.copyload.i.i20.i38 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !194
-  store ptr %.sroa.0.0.copyload.i.i20.i38, ptr %36, align 8, !tbaa !194
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i20.i38, i64 16
-  store ptr %0, ptr %39, align 8, !tbaa !194
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.0.0.copyload.i.i21.i41 = load ptr, ptr %40, align 8, !tbaa !488
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 24
-  store ptr %.sroa.0.0.copyload.i.i21.i41, ptr %41, align 8, !tbaa !488
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.0.0.copyload.i.i42 = load ptr, ptr %42, align 8, !tbaa !489
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.sroa.0.0.copyload.i.i42, ptr %43, align 8, !tbaa !489
+  store ptr %.sroa.0.0.copyload.i.i20.i38, ptr %35, align 8, !tbaa !194
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i20.i38, i64 16
+  store ptr %0, ptr %38, align 8, !tbaa !194
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.0.0.copyload.i.i21.i41 = load ptr, ptr %39, align 8, !tbaa !488
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 24
+  store ptr %.sroa.0.0.copyload.i.i21.i41, ptr %40, align 8, !tbaa !488
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.0.0.copyload.i.i42 = load ptr, ptr %41, align 8, !tbaa !489
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %.sroa.0.0.copyload.i.i42, ptr %42, align 8, !tbaa !489
   %.sroa.0.0.copyload.i.i43 = load ptr, ptr %4, align 8, !tbaa !194
-  br label %44
+  br label %43
 
-44:                                               ; preds = %44, %3
-  %.sroa.06.0.i = phi ptr [ %.sroa.0.0.copyload.i.i43, %3 ], [ %.sroa.0.0.copyload.i.i.i44, %44 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 32
-  store ptr %19, ptr %45, align 8, !tbaa !489
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 8
-  %.sroa.0.0.copyload.i.i.i44 = load ptr, ptr %46, align 8, !tbaa !194
+43:                                               ; preds = %43, %3
+  %.sroa.06.0.i = phi ptr [ %.sroa.0.0.copyload.i.i43, %3 ], [ %.sroa.0.0.copyload.i.i.i44, %43 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 32
+  store ptr %19, ptr %44, align 8, !tbaa !489
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 8
+  %.sroa.0.0.copyload.i.i.i44 = load ptr, ptr %45, align 8, !tbaa !194
   %.not.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i44, %.sroa.0.0.copyload.i.i43
-  br i1 %.not.i, label %_ZN4CGAL8internal21set_face_in_face_loopINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E19halfedge_descriptorENSB_15face_descriptorERSA_.exit, label %44, !llvm.loop !1089
+  br i1 %.not.i, label %_ZN4CGAL8internal21set_face_in_face_loopINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E19halfedge_descriptorENSB_15face_descriptorERSA_.exit, label %43, !llvm.loop !1089
 
-_ZN4CGAL8internal21set_face_in_face_loopINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E19halfedge_descriptorENSB_15face_descriptorERSA_.exit: ; preds = %44
-  %.sroa.0.0.copyload.i.i45 = load ptr, ptr %43, align 8, !tbaa !489
+_ZN4CGAL8internal21set_face_in_face_loopINS_12Polyhedron_3INS_5EpickENS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEEEEvN5boost12graph_traitsIT_E19halfedge_descriptorENSB_15face_descriptorERSA_.exit: ; preds = %43
+  %.sroa.0.0.copyload.i.i45 = load ptr, ptr %42, align 8, !tbaa !489
   store ptr %4, ptr %.sroa.0.0.copyload.i.i45, align 8, !tbaa !194
   %.sroa.0.0.copyload.i.i46 = load ptr, ptr %4, align 8, !tbaa !194
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i46, i64 32
-  %.sroa.0.0.copyload.i.i47 = load ptr, ptr %47, align 8, !tbaa !489
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i46, i64 32
+  %.sroa.0.0.copyload.i.i47 = load ptr, ptr %46, align 8, !tbaa !489
   store ptr %.sroa.0.0.copyload.i.i46, ptr %.sroa.0.0.copyload.i.i47, align 8, !tbaa !194
   ret ptr %4
 }

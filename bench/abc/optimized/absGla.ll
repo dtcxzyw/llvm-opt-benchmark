@@ -1704,8 +1704,7 @@ Vec_PtrPush.exit41:                               ; preds = %2, %7
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %33, ptr %34, align 8, !tbaa !31
   store i32 %.val, ptr %30, align 4, !tbaa !8
-  %.not.i = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %33) ]
   %35 = sext i32 %.val to i64
   %36 = shl nsw i64 %35, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %33, i8 -1, i64 %36, i1 false)
@@ -5897,8 +5896,7 @@ Vec_IntAlloc.exit.i:
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !31
   store i32 %.val25, ptr %5, align 4, !tbaa !8
-  %.not.i = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %10 = sext i32 %.val25 to i64
   %11 = shl nsw i64 %10, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %8, i8 0, i64 %11, i1 false)
@@ -8129,8 +8127,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %69
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %79, ptr %80, align 8, !tbaa !31
   store i32 %.val481, ptr %76, align 4, !tbaa !8
-  %.not.i = icmp ne ptr %79, null
-  call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
   %81 = sext i32 %.val481 to i64
   %82 = shl nsw i64 %81, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %79, i8 0, i64 %82, i1 false)
@@ -8295,8 +8292,7 @@ Ga2_GlaGetFileName.exit525:                       ; preds = %148, %159, %.sink.s
   %172 = getelementptr inbounds nuw i8, ptr %166, i64 8
   store ptr %171, ptr %172, align 8, !tbaa !31
   store i32 %.val480, ptr %168, align 4, !tbaa !8
-  %.not.i530 = icmp ne ptr %171, null
-  call void @llvm.assume(i1 %.not.i530)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %171) ]
   %173 = sext i32 %.val480 to i64
   %174 = shl nsw i64 %173, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %171, i8 0, i64 %174, i1 false)

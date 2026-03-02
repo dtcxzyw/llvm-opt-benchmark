@@ -546,6 +546,7 @@ _ZN5alloc11collections5btree3mem7replace17h66a910f1d87a8d44E.exit52: ; preds = %
   store ptr %23, ptr %154, align 8, !noalias !60
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i64 %24, ptr %155, align 8, !noalias !60
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0) ]
   br label %.loopexit
 
 156:                                              ; preds = %.body

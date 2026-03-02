@@ -436,8 +436,7 @@ Vec_IntAlloc.exit:                                ; preds = %3, %8
   %17 = sext i32 %spec.store.select.i.i to i64
   %18 = shl nsw i64 %17, 2
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #26
-  %.not.i74 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %.not.i74)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   %20 = sext i32 %.val64 to i64
   %21 = shl nsw i64 %20, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 -1, i64 %21, i1 false)
@@ -958,8 +957,7 @@ Vec_IntAlloc.exit.i:
   %6 = sext i32 %spec.store.select.i.i to i64
   %7 = shl nsw i64 %6, 2
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #26
-  %.not.i = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %9 = sext i32 %.val72 to i64
   %10 = shl nsw i64 %9, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %8, i8 -1, i64 %10, i1 false)

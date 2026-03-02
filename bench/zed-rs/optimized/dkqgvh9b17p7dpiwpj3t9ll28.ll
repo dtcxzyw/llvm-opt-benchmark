@@ -1505,8 +1505,7 @@ define hidden noundef align 8 ptr @_ZN5prost7message7Message5merge17h4092b7f5883
   %.sroa.11.1 = phi ptr [ %26, %25 ], [ %34, %33 ], [ %32, %31 ], [ %18, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !241
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %38 = icmp ne ptr %.sroa.11.1, null
-  call void @llvm.assume(i1 %38)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.11.1) ]
   br label %.loopexit
 }
 
@@ -2437,8 +2436,7 @@ _ZN5prost8encoding4bool5merge17h71367aeecbea2374E.exit.i: ; preds = %208
   %.sroa.11.1 = phi ptr [ %82, %81 ], [ %90, %89 ], [ %88, %87 ], [ %74, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !267
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  %272 = icmp ne ptr %.sroa.11.1, null
-  call void @llvm.assume(i1 %272)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.11.1) ]
   br label %"_ZN72_$LT$live_kit_server..proto..Room$u20$as$u20$prost..message..Message$GT$11merge_field17h081ba0eed227ce11E.exit.thread"
 }
 
@@ -3443,8 +3441,7 @@ _ZN5prost8encoding4bool5merge17h71367aeecbea2374E.exit.i: ; preds = %221
   %.sroa.11.1 = phi ptr [ %87, %86 ], [ %95, %94 ], [ %93, %92 ], [ %79, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !456
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
-  %291 = icmp ne ptr %.sroa.11.1, null
-  call void @llvm.assume(i1 %291)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.11.1) ]
   br label %"_ZN83_$LT$live_kit_server..proto..ParticipantInfo$u20$as$u20$prost..message..Message$GT$11merge_field17h3c1fc2cdedf3a682E.exit.thread"
 }
 
@@ -3564,8 +3561,7 @@ define hidden noundef align 8 ptr @_ZN5prost7message7Message5merge17he3e13b30c5e
   %.sroa.11.1 = phi ptr [ %26, %25 ], [ %34, %33 ], [ %32, %31 ], [ %18, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !671
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %38 = icmp ne ptr %.sroa.11.1, null
-  call void @llvm.assume(i1 %38)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.11.1) ]
   br label %.loopexit
 }
 

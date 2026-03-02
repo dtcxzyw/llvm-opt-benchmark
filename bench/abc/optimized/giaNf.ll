@@ -2788,8 +2788,8 @@ Nf_ManPrepareCuts.exit213:                        ; preds = %._crit_edge.i186, %
   %175 = load ptr, ptr %0, align 8, !tbaa !99
   %176 = getelementptr i8, ptr %175, i64 208
   %.val176 = load ptr, ptr %176, align 8, !tbaa !94
-  %.not.i214 = icmp ne ptr %.val176, null
-  br i1 %.not.i214, label %177, label %Gia_ObjSibl.exit
+  %.not.i214.not = icmp eq ptr %.val176, null
+  br i1 %.not.i214.not, label %Gia_ObjSibl.exit, label %177
 
 177:                                              ; preds = %Nf_ManPrepareCuts.exit213
   %178 = getelementptr inbounds i32, ptr %.val176, i64 %13
@@ -2826,7 +2826,7 @@ Gia_ObjSibl.exit:                                 ; preds = %Nf_ManPrepareCuts.e
 
 Gia_ObjSiblObj.exit:                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.assume(i1 %.not.i214)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val176) ]
   %188 = getelementptr inbounds i32, ptr %.val176, i64 %13
   %189 = load i32, ptr %188, align 4, !tbaa !13
   %.not6.i = icmp ne i32 %189, 0

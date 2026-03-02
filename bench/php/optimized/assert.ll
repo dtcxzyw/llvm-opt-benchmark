@@ -442,12 +442,12 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
 .critedge:                                        ; preds = %zend_parse_arg_long_ex.exit..critedge_crit_edge, %zend_parse_arg_long_ex.exit.thread
   %15 = phi i64 [ %.pre, %zend_parse_arg_long_ex.exit..critedge_crit_edge ], [ %13, %zend_parse_arg_long_ex.exit.thread ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  switch i64 %15, label %224 [
+  switch i64 %15, label %228 [
     i64 1, label %18
-    i64 3, label %60
-    i64 4, label %102
-    i64 2, label %144
-    i64 5, label %182
+    i64 3, label %61
+    i64 4, label %104
+    i64 2, label %147
+    i64 5, label %185
   ]
 
 17:                                               ; preds = %7, %zend_parse_arg_long_ex.exit
@@ -455,13 +455,13 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   %.0118 = phi ptr [ null, %7 ], [ %9, %zend_parse_arg_long_ex.exit ]
   %.0 = phi i32 [ 0, %7 ], [ 1, %zend_parse_arg_long_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.0120, i32 noundef %.0, ptr noundef null, i32 noundef 0, ptr noundef %.0118) #9
-  br label %zend_string_release_ex.exit140.thread
+  br label %.critedge133
 
 18:                                               ; preds = %.critedge
   %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 24), align 8, !tbaa !15, !range !16, !noundef !17
   %20 = zext nneg i8 %19 to i64
   %21 = icmp eq i32 %5, 2
-  br i1 %21, label %22, label %zend_string_release_ex.exit140
+  br i1 %21, label %22, label %zend_string_release_ex.exit148
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -474,8 +474,8 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = and i32 %29, 64
-  %.not.i159 = icmp eq i32 %30, 0
-  br i1 %.not.i159, label %31, label %zval_try_get_string.exit.thread
+  %.not.i167 = icmp eq i32 %30, 0
+  br i1 %.not.i167, label %31, label %zval_try_get_string.exit.thread
 
 31:                                               ; preds = %26
   %32 = load i32, ptr %27, align 4, !tbaa !46
@@ -483,427 +483,443 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   store i32 %33, ptr %27, align 4, !tbaa !46
   br label %zval_try_get_string.exit.thread
 
+zval_try_get_string.exit.thread:                  ; preds = %31, %26
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
+  br label %35
+
 zval_try_get_string.exit:                         ; preds = %22
   %34 = call ptr @zval_try_get_string_func(ptr noundef nonnull %16) #9
   %.not131.not = icmp eq ptr %34, null
-  br i1 %.not131.not, label %zend_string_release_ex.exit140.thread, label %zval_try_get_string.exit.thread, !prof !80
+  br i1 %.not131.not, label %.critedge133, label %35, !prof !80
 
-zval_try_get_string.exit.thread:                  ; preds = %26, %31, %zval_try_get_string.exit
-  %.0.i170 = phi ptr [ %34, %zval_try_get_string.exit ], [ %27, %31 ], [ %27, %26 ]
-  %35 = call noalias ptr @_emalloc_40() #9
-  store i32 1, ptr %35, align 4, !tbaa !46
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store i32 22, ptr %36, align 4, !tbaa !4
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i64 0, ptr %37, align 8, !tbaa !47
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i64 13, ptr %38, align 8, !tbaa !49
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %39, ptr noundef nonnull align 1 dereferenceable(13) @.str.2, i64 13, i1 false)
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 37
-  store i8 0, ptr %40, align 1, !tbaa !4
-  %41 = call i32 @zend_alter_ini_entry_ex(ptr noundef nonnull %35, ptr noundef nonnull %.0.i170, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false) #9
-  %42 = load i32, ptr %36, align 4, !tbaa !4
-  %43 = and i32 %42, 64
-  %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %44, label %zend_string_release_ex.exit
+35:                                               ; preds = %zval_try_get_string.exit.thread, %zval_try_get_string.exit
+  %.0.i178 = phi ptr [ %27, %zval_try_get_string.exit.thread ], [ %34, %zval_try_get_string.exit ]
+  %36 = call noalias ptr @_emalloc_40() #9
+  store i32 1, ptr %36, align 4, !tbaa !46
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  store i32 22, ptr %37, align 4, !tbaa !4
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store i64 0, ptr %38, align 8, !tbaa !47
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store i64 13, ptr %39, align 8, !tbaa !49
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %40, ptr noundef nonnull align 1 dereferenceable(13) @.str.2, i64 13, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 37
+  store i8 0, ptr %41, align 1, !tbaa !4
+  %42 = call i32 @zend_alter_ini_entry_ex(ptr noundef nonnull %36, ptr noundef nonnull %.0.i178, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false) #9
+  %43 = load i32, ptr %37, align 4, !tbaa !4
+  %44 = and i32 %43, 64
+  %.not.i = icmp eq i32 %44, 0
+  br i1 %.not.i, label %45, label %zend_string_release_ex.exit
 
-44:                                               ; preds = %zval_try_get_string.exit.thread
-  %45 = load i32, ptr %35, align 4, !tbaa !46
-  %46 = icmp ne i32 %45, 0
-  call void @llvm.assume(i1 %46)
-  %47 = add i32 %45, -1
-  store i32 %47, ptr %35, align 4, !tbaa !46
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %zend_string_release_ex.exit
+45:                                               ; preds = %35
+  %46 = load i32, ptr %36, align 4, !tbaa !46
+  %47 = icmp ne i32 %46, 0
+  call void @llvm.assume(i1 %47)
+  %48 = add i32 %46, -1
+  store i32 %48, ptr %36, align 4, !tbaa !46
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %zend_string_release_ex.exit
 
-49:                                               ; preds = %44
-  call void @_efree(ptr noundef nonnull %35) #9
+50:                                               ; preds = %45
+  call void @_efree(ptr noundef nonnull %36) #9
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %zval_try_get_string.exit.thread, %44, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i170, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !4
-  %52 = and i32 %51, 64
-  %.not.i139 = icmp eq i32 %52, 0
-  br i1 %.not.i139, label %53, label %zend_string_release_ex.exit140
+zend_string_release_ex.exit:                      ; preds = %35, %45, %50
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i178, i64 4
+  %52 = load i32, ptr %51, align 4, !tbaa !4
+  %53 = and i32 %52, 64
+  %.not.i147 = icmp eq i32 %53, 0
+  br i1 %.not.i147, label %54, label %zend_string_release_ex.exit148
 
-53:                                               ; preds = %zend_string_release_ex.exit
-  %54 = load i32, ptr %.0.i170, align 4, !tbaa !46
-  %55 = icmp ne i32 %54, 0
-  call void @llvm.assume(i1 %55)
-  %56 = add i32 %54, -1
-  store i32 %56, ptr %.0.i170, align 4, !tbaa !46
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %zend_string_release_ex.exit140
+54:                                               ; preds = %zend_string_release_ex.exit
+  %55 = load i32, ptr %.0.i178, align 4, !tbaa !46
+  %56 = icmp ne i32 %55, 0
+  call void @llvm.assume(i1 %56)
+  %57 = add i32 %55, -1
+  store i32 %57, ptr %.0.i178, align 4, !tbaa !46
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %zend_string_release_ex.exit148
 
-58:                                               ; preds = %53
-  call void @_efree(ptr noundef nonnull %.0.i170) #9
-  br label %zend_string_release_ex.exit140
-
-zend_string_release_ex.exit140:                   ; preds = %zend_string_release_ex.exit, %53, %58, %18
-  store i64 %20, ptr %1, align 8, !tbaa !4
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %59, align 8, !tbaa !4
-  br label %zend_string_release_ex.exit140.thread
-
-60:                                               ; preds = %.critedge
-  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 25), align 1, !tbaa !53, !range !16, !noundef !17
-  %62 = zext nneg i8 %61 to i64
-  %63 = icmp eq i32 %5, 2
-  br i1 %63, label %64, label %zend_string_release_ex.exit144
-
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %66 = load i8, ptr %65, align 8, !tbaa !4
-  %67 = icmp eq i8 %66, 6
-  br i1 %67, label %68, label %zval_try_get_string.exit134, !prof !22
-
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %16, align 8, !tbaa !4
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %71 = load i32, ptr %70, align 4, !tbaa !4
-  %72 = and i32 %71, 64
-  %.not.i157 = icmp eq i32 %72, 0
-  br i1 %.not.i157, label %73, label %zval_try_get_string.exit134.thread
-
-73:                                               ; preds = %68
-  %74 = load i32, ptr %69, align 4, !tbaa !46
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %69, align 4, !tbaa !46
-  br label %zval_try_get_string.exit134.thread
-
-zval_try_get_string.exit134:                      ; preds = %64
-  %76 = call ptr @zval_try_get_string_func(ptr noundef nonnull %16) #9
-  %.not130.not = icmp eq ptr %76, null
-  br i1 %.not130.not, label %zend_string_release_ex.exit140.thread, label %zval_try_get_string.exit134.thread, !prof !80
-
-zval_try_get_string.exit134.thread:               ; preds = %68, %73, %zval_try_get_string.exit134
-  %.0.i133176 = phi ptr [ %76, %zval_try_get_string.exit134 ], [ %69, %73 ], [ %69, %68 ]
-  %77 = call noalias ptr @_emalloc_40() #9
-  store i32 1, ptr %77, align 4, !tbaa !46
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  store i32 22, ptr %78, align 4, !tbaa !4
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store i64 0, ptr %79, align 8, !tbaa !47
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  store i64 11, ptr %80, align 8, !tbaa !49
-  %81 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %81, ptr noundef nonnull align 1 dereferenceable(11) @.str.3, i64 11, i1 false)
-  %82 = getelementptr inbounds nuw i8, ptr %77, i64 35
-  store i8 0, ptr %82, align 1, !tbaa !4
-  %83 = call i32 @zend_alter_ini_entry_ex(ptr noundef nonnull %77, ptr noundef nonnull %.0.i133176, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false) #9
-  %84 = load i32, ptr %78, align 4, !tbaa !4
-  %85 = and i32 %84, 64
-  %.not.i141 = icmp eq i32 %85, 0
-  br i1 %.not.i141, label %86, label %zend_string_release_ex.exit142
-
-86:                                               ; preds = %zval_try_get_string.exit134.thread
-  %87 = load i32, ptr %77, align 4, !tbaa !46
-  %88 = icmp ne i32 %87, 0
-  call void @llvm.assume(i1 %88)
-  %89 = add i32 %87, -1
-  store i32 %89, ptr %77, align 4, !tbaa !46
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %zend_string_release_ex.exit142
-
-91:                                               ; preds = %86
-  call void @_efree(ptr noundef nonnull %77) #9
-  br label %zend_string_release_ex.exit142
-
-zend_string_release_ex.exit142:                   ; preds = %zval_try_get_string.exit134.thread, %86, %91
-  %92 = getelementptr inbounds nuw i8, ptr %.0.i133176, i64 4
-  %93 = load i32, ptr %92, align 4, !tbaa !4
-  %94 = and i32 %93, 64
-  %.not.i143 = icmp eq i32 %94, 0
-  br i1 %.not.i143, label %95, label %zend_string_release_ex.exit144
-
-95:                                               ; preds = %zend_string_release_ex.exit142
-  %96 = load i32, ptr %.0.i133176, align 4, !tbaa !46
-  %97 = icmp ne i32 %96, 0
-  call void @llvm.assume(i1 %97)
-  %98 = add i32 %96, -1
-  store i32 %98, ptr %.0.i133176, align 4, !tbaa !46
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %zend_string_release_ex.exit144
-
-100:                                              ; preds = %95
-  call void @_efree(ptr noundef nonnull %.0.i133176) #9
-  br label %zend_string_release_ex.exit144
-
-zend_string_release_ex.exit144:                   ; preds = %zend_string_release_ex.exit142, %95, %100, %60
-  store i64 %62, ptr %1, align 8, !tbaa !4
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %101, align 8, !tbaa !4
-  br label %zend_string_release_ex.exit140.thread
-
-102:                                              ; preds = %.critedge
-  %103 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 26), align 2, !tbaa !78, !range !16, !noundef !17
-  %104 = zext nneg i8 %103 to i64
-  %105 = icmp eq i32 %5, 2
-  br i1 %105, label %106, label %zend_string_release_ex.exit148
-
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %108 = load i8, ptr %107, align 8, !tbaa !4
-  %109 = icmp eq i8 %108, 6
-  br i1 %109, label %110, label %zval_try_get_string.exit136, !prof !22
-
-110:                                              ; preds = %106
-  %111 = load ptr, ptr %16, align 8, !tbaa !4
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  %113 = load i32, ptr %112, align 4, !tbaa !4
-  %114 = and i32 %113, 64
-  %.not.i155 = icmp eq i32 %114, 0
-  br i1 %.not.i155, label %115, label %zval_try_get_string.exit136.thread
-
-115:                                              ; preds = %110
-  %116 = load i32, ptr %111, align 4, !tbaa !46
-  %117 = add i32 %116, 1
-  store i32 %117, ptr %111, align 4, !tbaa !46
-  br label %zval_try_get_string.exit136.thread
-
-zval_try_get_string.exit136:                      ; preds = %106
-  %118 = call ptr @zval_try_get_string_func(ptr noundef nonnull %16) #9
-  %.not129.not = icmp eq ptr %118, null
-  br i1 %.not129.not, label %zend_string_release_ex.exit140.thread, label %zval_try_get_string.exit136.thread, !prof !80
-
-zval_try_get_string.exit136.thread:               ; preds = %110, %115, %zval_try_get_string.exit136
-  %.0.i135182 = phi ptr [ %118, %zval_try_get_string.exit136 ], [ %111, %115 ], [ %111, %110 ]
-  %119 = call noalias ptr @_emalloc_40() #9
-  store i32 1, ptr %119, align 4, !tbaa !46
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  store i32 22, ptr %120, align 4, !tbaa !4
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store i64 0, ptr %121, align 8, !tbaa !47
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store i64 14, ptr %122, align 8, !tbaa !49
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %123, ptr noundef nonnull align 1 dereferenceable(14) @.str.4, i64 14, i1 false)
-  %124 = getelementptr inbounds nuw i8, ptr %119, i64 38
-  store i8 0, ptr %124, align 2, !tbaa !4
-  %125 = call i32 @zend_alter_ini_entry_ex(ptr noundef nonnull %119, ptr noundef nonnull %.0.i135182, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false) #9
-  %126 = load i32, ptr %120, align 4, !tbaa !4
-  %127 = and i32 %126, 64
-  %.not.i145 = icmp eq i32 %127, 0
-  br i1 %.not.i145, label %128, label %zend_string_release_ex.exit146
-
-128:                                              ; preds = %zval_try_get_string.exit136.thread
-  %129 = load i32, ptr %119, align 4, !tbaa !46
-  %130 = icmp ne i32 %129, 0
-  call void @llvm.assume(i1 %130)
-  %131 = add i32 %129, -1
-  store i32 %131, ptr %119, align 4, !tbaa !46
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %133, label %zend_string_release_ex.exit146
-
-133:                                              ; preds = %128
-  call void @_efree(ptr noundef nonnull %119) #9
-  br label %zend_string_release_ex.exit146
-
-zend_string_release_ex.exit146:                   ; preds = %zval_try_get_string.exit136.thread, %128, %133
-  %134 = getelementptr inbounds nuw i8, ptr %.0.i135182, i64 4
-  %135 = load i32, ptr %134, align 4, !tbaa !4
-  %136 = and i32 %135, 64
-  %.not.i147 = icmp eq i32 %136, 0
-  br i1 %.not.i147, label %137, label %zend_string_release_ex.exit148
-
-137:                                              ; preds = %zend_string_release_ex.exit146
-  %138 = load i32, ptr %.0.i135182, align 4, !tbaa !46
-  %139 = icmp ne i32 %138, 0
-  call void @llvm.assume(i1 %139)
-  %140 = add i32 %138, -1
-  store i32 %140, ptr %.0.i135182, align 4, !tbaa !46
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %zend_string_release_ex.exit148
-
-142:                                              ; preds = %137
-  call void @_efree(ptr noundef nonnull %.0.i135182) #9
+59:                                               ; preds = %54
+  call void @_efree(ptr noundef nonnull %.0.i178) #9
   br label %zend_string_release_ex.exit148
 
-zend_string_release_ex.exit148:                   ; preds = %zend_string_release_ex.exit146, %137, %142, %102
-  store i64 %104, ptr %1, align 8, !tbaa !4
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %143, align 8, !tbaa !4
-  br label %zend_string_release_ex.exit140.thread
+zend_string_release_ex.exit148:                   ; preds = %59, %54, %zend_string_release_ex.exit, %18
+  store i64 %20, ptr %1, align 8, !tbaa !4
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %60, align 8, !tbaa !4
+  br label %.critedge133
 
-144:                                              ; preds = %.critedge
-  %145 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8, !tbaa !4
-  %.not125 = icmp eq i8 %145, 0
-  br i1 %.not125, label %154, label %146
+61:                                               ; preds = %.critedge
+  %62 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 25), align 1, !tbaa !53, !range !16, !noundef !17
+  %63 = zext nneg i8 %62 to i64
+  %64 = icmp eq i32 %5, 2
+  br i1 %64, label %65, label %zend_string_release_ex.exit152
 
-146:                                              ; preds = %144
-  %147 = load ptr, ptr @assert_globals, align 8, !tbaa !4
-  %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8, !tbaa !4
-  store ptr %147, ptr %1, align 8, !tbaa !4
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %148, ptr %149, align 8, !tbaa !4
-  %150 = and i32 %148, 65280
-  %.not127 = icmp eq i32 %150, 0
-  br i1 %.not127, label %168, label %151
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %67 = load i8, ptr %66, align 8, !tbaa !4
+  %68 = icmp eq i8 %67, 6
+  br i1 %68, label %69, label %zval_try_get_string.exit142, !prof !22
 
-151:                                              ; preds = %146
-  %152 = load i32, ptr %147, align 4, !tbaa !46
-  %153 = add i32 %152, 1
-  store i32 %153, ptr %147, align 4, !tbaa !46
-  br label %168
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %16, align 8, !tbaa !4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %72 = load i32, ptr %71, align 4, !tbaa !4
+  %73 = and i32 %72, 64
+  %.not.i165 = icmp eq i32 %73, 0
+  br i1 %.not.i165, label %74, label %zval_try_get_string.exit142.thread
 
-154:                                              ; preds = %144
-  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 16), align 8, !tbaa !7
-  %.not126 = icmp eq ptr %155, null
-  br i1 %.not126, label %166, label %zend_string_alloc.exit
+74:                                               ; preds = %69
+  %75 = load i32, ptr %70, align 4, !tbaa !46
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %70, align 4, !tbaa !46
+  br label %zval_try_get_string.exit142.thread
 
-zend_string_alloc.exit:                           ; preds = %154
-  %156 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %155) #10
-  %157 = and i64 %156, -8
-  %158 = add i64 %157, 32
-  %159 = call noalias ptr @_emalloc(i64 noundef %158) #11
-  store i32 1, ptr %159, align 4, !tbaa !46
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
-  store i32 22, ptr %160, align 4, !tbaa !4
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  store i64 0, ptr %161, align 8, !tbaa !47
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  store i64 %156, ptr %162, align 8, !tbaa !49
-  %163 = getelementptr inbounds nuw i8, ptr %159, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %163, ptr nonnull align 1 %155, i64 %156, i1 false)
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 %156
-  store i8 0, ptr %164, align 1, !tbaa !4
-  store ptr %159, ptr %1, align 8, !tbaa !4
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 262, ptr %165, align 8, !tbaa !4
-  br label %168
+zval_try_get_string.exit142.thread:               ; preds = %74, %69
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %70) ]
+  br label %78
 
-166:                                              ; preds = %154
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %167, align 8, !tbaa !4
-  br label %168
+zval_try_get_string.exit142:                      ; preds = %65
+  %77 = call ptr @zval_try_get_string_func(ptr noundef nonnull %16) #9
+  %.not130.not = icmp eq ptr %77, null
+  br i1 %.not130.not, label %.critedge133, label %78, !prof !80
 
-168:                                              ; preds = %146, %151, %zend_string_alloc.exit, %166
-  %169 = icmp eq i32 %5, 2
-  br i1 %169, label %170, label %zend_string_release_ex.exit140.thread
+78:                                               ; preds = %zval_try_get_string.exit142.thread, %zval_try_get_string.exit142
+  %.0.i141181 = phi ptr [ %70, %zval_try_get_string.exit142.thread ], [ %77, %zval_try_get_string.exit142 ]
+  %79 = call noalias ptr @_emalloc_40() #9
+  store i32 1, ptr %79, align 4, !tbaa !46
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  store i32 22, ptr %80, align 4, !tbaa !4
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store i64 0, ptr %81, align 8, !tbaa !47
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  store i64 11, ptr %82, align 8, !tbaa !49
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %83, ptr noundef nonnull align 1 dereferenceable(11) @.str.3, i64 11, i1 false)
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 35
+  store i8 0, ptr %84, align 1, !tbaa !4
+  %85 = call i32 @zend_alter_ini_entry_ex(ptr noundef nonnull %79, ptr noundef nonnull %.0.i141181, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false) #9
+  %86 = load i32, ptr %80, align 4, !tbaa !4
+  %87 = and i32 %86, 64
+  %.not.i149 = icmp eq i32 %87, 0
+  br i1 %.not.i149, label %88, label %zend_string_release_ex.exit150
 
-170:                                              ; preds = %168
-  call void @zval_ptr_dtor(ptr noundef nonnull @assert_globals) #9
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %172 = load i8, ptr %171, align 8, !tbaa !4
-  %173 = icmp eq i8 %172, 1
-  br i1 %173, label %174, label %175
+88:                                               ; preds = %78
+  %89 = load i32, ptr %79, align 4, !tbaa !46
+  %90 = icmp ne i32 %89, 0
+  call void @llvm.assume(i1 %90)
+  %91 = add i32 %89, -1
+  store i32 %91, ptr %79, align 4, !tbaa !46
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %zend_string_release_ex.exit150
 
-174:                                              ; preds = %170
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8, !tbaa !4
-  br label %zend_string_release_ex.exit140.thread
-
-175:                                              ; preds = %170
-  %176 = load ptr, ptr %16, align 8, !tbaa !4
-  %177 = load i32, ptr %171, align 8, !tbaa !4
-  store ptr %176, ptr @assert_globals, align 8, !tbaa !4
-  store i32 %177, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8, !tbaa !4
-  %178 = and i32 %177, 65280
-  %.not128 = icmp eq i32 %178, 0
-  br i1 %.not128, label %zend_string_release_ex.exit140.thread, label %179
-
-179:                                              ; preds = %175
-  %180 = load i32, ptr %176, align 4, !tbaa !46
-  %181 = add i32 %180, 1
-  store i32 %181, ptr %176, align 4, !tbaa !46
-  br label %zend_string_release_ex.exit140.thread
-
-182:                                              ; preds = %.critedge
-  %183 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 27), align 1, !tbaa !52, !range !16, !noundef !17
-  %184 = zext nneg i8 %183 to i64
-  %185 = icmp eq i32 %5, 2
-  br i1 %185, label %186, label %zend_string_release_ex.exit152
-
-186:                                              ; preds = %182
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %188 = load i8, ptr %187, align 8, !tbaa !4
-  %189 = icmp eq i8 %188, 6
-  br i1 %189, label %190, label %zval_try_get_string.exit138, !prof !22
-
-190:                                              ; preds = %186
-  %191 = load ptr, ptr %16, align 8, !tbaa !4
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 4
-  %193 = load i32, ptr %192, align 4, !tbaa !4
-  %194 = and i32 %193, 64
-  %.not.i154 = icmp eq i32 %194, 0
-  br i1 %.not.i154, label %195, label %zval_try_get_string.exit138.thread
-
-195:                                              ; preds = %190
-  %196 = load i32, ptr %191, align 4, !tbaa !46
-  %197 = add i32 %196, 1
-  store i32 %197, ptr %191, align 4, !tbaa !46
-  br label %zval_try_get_string.exit138.thread
-
-zval_try_get_string.exit138:                      ; preds = %186
-  %198 = call ptr @zval_try_get_string_func(ptr noundef nonnull %16) #9
-  %.not124.not = icmp eq ptr %198, null
-  br i1 %.not124.not, label %zend_string_release_ex.exit140.thread, label %zval_try_get_string.exit138.thread, !prof !80
-
-zval_try_get_string.exit138.thread:               ; preds = %190, %195, %zval_try_get_string.exit138
-  %.0.i137188 = phi ptr [ %198, %zval_try_get_string.exit138 ], [ %191, %195 ], [ %191, %190 ]
-  %199 = call noalias ptr @_emalloc_48() #9
-  store i32 1, ptr %199, align 4, !tbaa !46
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 4
-  store i32 22, ptr %200, align 4, !tbaa !4
-  %201 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  store i64 0, ptr %201, align 8, !tbaa !47
-  %202 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  store i64 16, ptr %202, align 8, !tbaa !49
-  %203 = getelementptr inbounds nuw i8, ptr %199, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %203, ptr noundef nonnull align 1 dereferenceable(16) @.str.5, i64 16, i1 false)
-  %204 = getelementptr inbounds nuw i8, ptr %199, i64 40
-  store i8 0, ptr %204, align 8, !tbaa !4
-  %205 = call i32 @zend_alter_ini_entry_ex(ptr noundef nonnull %199, ptr noundef nonnull %.0.i137188, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false) #9
-  %206 = getelementptr inbounds nuw i8, ptr %.0.i137188, i64 4
-  %207 = load i32, ptr %206, align 4, !tbaa !4
-  %208 = and i32 %207, 64
-  %.not.i149 = icmp eq i32 %208, 0
-  br i1 %.not.i149, label %209, label %zend_string_release_ex.exit150
-
-209:                                              ; preds = %zval_try_get_string.exit138.thread
-  %210 = load i32, ptr %.0.i137188, align 4, !tbaa !46
-  %211 = icmp ne i32 %210, 0
-  call void @llvm.assume(i1 %211)
-  %212 = add i32 %210, -1
-  store i32 %212, ptr %.0.i137188, align 4, !tbaa !46
-  %213 = icmp eq i32 %212, 0
-  br i1 %213, label %214, label %zend_string_release_ex.exit150
-
-214:                                              ; preds = %209
-  call void @_efree(ptr noundef nonnull %.0.i137188) #9
+93:                                               ; preds = %88
+  call void @_efree(ptr noundef nonnull %79) #9
   br label %zend_string_release_ex.exit150
 
-zend_string_release_ex.exit150:                   ; preds = %zval_try_get_string.exit138.thread, %209, %214
-  %215 = load i32, ptr %200, align 4, !tbaa !4
-  %216 = and i32 %215, 64
-  %.not.i151 = icmp eq i32 %216, 0
-  br i1 %.not.i151, label %217, label %zend_string_release_ex.exit152
+zend_string_release_ex.exit150:                   ; preds = %78, %88, %93
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i141181, i64 4
+  %95 = load i32, ptr %94, align 4, !tbaa !4
+  %96 = and i32 %95, 64
+  %.not.i151 = icmp eq i32 %96, 0
+  br i1 %.not.i151, label %97, label %zend_string_release_ex.exit152
 
-217:                                              ; preds = %zend_string_release_ex.exit150
-  %218 = load i32, ptr %199, align 4, !tbaa !46
-  %219 = icmp ne i32 %218, 0
-  call void @llvm.assume(i1 %219)
-  %220 = add i32 %218, -1
-  store i32 %220, ptr %199, align 4, !tbaa !46
-  %221 = icmp eq i32 %220, 0
-  br i1 %221, label %222, label %zend_string_release_ex.exit152
+97:                                               ; preds = %zend_string_release_ex.exit150
+  %98 = load i32, ptr %.0.i141181, align 4, !tbaa !46
+  %99 = icmp ne i32 %98, 0
+  call void @llvm.assume(i1 %99)
+  %100 = add i32 %98, -1
+  store i32 %100, ptr %.0.i141181, align 4, !tbaa !46
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %zend_string_release_ex.exit152
 
-222:                                              ; preds = %217
-  call void @_efree(ptr noundef nonnull %199) #9
+102:                                              ; preds = %97
+  call void @_efree(ptr noundef nonnull %.0.i141181) #9
   br label %zend_string_release_ex.exit152
 
-zend_string_release_ex.exit152:                   ; preds = %zend_string_release_ex.exit150, %217, %222, %182
-  store i64 %184, ptr %1, align 8, !tbaa !4
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %223, align 8, !tbaa !4
-  br label %zend_string_release_ex.exit140.thread
+zend_string_release_ex.exit152:                   ; preds = %102, %97, %zend_string_release_ex.exit150, %61
+  store i64 %63, ptr %1, align 8, !tbaa !4
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %103, align 8, !tbaa !4
+  br label %.critedge133
 
-224:                                              ; preds = %.critedge
+104:                                              ; preds = %.critedge
+  %105 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 26), align 2, !tbaa !78, !range !16, !noundef !17
+  %106 = zext nneg i8 %105 to i64
+  %107 = icmp eq i32 %5, 2
+  br i1 %107, label %108, label %zend_string_release_ex.exit156
+
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %110 = load i8, ptr %109, align 8, !tbaa !4
+  %111 = icmp eq i8 %110, 6
+  br i1 %111, label %112, label %zval_try_get_string.exit144, !prof !22
+
+112:                                              ; preds = %108
+  %113 = load ptr, ptr %16, align 8, !tbaa !4
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
+  %115 = load i32, ptr %114, align 4, !tbaa !4
+  %116 = and i32 %115, 64
+  %.not.i163 = icmp eq i32 %116, 0
+  br i1 %.not.i163, label %117, label %zval_try_get_string.exit144.thread
+
+117:                                              ; preds = %112
+  %118 = load i32, ptr %113, align 4, !tbaa !46
+  %119 = add i32 %118, 1
+  store i32 %119, ptr %113, align 4, !tbaa !46
+  br label %zval_try_get_string.exit144.thread
+
+zval_try_get_string.exit144.thread:               ; preds = %117, %112
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %113) ]
+  br label %121
+
+zval_try_get_string.exit144:                      ; preds = %108
+  %120 = call ptr @zval_try_get_string_func(ptr noundef nonnull %16) #9
+  %.not129.not = icmp eq ptr %120, null
+  br i1 %.not129.not, label %.critedge133, label %121, !prof !80
+
+121:                                              ; preds = %zval_try_get_string.exit144.thread, %zval_try_get_string.exit144
+  %.0.i143184 = phi ptr [ %113, %zval_try_get_string.exit144.thread ], [ %120, %zval_try_get_string.exit144 ]
+  %122 = call noalias ptr @_emalloc_40() #9
+  store i32 1, ptr %122, align 4, !tbaa !46
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  store i32 22, ptr %123, align 4, !tbaa !4
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  store i64 0, ptr %124, align 8, !tbaa !47
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  store i64 14, ptr %125, align 8, !tbaa !49
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %126, ptr noundef nonnull align 1 dereferenceable(14) @.str.4, i64 14, i1 false)
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 38
+  store i8 0, ptr %127, align 2, !tbaa !4
+  %128 = call i32 @zend_alter_ini_entry_ex(ptr noundef nonnull %122, ptr noundef nonnull %.0.i143184, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false) #9
+  %129 = load i32, ptr %123, align 4, !tbaa !4
+  %130 = and i32 %129, 64
+  %.not.i153 = icmp eq i32 %130, 0
+  br i1 %.not.i153, label %131, label %zend_string_release_ex.exit154
+
+131:                                              ; preds = %121
+  %132 = load i32, ptr %122, align 4, !tbaa !46
+  %133 = icmp ne i32 %132, 0
+  call void @llvm.assume(i1 %133)
+  %134 = add i32 %132, -1
+  store i32 %134, ptr %122, align 4, !tbaa !46
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %136, label %zend_string_release_ex.exit154
+
+136:                                              ; preds = %131
+  call void @_efree(ptr noundef nonnull %122) #9
+  br label %zend_string_release_ex.exit154
+
+zend_string_release_ex.exit154:                   ; preds = %121, %131, %136
+  %137 = getelementptr inbounds nuw i8, ptr %.0.i143184, i64 4
+  %138 = load i32, ptr %137, align 4, !tbaa !4
+  %139 = and i32 %138, 64
+  %.not.i155 = icmp eq i32 %139, 0
+  br i1 %.not.i155, label %140, label %zend_string_release_ex.exit156
+
+140:                                              ; preds = %zend_string_release_ex.exit154
+  %141 = load i32, ptr %.0.i143184, align 4, !tbaa !46
+  %142 = icmp ne i32 %141, 0
+  call void @llvm.assume(i1 %142)
+  %143 = add i32 %141, -1
+  store i32 %143, ptr %.0.i143184, align 4, !tbaa !46
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %145, label %zend_string_release_ex.exit156
+
+145:                                              ; preds = %140
+  call void @_efree(ptr noundef nonnull %.0.i143184) #9
+  br label %zend_string_release_ex.exit156
+
+zend_string_release_ex.exit156:                   ; preds = %145, %140, %zend_string_release_ex.exit154, %104
+  store i64 %106, ptr %1, align 8, !tbaa !4
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %146, align 8, !tbaa !4
+  br label %.critedge133
+
+147:                                              ; preds = %.critedge
+  %148 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8, !tbaa !4
+  %.not125 = icmp eq i8 %148, 0
+  br i1 %.not125, label %157, label %149
+
+149:                                              ; preds = %147
+  %150 = load ptr, ptr @assert_globals, align 8, !tbaa !4
+  %151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8, !tbaa !4
+  store ptr %150, ptr %1, align 8, !tbaa !4
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %151, ptr %152, align 8, !tbaa !4
+  %153 = and i32 %151, 65280
+  %.not127 = icmp eq i32 %153, 0
+  br i1 %.not127, label %171, label %154
+
+154:                                              ; preds = %149
+  %155 = load i32, ptr %150, align 4, !tbaa !46
+  %156 = add i32 %155, 1
+  store i32 %156, ptr %150, align 4, !tbaa !46
+  br label %171
+
+157:                                              ; preds = %147
+  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 16), align 8, !tbaa !7
+  %.not126 = icmp eq ptr %158, null
+  br i1 %.not126, label %169, label %zend_string_alloc.exit
+
+zend_string_alloc.exit:                           ; preds = %157
+  %159 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %158) #10
+  %160 = and i64 %159, -8
+  %161 = add i64 %160, 32
+  %162 = call noalias ptr @_emalloc(i64 noundef %161) #11
+  store i32 1, ptr %162, align 4, !tbaa !46
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  store i32 22, ptr %163, align 4, !tbaa !4
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  store i64 0, ptr %164, align 8, !tbaa !47
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  store i64 %159, ptr %165, align 8, !tbaa !49
+  %166 = getelementptr inbounds nuw i8, ptr %162, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %166, ptr nonnull align 1 %158, i64 %159, i1 false)
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 %159
+  store i8 0, ptr %167, align 1, !tbaa !4
+  store ptr %162, ptr %1, align 8, !tbaa !4
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 262, ptr %168, align 8, !tbaa !4
+  br label %171
+
+169:                                              ; preds = %157
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 1, ptr %170, align 8, !tbaa !4
+  br label %171
+
+171:                                              ; preds = %149, %154, %zend_string_alloc.exit, %169
+  %172 = icmp eq i32 %5, 2
+  br i1 %172, label %173, label %.critedge133
+
+173:                                              ; preds = %171
+  call void @zval_ptr_dtor(ptr noundef nonnull @assert_globals) #9
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %175 = load i8, ptr %174, align 8, !tbaa !4
+  %176 = icmp eq i8 %175, 1
+  br i1 %176, label %177, label %178
+
+177:                                              ; preds = %173
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8, !tbaa !4
+  br label %.critedge133
+
+178:                                              ; preds = %173
+  %179 = load ptr, ptr %16, align 8, !tbaa !4
+  %180 = load i32, ptr %174, align 8, !tbaa !4
+  store ptr %179, ptr @assert_globals, align 8, !tbaa !4
+  store i32 %180, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 8), align 8, !tbaa !4
+  %181 = and i32 %180, 65280
+  %.not128 = icmp eq i32 %181, 0
+  br i1 %.not128, label %.critedge133, label %182
+
+182:                                              ; preds = %178
+  %183 = load i32, ptr %179, align 4, !tbaa !46
+  %184 = add i32 %183, 1
+  store i32 %184, ptr %179, align 4, !tbaa !46
+  br label %.critedge133
+
+185:                                              ; preds = %.critedge
+  %186 = load i8, ptr getelementptr inbounds nuw (i8, ptr @assert_globals, i64 27), align 1, !tbaa !52, !range !16, !noundef !17
+  %187 = zext nneg i8 %186 to i64
+  %188 = icmp eq i32 %5, 2
+  br i1 %188, label %189, label %zend_string_release_ex.exit160
+
+189:                                              ; preds = %185
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %191 = load i8, ptr %190, align 8, !tbaa !4
+  %192 = icmp eq i8 %191, 6
+  br i1 %192, label %193, label %zval_try_get_string.exit146, !prof !22
+
+193:                                              ; preds = %189
+  %194 = load ptr, ptr %16, align 8, !tbaa !4
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 4
+  %196 = load i32, ptr %195, align 4, !tbaa !4
+  %197 = and i32 %196, 64
+  %.not.i162 = icmp eq i32 %197, 0
+  br i1 %.not.i162, label %198, label %zval_try_get_string.exit146.thread
+
+198:                                              ; preds = %193
+  %199 = load i32, ptr %194, align 4, !tbaa !46
+  %200 = add i32 %199, 1
+  store i32 %200, ptr %194, align 4, !tbaa !46
+  br label %zval_try_get_string.exit146.thread
+
+zval_try_get_string.exit146.thread:               ; preds = %198, %193
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %194) ]
+  br label %202
+
+zval_try_get_string.exit146:                      ; preds = %189
+  %201 = call ptr @zval_try_get_string_func(ptr noundef nonnull %16) #9
+  %.not124.not = icmp eq ptr %201, null
+  br i1 %.not124.not, label %.critedge133, label %202, !prof !80
+
+202:                                              ; preds = %zval_try_get_string.exit146.thread, %zval_try_get_string.exit146
+  %.0.i145187 = phi ptr [ %194, %zval_try_get_string.exit146.thread ], [ %201, %zval_try_get_string.exit146 ]
+  %203 = call noalias ptr @_emalloc_48() #9
+  store i32 1, ptr %203, align 4, !tbaa !46
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 4
+  store i32 22, ptr %204, align 4, !tbaa !4
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 8
+  store i64 0, ptr %205, align 8, !tbaa !47
+  %206 = getelementptr inbounds nuw i8, ptr %203, i64 16
+  store i64 16, ptr %206, align 8, !tbaa !49
+  %207 = getelementptr inbounds nuw i8, ptr %203, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %207, ptr noundef nonnull align 1 dereferenceable(16) @.str.5, i64 16, i1 false)
+  %208 = getelementptr inbounds nuw i8, ptr %203, i64 40
+  store i8 0, ptr %208, align 8, !tbaa !4
+  %209 = call i32 @zend_alter_ini_entry_ex(ptr noundef nonnull %203, ptr noundef nonnull %.0.i145187, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false) #9
+  %210 = getelementptr inbounds nuw i8, ptr %.0.i145187, i64 4
+  %211 = load i32, ptr %210, align 4, !tbaa !4
+  %212 = and i32 %211, 64
+  %.not.i157 = icmp eq i32 %212, 0
+  br i1 %.not.i157, label %213, label %zend_string_release_ex.exit158
+
+213:                                              ; preds = %202
+  %214 = load i32, ptr %.0.i145187, align 4, !tbaa !46
+  %215 = icmp ne i32 %214, 0
+  call void @llvm.assume(i1 %215)
+  %216 = add i32 %214, -1
+  store i32 %216, ptr %.0.i145187, align 4, !tbaa !46
+  %217 = icmp eq i32 %216, 0
+  br i1 %217, label %218, label %zend_string_release_ex.exit158
+
+218:                                              ; preds = %213
+  call void @_efree(ptr noundef nonnull %.0.i145187) #9
+  br label %zend_string_release_ex.exit158
+
+zend_string_release_ex.exit158:                   ; preds = %202, %213, %218
+  %219 = load i32, ptr %204, align 4, !tbaa !4
+  %220 = and i32 %219, 64
+  %.not.i159 = icmp eq i32 %220, 0
+  br i1 %.not.i159, label %221, label %zend_string_release_ex.exit160
+
+221:                                              ; preds = %zend_string_release_ex.exit158
+  %222 = load i32, ptr %203, align 4, !tbaa !46
+  %223 = icmp ne i32 %222, 0
+  call void @llvm.assume(i1 %223)
+  %224 = add i32 %222, -1
+  store i32 %224, ptr %203, align 4, !tbaa !46
+  %225 = icmp eq i32 %224, 0
+  br i1 %225, label %226, label %zend_string_release_ex.exit160
+
+226:                                              ; preds = %221
+  call void @_efree(ptr noundef nonnull %203) #9
+  br label %zend_string_release_ex.exit160
+
+zend_string_release_ex.exit160:                   ; preds = %226, %221, %zend_string_release_ex.exit158, %185
+  store i64 %187, ptr %1, align 8, !tbaa !4
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %227, align 8, !tbaa !4
+  br label %.critedge133
+
+228:                                              ; preds = %.critedge
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.6) #9
-  br label %zend_string_release_ex.exit140.thread
+  br label %.critedge133
 
-zend_string_release_ex.exit140.thread:            ; preds = %zval_try_get_string.exit138, %zval_try_get_string.exit136, %zval_try_get_string.exit134, %zval_try_get_string.exit, %17, %168, %174, %179, %175, %224, %zend_string_release_ex.exit152, %zend_string_release_ex.exit148, %zend_string_release_ex.exit144, %zend_string_release_ex.exit140
+.critedge133:                                     ; preds = %17, %zval_try_get_string.exit146, %zval_try_get_string.exit144, %zval_try_get_string.exit142, %zval_try_get_string.exit, %171, %177, %182, %178, %228, %zend_string_release_ex.exit160, %zend_string_release_ex.exit156, %zend_string_release_ex.exit152, %zend_string_release_ex.exit148
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

@@ -97,8 +97,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 "_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4fold17h0fa840ff03e2aa25E.llvm.1529300605734054276.exit": ; preds = %2, %._crit_edge21.i.i
   %storemerge.i = phi i64 [ %6, %._crit_edge21.i.i ], [ %.sroa.4.0.copyload, %2 ]
-  %12 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %12)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.01.0.copyload) ]
   store i64 %storemerge.i, ptr %.sroa.01.0.copyload, align 8, !noalias !28
   ret void
 }
@@ -390,67 +389,65 @@ define hidden void @"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$
   br i1 %.not, label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit, label %19
 
 19:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h3852dbcbfb6e6a81E.exit"
-  %20 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %22 = atomicrmw sub ptr %21, i64 32 release, align 8
-  %.mask = and i64 %22, -32
-  %23 = icmp eq i64 %.mask, 32
-  br i1 %23, label %28, label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %21 = atomicrmw sub ptr %20, i64 32 release, align 8
+  %.mask = and i64 %21, -32
+  %22 = icmp eq i64 %.mask, 32
+  br i1 %22, label %27, label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit
 
-_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit: ; preds = %31, %29, %19, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h3852dbcbfb6e6a81E.exit"
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %25 = load ptr, ptr %24, align 8, !align !101, !noundef !35
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %27 = load ptr, ptr %26, align 8
-  store ptr null, ptr %24, align 8
-  %.not9 = icmp eq ptr %25, null
-  br i1 %.not9, label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit11, label %32
+_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit: ; preds = %30, %28, %19, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h3852dbcbfb6e6a81E.exit"
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %24 = load ptr, ptr %23, align 8, !align !101, !noundef !35
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %26 = load ptr, ptr %25, align 8
+  store ptr null, ptr %23, align 8
+  %.not9 = icmp eq ptr %24, null
+  br i1 %.not9, label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit11, label %31
 
-28:                                               ; preds = %19
+27:                                               ; preds = %19
   fence acquire
-  br i1 %5, label %31, label %29
+  br i1 %5, label %30, label %28
 
-29:                                               ; preds = %28
+28:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !102
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hf10d2da74c50b161E.llvm.8326862415837228122, ptr %4, align 8, !alias.scope !105, !noalias !102
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %18, ptr %30, align 8, !alias.scope !105, !noalias !102
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %18, ptr %29, align 8, !alias.scope !105, !noalias !102
   call void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !102
   br label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit
 
-31:                                               ; preds = %28
+30:                                               ; preds = %27
   tail call void @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$8finalize17h6ce18f3dd862d2e1E"(ptr noundef nonnull align 8 %18), !noalias !102
   br label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit
 
-32:                                               ; preds = %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit
-  %33 = icmp ne ptr %27, null
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  %35 = atomicrmw sub ptr %34, i64 32 release, align 8
-  %.mask10 = and i64 %35, -32
-  %36 = icmp eq i64 %.mask10, 32
-  br i1 %36, label %37, label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit11
+31:                                               ; preds = %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  %33 = atomicrmw sub ptr %32, i64 32 release, align 8
+  %.mask10 = and i64 %33, -32
+  %34 = icmp eq i64 %.mask10, 32
+  br i1 %34, label %35, label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit11
 
-_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit11: ; preds = %40, %38, %32, %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit
+_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit11: ; preds = %38, %36, %31, %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit
   ret void
 
-37:                                               ; preds = %32
+35:                                               ; preds = %31
   fence acquire
-  br i1 %5, label %40, label %38
+  br i1 %5, label %38, label %36
 
-38:                                               ; preds = %37
+36:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !108
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hf10d2da74c50b161E.llvm.8326862415837228122, ptr %3, align 8, !alias.scope !111, !noalias !108
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %27, ptr %39, align 8, !alias.scope !111, !noalias !108
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %26, ptr %37, align 8, !alias.scope !111, !noalias !108
   call void @_ZN15crossbeam_epoch8internal5Local5defer17h63f66b08c2fc0a6aE(ptr noundef nonnull align 8 %.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !108
   br label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit11
 
-40:                                               ; preds = %37
-  tail call void @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$8finalize17h6ce18f3dd862d2e1E"(ptr noundef nonnull align 8 %27), !noalias !108
+38:                                               ; preds = %35
+  tail call void @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$8finalize17h6ce18f3dd862d2e1E"(ptr noundef nonnull align 8 %26), !noalias !108
   br label %_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h367b96e829607b69E.exit11
 }
 
@@ -1525,8 +1522,7 @@ define hidden void @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..ite
 
 "_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17hd0013f9556002bdaE.llvm.1529300605734054276.exit": ; preds = %2, %6, %._crit_edge21.i
   %storemerge = phi i64 [ %12, %._crit_edge21.i ], [ %.sroa.5.0.copyload, %6 ], [ %.sroa.5.0.copyload, %2 ]
-  %18 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %18)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload) ]
   store i64 %storemerge, ptr %.sroa.0.0.copyload, align 8, !noalias !296
   ret void
 }

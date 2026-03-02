@@ -2671,6 +2671,7 @@ _ZN12_GLOBAL__N_117FrameIndexesCache13getFrameIndexEN4llvm8RegisterEPNS1_17Machi
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %837, align 8
   %867 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %868 = inttoptr i64 %867 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %868) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %868, align 8
   %869 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i14.i.i = icmp eq i64 %869, 0
@@ -2715,6 +2716,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i: ; p
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i41.i.i.i = load i64, ptr %.sroa.055.082.i.i.i, align 8
   %883 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i41.i.i.i, -8
   %884 = inttoptr i64 %883 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %884) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i42.i.i.i = load i64, ptr %884, align 8
   %885 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i42.i.i.i, 4
   %.not.i.i.i.i43.i.i.i = icmp eq i64 %885, 0
@@ -6961,6 +6963,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115StatepointState18insertReloadBef
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %2, align 8
   %21 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %22 = inttoptr i64 %21 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %22, align 8
   %23 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %23, 0

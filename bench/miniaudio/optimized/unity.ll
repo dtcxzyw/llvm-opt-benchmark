@@ -87177,20 +87177,19 @@ ma_node_get_time.exit:                            ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
-define i64 @ma_sound_get_time_in_milliseconds(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #61 {
+define i64 @ma_sound_get_time_in_milliseconds(ptr noundef readonly captures(none) %0) local_unnamed_addr #61 {
 ma_sound_get_engine.exit:
-  %1 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load atomic i64, ptr %2 seq_cst, align 8
-  %4 = mul i64 %3, 1000
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %6 = load ptr, ptr %5, align 8, !tbaa !1810, !nonnull !1855, !noundef !1855
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 752
-  %8 = load i32, ptr %7, align 8, !tbaa !1757
-  %9 = zext i32 %8 to i64
-  %10 = udiv i64 %4, %9
-  ret i64 %10
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %2 = load atomic i64, ptr %1 seq_cst, align 8
+  %3 = mul i64 %2, 1000
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %5 = load ptr, ptr %4, align 8, !tbaa !1810, !nonnull !1855, !noundef !1855
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 752
+  %7 = load i32, ptr %6, align 8, !tbaa !1757
+  %8 = zext i32 %7 to i64
+  %9 = udiv i64 %3, %8
+  ret i64 %9
 }
 
 ; Function Attrs: nounwind uwtable

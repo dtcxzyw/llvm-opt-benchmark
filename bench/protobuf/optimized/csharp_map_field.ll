@@ -236,30 +236,30 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %cal
   %call7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBase9type_nameB5cxx11EPKNS0_15FieldDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %call5)
-  %call.i.i.i24 = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIA16_cEESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 1 dereferenceable(16) @.str.1)
-          to label %call.i.i.i.noexc23 unwind label %lpad10
+  %call.i.i.i25 = invoke { i64, i8 } @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE22find_or_prepare_insertIA16_cEESF_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %variables_, ptr noundef nonnull align 1 dereferenceable(16) @.str.1)
+          to label %call.i.i.i.noexc24 unwind label %lpad10
 
-call.i.i.i.noexc23:                               ; preds = %invoke.cont
-  %6 = extractvalue { i64, i8 } %call.i.i.i24, 0
-  %7 = extractvalue { i64, i8 } %call.i.i.i24, 1
+call.i.i.i.noexc24:                               ; preds = %invoke.cont
+  %6 = extractvalue { i64, i8 } %call.i.i.i25, 0
+  %7 = extractvalue { i64, i8 } %call.i.i.i25, 1
   %tobool.i.i.i13 = trunc i8 %7 to i1
-  br i1 %tobool.i.i.i13, label %if.then.i.i.i17, label %invoke.cont11
+  br i1 %tobool.i.i.i13, label %if.then.i.i.i18, label %invoke.cont11
 
-if.then.i.i.i17:                                  ; preds = %call.i.i.i.noexc23
+if.then.i.i.i18:                                  ; preds = %call.i.i.i.noexc24
   %8 = load ptr, ptr %slots_.i.i.i3.i.i.i, align 8, !noalias !9
-  %add.ptr.i.i.i.i19 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %8, i64 %6
-  store i64 15, ptr %add.ptr.i.i.i.i19, align 8, !noalias !9
-  %_M_str.i.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i19, i64 8
-  store ptr @.str.1, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i21, align 8, !noalias !9
-  %second.i.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i19, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i22) #23, !noalias !9
+  %add.ptr.i.i.i.i20 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %8, i64 %6
+  store i64 15, ptr %add.ptr.i.i.i.i20, align 8, !noalias !9
+  %_M_str.i.i.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i20, i64 8
+  store ptr @.str.1, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i22, align 8, !noalias !9
+  %second.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i20, i64 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i23) #23, !noalias !9
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %if.then.i.i.i17, %call.i.i.i.noexc23
+invoke.cont11:                                    ; preds = %if.then.i.i.i18, %call.i.i.i.noexc24
   %9 = load ptr, ptr %slots_.i.i.i3.i.i.i, align 8, !noalias !9
-  %add.ptr3.i.i.i.i15 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %9, i64 %6
-  %second.i.i16 = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i15, i64 16
-  %call13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #23
+  %add.ptr3.i.i.i.i16 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %9, i64 %6
+  %second.i.i17 = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i16, i64 16
+  %call13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #23
   %call14 = call noundef ptr @_ZN6google8protobuf8compiler6csharp19SourceGeneratorBase7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call15 = call noundef ptr @_ZN6google8protobuf8compiler6csharp20CreateFieldGeneratorEPKNS0_15FieldDescriptorEiPKNS2_7OptionsE(ptr noundef %call2, i32 noundef 1, ptr noundef %call14)
@@ -338,16 +338,16 @@ invoke.cont36:                                    ; preds = %invoke.cont34
 
 invoke.cont37:                                    ; preds = %invoke.cont36
   invoke void @_ZN6google8protobuf2io7Printer5PrintIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvRKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %printer, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 111, ptr nonnull @.str.5)
-          to label %_ZNSt10unique_ptrIN6google8protobuf8compiler6csharp18FieldGeneratorBaseESt14default_deleteIS4_EED2Ev.exit35 unwind label %lpad22
+          to label %_ZNSt10unique_ptrIN6google8protobuf8compiler6csharp18FieldGeneratorBaseESt14default_deleteIS4_EED2Ev.exit36 unwind label %lpad22
 
-_ZNSt10unique_ptrIN6google8protobuf8compiler6csharp18FieldGeneratorBaseESt14default_deleteIS4_EED2Ev.exit35: ; preds = %invoke.cont37
+_ZNSt10unique_ptrIN6google8protobuf8compiler6csharp18FieldGeneratorBaseESt14default_deleteIS4_EED2Ev.exit36: ; preds = %invoke.cont37
   %vtable.i.i = load ptr, ptr %call20, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %18 = load ptr, ptr %vfn.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(64) %call20) #23
-  %vtable.i.i33 = load ptr, ptr %call15, align 8
-  %vfn.i.i34 = getelementptr inbounds nuw i8, ptr %vtable.i.i33, i64 8
-  %19 = load ptr, ptr %vfn.i.i34, align 8
+  %vtable.i.i34 = load ptr, ptr %call15, align 8
+  %vfn.i.i35 = getelementptr inbounds nuw i8, ptr %vtable.i.i34, i64 8
+  %19 = load ptr, ptr %vfn.i.i35, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(64) %call15) #23
   ret void
 
@@ -375,30 +375,30 @@ lpad22:                                           ; preds = %invoke.cont37, %inv
 
 lpad22.body:                                      ; preds = %lpad.i, %invoke.cont13.i.i.i.i, %lpad22
   %eh.lpad-body = phi { ptr, i32 } [ %23, %lpad22 ], [ %11, %invoke.cont13.i.i.i.i ], [ %11, %lpad.i ]
-  %cmp.not.i36 = icmp eq ptr %call20, null
-  br i1 %cmp.not.i36, label %ehcleanup, label %_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i37
+  %cmp.not.i37 = icmp eq ptr %call20, null
+  br i1 %cmp.not.i37, label %ehcleanup, label %_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i38
 
-_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i37: ; preds = %lpad22.body
-  %vtable.i.i38 = load ptr, ptr %call20, align 8
-  %vfn.i.i39 = getelementptr inbounds nuw i8, ptr %vtable.i.i38, i64 8
-  %24 = load ptr, ptr %vfn.i.i39, align 8
+_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i38: ; preds = %lpad22.body
+  %vtable.i.i39 = load ptr, ptr %call20, align 8
+  %vfn.i.i40 = getelementptr inbounds nuw i8, ptr %vtable.i.i39, i64 8
+  %24 = load ptr, ptr %vfn.i.i40, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(64) %call20) #23
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i37, %lpad22.body, %lpad16
-  %.pn = phi { ptr, i32 } [ %22, %lpad16 ], [ %eh.lpad-body, %lpad22.body ], [ %eh.lpad-body, %_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i37 ]
-  %cmp.not.i41 = icmp eq ptr %call15, null
-  br i1 %cmp.not.i41, label %eh.resume, label %_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i42
+ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i38, %lpad22.body, %lpad16
+  %.pn = phi { ptr, i32 } [ %22, %lpad16 ], [ %eh.lpad-body, %lpad22.body ], [ %eh.lpad-body, %_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i38 ]
+  %cmp.not.i42 = icmp eq ptr %call15, null
+  br i1 %cmp.not.i42, label %eh.resume, label %_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i43
 
-_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i42: ; preds = %ehcleanup
-  %vtable.i.i43 = load ptr, ptr %call15, align 8
-  %vfn.i.i44 = getelementptr inbounds nuw i8, ptr %vtable.i.i43, i64 8
-  %25 = load ptr, ptr %vfn.i.i44, align 8
+_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i43: ; preds = %ehcleanup
+  %vtable.i.i44 = load ptr, ptr %call15, align 8
+  %vfn.i.i45 = getelementptr inbounds nuw i8, ptr %vtable.i.i44, i64 8
+  %25 = load ptr, ptr %vfn.i.i45, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(64) %call15) #23
   br label %eh.resume
 
-eh.resume:                                        ; preds = %_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i42, %ehcleanup, %lpad10, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %20, %lpad ], [ %21, %lpad10 ], [ %.pn, %ehcleanup ], [ %.pn, %_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i42 ]
+eh.resume:                                        ; preds = %_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i43, %ehcleanup, %lpad10, %lpad
+  %.pn.pn = phi { ptr, i32 } [ %20, %lpad ], [ %21, %lpad10 ], [ %.pn, %ehcleanup ], [ %.pn, %_ZNKSt14default_deleteIN6google8protobuf8compiler6csharp18FieldGeneratorBaseEEclEPS4_.exit.i43 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1629,6 +1629,7 @@ if.then.i:                                        ; preds = %land.rhs.i.i.i.i.i.
   %.us-phi = phi i64 [ %and.i.i.us.us, %for.body.i.us.us ], [ %and.i.i, %land.rhs.i.i.i.i.i.i.i.i ]
   %.us-phi3 = phi ptr [ %add.ptr19.i.us.us, %for.body.i.us.us ], [ %add.ptr19.i, %land.rhs.i.i.i.i.i.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %.us-phi
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i.i) ]
   %.fca.0.insert.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i, 0
   %.fca.1.insert.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i, ptr %.us-phi3, 1
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE4findIS7_EENSJ_8iteratorERKT_m.exit
@@ -2223,6 +2224,7 @@ if.then.i:                                        ; preds = %land.rhs.i.i.i.i.i.
   %.us-phi = phi i64 [ %and.i.i.us.us, %for.body.i.us.us ], [ %and.i.i, %land.rhs.i.i.i.i.i.i.i.i ]
   %.us-phi3 = phi ptr [ %add.ptr19.i.us.us, %for.body.i.us.us ], [ %add.ptr19.i, %land.rhs.i.i.i.i.i.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %.us-phi
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i.i) ]
   %.fca.0.insert.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i, 0
   %.fca.1.insert.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i, ptr %.us-phi3, 1
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE4findIS7_EENSF_8iteratorERKT_m.exit

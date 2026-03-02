@@ -95100,7 +95100,7 @@ define dso_local void @_ZN5clang9ASTReader14InitializeSemaERNS_4SemaE(ptr nounde
   %.not3238 = icmp eq i32 %63, 0
   br i1 %.not3238, label %._crit_edge42, label %.lr.ph41
 
-._crit_edge42:                                    ; preds = %82, %59
+._crit_edge42:                                    ; preds = %79, %59
   store i32 0, ptr %62, align 8, !tbaa !698
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8536
   %67 = load ptr, ptr %5, align 8, !tbaa !1285
@@ -95109,8 +95109,8 @@ define dso_local void @_ZN5clang9ASTReader14InitializeSemaERNS_4SemaE(ptr nounde
   call void @_ZN5clang9ASTReader10UpdateSemaEv(ptr noundef nonnull align 8 dereferenceable(16272) %0)
   ret void
 
-.lr.ph41:                                         ; preds = %59, %82
-  %.03039 = phi ptr [ %83, %82 ], [ %61, %59 ]
+.lr.ph41:                                         ; preds = %59, %79
+  %.03039 = phi ptr [ %80, %79 ], [ %61, %59 ]
   %.sroa.08.0.copyload = load i64, ptr %.03039, align 8
   %70 = call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %0, i64 %.sroa.08.0.copyload)
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 28
@@ -95120,30 +95120,26 @@ define dso_local void @_ZN5clang9ASTReader14InitializeSemaERNS_4SemaE(ptr nounde
   %75 = icmp ult i32 %74, -6
   %.not3335 = icmp eq ptr %70, null
   %.not33 = or i1 %.not3335, %75
-  br i1 %.not33, label %78, label %76
+  %76 = load ptr, ptr %5, align 8, !tbaa !1285
+  br i1 %.not33, label %78, label %77
 
-76:                                               ; preds = %.lr.ph41
-  %77 = load ptr, ptr %5, align 8, !tbaa !1285
+77:                                               ; preds = %.lr.ph41
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK5clang12FunctionDecl18getFunctionEffectsEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::FunctionEffectsRef") align 8 %3, ptr noundef nonnull align 8 dereferenceable(168) %70)
-  call void @_ZN5clang4Sema18addDeclWithEffectsEPKNS_4DeclERKNS_18FunctionEffectsRefE(ptr noundef nonnull align 8 dereferenceable(17504) %77, ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(32) %3) #40
+  call void @_ZN5clang4Sema18addDeclWithEffectsEPKNS_4DeclERKNS_18FunctionEffectsRefE(ptr noundef nonnull align 8 dereferenceable(17504) %76, ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(32) %3) #40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %82
+  br label %79
 
 78:                                               ; preds = %.lr.ph41
-  %79 = and i32 %72, 127
-  %80 = icmp eq i32 %79, 8
-  call void @llvm.assume(i1 %80)
-  %81 = load ptr, ptr %5, align 8, !tbaa !1285
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK5clang9BlockDecl18getFunctionEffectsEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::FunctionEffectsRef") align 8 %4, ptr noundef nonnull align 8 dereferenceable(128) %70)
-  call void @_ZN5clang4Sema18addDeclWithEffectsEPKNS_4DeclERKNS_18FunctionEffectsRefE(ptr noundef nonnull align 8 dereferenceable(17504) %81, ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(32) %4) #40
+  call void @_ZN5clang4Sema18addDeclWithEffectsEPKNS_4DeclERKNS_18FunctionEffectsRefE(ptr noundef nonnull align 8 dereferenceable(17504) %76, ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(32) %4) #40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %82
+  br label %79
 
-82:                                               ; preds = %78, %76
-  %83 = getelementptr inbounds nuw i8, ptr %.03039, i64 8
-  %.not32 = icmp eq ptr %83, %65
+79:                                               ; preds = %78, %77
+  %80 = getelementptr inbounds nuw i8, ptr %.03039, i64 8
+  %.not32 = icmp eq ptr %80, %65
   br i1 %.not32, label %._crit_edge42, label %.lr.ph41
 }
 
@@ -100776,8 +100772,7 @@ _ZN5clang9ASTReader8ReadDeclERNS_13serialization10ModuleFileERKN4llvm15SmallVect
   %.sroa.07.0.i.i27430 = phi i64 [ %641, %_ZN5clang9ASTReader8ReadDeclERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit.thread431 ], [ %664, %_ZN5clang9ASTReader8ReadDeclERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit ], [ 0, %_ZNK5clang9ASTReader5ErrorEjN4llvm9StringRefES2_S2_.exit156 ], [ 0, %606 ], [ 0, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i65 ]
   %666 = trunc nuw nsw i64 %.sroa.07.0.i.i27430 to i32
   %667 = call noundef ptr @_ZN5clang9ASTReader17getPredefinedDeclENS_17PredefinedDeclIDsE(ptr noundef nonnull align 8 dereferenceable(16272) %0, i32 noundef %666)
-  %.not11.i139 = icmp ne ptr %667, null
-  call void @llvm.assume(i1 %.not11.i139)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %667) ]
   %668 = load ptr, ptr %667, align 8, !tbaa !8
   %669 = getelementptr inbounds nuw i8, ptr %668, i64 32
   %670 = load ptr, ptr %669, align 8

@@ -475,8 +475,7 @@ arraydestroy.done29:                              ; preds = %arraydestroy.body25
 
 init.end:                                         ; preds = %arraydestroy.done29, %init.check, %entry
   %call.i = call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox6common15CompressionKindEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN8facebook5velox6common23stringToCompressionKindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE26stringToCompressionKindMapB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %kind)
-  %cmp.i = icmp ne ptr %call.i, null
-  call void @llvm.assume(i1 %cmp.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call.i) ]
   %second = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %4 = load i64, ptr %second, align 8
   ret i64 %4

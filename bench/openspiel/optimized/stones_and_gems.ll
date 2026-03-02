@@ -961,24 +961,23 @@ define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15ston
 
 thread-pre-split.i.i:                             ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE7emplaceIJRKSC_IS6_iEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESC_INSG_8iteratorEbEDpOSM_.exit.i.i.i.i
   %.pr.i.i = load i64, ptr %7, align 8, !noalias !6
-  %.pre.i = load ptr, ptr %0, align 8, !noalias !6
-  %.pre22.i = load ptr, ptr %6, align 8, !noalias !6
+  %.pre.i = load ptr, ptr %6, align 8, !noalias !6
   br label %10
 
 10:                                               ; preds = %thread-pre-split.i.i, %3
-  %11 = phi ptr [ %.pre22.i, %thread-pre-split.i.i ], [ null, %3 ]
-  %12 = phi ptr [ %.pre.i, %thread-pre-split.i.i ], [ @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, %3 ]
-  %13 = phi i64 [ %.pr.i.i, %thread-pre-split.i.i ], [ 0, %3 ]
-  %.014.i.i.i.i = phi ptr [ %270, %thread-pre-split.i.i ], [ %1, %3 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 16
-  %.val.i.i.i.i.i.i.i.i.i = load i32, ptr %.014.i.i.i.i, align 4, !noalias !19
+  %11 = phi ptr [ %.pre.i, %thread-pre-split.i.i ], [ null, %3 ]
+  %12 = phi i64 [ %.pr.i.i, %thread-pre-split.i.i ], [ 0, %3 ]
+  %13 = phi ptr [ %270, %thread-pre-split.i.i ], [ @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, %3 ]
+  %.016.i.i.i.i = phi ptr [ %271, %thread-pre-split.i.i ], [ %1, %3 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 16
+  %.val.i.i.i.i.i.i.i.i.i = load i32, ptr %.016.i.i.i.i, align 4, !noalias !19
   %15 = add nsw i32 %.val.i.i.i.i.i.i.i.i.i, 1
   %16 = sext i32 %15 to i64
   %17 = lshr i64 %16, 7
-  %18 = ptrtoint ptr %12 to i64
+  %18 = ptrtoint ptr %13 to i64
   %19 = lshr i64 %18, 12
   %20 = xor i64 %17, %19
-  %21 = and i64 %20, %13
+  %21 = and i64 %20, %12
   %22 = trunc i32 %15 to i8
   %23 = and i8 %22, 127
   %24 = insertelement <16 x i8> poison, i8 %23, i64 0
@@ -988,7 +987,7 @@ thread-pre-split.i.i:                             ; preds = %_ZN4absl7debian218c
 26:                                               ; preds = %43, %10
   %.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %21, %10 ], [ %46, %43 ]
   %.sroa.10.0.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %10 ], [ %44, %43 ]
-  %27 = getelementptr inbounds i8, ptr %12, i64 %.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i
+  %27 = getelementptr inbounds i8, ptr %13, i64 %.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i
   %28 = load <16 x i8>, ptr %27, align 1, !noalias !6
   %29 = icmp eq <16 x i8> %25, %28
   %30 = bitcast <16 x i1> %29 to i16
@@ -1004,7 +1003,7 @@ thread-pre-split.i.i:                             ; preds = %_ZN4absl7debian218c
   %32 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.016.042.i.i.i.i.i.i.i.i.i.i.i, i1 true)
   %33 = zext nneg i32 %32 to i64
   %34 = add i64 %.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i, %33
-  %35 = and i64 %34, %13
+  %35 = and i64 %34, %12
   %36 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.227", ptr %11, i64 %35
   %.val10.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %36, align 4, !noalias !6
   %37 = icmp eq i32 %.val10.i.i.i.i.i.i.i.i.i.i.i, %.val.i.i.i.i.i.i.i.i.i
@@ -1025,11 +1024,11 @@ thread-pre-split.i.i:                             ; preds = %_ZN4absl7debian218c
 43:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
   %44 = add i64 %.sroa.10.0.i.i.i.i.i.i.i.i.i.i.i, 16
   %45 = add i64 %44, %.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i
-  %46 = and i64 %45, %13
+  %46 = and i64 %45, %12
   br label %26, !llvm.loop !20
 
 47:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %12, i64 %21
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 %21
   %49 = load <16 x i8>, ptr %48, align 1, !noalias !6
   %50 = icmp slt <16 x i8> %49, splat (i8 -1)
   %51 = bitcast <16 x i1> %50 to i16
@@ -1041,8 +1040,8 @@ thread-pre-split.i.i:                             ; preds = %_ZN4absl7debian218c
   %.sroa.3.011.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %54, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %21, %47 ]
   %52 = add i64 %.sroa.8.012.i.i.i.i.i.i.i.i.i.i.i.i.i, 16
   %53 = add i64 %52, %.sroa.3.011.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %54 = and i64 %53, %13
-  %55 = getelementptr inbounds i8, ptr %12, i64 %54
+  %54 = and i64 %53, %12
+  %55 = getelementptr inbounds i8, ptr %13, i64 %54
   %56 = load <16 x i8>, ptr %55, align 1, !noalias !6
   %57 = icmp slt <16 x i8> %56, splat (i8 -1)
   %58 = bitcast <16 x i1> %57 to i16
@@ -1055,32 +1054,32 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.
   %59 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 true)
   %60 = zext nneg i16 %59 to i64
   %61 = add i64 %.sroa.3.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %60
-  %62 = and i64 %61, %13
+  %62 = and i64 %61, %12
   %63 = load i64, ptr %8, align 8, !noalias !6
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %65, label %250
 
 65:                                               ; preds = %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %66 = getelementptr inbounds i8, ptr %12, i64 %62
+  %66 = getelementptr inbounds i8, ptr %13, i64 %62
   %67 = load i8, ptr %66, align 1, !noalias !6
   %68 = icmp eq i8 %67, -2
   br i1 %68, label %250, label %69
 
 69:                                               ; preds = %65
-  %70 = icmp eq i64 %13, 0
+  %70 = icmp eq i64 %12, 0
   br i1 %70, label %.invoke.i.i.i, label %71
 
 71:                                               ; preds = %69
   %.val1.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %9, align 8, !noalias !6
-  %72 = lshr i64 %13, 3
-  %73 = sub i64 %13, %72
+  %72 = lshr i64 %12, 3
+  %73 = sub i64 %12, %72
   %74 = lshr i64 %73, 1
   %.not.i8.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %.val1.i.i.i.i.i.i.i.i.i.i.i.i.i, %74
   br i1 %.not.i8.i.i.i.i.i.i.i.i.i.i.i.i, label %164, label %75
 
 75:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  invoke void @_ZN4absl7debian218container_internal37ConvertDeletedToEmptyAndFullToDeletedEPam(ptr noundef nonnull %12, i64 noundef %13)
+  invoke void @_ZN4absl7debian218container_internal37ConvertDeletedToEmptyAndFullToDeletedEPam(ptr noundef nonnull %13, i64 noundef %12)
           to label %.noexc8.i.i.i unwind label %.loopexit.i.i
 
 .noexc8.i.i.i:                                    ; preds = %75
@@ -1223,7 +1222,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10op
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 164:                                              ; preds = %71
-  %165 = shl i64 %13, 1
+  %165 = shl i64 %12, 1
   %166 = or disjoint i64 %165, 1
   br label %.invoke.i.i.i
 
@@ -1265,7 +1264,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10op
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc6.i.i, %223
   %.02132.i.i.i = phi i64 [ %224, %223 ], [ 0, %.noexc6.i.i ]
-  %181 = getelementptr inbounds i8, ptr %12, i64 %.02132.i.i.i
+  %181 = getelementptr inbounds i8, ptr %13, i64 %.02132.i.i.i
   %182 = load i8, ptr %181, align 1
   %183 = icmp sgt i8 %182, -1
   br i1 %183, label %184, label %223
@@ -1329,15 +1328,15 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i: ; pre
 
 223:                                              ; preds = %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i, %.lr.ph.i.i.i
   %224 = add nuw i64 %.02132.i.i.i, 1
-  %.not.i.i.i = icmp eq i64 %224, %13
+  %.not.i.i.i = icmp eq i64 %224, %12
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.i.i.i:                                ; preds = %223
-  %225 = add i64 %13, 20
-  %226 = mul i64 %13, 20
+  %225 = add i64 %12, 20
+  %226 = mul i64 %12, 20
   %227 = add i64 %225, %226
   %228 = and i64 %227, -4
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %228) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %228) #33
   %.pre.i.i = load i64, ptr %7, align 8, !noalias !6
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -1380,7 +1379,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.
 
 250:                                              ; preds = %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.i.i.i.i.i.i.i, %65, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %251 = phi i64 [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %65 ], [ %63, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %252 = phi ptr [ %230, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.i.i.i.i.i.i.i ], [ %12, %65 ], [ %12, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %252 = phi ptr [ %230, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.i.i.i.i.i.i.i ], [ %13, %65 ], [ %13, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.sroa.01.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %249, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.i.i.i.i.i.i.i ], [ %62, %65 ], [ %62, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   %253 = load i64, ptr %9, align 8, !noalias !6
   %254 = add i64 %253, 1
@@ -1403,28 +1402,30 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.
   store i8 %23, ptr %266, align 1, !noalias !6
   %.val6.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8, !noalias !6
   %267 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.227", ptr %.val6.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %267, ptr noundef nonnull readonly align 4 dereferenceable(20) %.014.i.i.i.i, i64 16, i1 false), !noalias !6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %267, ptr noundef nonnull readonly align 4 dereferenceable(20) %.016.i.i.i.i, i64 16, i1 false), !noalias !6
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %269 = load i32, ptr %14, align 4, !noalias !6
   store i32 %269, ptr %268, align 4, !noalias !6
+  %.val.pre.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8, !noalias !6
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE7emplaceIJRKSC_IS6_iEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESC_INSG_8iteratorEbEDpOSM_.exit.i.i.i.i
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE7emplaceIJRKSC_IS6_iEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESC_INSG_8iteratorEbEDpOSM_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %250
-  %270 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 20
-  %.not.i.i.i.i = icmp eq ptr %270, %5
+  %270 = phi ptr [ %.val.pre.i.i.i.i.i.i.i.i.i.i, %250 ], [ %13, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
+  %271 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 20
+  %.not.i.i.i.i = icmp eq ptr %271, %5
   br i1 %.not.i.i.i.i, label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEECI2NS1_12raw_hash_setIS7_S9_SB_SF_EEESt16initializer_listISC_IS6_iEEmRKS9_RKSB_RKSF_.exit, label %thread-pre-split.i.i, !llvm.loop !24
 
 .loopexit.i.i:                                    ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE16initialize_slotsEv.exit.i.i.i, %75
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %271
+  br label %272
 
 .loopexit.split-lp.i.i:                           ; preds = %.noexc.i.i.i.i.i
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %271
+  br label %272
 
-271:                                              ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
+272:                                              ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   tail call fastcc void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #34
   resume { ptr, i32 } %lpad.phi.i.i
@@ -1471,24 +1472,23 @@ define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15ston
 
 thread-pre-split.i.i:                             ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE7emplaceIJRKSC_IS6_S6_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESC_INSG_8iteratorEbEDpOSM_.exit.i.i.i.i
   %.pr.i.i = load i64, ptr %7, align 8, !noalias !25
-  %.pre.i = load ptr, ptr %0, align 8, !noalias !25
-  %.pre22.i = load ptr, ptr %6, align 8, !noalias !25
+  %.pre.i = load ptr, ptr %6, align 8, !noalias !25
   br label %10
 
 10:                                               ; preds = %thread-pre-split.i.i, %3
-  %11 = phi ptr [ %.pre22.i, %thread-pre-split.i.i ], [ null, %3 ]
-  %12 = phi ptr [ %.pre.i, %thread-pre-split.i.i ], [ @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, %3 ]
-  %13 = phi i64 [ %.pr.i.i, %thread-pre-split.i.i ], [ 0, %3 ]
-  %.014.i.i.i.i = phi ptr [ %269, %thread-pre-split.i.i ], [ %1, %3 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 16
-  %.val.i.i.i.i.i.i.i.i.i = load i32, ptr %.014.i.i.i.i, align 4, !noalias !38
+  %11 = phi ptr [ %.pre.i, %thread-pre-split.i.i ], [ null, %3 ]
+  %12 = phi i64 [ %.pr.i.i, %thread-pre-split.i.i ], [ 0, %3 ]
+  %13 = phi ptr [ %269, %thread-pre-split.i.i ], [ @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, %3 ]
+  %.016.i.i.i.i = phi ptr [ %270, %thread-pre-split.i.i ], [ %1, %3 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 16
+  %.val.i.i.i.i.i.i.i.i.i = load i32, ptr %.016.i.i.i.i, align 4, !noalias !38
   %15 = add nsw i32 %.val.i.i.i.i.i.i.i.i.i, 1
   %16 = sext i32 %15 to i64
   %17 = lshr i64 %16, 7
-  %18 = ptrtoint ptr %12 to i64
+  %18 = ptrtoint ptr %13 to i64
   %19 = lshr i64 %18, 12
   %20 = xor i64 %17, %19
-  %21 = and i64 %20, %13
+  %21 = and i64 %20, %12
   %22 = trunc i32 %15 to i8
   %23 = and i8 %22, 127
   %24 = insertelement <16 x i8> poison, i8 %23, i64 0
@@ -1498,7 +1498,7 @@ thread-pre-split.i.i:                             ; preds = %_ZN4absl7debian218c
 26:                                               ; preds = %43, %10
   %.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %21, %10 ], [ %46, %43 ]
   %.sroa.10.0.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %10 ], [ %44, %43 ]
-  %27 = getelementptr inbounds i8, ptr %12, i64 %.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i
+  %27 = getelementptr inbounds i8, ptr %13, i64 %.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i
   %28 = load <16 x i8>, ptr %27, align 1, !noalias !25
   %29 = icmp eq <16 x i8> %25, %28
   %30 = bitcast <16 x i1> %29 to i16
@@ -1514,7 +1514,7 @@ thread-pre-split.i.i:                             ; preds = %_ZN4absl7debian218c
   %32 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.016.042.i.i.i.i.i.i.i.i.i.i.i, i1 true)
   %33 = zext nneg i32 %32 to i64
   %34 = add i64 %.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i, %33
-  %35 = and i64 %34, %13
+  %35 = and i64 %34, %12
   %36 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %11, i64 %35
   %.val10.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %36, align 4, !noalias !25
   %37 = icmp eq i32 %.val10.i.i.i.i.i.i.i.i.i.i.i, %.val.i.i.i.i.i.i.i.i.i
@@ -1535,11 +1535,11 @@ thread-pre-split.i.i:                             ; preds = %_ZN4absl7debian218c
 43:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
   %44 = add i64 %.sroa.10.0.i.i.i.i.i.i.i.i.i.i.i, 16
   %45 = add i64 %44, %.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i
-  %46 = and i64 %45, %13
+  %46 = and i64 %45, %12
   br label %26, !llvm.loop !39
 
 47:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %12, i64 %21
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 %21
   %49 = load <16 x i8>, ptr %48, align 1, !noalias !25
   %50 = icmp slt <16 x i8> %49, splat (i8 -1)
   %51 = bitcast <16 x i1> %50 to i16
@@ -1551,8 +1551,8 @@ thread-pre-split.i.i:                             ; preds = %_ZN4absl7debian218c
   %.sroa.3.011.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %54, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %21, %47 ]
   %52 = add i64 %.sroa.8.012.i.i.i.i.i.i.i.i.i.i.i.i.i, 16
   %53 = add i64 %52, %.sroa.3.011.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %54 = and i64 %53, %13
-  %55 = getelementptr inbounds i8, ptr %12, i64 %54
+  %54 = and i64 %53, %12
+  %55 = getelementptr inbounds i8, ptr %13, i64 %54
   %56 = load <16 x i8>, ptr %55, align 1, !noalias !25
   %57 = icmp slt <16 x i8> %56, splat (i8 -1)
   %58 = bitcast <16 x i1> %57 to i16
@@ -1565,32 +1565,32 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.
   %59 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 true)
   %60 = zext nneg i16 %59 to i64
   %61 = add i64 %.sroa.3.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %60
-  %62 = and i64 %61, %13
+  %62 = and i64 %61, %12
   %63 = load i64, ptr %8, align 8, !noalias !25
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %65, label %250
 
 65:                                               ; preds = %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %66 = getelementptr inbounds i8, ptr %12, i64 %62
+  %66 = getelementptr inbounds i8, ptr %13, i64 %62
   %67 = load i8, ptr %66, align 1, !noalias !25
   %68 = icmp eq i8 %67, -2
   br i1 %68, label %250, label %69
 
 69:                                               ; preds = %65
-  %70 = icmp eq i64 %13, 0
+  %70 = icmp eq i64 %12, 0
   br i1 %70, label %.invoke.i.i.i, label %71
 
 71:                                               ; preds = %69
   %.val1.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %9, align 8, !noalias !25
-  %72 = lshr i64 %13, 3
-  %73 = sub i64 %13, %72
+  %72 = lshr i64 %12, 3
+  %73 = sub i64 %12, %72
   %74 = lshr i64 %73, 1
   %.not.i8.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %.val1.i.i.i.i.i.i.i.i.i.i.i.i.i, %74
   br i1 %.not.i8.i.i.i.i.i.i.i.i.i.i.i.i, label %164, label %75
 
 75:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  invoke void @_ZN4absl7debian218container_internal37ConvertDeletedToEmptyAndFullToDeletedEPam(ptr noundef nonnull %12, i64 noundef %13)
+  invoke void @_ZN4absl7debian218container_internal37ConvertDeletedToEmptyAndFullToDeletedEPam(ptr noundef nonnull %13, i64 noundef %12)
           to label %.noexc8.i.i.i unwind label %.loopexit.i.i
 
 .noexc8.i.i.i:                                    ; preds = %75
@@ -1733,7 +1733,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10op
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 164:                                              ; preds = %71
-  %165 = shl i64 %13, 1
+  %165 = shl i64 %12, 1
   %166 = or disjoint i64 %165, 1
   br label %.invoke.i.i.i
 
@@ -1775,7 +1775,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10op
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc6.i.i, %223
   %.02132.i.i.i = phi i64 [ %224, %223 ], [ 0, %.noexc6.i.i ]
-  %181 = getelementptr inbounds i8, ptr %12, i64 %.02132.i.i.i
+  %181 = getelementptr inbounds i8, ptr %13, i64 %.02132.i.i.i
   %182 = load i8, ptr %181, align 1
   %183 = icmp sgt i8 %182, -1
   br i1 %183, label %184, label %223
@@ -1839,15 +1839,15 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i: ; pre
 
 223:                                              ; preds = %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i, %.lr.ph.i.i.i
   %224 = add nuw i64 %.02132.i.i.i, 1
-  %.not.i.i.i = icmp eq i64 %224, %13
+  %.not.i.i.i = icmp eq i64 %224, %12
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !41
 
 ._crit_edge.i.i.i:                                ; preds = %223
-  %225 = add i64 %13, 20
-  %226 = shl i64 %13, 5
+  %225 = add i64 %12, 20
+  %226 = shl i64 %12, 5
   %227 = add i64 %225, %226
   %228 = and i64 %227, -4
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %228) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %228) #33
   %.pre.i.i = load i64, ptr %7, align 8, !noalias !25
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -1890,7 +1890,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.
 
 250:                                              ; preds = %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.i.i.i.i.i.i.i, %65, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %251 = phi i64 [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %65 ], [ %63, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %252 = phi ptr [ %230, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.i.i.i.i.i.i.i ], [ %12, %65 ], [ %12, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %252 = phi ptr [ %230, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.i.i.i.i.i.i.i ], [ %13, %65 ], [ %13, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.sroa.01.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %249, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.i.i.i.i.i.i.i ], [ %62, %65 ], [ %62, %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
   %253 = load i64, ptr %9, align 8, !noalias !25
   %254 = add i64 %253, 1
@@ -1913,27 +1913,29 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19.i.i.i.i.i.
   store i8 %23, ptr %266, align 1, !noalias !25
   %.val6.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8, !noalias !25
   %267 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %.val6.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %267, ptr noundef nonnull readonly align 4 dereferenceable(32) %.014.i.i.i.i, i64 16, i1 false), !noalias !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %267, ptr noundef nonnull readonly align 4 dereferenceable(32) %.016.i.i.i.i, i64 16, i1 false), !noalias !25
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %268, ptr noundef nonnull readonly align 4 dereferenceable(16) %14, i64 16, i1 false), !noalias !25
+  %.val.pre.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8, !noalias !25
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE7emplaceIJRKSC_IS6_S6_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESC_INSG_8iteratorEbEDpOSM_.exit.i.i.i.i
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE7emplaceIJRKSC_IS6_S6_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESC_INSG_8iteratorEbEDpOSM_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %250
-  %269 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %269, %5
+  %269 = phi ptr [ %.val.pre.i.i.i.i.i.i.i.i.i.i, %250 ], [ %13, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
+  %270 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %270, %5
   br i1 %.not.i.i.i.i, label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEECI2NS1_12raw_hash_setIS7_S9_SB_SF_EEESt16initializer_listISC_IS6_S6_EEmRKS9_RKSB_RKSF_.exit, label %thread-pre-split.i.i, !llvm.loop !42
 
 .loopexit.i.i:                                    ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE16initialize_slotsEv.exit.i.i.i, %75
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %270
+  br label %271
 
 .loopexit.split-lp.i.i:                           ; preds = %.noexc.i.i.i.i.i
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %270
+  br label %271
 
-270:                                              ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
+271:                                              ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   tail call fastcc void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #34
   resume { ptr, i32 } %lpad.phi.i.i
@@ -2974,7 +2976,7 @@ _ZN4absl7debian28AlphaNumC2El.exit:               ; preds = %_ZN4absl7debian28Al
   %68 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.200", ptr %57, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, %40
-  br i1 %70, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE4findIiEENSK_14const_iteratorERSH_.exit, label %71
+  br i1 %70, label %79, label %71
 
 71:                                               ; preds = %.lr.ph.i.i.i
   %72 = add nsw i32 %.sroa.010.025.i.i.i, -1
@@ -2986,40 +2988,37 @@ _ZN4absl7debian28AlphaNumC2El.exit:               ; preds = %_ZN4absl7debian28Al
   %74 = icmp eq <16 x i8> %60, splat (i8 -128)
   %75 = bitcast <16 x i1> %74 to i16
   %.not22.i.i.i = icmp eq i16 %75, 0
-  br i1 %.not22.i.i.i, label %76, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE4findIiEENSK_14const_iteratorERSH_.exit.thread
+  br i1 %.not22.i.i.i, label %76, label %83
 
 76:                                               ; preds = %._crit_edge.i.i.i
   %77 = add i64 %.sroa.10.0.i.i.i, 16
   %78 = add i64 %77, %.sroa.4.0.i.i.i
   br label %58, !llvm.loop !43
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE4findIiEENSK_14const_iteratorERSH_.exit: ; preds = %.lr.ph.i.i.i
-  %79 = icmp eq ptr %47, null
-  br i1 %79, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE4findIiEENSK_14const_iteratorERSH_.exit.thread, label %80
+79:                                               ; preds = %.lr.ph.i.i.i
+  %80 = getelementptr inbounds i8, ptr %47, i64 %67
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %80) ]
+  %81 = load i8, ptr %80, align 1
+  %82 = icmp sgt i8 %81, -1
+  br i1 %82, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE14const_iteratorESN_.exit, label %.critedge.i.i.i
 
-80:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE4findIiEENSK_14const_iteratorERSH_.exit
-  %81 = getelementptr inbounds i8, ptr %47, i64 %67
-  %82 = load i8, ptr %81, align 1
-  %83 = icmp sgt i8 %82, -1
-  br i1 %83, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE14const_iteratorESN_.exit, label %.critedge.i.i.i
-
-.critedge.i.i.i:                                  ; preds = %80
+.critedge.i.i.i:                                  ; preds = %79
   tail call void @llvm.trap()
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE4findIiEENSK_14const_iteratorERSH_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE4findIiEENSK_14const_iteratorERSH_.exit
+83:                                               ; preds = %._crit_edge.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #34
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.92, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %84 unwind label %86
 
-84:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE4findIiEENSK_14const_iteratorERSH_.exit.thread
+84:                                               ; preds = %83
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %15) #35
           to label %85 unwind label %88
 
 85:                                               ; preds = %84
   unreachable
 
-86:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE4findIiEENSK_14const_iteratorERSH_.exit.thread
+86:                                               ; preds = %83
   %87 = landingpad { ptr, i32 }
           cleanup
   br label %90
@@ -3035,9 +3034,9 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #34
   br label %122
 
-_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE14const_iteratorESN_.exit: ; preds = %80, %110
-  %.pn26.i.i.i.i = phi i64 [ %112, %110 ], [ %52, %80 ]
-  %.sroa.10.0.i.i.i.i = phi i64 [ %111, %110 ], [ 0, %80 ]
+_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE14const_iteratorESN_.exit: ; preds = %79, %110
+  %.pn26.i.i.i.i = phi i64 [ %112, %110 ], [ %52, %79 ]
+  %.sroa.10.0.i.i.i.i = phi i64 [ %111, %110 ], [ 0, %79 ]
   %.sroa.4.0.i.i.i.i = and i64 %.pn26.i.i.i.i, %48
   %91 = getelementptr inbounds i8, ptr %47, i64 %.sroa.4.0.i.i.i.i
   %92 = load <16 x i8>, ptr %91, align 1
@@ -3063,6 +3062,7 @@ _ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPol
 
 103:                                              ; preds = %.lr.ph.i.i.i.i
   %104 = getelementptr inbounds i8, ptr %47, i64 %99
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %104) ]
   %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %104, 0
   %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %100, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE4findIiEENSK_14const_iteratorERSH_.exit.i
@@ -3957,6 +3957,7 @@ define noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFr
 
 37:                                               ; preds = %.lr.ph.i.i.i.i
   %38 = getelementptr inbounds i8, ptr %13, i64 %33
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %38, 0
   %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %34, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE4findIiEENSF_14const_iteratorERSC_.exit.i
@@ -4067,6 +4068,7 @@ define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8I
 
 40:                                               ; preds = %.lr.ph.i.i.i.i
   %41 = getelementptr inbounds i8, ptr %16, i64 %36
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %41) ]
   %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %41, 0
   %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %37, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE4findIiEENSF_14const_iteratorERSC_.exit.i
@@ -4709,9 +4711,9 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7El
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElementToExplosionE, i64 8), align 8
   br label %25
 
-25:                                               ; preds = %45, %5
-  %.pn29.i.i.i = phi i64 [ %19, %5 ], [ %47, %45 ]
-  %.sroa.10.0.i.i.i = phi i64 [ 0, %5 ], [ %46, %45 ]
+25:                                               ; preds = %44, %5
+  %.pn29.i.i.i = phi i64 [ %19, %5 ], [ %46, %44 ]
+  %.sroa.10.0.i.i.i = phi i64 [ 0, %5 ], [ %45, %44 ]
   %.sroa.4.0.i.i.i = and i64 %.pn29.i.i.i, %15
   %26 = getelementptr inbounds i8, ptr %14, i64 %.sroa.4.0.i.i.i
   %27 = load <16 x i8>, ptr %26, align 1
@@ -4724,8 +4726,8 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7El
   %30 = zext i16 %29 to i32
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %40, %.lr.ph.preheader.i.i.i
-  %.sroa.013.028.i.i.i = phi i32 [ %42, %40 ], [ %30, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %39, %.lr.ph.preheader.i.i.i
+  %.sroa.013.028.i.i.i = phi i32 [ %41, %39 ], [ %30, %.lr.ph.preheader.i.i.i ]
   %31 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i, i1 true)
   %32 = zext nneg i32 %31 to i64
   %33 = add i64 %.sroa.4.0.i.i.i, %32
@@ -4733,150 +4735,149 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7El
   %35 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %24, i64 %34
   %.val8.i.i.i = load i32, ptr %35, align 4
   %36 = icmp eq i32 %.val8.i.i.i, %.sroa.035.0.extract.trunc
-  br i1 %36, label %37, label %40
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %.lr.ph.i.i.i
   %38 = getelementptr inbounds i8, ptr %14, i64 %34
-  %39 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %39)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %38, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %35, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-40:                                               ; preds = %.lr.ph.i.i.i
-  %41 = add nsw i32 %.sroa.013.028.i.i.i, -1
-  %42 = and i32 %41, %.sroa.013.028.i.i.i
-  %.not.i.i.i = icmp eq i32 %42, 0
+39:                                               ; preds = %.lr.ph.i.i.i
+  %40 = add nsw i32 %.sroa.013.028.i.i.i, -1
+  %41 = and i32 %40, %.sroa.013.028.i.i.i
+  %.not.i.i.i = icmp eq i32 %41, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %40, %25
-  %43 = icmp eq <16 x i8> %27, splat (i8 -128)
-  %44 = bitcast <16 x i1> %43 to i16
-  %.not25.i.i.i = icmp eq i16 %44, 0
-  br i1 %.not25.i.i.i, label %45, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+._crit_edge.i.i.i:                                ; preds = %39, %25
+  %42 = icmp eq <16 x i8> %27, splat (i8 -128)
+  %43 = bitcast <16 x i1> %42 to i16
+  %.not25.i.i.i = icmp eq i16 %43, 0
+  br i1 %.not25.i.i.i, label %44, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-45:                                               ; preds = %._crit_edge.i.i.i
-  %46 = add i64 %.sroa.10.0.i.i.i, 16
-  %47 = add i64 %46, %.sroa.4.0.i.i.i
+44:                                               ; preds = %._crit_edge.i.i.i
+  %45 = add i64 %.sroa.10.0.i.i.i, 16
+  %46 = add i64 %45, %.sroa.4.0.i.i.i
   br label %25, !llvm.loop !51
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit: ; preds = %._crit_edge.i.i.i, %37
   %.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %37 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i ]
-  %48 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
-  %49 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
-  %50 = icmp eq ptr %48, null
-  br i1 %50, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %51
+  %47 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
+  %48 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
+  %49 = icmp eq ptr %47, null
+  br i1 %49, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %50
 
-51:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
-  %52 = load i8, ptr %48, align 1
-  %53 = icmp sgt i8 %52, -1
-  br i1 %53, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
+50:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+  %51 = load i8, ptr %47, align 1
+  %52 = icmp sgt i8 %51, -1
+  br i1 %52, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %51
+.critedge.i.i.i:                                  ; preds = %50
   tail call void @llvm.trap()
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %51
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
   br label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread
 
 _ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread: ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit
-  %55 = phi ptr [ %54, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
-  %.sroa.012.0.copyload = load i64, ptr %55, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %54 = phi ptr [ %53, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
+  %.sroa.012.0.copyload = load i64, ptr %54, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %57 = load i32, ptr %56, align 4
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %56, align 4
-  %59 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef 0)
-  %60 = sext i32 %59 to i64
-  %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %61, i64 %60
-  store i64 %2, ptr %62, align 4
-  %.sroa.2.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %56 = load i32, ptr %55, align 4
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %55, align 4
+  %58 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef 0)
+  %59 = sext i32 %58 to i64
+  %60 = load ptr, ptr %7, align 8
+  %61 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %60, i64 %59
+  store i64 %2, ptr %61, align 4
+  %.sroa.2.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.2.0.extract.trunc.i = trunc i64 %3 to i48
   store i48 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i31, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i32, ptr %64, i64 %60
-  store i32 %58, ptr %65, align 4
-  %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %66, i64 %60
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 13
-  store i8 1, ptr %68, align 1
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i32, ptr %63, i64 %59
+  store i32 %57, ptr %64, align 4
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %65, i64 %59
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 13
+  store i8 1, ptr %67, align 1
   %.sroa.2.0.extract.trunc.i34 = trunc i64 %.sroa.3.0.copyload to i48
-  br label %69
+  br label %68
 
-69:                                               ; preds = %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread
-  %.042 = phi i32 [ 0, %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread ], [ %103, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread ]
-  %70 = icmp eq i32 %.042, 0
-  br i1 %70, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread, label %71
+68:                                               ; preds = %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread
+  %.042 = phi i32 [ 0, %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread ], [ %102, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread ]
+  %69 = icmp eq i32 %.042, 0
+  br i1 %69, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread, label %70
 
-71:                                               ; preds = %69
-  %72 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef %.042)
-  br i1 %72, label %73, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread
+70:                                               ; preds = %68
+  %71 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef %.042)
+  br i1 %71, label %72, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread
 
-73:                                               ; preds = %71
-  %74 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef %.042)
-  %75 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef %.042)
-  br i1 %75, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread
+72:                                               ; preds = %70
+  %73 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef %.042)
+  %74 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef %.042)
+  br i1 %74, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread
 
-_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit: ; preds = %73
-  %76 = sext i32 %74 to i64
-  %77 = load ptr, ptr %7, align 8
-  %78 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %77, i64 %76
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load i32, ptr %79, align 4
-  %81 = and i32 %80, 2
-  %.not = icmp eq i32 %81, 0
-  br i1 %.not, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread, label %82
+_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit: ; preds = %72
+  %75 = sext i32 %73 to i64
+  %76 = load ptr, ptr %7, align 8
+  %77 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %76, i64 %75
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load i32, ptr %78, align 4
+  %80 = and i32 %79, 2
+  %.not = icmp eq i32 %80, 0
+  br i1 %.not, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread, label %81
 
-82:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit
+81:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %6, i64 %.sroa.012.0.copyload, i64 %.sroa.3.0.copyload, i32 noundef %.042)
   br label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread
 
-_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread: ; preds = %73, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit
-  %83 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef %.042)
-  %84 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef %.042)
-  br i1 %84, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread
+_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread: ; preds = %72, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit
+  %82 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef %.042)
+  %83 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef %.042)
+  br i1 %83, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread
-  %85 = sext i32 %83 to i64
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %86, i64 %85
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load i32, ptr %88, align 4
-  %90 = and i32 %89, 1
-  %.not38 = icmp eq i32 %90, 0
-  br i1 %.not38, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread, label %91
+  %84 = sext i32 %82 to i64
+  %85 = load ptr, ptr %7, align 8
+  %86 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %85, i64 %84
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load i32, ptr %87, align 4
+  %89 = and i32 %88, 1
+  %.not38 = icmp eq i32 %89, 0
+  br i1 %.not38, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread, label %90
 
-91:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32
-  %92 = load i32, ptr %56, align 4
-  %93 = add nsw i32 %92, 1
-  store i32 %93, ptr %56, align 4
-  %94 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef %.042)
-  %95 = sext i32 %94 to i64
-  %96 = load ptr, ptr %7, align 8
-  %97 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %96, i64 %95
-  store i64 %.sroa.012.0.copyload, ptr %97, align 4
-  %.sroa.2.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %97, i64 8
+90:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32
+  %91 = load i32, ptr %55, align 4
+  %92 = add nsw i32 %91, 1
+  store i32 %92, ptr %55, align 4
+  %93 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef %.042)
+  %94 = sext i32 %93 to i64
+  %95 = load ptr, ptr %7, align 8
+  %96 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %95, i64 %94
+  store i64 %.sroa.012.0.copyload, ptr %96, align 4
+  %.sroa.2.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i48 %.sroa.2.0.extract.trunc.i34, ptr %.sroa.2.0..sroa_idx.i33, align 4
-  %98 = load ptr, ptr %63, align 8
-  %99 = getelementptr inbounds i32, ptr %98, i64 %95
-  store i32 %93, ptr %99, align 4
-  %100 = load ptr, ptr %7, align 8
-  %101 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %100, i64 %95
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 13
-  store i8 1, ptr %102, align 1
+  %97 = load ptr, ptr %62, align 8
+  %98 = getelementptr inbounds i32, ptr %97, i64 %94
+  store i32 %92, ptr %98, align 4
+  %99 = load ptr, ptr %7, align 8
+  %100 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %99, i64 %94
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 13
+  store i8 1, ptr %101, align 1
   br label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread
 
-_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread, %82, %91, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32, %69, %71
-  %103 = add nuw nsw i32 %.042, 1
-  %exitcond.not = icmp eq i32 %103, 9
-  br i1 %exitcond.not, label %104, label %69, !llvm.loop !52
+_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread, %81, %90, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32, %68, %70
+  %102 = add nuw nsw i32 %.042, 1
+  %exitcond.not = icmp eq i32 %102, 9
+  br i1 %exitcond.not, label %103, label %68, !llvm.loop !52
 
-104:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread
+103:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thread
   ret void
 }
 
@@ -4899,9 +4900,9 @@ define internal fastcc { ptr, ptr } @_ZNK4absl7debian218container_internal12raw_
   %16 = load ptr, ptr %15, align 8
   br label %17
 
-17:                                               ; preds = %37, %1
-  %.pn29.i.i = phi i64 [ %10, %1 ], [ %39, %37 ]
-  %.sroa.10.0.i.i = phi i64 [ 0, %1 ], [ %38, %37 ]
+17:                                               ; preds = %36, %1
+  %.pn29.i.i = phi i64 [ %10, %1 ], [ %38, %36 ]
+  %.sroa.10.0.i.i = phi i64 [ 0, %1 ], [ %37, %36 ]
   %.sroa.4.0.i.i = and i64 %.pn29.i.i, %6
   %18 = getelementptr inbounds i8, ptr %4, i64 %.sroa.4.0.i.i
   %19 = load <16 x i8>, ptr %18, align 1
@@ -4914,8 +4915,8 @@ define internal fastcc { ptr, ptr } @_ZNK4absl7debian218container_internal12raw_
   %22 = zext i16 %21 to i32
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %32, %.lr.ph.preheader.i.i
-  %.sroa.013.028.i.i = phi i32 [ %34, %32 ], [ %22, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %31, %.lr.ph.preheader.i.i
+  %.sroa.013.028.i.i = phi i32 [ %33, %31 ], [ %22, %.lr.ph.preheader.i.i ]
   %23 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i, i1 true)
   %24 = zext nneg i32 %23 to i64
   %25 = add i64 %.sroa.4.0.i.i, %24
@@ -4923,31 +4924,30 @@ define internal fastcc { ptr, ptr } @_ZNK4absl7debian218container_internal12raw_
   %27 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %16, i64 %26
   %.val8.i.i = load i32, ptr %27, align 4
   %28 = icmp eq i32 %.val8.i.i, %.0.val
-  br i1 %28, label %29, label %32
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i.i
   %30 = getelementptr inbounds i8, ptr %4, i64 %26
-  %31 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %31)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %.fca.0.insert.i.i.i = insertvalue { ptr, ptr } poison, ptr %30, 0
   %.fca.1.insert.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i, ptr %27, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_m.exit
 
-32:                                               ; preds = %.lr.ph.i.i
-  %33 = add nsw i32 %.sroa.013.028.i.i, -1
-  %34 = and i32 %33, %.sroa.013.028.i.i
-  %.not.i.i = icmp eq i32 %34, 0
+31:                                               ; preds = %.lr.ph.i.i
+  %32 = add nsw i32 %.sroa.013.028.i.i, -1
+  %33 = and i32 %32, %.sroa.013.028.i.i
+  %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %32, %17
-  %35 = icmp eq <16 x i8> %19, splat (i8 -128)
-  %36 = bitcast <16 x i1> %35 to i16
-  %.not25.i.i = icmp eq i16 %36, 0
-  br i1 %.not25.i.i, label %37, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_m.exit
+._crit_edge.i.i:                                  ; preds = %31, %17
+  %34 = icmp eq <16 x i8> %19, splat (i8 -128)
+  %35 = bitcast <16 x i1> %34 to i16
+  %.not25.i.i = icmp eq i16 %35, 0
+  br i1 %.not25.i.i, label %36, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_m.exit
 
-37:                                               ; preds = %._crit_edge.i.i
-  %38 = add i64 %.sroa.10.0.i.i, 16
-  %39 = add i64 %38, %.sroa.4.0.i.i
+36:                                               ; preds = %._crit_edge.i.i
+  %37 = add i64 %.sroa.10.0.i.i, 16
+  %38 = add i64 %37, %.sroa.4.0.i.i
   br label %17, !llvm.loop !51
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_m.exit: ; preds = %._crit_edge.i.i, %29
@@ -5089,9 +5089,9 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN10open_spiel15stones_and_gems7Element
   %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kGateOpenMapE, i64 8), align 8
   br label %70
 
-70:                                               ; preds = %90, %48
-  %.pn29.i.i.i.i = phi i64 [ %64, %48 ], [ %92, %90 ]
-  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %48 ], [ %91, %90 ]
+70:                                               ; preds = %89, %48
+  %.pn29.i.i.i.i = phi i64 [ %64, %48 ], [ %91, %89 ]
+  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %48 ], [ %90, %89 ]
   %.sroa.4.0.i.i.i.i = and i64 %.pn29.i.i.i.i, %60
   %71 = getelementptr inbounds i8, ptr %59, i64 %.sroa.4.0.i.i.i.i
   %72 = load <16 x i8>, ptr %71, align 1
@@ -5104,8 +5104,8 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN10open_spiel15stones_and_gems7Element
   %75 = zext i16 %74 to i32
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.preheader.i.i.i.i
-  %.sroa.013.028.i.i.i.i = phi i32 [ %87, %85 ], [ %75, %.lr.ph.preheader.i.i.i.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %84, %.lr.ph.preheader.i.i.i.i
+  %.sroa.013.028.i.i.i.i = phi i32 [ %86, %84 ], [ %75, %.lr.ph.preheader.i.i.i.i ]
   %76 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i, i1 true)
   %77 = zext nneg i32 %76 to i64
   %78 = add i64 %.sroa.4.0.i.i.i.i, %77
@@ -5113,79 +5113,78 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN10open_spiel15stones_and_gems7Element
   %80 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %69, i64 %79
   %.val8.i.i.i.i = load i32, ptr %80, align 4
   %81 = icmp eq i32 %.val8.i.i.i.i, %.sroa.0.0.extract.trunc
-  br i1 %81, label %82, label %85
+  br i1 %81, label %82, label %84
 
 82:                                               ; preds = %.lr.ph.i.i.i.i
   %83 = getelementptr inbounds i8, ptr %59, i64 %79
-  %84 = icmp ne ptr %59, null
-  tail call void @llvm.assume(i1 %84)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
   %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %83, 0
   %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %80, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-85:                                               ; preds = %.lr.ph.i.i.i.i
-  %86 = add nsw i32 %.sroa.013.028.i.i.i.i, -1
-  %87 = and i32 %86, %.sroa.013.028.i.i.i.i
-  %.not.i.i.i.i = icmp eq i32 %87, 0
+84:                                               ; preds = %.lr.ph.i.i.i.i
+  %85 = add nsw i32 %.sroa.013.028.i.i.i.i, -1
+  %86 = and i32 %85, %.sroa.013.028.i.i.i.i
+  %.not.i.i.i.i = icmp eq i32 %86, 0
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %85, %70
-  %88 = icmp eq <16 x i8> %72, splat (i8 -128)
-  %89 = bitcast <16 x i1> %88 to i16
-  %.not25.i.i.i.i = icmp eq i16 %89, 0
-  br i1 %.not25.i.i.i.i, label %90, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+._crit_edge.i.i.i.i:                              ; preds = %84, %70
+  %87 = icmp eq <16 x i8> %72, splat (i8 -128)
+  %88 = bitcast <16 x i1> %87 to i16
+  %.not25.i.i.i.i = icmp eq i16 %88, 0
+  br i1 %.not25.i.i.i.i, label %89, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-90:                                               ; preds = %._crit_edge.i.i.i.i
-  %91 = add i64 %.sroa.10.0.i.i.i.i, 16
-  %92 = add i64 %91, %.sroa.4.0.i.i.i.i
+89:                                               ; preds = %._crit_edge.i.i.i.i
+  %90 = add i64 %.sroa.10.0.i.i.i.i, 16
+  %91 = add i64 %90, %.sroa.4.0.i.i.i.i
   br label %70, !llvm.loop !51
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i: ; preds = %._crit_edge.i.i.i.i, %82
   %.pn.i.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i, %82 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i ]
-  %93 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %98, label %95
+  %92 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %97, label %94
 
-95:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
-  %96 = load i8, ptr %93, align 1
-  %97 = icmp sgt i8 %96, -1
-  br i1 %97, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i
+94:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+  %95 = load i8, ptr %92, align 1
+  %96 = icmp sgt i8 %95, -1
+  br i1 %96, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i
 
-.critedge.i.i.i.i:                                ; preds = %95
+.critedge.i.i.i.i:                                ; preds = %94
   tail call void @llvm.trap()
   unreachable
 
-98:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+97:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %95
-  %99 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %.sroa.01.0.copyload = load i64, ptr %100, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 24
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %94
+  %98 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %.sroa.01.0.copyload = load i64, ptr %99, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 24
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %sext = shl i64 %50, 28
-  %102 = load ptr, ptr %101, align 8
-  %103 = ashr exact i64 %sext, 30
-  %104 = getelementptr inbounds i8, ptr %102, i64 %103
-  %105 = load i32, ptr %104, align 4
-  %106 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %52, i32 noundef 0)
-  %107 = sext i32 %106 to i64
-  %108 = load ptr, ptr %4, align 8
-  %109 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %108, i64 %107
-  store i64 %.sroa.01.0.copyload, ptr %109, align 4
-  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = ashr exact i64 %sext, 30
+  %103 = getelementptr inbounds i8, ptr %101, i64 %102
+  %104 = load i32, ptr %103, align 4
+  %105 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %52, i32 noundef 0)
+  %106 = sext i32 %105 to i64
+  %107 = load ptr, ptr %4, align 8
+  %108 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %107, i64 %106
+  store i64 %.sroa.01.0.copyload, ptr %108, align 4
+  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.22.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i9, align 4
-  %110 = load ptr, ptr %101, align 8
-  %111 = getelementptr inbounds i32, ptr %110, i64 %107
-  store i32 %105, ptr %111, align 4
-  %112 = load ptr, ptr %4, align 8
-  %113 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %112, i64 %107
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 13
-  store i8 1, ptr %114, align 1
+  %109 = load ptr, ptr %100, align 8
+  %110 = getelementptr inbounds i32, ptr %109, i64 %106
+  store i32 %104, ptr %110, align 4
+  %111 = load ptr, ptr %4, align 8
+  %112 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %111, i64 %106
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 13
+  store i8 1, ptr %113, align 1
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.thread
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
@@ -5211,9 +5210,9 @@ define internal fastcc noundef nonnull align 4 dereferenceable(14) ptr @_ZNK4abs
   %16 = load ptr, ptr %15, align 8
   br label %17
 
-17:                                               ; preds = %37, %1
-  %.pn29.i.i.i = phi i64 [ %10, %1 ], [ %39, %37 ]
-  %.sroa.10.0.i.i.i = phi i64 [ 0, %1 ], [ %38, %37 ]
+17:                                               ; preds = %36, %1
+  %.pn29.i.i.i = phi i64 [ %10, %1 ], [ %38, %36 ]
+  %.sroa.10.0.i.i.i = phi i64 [ 0, %1 ], [ %37, %36 ]
   %.sroa.4.0.i.i.i = and i64 %.pn29.i.i.i, %6
   %18 = getelementptr inbounds i8, ptr %4, i64 %.sroa.4.0.i.i.i
   %19 = load <16 x i8>, ptr %18, align 1
@@ -5226,8 +5225,8 @@ define internal fastcc noundef nonnull align 4 dereferenceable(14) ptr @_ZNK4abs
   %22 = zext i16 %21 to i32
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %32, %.lr.ph.preheader.i.i.i
-  %.sroa.013.028.i.i.i = phi i32 [ %34, %32 ], [ %22, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %31, %.lr.ph.preheader.i.i.i
+  %.sroa.013.028.i.i.i = phi i32 [ %33, %31 ], [ %22, %.lr.ph.preheader.i.i.i ]
   %23 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i, i1 true)
   %24 = zext nneg i32 %23 to i64
   %25 = add i64 %.sroa.4.0.i.i.i, %24
@@ -5235,56 +5234,55 @@ define internal fastcc noundef nonnull align 4 dereferenceable(14) ptr @_ZNK4abs
   %27 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %16, i64 %26
   %.val8.i.i.i = load i32, ptr %27, align 4
   %28 = icmp eq i32 %.val8.i.i.i, %.0.val
-  br i1 %28, label %29, label %32
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i.i.i
   %30 = getelementptr inbounds i8, ptr %4, i64 %26
-  %31 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %31)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %30, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %27, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-32:                                               ; preds = %.lr.ph.i.i.i
-  %33 = add nsw i32 %.sroa.013.028.i.i.i, -1
-  %34 = and i32 %33, %.sroa.013.028.i.i.i
-  %.not.i.i.i = icmp eq i32 %34, 0
+31:                                               ; preds = %.lr.ph.i.i.i
+  %32 = add nsw i32 %.sroa.013.028.i.i.i, -1
+  %33 = and i32 %32, %.sroa.013.028.i.i.i
+  %.not.i.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %32, %17
-  %35 = icmp eq <16 x i8> %19, splat (i8 -128)
-  %36 = bitcast <16 x i1> %35 to i16
-  %.not25.i.i.i = icmp eq i16 %36, 0
-  br i1 %.not25.i.i.i, label %37, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+._crit_edge.i.i.i:                                ; preds = %31, %17
+  %34 = icmp eq <16 x i8> %19, splat (i8 -128)
+  %35 = bitcast <16 x i1> %34 to i16
+  %.not25.i.i.i = icmp eq i16 %35, 0
+  br i1 %.not25.i.i.i, label %36, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-37:                                               ; preds = %._crit_edge.i.i.i
-  %38 = add i64 %.sroa.10.0.i.i.i, 16
-  %39 = add i64 %38, %.sroa.4.0.i.i.i
+36:                                               ; preds = %._crit_edge.i.i.i
+  %37 = add i64 %.sroa.10.0.i.i.i, 16
+  %38 = add i64 %37, %.sroa.4.0.i.i.i
   br label %17, !llvm.loop !51
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit: ; preds = %._crit_edge.i.i.i, %29
   %.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %29 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i ]
-  %40 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %45, label %42
+  %39 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %44, label %41
 
-42:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
-  %43 = load i8, ptr %40, align 1
-  %44 = icmp sgt i8 %43, -1
-  br i1 %44, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratordeEv.exit, label %.critedge.i.i.i
+41:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+  %42 = load i8, ptr %39, align 1
+  %43 = icmp sgt i8 %42, -1
+  br i1 %43, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratordeEv.exit, label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %42
+.critedge.i.i.i:                                  ; preds = %41
   tail call void @llvm.trap()
   unreachable
 
-45:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+44:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratordeEv.exit: ; preds = %42
-  %46 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  ret ptr %47
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratordeEv.exit: ; preds = %41
+  %45 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  ret ptr %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5489,7 +5487,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit:
   %31 = load ptr, ptr %18, align 8
   %32 = getelementptr inbounds i32, ptr %31, i64 %13
   store i32 %30, ptr %32, align 4
-  br label %222
+  br label %220
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread: ; preds = %2, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
   %33 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
@@ -5529,9 +5527,9 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit: ; pre
   %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElementToExplosionE, i64 8), align 8
   br label %60
 
-60:                                               ; preds = %80, %42
-  %.pn29.i.i.i = phi i64 [ %54, %42 ], [ %82, %80 ]
-  %.sroa.10.0.i.i.i = phi i64 [ 0, %42 ], [ %81, %80 ]
+60:                                               ; preds = %79, %42
+  %.pn29.i.i.i = phi i64 [ %54, %42 ], [ %81, %79 ]
+  %.sroa.10.0.i.i.i = phi i64 [ 0, %42 ], [ %80, %79 ]
   %.sroa.4.0.i.i.i = and i64 %.pn29.i.i.i, %50
   %61 = getelementptr inbounds i8, ptr %49, i64 %.sroa.4.0.i.i.i
   %62 = load <16 x i8>, ptr %61, align 1
@@ -5544,8 +5542,8 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit: ; pre
   %65 = zext i16 %64 to i32
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %75, %.lr.ph.preheader.i.i.i
-  %.sroa.013.028.i.i.i = phi i32 [ %77, %75 ], [ %65, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %74, %.lr.ph.preheader.i.i.i
+  %.sroa.013.028.i.i.i = phi i32 [ %76, %74 ], [ %65, %.lr.ph.preheader.i.i.i ]
   %66 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i, i1 true)
   %67 = zext nneg i32 %66 to i64
   %68 = add i64 %.sroa.4.0.i.i.i, %67
@@ -5553,333 +5551,331 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit: ; pre
   %70 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %59, i64 %69
   %.val8.i.i.i = load i32, ptr %70, align 4
   %71 = icmp eq i32 %.val8.i.i.i, %.sroa.0103.0.extract.trunc
-  br i1 %71, label %72, label %75
+  br i1 %71, label %72, label %74
 
 72:                                               ; preds = %.lr.ph.i.i.i
   %73 = getelementptr inbounds i8, ptr %49, i64 %69
-  %74 = icmp ne ptr %49, null
-  tail call void @llvm.assume(i1 %74)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %73) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %73, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %70, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-75:                                               ; preds = %.lr.ph.i.i.i
-  %76 = add nsw i32 %.sroa.013.028.i.i.i, -1
-  %77 = and i32 %76, %.sroa.013.028.i.i.i
-  %.not.i.i.i = icmp eq i32 %77, 0
+74:                                               ; preds = %.lr.ph.i.i.i
+  %75 = add nsw i32 %.sroa.013.028.i.i.i, -1
+  %76 = and i32 %75, %.sroa.013.028.i.i.i
+  %.not.i.i.i = icmp eq i32 %76, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %75, %60
-  %78 = icmp eq <16 x i8> %62, splat (i8 -128)
-  %79 = bitcast <16 x i1> %78 to i16
-  %.not25.i.i.i = icmp eq i16 %79, 0
-  br i1 %.not25.i.i.i, label %80, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+._crit_edge.i.i.i:                                ; preds = %74, %60
+  %77 = icmp eq <16 x i8> %62, splat (i8 -128)
+  %78 = bitcast <16 x i1> %77 to i16
+  %.not25.i.i.i = icmp eq i16 %78, 0
+  br i1 %.not25.i.i.i, label %79, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-80:                                               ; preds = %._crit_edge.i.i.i
-  %81 = add i64 %.sroa.10.0.i.i.i, 16
-  %82 = add i64 %81, %.sroa.4.0.i.i.i
+79:                                               ; preds = %._crit_edge.i.i.i
+  %80 = add i64 %.sroa.10.0.i.i.i, 16
+  %81 = add i64 %80, %.sroa.4.0.i.i.i
   br label %60, !llvm.loop !51
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit: ; preds = %._crit_edge.i.i.i, %72
   %.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %72 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i ]
-  %83 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
-  %84 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
-  %85 = icmp eq ptr %83, null
-  br i1 %85, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %86
+  %82 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
+  %83 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
+  %84 = icmp eq ptr %82, null
+  br i1 %84, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %85
 
-86:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
-  %87 = load i8, ptr %83, align 1
-  %88 = icmp sgt i8 %87, -1
-  br i1 %88, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
+85:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+  %86 = load i8, ptr %82, align 1
+  %87 = icmp sgt i8 %86, -1
+  br i1 %87, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %86
+.critedge.i.i.i:                                  ; preds = %85
   tail call void @llvm.trap()
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %86
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %85
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
   br label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread
 
 _ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread: ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit
-  %90 = phi ptr [ %89, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
-  %.sroa.029.0.copyload = load i64, ptr %90, align 4
-  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %89 = phi ptr [ %88, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
+  %.sroa.029.0.copyload = load i64, ptr %89, align 4
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 8
   %.sroa.230.0.copyload = load i64, ptr %.sroa.230.0..sroa_idx, align 4
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.029.0.copyload, i64 %.sroa.230.0.copyload, i32 noundef 3)
-  br label %222
+  br label %220
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit
   %.sroa.025.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElWallMagicOnE, align 8
-  %91 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  %92 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  br i1 %92, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67.thread
+  %90 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  %91 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  br i1 %91, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67.thread
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread
   %.sroa.0.0.extract.trunc.i66 = trunc i64 %.sroa.025.0.copyload to i32
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %94 = sext i32 %91 to i64
-  %95 = load ptr, ptr %93, align 8
-  %96 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %95, i64 %94
-  %97 = load i32, ptr %96, align 4
-  %98 = icmp eq i32 %97, %.sroa.0.0.extract.trunc.i66
-  br i1 %98, label %107, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67.thread
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %93 = sext i32 %90 to i64
+  %94 = load ptr, ptr %92, align 8
+  %95 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %94, i64 %93
+  %96 = load i32, ptr %95, align 4
+  %97 = icmp eq i32 %96, %.sroa.0.0.extract.trunc.i66
+  br i1 %97, label %106, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67.thread
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67
   %.sroa.023.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, align 8
-  %99 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  %100 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  br i1 %100, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69.thread
+  %98 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  %99 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  br i1 %99, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69.thread
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67.thread
   %.sroa.0.0.extract.trunc.i68 = trunc i64 %.sroa.023.0.copyload to i32
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %102 = sext i32 %99 to i64
-  %103 = load ptr, ptr %101, align 8
-  %104 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %103, i64 %102
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp eq i32 %105, %.sroa.0.0.extract.trunc.i68
-  br i1 %106, label %107, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69.thread
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %101 = sext i32 %98 to i64
+  %102 = load ptr, ptr %100, align 8
+  %103 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %102, i64 %101
+  %104 = load i32, ptr %103, align 4
+  %105 = icmp eq i32 %104, %.sroa.0.0.extract.trunc.i68
+  br i1 %105, label %106, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69.thread
 
-107:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %109 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %110 = sext i32 %109 to i64
-  %111 = load ptr, ptr %108, align 8
-  %112 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %111, i64 %110
-  %.sroa.0.0.copyload.i70 = load i64, ptr %112, align 4
+106:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %108 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %109 = sext i32 %108 to i64
+  %110 = load ptr, ptr %107, align 8
+  %111 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %110, i64 %109
+  %.sroa.0.0.copyload.i70 = load i64, ptr %111, align 4
   %.sroa.099.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i70 to i32
-  %113 = add nsw i32 %.sroa.099.0.extract.trunc, 1
-  %114 = sext i32 %113 to i64
-  %115 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_120kMagicWallConversionE, align 8
-  %116 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_120kMagicWallConversionE, i64 24), align 8
-  %117 = lshr i64 %114, 7
-  %118 = ptrtoint ptr %115 to i64
-  %119 = lshr i64 %118, 12
-  %120 = xor i64 %117, %119
-  %121 = trunc i32 %113 to i8
-  %122 = and i8 %121, 127
-  %123 = insertelement <16 x i8> poison, i8 %122, i64 0
-  %124 = shufflevector <16 x i8> %123, <16 x i8> poison, <16 x i32> zeroinitializer
-  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_120kMagicWallConversionE, i64 8), align 8
-  br label %126
+  %112 = add nsw i32 %.sroa.099.0.extract.trunc, 1
+  %113 = sext i32 %112 to i64
+  %114 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_120kMagicWallConversionE, align 8
+  %115 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_120kMagicWallConversionE, i64 24), align 8
+  %116 = lshr i64 %113, 7
+  %117 = ptrtoint ptr %114 to i64
+  %118 = lshr i64 %117, 12
+  %119 = xor i64 %116, %118
+  %120 = trunc i32 %112 to i8
+  %121 = and i8 %120, 127
+  %122 = insertelement <16 x i8> poison, i8 %121, i64 0
+  %123 = shufflevector <16 x i8> %122, <16 x i8> poison, <16 x i32> zeroinitializer
+  %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_120kMagicWallConversionE, i64 8), align 8
+  br label %125
 
-126:                                              ; preds = %146, %107
-  %.pn29.i.i.i.i = phi i64 [ %120, %107 ], [ %148, %146 ]
-  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %107 ], [ %147, %146 ]
-  %.sroa.4.0.i.i.i.i = and i64 %.pn29.i.i.i.i, %116
-  %127 = getelementptr inbounds i8, ptr %115, i64 %.sroa.4.0.i.i.i.i
-  %128 = load <16 x i8>, ptr %127, align 1
-  %129 = icmp eq <16 x i8> %124, %128
-  %130 = bitcast <16 x i1> %129 to i16
-  %.not27.i.i.i.i = icmp eq i16 %130, 0
+125:                                              ; preds = %144, %106
+  %.pn29.i.i.i.i = phi i64 [ %119, %106 ], [ %146, %144 ]
+  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %106 ], [ %145, %144 ]
+  %.sroa.4.0.i.i.i.i = and i64 %.pn29.i.i.i.i, %115
+  %126 = getelementptr inbounds i8, ptr %114, i64 %.sroa.4.0.i.i.i.i
+  %127 = load <16 x i8>, ptr %126, align 1
+  %128 = icmp eq <16 x i8> %123, %127
+  %129 = bitcast <16 x i1> %128 to i16
+  %.not27.i.i.i.i = icmp eq i16 %129, 0
   br i1 %.not27.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %126
-  %131 = zext i16 %130 to i32
+.lr.ph.preheader.i.i.i.i:                         ; preds = %125
+  %130 = zext i16 %129 to i32
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %141, %.lr.ph.preheader.i.i.i.i
-  %.sroa.013.028.i.i.i.i = phi i32 [ %143, %141 ], [ %131, %.lr.ph.preheader.i.i.i.i ]
-  %132 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i, i1 true)
-  %133 = zext nneg i32 %132 to i64
-  %134 = add i64 %.sroa.4.0.i.i.i.i, %133
-  %135 = and i64 %134, %116
-  %136 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %125, i64 %135
-  %.val8.i.i.i.i = load i32, ptr %136, align 4
-  %137 = icmp eq i32 %.val8.i.i.i.i, %.sroa.099.0.extract.trunc
-  br i1 %137, label %138, label %141
+.lr.ph.i.i.i.i:                                   ; preds = %139, %.lr.ph.preheader.i.i.i.i
+  %.sroa.013.028.i.i.i.i = phi i32 [ %141, %139 ], [ %130, %.lr.ph.preheader.i.i.i.i ]
+  %131 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i, i1 true)
+  %132 = zext nneg i32 %131 to i64
+  %133 = add i64 %.sroa.4.0.i.i.i.i, %132
+  %134 = and i64 %133, %115
+  %135 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %124, i64 %134
+  %.val8.i.i.i.i = load i32, ptr %135, align 4
+  %136 = icmp eq i32 %.val8.i.i.i.i, %.sroa.099.0.extract.trunc
+  br i1 %136, label %137, label %139
 
-138:                                              ; preds = %.lr.ph.i.i.i.i
-  %139 = getelementptr inbounds i8, ptr %115, i64 %135
-  %140 = icmp ne ptr %115, null
-  tail call void @llvm.assume(i1 %140)
-  %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %139, 0
-  %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %136, 1
+137:                                              ; preds = %.lr.ph.i.i.i.i
+  %138 = getelementptr inbounds i8, ptr %114, i64 %134
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %138) ]
+  %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %138, 0
+  %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %135, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-141:                                              ; preds = %.lr.ph.i.i.i.i
-  %142 = add nsw i32 %.sroa.013.028.i.i.i.i, -1
-  %143 = and i32 %142, %.sroa.013.028.i.i.i.i
-  %.not.i.i.i.i75 = icmp eq i32 %143, 0
+139:                                              ; preds = %.lr.ph.i.i.i.i
+  %140 = add nsw i32 %.sroa.013.028.i.i.i.i, -1
+  %141 = and i32 %140, %.sroa.013.028.i.i.i.i
+  %.not.i.i.i.i75 = icmp eq i32 %141, 0
   br i1 %.not.i.i.i.i75, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %141, %126
-  %144 = icmp eq <16 x i8> %128, splat (i8 -128)
-  %145 = bitcast <16 x i1> %144 to i16
-  %.not25.i.i.i.i = icmp eq i16 %145, 0
-  br i1 %.not25.i.i.i.i, label %146, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+._crit_edge.i.i.i.i:                              ; preds = %139, %125
+  %142 = icmp eq <16 x i8> %127, splat (i8 -128)
+  %143 = bitcast <16 x i1> %142 to i16
+  %.not25.i.i.i.i = icmp eq i16 %143, 0
+  br i1 %.not25.i.i.i.i, label %144, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-146:                                              ; preds = %._crit_edge.i.i.i.i
-  %147 = add i64 %.sroa.10.0.i.i.i.i, 16
-  %148 = add i64 %147, %.sroa.4.0.i.i.i.i
-  br label %126, !llvm.loop !51
+144:                                              ; preds = %._crit_edge.i.i.i.i
+  %145 = add i64 %.sroa.10.0.i.i.i.i, 16
+  %146 = add i64 %145, %.sroa.4.0.i.i.i.i
+  br label %125, !llvm.loop !51
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i: ; preds = %._crit_edge.i.i.i.i, %138
-  %.pn.i.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i, %138 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i ]
-  %149 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %154, label %151
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i: ; preds = %._crit_edge.i.i.i.i, %137
+  %.pn.i.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i, %137 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i ]
+  %147 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %152, label %149
 
-151:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
-  %152 = load i8, ptr %149, align 1
-  %153 = icmp sgt i8 %152, -1
-  br i1 %153, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i76
+149:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+  %150 = load i8, ptr %147, align 1
+  %151 = icmp sgt i8 %150, -1
+  br i1 %151, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i76
 
-.critedge.i.i.i.i76:                              ; preds = %151
+.critedge.i.i.i.i76:                              ; preds = %149
   tail call void @llvm.trap()
   unreachable
 
-154:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+152:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %151
-  %155 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %.sroa.021.0.copyload = load i64, ptr %156, align 4
-  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 24
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %149
+  %153 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  %.sroa.021.0.copyload = load i64, ptr %154, align 4
+  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 24
   %.sroa.222.0.copyload = load i64, ptr %.sroa.222.0..sroa_idx, align 4
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState16MoveThroughMagicEiNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.021.0.copyload, i64 %.sroa.222.0.copyload)
-  br label %222
+  br label %220
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit67.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69
   %.sroa.015.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_16kElNutE, align 8
-  %157 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  %158 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  br i1 %158, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78.thread
+  %155 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  %156 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  br i1 %156, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78.thread
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69.thread
   %.sroa.0.0.extract.trunc.i77 = trunc i64 %.sroa.015.0.copyload to i32
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %160 = sext i32 %157 to i64
-  %161 = load ptr, ptr %159, align 8
-  %162 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %161, i64 %160
-  %163 = load i32, ptr %162, align 4
-  %164 = icmp eq i32 %163, %.sroa.0.0.extract.trunc.i77
-  br i1 %164, label %165, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78.thread
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %158 = sext i32 %155 to i64
+  %159 = load ptr, ptr %157, align 8
+  %160 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %159, i64 %158
+  %161 = load i32, ptr %160, align 4
+  %162 = icmp eq i32 %161, %.sroa.0.0.extract.trunc.i77
+  br i1 %162, label %163, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78.thread
 
-165:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78
+163:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78
   %.sroa.013.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE, align 8
   %.sroa.214.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE, i64 8), align 8
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %167 = load i32, ptr %166, align 4
-  %168 = add nsw i32 %167, 1
-  store i32 %168, ptr %166, align 4
-  %169 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  %170 = sext i32 %169 to i64
-  %171 = load ptr, ptr %159, align 8
-  %172 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %171, i64 %170
-  store i64 %.sroa.013.0.copyload, ptr %172, align 4
-  %.sroa.2.0..sroa_idx.i79 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %165 = load i32, ptr %164, align 4
+  %166 = add nsw i32 %165, 1
+  store i32 %166, ptr %164, align 4
+  %167 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  %168 = sext i32 %167 to i64
+  %169 = load ptr, ptr %157, align 8
+  %170 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %169, i64 %168
+  store i64 %.sroa.013.0.copyload, ptr %170, align 4
+  %.sroa.2.0..sroa_idx.i79 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.214.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i79, align 4
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i32, ptr %174, i64 %170
-  store i32 %168, ptr %175, align 4
-  %176 = load ptr, ptr %159, align 8
-  %177 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %176, i64 %170
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 13
-  store i8 1, ptr %178, align 1
-  br label %222
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds i32, ptr %172, i64 %168
+  store i32 %166, ptr %173, align 4
+  %174 = load ptr, ptr %157, align 8
+  %175 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %174, i64 %168
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 13
+  store i8 1, ptr %176, align 1
+  br label %220
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit69.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78
   %.sroa.011.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_16kElNutE, align 8
-  %179 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  %180 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  br i1 %180, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81.thread
+  %177 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  %178 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  br i1 %178, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81.thread
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78.thread
   %.sroa.0.0.extract.trunc.i80 = trunc i64 %.sroa.011.0.copyload to i32
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %182 = sext i32 %179 to i64
-  %183 = load ptr, ptr %181, align 8
-  %184 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %183, i64 %182
-  %185 = load i32, ptr %184, align 4
-  %186 = icmp eq i32 %185, %.sroa.0.0.extract.trunc.i80
-  br i1 %186, label %187, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81.thread
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %180 = sext i32 %177 to i64
+  %181 = load ptr, ptr %179, align 8
+  %182 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %181, i64 %180
+  %183 = load i32, ptr %182, align 4
+  %184 = icmp eq i32 %183, %.sroa.0.0.extract.trunc.i80
+  br i1 %184, label %185, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81.thread
 
-187:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81
-  %188 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %189 = sext i32 %188 to i64
-  %190 = load ptr, ptr %181, align 8
-  %191 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %190, i64 %189
-  %.sroa.0.0.copyload.i82 = load i64, ptr %191, align 4
+185:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81
+  %186 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %187 = sext i32 %186 to i64
+  %188 = load ptr, ptr %179, align 8
+  %189 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %188, i64 %187
+  %.sroa.0.0.copyload.i82 = load i64, ptr %189, align 4
   %.sroa.096.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i82 to i32
-  %192 = tail call fastcc { ptr, ptr } @_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElementToExplosionE, i32 %.sroa.096.0.extract.trunc)
-  %193 = extractvalue { ptr, ptr } %192, 0
-  %194 = extractvalue { ptr, ptr } %192, 1
-  %195 = icmp eq ptr %193, null
-  br i1 %195, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit90.thread, label %196
+  %190 = tail call fastcc { ptr, ptr } @_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElementToExplosionE, i32 %.sroa.096.0.extract.trunc)
+  %191 = extractvalue { ptr, ptr } %190, 0
+  %192 = extractvalue { ptr, ptr } %190, 1
+  %193 = icmp eq ptr %191, null
+  br i1 %193, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit90.thread, label %194
 
-196:                                              ; preds = %187
-  %197 = load i8, ptr %193, align 1
-  %198 = icmp sgt i8 %197, -1
-  br i1 %198, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit93, label %.critedge.i.i.i87
+194:                                              ; preds = %185
+  %195 = load i8, ptr %191, align 1
+  %196 = icmp sgt i8 %195, -1
+  br i1 %196, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit93, label %.critedge.i.i.i87
 
-.critedge.i.i.i87:                                ; preds = %196
+.critedge.i.i.i87:                                ; preds = %194
   tail call void @llvm.trap()
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit93: ; preds = %196
-  %199 = getelementptr inbounds nuw i8, ptr %194, i64 16
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit93: ; preds = %194
+  %197 = getelementptr inbounds nuw i8, ptr %192, i64 16
   br label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit90.thread
 
-_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit90.thread: ; preds = %187, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit93
-  %200 = phi ptr [ %199, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit93 ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %187 ]
-  %.sroa.07.0.copyload = load i64, ptr %200, align 4
-  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 8
+_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit90.thread: ; preds = %185, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit93
+  %198 = phi ptr [ %197, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit93 ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %185 ]
+  %.sroa.07.0.copyload = load i64, ptr %198, align 4
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %198, i64 8
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 4
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, i32 noundef 0)
-  br label %222
+  br label %220
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit78.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81
-  %201 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState11CanRollLeftEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1)
-  br i1 %201, label %202, label %203
+  %199 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState11CanRollLeftEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1)
+  br i1 %199, label %200, label %201
 
-202:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81.thread
+200:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81.thread
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, align 8
   %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, i64 8), align 8
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8RollLeftEiNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload)
-  br label %222
+  br label %220
 
-203:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81.thread
-  %204 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState12CanRollRightEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1)
-  br i1 %204, label %205, label %206
+201:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit81.thread
+  %202 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState12CanRollRightEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1)
+  br i1 %202, label %203, label %204
 
-205:                                              ; preds = %203
+203:                                              ; preds = %201
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, align 8
   %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, i64 8), align 8
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9RollRightEiNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload)
-  br label %222
+  br label %220
 
-206:                                              ; preds = %203
+204:                                              ; preds = %201
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElStoneE, align 8
   %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElStoneE, i64 8), align 8
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %208 = sext i32 %1 to i64
-  %209 = load ptr, ptr %207, align 8
-  %210 = getelementptr inbounds i32, ptr %209, i64 %208
-  %211 = load i32, ptr %210, align 4
-  %212 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %214 = sext i32 %212 to i64
-  %215 = load ptr, ptr %213, align 8
-  %216 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %215, i64 %214
-  store i64 %.sroa.0.0.copyload, ptr %216, align 4
-  %.sroa.2.0..sroa_idx.i94 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %206 = sext i32 %1 to i64
+  %207 = load ptr, ptr %205, align 8
+  %208 = getelementptr inbounds i32, ptr %207, i64 %206
+  %209 = load i32, ptr %208, align 4
+  %210 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %212 = sext i32 %210 to i64
+  %213 = load ptr, ptr %211, align 8
+  %214 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %213, i64 %212
+  store i64 %.sroa.0.0.copyload, ptr %214, align 4
+  %.sroa.2.0..sroa_idx.i94 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %.sroa.2.0.extract.trunc.i95 = trunc i64 %.sroa.2.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i95, ptr %.sroa.2.0..sroa_idx.i94, align 4
-  %217 = load ptr, ptr %207, align 8
-  %218 = getelementptr inbounds i32, ptr %217, i64 %214
-  store i32 %211, ptr %218, align 4
-  %219 = load ptr, ptr %213, align 8
-  %220 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %219, i64 %214
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 13
-  store i8 1, ptr %221, align 1
-  br label %222
+  %215 = load ptr, ptr %205, align 8
+  %216 = getelementptr inbounds i32, ptr %215, i64 %212
+  store i32 %209, ptr %216, align 4
+  %217 = load ptr, ptr %211, align 8
+  %218 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %217, i64 %212
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 13
+  store i8 1, ptr %219, align 1
+  br label %220
 
-222:                                              ; preds = %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, %165, %202, %206, %205, %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit90.thread, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, %11
+220:                                              ; preds = %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, %163, %200, %204, %203, %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit90.thread, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, %11
   ret void
 }
 
@@ -6085,7 +6081,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit:
   %31 = load ptr, ptr %18, align 8
   %32 = getelementptr inbounds i32, ptr %31, i64 %13
   store i32 %30, ptr %32, align 4
-  br label %254
+  br label %252
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread: ; preds = %2, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
   %33 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
@@ -6155,9 +6151,9 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit5
   %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElementToExplosionE, i64 8), align 8
   br label %74
 
-74:                                               ; preds = %94, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
-  %.pn29.i.i.i = phi i64 [ %68, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread ], [ %96, %94 ]
-  %.sroa.10.0.i.i.i = phi i64 [ 0, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread ], [ %95, %94 ]
+74:                                               ; preds = %93, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
+  %.pn29.i.i.i = phi i64 [ %68, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread ], [ %95, %93 ]
+  %.sroa.10.0.i.i.i = phi i64 [ 0, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread ], [ %94, %93 ]
   %.sroa.4.0.i.i.i = and i64 %.pn29.i.i.i, %64
   %75 = getelementptr inbounds i8, ptr %63, i64 %.sroa.4.0.i.i.i
   %76 = load <16 x i8>, ptr %75, align 1
@@ -6170,8 +6166,8 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit5
   %79 = zext i16 %78 to i32
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %89, %.lr.ph.preheader.i.i.i
-  %.sroa.013.028.i.i.i = phi i32 [ %91, %89 ], [ %79, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %88, %.lr.ph.preheader.i.i.i
+  %.sroa.013.028.i.i.i = phi i32 [ %90, %88 ], [ %79, %.lr.ph.preheader.i.i.i ]
   %80 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i, i1 true)
   %81 = zext nneg i32 %80 to i64
   %82 = add i64 %.sroa.4.0.i.i.i, %81
@@ -6179,326 +6175,324 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit5
   %84 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %73, i64 %83
   %.val8.i.i.i = load i32, ptr %84, align 4
   %85 = icmp eq i32 %.val8.i.i.i, %.sroa.067.0.extract.trunc
-  br i1 %85, label %86, label %89
+  br i1 %85, label %86, label %88
 
 86:                                               ; preds = %.lr.ph.i.i.i
   %87 = getelementptr inbounds i8, ptr %63, i64 %83
-  %88 = icmp ne ptr %63, null
-  tail call void @llvm.assume(i1 %88)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %87) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %87, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %84, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-89:                                               ; preds = %.lr.ph.i.i.i
-  %90 = add nsw i32 %.sroa.013.028.i.i.i, -1
-  %91 = and i32 %90, %.sroa.013.028.i.i.i
-  %.not.i.i.i = icmp eq i32 %91, 0
+88:                                               ; preds = %.lr.ph.i.i.i
+  %89 = add nsw i32 %.sroa.013.028.i.i.i, -1
+  %90 = and i32 %89, %.sroa.013.028.i.i.i
+  %.not.i.i.i = icmp eq i32 %90, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %89, %74
-  %92 = icmp eq <16 x i8> %76, splat (i8 -128)
-  %93 = bitcast <16 x i1> %92 to i16
-  %.not25.i.i.i = icmp eq i16 %93, 0
-  br i1 %.not25.i.i.i, label %94, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+._crit_edge.i.i.i:                                ; preds = %88, %74
+  %91 = icmp eq <16 x i8> %76, splat (i8 -128)
+  %92 = bitcast <16 x i1> %91 to i16
+  %.not25.i.i.i = icmp eq i16 %92, 0
+  br i1 %.not25.i.i.i, label %93, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-94:                                               ; preds = %._crit_edge.i.i.i
-  %95 = add i64 %.sroa.10.0.i.i.i, 16
-  %96 = add i64 %95, %.sroa.4.0.i.i.i
+93:                                               ; preds = %._crit_edge.i.i.i
+  %94 = add i64 %.sroa.10.0.i.i.i, 16
+  %95 = add i64 %94, %.sroa.4.0.i.i.i
   br label %74, !llvm.loop !51
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit: ; preds = %._crit_edge.i.i.i, %86
   %.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %86 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i ]
-  %97 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
-  %98 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
-  %99 = icmp eq ptr %97, null
-  br i1 %99, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %100
+  %96 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
+  %97 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
+  %98 = icmp eq ptr %96, null
+  br i1 %98, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %99
 
-100:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
-  %101 = load i8, ptr %97, align 1
-  %102 = icmp sgt i8 %101, -1
-  br i1 %102, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
+99:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+  %100 = load i8, ptr %96, align 1
+  %101 = icmp sgt i8 %100, -1
+  br i1 %101, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %100
+.critedge.i.i.i:                                  ; preds = %99
   tail call void @llvm.trap()
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %100
-  %103 = getelementptr inbounds nuw i8, ptr %98, i64 16
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 16
   br label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread
 
 _ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread: ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit
-  %104 = phi ptr [ %103, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
-  %.sroa.015.0.copyload = load i64, ptr %104, align 4
-  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %103 = phi ptr [ %102, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
+  %.sroa.015.0.copyload = load i64, ptr %103, align 4
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %103, i64 8
   %.sroa.216.0.copyload = load i64, ptr %.sroa.216.0..sroa_idx, align 4
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload, i32 noundef 3)
-  br label %254
+  br label %252
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit49, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit
   %.sroa.011.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElWallMagicOnE, align 8
-  %105 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  %106 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  br i1 %106, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53.thread
+  %104 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  %105 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  br i1 %105, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53.thread
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread
   %.sroa.0.0.extract.trunc.i52 = trunc i64 %.sroa.011.0.copyload to i32
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %108 = sext i32 %105 to i64
-  %109 = load ptr, ptr %107, align 8
-  %110 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %109, i64 %108
-  %111 = load i32, ptr %110, align 4
-  %112 = icmp eq i32 %111, %.sroa.0.0.extract.trunc.i52
-  br i1 %112, label %121, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53.thread
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %107 = sext i32 %104 to i64
+  %108 = load ptr, ptr %106, align 8
+  %109 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %108, i64 %107
+  %110 = load i32, ptr %109, align 4
+  %111 = icmp eq i32 %110, %.sroa.0.0.extract.trunc.i52
+  br i1 %111, label %120, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53.thread
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53
   %.sroa.09.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElWallMagicDormantE, align 8
-  %113 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  %114 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
-  br i1 %114, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55.thread
+  %112 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  %113 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
+  br i1 %113, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55.thread
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53.thread
   %.sroa.0.0.extract.trunc.i54 = trunc i64 %.sroa.09.0.copyload to i32
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %116 = sext i32 %113 to i64
-  %117 = load ptr, ptr %115, align 8
-  %118 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %117, i64 %116
-  %119 = load i32, ptr %118, align 4
-  %120 = icmp eq i32 %119, %.sroa.0.0.extract.trunc.i54
-  br i1 %120, label %121, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55.thread
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %115 = sext i32 %112 to i64
+  %116 = load ptr, ptr %114, align 8
+  %117 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %116, i64 %115
+  %118 = load i32, ptr %117, align 4
+  %119 = icmp eq i32 %118, %.sroa.0.0.extract.trunc.i54
+  br i1 %119, label %120, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55.thread
 
-121:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %123 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %124 = sext i32 %123 to i64
-  %125 = load ptr, ptr %122, align 8
-  %126 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %125, i64 %124
-  %.sroa.0.0.copyload.i56 = load i64, ptr %126, align 4
+120:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %122 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %123 = sext i32 %122 to i64
+  %124 = load ptr, ptr %121, align 8
+  %125 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %124, i64 %123
+  %.sroa.0.0.copyload.i56 = load i64, ptr %125, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i56 to i32
-  %127 = add nsw i32 %.sroa.0.0.extract.trunc, 1
-  %128 = sext i32 %127 to i64
-  %129 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_120kMagicWallConversionE, align 8
-  %130 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_120kMagicWallConversionE, i64 24), align 8
-  %131 = lshr i64 %128, 7
-  %132 = ptrtoint ptr %129 to i64
-  %133 = lshr i64 %132, 12
-  %134 = xor i64 %131, %133
-  %135 = trunc i32 %127 to i8
-  %136 = and i8 %135, 127
-  %137 = insertelement <16 x i8> poison, i8 %136, i64 0
-  %138 = shufflevector <16 x i8> %137, <16 x i8> poison, <16 x i32> zeroinitializer
-  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_120kMagicWallConversionE, i64 8), align 8
-  br label %140
+  %126 = add nsw i32 %.sroa.0.0.extract.trunc, 1
+  %127 = sext i32 %126 to i64
+  %128 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_120kMagicWallConversionE, align 8
+  %129 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_120kMagicWallConversionE, i64 24), align 8
+  %130 = lshr i64 %127, 7
+  %131 = ptrtoint ptr %128 to i64
+  %132 = lshr i64 %131, 12
+  %133 = xor i64 %130, %132
+  %134 = trunc i32 %126 to i8
+  %135 = and i8 %134, 127
+  %136 = insertelement <16 x i8> poison, i8 %135, i64 0
+  %137 = shufflevector <16 x i8> %136, <16 x i8> poison, <16 x i32> zeroinitializer
+  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_120kMagicWallConversionE, i64 8), align 8
+  br label %139
 
-140:                                              ; preds = %160, %121
-  %.pn29.i.i.i.i = phi i64 [ %134, %121 ], [ %162, %160 ]
-  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %121 ], [ %161, %160 ]
-  %.sroa.4.0.i.i.i.i = and i64 %.pn29.i.i.i.i, %130
-  %141 = getelementptr inbounds i8, ptr %129, i64 %.sroa.4.0.i.i.i.i
-  %142 = load <16 x i8>, ptr %141, align 1
-  %143 = icmp eq <16 x i8> %138, %142
-  %144 = bitcast <16 x i1> %143 to i16
-  %.not27.i.i.i.i = icmp eq i16 %144, 0
+139:                                              ; preds = %158, %120
+  %.pn29.i.i.i.i = phi i64 [ %133, %120 ], [ %160, %158 ]
+  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %120 ], [ %159, %158 ]
+  %.sroa.4.0.i.i.i.i = and i64 %.pn29.i.i.i.i, %129
+  %140 = getelementptr inbounds i8, ptr %128, i64 %.sroa.4.0.i.i.i.i
+  %141 = load <16 x i8>, ptr %140, align 1
+  %142 = icmp eq <16 x i8> %137, %141
+  %143 = bitcast <16 x i1> %142 to i16
+  %.not27.i.i.i.i = icmp eq i16 %143, 0
   br i1 %.not27.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %140
-  %145 = zext i16 %144 to i32
+.lr.ph.preheader.i.i.i.i:                         ; preds = %139
+  %144 = zext i16 %143 to i32
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %155, %.lr.ph.preheader.i.i.i.i
-  %.sroa.013.028.i.i.i.i = phi i32 [ %157, %155 ], [ %145, %.lr.ph.preheader.i.i.i.i ]
-  %146 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i, i1 true)
-  %147 = zext nneg i32 %146 to i64
-  %148 = add i64 %.sroa.4.0.i.i.i.i, %147
-  %149 = and i64 %148, %130
-  %150 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %139, i64 %149
-  %.val8.i.i.i.i = load i32, ptr %150, align 4
-  %151 = icmp eq i32 %.val8.i.i.i.i, %.sroa.0.0.extract.trunc
-  br i1 %151, label %152, label %155
+.lr.ph.i.i.i.i:                                   ; preds = %153, %.lr.ph.preheader.i.i.i.i
+  %.sroa.013.028.i.i.i.i = phi i32 [ %155, %153 ], [ %144, %.lr.ph.preheader.i.i.i.i ]
+  %145 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i, i1 true)
+  %146 = zext nneg i32 %145 to i64
+  %147 = add i64 %.sroa.4.0.i.i.i.i, %146
+  %148 = and i64 %147, %129
+  %149 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %138, i64 %148
+  %.val8.i.i.i.i = load i32, ptr %149, align 4
+  %150 = icmp eq i32 %.val8.i.i.i.i, %.sroa.0.0.extract.trunc
+  br i1 %150, label %151, label %153
 
-152:                                              ; preds = %.lr.ph.i.i.i.i
-  %153 = getelementptr inbounds i8, ptr %129, i64 %149
-  %154 = icmp ne ptr %129, null
-  tail call void @llvm.assume(i1 %154)
-  %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %153, 0
-  %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %150, 1
+151:                                              ; preds = %.lr.ph.i.i.i.i
+  %152 = getelementptr inbounds i8, ptr %128, i64 %148
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %152) ]
+  %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %152, 0
+  %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %149, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-155:                                              ; preds = %.lr.ph.i.i.i.i
-  %156 = add nsw i32 %.sroa.013.028.i.i.i.i, -1
-  %157 = and i32 %156, %.sroa.013.028.i.i.i.i
-  %.not.i.i.i.i61 = icmp eq i32 %157, 0
+153:                                              ; preds = %.lr.ph.i.i.i.i
+  %154 = add nsw i32 %.sroa.013.028.i.i.i.i, -1
+  %155 = and i32 %154, %.sroa.013.028.i.i.i.i
+  %.not.i.i.i.i61 = icmp eq i32 %155, 0
   br i1 %.not.i.i.i.i61, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %155, %140
-  %158 = icmp eq <16 x i8> %142, splat (i8 -128)
-  %159 = bitcast <16 x i1> %158 to i16
-  %.not25.i.i.i.i = icmp eq i16 %159, 0
-  br i1 %.not25.i.i.i.i, label %160, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+._crit_edge.i.i.i.i:                              ; preds = %153, %139
+  %156 = icmp eq <16 x i8> %141, splat (i8 -128)
+  %157 = bitcast <16 x i1> %156 to i16
+  %.not25.i.i.i.i = icmp eq i16 %157, 0
+  br i1 %.not25.i.i.i.i, label %158, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-160:                                              ; preds = %._crit_edge.i.i.i.i
-  %161 = add i64 %.sroa.10.0.i.i.i.i, 16
-  %162 = add i64 %161, %.sroa.4.0.i.i.i.i
-  br label %140, !llvm.loop !51
+158:                                              ; preds = %._crit_edge.i.i.i.i
+  %159 = add i64 %.sroa.10.0.i.i.i.i, 16
+  %160 = add i64 %159, %.sroa.4.0.i.i.i.i
+  br label %139, !llvm.loop !51
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i: ; preds = %._crit_edge.i.i.i.i, %152
-  %.pn.i.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i, %152 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i ]
-  %163 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %168, label %165
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i: ; preds = %._crit_edge.i.i.i.i, %151
+  %.pn.i.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i, %151 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i ]
+  %161 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
+  %162 = icmp eq ptr %161, null
+  br i1 %162, label %166, label %163
 
-165:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
-  %166 = load i8, ptr %163, align 1
-  %167 = icmp sgt i8 %166, -1
-  br i1 %167, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i62
+163:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+  %164 = load i8, ptr %161, align 1
+  %165 = icmp sgt i8 %164, -1
+  br i1 %165, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i62
 
-.critedge.i.i.i.i62:                              ; preds = %165
+.critedge.i.i.i.i62:                              ; preds = %163
   tail call void @llvm.trap()
   unreachable
 
-168:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+166:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %165
-  %169 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
-  %.sroa.07.0.copyload = load i64, ptr %170, align 4
-  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %169, i64 24
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %163
+  %167 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  %.sroa.07.0.copyload = load i64, ptr %168, align 4
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %167, i64 24
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 4
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState16MoveThroughMagicEiNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload)
-  br label %254
+  br label %252
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit53.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55
-  %171 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState11CanRollLeftEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1)
-  br i1 %171, label %172, label %207
+  %169 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState11CanRollLeftEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1)
+  br i1 %169, label %170, label %205
 
-172:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55.thread
+170:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55.thread
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, align 8
   %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, i64 8), align 8
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %174 = sext i32 %1 to i64
-  %175 = load ptr, ptr %173, align 8
-  %176 = getelementptr inbounds i32, ptr %175, i64 %174
-  %177 = load i32, ptr %176, align 4
-  %178 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %180 = sext i32 %178 to i64
-  %181 = load ptr, ptr %179, align 8
-  %182 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %181, i64 %180
-  store i64 %.sroa.03.0.copyload, ptr %182, align 4
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %172 = sext i32 %1 to i64
+  %173 = load ptr, ptr %171, align 8
+  %174 = getelementptr inbounds i32, ptr %173, i64 %172
+  %175 = load i32, ptr %174, align 4
+  %176 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %178 = sext i32 %176 to i64
+  %179 = load ptr, ptr %177, align 8
+  %180 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %179, i64 %178
+  store i64 %.sroa.03.0.copyload, ptr %180, align 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %180, i64 8
   %.sroa.2.0.extract.trunc.i.i = trunc i64 %.sroa.24.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4
-  %183 = load ptr, ptr %173, align 8
-  %184 = getelementptr inbounds i32, ptr %183, i64 %180
-  store i32 %177, ptr %184, align 4
-  %185 = load ptr, ptr %179, align 8
-  %186 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %185, i64 %180
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 13
-  store i8 1, ptr %187, align 1
-  %188 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 4)
-  %189 = load ptr, ptr %179, align 8
-  %190 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %189, i64 %174
-  %191 = sext i32 %188 to i64
-  %192 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %189, i64 %191
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %192, ptr noundef nonnull align 4 dereferenceable(14) %190, i64 14, i1 false)
-  %193 = load ptr, ptr %173, align 8
-  %194 = getelementptr inbounds i32, ptr %193, i64 %174
-  %195 = load i32, ptr %194, align 4
-  %196 = getelementptr inbounds i32, ptr %193, i64 %191
-  store i32 %195, ptr %196, align 4
-  %197 = load ptr, ptr %179, align 8
-  %198 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %197, i64 %191
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 13
-  store i8 1, ptr %199, align 1
-  %200 = load ptr, ptr %179, align 8
-  %201 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %200, i64 %174
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %201, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %203 = load i32, ptr %202, align 4
-  %204 = add nsw i32 %203, 1
-  store i32 %204, ptr %202, align 4
-  %205 = load ptr, ptr %173, align 8
-  %206 = getelementptr inbounds i32, ptr %205, i64 %174
-  store i32 %204, ptr %206, align 4
-  br label %254
+  %181 = load ptr, ptr %171, align 8
+  %182 = getelementptr inbounds i32, ptr %181, i64 %178
+  store i32 %175, ptr %182, align 4
+  %183 = load ptr, ptr %177, align 8
+  %184 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %183, i64 %178
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 13
+  store i8 1, ptr %185, align 1
+  %186 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 4)
+  %187 = load ptr, ptr %177, align 8
+  %188 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %187, i64 %172
+  %189 = sext i32 %186 to i64
+  %190 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %187, i64 %189
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %190, ptr noundef nonnull align 4 dereferenceable(14) %188, i64 14, i1 false)
+  %191 = load ptr, ptr %171, align 8
+  %192 = getelementptr inbounds i32, ptr %191, i64 %172
+  %193 = load i32, ptr %192, align 4
+  %194 = getelementptr inbounds i32, ptr %191, i64 %189
+  store i32 %193, ptr %194, align 4
+  %195 = load ptr, ptr %177, align 8
+  %196 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %195, i64 %189
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 13
+  store i8 1, ptr %197, align 1
+  %198 = load ptr, ptr %177, align 8
+  %199 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %198, i64 %172
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %199, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %201 = load i32, ptr %200, align 4
+  %202 = add nsw i32 %201, 1
+  store i32 %202, ptr %200, align 4
+  %203 = load ptr, ptr %171, align 8
+  %204 = getelementptr inbounds i32, ptr %203, i64 %172
+  store i32 %202, ptr %204, align 4
+  br label %252
 
-207:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55.thread
-  %208 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState12CanRollRightEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1)
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %210 = sext i32 %1 to i64
-  %211 = load ptr, ptr %209, align 8
-  %212 = getelementptr inbounds i32, ptr %211, i64 %210
-  %213 = load i32, ptr %212, align 4
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br i1 %208, label %215, label %244
+205:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit55.thread
+  %206 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState12CanRollRightEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1)
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %208 = sext i32 %1 to i64
+  %209 = load ptr, ptr %207, align 8
+  %210 = getelementptr inbounds i32, ptr %209, i64 %208
+  %211 = load i32, ptr %210, align 4
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  br i1 %206, label %213, label %242
 
-215:                                              ; preds = %207
+213:                                              ; preds = %205
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, align 8
   %.sroa.22.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, i64 8), align 8
-  %216 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %217 = sext i32 %216 to i64
-  %218 = load ptr, ptr %214, align 8
-  %219 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %218, i64 %217
-  store i64 %.sroa.01.0.copyload, ptr %219, align 4
-  %.sroa.2.0..sroa_idx.i.i63 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %214 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %215 = sext i32 %214 to i64
+  %216 = load ptr, ptr %212, align 8
+  %217 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %216, i64 %215
+  store i64 %.sroa.01.0.copyload, ptr %217, align 4
+  %.sroa.2.0..sroa_idx.i.i63 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %.sroa.2.0.extract.trunc.i.i64 = trunc i64 %.sroa.22.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i.i64, ptr %.sroa.2.0..sroa_idx.i.i63, align 4
-  %220 = load ptr, ptr %209, align 8
-  %221 = getelementptr inbounds i32, ptr %220, i64 %217
-  store i32 %213, ptr %221, align 4
-  %222 = load ptr, ptr %214, align 8
-  %223 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %222, i64 %217
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 13
-  store i8 1, ptr %224, align 1
-  %225 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 2)
-  %226 = load ptr, ptr %214, align 8
-  %227 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %226, i64 %210
-  %228 = sext i32 %225 to i64
-  %229 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %226, i64 %228
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %229, ptr noundef nonnull align 4 dereferenceable(14) %227, i64 14, i1 false)
-  %230 = load ptr, ptr %209, align 8
-  %231 = getelementptr inbounds i32, ptr %230, i64 %210
-  %232 = load i32, ptr %231, align 4
-  %233 = getelementptr inbounds i32, ptr %230, i64 %228
-  store i32 %232, ptr %233, align 4
-  %234 = load ptr, ptr %214, align 8
-  %235 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %234, i64 %228
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 13
-  store i8 1, ptr %236, align 1
-  %237 = load ptr, ptr %214, align 8
-  %238 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %237, i64 %210
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %238, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
-  %239 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %240 = load i32, ptr %239, align 4
-  %241 = add nsw i32 %240, 1
-  store i32 %241, ptr %239, align 4
-  %242 = load ptr, ptr %209, align 8
-  %243 = getelementptr inbounds i32, ptr %242, i64 %210
-  store i32 %241, ptr %243, align 4
-  br label %254
+  %218 = load ptr, ptr %207, align 8
+  %219 = getelementptr inbounds i32, ptr %218, i64 %215
+  store i32 %211, ptr %219, align 4
+  %220 = load ptr, ptr %212, align 8
+  %221 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %220, i64 %215
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 13
+  store i8 1, ptr %222, align 1
+  %223 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 2)
+  %224 = load ptr, ptr %212, align 8
+  %225 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %224, i64 %208
+  %226 = sext i32 %223 to i64
+  %227 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %224, i64 %226
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %227, ptr noundef nonnull align 4 dereferenceable(14) %225, i64 14, i1 false)
+  %228 = load ptr, ptr %207, align 8
+  %229 = getelementptr inbounds i32, ptr %228, i64 %208
+  %230 = load i32, ptr %229, align 4
+  %231 = getelementptr inbounds i32, ptr %228, i64 %226
+  store i32 %230, ptr %231, align 4
+  %232 = load ptr, ptr %212, align 8
+  %233 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %232, i64 %226
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 13
+  store i8 1, ptr %234, align 1
+  %235 = load ptr, ptr %212, align 8
+  %236 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %235, i64 %208
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %236, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %238 = load i32, ptr %237, align 4
+  %239 = add nsw i32 %238, 1
+  store i32 %239, ptr %237, align 4
+  %240 = load ptr, ptr %207, align 8
+  %241 = getelementptr inbounds i32, ptr %240, i64 %208
+  store i32 %239, ptr %241, align 4
+  br label %252
 
-244:                                              ; preds = %207
+242:                                              ; preds = %205
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE, align 8
   %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE, i64 8), align 8
-  %245 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %246 = sext i32 %245 to i64
-  %247 = load ptr, ptr %214, align 8
-  %248 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %247, i64 %246
-  store i64 %.sroa.0.0.copyload, ptr %248, align 4
-  %.sroa.2.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  %243 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %244 = sext i32 %243 to i64
+  %245 = load ptr, ptr %212, align 8
+  %246 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %245, i64 %244
+  store i64 %.sroa.0.0.copyload, ptr %246, align 4
+  %.sroa.2.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i65, align 4
-  %249 = load ptr, ptr %209, align 8
-  %250 = getelementptr inbounds i32, ptr %249, i64 %246
-  store i32 %213, ptr %250, align 4
-  %251 = load ptr, ptr %214, align 8
-  %252 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %251, i64 %246
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 13
-  store i8 1, ptr %253, align 1
-  br label %254
+  %247 = load ptr, ptr %207, align 8
+  %248 = getelementptr inbounds i32, ptr %247, i64 %244
+  store i32 %211, ptr %248, align 4
+  %249 = load ptr, ptr %212, align 8
+  %250 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %249, i64 %244
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 13
+  store i8 1, ptr %251, align 1
+  br label %252
 
-254:                                              ; preds = %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, %172, %244, %215, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, %11
+252:                                              ; preds = %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, %170, %242, %213, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, %11
   ret void
 }
 
@@ -7042,7 +7036,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit:
   %31 = load ptr, ptr %18, align 8
   %32 = getelementptr inbounds i32, ptr %31, i64 %13
   store i32 %30, ptr %32, align 4
-  br label %156
+  br label %155
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread: ; preds = %2, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
   %33 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState11CanRollLeftEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1)
@@ -7097,7 +7091,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
   %67 = load ptr, ptr %35, align 8
   %68 = getelementptr inbounds i32, ptr %67, i64 %36
   store i32 %66, ptr %68, align 4
-  br label %156
+  br label %155
 
 69:                                               ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
   %70 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState12CanRollRightEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1)
@@ -7152,7 +7146,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
   %104 = load ptr, ptr %72, align 8
   %105 = getelementptr inbounds i32, ptr %104, i64 %73
   store i32 %103, ptr %105, align 4
-  br label %156
+  br label %155
 
 106:                                              ; preds = %69
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -7177,9 +7171,9 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
   %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElementToExplosionE, i64 8), align 8
   br label %125
 
-125:                                              ; preds = %145, %106
-  %.pn29.i.i.i = phi i64 [ %119, %106 ], [ %147, %145 ]
-  %.sroa.10.0.i.i.i = phi i64 [ 0, %106 ], [ %146, %145 ]
+125:                                              ; preds = %144, %106
+  %.pn29.i.i.i = phi i64 [ %119, %106 ], [ %146, %144 ]
+  %.sroa.10.0.i.i.i = phi i64 [ 0, %106 ], [ %145, %144 ]
   %.sroa.4.0.i.i.i = and i64 %.pn29.i.i.i, %115
   %126 = getelementptr inbounds i8, ptr %114, i64 %.sroa.4.0.i.i.i
   %127 = load <16 x i8>, ptr %126, align 1
@@ -7192,8 +7186,8 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
   %130 = zext i16 %129 to i32
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %140, %.lr.ph.preheader.i.i.i
-  %.sroa.013.028.i.i.i = phi i32 [ %142, %140 ], [ %130, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %139, %.lr.ph.preheader.i.i.i
+  %.sroa.013.028.i.i.i = phi i32 [ %141, %139 ], [ %130, %.lr.ph.preheader.i.i.i ]
   %131 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i, i1 true)
   %132 = zext nneg i32 %131 to i64
   %133 = add i64 %.sroa.4.0.i.i.i, %132
@@ -7201,62 +7195,61 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
   %135 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %124, i64 %134
   %.val8.i.i.i = load i32, ptr %135, align 4
   %136 = icmp eq i32 %.val8.i.i.i, %.sroa.024.0.extract.trunc
-  br i1 %136, label %137, label %140
+  br i1 %136, label %137, label %139
 
 137:                                              ; preds = %.lr.ph.i.i.i
   %138 = getelementptr inbounds i8, ptr %114, i64 %134
-  %139 = icmp ne ptr %114, null
-  tail call void @llvm.assume(i1 %139)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %138) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %138, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %135, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-140:                                              ; preds = %.lr.ph.i.i.i
-  %141 = add nsw i32 %.sroa.013.028.i.i.i, -1
-  %142 = and i32 %141, %.sroa.013.028.i.i.i
-  %.not.i.i.i = icmp eq i32 %142, 0
+139:                                              ; preds = %.lr.ph.i.i.i
+  %140 = add nsw i32 %.sroa.013.028.i.i.i, -1
+  %141 = and i32 %140, %.sroa.013.028.i.i.i
+  %.not.i.i.i = icmp eq i32 %141, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %140, %125
-  %143 = icmp eq <16 x i8> %127, splat (i8 -128)
-  %144 = bitcast <16 x i1> %143 to i16
-  %.not25.i.i.i = icmp eq i16 %144, 0
-  br i1 %.not25.i.i.i, label %145, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+._crit_edge.i.i.i:                                ; preds = %139, %125
+  %142 = icmp eq <16 x i8> %127, splat (i8 -128)
+  %143 = bitcast <16 x i1> %142 to i16
+  %.not25.i.i.i = icmp eq i16 %143, 0
+  br i1 %.not25.i.i.i, label %144, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-145:                                              ; preds = %._crit_edge.i.i.i
-  %146 = add i64 %.sroa.10.0.i.i.i, 16
-  %147 = add i64 %146, %.sroa.4.0.i.i.i
+144:                                              ; preds = %._crit_edge.i.i.i
+  %145 = add i64 %.sroa.10.0.i.i.i, 16
+  %146 = add i64 %145, %.sroa.4.0.i.i.i
   br label %125, !llvm.loop !51
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit: ; preds = %._crit_edge.i.i.i, %137
   %.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %137 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i ]
-  %148 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
-  %149 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
-  %150 = icmp eq ptr %148, null
-  br i1 %150, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %151
+  %147 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
+  %148 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
+  %149 = icmp eq ptr %147, null
+  br i1 %149, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %150
 
-151:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
-  %152 = load i8, ptr %148, align 1
-  %153 = icmp sgt i8 %152, -1
-  br i1 %153, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
+150:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+  %151 = load i8, ptr %147, align 1
+  %152 = icmp sgt i8 %151, -1
+  br i1 %152, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %151
+.critedge.i.i.i:                                  ; preds = %150
   tail call void @llvm.trap()
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %151
-  %154 = getelementptr inbounds nuw i8, ptr %149, i64 16
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %150
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 16
   br label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread
 
 _ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread: ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit
-  %155 = phi ptr [ %154, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
-  %.sroa.01.0.copyload = load i64, ptr %155, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 8
+  %154 = phi ptr [ %153, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
+  %.sroa.01.0.copyload = load i64, ptr %154, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %154, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 4
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, i32 noundef 0)
-  br label %156
+  br label %155
 
-156:                                              ; preds = %34, %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, %71, %11
+155:                                              ; preds = %34, %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, %71, %11
   ret void
 }
 
@@ -7361,7 +7354,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit1
   %41 = load ptr, ptr %28, align 8
   %42 = getelementptr inbounds i32, ptr %41, i64 %23
   store i32 %40, ptr %42, align 4
-  br label %378
+  br label %375
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit143.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit143
   %.sroa.073.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE, align 8
@@ -7422,9 +7415,9 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit1
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kGemPointsE, i64 8), align 8
   br label %81
 
-81:                                               ; preds = %101, %59
-  %.pn29.i.i.i.i = phi i64 [ %75, %59 ], [ %103, %101 ]
-  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %59 ], [ %102, %101 ]
+81:                                               ; preds = %100, %59
+  %.pn29.i.i.i.i = phi i64 [ %75, %59 ], [ %102, %100 ]
+  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %59 ], [ %101, %100 ]
   %.sroa.4.0.i.i.i.i = and i64 %.pn29.i.i.i.i, %71
   %82 = getelementptr inbounds i8, ptr %70, i64 %.sroa.4.0.i.i.i.i
   %83 = load <16 x i8>, ptr %82, align 1
@@ -7437,8 +7430,8 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit1
   %86 = zext i16 %85 to i32
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %96, %.lr.ph.preheader.i.i.i.i
-  %.sroa.013.028.i.i.i.i = phi i32 [ %98, %96 ], [ %86, %.lr.ph.preheader.i.i.i.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %95, %.lr.ph.preheader.i.i.i.i
+  %.sroa.013.028.i.i.i.i = phi i32 [ %97, %95 ], [ %86, %.lr.ph.preheader.i.i.i.i ]
   %87 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i, i1 true)
   %88 = zext nneg i32 %87 to i64
   %89 = add i64 %.sroa.4.0.i.i.i.i, %88
@@ -7446,539 +7439,536 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit1
   %91 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.227", ptr %80, i64 %90
   %.val8.i.i.i.i = load i32, ptr %91, align 4
   %92 = icmp eq i32 %.val8.i.i.i.i, %.sroa.0282.0.extract.trunc
-  br i1 %92, label %93, label %96
+  br i1 %92, label %93, label %95
 
 93:                                               ; preds = %.lr.ph.i.i.i.i
   %94 = getelementptr inbounds i8, ptr %70, i64 %90
-  %95 = icmp ne ptr %70, null
-  tail call void @llvm.assume(i1 %95)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %94) ]
   %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %94, 0
   %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %91, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-96:                                               ; preds = %.lr.ph.i.i.i.i
-  %97 = add nsw i32 %.sroa.013.028.i.i.i.i, -1
-  %98 = and i32 %97, %.sroa.013.028.i.i.i.i
-  %.not.i.i.i.i = icmp eq i32 %98, 0
+95:                                               ; preds = %.lr.ph.i.i.i.i
+  %96 = add nsw i32 %.sroa.013.028.i.i.i.i, -1
+  %97 = and i32 %96, %.sroa.013.028.i.i.i.i
+  %.not.i.i.i.i = icmp eq i32 %97, 0
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %96, %81
-  %99 = icmp eq <16 x i8> %83, splat (i8 -128)
-  %100 = bitcast <16 x i1> %99 to i16
-  %.not25.i.i.i.i = icmp eq i16 %100, 0
-  br i1 %.not25.i.i.i.i, label %101, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+._crit_edge.i.i.i.i:                              ; preds = %95, %81
+  %98 = icmp eq <16 x i8> %83, splat (i8 -128)
+  %99 = bitcast <16 x i1> %98 to i16
+  %.not25.i.i.i.i = icmp eq i16 %99, 0
+  br i1 %.not25.i.i.i.i, label %100, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-101:                                              ; preds = %._crit_edge.i.i.i.i
-  %102 = add i64 %.sroa.10.0.i.i.i.i, 16
-  %103 = add i64 %102, %.sroa.4.0.i.i.i.i
+100:                                              ; preds = %._crit_edge.i.i.i.i
+  %101 = add i64 %.sroa.10.0.i.i.i.i, 16
+  %102 = add i64 %101, %.sroa.4.0.i.i.i.i
   br label %81, !llvm.loop !54
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i: ; preds = %._crit_edge.i.i.i.i, %93
   %.pn.i.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i, %93 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i ]
-  %104 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %109, label %106
+  %103 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %108, label %105
 
-106:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
-  %107 = load i8, ptr %104, align 1
-  %108 = icmp sgt i8 %107, -1
-  br i1 %108, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i
+105:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+  %106 = load i8, ptr %103, align 1
+  %107 = icmp sgt i8 %106, -1
+  br i1 %107, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i
 
-.critedge.i.i.i.i:                                ; preds = %106
+.critedge.i.i.i.i:                                ; preds = %105
   tail call void @llvm.trap()
   unreachable
 
-109:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+108:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %106
-  %110 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %112 = load i32, ptr %111, align 4
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %114 = load i32, ptr %113, align 8
-  %115 = add nsw i32 %114, %112
-  store i32 %115, ptr %113, align 8
-  %116 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %117 = sext i32 %116 to i64
-  %118 = load ptr, ptr %63, align 8
-  %119 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %118, i64 %117
-  %.sroa.0.0.copyload.i148 = load i64, ptr %119, align 4
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %105
+  %109 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %111 = load i32, ptr %110, align 4
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %113 = load i32, ptr %112, align 8
+  %114 = add nsw i32 %113, %111
+  store i32 %114, ptr %112, align 8
+  %115 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %116 = sext i32 %115 to i64
+  %117 = load ptr, ptr %63, align 8
+  %118 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %117, i64 %116
+  %.sroa.0.0.copyload.i148 = load i64, ptr %118, align 4
   %.sroa.0277.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i148 to i32
-  %120 = add nsw i32 %.sroa.0277.0.extract.trunc, 1
-  %121 = sext i32 %120 to i64
-  %122 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kGemPointsE, align 8
-  %123 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kGemPointsE, i64 24), align 8
-  %124 = lshr i64 %121, 7
-  %125 = ptrtoint ptr %122 to i64
-  %126 = lshr i64 %125, 12
-  %127 = xor i64 %124, %126
-  %128 = trunc i32 %120 to i8
-  %129 = and i8 %128, 127
-  %130 = insertelement <16 x i8> poison, i8 %129, i64 0
-  %131 = shufflevector <16 x i8> %130, <16 x i8> poison, <16 x i32> zeroinitializer
-  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kGemPointsE, i64 8), align 8
-  br label %133
+  %119 = add nsw i32 %.sroa.0277.0.extract.trunc, 1
+  %120 = sext i32 %119 to i64
+  %121 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kGemPointsE, align 8
+  %122 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kGemPointsE, i64 24), align 8
+  %123 = lshr i64 %120, 7
+  %124 = ptrtoint ptr %121 to i64
+  %125 = lshr i64 %124, 12
+  %126 = xor i64 %123, %125
+  %127 = trunc i32 %119 to i8
+  %128 = and i8 %127, 127
+  %129 = insertelement <16 x i8> poison, i8 %128, i64 0
+  %130 = shufflevector <16 x i8> %129, <16 x i8> poison, <16 x i32> zeroinitializer
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kGemPointsE, i64 8), align 8
+  br label %132
 
-133:                                              ; preds = %153, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit
-  %.pn29.i.i.i.i153 = phi i64 [ %127, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit ], [ %155, %153 ]
-  %.sroa.10.0.i.i.i.i154 = phi i64 [ 0, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit ], [ %154, %153 ]
-  %.sroa.4.0.i.i.i.i155 = and i64 %.pn29.i.i.i.i153, %123
-  %134 = getelementptr inbounds i8, ptr %122, i64 %.sroa.4.0.i.i.i.i155
-  %135 = load <16 x i8>, ptr %134, align 1
-  %136 = icmp eq <16 x i8> %131, %135
-  %137 = bitcast <16 x i1> %136 to i16
-  %.not27.i.i.i.i156 = icmp eq i16 %137, 0
+132:                                              ; preds = %151, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit
+  %.pn29.i.i.i.i153 = phi i64 [ %126, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit ], [ %153, %151 ]
+  %.sroa.10.0.i.i.i.i154 = phi i64 [ 0, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit ], [ %152, %151 ]
+  %.sroa.4.0.i.i.i.i155 = and i64 %.pn29.i.i.i.i153, %122
+  %133 = getelementptr inbounds i8, ptr %121, i64 %.sroa.4.0.i.i.i.i155
+  %134 = load <16 x i8>, ptr %133, align 1
+  %135 = icmp eq <16 x i8> %130, %134
+  %136 = bitcast <16 x i1> %135 to i16
+  %.not27.i.i.i.i156 = icmp eq i16 %136, 0
   br i1 %.not27.i.i.i.i156, label %._crit_edge.i.i.i.i162, label %.lr.ph.preheader.i.i.i.i157
 
-.lr.ph.preheader.i.i.i.i157:                      ; preds = %133
-  %138 = zext i16 %137 to i32
+.lr.ph.preheader.i.i.i.i157:                      ; preds = %132
+  %137 = zext i16 %136 to i32
   br label %.lr.ph.i.i.i.i158
 
-.lr.ph.i.i.i.i158:                                ; preds = %148, %.lr.ph.preheader.i.i.i.i157
-  %.sroa.013.028.i.i.i.i159 = phi i32 [ %150, %148 ], [ %138, %.lr.ph.preheader.i.i.i.i157 ]
-  %139 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i159, i1 true)
-  %140 = zext nneg i32 %139 to i64
-  %141 = add i64 %.sroa.4.0.i.i.i.i155, %140
-  %142 = and i64 %141, %123
-  %143 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.227", ptr %132, i64 %142
-  %.val8.i.i.i.i160 = load i32, ptr %143, align 4
-  %144 = icmp eq i32 %.val8.i.i.i.i160, %.sroa.0277.0.extract.trunc
-  br i1 %144, label %145, label %148
+.lr.ph.i.i.i.i158:                                ; preds = %146, %.lr.ph.preheader.i.i.i.i157
+  %.sroa.013.028.i.i.i.i159 = phi i32 [ %148, %146 ], [ %137, %.lr.ph.preheader.i.i.i.i157 ]
+  %138 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i159, i1 true)
+  %139 = zext nneg i32 %138 to i64
+  %140 = add i64 %.sroa.4.0.i.i.i.i155, %139
+  %141 = and i64 %140, %122
+  %142 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.227", ptr %131, i64 %141
+  %.val8.i.i.i.i160 = load i32, ptr %142, align 4
+  %143 = icmp eq i32 %.val8.i.i.i.i160, %.sroa.0277.0.extract.trunc
+  br i1 %143, label %144, label %146
 
-145:                                              ; preds = %.lr.ph.i.i.i.i158
-  %146 = getelementptr inbounds i8, ptr %122, i64 %142
-  %147 = icmp ne ptr %122, null
-  tail call void @llvm.assume(i1 %147)
-  %.fca.0.insert.i.i.i.i.i167 = insertvalue { ptr, ptr } poison, ptr %146, 0
-  %.fca.1.insert.i.i.i.i.i168 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i167, ptr %143, 1
+144:                                              ; preds = %.lr.ph.i.i.i.i158
+  %145 = getelementptr inbounds i8, ptr %121, i64 %141
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %145) ]
+  %.fca.0.insert.i.i.i.i.i167 = insertvalue { ptr, ptr } poison, ptr %145, 0
+  %.fca.1.insert.i.i.i.i.i168 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i167, ptr %142, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i164
 
-148:                                              ; preds = %.lr.ph.i.i.i.i158
-  %149 = add nsw i32 %.sroa.013.028.i.i.i.i159, -1
-  %150 = and i32 %149, %.sroa.013.028.i.i.i.i159
-  %.not.i.i.i.i161 = icmp eq i32 %150, 0
+146:                                              ; preds = %.lr.ph.i.i.i.i158
+  %147 = add nsw i32 %.sroa.013.028.i.i.i.i159, -1
+  %148 = and i32 %147, %.sroa.013.028.i.i.i.i159
+  %.not.i.i.i.i161 = icmp eq i32 %148, 0
   br i1 %.not.i.i.i.i161, label %._crit_edge.i.i.i.i162, label %.lr.ph.i.i.i.i158
 
-._crit_edge.i.i.i.i162:                           ; preds = %148, %133
-  %151 = icmp eq <16 x i8> %135, splat (i8 -128)
-  %152 = bitcast <16 x i1> %151 to i16
-  %.not25.i.i.i.i163 = icmp eq i16 %152, 0
-  br i1 %.not25.i.i.i.i163, label %153, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i164
+._crit_edge.i.i.i.i162:                           ; preds = %146, %132
+  %149 = icmp eq <16 x i8> %134, splat (i8 -128)
+  %150 = bitcast <16 x i1> %149 to i16
+  %.not25.i.i.i.i163 = icmp eq i16 %150, 0
+  br i1 %.not25.i.i.i.i163, label %151, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i164
 
-153:                                              ; preds = %._crit_edge.i.i.i.i162
-  %154 = add i64 %.sroa.10.0.i.i.i.i154, 16
-  %155 = add i64 %154, %.sroa.4.0.i.i.i.i155
-  br label %133, !llvm.loop !54
+151:                                              ; preds = %._crit_edge.i.i.i.i162
+  %152 = add i64 %.sroa.10.0.i.i.i.i154, 16
+  %153 = add i64 %152, %.sroa.4.0.i.i.i.i155
+  br label %132, !llvm.loop !54
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i164: ; preds = %._crit_edge.i.i.i.i162, %145
-  %.pn.i.i.i.i165 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i168, %145 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i162 ]
-  %156 = extractvalue { ptr, ptr } %.pn.i.i.i.i165, 0
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %161, label %158
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i164: ; preds = %._crit_edge.i.i.i.i162, %144
+  %.pn.i.i.i.i165 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i168, %144 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i162 ]
+  %154 = extractvalue { ptr, ptr } %.pn.i.i.i.i165, 0
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %159, label %156
 
-158:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i164
-  %159 = load i8, ptr %156, align 1
-  %160 = icmp sgt i8 %159, -1
-  br i1 %160, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit169, label %.critedge.i.i.i.i166
+156:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i164
+  %157 = load i8, ptr %154, align 1
+  %158 = icmp sgt i8 %157, -1
+  br i1 %158, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit169, label %.critedge.i.i.i.i166
 
-.critedge.i.i.i.i166:                             ; preds = %158
+.critedge.i.i.i.i166:                             ; preds = %156
   tail call void @llvm.trap()
   unreachable
 
-161:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i164
+159:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i164
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit169: ; preds = %158
-  %162 = extractvalue { ptr, ptr } %.pn.i.i.i.i165, 1
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit169: ; preds = %156
+  %160 = extractvalue { ptr, ptr } %.pn.i.i.i.i165, 1
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
+  %162 = load i32, ptr %161, align 4
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %164 = load i32, ptr %163, align 4
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %166 = load i32, ptr %165, align 4
-  %167 = add nsw i32 %166, %164
-  store i32 %167, ptr %165, align 4
-  %168 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %169 = sext i32 %1 to i64
-  %170 = load ptr, ptr %63, align 8
-  %171 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %170, i64 %169
-  %172 = sext i32 %168 to i64
-  %173 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %170, i64 %172
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %173, ptr noundef nonnull align 4 dereferenceable(14) %171, i64 14, i1 false)
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i32, ptr %175, i64 %169
-  %177 = load i32, ptr %176, align 4
-  %178 = getelementptr inbounds i32, ptr %175, i64 %172
-  store i32 %177, ptr %178, align 4
-  %179 = load ptr, ptr %63, align 8
-  %180 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %179, i64 %172
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 13
-  store i8 1, ptr %181, align 1
-  %182 = load ptr, ptr %63, align 8
-  %183 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %182, i64 %169
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %183, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %185 = load i32, ptr %184, align 4
-  %186 = add nsw i32 %185, 1
-  store i32 %186, ptr %184, align 4
-  %187 = load ptr, ptr %174, align 8
-  %188 = getelementptr inbounds i32, ptr %187, i64 %169
-  store i32 %186, ptr %188, align 4
-  br label %378
+  %165 = add nsw i32 %164, %162
+  store i32 %165, ptr %163, align 4
+  %166 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %167 = sext i32 %1 to i64
+  %168 = load ptr, ptr %63, align 8
+  %169 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %168, i64 %167
+  %170 = sext i32 %166 to i64
+  %171 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %168, i64 %170
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %171, ptr noundef nonnull align 4 dereferenceable(14) %169, i64 14, i1 false)
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds i32, ptr %173, i64 %167
+  %175 = load i32, ptr %174, align 4
+  %176 = getelementptr inbounds i32, ptr %173, i64 %170
+  store i32 %175, ptr %176, align 4
+  %177 = load ptr, ptr %63, align 8
+  %178 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %177, i64 %170
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 13
+  store i8 1, ptr %179, align 1
+  %180 = load ptr, ptr %63, align 8
+  %181 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %180, i64 %167
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %181, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %183 = load i32, ptr %182, align 4
+  %184 = add nsw i32 %183, 1
+  store i32 %184, ptr %182, align 4
+  %185 = load ptr, ptr %172, align 8
+  %186 = getelementptr inbounds i32, ptr %185, i64 %167
+  store i32 %184, ptr %186, align 4
+  br label %375
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit147.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit145.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit147
-  switch i32 %2, label %255 [
-    i32 4, label %189
-    i32 2, label %189
+  switch i32 %2, label %252 [
+    i32 4, label %187
+    i32 2, label %187
   ]
 
-189:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit147.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit147.thread
+187:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit147.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit147.thread
   %.sroa.061.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElStoneE, align 8
-  %190 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %191 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  br i1 %191, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171.thread
+  %188 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %189 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  br i1 %189, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171.thread
 
-_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171: ; preds = %189
+_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171: ; preds = %187
   %.sroa.0.0.extract.trunc.i170 = trunc i64 %.sroa.061.0.copyload to i32
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %193 = sext i32 %190 to i64
-  %194 = load ptr, ptr %192, align 8
-  %195 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %194, i64 %193
-  %196 = load i32, ptr %195, align 4
-  %197 = icmp eq i32 %196, %.sroa.0.0.extract.trunc.i170
-  br i1 %197, label %201, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171.thread
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %191 = sext i32 %188 to i64
+  %192 = load ptr, ptr %190, align 8
+  %193 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %192, i64 %191
+  %194 = load i32, ptr %193, align 4
+  %195 = icmp eq i32 %194, %.sroa.0.0.extract.trunc.i170
+  br i1 %195, label %199, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171.thread
 
-_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171.thread: ; preds = %189, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171
+_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171.thread: ; preds = %187, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171
   %.sroa.059.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_16kElNutE, align 8
-  %198 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.059.0.copyload, i64 poison, i32 noundef %2)
-  br i1 %198, label %201, label %199
+  %196 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.059.0.copyload, i64 poison, i32 noundef %2)
+  br i1 %196, label %199, label %197
 
-199:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171.thread
+197:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171.thread
   %.sroa.057.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_17kElBombE, align 8
-  %200 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.057.0.copyload, i64 poison, i32 noundef %2)
-  br i1 %200, label %201, label %255
+  %198 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.057.0.copyload, i64 poison, i32 noundef %2)
+  br i1 %198, label %199, label %252
 
-201:                                              ; preds = %199, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %203 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %204 = sext i32 %203 to i64
-  %205 = load ptr, ptr %202, align 8
-  %206 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %205, i64 %204
-  %.sroa.0.0.copyload.i172 = load i64, ptr %206, align 4
-  %.sroa.2.0..sroa_idx.i173 = getelementptr inbounds nuw i8, ptr %206, i64 8
+199:                                              ; preds = %197, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit171
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %201 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %202 = sext i32 %201 to i64
+  %203 = load ptr, ptr %200, align 8
+  %204 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %203, i64 %202
+  %.sroa.0.0.copyload.i172 = load i64, ptr %204, align 4
+  %.sroa.2.0..sroa_idx.i173 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %.sroa.2.0.copyload.i174 = load i64, ptr %.sroa.2.0..sroa_idx.i173, align 4
-  %207 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %208 = sext i32 %207 to i64
-  %209 = load ptr, ptr %202, align 8
-  %210 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %209, i64 %208
-  %.sroa.0.0.copyload.i177 = load i64, ptr %210, align 4
+  %205 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %206 = sext i32 %205 to i64
+  %207 = load ptr, ptr %200, align 8
+  %208 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %207, i64 %206
+  %.sroa.0.0.copyload.i177 = load i64, ptr %208, align 4
   %.sroa.0272.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i177 to i32
-  %211 = add nsw i32 %.sroa.0272.0.extract.trunc, 1
-  %212 = sext i32 %211 to i64
-  %213 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kElToFallingE, align 8
-  %214 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kElToFallingE, i64 24), align 8
-  %215 = lshr i64 %212, 7
-  %216 = ptrtoint ptr %213 to i64
-  %217 = lshr i64 %216, 12
-  %218 = xor i64 %215, %217
-  %219 = trunc i32 %211 to i8
-  %220 = and i8 %219, 127
-  %221 = insertelement <16 x i8> poison, i8 %220, i64 0
-  %222 = shufflevector <16 x i8> %221, <16 x i8> poison, <16 x i32> zeroinitializer
-  %223 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kElToFallingE, i64 8), align 8
-  br label %224
+  %209 = add nsw i32 %.sroa.0272.0.extract.trunc, 1
+  %210 = sext i32 %209 to i64
+  %211 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kElToFallingE, align 8
+  %212 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kElToFallingE, i64 24), align 8
+  %213 = lshr i64 %210, 7
+  %214 = ptrtoint ptr %211 to i64
+  %215 = lshr i64 %214, 12
+  %216 = xor i64 %213, %215
+  %217 = trunc i32 %209 to i8
+  %218 = and i8 %217, 127
+  %219 = insertelement <16 x i8> poison, i8 %218, i64 0
+  %220 = shufflevector <16 x i8> %219, <16 x i8> poison, <16 x i32> zeroinitializer
+  %221 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kElToFallingE, i64 8), align 8
+  br label %222
 
-224:                                              ; preds = %244, %201
-  %.pn29.i.i.i.i182 = phi i64 [ %218, %201 ], [ %246, %244 ]
-  %.sroa.10.0.i.i.i.i183 = phi i64 [ 0, %201 ], [ %245, %244 ]
-  %.sroa.4.0.i.i.i.i184 = and i64 %.pn29.i.i.i.i182, %214
-  %225 = getelementptr inbounds i8, ptr %213, i64 %.sroa.4.0.i.i.i.i184
-  %226 = load <16 x i8>, ptr %225, align 1
-  %227 = icmp eq <16 x i8> %222, %226
-  %228 = bitcast <16 x i1> %227 to i16
-  %.not27.i.i.i.i185 = icmp eq i16 %228, 0
+222:                                              ; preds = %241, %199
+  %.pn29.i.i.i.i182 = phi i64 [ %216, %199 ], [ %243, %241 ]
+  %.sroa.10.0.i.i.i.i183 = phi i64 [ 0, %199 ], [ %242, %241 ]
+  %.sroa.4.0.i.i.i.i184 = and i64 %.pn29.i.i.i.i182, %212
+  %223 = getelementptr inbounds i8, ptr %211, i64 %.sroa.4.0.i.i.i.i184
+  %224 = load <16 x i8>, ptr %223, align 1
+  %225 = icmp eq <16 x i8> %220, %224
+  %226 = bitcast <16 x i1> %225 to i16
+  %.not27.i.i.i.i185 = icmp eq i16 %226, 0
   br i1 %.not27.i.i.i.i185, label %._crit_edge.i.i.i.i191, label %.lr.ph.preheader.i.i.i.i186
 
-.lr.ph.preheader.i.i.i.i186:                      ; preds = %224
-  %229 = zext i16 %228 to i32
+.lr.ph.preheader.i.i.i.i186:                      ; preds = %222
+  %227 = zext i16 %226 to i32
   br label %.lr.ph.i.i.i.i187
 
-.lr.ph.i.i.i.i187:                                ; preds = %239, %.lr.ph.preheader.i.i.i.i186
-  %.sroa.013.028.i.i.i.i188 = phi i32 [ %241, %239 ], [ %229, %.lr.ph.preheader.i.i.i.i186 ]
-  %230 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i188, i1 true)
-  %231 = zext nneg i32 %230 to i64
-  %232 = add i64 %.sroa.4.0.i.i.i.i184, %231
-  %233 = and i64 %232, %214
-  %234 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %223, i64 %233
-  %.val8.i.i.i.i189 = load i32, ptr %234, align 4
-  %235 = icmp eq i32 %.val8.i.i.i.i189, %.sroa.0272.0.extract.trunc
-  br i1 %235, label %236, label %239
+.lr.ph.i.i.i.i187:                                ; preds = %236, %.lr.ph.preheader.i.i.i.i186
+  %.sroa.013.028.i.i.i.i188 = phi i32 [ %238, %236 ], [ %227, %.lr.ph.preheader.i.i.i.i186 ]
+  %228 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i188, i1 true)
+  %229 = zext nneg i32 %228 to i64
+  %230 = add i64 %.sroa.4.0.i.i.i.i184, %229
+  %231 = and i64 %230, %212
+  %232 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %221, i64 %231
+  %.val8.i.i.i.i189 = load i32, ptr %232, align 4
+  %233 = icmp eq i32 %.val8.i.i.i.i189, %.sroa.0272.0.extract.trunc
+  br i1 %233, label %234, label %236
 
-236:                                              ; preds = %.lr.ph.i.i.i.i187
-  %237 = getelementptr inbounds i8, ptr %213, i64 %233
-  %238 = icmp ne ptr %213, null
-  tail call void @llvm.assume(i1 %238)
-  %.fca.0.insert.i.i.i.i.i195 = insertvalue { ptr, ptr } poison, ptr %237, 0
-  %.fca.1.insert.i.i.i.i.i196 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i195, ptr %234, 1
+234:                                              ; preds = %.lr.ph.i.i.i.i187
+  %235 = getelementptr inbounds i8, ptr %211, i64 %231
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %235) ]
+  %.fca.0.insert.i.i.i.i.i195 = insertvalue { ptr, ptr } poison, ptr %235, 0
+  %.fca.1.insert.i.i.i.i.i196 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i195, ptr %232, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-239:                                              ; preds = %.lr.ph.i.i.i.i187
-  %240 = add nsw i32 %.sroa.013.028.i.i.i.i188, -1
-  %241 = and i32 %240, %.sroa.013.028.i.i.i.i188
-  %.not.i.i.i.i190 = icmp eq i32 %241, 0
+236:                                              ; preds = %.lr.ph.i.i.i.i187
+  %237 = add nsw i32 %.sroa.013.028.i.i.i.i188, -1
+  %238 = and i32 %237, %.sroa.013.028.i.i.i.i188
+  %.not.i.i.i.i190 = icmp eq i32 %238, 0
   br i1 %.not.i.i.i.i190, label %._crit_edge.i.i.i.i191, label %.lr.ph.i.i.i.i187
 
-._crit_edge.i.i.i.i191:                           ; preds = %239, %224
-  %242 = icmp eq <16 x i8> %226, splat (i8 -128)
-  %243 = bitcast <16 x i1> %242 to i16
-  %.not25.i.i.i.i192 = icmp eq i16 %243, 0
-  br i1 %.not25.i.i.i.i192, label %244, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+._crit_edge.i.i.i.i191:                           ; preds = %236, %222
+  %239 = icmp eq <16 x i8> %224, splat (i8 -128)
+  %240 = bitcast <16 x i1> %239 to i16
+  %.not25.i.i.i.i192 = icmp eq i16 %240, 0
+  br i1 %.not25.i.i.i.i192, label %241, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-244:                                              ; preds = %._crit_edge.i.i.i.i191
-  %245 = add i64 %.sroa.10.0.i.i.i.i183, 16
-  %246 = add i64 %245, %.sroa.4.0.i.i.i.i184
-  br label %224, !llvm.loop !51
+241:                                              ; preds = %._crit_edge.i.i.i.i191
+  %242 = add i64 %.sroa.10.0.i.i.i.i183, 16
+  %243 = add i64 %242, %.sroa.4.0.i.i.i.i184
+  br label %222, !llvm.loop !51
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i: ; preds = %._crit_edge.i.i.i.i191, %236
-  %.pn.i.i.i.i193 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i196, %236 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i191 ]
-  %247 = extractvalue { ptr, ptr } %.pn.i.i.i.i193, 0
-  %248 = icmp eq ptr %247, null
-  br i1 %248, label %252, label %249
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i: ; preds = %._crit_edge.i.i.i.i191, %234
+  %.pn.i.i.i.i193 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i196, %234 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i191 ]
+  %244 = extractvalue { ptr, ptr } %.pn.i.i.i.i193, 0
+  %245 = icmp eq ptr %244, null
+  br i1 %245, label %249, label %246
 
-249:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
-  %250 = load i8, ptr %247, align 1
-  %251 = icmp sgt i8 %250, -1
-  br i1 %251, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i194
+246:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+  %247 = load i8, ptr %244, align 1
+  %248 = icmp sgt i8 %247, -1
+  br i1 %248, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i194
 
-.critedge.i.i.i.i194:                             ; preds = %249
+.critedge.i.i.i.i194:                             ; preds = %246
   tail call void @llvm.trap()
   unreachable
 
-252:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+249:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %249
-  %253 = extractvalue { ptr, ptr } %.pn.i.i.i.i193, 1
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
-  %.sroa.049.0.copyload = load i64, ptr %254, align 4
-  %.sroa.250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %253, i64 24
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %246
+  %250 = extractvalue { ptr, ptr } %.pn.i.i.i.i193, 1
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 16
+  %.sroa.049.0.copyload = load i64, ptr %251, align 4
+  %.sroa.250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %250, i64 24
   %.sroa.250.0.copyload = load i64, ptr %.sroa.250.0..sroa_idx, align 4
   %.sroa.256.8.insert.ext = and i64 %.sroa.2.0.copyload.i174, 281474976710655
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState4PushEiNS0_7ElementES2_i(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.0.0.copyload.i172, i64 %.sroa.256.8.insert.ext, i64 %.sroa.049.0.copyload, i64 %.sroa.250.0.copyload, i32 noundef %2)
-  br label %378
+  br label %375
 
-255:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit147.thread, %199
-  %256 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %257 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %258 = sext i32 %257 to i64
-  %259 = load ptr, ptr %256, align 8
-  %260 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %259, i64 %258
-  %.sroa.0.0.copyload.i197 = load i64, ptr %260, align 4
+252:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit147.thread, %197
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %254 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %255 = sext i32 %254 to i64
+  %256 = load ptr, ptr %253, align 8
+  %257 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %256, i64 %255
+  %.sroa.0.0.copyload.i197 = load i64, ptr %257, align 4
   %.sroa.0267.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i197 to i32
-  %261 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kElKeyRedE, align 4
-  %262 = icmp eq i32 %261, %.sroa.0267.0.extract.trunc
-  %263 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElKeyBlueE, align 4
-  %264 = icmp eq i32 %263, %.sroa.0267.0.extract.trunc
-  %or.cond.i = select i1 %262, i1 true, i1 %264
-  %265 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kElKeyGreenE, align 4
-  %266 = icmp eq i32 %265, %.sroa.0267.0.extract.trunc
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %266
-  %267 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kElKeyYellowE, align 4
-  %268 = icmp eq i32 %267, %.sroa.0267.0.extract.trunc
-  %or.cond = select i1 %or.cond3.i, i1 true, i1 %268
-  %269 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %270 = sext i32 %269 to i64
-  %271 = load ptr, ptr %256, align 8
-  %272 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %271, i64 %270
-  %.sroa.0.0.copyload.i202 = load i64, ptr %272, align 4
+  %258 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kElKeyRedE, align 4
+  %259 = icmp eq i32 %258, %.sroa.0267.0.extract.trunc
+  %260 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElKeyBlueE, align 4
+  %261 = icmp eq i32 %260, %.sroa.0267.0.extract.trunc
+  %or.cond.i = select i1 %259, i1 true, i1 %261
+  %262 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kElKeyGreenE, align 4
+  %263 = icmp eq i32 %262, %.sroa.0267.0.extract.trunc
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %263
+  %264 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kElKeyYellowE, align 4
+  %265 = icmp eq i32 %264, %.sroa.0267.0.extract.trunc
+  %or.cond = select i1 %or.cond3.i, i1 true, i1 %265
+  %266 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %267 = sext i32 %266 to i64
+  %268 = load ptr, ptr %253, align 8
+  %269 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %268, i64 %267
+  %.sroa.0.0.copyload.i202 = load i64, ptr %269, align 4
   %.sroa.0262.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i202 to i32
-  br i1 %or.cond, label %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit.thread, label %274
+  br i1 %or.cond, label %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit.thread, label %271
 
-_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit.thread: ; preds = %255
-  %273 = tail call fastcc noundef nonnull align 4 dereferenceable(14) ptr @_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kKeyToGateE, i32 %.sroa.0262.0.extract.trunc)
-  %.sroa.039.0.copyload = load i64, ptr %273, align 4
+_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit.thread: ; preds = %252
+  %270 = tail call fastcc noundef nonnull align 4 dereferenceable(14) ptr @_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kKeyToGateE, i32 %.sroa.0262.0.extract.trunc)
+  %.sroa.039.0.copyload = load i64, ptr %270, align 4
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8OpenGateENS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(188) %0, i64 %.sroa.039.0.copyload, i64 poison)
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8MoveItemEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  br label %378
+  br label %375
 
-274:                                              ; preds = %255
-  %275 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElGateRedOpenE, align 4
-  %276 = icmp eq i32 %275, %.sroa.0262.0.extract.trunc
-  %277 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElGateBlueOpenE, align 4
-  %278 = icmp eq i32 %277, %.sroa.0262.0.extract.trunc
-  %or.cond.i212 = select i1 %276, i1 true, i1 %278
-  %279 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kElGateGreenOpenE, align 4
-  %280 = icmp eq i32 %279, %.sroa.0262.0.extract.trunc
-  %or.cond3.i213 = select i1 %or.cond.i212, i1 true, i1 %280
-  %281 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElGateYellowOpenE, align 4
-  %282 = icmp eq i32 %281, %.sroa.0262.0.extract.trunc
-  %or.cond289 = select i1 %or.cond3.i213, i1 true, i1 %282
-  br i1 %or.cond289, label %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110IsOpenGateERKNS0_7ElementE.exit.thread, label %354
+271:                                              ; preds = %252
+  %272 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElGateRedOpenE, align 4
+  %273 = icmp eq i32 %272, %.sroa.0262.0.extract.trunc
+  %274 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElGateBlueOpenE, align 4
+  %275 = icmp eq i32 %274, %.sroa.0262.0.extract.trunc
+  %or.cond.i212 = select i1 %273, i1 true, i1 %275
+  %276 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kElGateGreenOpenE, align 4
+  %277 = icmp eq i32 %276, %.sroa.0262.0.extract.trunc
+  %or.cond3.i213 = select i1 %or.cond.i212, i1 true, i1 %277
+  %278 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElGateYellowOpenE, align 4
+  %279 = icmp eq i32 %278, %.sroa.0262.0.extract.trunc
+  %or.cond289 = select i1 %or.cond3.i213, i1 true, i1 %279
+  br i1 %or.cond289, label %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110IsOpenGateERKNS0_7ElementE.exit.thread, label %351
 
-_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110IsOpenGateERKNS0_7ElementE.exit.thread: ; preds = %274
-  %283 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %284 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %283, i32 noundef 8, i32 noundef %2)
-  br i1 %284, label %285, label %378
+_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110IsOpenGateERKNS0_7ElementE.exit.thread: ; preds = %271
+  %280 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %281 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %280, i32 noundef 8, i32 noundef %2)
+  br i1 %281, label %282, label %375
 
-285:                                              ; preds = %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110IsOpenGateERKNS0_7ElementE.exit.thread
+282:                                              ; preds = %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110IsOpenGateERKNS0_7ElementE.exit.thread
   %.sroa.023.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE, align 8
-  %286 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %283, i64 %.sroa.023.0.copyload, i64 poison, i32 noundef %2)
-  br i1 %286, label %287, label %309
+  %283 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %280, i64 %.sroa.023.0.copyload, i64 poison, i32 noundef %2)
+  br i1 %283, label %284, label %306
 
-287:                                              ; preds = %285
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %289 = load i32, ptr %288, align 4
-  %290 = add nsw i32 %289, 1
-  store i32 %290, ptr %288, align 4
-  %291 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %283, i32 noundef %2)
-  %292 = sext i32 %291 to i64
-  %293 = load ptr, ptr %256, align 8
-  %294 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %293, i64 %292
-  %.sroa.0.0.copyload.i214 = load i64, ptr %294, align 4
+284:                                              ; preds = %282
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %286 = load i32, ptr %285, align 4
+  %287 = add nsw i32 %286, 1
+  store i32 %287, ptr %285, align 4
+  %288 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %280, i32 noundef %2)
+  %289 = sext i32 %288 to i64
+  %290 = load ptr, ptr %253, align 8
+  %291 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %290, i64 %289
+  %.sroa.0.0.copyload.i214 = load i64, ptr %291, align 4
   %.sroa.0252.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i214 to i32
-  %295 = tail call fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kGemPointsE, i32 %.sroa.0252.0.extract.trunc)
-  %296 = load i32, ptr %295, align 4
-  %297 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %298 = load i32, ptr %297, align 8
-  %299 = add nsw i32 %298, %296
-  store i32 %299, ptr %297, align 8
-  %300 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %283, i32 noundef %2)
-  %301 = sext i32 %300 to i64
-  %302 = load ptr, ptr %256, align 8
-  %303 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %302, i64 %301
-  %.sroa.0.0.copyload.i219 = load i64, ptr %303, align 4
+  %292 = tail call fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kGemPointsE, i32 %.sroa.0252.0.extract.trunc)
+  %293 = load i32, ptr %292, align 4
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %295 = load i32, ptr %294, align 8
+  %296 = add nsw i32 %295, %293
+  store i32 %296, ptr %294, align 8
+  %297 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %280, i32 noundef %2)
+  %298 = sext i32 %297 to i64
+  %299 = load ptr, ptr %253, align 8
+  %300 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %299, i64 %298
+  %.sroa.0.0.copyload.i219 = load i64, ptr %300, align 4
   %.sroa.0247.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i219 to i32
-  %304 = tail call fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kGemPointsE, i32 %.sroa.0247.0.extract.trunc)
-  %305 = load i32, ptr %304, align 4
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %307 = load i32, ptr %306, align 4
-  %308 = add nsw i32 %307, %305
-  store i32 %308, ptr %306, align 4
-  br label %327
+  %301 = tail call fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kGemPointsE, i32 %.sroa.0247.0.extract.trunc)
+  %302 = load i32, ptr %301, align 4
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %304 = load i32, ptr %303, align 4
+  %305 = add nsw i32 %304, %302
+  store i32 %305, ptr %303, align 4
+  br label %324
 
-309:                                              ; preds = %285
-  %310 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %283, i32 noundef %2)
-  %311 = sext i32 %310 to i64
-  %312 = load ptr, ptr %256, align 8
-  %313 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %312, i64 %311
-  %.sroa.0.0.copyload.i224 = load i64, ptr %313, align 4
+306:                                              ; preds = %282
+  %307 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %280, i32 noundef %2)
+  %308 = sext i32 %307 to i64
+  %309 = load ptr, ptr %253, align 8
+  %310 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %309, i64 %308
+  %.sroa.0.0.copyload.i224 = load i64, ptr %310, align 4
   %.sroa.0242.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i224 to i32
-  %314 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kElKeyRedE, align 4
-  %315 = icmp eq i32 %314, %.sroa.0242.0.extract.trunc
-  %316 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElKeyBlueE, align 4
-  %317 = icmp eq i32 %316, %.sroa.0242.0.extract.trunc
-  %or.cond.i229 = select i1 %315, i1 true, i1 %317
-  %318 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kElKeyGreenE, align 4
-  %319 = icmp eq i32 %318, %.sroa.0242.0.extract.trunc
-  %or.cond3.i230 = select i1 %or.cond.i229, i1 true, i1 %319
-  %320 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kElKeyYellowE, align 4
-  %321 = icmp eq i32 %320, %.sroa.0242.0.extract.trunc
-  %or.cond291 = select i1 %or.cond3.i230, i1 true, i1 %321
-  br i1 %or.cond291, label %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit231.thread, label %327
+  %311 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kElKeyRedE, align 4
+  %312 = icmp eq i32 %311, %.sroa.0242.0.extract.trunc
+  %313 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElKeyBlueE, align 4
+  %314 = icmp eq i32 %313, %.sroa.0242.0.extract.trunc
+  %or.cond.i229 = select i1 %312, i1 true, i1 %314
+  %315 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kElKeyGreenE, align 4
+  %316 = icmp eq i32 %315, %.sroa.0242.0.extract.trunc
+  %or.cond3.i230 = select i1 %or.cond.i229, i1 true, i1 %316
+  %317 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kElKeyYellowE, align 4
+  %318 = icmp eq i32 %317, %.sroa.0242.0.extract.trunc
+  %or.cond291 = select i1 %or.cond3.i230, i1 true, i1 %318
+  br i1 %or.cond291, label %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit231.thread, label %324
 
-_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit231.thread: ; preds = %309
-  %322 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %283, i32 noundef %2)
-  %323 = sext i32 %322 to i64
-  %324 = load ptr, ptr %256, align 8
-  %325 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %324, i64 %323
-  %.sroa.0.0.copyload.i232 = load i64, ptr %325, align 4
+_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit231.thread: ; preds = %306
+  %319 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %280, i32 noundef %2)
+  %320 = sext i32 %319 to i64
+  %321 = load ptr, ptr %253, align 8
+  %322 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %321, i64 %320
+  %.sroa.0.0.copyload.i232 = load i64, ptr %322, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i232 to i32
-  %326 = tail call fastcc noundef nonnull align 4 dereferenceable(14) ptr @_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kKeyToGateE, i32 %.sroa.0.0.extract.trunc)
-  %.sroa.09.0.copyload = load i64, ptr %326, align 4
+  %323 = tail call fastcc noundef nonnull align 4 dereferenceable(14) ptr @_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kKeyToGateE, i32 %.sroa.0.0.extract.trunc)
+  %.sroa.09.0.copyload = load i64, ptr %323, align 4
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8OpenGateENS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(188) %0, i64 %.sroa.09.0.copyload, i64 poison)
-  br label %327
+  br label %324
 
-327:                                              ; preds = %309, %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit231.thread, %287
+324:                                              ; preds = %306, %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit231.thread, %284
   %.sroa.05.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElAgentE, align 8
   %.sroa.26.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElAgentE, i64 8), align 8
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %329 = sext i32 %1 to i64
-  %330 = load ptr, ptr %328, align 8
-  %331 = getelementptr inbounds i32, ptr %330, i64 %329
-  %332 = load i32, ptr %331, align 4
-  %333 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %283, i32 noundef %2)
-  %334 = sext i32 %333 to i64
-  %335 = load ptr, ptr %256, align 8
-  %336 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %335, i64 %334
-  store i64 %.sroa.05.0.copyload, ptr %336, align 4
-  %.sroa.2.0..sroa_idx.i237 = getelementptr inbounds nuw i8, ptr %336, i64 8
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %326 = sext i32 %1 to i64
+  %327 = load ptr, ptr %325, align 8
+  %328 = getelementptr inbounds i32, ptr %327, i64 %326
+  %329 = load i32, ptr %328, align 4
+  %330 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %280, i32 noundef %2)
+  %331 = sext i32 %330 to i64
+  %332 = load ptr, ptr %253, align 8
+  %333 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %332, i64 %331
+  store i64 %.sroa.05.0.copyload, ptr %333, align 4
+  %.sroa.2.0..sroa_idx.i237 = getelementptr inbounds nuw i8, ptr %333, i64 8
   %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.26.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i237, align 4
-  %337 = load ptr, ptr %328, align 8
-  %338 = getelementptr inbounds i32, ptr %337, i64 %334
-  store i32 %332, ptr %338, align 4
-  %339 = load ptr, ptr %256, align 8
-  %340 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %339, i64 %334
-  %341 = getelementptr inbounds nuw i8, ptr %340, i64 13
-  store i8 1, ptr %341, align 1
+  %334 = load ptr, ptr %325, align 8
+  %335 = getelementptr inbounds i32, ptr %334, i64 %331
+  store i32 %329, ptr %335, align 4
+  %336 = load ptr, ptr %253, align 8
+  %337 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %336, i64 %331
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 13
+  store i8 1, ptr %338, align 1
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
   %.sroa.24.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 8), align 8
-  %342 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %343 = load i32, ptr %342, align 4
-  %344 = add nsw i32 %343, 1
-  store i32 %344, ptr %342, align 4
-  %345 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %346 = sext i32 %345 to i64
-  %347 = load ptr, ptr %256, align 8
-  %348 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %347, i64 %346
-  store i64 %.sroa.03.0.copyload, ptr %348, align 4
-  %.sroa.2.0..sroa_idx.i238 = getelementptr inbounds nuw i8, ptr %348, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %340 = load i32, ptr %339, align 4
+  %341 = add nsw i32 %340, 1
+  store i32 %341, ptr %339, align 4
+  %342 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %343 = sext i32 %342 to i64
+  %344 = load ptr, ptr %253, align 8
+  %345 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %344, i64 %343
+  store i64 %.sroa.03.0.copyload, ptr %345, align 4
+  %.sroa.2.0..sroa_idx.i238 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %.sroa.2.0.extract.trunc.i239 = trunc i64 %.sroa.24.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i239, ptr %.sroa.2.0..sroa_idx.i238, align 4
-  %349 = load ptr, ptr %328, align 8
-  %350 = getelementptr inbounds i32, ptr %349, i64 %346
-  store i32 %344, ptr %350, align 4
-  %351 = load ptr, ptr %256, align 8
-  %352 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %351, i64 %346
-  %353 = getelementptr inbounds nuw i8, ptr %352, i64 13
-  store i8 1, ptr %353, align 1
-  br label %378
+  %346 = load ptr, ptr %325, align 8
+  %347 = getelementptr inbounds i32, ptr %346, i64 %343
+  store i32 %341, ptr %347, align 4
+  %348 = load ptr, ptr %253, align 8
+  %349 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %348, i64 %343
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 13
+  store i8 1, ptr %350, align 1
+  br label %375
 
-354:                                              ; preds = %274
+351:                                              ; preds = %271
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kElExitOpenE, align 8
-  %355 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.01.0.copyload, i64 poison, i32 noundef %2)
-  br i1 %355, label %356, label %378
+  %352 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.01.0.copyload, i64 poison, i32 noundef %2)
+  br i1 %352, label %353, label %375
 
-356:                                              ; preds = %354
+353:                                              ; preds = %351
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8MoveItemEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
   %.sroa.0.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElAgentInExitE, align 8
   %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElAgentInExitE, i64 8), align 8
-  %357 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %358 = load i32, ptr %357, align 4
-  %359 = add nsw i32 %358, 1
-  store i32 %359, ptr %357, align 4
-  %360 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %361 = sext i32 %360 to i64
-  %362 = load ptr, ptr %256, align 8
-  %363 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %362, i64 %361
-  store i64 %.sroa.0.0.copyload, ptr %363, align 4
-  %.sroa.2.0..sroa_idx.i240 = getelementptr inbounds nuw i8, ptr %363, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %355 = load i32, ptr %354, align 4
+  %356 = add nsw i32 %355, 1
+  store i32 %356, ptr %354, align 4
+  %357 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %358 = sext i32 %357 to i64
+  %359 = load ptr, ptr %253, align 8
+  %360 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %359, i64 %358
+  store i64 %.sroa.0.0.copyload, ptr %360, align 4
+  %.sroa.2.0..sroa_idx.i240 = getelementptr inbounds nuw i8, ptr %360, i64 8
   %.sroa.2.0.extract.trunc.i241 = trunc i64 %.sroa.2.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i241, ptr %.sroa.2.0..sroa_idx.i240, align 4
-  %364 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr inbounds i32, ptr %365, i64 %361
-  store i32 %359, ptr %366, align 4
-  %367 = load ptr, ptr %256, align 8
-  %368 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %367, i64 %361
-  %369 = getelementptr inbounds nuw i8, ptr %368, i64 13
-  store i8 1, ptr %369, align 1
-  %370 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %371 = load i32, ptr %370, align 4
-  %372 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %373 = load i32, ptr %372, align 8
-  %374 = add nsw i32 %373, %371
-  store i32 %374, ptr %372, align 8
-  %375 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %376 = load i32, ptr %375, align 4
-  %377 = add nsw i32 %376, %371
-  store i32 %377, ptr %375, align 4
-  br label %378
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %362 = load ptr, ptr %361, align 8
+  %363 = getelementptr inbounds i32, ptr %362, i64 %358
+  store i32 %356, ptr %363, align 4
+  %364 = load ptr, ptr %253, align 8
+  %365 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %364, i64 %358
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 13
+  store i8 1, ptr %366, align 1
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %368 = load i32, ptr %367, align 4
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %370 = load i32, ptr %369, align 8
+  %371 = add nsw i32 %370, %368
+  store i32 %371, ptr %369, align 8
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %373 = load i32, ptr %372, align 4
+  %374 = add nsw i32 %373, %368
+  store i32 %374, ptr %372, align 4
+  br label %375
 
-378:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit169, %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit.thread, %354, %356, %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110IsOpenGateERKNS0_7ElementE.exit.thread, %327, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, %20
+375:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit169, %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit.thread, %351, %353, %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110IsOpenGateERKNS0_7ElementE.exit.thread, %324, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, %20
   ret void
 }
 
@@ -8001,9 +7991,9 @@ define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4absl
   %16 = load ptr, ptr %15, align 8
   br label %17
 
-17:                                               ; preds = %37, %1
-  %.pn29.i.i.i = phi i64 [ %10, %1 ], [ %39, %37 ]
-  %.sroa.10.0.i.i.i = phi i64 [ 0, %1 ], [ %38, %37 ]
+17:                                               ; preds = %36, %1
+  %.pn29.i.i.i = phi i64 [ %10, %1 ], [ %38, %36 ]
+  %.sroa.10.0.i.i.i = phi i64 [ 0, %1 ], [ %37, %36 ]
   %.sroa.4.0.i.i.i = and i64 %.pn29.i.i.i, %6
   %18 = getelementptr inbounds i8, ptr %4, i64 %.sroa.4.0.i.i.i
   %19 = load <16 x i8>, ptr %18, align 1
@@ -8016,8 +8006,8 @@ define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4absl
   %22 = zext i16 %21 to i32
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %32, %.lr.ph.preheader.i.i.i
-  %.sroa.013.028.i.i.i = phi i32 [ %34, %32 ], [ %22, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %31, %.lr.ph.preheader.i.i.i
+  %.sroa.013.028.i.i.i = phi i32 [ %33, %31 ], [ %22, %.lr.ph.preheader.i.i.i ]
   %23 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i, i1 true)
   %24 = zext nneg i32 %23 to i64
   %25 = add i64 %.sroa.4.0.i.i.i, %24
@@ -8025,56 +8015,55 @@ define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4absl
   %27 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.227", ptr %16, i64 %26
   %.val8.i.i.i = load i32, ptr %27, align 4
   %28 = icmp eq i32 %.val8.i.i.i, %.0.val
-  br i1 %28, label %29, label %32
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i.i.i
   %30 = getelementptr inbounds i8, ptr %4, i64 %26
-  %31 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %31)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %30, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %27, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-32:                                               ; preds = %.lr.ph.i.i.i
-  %33 = add nsw i32 %.sroa.013.028.i.i.i, -1
-  %34 = and i32 %33, %.sroa.013.028.i.i.i
-  %.not.i.i.i = icmp eq i32 %34, 0
+31:                                               ; preds = %.lr.ph.i.i.i
+  %32 = add nsw i32 %.sroa.013.028.i.i.i, -1
+  %33 = and i32 %32, %.sroa.013.028.i.i.i
+  %.not.i.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %32, %17
-  %35 = icmp eq <16 x i8> %19, splat (i8 -128)
-  %36 = bitcast <16 x i1> %35 to i16
-  %.not25.i.i.i = icmp eq i16 %36, 0
-  br i1 %.not25.i.i.i, label %37, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit
+._crit_edge.i.i.i:                                ; preds = %31, %17
+  %34 = icmp eq <16 x i8> %19, splat (i8 -128)
+  %35 = bitcast <16 x i1> %34 to i16
+  %.not25.i.i.i = icmp eq i16 %35, 0
+  br i1 %.not25.i.i.i, label %36, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-37:                                               ; preds = %._crit_edge.i.i.i
-  %38 = add i64 %.sroa.10.0.i.i.i, 16
-  %39 = add i64 %38, %.sroa.4.0.i.i.i
+36:                                               ; preds = %._crit_edge.i.i.i
+  %37 = add i64 %.sroa.10.0.i.i.i, 16
+  %38 = add i64 %37, %.sroa.4.0.i.i.i
   br label %17, !llvm.loop !54
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit: ; preds = %._crit_edge.i.i.i, %29
   %.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %29 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i ]
-  %40 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %45, label %42
+  %39 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %44, label %41
 
-42:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit
-  %43 = load i8, ptr %40, align 1
-  %44 = icmp sgt i8 %43, -1
-  br i1 %44, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE14const_iteratordeEv.exit, label %.critedge.i.i.i
+41:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit
+  %42 = load i8, ptr %39, align 1
+  %43 = icmp sgt i8 %42, -1
+  br i1 %43, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE14const_iteratordeEv.exit, label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %42
+.critedge.i.i.i:                                  ; preds = %41
   tail call void @llvm.trap()
   unreachable
 
-45:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit
+44:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE14const_iteratordeEv.exit: ; preds = %42
-  %46 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  ret ptr %47
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE14const_iteratordeEv.exit: ; preds = %41
+  %45 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  ret ptr %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8128,6 +8117,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState13UpdateFireflyEi
 35:                                               ; preds = %.lr.ph.i.i.i.i
   %36 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.183", ptr %21, i64 %31
   %37 = getelementptr inbounds i8, ptr %11, i64 %31
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %37) ]
   %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %37, 0
   %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %36, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i
@@ -8179,7 +8169,7 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEE
 56:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit
   %.sroa.015.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_17kElBlobE, align 8
   %57 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState14IsTypeAdjacentEiNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.015.0.copyload, i64 poison)
-  br i1 %57, label %58, label %108
+  br i1 %57, label %58, label %107
 
 58:                                               ; preds = %56, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -8204,9 +8194,9 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEE
   %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElementToExplosionE, i64 8), align 8
   br label %77
 
-77:                                               ; preds = %97, %58
-  %.pn29.i.i.i = phi i64 [ %71, %58 ], [ %99, %97 ]
-  %.sroa.10.0.i.i.i = phi i64 [ 0, %58 ], [ %98, %97 ]
+77:                                               ; preds = %96, %58
+  %.pn29.i.i.i = phi i64 [ %71, %58 ], [ %98, %96 ]
+  %.sroa.10.0.i.i.i = phi i64 [ 0, %58 ], [ %97, %96 ]
   %.sroa.4.0.i.i.i = and i64 %.pn29.i.i.i, %67
   %78 = getelementptr inbounds i8, ptr %66, i64 %.sroa.4.0.i.i.i
   %79 = load <16 x i8>, ptr %78, align 1
@@ -8219,8 +8209,8 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEE
   %82 = zext i16 %81 to i32
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %92, %.lr.ph.preheader.i.i.i
-  %.sroa.013.028.i.i.i = phi i32 [ %94, %92 ], [ %82, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %91, %.lr.ph.preheader.i.i.i
+  %.sroa.013.028.i.i.i = phi i32 [ %93, %91 ], [ %82, %.lr.ph.preheader.i.i.i ]
   %83 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i, i1 true)
   %84 = zext nneg i32 %83 to i64
   %85 = add i64 %.sroa.4.0.i.i.i, %84
@@ -8228,565 +8218,568 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEE
   %87 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %76, i64 %86
   %.val8.i.i.i = load i32, ptr %87, align 4
   %88 = icmp eq i32 %.val8.i.i.i, %.sroa.0104.0.extract.trunc
-  br i1 %88, label %89, label %92
+  br i1 %88, label %89, label %91
 
 89:                                               ; preds = %.lr.ph.i.i.i
   %90 = getelementptr inbounds i8, ptr %66, i64 %86
-  %91 = icmp ne ptr %66, null
-  tail call void @llvm.assume(i1 %91)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %90) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %90, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %87, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-92:                                               ; preds = %.lr.ph.i.i.i
-  %93 = add nsw i32 %.sroa.013.028.i.i.i, -1
-  %94 = and i32 %93, %.sroa.013.028.i.i.i
-  %.not.i.i.i = icmp eq i32 %94, 0
+91:                                               ; preds = %.lr.ph.i.i.i
+  %92 = add nsw i32 %.sroa.013.028.i.i.i, -1
+  %93 = and i32 %92, %.sroa.013.028.i.i.i
+  %.not.i.i.i = icmp eq i32 %93, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %92, %77
-  %95 = icmp eq <16 x i8> %79, splat (i8 -128)
-  %96 = bitcast <16 x i1> %95 to i16
-  %.not25.i.i.i = icmp eq i16 %96, 0
-  br i1 %.not25.i.i.i, label %97, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+._crit_edge.i.i.i:                                ; preds = %91, %77
+  %94 = icmp eq <16 x i8> %79, splat (i8 -128)
+  %95 = bitcast <16 x i1> %94 to i16
+  %.not25.i.i.i = icmp eq i16 %95, 0
+  br i1 %.not25.i.i.i, label %96, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-97:                                               ; preds = %._crit_edge.i.i.i
-  %98 = add i64 %.sroa.10.0.i.i.i, 16
-  %99 = add i64 %98, %.sroa.4.0.i.i.i
+96:                                               ; preds = %._crit_edge.i.i.i
+  %97 = add i64 %.sroa.10.0.i.i.i, 16
+  %98 = add i64 %97, %.sroa.4.0.i.i.i
   br label %77, !llvm.loop !51
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit: ; preds = %._crit_edge.i.i.i, %89
   %.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %89 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i ]
-  %100 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
-  %101 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
-  %102 = icmp eq ptr %100, null
-  br i1 %102, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %103
+  %99 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
+  %100 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
+  %101 = icmp eq ptr %99, null
+  br i1 %101, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %102
 
-103:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
-  %104 = load i8, ptr %100, align 1
-  %105 = icmp sgt i8 %104, -1
-  br i1 %105, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
+102:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+  %103 = load i8, ptr %99, align 1
+  %104 = icmp sgt i8 %103, -1
+  br i1 %104, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %103
+.critedge.i.i.i:                                  ; preds = %102
   tail call void @llvm.trap()
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %103
-  %106 = getelementptr inbounds nuw i8, ptr %101, i64 16
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %102
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 16
   br label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread
 
 _ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread: ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit
-  %107 = phi ptr [ %106, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
-  %.sroa.011.0.copyload = load i64, ptr %107, align 4
-  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %106 = phi ptr [ %105, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
+  %.sroa.011.0.copyload = load i64, ptr %106, align 4
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 8
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 4
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.011.0.copyload, i64 %.sroa.212.0.copyload, i32 noundef 0)
-  br label %382
+  br label %381
 
-108:                                              ; preds = %56
+107:                                              ; preds = %56
   %.sroa.07.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
-  %109 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %54)
-  %110 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %54)
-  br i1 %110, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
+  %108 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %54)
+  %109 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %54)
+  br i1 %109, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
 
-_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit: ; preds = %108
+_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit: ; preds = %107
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.07.0.copyload to i32
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %112 = sext i32 %109 to i64
-  %113 = load ptr, ptr %111, align 8
-  %114 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %113, i64 %112
-  %115 = load i32, ptr %114, align 4
-  %116 = icmp eq i32 %115, %.sroa.0.0.extract.trunc.i
-  br i1 %116, label %117, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %111 = sext i32 %108 to i64
+  %112 = load ptr, ptr %110, align 8
+  %113 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %112, i64 %111
+  %114 = load i32, ptr %113, align 4
+  %115 = icmp eq i32 %114, %.sroa.0.0.extract.trunc.i
+  br i1 %115, label %116, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
 
-117:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
-  %118 = sext i32 %54 to i64
-  %119 = add i64 %118, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
-  %120 = zext i64 %119 to i128
-  %121 = mul nuw i128 %120, 11376068507788127593
-  %122 = lshr i128 %121, 64
-  %123 = xor i128 %122, %121
-  %124 = trunc i128 %123 to i64
-  %125 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, align 8
-  %126 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, i64 24), align 8
-  %127 = lshr i64 %124, 7
-  %128 = ptrtoint ptr %125 to i64
-  %129 = lshr i64 %128, 12
-  %130 = xor i64 %129, %127
-  %131 = trunc i128 %123 to i8
-  %132 = and i8 %131, 127
-  %133 = insertelement <16 x i8> poison, i8 %132, i64 0
-  %134 = shufflevector <16 x i8> %133, <16 x i8> poison, <16 x i32> zeroinitializer
-  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, i64 8), align 8
-  br label %136
+116:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
+  %117 = sext i32 %54 to i64
+  %118 = add i64 %117, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
+  %119 = zext i64 %118 to i128
+  %120 = mul nuw i128 %119, 11376068507788127593
+  %121 = lshr i128 %120, 64
+  %122 = xor i128 %121, %120
+  %123 = trunc i128 %122 to i64
+  %124 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, align 8
+  %125 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, i64 24), align 8
+  %126 = lshr i64 %123, 7
+  %127 = ptrtoint ptr %124 to i64
+  %128 = lshr i64 %127, 12
+  %129 = xor i64 %128, %126
+  %130 = trunc i128 %122 to i8
+  %131 = and i8 %130, 127
+  %132 = insertelement <16 x i8> poison, i8 %131, i64 0
+  %133 = shufflevector <16 x i8> %132, <16 x i8> poison, <16 x i32> zeroinitializer
+  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, i64 8), align 8
+  br label %135
 
-136:                                              ; preds = %156, %117
-  %.pn26.i.i.i.i = phi i64 [ %130, %117 ], [ %158, %156 ]
-  %.sroa.10.0.i.i.i.i38 = phi i64 [ 0, %117 ], [ %157, %156 ]
-  %.sroa.4.0.i.i.i.i39 = and i64 %.pn26.i.i.i.i, %126
-  %137 = getelementptr inbounds i8, ptr %125, i64 %.sroa.4.0.i.i.i.i39
-  %138 = load <16 x i8>, ptr %137, align 1
-  %139 = icmp eq <16 x i8> %134, %138
-  %140 = bitcast <16 x i1> %139 to i16
-  %.not24.i.i.i.i = icmp eq i16 %140, 0
+135:                                              ; preds = %155, %116
+  %.pn26.i.i.i.i = phi i64 [ %129, %116 ], [ %157, %155 ]
+  %.sroa.10.0.i.i.i.i38 = phi i64 [ 0, %116 ], [ %156, %155 ]
+  %.sroa.4.0.i.i.i.i39 = and i64 %.pn26.i.i.i.i, %125
+  %136 = getelementptr inbounds i8, ptr %124, i64 %.sroa.4.0.i.i.i.i39
+  %137 = load <16 x i8>, ptr %136, align 1
+  %138 = icmp eq <16 x i8> %133, %137
+  %139 = bitcast <16 x i1> %138 to i16
+  %.not24.i.i.i.i = icmp eq i16 %139, 0
   br i1 %.not24.i.i.i.i, label %._crit_edge.i.i.i.i43, label %.lr.ph.preheader.i.i.i.i40
 
-.lr.ph.preheader.i.i.i.i40:                       ; preds = %136
-  %141 = zext i16 %140 to i32
+.lr.ph.preheader.i.i.i.i40:                       ; preds = %135
+  %140 = zext i16 %139 to i32
   br label %.lr.ph.i.i.i.i41
 
-.lr.ph.i.i.i.i41:                                 ; preds = %151, %.lr.ph.preheader.i.i.i.i40
-  %.sroa.010.025.i.i.i.i = phi i32 [ %153, %151 ], [ %141, %.lr.ph.preheader.i.i.i.i40 ]
-  %142 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i, i1 true)
-  %143 = zext nneg i32 %142 to i64
-  %144 = add i64 %.sroa.4.0.i.i.i.i39, %143
-  %145 = and i64 %144, %126
-  %146 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %135, i64 %145
-  %147 = load i32, ptr %146, align 4
-  %148 = icmp eq i32 %147, %54
-  br i1 %148, label %149, label %151
+.lr.ph.i.i.i.i41:                                 ; preds = %150, %.lr.ph.preheader.i.i.i.i40
+  %.sroa.010.025.i.i.i.i = phi i32 [ %152, %150 ], [ %140, %.lr.ph.preheader.i.i.i.i40 ]
+  %141 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i, i1 true)
+  %142 = zext nneg i32 %141 to i64
+  %143 = add i64 %.sroa.4.0.i.i.i.i39, %142
+  %144 = and i64 %143, %125
+  %145 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %134, i64 %144
+  %146 = load i32, ptr %145, align 4
+  %147 = icmp eq i32 %146, %54
+  br i1 %147, label %148, label %150
 
-149:                                              ; preds = %.lr.ph.i.i.i.i41
-  %150 = getelementptr inbounds i8, ptr %125, i64 %145
-  %.fca.0.insert.i.i.i.i.i47 = insertvalue { ptr, ptr } poison, ptr %150, 0
-  %.fca.1.insert.i.i.i.i.i48 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i47, ptr %146, 1
+148:                                              ; preds = %.lr.ph.i.i.i.i41
+  %149 = getelementptr inbounds i8, ptr %124, i64 %144
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %149) ]
+  %.fca.0.insert.i.i.i.i.i47 = insertvalue { ptr, ptr } poison, ptr %149, 0
+  %.fca.1.insert.i.i.i.i.i48 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i47, ptr %145, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
 
-151:                                              ; preds = %.lr.ph.i.i.i.i41
-  %152 = add nsw i32 %.sroa.010.025.i.i.i.i, -1
-  %153 = and i32 %152, %.sroa.010.025.i.i.i.i
-  %.not.i.i.i.i42 = icmp eq i32 %153, 0
+150:                                              ; preds = %.lr.ph.i.i.i.i41
+  %151 = add nsw i32 %.sroa.010.025.i.i.i.i, -1
+  %152 = and i32 %151, %.sroa.010.025.i.i.i.i
+  %.not.i.i.i.i42 = icmp eq i32 %152, 0
   br i1 %.not.i.i.i.i42, label %._crit_edge.i.i.i.i43, label %.lr.ph.i.i.i.i41
 
-._crit_edge.i.i.i.i43:                            ; preds = %151, %136
-  %154 = icmp eq <16 x i8> %138, splat (i8 -128)
-  %155 = bitcast <16 x i1> %154 to i16
-  %.not22.i.i.i.i44 = icmp eq i16 %155, 0
-  br i1 %.not22.i.i.i.i44, label %156, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
+._crit_edge.i.i.i.i43:                            ; preds = %150, %135
+  %153 = icmp eq <16 x i8> %137, splat (i8 -128)
+  %154 = bitcast <16 x i1> %153 to i16
+  %.not22.i.i.i.i44 = icmp eq i16 %154, 0
+  br i1 %.not22.i.i.i.i44, label %155, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
 
-156:                                              ; preds = %._crit_edge.i.i.i.i43
-  %157 = add i64 %.sroa.10.0.i.i.i.i38, 16
-  %158 = add i64 %157, %.sroa.4.0.i.i.i.i39
-  br label %136, !llvm.loop !56
+155:                                              ; preds = %._crit_edge.i.i.i.i43
+  %156 = add i64 %.sroa.10.0.i.i.i.i38, 16
+  %157 = add i64 %156, %.sroa.4.0.i.i.i.i39
+  br label %135, !llvm.loop !56
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i: ; preds = %._crit_edge.i.i.i.i43, %149
-  %.pn.i.i.i.i45 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i48, %149 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i43 ]
-  %159 = extractvalue { ptr, ptr } %.pn.i.i.i.i45, 0
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %164, label %161
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i: ; preds = %._crit_edge.i.i.i.i43, %148
+  %.pn.i.i.i.i45 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i48, %148 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i43 ]
+  %158 = extractvalue { ptr, ptr } %.pn.i.i.i.i45, 0
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %163, label %160
 
-161:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
-  %162 = load i8, ptr %159, align 1
-  %163 = icmp sgt i8 %162, -1
-  br i1 %163, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit, label %.critedge.i.i.i.i46
+160:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
+  %161 = load i8, ptr %158, align 1
+  %162 = icmp sgt i8 %161, -1
+  br i1 %162, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit, label %.critedge.i.i.i.i46
 
-.critedge.i.i.i.i46:                              ; preds = %161
+.critedge.i.i.i.i46:                              ; preds = %160
   tail call void @llvm.trap()
   unreachable
 
-164:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
+163:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit: ; preds = %161
-  %165 = extractvalue { ptr, ptr } %.pn.i.i.i.i45, 1
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
-  %.sroa.05.0.copyload = load i64, ptr %166, align 4
-  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 12
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit: ; preds = %160
+  %164 = extractvalue { ptr, ptr } %.pn.i.i.i.i45, 1
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
+  %.sroa.05.0.copyload = load i64, ptr %165, align 4
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 12
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %168 = sext i32 %1 to i64
-  %169 = load ptr, ptr %167, align 8
-  %170 = getelementptr inbounds i32, ptr %169, i64 %168
-  %171 = load i32, ptr %170, align 4
-  %172 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %173 = sext i32 %172 to i64
-  %174 = load ptr, ptr %111, align 8
-  %175 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %174, i64 %173
-  store i64 %.sroa.05.0.copyload, ptr %175, align 4
-  %.sroa.2.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %167 = sext i32 %1 to i64
+  %168 = load ptr, ptr %166, align 8
+  %169 = getelementptr inbounds i32, ptr %168, i64 %167
+  %170 = load i32, ptr %169, align 4
+  %171 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %172 = sext i32 %171 to i64
+  %173 = load ptr, ptr %110, align 8
+  %174 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %173, i64 %172
+  store i64 %.sroa.05.0.copyload, ptr %174, align 4
+  %.sroa.2.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.26.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i49, align 4
-  %176 = load ptr, ptr %167, align 8
-  %177 = getelementptr inbounds i32, ptr %176, i64 %173
-  store i32 %171, ptr %177, align 4
-  %178 = load ptr, ptr %111, align 8
-  %179 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %178, i64 %173
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 13
-  store i8 1, ptr %180, align 1
-  %181 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %54)
-  %182 = load ptr, ptr %111, align 8
-  %183 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %182, i64 %168
-  %184 = sext i32 %181 to i64
-  %185 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %182, i64 %184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %185, ptr noundef nonnull align 4 dereferenceable(14) %183, i64 14, i1 false)
-  %186 = load ptr, ptr %167, align 8
-  %187 = getelementptr inbounds i32, ptr %186, i64 %168
-  %188 = load i32, ptr %187, align 4
-  %189 = getelementptr inbounds i32, ptr %186, i64 %184
-  store i32 %188, ptr %189, align 4
-  %190 = load ptr, ptr %111, align 8
-  %191 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %190, i64 %184
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 13
-  store i8 1, ptr %192, align 1
-  %193 = load ptr, ptr %111, align 8
-  %194 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %193, i64 %168
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %194, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %196 = load i32, ptr %195, align 4
-  %197 = add nsw i32 %196, 1
-  store i32 %197, ptr %195, align 4
-  %198 = load ptr, ptr %167, align 8
-  %199 = getelementptr inbounds i32, ptr %198, i64 %168
-  store i32 %197, ptr %199, align 4
-  br label %382
+  %175 = load ptr, ptr %166, align 8
+  %176 = getelementptr inbounds i32, ptr %175, i64 %172
+  store i32 %170, ptr %176, align 4
+  %177 = load ptr, ptr %110, align 8
+  %178 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %177, i64 %172
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 13
+  store i8 1, ptr %179, align 1
+  %180 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %54)
+  %181 = load ptr, ptr %110, align 8
+  %182 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %181, i64 %167
+  %183 = sext i32 %180 to i64
+  %184 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %181, i64 %183
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %184, ptr noundef nonnull align 4 dereferenceable(14) %182, i64 14, i1 false)
+  %185 = load ptr, ptr %166, align 8
+  %186 = getelementptr inbounds i32, ptr %185, i64 %167
+  %187 = load i32, ptr %186, align 4
+  %188 = getelementptr inbounds i32, ptr %185, i64 %183
+  store i32 %187, ptr %188, align 4
+  %189 = load ptr, ptr %110, align 8
+  %190 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %189, i64 %183
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 13
+  store i8 1, ptr %191, align 1
+  %192 = load ptr, ptr %110, align 8
+  %193 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %192, i64 %167
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %193, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %195 = load i32, ptr %194, align 4
+  %196 = add nsw i32 %195, 1
+  store i32 %196, ptr %194, align 4
+  %197 = load ptr, ptr %166, align 8
+  %198 = getelementptr inbounds i32, ptr %197, i64 %167
+  store i32 %196, ptr %198, align 4
+  br label %381
 
-_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread: ; preds = %108, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
+_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread: ; preds = %107, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
-  %200 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %201 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  br i1 %201, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
+  %199 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %200 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  br i1 %200, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
   %.sroa.0.0.extract.trunc.i50 = trunc i64 %.sroa.03.0.copyload to i32
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %203 = sext i32 %200 to i64
-  %204 = load ptr, ptr %202, align 8
-  %205 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %204, i64 %203
-  %206 = load i32, ptr %205, align 4
-  %207 = icmp eq i32 %206, %.sroa.0.0.extract.trunc.i50
-  br i1 %207, label %208, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %202 = sext i32 %199 to i64
+  %203 = load ptr, ptr %201, align 8
+  %204 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %203, i64 %202
+  %205 = load i32, ptr %204, align 4
+  %206 = icmp eq i32 %205, %.sroa.0.0.extract.trunc.i50
+  br i1 %206, label %207, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
 
-208:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51
-  %209 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, align 8
-  %210 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, i64 24), align 8
-  %211 = ptrtoint ptr %209 to i64
-  %212 = lshr i64 %211, 12
-  %213 = xor i64 %212, %13
-  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, i64 8), align 8
-  br label %215
+207:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51
+  %208 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, align 8
+  %209 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, i64 24), align 8
+  %210 = ptrtoint ptr %208 to i64
+  %211 = lshr i64 %210, 12
+  %212 = xor i64 %211, %13
+  %213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, i64 8), align 8
+  br label %214
 
-215:                                              ; preds = %235, %208
-  %.pn26.i.i.i.i52 = phi i64 [ %213, %208 ], [ %237, %235 ]
-  %.sroa.10.0.i.i.i.i53 = phi i64 [ 0, %208 ], [ %236, %235 ]
-  %.sroa.4.0.i.i.i.i54 = and i64 %.pn26.i.i.i.i52, %210
-  %216 = getelementptr inbounds i8, ptr %209, i64 %.sroa.4.0.i.i.i.i54
-  %217 = load <16 x i8>, ptr %216, align 1
-  %218 = icmp eq <16 x i8> %20, %217
-  %219 = bitcast <16 x i1> %218 to i16
-  %.not24.i.i.i.i55 = icmp eq i16 %219, 0
+214:                                              ; preds = %234, %207
+  %.pn26.i.i.i.i52 = phi i64 [ %212, %207 ], [ %236, %234 ]
+  %.sroa.10.0.i.i.i.i53 = phi i64 [ 0, %207 ], [ %235, %234 ]
+  %.sroa.4.0.i.i.i.i54 = and i64 %.pn26.i.i.i.i52, %209
+  %215 = getelementptr inbounds i8, ptr %208, i64 %.sroa.4.0.i.i.i.i54
+  %216 = load <16 x i8>, ptr %215, align 1
+  %217 = icmp eq <16 x i8> %20, %216
+  %218 = bitcast <16 x i1> %217 to i16
+  %.not24.i.i.i.i55 = icmp eq i16 %218, 0
   br i1 %.not24.i.i.i.i55, label %._crit_edge.i.i.i.i60, label %.lr.ph.preheader.i.i.i.i56
 
-.lr.ph.preheader.i.i.i.i56:                       ; preds = %215
-  %220 = zext i16 %219 to i32
+.lr.ph.preheader.i.i.i.i56:                       ; preds = %214
+  %219 = zext i16 %218 to i32
   br label %.lr.ph.i.i.i.i57
 
-.lr.ph.i.i.i.i57:                                 ; preds = %230, %.lr.ph.preheader.i.i.i.i56
-  %.sroa.010.025.i.i.i.i58 = phi i32 [ %232, %230 ], [ %220, %.lr.ph.preheader.i.i.i.i56 ]
-  %221 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i58, i1 true)
-  %222 = zext nneg i32 %221 to i64
-  %223 = add i64 %.sroa.4.0.i.i.i.i54, %222
-  %224 = and i64 %223, %210
-  %225 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %214, i64 %224
-  %226 = load i32, ptr %225, align 4
-  %227 = icmp eq i32 %226, %2
-  br i1 %227, label %228, label %230
+.lr.ph.i.i.i.i57:                                 ; preds = %229, %.lr.ph.preheader.i.i.i.i56
+  %.sroa.010.025.i.i.i.i58 = phi i32 [ %231, %229 ], [ %219, %.lr.ph.preheader.i.i.i.i56 ]
+  %220 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i58, i1 true)
+  %221 = zext nneg i32 %220 to i64
+  %222 = add i64 %.sroa.4.0.i.i.i.i54, %221
+  %223 = and i64 %222, %209
+  %224 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %213, i64 %223
+  %225 = load i32, ptr %224, align 4
+  %226 = icmp eq i32 %225, %2
+  br i1 %226, label %227, label %229
 
-228:                                              ; preds = %.lr.ph.i.i.i.i57
-  %229 = getelementptr inbounds i8, ptr %209, i64 %224
-  %.fca.0.insert.i.i.i.i.i65 = insertvalue { ptr, ptr } poison, ptr %229, 0
-  %.fca.1.insert.i.i.i.i.i66 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i65, ptr %225, 1
+227:                                              ; preds = %.lr.ph.i.i.i.i57
+  %228 = getelementptr inbounds i8, ptr %208, i64 %223
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %228) ]
+  %.fca.0.insert.i.i.i.i.i65 = insertvalue { ptr, ptr } poison, ptr %228, 0
+  %.fca.1.insert.i.i.i.i.i66 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i65, ptr %224, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
 
-230:                                              ; preds = %.lr.ph.i.i.i.i57
-  %231 = add nsw i32 %.sroa.010.025.i.i.i.i58, -1
-  %232 = and i32 %231, %.sroa.010.025.i.i.i.i58
-  %.not.i.i.i.i59 = icmp eq i32 %232, 0
+229:                                              ; preds = %.lr.ph.i.i.i.i57
+  %230 = add nsw i32 %.sroa.010.025.i.i.i.i58, -1
+  %231 = and i32 %230, %.sroa.010.025.i.i.i.i58
+  %.not.i.i.i.i59 = icmp eq i32 %231, 0
   br i1 %.not.i.i.i.i59, label %._crit_edge.i.i.i.i60, label %.lr.ph.i.i.i.i57
 
-._crit_edge.i.i.i.i60:                            ; preds = %230, %215
-  %233 = icmp eq <16 x i8> %217, splat (i8 -128)
-  %234 = bitcast <16 x i1> %233 to i16
-  %.not22.i.i.i.i61 = icmp eq i16 %234, 0
-  br i1 %.not22.i.i.i.i61, label %235, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
+._crit_edge.i.i.i.i60:                            ; preds = %229, %214
+  %232 = icmp eq <16 x i8> %216, splat (i8 -128)
+  %233 = bitcast <16 x i1> %232 to i16
+  %.not22.i.i.i.i61 = icmp eq i16 %233, 0
+  br i1 %.not22.i.i.i.i61, label %234, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
 
-235:                                              ; preds = %._crit_edge.i.i.i.i60
-  %236 = add i64 %.sroa.10.0.i.i.i.i53, 16
-  %237 = add i64 %236, %.sroa.4.0.i.i.i.i54
-  br label %215, !llvm.loop !56
+234:                                              ; preds = %._crit_edge.i.i.i.i60
+  %235 = add i64 %.sroa.10.0.i.i.i.i53, 16
+  %236 = add i64 %235, %.sroa.4.0.i.i.i.i54
+  br label %214, !llvm.loop !56
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62: ; preds = %._crit_edge.i.i.i.i60, %228
-  %.pn.i.i.i.i63 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i66, %228 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i60 ]
-  %238 = extractvalue { ptr, ptr } %.pn.i.i.i.i63, 0
-  %239 = icmp eq ptr %238, null
-  br i1 %239, label %243, label %240
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62: ; preds = %._crit_edge.i.i.i.i60, %227
+  %.pn.i.i.i.i63 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i66, %227 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i60 ]
+  %237 = extractvalue { ptr, ptr } %.pn.i.i.i.i63, 0
+  %238 = icmp eq ptr %237, null
+  br i1 %238, label %242, label %239
 
-240:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
-  %241 = load i8, ptr %238, align 1
-  %242 = icmp sgt i8 %241, -1
-  br i1 %242, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit67, label %.critedge.i.i.i.i64
+239:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
+  %240 = load i8, ptr %237, align 1
+  %241 = icmp sgt i8 %240, -1
+  br i1 %241, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit67, label %.critedge.i.i.i.i64
 
-.critedge.i.i.i.i64:                              ; preds = %240
+.critedge.i.i.i.i64:                              ; preds = %239
   tail call void @llvm.trap()
   unreachable
 
-243:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
+242:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit67: ; preds = %240
-  %244 = extractvalue { ptr, ptr } %.pn.i.i.i.i63, 1
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 4
-  %.sroa.01.0.copyload = load i64, ptr %245, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %244, i64 12
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit67: ; preds = %239
+  %243 = extractvalue { ptr, ptr } %.pn.i.i.i.i63, 1
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
+  %.sroa.01.0.copyload = load i64, ptr %244, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %243, i64 12
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 4
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %247 = sext i32 %1 to i64
-  %248 = load ptr, ptr %246, align 8
-  %249 = getelementptr inbounds i32, ptr %248, i64 %247
-  %250 = load i32, ptr %249, align 4
-  %251 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %252 = sext i32 %251 to i64
-  %253 = load ptr, ptr %202, align 8
-  %254 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %253, i64 %252
-  store i64 %.sroa.01.0.copyload, ptr %254, align 4
-  %.sroa.2.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %254, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %246 = sext i32 %1 to i64
+  %247 = load ptr, ptr %245, align 8
+  %248 = getelementptr inbounds i32, ptr %247, i64 %246
+  %249 = load i32, ptr %248, align 4
+  %250 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %251 = sext i32 %250 to i64
+  %252 = load ptr, ptr %201, align 8
+  %253 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %252, i64 %251
+  store i64 %.sroa.01.0.copyload, ptr %253, align 4
+  %.sroa.2.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %.sroa.2.0.extract.trunc.i69 = trunc i64 %.sroa.22.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i69, ptr %.sroa.2.0..sroa_idx.i68, align 4
-  %255 = load ptr, ptr %246, align 8
-  %256 = getelementptr inbounds i32, ptr %255, i64 %252
-  store i32 %250, ptr %256, align 4
-  %257 = load ptr, ptr %202, align 8
-  %258 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %257, i64 %252
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 13
-  store i8 1, ptr %259, align 1
-  %260 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %261 = load ptr, ptr %202, align 8
-  %262 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %261, i64 %247
-  %263 = sext i32 %260 to i64
-  %264 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %261, i64 %263
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %264, ptr noundef nonnull align 4 dereferenceable(14) %262, i64 14, i1 false)
-  %265 = load ptr, ptr %246, align 8
-  %266 = getelementptr inbounds i32, ptr %265, i64 %247
-  %267 = load i32, ptr %266, align 4
-  %268 = getelementptr inbounds i32, ptr %265, i64 %263
-  store i32 %267, ptr %268, align 4
-  %269 = load ptr, ptr %202, align 8
-  %270 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %269, i64 %263
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 13
-  store i8 1, ptr %271, align 1
-  %272 = load ptr, ptr %202, align 8
-  %273 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %272, i64 %247
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %273, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %275 = load i32, ptr %274, align 4
-  %276 = add nsw i32 %275, 1
-  store i32 %276, ptr %274, align 4
-  %277 = load ptr, ptr %246, align 8
-  %278 = getelementptr inbounds i32, ptr %277, i64 %247
-  store i32 %276, ptr %278, align 4
-  br label %382
+  %254 = load ptr, ptr %245, align 8
+  %255 = getelementptr inbounds i32, ptr %254, i64 %251
+  store i32 %249, ptr %255, align 4
+  %256 = load ptr, ptr %201, align 8
+  %257 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %256, i64 %251
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 13
+  store i8 1, ptr %258, align 1
+  %259 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %260 = load ptr, ptr %201, align 8
+  %261 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %260, i64 %246
+  %262 = sext i32 %259 to i64
+  %263 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %260, i64 %262
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %263, ptr noundef nonnull align 4 dereferenceable(14) %261, i64 14, i1 false)
+  %264 = load ptr, ptr %245, align 8
+  %265 = getelementptr inbounds i32, ptr %264, i64 %246
+  %266 = load i32, ptr %265, align 4
+  %267 = getelementptr inbounds i32, ptr %264, i64 %262
+  store i32 %266, ptr %267, align 4
+  %268 = load ptr, ptr %201, align 8
+  %269 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %268, i64 %262
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 13
+  store i8 1, ptr %270, align 1
+  %271 = load ptr, ptr %201, align 8
+  %272 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %271, i64 %246
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %272, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %274 = load i32, ptr %273, align 4
+  %275 = add nsw i32 %274, 1
+  store i32 %275, ptr %273, align 4
+  %276 = load ptr, ptr %245, align 8
+  %277 = getelementptr inbounds i32, ptr %276, i64 %246
+  store i32 %275, ptr %277, align 4
+  br label %381
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51
-  %279 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kRotateRightE, align 8
-  %280 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kRotateRightE, i64 24), align 8
-  %281 = ptrtoint ptr %279 to i64
-  %282 = lshr i64 %281, 12
-  %283 = xor i64 %282, %13
-  %284 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kRotateRightE, i64 8), align 8
-  br label %285
+  %278 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kRotateRightE, align 8
+  %279 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kRotateRightE, i64 24), align 8
+  %280 = ptrtoint ptr %278 to i64
+  %281 = lshr i64 %280, 12
+  %282 = xor i64 %281, %13
+  %283 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kRotateRightE, i64 8), align 8
+  br label %284
 
-285:                                              ; preds = %306, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
-  %.pn28.i.i.i.i70 = phi i64 [ %283, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread ], [ %308, %306 ]
-  %.sroa.10.0.i.i.i.i71 = phi i64 [ 0, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread ], [ %307, %306 ]
-  %.sroa.4.0.i.i.i.i72 = and i64 %.pn28.i.i.i.i70, %280
-  %286 = getelementptr inbounds i8, ptr %279, i64 %.sroa.4.0.i.i.i.i72
-  %287 = load <16 x i8>, ptr %286, align 1
-  %288 = icmp eq <16 x i8> %20, %287
-  %289 = bitcast <16 x i1> %288 to i16
-  %.not26.i.i.i.i73 = icmp eq i16 %289, 0
+284:                                              ; preds = %305, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
+  %.pn28.i.i.i.i70 = phi i64 [ %282, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread ], [ %307, %305 ]
+  %.sroa.10.0.i.i.i.i71 = phi i64 [ 0, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread ], [ %306, %305 ]
+  %.sroa.4.0.i.i.i.i72 = and i64 %.pn28.i.i.i.i70, %279
+  %285 = getelementptr inbounds i8, ptr %278, i64 %.sroa.4.0.i.i.i.i72
+  %286 = load <16 x i8>, ptr %285, align 1
+  %287 = icmp eq <16 x i8> %20, %286
+  %288 = bitcast <16 x i1> %287 to i16
+  %.not26.i.i.i.i73 = icmp eq i16 %288, 0
   br i1 %.not26.i.i.i.i73, label %._crit_edge.i.i.i.i78, label %.lr.ph.preheader.i.i.i.i74
 
-.lr.ph.preheader.i.i.i.i74:                       ; preds = %285
-  %290 = zext i16 %289 to i32
+.lr.ph.preheader.i.i.i.i74:                       ; preds = %284
+  %289 = zext i16 %288 to i32
   br label %.lr.ph.i.i.i.i75
 
-.lr.ph.i.i.i.i75:                                 ; preds = %301, %.lr.ph.preheader.i.i.i.i74
-  %.sroa.010.027.i.i.i.i76 = phi i32 [ %303, %301 ], [ %290, %.lr.ph.preheader.i.i.i.i74 ]
-  %291 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.027.i.i.i.i76, i1 true)
-  %292 = zext nneg i32 %291 to i64
-  %293 = add i64 %.sroa.4.0.i.i.i.i72, %292
-  %294 = and i64 %293, %280
-  %295 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.183", ptr %284, i64 %294
-  %296 = load i32, ptr %295, align 4
-  %297 = icmp eq i32 %296, %2
-  br i1 %297, label %298, label %301
+.lr.ph.i.i.i.i75:                                 ; preds = %300, %.lr.ph.preheader.i.i.i.i74
+  %.sroa.010.027.i.i.i.i76 = phi i32 [ %302, %300 ], [ %289, %.lr.ph.preheader.i.i.i.i74 ]
+  %290 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.027.i.i.i.i76, i1 true)
+  %291 = zext nneg i32 %290 to i64
+  %292 = add i64 %.sroa.4.0.i.i.i.i72, %291
+  %293 = and i64 %292, %279
+  %294 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.183", ptr %283, i64 %293
+  %295 = load i32, ptr %294, align 4
+  %296 = icmp eq i32 %295, %2
+  br i1 %296, label %297, label %300
 
-298:                                              ; preds = %.lr.ph.i.i.i.i75
-  %299 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.183", ptr %284, i64 %294
-  %300 = getelementptr inbounds i8, ptr %279, i64 %294
-  %.fca.0.insert.i.i.i.i.i83 = insertvalue { ptr, ptr } poison, ptr %300, 0
-  %.fca.1.insert.i.i.i.i.i84 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i83, ptr %299, 1
+297:                                              ; preds = %.lr.ph.i.i.i.i75
+  %298 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.183", ptr %283, i64 %293
+  %299 = getelementptr inbounds i8, ptr %278, i64 %293
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %299) ]
+  %.fca.0.insert.i.i.i.i.i83 = insertvalue { ptr, ptr } poison, ptr %299, 0
+  %.fca.1.insert.i.i.i.i.i84 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i83, ptr %298, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
 
-301:                                              ; preds = %.lr.ph.i.i.i.i75
-  %302 = add nsw i32 %.sroa.010.027.i.i.i.i76, -1
-  %303 = and i32 %302, %.sroa.010.027.i.i.i.i76
-  %.not.i.i.i.i77 = icmp eq i32 %303, 0
+300:                                              ; preds = %.lr.ph.i.i.i.i75
+  %301 = add nsw i32 %.sroa.010.027.i.i.i.i76, -1
+  %302 = and i32 %301, %.sroa.010.027.i.i.i.i76
+  %.not.i.i.i.i77 = icmp eq i32 %302, 0
   br i1 %.not.i.i.i.i77, label %._crit_edge.i.i.i.i78, label %.lr.ph.i.i.i.i75
 
-._crit_edge.i.i.i.i78:                            ; preds = %301, %285
-  %304 = icmp eq <16 x i8> %287, splat (i8 -128)
-  %305 = bitcast <16 x i1> %304 to i16
-  %.not22.i.i.i.i79 = icmp eq i16 %305, 0
-  br i1 %.not22.i.i.i.i79, label %306, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
+._crit_edge.i.i.i.i78:                            ; preds = %300, %284
+  %303 = icmp eq <16 x i8> %286, splat (i8 -128)
+  %304 = bitcast <16 x i1> %303 to i16
+  %.not22.i.i.i.i79 = icmp eq i16 %304, 0
+  br i1 %.not22.i.i.i.i79, label %305, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
 
-306:                                              ; preds = %._crit_edge.i.i.i.i78
-  %307 = add i64 %.sroa.10.0.i.i.i.i71, 16
-  %308 = add i64 %307, %.sroa.4.0.i.i.i.i72
-  br label %285, !llvm.loop !55
+305:                                              ; preds = %._crit_edge.i.i.i.i78
+  %306 = add i64 %.sroa.10.0.i.i.i.i71, 16
+  %307 = add i64 %306, %.sroa.4.0.i.i.i.i72
+  br label %284, !llvm.loop !55
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80: ; preds = %._crit_edge.i.i.i.i78, %298
-  %.pn.i.i.i.i81 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i84, %298 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i78 ]
-  %309 = extractvalue { ptr, ptr } %.pn.i.i.i.i81, 0
-  %310 = icmp eq ptr %309, null
-  br i1 %310, label %314, label %311
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80: ; preds = %._crit_edge.i.i.i.i78, %297
+  %.pn.i.i.i.i81 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i84, %297 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i78 ]
+  %308 = extractvalue { ptr, ptr } %.pn.i.i.i.i81, 0
+  %309 = icmp eq ptr %308, null
+  br i1 %309, label %313, label %310
 
-311:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
-  %312 = load i8, ptr %309, align 1
-  %313 = icmp sgt i8 %312, -1
-  br i1 %313, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85, label %.critedge.i.i.i.i82
+310:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
+  %311 = load i8, ptr %308, align 1
+  %312 = icmp sgt i8 %311, -1
+  br i1 %312, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85, label %.critedge.i.i.i.i82
 
-.critedge.i.i.i.i82:                              ; preds = %311
+.critedge.i.i.i.i82:                              ; preds = %310
   tail call void @llvm.trap()
   unreachable
 
-314:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
+313:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85: ; preds = %311
-  %315 = extractvalue { ptr, ptr } %.pn.i.i.i.i81, 1
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 4
-  %317 = load i32, ptr %316, align 4
-  %318 = sext i32 %317 to i64
-  %319 = add i64 %318, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
-  %320 = zext i64 %319 to i128
-  %321 = mul nuw i128 %320, 11376068507788127593
-  %322 = lshr i128 %321, 64
-  %323 = xor i128 %322, %321
-  %324 = trunc i128 %323 to i64
-  %325 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, align 8
-  %326 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, i64 24), align 8
-  %327 = lshr i64 %324, 7
-  %328 = ptrtoint ptr %325 to i64
-  %329 = lshr i64 %328, 12
-  %330 = xor i64 %327, %329
-  %331 = trunc i128 %323 to i8
-  %332 = and i8 %331, 127
-  %333 = insertelement <16 x i8> poison, i8 %332, i64 0
-  %334 = shufflevector <16 x i8> %333, <16 x i8> poison, <16 x i32> zeroinitializer
-  %335 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, i64 8), align 8
-  br label %336
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85: ; preds = %310
+  %314 = extractvalue { ptr, ptr } %.pn.i.i.i.i81, 1
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 4
+  %316 = load i32, ptr %315, align 4
+  %317 = sext i32 %316 to i64
+  %318 = add i64 %317, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
+  %319 = zext i64 %318 to i128
+  %320 = mul nuw i128 %319, 11376068507788127593
+  %321 = lshr i128 %320, 64
+  %322 = xor i128 %321, %320
+  %323 = trunc i128 %322 to i64
+  %324 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, align 8
+  %325 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, i64 24), align 8
+  %326 = lshr i64 %323, 7
+  %327 = ptrtoint ptr %324 to i64
+  %328 = lshr i64 %327, 12
+  %329 = xor i64 %326, %328
+  %330 = trunc i128 %322 to i8
+  %331 = and i8 %330, 127
+  %332 = insertelement <16 x i8> poison, i8 %331, i64 0
+  %333 = shufflevector <16 x i8> %332, <16 x i8> poison, <16 x i32> zeroinitializer
+  %334 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kDirectionToFireflyE, i64 8), align 8
+  br label %335
 
-336:                                              ; preds = %356, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85
-  %.pn26.i.i.i.i86 = phi i64 [ %330, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85 ], [ %358, %356 ]
-  %.sroa.10.0.i.i.i.i87 = phi i64 [ 0, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85 ], [ %357, %356 ]
-  %.sroa.4.0.i.i.i.i88 = and i64 %.pn26.i.i.i.i86, %326
-  %337 = getelementptr inbounds i8, ptr %325, i64 %.sroa.4.0.i.i.i.i88
-  %338 = load <16 x i8>, ptr %337, align 1
-  %339 = icmp eq <16 x i8> %334, %338
-  %340 = bitcast <16 x i1> %339 to i16
-  %.not24.i.i.i.i89 = icmp eq i16 %340, 0
+335:                                              ; preds = %355, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85
+  %.pn26.i.i.i.i86 = phi i64 [ %329, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85 ], [ %357, %355 ]
+  %.sroa.10.0.i.i.i.i87 = phi i64 [ 0, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85 ], [ %356, %355 ]
+  %.sroa.4.0.i.i.i.i88 = and i64 %.pn26.i.i.i.i86, %325
+  %336 = getelementptr inbounds i8, ptr %324, i64 %.sroa.4.0.i.i.i.i88
+  %337 = load <16 x i8>, ptr %336, align 1
+  %338 = icmp eq <16 x i8> %333, %337
+  %339 = bitcast <16 x i1> %338 to i16
+  %.not24.i.i.i.i89 = icmp eq i16 %339, 0
   br i1 %.not24.i.i.i.i89, label %._crit_edge.i.i.i.i94, label %.lr.ph.preheader.i.i.i.i90
 
-.lr.ph.preheader.i.i.i.i90:                       ; preds = %336
-  %341 = zext i16 %340 to i32
+.lr.ph.preheader.i.i.i.i90:                       ; preds = %335
+  %340 = zext i16 %339 to i32
   br label %.lr.ph.i.i.i.i91
 
-.lr.ph.i.i.i.i91:                                 ; preds = %351, %.lr.ph.preheader.i.i.i.i90
-  %.sroa.010.025.i.i.i.i92 = phi i32 [ %353, %351 ], [ %341, %.lr.ph.preheader.i.i.i.i90 ]
-  %342 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i92, i1 true)
-  %343 = zext nneg i32 %342 to i64
-  %344 = add i64 %.sroa.4.0.i.i.i.i88, %343
-  %345 = and i64 %344, %326
-  %346 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %335, i64 %345
-  %347 = load i32, ptr %346, align 4
-  %348 = icmp eq i32 %347, %317
-  br i1 %348, label %349, label %351
+.lr.ph.i.i.i.i91:                                 ; preds = %350, %.lr.ph.preheader.i.i.i.i90
+  %.sroa.010.025.i.i.i.i92 = phi i32 [ %352, %350 ], [ %340, %.lr.ph.preheader.i.i.i.i90 ]
+  %341 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i92, i1 true)
+  %342 = zext nneg i32 %341 to i64
+  %343 = add i64 %.sroa.4.0.i.i.i.i88, %342
+  %344 = and i64 %343, %325
+  %345 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %334, i64 %344
+  %346 = load i32, ptr %345, align 4
+  %347 = icmp eq i32 %346, %316
+  br i1 %347, label %348, label %350
 
-349:                                              ; preds = %.lr.ph.i.i.i.i91
-  %350 = getelementptr inbounds i8, ptr %325, i64 %345
-  %.fca.0.insert.i.i.i.i.i99 = insertvalue { ptr, ptr } poison, ptr %350, 0
-  %.fca.1.insert.i.i.i.i.i100 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i99, ptr %346, 1
+348:                                              ; preds = %.lr.ph.i.i.i.i91
+  %349 = getelementptr inbounds i8, ptr %324, i64 %344
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %349) ]
+  %.fca.0.insert.i.i.i.i.i99 = insertvalue { ptr, ptr } poison, ptr %349, 0
+  %.fca.1.insert.i.i.i.i.i100 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i99, ptr %345, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
 
-351:                                              ; preds = %.lr.ph.i.i.i.i91
-  %352 = add nsw i32 %.sroa.010.025.i.i.i.i92, -1
-  %353 = and i32 %352, %.sroa.010.025.i.i.i.i92
-  %.not.i.i.i.i93 = icmp eq i32 %353, 0
+350:                                              ; preds = %.lr.ph.i.i.i.i91
+  %351 = add nsw i32 %.sroa.010.025.i.i.i.i92, -1
+  %352 = and i32 %351, %.sroa.010.025.i.i.i.i92
+  %.not.i.i.i.i93 = icmp eq i32 %352, 0
   br i1 %.not.i.i.i.i93, label %._crit_edge.i.i.i.i94, label %.lr.ph.i.i.i.i91
 
-._crit_edge.i.i.i.i94:                            ; preds = %351, %336
-  %354 = icmp eq <16 x i8> %338, splat (i8 -128)
-  %355 = bitcast <16 x i1> %354 to i16
-  %.not22.i.i.i.i95 = icmp eq i16 %355, 0
-  br i1 %.not22.i.i.i.i95, label %356, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
+._crit_edge.i.i.i.i94:                            ; preds = %350, %335
+  %353 = icmp eq <16 x i8> %337, splat (i8 -128)
+  %354 = bitcast <16 x i1> %353 to i16
+  %.not22.i.i.i.i95 = icmp eq i16 %354, 0
+  br i1 %.not22.i.i.i.i95, label %355, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
 
-356:                                              ; preds = %._crit_edge.i.i.i.i94
-  %357 = add i64 %.sroa.10.0.i.i.i.i87, 16
-  %358 = add i64 %357, %.sroa.4.0.i.i.i.i88
-  br label %336, !llvm.loop !56
+355:                                              ; preds = %._crit_edge.i.i.i.i94
+  %356 = add i64 %.sroa.10.0.i.i.i.i87, 16
+  %357 = add i64 %356, %.sroa.4.0.i.i.i.i88
+  br label %335, !llvm.loop !56
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96: ; preds = %._crit_edge.i.i.i.i94, %349
-  %.pn.i.i.i.i97 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i100, %349 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i94 ]
-  %359 = extractvalue { ptr, ptr } %.pn.i.i.i.i97, 0
-  %360 = icmp eq ptr %359, null
-  br i1 %360, label %364, label %361
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96: ; preds = %._crit_edge.i.i.i.i94, %348
+  %.pn.i.i.i.i97 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i100, %348 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i94 ]
+  %358 = extractvalue { ptr, ptr } %.pn.i.i.i.i97, 0
+  %359 = icmp eq ptr %358, null
+  br i1 %359, label %363, label %360
 
-361:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
-  %362 = load i8, ptr %359, align 1
-  %363 = icmp sgt i8 %362, -1
-  br i1 %363, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit101, label %.critedge.i.i.i.i98
+360:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
+  %361 = load i8, ptr %358, align 1
+  %362 = icmp sgt i8 %361, -1
+  br i1 %362, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit101, label %.critedge.i.i.i.i98
 
-.critedge.i.i.i.i98:                              ; preds = %361
+.critedge.i.i.i.i98:                              ; preds = %360
   tail call void @llvm.trap()
   unreachable
 
-364:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
+363:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit101: ; preds = %361
-  %365 = extractvalue { ptr, ptr } %.pn.i.i.i.i97, 1
-  %366 = getelementptr inbounds nuw i8, ptr %365, i64 4
-  %.sroa.0.0.copyload = load i64, ptr %366, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %365, i64 12
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit101: ; preds = %360
+  %364 = extractvalue { ptr, ptr } %.pn.i.i.i.i97, 1
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 4
+  %.sroa.0.0.copyload = load i64, ptr %365, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %364, i64 12
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4
-  %367 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %368 = sext i32 %1 to i64
-  %369 = load ptr, ptr %367, align 8
-  %370 = getelementptr inbounds i32, ptr %369, i64 %368
-  %371 = load i32, ptr %370, align 4
-  %372 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %373 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %374 = sext i32 %372 to i64
-  %375 = load ptr, ptr %373, align 8
-  %376 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %375, i64 %374
-  store i64 %.sroa.0.0.copyload, ptr %376, align 4
-  %.sroa.2.0..sroa_idx.i102 = getelementptr inbounds nuw i8, ptr %376, i64 8
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %367 = sext i32 %1 to i64
+  %368 = load ptr, ptr %366, align 8
+  %369 = getelementptr inbounds i32, ptr %368, i64 %367
+  %370 = load i32, ptr %369, align 4
+  %371 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %373 = sext i32 %371 to i64
+  %374 = load ptr, ptr %372, align 8
+  %375 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %374, i64 %373
+  store i64 %.sroa.0.0.copyload, ptr %375, align 4
+  %.sroa.2.0..sroa_idx.i102 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %.sroa.2.0.extract.trunc.i103 = trunc i64 %.sroa.2.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i103, ptr %.sroa.2.0..sroa_idx.i102, align 4
-  %377 = load ptr, ptr %367, align 8
-  %378 = getelementptr inbounds i32, ptr %377, i64 %374
-  store i32 %371, ptr %378, align 4
-  %379 = load ptr, ptr %373, align 8
-  %380 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %379, i64 %374
-  %381 = getelementptr inbounds nuw i8, ptr %380, i64 13
-  store i8 1, ptr %381, align 1
-  br label %382
+  %376 = load ptr, ptr %366, align 8
+  %377 = getelementptr inbounds i32, ptr %376, i64 %373
+  store i32 %370, ptr %377, align 4
+  %378 = load ptr, ptr %372, align 8
+  %379 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %378, i64 %373
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 13
+  store i8 1, ptr %380, align 1
+  br label %381
 
-382:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit101, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit67, %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread
+381:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit101, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit67, %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread
   ret void
 }
 
@@ -8841,6 +8834,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState15UpdateButterfly
 35:                                               ; preds = %.lr.ph.i.i.i.i
   %36 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.183", ptr %21, i64 %31
   %37 = getelementptr inbounds i8, ptr %11, i64 %31
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %37) ]
   %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %37, 0
   %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %36, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i
@@ -8892,7 +8886,7 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEE
 56:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit
   %.sroa.015.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_17kElBlobE, align 8
   %57 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState14IsTypeAdjacentEiNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.015.0.copyload, i64 poison)
-  br i1 %57, label %58, label %108
+  br i1 %57, label %58, label %107
 
 58:                                               ; preds = %56, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -8917,9 +8911,9 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEE
   %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElementToExplosionE, i64 8), align 8
   br label %77
 
-77:                                               ; preds = %97, %58
-  %.pn29.i.i.i = phi i64 [ %71, %58 ], [ %99, %97 ]
-  %.sroa.10.0.i.i.i = phi i64 [ 0, %58 ], [ %98, %97 ]
+77:                                               ; preds = %96, %58
+  %.pn29.i.i.i = phi i64 [ %71, %58 ], [ %98, %96 ]
+  %.sroa.10.0.i.i.i = phi i64 [ 0, %58 ], [ %97, %96 ]
   %.sroa.4.0.i.i.i = and i64 %.pn29.i.i.i, %67
   %78 = getelementptr inbounds i8, ptr %66, i64 %.sroa.4.0.i.i.i
   %79 = load <16 x i8>, ptr %78, align 1
@@ -8932,8 +8926,8 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEE
   %82 = zext i16 %81 to i32
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %92, %.lr.ph.preheader.i.i.i
-  %.sroa.013.028.i.i.i = phi i32 [ %94, %92 ], [ %82, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %91, %.lr.ph.preheader.i.i.i
+  %.sroa.013.028.i.i.i = phi i32 [ %93, %91 ], [ %82, %.lr.ph.preheader.i.i.i ]
   %83 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i, i1 true)
   %84 = zext nneg i32 %83 to i64
   %85 = add i64 %.sroa.4.0.i.i.i, %84
@@ -8941,565 +8935,568 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEE
   %87 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %76, i64 %86
   %.val8.i.i.i = load i32, ptr %87, align 4
   %88 = icmp eq i32 %.val8.i.i.i, %.sroa.0104.0.extract.trunc
-  br i1 %88, label %89, label %92
+  br i1 %88, label %89, label %91
 
 89:                                               ; preds = %.lr.ph.i.i.i
   %90 = getelementptr inbounds i8, ptr %66, i64 %86
-  %91 = icmp ne ptr %66, null
-  tail call void @llvm.assume(i1 %91)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %90) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %90, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %87, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-92:                                               ; preds = %.lr.ph.i.i.i
-  %93 = add nsw i32 %.sroa.013.028.i.i.i, -1
-  %94 = and i32 %93, %.sroa.013.028.i.i.i
-  %.not.i.i.i = icmp eq i32 %94, 0
+91:                                               ; preds = %.lr.ph.i.i.i
+  %92 = add nsw i32 %.sroa.013.028.i.i.i, -1
+  %93 = and i32 %92, %.sroa.013.028.i.i.i
+  %.not.i.i.i = icmp eq i32 %93, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %92, %77
-  %95 = icmp eq <16 x i8> %79, splat (i8 -128)
-  %96 = bitcast <16 x i1> %95 to i16
-  %.not25.i.i.i = icmp eq i16 %96, 0
-  br i1 %.not25.i.i.i, label %97, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+._crit_edge.i.i.i:                                ; preds = %91, %77
+  %94 = icmp eq <16 x i8> %79, splat (i8 -128)
+  %95 = bitcast <16 x i1> %94 to i16
+  %.not25.i.i.i = icmp eq i16 %95, 0
+  br i1 %.not25.i.i.i, label %96, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-97:                                               ; preds = %._crit_edge.i.i.i
-  %98 = add i64 %.sroa.10.0.i.i.i, 16
-  %99 = add i64 %98, %.sroa.4.0.i.i.i
+96:                                               ; preds = %._crit_edge.i.i.i
+  %97 = add i64 %.sroa.10.0.i.i.i, 16
+  %98 = add i64 %97, %.sroa.4.0.i.i.i
   br label %77, !llvm.loop !51
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit: ; preds = %._crit_edge.i.i.i, %89
   %.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %89 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i ]
-  %100 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
-  %101 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
-  %102 = icmp eq ptr %100, null
-  br i1 %102, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %103
+  %99 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
+  %100 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
+  %101 = icmp eq ptr %99, null
+  br i1 %101, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %102
 
-103:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
-  %104 = load i8, ptr %100, align 1
-  %105 = icmp sgt i8 %104, -1
-  br i1 %105, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
+102:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+  %103 = load i8, ptr %99, align 1
+  %104 = icmp sgt i8 %103, -1
+  br i1 %104, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %103
+.critedge.i.i.i:                                  ; preds = %102
   tail call void @llvm.trap()
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %103
-  %106 = getelementptr inbounds nuw i8, ptr %101, i64 16
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %102
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 16
   br label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread
 
 _ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread: ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit
-  %107 = phi ptr [ %106, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
-  %.sroa.011.0.copyload = load i64, ptr %107, align 4
-  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %106 = phi ptr [ %105, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
+  %.sroa.011.0.copyload = load i64, ptr %106, align 4
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 8
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 4
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.011.0.copyload, i64 %.sroa.212.0.copyload, i32 noundef 0)
-  br label %382
+  br label %381
 
-108:                                              ; preds = %56
+107:                                              ; preds = %56
   %.sroa.07.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
-  %109 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %54)
-  %110 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %54)
-  br i1 %110, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
+  %108 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %54)
+  %109 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %54)
+  br i1 %109, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
 
-_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit: ; preds = %108
+_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit: ; preds = %107
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.07.0.copyload to i32
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %112 = sext i32 %109 to i64
-  %113 = load ptr, ptr %111, align 8
-  %114 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %113, i64 %112
-  %115 = load i32, ptr %114, align 4
-  %116 = icmp eq i32 %115, %.sroa.0.0.extract.trunc.i
-  br i1 %116, label %117, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %111 = sext i32 %108 to i64
+  %112 = load ptr, ptr %110, align 8
+  %113 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %112, i64 %111
+  %114 = load i32, ptr %113, align 4
+  %115 = icmp eq i32 %114, %.sroa.0.0.extract.trunc.i
+  br i1 %115, label %116, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
 
-117:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
-  %118 = sext i32 %54 to i64
-  %119 = add i64 %118, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
-  %120 = zext i64 %119 to i128
-  %121 = mul nuw i128 %120, 11376068507788127593
-  %122 = lshr i128 %121, 64
-  %123 = xor i128 %122, %121
-  %124 = trunc i128 %123 to i64
-  %125 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, align 8
-  %126 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, i64 24), align 8
-  %127 = lshr i64 %124, 7
-  %128 = ptrtoint ptr %125 to i64
-  %129 = lshr i64 %128, 12
-  %130 = xor i64 %129, %127
-  %131 = trunc i128 %123 to i8
-  %132 = and i8 %131, 127
-  %133 = insertelement <16 x i8> poison, i8 %132, i64 0
-  %134 = shufflevector <16 x i8> %133, <16 x i8> poison, <16 x i32> zeroinitializer
-  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, i64 8), align 8
-  br label %136
+116:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
+  %117 = sext i32 %54 to i64
+  %118 = add i64 %117, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
+  %119 = zext i64 %118 to i128
+  %120 = mul nuw i128 %119, 11376068507788127593
+  %121 = lshr i128 %120, 64
+  %122 = xor i128 %121, %120
+  %123 = trunc i128 %122 to i64
+  %124 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, align 8
+  %125 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, i64 24), align 8
+  %126 = lshr i64 %123, 7
+  %127 = ptrtoint ptr %124 to i64
+  %128 = lshr i64 %127, 12
+  %129 = xor i64 %128, %126
+  %130 = trunc i128 %122 to i8
+  %131 = and i8 %130, 127
+  %132 = insertelement <16 x i8> poison, i8 %131, i64 0
+  %133 = shufflevector <16 x i8> %132, <16 x i8> poison, <16 x i32> zeroinitializer
+  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, i64 8), align 8
+  br label %135
 
-136:                                              ; preds = %156, %117
-  %.pn26.i.i.i.i = phi i64 [ %130, %117 ], [ %158, %156 ]
-  %.sroa.10.0.i.i.i.i38 = phi i64 [ 0, %117 ], [ %157, %156 ]
-  %.sroa.4.0.i.i.i.i39 = and i64 %.pn26.i.i.i.i, %126
-  %137 = getelementptr inbounds i8, ptr %125, i64 %.sroa.4.0.i.i.i.i39
-  %138 = load <16 x i8>, ptr %137, align 1
-  %139 = icmp eq <16 x i8> %134, %138
-  %140 = bitcast <16 x i1> %139 to i16
-  %.not24.i.i.i.i = icmp eq i16 %140, 0
+135:                                              ; preds = %155, %116
+  %.pn26.i.i.i.i = phi i64 [ %129, %116 ], [ %157, %155 ]
+  %.sroa.10.0.i.i.i.i38 = phi i64 [ 0, %116 ], [ %156, %155 ]
+  %.sroa.4.0.i.i.i.i39 = and i64 %.pn26.i.i.i.i, %125
+  %136 = getelementptr inbounds i8, ptr %124, i64 %.sroa.4.0.i.i.i.i39
+  %137 = load <16 x i8>, ptr %136, align 1
+  %138 = icmp eq <16 x i8> %133, %137
+  %139 = bitcast <16 x i1> %138 to i16
+  %.not24.i.i.i.i = icmp eq i16 %139, 0
   br i1 %.not24.i.i.i.i, label %._crit_edge.i.i.i.i43, label %.lr.ph.preheader.i.i.i.i40
 
-.lr.ph.preheader.i.i.i.i40:                       ; preds = %136
-  %141 = zext i16 %140 to i32
+.lr.ph.preheader.i.i.i.i40:                       ; preds = %135
+  %140 = zext i16 %139 to i32
   br label %.lr.ph.i.i.i.i41
 
-.lr.ph.i.i.i.i41:                                 ; preds = %151, %.lr.ph.preheader.i.i.i.i40
-  %.sroa.010.025.i.i.i.i = phi i32 [ %153, %151 ], [ %141, %.lr.ph.preheader.i.i.i.i40 ]
-  %142 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i, i1 true)
-  %143 = zext nneg i32 %142 to i64
-  %144 = add i64 %.sroa.4.0.i.i.i.i39, %143
-  %145 = and i64 %144, %126
-  %146 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %135, i64 %145
-  %147 = load i32, ptr %146, align 4
-  %148 = icmp eq i32 %147, %54
-  br i1 %148, label %149, label %151
+.lr.ph.i.i.i.i41:                                 ; preds = %150, %.lr.ph.preheader.i.i.i.i40
+  %.sroa.010.025.i.i.i.i = phi i32 [ %152, %150 ], [ %140, %.lr.ph.preheader.i.i.i.i40 ]
+  %141 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i, i1 true)
+  %142 = zext nneg i32 %141 to i64
+  %143 = add i64 %.sroa.4.0.i.i.i.i39, %142
+  %144 = and i64 %143, %125
+  %145 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %134, i64 %144
+  %146 = load i32, ptr %145, align 4
+  %147 = icmp eq i32 %146, %54
+  br i1 %147, label %148, label %150
 
-149:                                              ; preds = %.lr.ph.i.i.i.i41
-  %150 = getelementptr inbounds i8, ptr %125, i64 %145
-  %.fca.0.insert.i.i.i.i.i47 = insertvalue { ptr, ptr } poison, ptr %150, 0
-  %.fca.1.insert.i.i.i.i.i48 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i47, ptr %146, 1
+148:                                              ; preds = %.lr.ph.i.i.i.i41
+  %149 = getelementptr inbounds i8, ptr %124, i64 %144
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %149) ]
+  %.fca.0.insert.i.i.i.i.i47 = insertvalue { ptr, ptr } poison, ptr %149, 0
+  %.fca.1.insert.i.i.i.i.i48 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i47, ptr %145, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
 
-151:                                              ; preds = %.lr.ph.i.i.i.i41
-  %152 = add nsw i32 %.sroa.010.025.i.i.i.i, -1
-  %153 = and i32 %152, %.sroa.010.025.i.i.i.i
-  %.not.i.i.i.i42 = icmp eq i32 %153, 0
+150:                                              ; preds = %.lr.ph.i.i.i.i41
+  %151 = add nsw i32 %.sroa.010.025.i.i.i.i, -1
+  %152 = and i32 %151, %.sroa.010.025.i.i.i.i
+  %.not.i.i.i.i42 = icmp eq i32 %152, 0
   br i1 %.not.i.i.i.i42, label %._crit_edge.i.i.i.i43, label %.lr.ph.i.i.i.i41
 
-._crit_edge.i.i.i.i43:                            ; preds = %151, %136
-  %154 = icmp eq <16 x i8> %138, splat (i8 -128)
-  %155 = bitcast <16 x i1> %154 to i16
-  %.not22.i.i.i.i44 = icmp eq i16 %155, 0
-  br i1 %.not22.i.i.i.i44, label %156, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
+._crit_edge.i.i.i.i43:                            ; preds = %150, %135
+  %153 = icmp eq <16 x i8> %137, splat (i8 -128)
+  %154 = bitcast <16 x i1> %153 to i16
+  %.not22.i.i.i.i44 = icmp eq i16 %154, 0
+  br i1 %.not22.i.i.i.i44, label %155, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
 
-156:                                              ; preds = %._crit_edge.i.i.i.i43
-  %157 = add i64 %.sroa.10.0.i.i.i.i38, 16
-  %158 = add i64 %157, %.sroa.4.0.i.i.i.i39
-  br label %136, !llvm.loop !56
+155:                                              ; preds = %._crit_edge.i.i.i.i43
+  %156 = add i64 %.sroa.10.0.i.i.i.i38, 16
+  %157 = add i64 %156, %.sroa.4.0.i.i.i.i39
+  br label %135, !llvm.loop !56
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i: ; preds = %._crit_edge.i.i.i.i43, %149
-  %.pn.i.i.i.i45 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i48, %149 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i43 ]
-  %159 = extractvalue { ptr, ptr } %.pn.i.i.i.i45, 0
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %164, label %161
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i: ; preds = %._crit_edge.i.i.i.i43, %148
+  %.pn.i.i.i.i45 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i48, %148 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i43 ]
+  %158 = extractvalue { ptr, ptr } %.pn.i.i.i.i45, 0
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %163, label %160
 
-161:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
-  %162 = load i8, ptr %159, align 1
-  %163 = icmp sgt i8 %162, -1
-  br i1 %163, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit, label %.critedge.i.i.i.i46
+160:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
+  %161 = load i8, ptr %158, align 1
+  %162 = icmp sgt i8 %161, -1
+  br i1 %162, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit, label %.critedge.i.i.i.i46
 
-.critedge.i.i.i.i46:                              ; preds = %161
+.critedge.i.i.i.i46:                              ; preds = %160
   tail call void @llvm.trap()
   unreachable
 
-164:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
+163:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit: ; preds = %161
-  %165 = extractvalue { ptr, ptr } %.pn.i.i.i.i45, 1
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
-  %.sroa.05.0.copyload = load i64, ptr %166, align 4
-  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 12
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit: ; preds = %160
+  %164 = extractvalue { ptr, ptr } %.pn.i.i.i.i45, 1
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
+  %.sroa.05.0.copyload = load i64, ptr %165, align 4
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 12
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %168 = sext i32 %1 to i64
-  %169 = load ptr, ptr %167, align 8
-  %170 = getelementptr inbounds i32, ptr %169, i64 %168
-  %171 = load i32, ptr %170, align 4
-  %172 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %173 = sext i32 %172 to i64
-  %174 = load ptr, ptr %111, align 8
-  %175 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %174, i64 %173
-  store i64 %.sroa.05.0.copyload, ptr %175, align 4
-  %.sroa.2.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %167 = sext i32 %1 to i64
+  %168 = load ptr, ptr %166, align 8
+  %169 = getelementptr inbounds i32, ptr %168, i64 %167
+  %170 = load i32, ptr %169, align 4
+  %171 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %172 = sext i32 %171 to i64
+  %173 = load ptr, ptr %110, align 8
+  %174 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %173, i64 %172
+  store i64 %.sroa.05.0.copyload, ptr %174, align 4
+  %.sroa.2.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.26.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i49, align 4
-  %176 = load ptr, ptr %167, align 8
-  %177 = getelementptr inbounds i32, ptr %176, i64 %173
-  store i32 %171, ptr %177, align 4
-  %178 = load ptr, ptr %111, align 8
-  %179 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %178, i64 %173
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 13
-  store i8 1, ptr %180, align 1
-  %181 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %54)
-  %182 = load ptr, ptr %111, align 8
-  %183 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %182, i64 %168
-  %184 = sext i32 %181 to i64
-  %185 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %182, i64 %184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %185, ptr noundef nonnull align 4 dereferenceable(14) %183, i64 14, i1 false)
-  %186 = load ptr, ptr %167, align 8
-  %187 = getelementptr inbounds i32, ptr %186, i64 %168
-  %188 = load i32, ptr %187, align 4
-  %189 = getelementptr inbounds i32, ptr %186, i64 %184
-  store i32 %188, ptr %189, align 4
-  %190 = load ptr, ptr %111, align 8
-  %191 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %190, i64 %184
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 13
-  store i8 1, ptr %192, align 1
-  %193 = load ptr, ptr %111, align 8
-  %194 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %193, i64 %168
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %194, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %196 = load i32, ptr %195, align 4
-  %197 = add nsw i32 %196, 1
-  store i32 %197, ptr %195, align 4
-  %198 = load ptr, ptr %167, align 8
-  %199 = getelementptr inbounds i32, ptr %198, i64 %168
-  store i32 %197, ptr %199, align 4
-  br label %382
+  %175 = load ptr, ptr %166, align 8
+  %176 = getelementptr inbounds i32, ptr %175, i64 %172
+  store i32 %170, ptr %176, align 4
+  %177 = load ptr, ptr %110, align 8
+  %178 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %177, i64 %172
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 13
+  store i8 1, ptr %179, align 1
+  %180 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %54)
+  %181 = load ptr, ptr %110, align 8
+  %182 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %181, i64 %167
+  %183 = sext i32 %180 to i64
+  %184 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %181, i64 %183
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %184, ptr noundef nonnull align 4 dereferenceable(14) %182, i64 14, i1 false)
+  %185 = load ptr, ptr %166, align 8
+  %186 = getelementptr inbounds i32, ptr %185, i64 %167
+  %187 = load i32, ptr %186, align 4
+  %188 = getelementptr inbounds i32, ptr %185, i64 %183
+  store i32 %187, ptr %188, align 4
+  %189 = load ptr, ptr %110, align 8
+  %190 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %189, i64 %183
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 13
+  store i8 1, ptr %191, align 1
+  %192 = load ptr, ptr %110, align 8
+  %193 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %192, i64 %167
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %193, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %195 = load i32, ptr %194, align 4
+  %196 = add nsw i32 %195, 1
+  store i32 %196, ptr %194, align 4
+  %197 = load ptr, ptr %166, align 8
+  %198 = getelementptr inbounds i32, ptr %197, i64 %167
+  store i32 %196, ptr %198, align 4
+  br label %381
 
-_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread: ; preds = %108, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
+_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread: ; preds = %107, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit
   %.sroa.03.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
-  %200 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %201 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  br i1 %201, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
+  %199 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %200 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  br i1 %200, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
   %.sroa.0.0.extract.trunc.i50 = trunc i64 %.sroa.03.0.copyload to i32
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %203 = sext i32 %200 to i64
-  %204 = load ptr, ptr %202, align 8
-  %205 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %204, i64 %203
-  %206 = load i32, ptr %205, align 4
-  %207 = icmp eq i32 %206, %.sroa.0.0.extract.trunc.i50
-  br i1 %207, label %208, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %202 = sext i32 %199 to i64
+  %203 = load ptr, ptr %201, align 8
+  %204 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %203, i64 %202
+  %205 = load i32, ptr %204, align 4
+  %206 = icmp eq i32 %205, %.sroa.0.0.extract.trunc.i50
+  br i1 %206, label %207, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
 
-208:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51
-  %209 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, align 8
-  %210 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, i64 24), align 8
-  %211 = ptrtoint ptr %209 to i64
-  %212 = lshr i64 %211, 12
-  %213 = xor i64 %212, %13
-  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, i64 8), align 8
-  br label %215
+207:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51
+  %208 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, align 8
+  %209 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, i64 24), align 8
+  %210 = ptrtoint ptr %208 to i64
+  %211 = lshr i64 %210, 12
+  %212 = xor i64 %211, %13
+  %213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, i64 8), align 8
+  br label %214
 
-215:                                              ; preds = %235, %208
-  %.pn26.i.i.i.i52 = phi i64 [ %213, %208 ], [ %237, %235 ]
-  %.sroa.10.0.i.i.i.i53 = phi i64 [ 0, %208 ], [ %236, %235 ]
-  %.sroa.4.0.i.i.i.i54 = and i64 %.pn26.i.i.i.i52, %210
-  %216 = getelementptr inbounds i8, ptr %209, i64 %.sroa.4.0.i.i.i.i54
-  %217 = load <16 x i8>, ptr %216, align 1
-  %218 = icmp eq <16 x i8> %20, %217
-  %219 = bitcast <16 x i1> %218 to i16
-  %.not24.i.i.i.i55 = icmp eq i16 %219, 0
+214:                                              ; preds = %234, %207
+  %.pn26.i.i.i.i52 = phi i64 [ %212, %207 ], [ %236, %234 ]
+  %.sroa.10.0.i.i.i.i53 = phi i64 [ 0, %207 ], [ %235, %234 ]
+  %.sroa.4.0.i.i.i.i54 = and i64 %.pn26.i.i.i.i52, %209
+  %215 = getelementptr inbounds i8, ptr %208, i64 %.sroa.4.0.i.i.i.i54
+  %216 = load <16 x i8>, ptr %215, align 1
+  %217 = icmp eq <16 x i8> %20, %216
+  %218 = bitcast <16 x i1> %217 to i16
+  %.not24.i.i.i.i55 = icmp eq i16 %218, 0
   br i1 %.not24.i.i.i.i55, label %._crit_edge.i.i.i.i60, label %.lr.ph.preheader.i.i.i.i56
 
-.lr.ph.preheader.i.i.i.i56:                       ; preds = %215
-  %220 = zext i16 %219 to i32
+.lr.ph.preheader.i.i.i.i56:                       ; preds = %214
+  %219 = zext i16 %218 to i32
   br label %.lr.ph.i.i.i.i57
 
-.lr.ph.i.i.i.i57:                                 ; preds = %230, %.lr.ph.preheader.i.i.i.i56
-  %.sroa.010.025.i.i.i.i58 = phi i32 [ %232, %230 ], [ %220, %.lr.ph.preheader.i.i.i.i56 ]
-  %221 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i58, i1 true)
-  %222 = zext nneg i32 %221 to i64
-  %223 = add i64 %.sroa.4.0.i.i.i.i54, %222
-  %224 = and i64 %223, %210
-  %225 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %214, i64 %224
-  %226 = load i32, ptr %225, align 4
-  %227 = icmp eq i32 %226, %2
-  br i1 %227, label %228, label %230
+.lr.ph.i.i.i.i57:                                 ; preds = %229, %.lr.ph.preheader.i.i.i.i56
+  %.sroa.010.025.i.i.i.i58 = phi i32 [ %231, %229 ], [ %219, %.lr.ph.preheader.i.i.i.i56 ]
+  %220 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i58, i1 true)
+  %221 = zext nneg i32 %220 to i64
+  %222 = add i64 %.sroa.4.0.i.i.i.i54, %221
+  %223 = and i64 %222, %209
+  %224 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %213, i64 %223
+  %225 = load i32, ptr %224, align 4
+  %226 = icmp eq i32 %225, %2
+  br i1 %226, label %227, label %229
 
-228:                                              ; preds = %.lr.ph.i.i.i.i57
-  %229 = getelementptr inbounds i8, ptr %209, i64 %224
-  %.fca.0.insert.i.i.i.i.i65 = insertvalue { ptr, ptr } poison, ptr %229, 0
-  %.fca.1.insert.i.i.i.i.i66 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i65, ptr %225, 1
+227:                                              ; preds = %.lr.ph.i.i.i.i57
+  %228 = getelementptr inbounds i8, ptr %208, i64 %223
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %228) ]
+  %.fca.0.insert.i.i.i.i.i65 = insertvalue { ptr, ptr } poison, ptr %228, 0
+  %.fca.1.insert.i.i.i.i.i66 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i65, ptr %224, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
 
-230:                                              ; preds = %.lr.ph.i.i.i.i57
-  %231 = add nsw i32 %.sroa.010.025.i.i.i.i58, -1
-  %232 = and i32 %231, %.sroa.010.025.i.i.i.i58
-  %.not.i.i.i.i59 = icmp eq i32 %232, 0
+229:                                              ; preds = %.lr.ph.i.i.i.i57
+  %230 = add nsw i32 %.sroa.010.025.i.i.i.i58, -1
+  %231 = and i32 %230, %.sroa.010.025.i.i.i.i58
+  %.not.i.i.i.i59 = icmp eq i32 %231, 0
   br i1 %.not.i.i.i.i59, label %._crit_edge.i.i.i.i60, label %.lr.ph.i.i.i.i57
 
-._crit_edge.i.i.i.i60:                            ; preds = %230, %215
-  %233 = icmp eq <16 x i8> %217, splat (i8 -128)
-  %234 = bitcast <16 x i1> %233 to i16
-  %.not22.i.i.i.i61 = icmp eq i16 %234, 0
-  br i1 %.not22.i.i.i.i61, label %235, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
+._crit_edge.i.i.i.i60:                            ; preds = %229, %214
+  %232 = icmp eq <16 x i8> %216, splat (i8 -128)
+  %233 = bitcast <16 x i1> %232 to i16
+  %.not22.i.i.i.i61 = icmp eq i16 %233, 0
+  br i1 %.not22.i.i.i.i61, label %234, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
 
-235:                                              ; preds = %._crit_edge.i.i.i.i60
-  %236 = add i64 %.sroa.10.0.i.i.i.i53, 16
-  %237 = add i64 %236, %.sroa.4.0.i.i.i.i54
-  br label %215, !llvm.loop !56
+234:                                              ; preds = %._crit_edge.i.i.i.i60
+  %235 = add i64 %.sroa.10.0.i.i.i.i53, 16
+  %236 = add i64 %235, %.sroa.4.0.i.i.i.i54
+  br label %214, !llvm.loop !56
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62: ; preds = %._crit_edge.i.i.i.i60, %228
-  %.pn.i.i.i.i63 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i66, %228 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i60 ]
-  %238 = extractvalue { ptr, ptr } %.pn.i.i.i.i63, 0
-  %239 = icmp eq ptr %238, null
-  br i1 %239, label %243, label %240
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62: ; preds = %._crit_edge.i.i.i.i60, %227
+  %.pn.i.i.i.i63 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i66, %227 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i60 ]
+  %237 = extractvalue { ptr, ptr } %.pn.i.i.i.i63, 0
+  %238 = icmp eq ptr %237, null
+  br i1 %238, label %242, label %239
 
-240:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
-  %241 = load i8, ptr %238, align 1
-  %242 = icmp sgt i8 %241, -1
-  br i1 %242, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit67, label %.critedge.i.i.i.i64
+239:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
+  %240 = load i8, ptr %237, align 1
+  %241 = icmp sgt i8 %240, -1
+  br i1 %241, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit67, label %.critedge.i.i.i.i64
 
-.critedge.i.i.i.i64:                              ; preds = %240
+.critedge.i.i.i.i64:                              ; preds = %239
   tail call void @llvm.trap()
   unreachable
 
-243:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
+242:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i62
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit67: ; preds = %240
-  %244 = extractvalue { ptr, ptr } %.pn.i.i.i.i63, 1
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 4
-  %.sroa.01.0.copyload = load i64, ptr %245, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %244, i64 12
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit67: ; preds = %239
+  %243 = extractvalue { ptr, ptr } %.pn.i.i.i.i63, 1
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
+  %.sroa.01.0.copyload = load i64, ptr %244, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %243, i64 12
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 4
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %247 = sext i32 %1 to i64
-  %248 = load ptr, ptr %246, align 8
-  %249 = getelementptr inbounds i32, ptr %248, i64 %247
-  %250 = load i32, ptr %249, align 4
-  %251 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %252 = sext i32 %251 to i64
-  %253 = load ptr, ptr %202, align 8
-  %254 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %253, i64 %252
-  store i64 %.sroa.01.0.copyload, ptr %254, align 4
-  %.sroa.2.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %254, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %246 = sext i32 %1 to i64
+  %247 = load ptr, ptr %245, align 8
+  %248 = getelementptr inbounds i32, ptr %247, i64 %246
+  %249 = load i32, ptr %248, align 4
+  %250 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %251 = sext i32 %250 to i64
+  %252 = load ptr, ptr %201, align 8
+  %253 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %252, i64 %251
+  store i64 %.sroa.01.0.copyload, ptr %253, align 4
+  %.sroa.2.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %.sroa.2.0.extract.trunc.i69 = trunc i64 %.sroa.22.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i69, ptr %.sroa.2.0..sroa_idx.i68, align 4
-  %255 = load ptr, ptr %246, align 8
-  %256 = getelementptr inbounds i32, ptr %255, i64 %252
-  store i32 %250, ptr %256, align 4
-  %257 = load ptr, ptr %202, align 8
-  %258 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %257, i64 %252
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 13
-  store i8 1, ptr %259, align 1
-  %260 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
-  %261 = load ptr, ptr %202, align 8
-  %262 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %261, i64 %247
-  %263 = sext i32 %260 to i64
-  %264 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %261, i64 %263
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %264, ptr noundef nonnull align 4 dereferenceable(14) %262, i64 14, i1 false)
-  %265 = load ptr, ptr %246, align 8
-  %266 = getelementptr inbounds i32, ptr %265, i64 %247
-  %267 = load i32, ptr %266, align 4
-  %268 = getelementptr inbounds i32, ptr %265, i64 %263
-  store i32 %267, ptr %268, align 4
-  %269 = load ptr, ptr %202, align 8
-  %270 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %269, i64 %263
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 13
-  store i8 1, ptr %271, align 1
-  %272 = load ptr, ptr %202, align 8
-  %273 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %272, i64 %247
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %273, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %275 = load i32, ptr %274, align 4
-  %276 = add nsw i32 %275, 1
-  store i32 %276, ptr %274, align 4
-  %277 = load ptr, ptr %246, align 8
-  %278 = getelementptr inbounds i32, ptr %277, i64 %247
-  store i32 %276, ptr %278, align 4
-  br label %382
+  %254 = load ptr, ptr %245, align 8
+  %255 = getelementptr inbounds i32, ptr %254, i64 %251
+  store i32 %249, ptr %255, align 4
+  %256 = load ptr, ptr %201, align 8
+  %257 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %256, i64 %251
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 13
+  store i8 1, ptr %258, align 1
+  %259 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
+  %260 = load ptr, ptr %201, align 8
+  %261 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %260, i64 %246
+  %262 = sext i32 %259 to i64
+  %263 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %260, i64 %262
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %263, ptr noundef nonnull align 4 dereferenceable(14) %261, i64 14, i1 false)
+  %264 = load ptr, ptr %245, align 8
+  %265 = getelementptr inbounds i32, ptr %264, i64 %246
+  %266 = load i32, ptr %265, align 4
+  %267 = getelementptr inbounds i32, ptr %264, i64 %262
+  store i32 %266, ptr %267, align 4
+  %268 = load ptr, ptr %201, align 8
+  %269 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %268, i64 %262
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 13
+  store i8 1, ptr %270, align 1
+  %271 = load ptr, ptr %201, align 8
+  %272 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %271, i64 %246
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %272, ptr noundef nonnull align 8 dereferenceable(14) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, i64 14, i1 false)
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %274 = load i32, ptr %273, align 4
+  %275 = add nsw i32 %274, 1
+  store i32 %275, ptr %273, align 4
+  %276 = load ptr, ptr %245, align 8
+  %277 = getelementptr inbounds i32, ptr %276, i64 %246
+  store i32 %275, ptr %277, align 4
+  br label %381
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread: ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51
-  %279 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kRotateLeftE, align 8
-  %280 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kRotateLeftE, i64 24), align 8
-  %281 = ptrtoint ptr %279 to i64
-  %282 = lshr i64 %281, 12
-  %283 = xor i64 %282, %13
-  %284 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kRotateLeftE, i64 8), align 8
-  br label %285
+  %278 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kRotateLeftE, align 8
+  %279 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kRotateLeftE, i64 24), align 8
+  %280 = ptrtoint ptr %278 to i64
+  %281 = lshr i64 %280, 12
+  %282 = xor i64 %281, %13
+  %283 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kRotateLeftE, i64 8), align 8
+  br label %284
 
-285:                                              ; preds = %306, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
-  %.pn28.i.i.i.i70 = phi i64 [ %283, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread ], [ %308, %306 ]
-  %.sroa.10.0.i.i.i.i71 = phi i64 [ 0, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread ], [ %307, %306 ]
-  %.sroa.4.0.i.i.i.i72 = and i64 %.pn28.i.i.i.i70, %280
-  %286 = getelementptr inbounds i8, ptr %279, i64 %.sroa.4.0.i.i.i.i72
-  %287 = load <16 x i8>, ptr %286, align 1
-  %288 = icmp eq <16 x i8> %20, %287
-  %289 = bitcast <16 x i1> %288 to i16
-  %.not26.i.i.i.i73 = icmp eq i16 %289, 0
+284:                                              ; preds = %305, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread
+  %.pn28.i.i.i.i70 = phi i64 [ %282, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread ], [ %307, %305 ]
+  %.sroa.10.0.i.i.i.i71 = phi i64 [ 0, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit51.thread ], [ %306, %305 ]
+  %.sroa.4.0.i.i.i.i72 = and i64 %.pn28.i.i.i.i70, %279
+  %285 = getelementptr inbounds i8, ptr %278, i64 %.sroa.4.0.i.i.i.i72
+  %286 = load <16 x i8>, ptr %285, align 1
+  %287 = icmp eq <16 x i8> %20, %286
+  %288 = bitcast <16 x i1> %287 to i16
+  %.not26.i.i.i.i73 = icmp eq i16 %288, 0
   br i1 %.not26.i.i.i.i73, label %._crit_edge.i.i.i.i78, label %.lr.ph.preheader.i.i.i.i74
 
-.lr.ph.preheader.i.i.i.i74:                       ; preds = %285
-  %290 = zext i16 %289 to i32
+.lr.ph.preheader.i.i.i.i74:                       ; preds = %284
+  %289 = zext i16 %288 to i32
   br label %.lr.ph.i.i.i.i75
 
-.lr.ph.i.i.i.i75:                                 ; preds = %301, %.lr.ph.preheader.i.i.i.i74
-  %.sroa.010.027.i.i.i.i76 = phi i32 [ %303, %301 ], [ %290, %.lr.ph.preheader.i.i.i.i74 ]
-  %291 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.027.i.i.i.i76, i1 true)
-  %292 = zext nneg i32 %291 to i64
-  %293 = add i64 %.sroa.4.0.i.i.i.i72, %292
-  %294 = and i64 %293, %280
-  %295 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.183", ptr %284, i64 %294
-  %296 = load i32, ptr %295, align 4
-  %297 = icmp eq i32 %296, %2
-  br i1 %297, label %298, label %301
+.lr.ph.i.i.i.i75:                                 ; preds = %300, %.lr.ph.preheader.i.i.i.i74
+  %.sroa.010.027.i.i.i.i76 = phi i32 [ %302, %300 ], [ %289, %.lr.ph.preheader.i.i.i.i74 ]
+  %290 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.027.i.i.i.i76, i1 true)
+  %291 = zext nneg i32 %290 to i64
+  %292 = add i64 %.sroa.4.0.i.i.i.i72, %291
+  %293 = and i64 %292, %279
+  %294 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.183", ptr %283, i64 %293
+  %295 = load i32, ptr %294, align 4
+  %296 = icmp eq i32 %295, %2
+  br i1 %296, label %297, label %300
 
-298:                                              ; preds = %.lr.ph.i.i.i.i75
-  %299 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.183", ptr %284, i64 %294
-  %300 = getelementptr inbounds i8, ptr %279, i64 %294
-  %.fca.0.insert.i.i.i.i.i83 = insertvalue { ptr, ptr } poison, ptr %300, 0
-  %.fca.1.insert.i.i.i.i.i84 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i83, ptr %299, 1
+297:                                              ; preds = %.lr.ph.i.i.i.i75
+  %298 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.183", ptr %283, i64 %293
+  %299 = getelementptr inbounds i8, ptr %278, i64 %293
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %299) ]
+  %.fca.0.insert.i.i.i.i.i83 = insertvalue { ptr, ptr } poison, ptr %299, 0
+  %.fca.1.insert.i.i.i.i.i84 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i83, ptr %298, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
 
-301:                                              ; preds = %.lr.ph.i.i.i.i75
-  %302 = add nsw i32 %.sroa.010.027.i.i.i.i76, -1
-  %303 = and i32 %302, %.sroa.010.027.i.i.i.i76
-  %.not.i.i.i.i77 = icmp eq i32 %303, 0
+300:                                              ; preds = %.lr.ph.i.i.i.i75
+  %301 = add nsw i32 %.sroa.010.027.i.i.i.i76, -1
+  %302 = and i32 %301, %.sroa.010.027.i.i.i.i76
+  %.not.i.i.i.i77 = icmp eq i32 %302, 0
   br i1 %.not.i.i.i.i77, label %._crit_edge.i.i.i.i78, label %.lr.ph.i.i.i.i75
 
-._crit_edge.i.i.i.i78:                            ; preds = %301, %285
-  %304 = icmp eq <16 x i8> %287, splat (i8 -128)
-  %305 = bitcast <16 x i1> %304 to i16
-  %.not22.i.i.i.i79 = icmp eq i16 %305, 0
-  br i1 %.not22.i.i.i.i79, label %306, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
+._crit_edge.i.i.i.i78:                            ; preds = %300, %284
+  %303 = icmp eq <16 x i8> %286, splat (i8 -128)
+  %304 = bitcast <16 x i1> %303 to i16
+  %.not22.i.i.i.i79 = icmp eq i16 %304, 0
+  br i1 %.not22.i.i.i.i79, label %305, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
 
-306:                                              ; preds = %._crit_edge.i.i.i.i78
-  %307 = add i64 %.sroa.10.0.i.i.i.i71, 16
-  %308 = add i64 %307, %.sroa.4.0.i.i.i.i72
-  br label %285, !llvm.loop !55
+305:                                              ; preds = %._crit_edge.i.i.i.i78
+  %306 = add i64 %.sroa.10.0.i.i.i.i71, 16
+  %307 = add i64 %306, %.sroa.4.0.i.i.i.i72
+  br label %284, !llvm.loop !55
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80: ; preds = %._crit_edge.i.i.i.i78, %298
-  %.pn.i.i.i.i81 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i84, %298 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i78 ]
-  %309 = extractvalue { ptr, ptr } %.pn.i.i.i.i81, 0
-  %310 = icmp eq ptr %309, null
-  br i1 %310, label %314, label %311
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80: ; preds = %._crit_edge.i.i.i.i78, %297
+  %.pn.i.i.i.i81 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i84, %297 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i78 ]
+  %308 = extractvalue { ptr, ptr } %.pn.i.i.i.i81, 0
+  %309 = icmp eq ptr %308, null
+  br i1 %309, label %313, label %310
 
-311:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
-  %312 = load i8, ptr %309, align 1
-  %313 = icmp sgt i8 %312, -1
-  br i1 %313, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85, label %.critedge.i.i.i.i82
+310:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
+  %311 = load i8, ptr %308, align 1
+  %312 = icmp sgt i8 %311, -1
+  br i1 %312, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85, label %.critedge.i.i.i.i82
 
-.critedge.i.i.i.i82:                              ; preds = %311
+.critedge.i.i.i.i82:                              ; preds = %310
   tail call void @llvm.trap()
   unreachable
 
-314:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
+313:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE4findIiEENSE_14const_iteratorERSB_.exit.i80
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85: ; preds = %311
-  %315 = extractvalue { ptr, ptr } %.pn.i.i.i.i81, 1
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 4
-  %317 = load i32, ptr %316, align 4
-  %318 = sext i32 %317 to i64
-  %319 = add i64 %318, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
-  %320 = zext i64 %319 to i128
-  %321 = mul nuw i128 %320, 11376068507788127593
-  %322 = lshr i128 %321, 64
-  %323 = xor i128 %322, %321
-  %324 = trunc i128 %323 to i64
-  %325 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, align 8
-  %326 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, i64 24), align 8
-  %327 = lshr i64 %324, 7
-  %328 = ptrtoint ptr %325 to i64
-  %329 = lshr i64 %328, 12
-  %330 = xor i64 %327, %329
-  %331 = trunc i128 %323 to i8
-  %332 = and i8 %331, 127
-  %333 = insertelement <16 x i8> poison, i8 %332, i64 0
-  %334 = shufflevector <16 x i8> %333, <16 x i8> poison, <16 x i32> zeroinitializer
-  %335 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, i64 8), align 8
-  br label %336
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85: ; preds = %310
+  %314 = extractvalue { ptr, ptr } %.pn.i.i.i.i81, 1
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 4
+  %316 = load i32, ptr %315, align 4
+  %317 = sext i32 %316 to i64
+  %318 = add i64 %317, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
+  %319 = zext i64 %318 to i128
+  %320 = mul nuw i128 %319, 11376068507788127593
+  %321 = lshr i128 %320, 64
+  %322 = xor i128 %321, %320
+  %323 = trunc i128 %322 to i64
+  %324 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, align 8
+  %325 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, i64 24), align 8
+  %326 = lshr i64 %323, 7
+  %327 = ptrtoint ptr %324 to i64
+  %328 = lshr i64 %327, 12
+  %329 = xor i64 %326, %328
+  %330 = trunc i128 %322 to i8
+  %331 = and i8 %330, 127
+  %332 = insertelement <16 x i8> poison, i8 %331, i64 0
+  %333 = shufflevector <16 x i8> %332, <16 x i8> poison, <16 x i32> zeroinitializer
+  %334 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_121kDirectionToButterflyE, i64 8), align 8
+  br label %335
 
-336:                                              ; preds = %356, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85
-  %.pn26.i.i.i.i86 = phi i64 [ %330, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85 ], [ %358, %356 ]
-  %.sroa.10.0.i.i.i.i87 = phi i64 [ 0, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85 ], [ %357, %356 ]
-  %.sroa.4.0.i.i.i.i88 = and i64 %.pn26.i.i.i.i86, %326
-  %337 = getelementptr inbounds i8, ptr %325, i64 %.sroa.4.0.i.i.i.i88
-  %338 = load <16 x i8>, ptr %337, align 1
-  %339 = icmp eq <16 x i8> %334, %338
-  %340 = bitcast <16 x i1> %339 to i16
-  %.not24.i.i.i.i89 = icmp eq i16 %340, 0
+335:                                              ; preds = %355, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85
+  %.pn26.i.i.i.i86 = phi i64 [ %329, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85 ], [ %357, %355 ]
+  %.sroa.10.0.i.i.i.i87 = phi i64 [ 0, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE2atIiS4_EEDTclsrT0_5valueclL_ZSt9addressofIKSC_EPT_RSJ_EclL_ZSt7declvalIRSI_EDTcl9__declvalISJ_ELi0EEEvEEEEERSB_.exit85 ], [ %356, %355 ]
+  %.sroa.4.0.i.i.i.i88 = and i64 %.pn26.i.i.i.i86, %325
+  %336 = getelementptr inbounds i8, ptr %324, i64 %.sroa.4.0.i.i.i.i88
+  %337 = load <16 x i8>, ptr %336, align 1
+  %338 = icmp eq <16 x i8> %333, %337
+  %339 = bitcast <16 x i1> %338 to i16
+  %.not24.i.i.i.i89 = icmp eq i16 %339, 0
   br i1 %.not24.i.i.i.i89, label %._crit_edge.i.i.i.i94, label %.lr.ph.preheader.i.i.i.i90
 
-.lr.ph.preheader.i.i.i.i90:                       ; preds = %336
-  %341 = zext i16 %340 to i32
+.lr.ph.preheader.i.i.i.i90:                       ; preds = %335
+  %340 = zext i16 %339 to i32
   br label %.lr.ph.i.i.i.i91
 
-.lr.ph.i.i.i.i91:                                 ; preds = %351, %.lr.ph.preheader.i.i.i.i90
-  %.sroa.010.025.i.i.i.i92 = phi i32 [ %353, %351 ], [ %341, %.lr.ph.preheader.i.i.i.i90 ]
-  %342 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i92, i1 true)
-  %343 = zext nneg i32 %342 to i64
-  %344 = add i64 %.sroa.4.0.i.i.i.i88, %343
-  %345 = and i64 %344, %326
-  %346 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %335, i64 %345
-  %347 = load i32, ptr %346, align 4
-  %348 = icmp eq i32 %347, %317
-  br i1 %348, label %349, label %351
+.lr.ph.i.i.i.i91:                                 ; preds = %350, %.lr.ph.preheader.i.i.i.i90
+  %.sroa.010.025.i.i.i.i92 = phi i32 [ %352, %350 ], [ %340, %.lr.ph.preheader.i.i.i.i90 ]
+  %341 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i92, i1 true)
+  %342 = zext nneg i32 %341 to i64
+  %343 = add i64 %.sroa.4.0.i.i.i.i88, %342
+  %344 = and i64 %343, %325
+  %345 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %334, i64 %344
+  %346 = load i32, ptr %345, align 4
+  %347 = icmp eq i32 %346, %316
+  br i1 %347, label %348, label %350
 
-349:                                              ; preds = %.lr.ph.i.i.i.i91
-  %350 = getelementptr inbounds i8, ptr %325, i64 %345
-  %.fca.0.insert.i.i.i.i.i99 = insertvalue { ptr, ptr } poison, ptr %350, 0
-  %.fca.1.insert.i.i.i.i.i100 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i99, ptr %346, 1
+348:                                              ; preds = %.lr.ph.i.i.i.i91
+  %349 = getelementptr inbounds i8, ptr %324, i64 %344
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %349) ]
+  %.fca.0.insert.i.i.i.i.i99 = insertvalue { ptr, ptr } poison, ptr %349, 0
+  %.fca.1.insert.i.i.i.i.i100 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i99, ptr %345, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
 
-351:                                              ; preds = %.lr.ph.i.i.i.i91
-  %352 = add nsw i32 %.sroa.010.025.i.i.i.i92, -1
-  %353 = and i32 %352, %.sroa.010.025.i.i.i.i92
-  %.not.i.i.i.i93 = icmp eq i32 %353, 0
+350:                                              ; preds = %.lr.ph.i.i.i.i91
+  %351 = add nsw i32 %.sroa.010.025.i.i.i.i92, -1
+  %352 = and i32 %351, %.sroa.010.025.i.i.i.i92
+  %.not.i.i.i.i93 = icmp eq i32 %352, 0
   br i1 %.not.i.i.i.i93, label %._crit_edge.i.i.i.i94, label %.lr.ph.i.i.i.i91
 
-._crit_edge.i.i.i.i94:                            ; preds = %351, %336
-  %354 = icmp eq <16 x i8> %338, splat (i8 -128)
-  %355 = bitcast <16 x i1> %354 to i16
-  %.not22.i.i.i.i95 = icmp eq i16 %355, 0
-  br i1 %.not22.i.i.i.i95, label %356, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
+._crit_edge.i.i.i.i94:                            ; preds = %350, %335
+  %353 = icmp eq <16 x i8> %337, splat (i8 -128)
+  %354 = bitcast <16 x i1> %353 to i16
+  %.not22.i.i.i.i95 = icmp eq i16 %354, 0
+  br i1 %.not22.i.i.i.i95, label %355, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
 
-356:                                              ; preds = %._crit_edge.i.i.i.i94
-  %357 = add i64 %.sroa.10.0.i.i.i.i87, 16
-  %358 = add i64 %357, %.sroa.4.0.i.i.i.i88
-  br label %336, !llvm.loop !56
+355:                                              ; preds = %._crit_edge.i.i.i.i94
+  %356 = add i64 %.sroa.10.0.i.i.i.i87, 16
+  %357 = add i64 %356, %.sroa.4.0.i.i.i.i88
+  br label %335, !llvm.loop !56
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96: ; preds = %._crit_edge.i.i.i.i94, %349
-  %.pn.i.i.i.i97 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i100, %349 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i94 ]
-  %359 = extractvalue { ptr, ptr } %.pn.i.i.i.i97, 0
-  %360 = icmp eq ptr %359, null
-  br i1 %360, label %364, label %361
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96: ; preds = %._crit_edge.i.i.i.i94, %348
+  %.pn.i.i.i.i97 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i100, %348 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i94 ]
+  %358 = extractvalue { ptr, ptr } %.pn.i.i.i.i97, 0
+  %359 = icmp eq ptr %358, null
+  br i1 %359, label %363, label %360
 
-361:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
-  %362 = load i8, ptr %359, align 1
-  %363 = icmp sgt i8 %362, -1
-  br i1 %363, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit101, label %.critedge.i.i.i.i98
+360:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
+  %361 = load i8, ptr %358, align 1
+  %362 = icmp sgt i8 %361, -1
+  br i1 %362, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit101, label %.critedge.i.i.i.i98
 
-.critedge.i.i.i.i98:                              ; preds = %361
+.critedge.i.i.i.i98:                              ; preds = %360
   tail call void @llvm.trap()
   unreachable
 
-364:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
+363:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i96
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit101: ; preds = %361
-  %365 = extractvalue { ptr, ptr } %.pn.i.i.i.i97, 1
-  %366 = getelementptr inbounds nuw i8, ptr %365, i64 4
-  %.sroa.0.0.copyload = load i64, ptr %366, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %365, i64 12
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit101: ; preds = %360
+  %364 = extractvalue { ptr, ptr } %.pn.i.i.i.i97, 1
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 4
+  %.sroa.0.0.copyload = load i64, ptr %365, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %364, i64 12
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4
-  %367 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %368 = sext i32 %1 to i64
-  %369 = load ptr, ptr %367, align 8
-  %370 = getelementptr inbounds i32, ptr %369, i64 %368
-  %371 = load i32, ptr %370, align 4
-  %372 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %373 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %374 = sext i32 %372 to i64
-  %375 = load ptr, ptr %373, align 8
-  %376 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %375, i64 %374
-  store i64 %.sroa.0.0.copyload, ptr %376, align 4
-  %.sroa.2.0..sroa_idx.i102 = getelementptr inbounds nuw i8, ptr %376, i64 8
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %367 = sext i32 %1 to i64
+  %368 = load ptr, ptr %366, align 8
+  %369 = getelementptr inbounds i32, ptr %368, i64 %367
+  %370 = load i32, ptr %369, align 4
+  %371 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %373 = sext i32 %371 to i64
+  %374 = load ptr, ptr %372, align 8
+  %375 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %374, i64 %373
+  store i64 %.sroa.0.0.copyload, ptr %375, align 4
+  %.sroa.2.0..sroa_idx.i102 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %.sroa.2.0.extract.trunc.i103 = trunc i64 %.sroa.2.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i103, ptr %.sroa.2.0..sroa_idx.i102, align 4
-  %377 = load ptr, ptr %367, align 8
-  %378 = getelementptr inbounds i32, ptr %377, i64 %374
-  store i32 %371, ptr %378, align 4
-  %379 = load ptr, ptr %373, align 8
-  %380 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %379, i64 %374
-  %381 = getelementptr inbounds nuw i8, ptr %380, i64 13
-  store i8 1, ptr %381, align 1
-  br label %382
+  %376 = load ptr, ptr %366, align 8
+  %377 = getelementptr inbounds i32, ptr %376, i64 %373
+  store i32 %370, ptr %377, align 4
+  %378 = load ptr, ptr %372, align 8
+  %379 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %378, i64 %373
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 13
+  store i8 1, ptr %380, align 1
+  br label %381
 
-382:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit101, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit67, %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread
+381:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit101, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE2atIiS7_EEDTclsrT0_5valueclL_ZSt9addressofIKSF_EPT_RSM_EclL_ZSt7declvalIRSL_EDTcl9__declvalISM_ELi0EEEvEEEEERSE_.exit67, %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread
   ret void
 }
 
@@ -9578,9 +9575,9 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kElementToExplosionE, i64 8), align 8
   br label %54
 
-54:                                               ; preds = %74, %36
-  %.pn29.i.i.i = phi i64 [ %48, %36 ], [ %76, %74 ]
-  %.sroa.10.0.i.i.i = phi i64 [ 0, %36 ], [ %75, %74 ]
+54:                                               ; preds = %73, %36
+  %.pn29.i.i.i = phi i64 [ %48, %36 ], [ %75, %73 ]
+  %.sroa.10.0.i.i.i = phi i64 [ 0, %36 ], [ %74, %73 ]
   %.sroa.4.0.i.i.i = and i64 %.pn29.i.i.i, %44
   %55 = getelementptr inbounds i8, ptr %43, i64 %.sroa.4.0.i.i.i
   %56 = load <16 x i8>, ptr %55, align 1
@@ -9593,8 +9590,8 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
   %59 = zext i16 %58 to i32
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %69, %.lr.ph.preheader.i.i.i
-  %.sroa.013.028.i.i.i = phi i32 [ %71, %69 ], [ %59, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %68, %.lr.ph.preheader.i.i.i
+  %.sroa.013.028.i.i.i = phi i32 [ %70, %68 ], [ %59, %.lr.ph.preheader.i.i.i ]
   %60 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i, i1 true)
   %61 = zext nneg i32 %60 to i64
   %62 = add i64 %.sroa.4.0.i.i.i, %61
@@ -9602,347 +9599,347 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
   %64 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %53, i64 %63
   %.val8.i.i.i = load i32, ptr %64, align 4
   %65 = icmp eq i32 %.val8.i.i.i, %.sroa.058.0.extract.trunc
-  br i1 %65, label %66, label %69
+  br i1 %65, label %66, label %68
 
 66:                                               ; preds = %.lr.ph.i.i.i
   %67 = getelementptr inbounds i8, ptr %43, i64 %63
-  %68 = icmp ne ptr %43, null
-  tail call void @llvm.assume(i1 %68)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %67) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %67, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %64, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-69:                                               ; preds = %.lr.ph.i.i.i
-  %70 = add nsw i32 %.sroa.013.028.i.i.i, -1
-  %71 = and i32 %70, %.sroa.013.028.i.i.i
-  %.not.i.i.i = icmp eq i32 %71, 0
+68:                                               ; preds = %.lr.ph.i.i.i
+  %69 = add nsw i32 %.sroa.013.028.i.i.i, -1
+  %70 = and i32 %69, %.sroa.013.028.i.i.i
+  %.not.i.i.i = icmp eq i32 %70, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %69, %54
-  %72 = icmp eq <16 x i8> %56, splat (i8 -128)
-  %73 = bitcast <16 x i1> %72 to i16
-  %.not25.i.i.i = icmp eq i16 %73, 0
-  br i1 %.not25.i.i.i, label %74, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+._crit_edge.i.i.i:                                ; preds = %68, %54
+  %71 = icmp eq <16 x i8> %56, splat (i8 -128)
+  %72 = bitcast <16 x i1> %71 to i16
+  %.not25.i.i.i = icmp eq i16 %72, 0
+  br i1 %.not25.i.i.i, label %73, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
 
-74:                                               ; preds = %._crit_edge.i.i.i
-  %75 = add i64 %.sroa.10.0.i.i.i, 16
-  %76 = add i64 %75, %.sroa.4.0.i.i.i
+73:                                               ; preds = %._crit_edge.i.i.i
+  %74 = add i64 %.sroa.10.0.i.i.i, 16
+  %75 = add i64 %74, %.sroa.4.0.i.i.i
   br label %54, !llvm.loop !51
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit: ; preds = %._crit_edge.i.i.i, %66
   %.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %66 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i ]
-  %77 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
-  %78 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
-  %79 = icmp eq ptr %77, null
-  br i1 %79, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %80
+  %76 = extractvalue { ptr, ptr } %.pn.i.i.i, 0
+  %77 = extractvalue { ptr, ptr } %.pn.i.i.i, 1
+  %78 = icmp eq ptr %76, null
+  br i1 %78, label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, label %79
 
-80:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
-  %81 = load i8, ptr %77, align 1
-  %82 = icmp sgt i8 %81, -1
-  br i1 %82, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
+79:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit
+  %80 = load i8, ptr %76, align 1
+  %81 = icmp sgt i8 %80, -1
+  br i1 %81, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit, label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %80
+.critedge.i.i.i:                                  ; preds = %79
   tail call void @llvm.trap()
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %78, i64 16
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit: ; preds = %79
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 16
   br label %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread
 
 _ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread: ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit
-  %84 = phi ptr [ %83, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
-  %.sroa.05.0.copyload = load i64, ptr %84, align 4
-  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %83 = phi ptr [ %82, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorptEv.exit ], [ @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElExplosionEmptyE, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit ]
+  %.sroa.05.0.copyload = load i64, ptr %83, align 4
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 8
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 4
   tail call void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7ElementEi(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload, i32 noundef 0)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit42
 
 .preheader:                                       ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %storemerge81 = phi i32 [ %124, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ 0, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread ]
+  %storemerge81 = phi i32 [ %123, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ 0, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread ]
   %.sroa.0.080 = phi ptr [ %.sroa.0.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ null, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread ]
   %.sroa.8.079 = phi ptr [ %.sroa.8.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ null, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread ]
   %.sroa.14.078 = phi ptr [ %.sroa.14.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ null, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread ]
-  %85 = icmp eq i32 %storemerge81, 0
-  br i1 %85, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %86
+  %84 = icmp eq i32 %storemerge81, 0
+  br i1 %84, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %85
 
-86:                                               ; preds = %.preheader
-  %87 = invoke noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %storemerge81)
-          to label %88 unwind label %.loopexit
+85:                                               ; preds = %.preheader
+  %86 = invoke noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %storemerge81)
+          to label %87 unwind label %.loopexit
 
-88:                                               ; preds = %86
-  br i1 %87, label %94, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+87:                                               ; preds = %85
+  br i1 %86, label %93, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
-.loopexit:                                        ; preds = %86, %94, %.noexc, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.14.078.lcssa = phi ptr [ %.sroa.14.078, %86 ], [ %.sroa.14.078, %94 ], [ %.sroa.14.078, %.noexc ], [ %.sroa.8.079, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ]
+.loopexit:                                        ; preds = %85, %93, %.noexc, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+  %.sroa.14.078.lcssa = phi ptr [ %.sroa.14.078, %85 ], [ %.sroa.14.078, %93 ], [ %.sroa.14.078, %.noexc ], [ %.sroa.8.079, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %89
+  br label %88
 
-.loopexit.split-lp:                               ; preds = %127, %110, %186, %187
-  %.sroa.14.077 = phi ptr [ %.sroa.14.1, %127 ], [ %.sroa.8.079, %110 ], [ %.sroa.14.1, %186 ], [ %.sroa.14.1, %187 ]
-  %.sroa.0.071 = phi ptr [ %.sroa.0.1, %127 ], [ %.sroa.0.080, %110 ], [ %.sroa.0.1, %186 ], [ %.sroa.0.1, %187 ]
+.loopexit.split-lp:                               ; preds = %126, %109, %185, %186
+  %.sroa.14.077 = phi ptr [ %.sroa.14.1, %126 ], [ %.sroa.8.079, %109 ], [ %.sroa.14.1, %185 ], [ %.sroa.14.1, %186 ]
+  %.sroa.0.071 = phi ptr [ %.sroa.0.1, %126 ], [ %.sroa.0.080, %109 ], [ %.sroa.0.1, %185 ], [ %.sroa.0.1, %186 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %89
+  br label %88
 
-89:                                               ; preds = %.loopexit.split-lp, %.loopexit
+88:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %.sroa.14.076 = phi ptr [ %.sroa.14.078.lcssa, %.loopexit ], [ %.sroa.14.077, %.loopexit.split-lp ]
   %.sroa.0.070 = phi ptr [ %.sroa.0.080, %.loopexit ], [ %.sroa.0.071, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i29 = icmp eq ptr %.sroa.0.070, null
-  br i1 %.not.i.i.i29, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %90
+  br i1 %.not.i.i.i29, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %89
 
-90:                                               ; preds = %89
-  %91 = ptrtoint ptr %.sroa.14.076 to i64
-  %92 = ptrtoint ptr %.sroa.0.070 to i64
-  %93 = sub i64 %91, %92
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.070, i64 noundef %93) #33
+89:                                               ; preds = %88
+  %90 = ptrtoint ptr %.sroa.14.076 to i64
+  %91 = ptrtoint ptr %.sroa.0.070 to i64
+  %92 = sub i64 %90, %91
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.070, i64 noundef %92) #33
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %90
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %88, %89
   resume { ptr, i32 } %lpad.phi
 
-94:                                               ; preds = %88
+93:                                               ; preds = %87
   %.sroa.01.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
-  %95 = invoke noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %storemerge81)
+  %94 = invoke noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %storemerge81)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %94
-  %96 = invoke noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %storemerge81)
+.noexc:                                           ; preds = %93
+  %95 = invoke noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %storemerge81)
           to label %.noexc31 unwind label %.loopexit
 
 .noexc31:                                         ; preds = %.noexc
-  br i1 %96, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  br i1 %95, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32: ; preds = %.noexc31
   %.sroa.0.0.extract.trunc.i30 = trunc i64 %.sroa.01.0.copyload to i32
-  %97 = sext i32 %95 to i64
-  %98 = load ptr, ptr %35, align 8
-  %99 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %98, i64 %97
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp eq i32 %100, %.sroa.0.0.extract.trunc.i30
-  br i1 %101, label %102, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  %96 = sext i32 %94 to i64
+  %97 = load ptr, ptr %35, align 8
+  %98 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %97, i64 %96
+  %99 = load i32, ptr %98, align 4
+  %100 = icmp eq i32 %99, %.sroa.0.0.extract.trunc.i30
+  br i1 %100, label %101, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
-102:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32
+101:                                              ; preds = %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32
   %.not.i = icmp eq ptr %.sroa.8.079, %.sroa.14.078
-  br i1 %.not.i, label %105, label %103
+  br i1 %.not.i, label %104, label %102
 
-103:                                              ; preds = %102
+102:                                              ; preds = %101
   store i32 %storemerge81, ptr %.sroa.8.079, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.8.079, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.8.079, i64 4
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
-105:                                              ; preds = %102
-  %106 = ptrtoint ptr %.sroa.8.079 to i64
-  %107 = ptrtoint ptr %.sroa.0.080 to i64
-  %108 = sub i64 %106, %107
-  %109 = icmp eq i64 %108, 9223372036854775804
-  br i1 %109, label %110, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+104:                                              ; preds = %101
+  %105 = ptrtoint ptr %.sroa.8.079 to i64
+  %106 = ptrtoint ptr %.sroa.0.080 to i64
+  %107 = sub i64 %105, %106
+  %108 = icmp eq i64 %107, 9223372036854775804
+  br i1 %108, label %109, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
-110:                                              ; preds = %105
+109:                                              ; preds = %104
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.153) #35
           to label %.noexc34 unwind label %.loopexit.split-lp
 
-.noexc34:                                         ; preds = %110
+.noexc34:                                         ; preds = %109
   unreachable
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %105
-  %111 = ashr exact i64 %108, 2
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %111, i64 1)
-  %112 = add nsw i64 %.sroa.speculated.i.i.i, %111
-  %113 = icmp ult i64 %112, %111
-  %114 = tail call i64 @llvm.umin.i64(i64 %112, i64 2305843009213693951)
-  %115 = select i1 %113, i64 2305843009213693951, i64 %114
-  %.not.i.i.i33 = icmp ne i64 %115, 0
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %104
+  %110 = ashr exact i64 %107, 2
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %110, i64 1)
+  %111 = add nsw i64 %.sroa.speculated.i.i.i, %110
+  %112 = icmp ult i64 %111, %110
+  %113 = tail call i64 @llvm.umin.i64(i64 %111, i64 2305843009213693951)
+  %114 = select i1 %112, i64 2305843009213693951, i64 %113
+  %.not.i.i.i33 = icmp ne i64 %114, 0
   tail call void @llvm.assume(i1 %.not.i.i.i33)
-  %116 = shl nuw nsw i64 %115, 2
-  %117 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %116) #36
+  %115 = shl nuw nsw i64 %114, 2
+  %116 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %115) #36
           to label %.noexc35 unwind label %.loopexit
 
 .noexc35:                                         ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
-  %118 = getelementptr inbounds i8, ptr %117, i64 %108
-  store i32 %storemerge81, ptr %118, align 4
-  %119 = icmp sgt i64 %108, 0
-  br i1 %119, label %120, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
+  %117 = getelementptr inbounds i8, ptr %116, i64 %107
+  store i32 %storemerge81, ptr %117, align 4
+  %118 = icmp sgt i64 %107, 0
+  br i1 %118, label %119, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
 
-120:                                              ; preds = %.noexc35
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %117, ptr align 4 %.sroa.0.080, i64 %108, i1 false)
+119:                                              ; preds = %.noexc35
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %116, ptr align 4 %.sroa.0.080, i64 %107, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
 
-_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %120, %.noexc35
-  %121 = getelementptr inbounds nuw i8, ptr %118, i64 4
+_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %119, %.noexc35
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %.not.i17.i.i = icmp eq ptr %.sroa.0.080, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %122
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %121
 
-122:                                              ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.080, i64 noundef %108) #33
+121:                                              ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.080, i64 noundef %107) #33
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
-_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %122, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  %123 = getelementptr inbounds nuw i32, ptr %117, i64 %115
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %121, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
+  %122 = getelementptr inbounds nuw i32, ptr %116, i64 %114
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %.noexc31, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %103, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32, %.preheader, %88
-  %.sroa.14.1 = phi ptr [ %.sroa.14.078, %.preheader ], [ %.sroa.14.078, %103 ], [ %.sroa.14.078, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32 ], [ %.sroa.14.078, %88 ], [ %123, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.14.078, %.noexc31 ]
-  %.sroa.8.1 = phi ptr [ %.sroa.8.079, %.preheader ], [ %104, %103 ], [ %.sroa.8.079, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32 ], [ %.sroa.8.079, %88 ], [ %121, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.8.079, %.noexc31 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.080, %.preheader ], [ %.sroa.0.080, %103 ], [ %.sroa.0.080, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32 ], [ %.sroa.0.080, %88 ], [ %117, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.0.080, %.noexc31 ]
-  %124 = add nuw nsw i32 %storemerge81, 1
-  %exitcond.not = icmp eq i32 %124, 5
-  br i1 %exitcond.not, label %125, label %.preheader, !llvm.loop !57
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %.noexc31, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %102, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32, %.preheader, %87
+  %.sroa.14.1 = phi ptr [ %.sroa.14.078, %.preheader ], [ %.sroa.14.078, %102 ], [ %.sroa.14.078, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32 ], [ %.sroa.14.078, %87 ], [ %122, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.14.078, %.noexc31 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.079, %.preheader ], [ %103, %102 ], [ %.sroa.8.079, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32 ], [ %.sroa.8.079, %87 ], [ %120, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.8.079, %.noexc31 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.080, %.preheader ], [ %.sroa.0.080, %102 ], [ %.sroa.0.080, %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit32 ], [ %.sroa.0.080, %87 ], [ %116, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.0.080, %.noexc31 ]
+  %123 = add nuw nsw i32 %storemerge81, 1
+  %exitcond.not = icmp eq i32 %123, 5
+  br i1 %exitcond.not, label %124, label %.preheader, !llvm.loop !57
 
-125:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %126 = icmp eq ptr %.sroa.0.1, %.sroa.8.1
-  br i1 %126, label %204, label %127
+124:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  %125 = icmp eq ptr %.sroa.0.1, %.sroa.8.1
+  br i1 %125, label %203, label %126
 
-127:                                              ; preds = %125
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 296
-  %131 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %130)
-          to label %132 unwind label %.loopexit.split-lp
+126:                                              ; preds = %124
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 296
+  %130 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %129)
+          to label %131 unwind label %.loopexit.split-lp
 
-132:                                              ; preds = %127
-  %133 = ptrtoint ptr %.sroa.8.1 to i64
-  %134 = ptrtoint ptr %.sroa.0.1 to i64
-  %135 = sub i64 %133, %134
-  %136 = ashr exact i64 %135, 2
-  %137 = urem i64 %131, %136
-  %138 = getelementptr inbounds i32, ptr %.sroa.0.1, i64 %137
-  %139 = load i32, ptr %138, align 4
-  %140 = sext i32 %139 to i64
-  %141 = add i64 %140, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
-  %142 = zext i64 %141 to i128
-  %143 = mul nuw i128 %142, 11376068507788127593
-  %144 = lshr i128 %143, 64
-  %145 = xor i128 %144, %143
-  %146 = trunc i128 %145 to i64
-  %147 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_118kDirectionToOrangeE, align 8
-  %148 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_118kDirectionToOrangeE, i64 24), align 8
-  %149 = lshr i64 %146, 7
-  %150 = ptrtoint ptr %147 to i64
-  %151 = lshr i64 %150, 12
-  %152 = xor i64 %149, %151
-  %153 = trunc i128 %145 to i8
-  %154 = and i8 %153, 127
-  %155 = insertelement <16 x i8> poison, i8 %154, i64 0
-  %156 = shufflevector <16 x i8> %155, <16 x i8> poison, <16 x i32> zeroinitializer
-  %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_118kDirectionToOrangeE, i64 8), align 8
-  br label %158
+131:                                              ; preds = %126
+  %132 = ptrtoint ptr %.sroa.8.1 to i64
+  %133 = ptrtoint ptr %.sroa.0.1 to i64
+  %134 = sub i64 %132, %133
+  %135 = ashr exact i64 %134, 2
+  %136 = urem i64 %130, %135
+  %137 = getelementptr inbounds i32, ptr %.sroa.0.1, i64 %136
+  %138 = load i32, ptr %137, align 4
+  %139 = sext i32 %138 to i64
+  %140 = add i64 %139, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
+  %141 = zext i64 %140 to i128
+  %142 = mul nuw i128 %141, 11376068507788127593
+  %143 = lshr i128 %142, 64
+  %144 = xor i128 %143, %142
+  %145 = trunc i128 %144 to i64
+  %146 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_118kDirectionToOrangeE, align 8
+  %147 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_118kDirectionToOrangeE, i64 24), align 8
+  %148 = lshr i64 %145, 7
+  %149 = ptrtoint ptr %146 to i64
+  %150 = lshr i64 %149, 12
+  %151 = xor i64 %148, %150
+  %152 = trunc i128 %144 to i8
+  %153 = and i8 %152, 127
+  %154 = insertelement <16 x i8> poison, i8 %153, i64 0
+  %155 = shufflevector <16 x i8> %154, <16 x i8> poison, <16 x i32> zeroinitializer
+  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_118kDirectionToOrangeE, i64 8), align 8
+  br label %157
 
-158:                                              ; preds = %178, %132
-  %.pn26.i.i.i.i = phi i64 [ %152, %132 ], [ %180, %178 ]
-  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %132 ], [ %179, %178 ]
-  %.sroa.4.0.i.i.i.i = and i64 %.pn26.i.i.i.i, %148
-  %159 = getelementptr inbounds i8, ptr %147, i64 %.sroa.4.0.i.i.i.i
-  %160 = load <16 x i8>, ptr %159, align 1
-  %161 = icmp eq <16 x i8> %156, %160
-  %162 = bitcast <16 x i1> %161 to i16
-  %.not24.i.i.i.i = icmp eq i16 %162, 0
+157:                                              ; preds = %177, %131
+  %.pn26.i.i.i.i = phi i64 [ %151, %131 ], [ %179, %177 ]
+  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %131 ], [ %178, %177 ]
+  %.sroa.4.0.i.i.i.i = and i64 %.pn26.i.i.i.i, %147
+  %158 = getelementptr inbounds i8, ptr %146, i64 %.sroa.4.0.i.i.i.i
+  %159 = load <16 x i8>, ptr %158, align 1
+  %160 = icmp eq <16 x i8> %155, %159
+  %161 = bitcast <16 x i1> %160 to i16
+  %.not24.i.i.i.i = icmp eq i16 %161, 0
   br i1 %.not24.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %158
-  %163 = zext i16 %162 to i32
+.lr.ph.preheader.i.i.i.i:                         ; preds = %157
+  %162 = zext i16 %161 to i32
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %173, %.lr.ph.preheader.i.i.i.i
-  %.sroa.010.025.i.i.i.i = phi i32 [ %175, %173 ], [ %163, %.lr.ph.preheader.i.i.i.i ]
-  %164 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i, i1 true)
-  %165 = zext nneg i32 %164 to i64
-  %166 = add i64 %.sroa.4.0.i.i.i.i, %165
-  %167 = and i64 %166, %148
-  %168 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %157, i64 %167
-  %169 = load i32, ptr %168, align 4
-  %170 = icmp eq i32 %169, %139
-  br i1 %170, label %171, label %173
+.lr.ph.i.i.i.i:                                   ; preds = %172, %.lr.ph.preheader.i.i.i.i
+  %.sroa.010.025.i.i.i.i = phi i32 [ %174, %172 ], [ %162, %.lr.ph.preheader.i.i.i.i ]
+  %163 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.010.025.i.i.i.i, i1 true)
+  %164 = zext nneg i32 %163 to i64
+  %165 = add i64 %.sroa.4.0.i.i.i.i, %164
+  %166 = and i64 %165, %147
+  %167 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %156, i64 %166
+  %168 = load i32, ptr %167, align 4
+  %169 = icmp eq i32 %168, %138
+  br i1 %169, label %170, label %172
 
-171:                                              ; preds = %.lr.ph.i.i.i.i
-  %172 = getelementptr inbounds i8, ptr %147, i64 %167
-  %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %172, 0
-  %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %168, 1
+170:                                              ; preds = %.lr.ph.i.i.i.i
+  %171 = getelementptr inbounds i8, ptr %146, i64 %166
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %171) ]
+  %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %171, 0
+  %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %167, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
 
-173:                                              ; preds = %.lr.ph.i.i.i.i
-  %174 = add nsw i32 %.sroa.010.025.i.i.i.i, -1
-  %175 = and i32 %174, %.sroa.010.025.i.i.i.i
-  %.not.i.i.i.i36 = icmp eq i32 %175, 0
+172:                                              ; preds = %.lr.ph.i.i.i.i
+  %173 = add nsw i32 %.sroa.010.025.i.i.i.i, -1
+  %174 = and i32 %173, %.sroa.010.025.i.i.i.i
+  %.not.i.i.i.i36 = icmp eq i32 %174, 0
   br i1 %.not.i.i.i.i36, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %173, %158
-  %176 = icmp eq <16 x i8> %160, splat (i8 -128)
-  %177 = bitcast <16 x i1> %176 to i16
-  %.not22.i.i.i.i = icmp eq i16 %177, 0
-  br i1 %.not22.i.i.i.i, label %178, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
+._crit_edge.i.i.i.i:                              ; preds = %172, %157
+  %175 = icmp eq <16 x i8> %159, splat (i8 -128)
+  %176 = bitcast <16 x i1> %175 to i16
+  %.not22.i.i.i.i = icmp eq i16 %176, 0
+  br i1 %.not22.i.i.i.i, label %177, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
 
-178:                                              ; preds = %._crit_edge.i.i.i.i
-  %179 = add i64 %.sroa.10.0.i.i.i.i, 16
-  %180 = add i64 %179, %.sroa.4.0.i.i.i.i
-  br label %158, !llvm.loop !56
+177:                                              ; preds = %._crit_edge.i.i.i.i
+  %178 = add i64 %.sroa.10.0.i.i.i.i, 16
+  %179 = add i64 %178, %.sroa.4.0.i.i.i.i
+  br label %157, !llvm.loop !56
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i: ; preds = %._crit_edge.i.i.i.i, %171
-  %.pn.i.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i, %171 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i ]
-  %181 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
-  %182 = icmp eq ptr %181, null
-  br i1 %182, label %186, label %183
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i: ; preds = %._crit_edge.i.i.i.i, %170
+  %.pn.i.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i, %170 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i ]
+  %180 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
+  %181 = icmp eq ptr %180, null
+  br i1 %181, label %185, label %182
 
-183:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
-  %184 = load i8, ptr %181, align 1
-  %185 = icmp sgt i8 %184, -1
-  br i1 %185, label %187, label %.critedge.i.i.i.i37
+182:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
+  %183 = load i8, ptr %180, align 1
+  %184 = icmp sgt i8 %183, -1
+  br i1 %184, label %186, label %.critedge.i.i.i.i37
 
-.critedge.i.i.i.i37:                              ; preds = %183
+.critedge.i.i.i.i37:                              ; preds = %182
   tail call void @llvm.trap()
   unreachable
 
-186:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
+185:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
   invoke void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
           to label %.noexc38 unwind label %.loopexit.split-lp
 
-.noexc38:                                         ; preds = %186
+.noexc38:                                         ; preds = %185
   unreachable
 
-187:                                              ; preds = %183
-  %188 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
-  %.sroa.0.0.copyload = load i64, ptr %189, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %188, i64 12
+186:                                              ; preds = %182
+  %187 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 4
+  %.sroa.0.0.copyload = load i64, ptr %188, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %187, i64 12
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %191 = sext i32 %1 to i64
-  %192 = load ptr, ptr %190, align 8
-  %193 = getelementptr inbounds i32, ptr %192, i64 %191
-  %194 = load i32, ptr %193, align 4
-  %195 = invoke noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %190 = sext i32 %1 to i64
+  %191 = load ptr, ptr %189, align 8
+  %192 = getelementptr inbounds i32, ptr %191, i64 %190
+  %193 = load i32, ptr %192, align 4
+  %194 = invoke noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
           to label %_ZN10open_spiel15stones_and_gems16StonesNGemsState7SetItemEiNS0_7ElementEii.exit unwind label %.loopexit.split-lp
 
-_ZN10open_spiel15stones_and_gems16StonesNGemsState7SetItemEiNS0_7ElementEii.exit: ; preds = %187
-  %196 = sext i32 %195 to i64
-  %197 = load ptr, ptr %35, align 8
-  %198 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %197, i64 %196
-  store i64 %.sroa.0.0.copyload, ptr %198, align 4
-  %.sroa.2.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %198, i64 8
+_ZN10open_spiel15stones_and_gems16StonesNGemsState7SetItemEiNS0_7ElementEii.exit: ; preds = %186
+  %195 = sext i32 %194 to i64
+  %196 = load ptr, ptr %35, align 8
+  %197 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %196, i64 %195
+  store i64 %.sroa.0.0.copyload, ptr %197, align 4
+  %.sroa.2.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i39, align 4
-  %199 = load ptr, ptr %190, align 8
-  %200 = getelementptr inbounds i32, ptr %199, i64 %196
-  store i32 %194, ptr %200, align 4
-  %201 = load ptr, ptr %35, align 8
-  %202 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %201, i64 %196
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 13
-  store i8 1, ptr %203, align 1
-  br label %204
+  %198 = load ptr, ptr %189, align 8
+  %199 = getelementptr inbounds i32, ptr %198, i64 %195
+  store i32 %193, ptr %199, align 4
+  %200 = load ptr, ptr %35, align 8
+  %201 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %200, i64 %195
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 13
+  store i8 1, ptr %202, align 1
+  br label %203
 
-204:                                              ; preds = %_ZN10open_spiel15stones_and_gems16StonesNGemsState7SetItemEiNS0_7ElementEii.exit, %125
+203:                                              ; preds = %_ZN10open_spiel15stones_and_gems16StonesNGemsState7SetItemEiNS0_7ElementEii.exit, %124
   %.not.i.i.i41 = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not.i.i.i41, label %_ZNSt6vectorIiSaIiEED2Ev.exit42, label %205
+  br i1 %.not.i.i.i41, label %_ZNSt6vectorIiSaIiEED2Ev.exit42, label %204
 
-205:                                              ; preds = %204
-  %206 = ptrtoint ptr %.sroa.14.1 to i64
-  %207 = ptrtoint ptr %.sroa.0.1 to i64
-  %208 = sub i64 %206, %207
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1, i64 noundef %208) #33
+204:                                              ; preds = %203
+  %205 = ptrtoint ptr %.sroa.14.1 to i64
+  %206 = ptrtoint ptr %.sroa.0.1 to i64
+  %207 = sub i64 %205, %206
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1, i64 noundef %207) #33
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit42
 
-_ZNSt6vectorIiSaIiEED2Ev.exit42:                  ; preds = %205, %204, %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, %12
+_ZNSt6vectorIiSaIiEED2Ev.exit42:                  ; preds = %204, %203, %_ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE14const_iteratorESJ_.exit.thread, %12
   ret void
 }
 
@@ -10272,9 +10269,9 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState16UpdateExplosion
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_119kExplosionToElementE, i64 8), align 8
   br label %21
 
-21:                                               ; preds = %41, %2
-  %.pn29.i.i.i.i = phi i64 [ %15, %2 ], [ %43, %41 ]
-  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %2 ], [ %42, %41 ]
+21:                                               ; preds = %40, %2
+  %.pn29.i.i.i.i = phi i64 [ %15, %2 ], [ %42, %40 ]
+  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %2 ], [ %41, %40 ]
   %.sroa.4.0.i.i.i.i = and i64 %.pn29.i.i.i.i, %11
   %22 = getelementptr inbounds i8, ptr %10, i64 %.sroa.4.0.i.i.i.i
   %23 = load <16 x i8>, ptr %22, align 1
@@ -10287,8 +10284,8 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState16UpdateExplosion
   %26 = zext i16 %25 to i32
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %36, %.lr.ph.preheader.i.i.i.i
-  %.sroa.013.028.i.i.i.i = phi i32 [ %38, %36 ], [ %26, %.lr.ph.preheader.i.i.i.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %35, %.lr.ph.preheader.i.i.i.i
+  %.sroa.013.028.i.i.i.i = phi i32 [ %37, %35 ], [ %26, %.lr.ph.preheader.i.i.i.i ]
   %27 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i, i1 true)
   %28 = zext nneg i32 %27 to i64
   %29 = add i64 %.sroa.4.0.i.i.i.i, %28
@@ -10296,78 +10293,77 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState16UpdateExplosion
   %31 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.238", ptr %20, i64 %30
   %.val8.i.i.i.i = load i32, ptr %31, align 4
   %32 = icmp eq i32 %.val8.i.i.i.i, %.sroa.0.0.extract.trunc
-  br i1 %32, label %33, label %36
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.lr.ph.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %10, i64 %30
-  %35 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %35)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %34, 0
   %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %31, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-36:                                               ; preds = %.lr.ph.i.i.i.i
-  %37 = add nsw i32 %.sroa.013.028.i.i.i.i, -1
-  %38 = and i32 %37, %.sroa.013.028.i.i.i.i
-  %.not.i.i.i.i = icmp eq i32 %38, 0
+35:                                               ; preds = %.lr.ph.i.i.i.i
+  %36 = add nsw i32 %.sroa.013.028.i.i.i.i, -1
+  %37 = and i32 %36, %.sroa.013.028.i.i.i.i
+  %.not.i.i.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %36, %21
-  %39 = icmp eq <16 x i8> %23, splat (i8 -128)
-  %40 = bitcast <16 x i1> %39 to i16
-  %.not25.i.i.i.i = icmp eq i16 %40, 0
-  br i1 %.not25.i.i.i.i, label %41, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+._crit_edge.i.i.i.i:                              ; preds = %35, %21
+  %38 = icmp eq <16 x i8> %23, splat (i8 -128)
+  %39 = bitcast <16 x i1> %38 to i16
+  %.not25.i.i.i.i = icmp eq i16 %39, 0
+  br i1 %.not25.i.i.i.i, label %40, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-41:                                               ; preds = %._crit_edge.i.i.i.i
-  %42 = add i64 %.sroa.10.0.i.i.i.i, 16
-  %43 = add i64 %42, %.sroa.4.0.i.i.i.i
+40:                                               ; preds = %._crit_edge.i.i.i.i
+  %41 = add i64 %.sroa.10.0.i.i.i.i, 16
+  %42 = add i64 %41, %.sroa.4.0.i.i.i.i
   br label %21, !llvm.loop !51
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i: ; preds = %._crit_edge.i.i.i.i, %33
   %.pn.i.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i, %33 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i ]
-  %44 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %49, label %46
+  %43 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %48, label %45
 
-46:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
-  %47 = load i8, ptr %44, align 1
-  %48 = icmp sgt i8 %47, -1
-  br i1 %48, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i
+45:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+  %46 = load i8, ptr %43, align 1
+  %47 = icmp sgt i8 %46, -1
+  br i1 %47, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i
 
-.critedge.i.i.i.i:                                ; preds = %46
+.critedge.i.i.i.i:                                ; preds = %45
   tail call void @llvm.trap()
   unreachable
 
-49:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+48:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %46
-  %50 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %.sroa.01.0.copyload = load i64, ptr %51, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 24
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %45
+  %49 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %.sroa.01.0.copyload = load i64, ptr %50, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 24
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %53 = load i32, ptr %52, align 4
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %52, align 4
-  %55 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
-  %56 = sext i32 %55 to i64
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %57, i64 %56
-  store i64 %.sroa.01.0.copyload, ptr %58, align 4
-  %.sroa.2.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %52 = load i32, ptr %51, align 4
+  %53 = add nsw i32 %52, 1
+  store i32 %53, ptr %51, align 4
+  %54 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
+  %55 = sext i32 %54 to i64
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %56, i64 %55
+  store i64 %.sroa.01.0.copyload, ptr %57, align 4
+  %.sroa.2.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.22.0.copyload to i48
   store i48 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i4, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i32, ptr %60, i64 %56
-  store i32 %54, ptr %61, align 4
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %62, i64 %56
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 13
-  store i8 1, ptr %64, align 1
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i32, ptr %59, i64 %55
+  store i32 %53, ptr %60, align 4
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds %"struct.open_spiel::stones_and_gems::Element", ptr %61, i64 %55
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 13
+  store i8 1, ptr %63, align 1
   ret void
 }
 
@@ -13484,6 +13480,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 484:                                              ; preds = %.lr.ph.i.i.i
   %485 = getelementptr inbounds i8, ptr %460, i64 %480
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %485) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %485, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %481, 1
   br label %.loopexit
@@ -14100,6 +14097,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
 
 747:                                              ; preds = %.lr.ph.i.i.i.i98
   %748 = getelementptr inbounds i8, ptr %723, i64 %743
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %748) ]
   %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %748, 0
   %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %744, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE4findIiEENSH_14const_iteratorERSE_.exit.i
@@ -14987,9 +14985,9 @@ define noundef double @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame10MaxUt
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kGemPointsE, i64 8), align 8
   br label %18
 
-18:                                               ; preds = %38, %1
-  %.pn29.i.i.i.i = phi i64 [ %12, %1 ], [ %40, %38 ]
-  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %1 ], [ %39, %38 ]
+18:                                               ; preds = %37, %1
+  %.pn29.i.i.i.i = phi i64 [ %12, %1 ], [ %39, %37 ]
+  %.sroa.10.0.i.i.i.i = phi i64 [ 0, %1 ], [ %38, %37 ]
   %.sroa.4.0.i.i.i.i = and i64 %.pn29.i.i.i.i, %8
   %19 = getelementptr inbounds i8, ptr %7, i64 %.sroa.4.0.i.i.i.i
   %20 = load <16 x i8>, ptr %19, align 1
@@ -15002,8 +15000,8 @@ define noundef double @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame10MaxUt
   %23 = zext i16 %22 to i32
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %33, %.lr.ph.preheader.i.i.i.i
-  %.sroa.013.028.i.i.i.i = phi i32 [ %35, %33 ], [ %23, %.lr.ph.preheader.i.i.i.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %32, %.lr.ph.preheader.i.i.i.i
+  %.sroa.013.028.i.i.i.i = phi i32 [ %34, %32 ], [ %23, %.lr.ph.preheader.i.i.i.i ]
   %24 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i, i1 true)
   %25 = zext nneg i32 %24 to i64
   %26 = add i64 %.sroa.4.0.i.i.i.i, %25
@@ -15011,326 +15009,324 @@ define noundef double @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame10MaxUt
   %28 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.227", ptr %17, i64 %27
   %.val8.i.i.i.i = load i32, ptr %28, align 4
   %29 = icmp eq i32 %.val8.i.i.i.i, %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE.val31
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %.lr.ph.i.i.i.i
   %31 = getelementptr inbounds i8, ptr %7, i64 %27
-  %32 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %32)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %31) ]
   %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %31, 0
   %.fca.1.insert.i.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i, ptr %28, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-33:                                               ; preds = %.lr.ph.i.i.i.i
-  %34 = add nsw i32 %.sroa.013.028.i.i.i.i, -1
-  %35 = and i32 %34, %.sroa.013.028.i.i.i.i
-  %.not.i.i.i.i = icmp eq i32 %35, 0
+32:                                               ; preds = %.lr.ph.i.i.i.i
+  %33 = add nsw i32 %.sroa.013.028.i.i.i.i, -1
+  %34 = and i32 %33, %.sroa.013.028.i.i.i.i
+  %.not.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %33, %18
-  %36 = icmp eq <16 x i8> %20, splat (i8 -128)
-  %37 = bitcast <16 x i1> %36 to i16
-  %.not25.i.i.i.i = icmp eq i16 %37, 0
-  br i1 %.not25.i.i.i.i, label %38, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+._crit_edge.i.i.i.i:                              ; preds = %32, %18
+  %35 = icmp eq <16 x i8> %20, splat (i8 -128)
+  %36 = bitcast <16 x i1> %35 to i16
+  %.not25.i.i.i.i = icmp eq i16 %36, 0
+  br i1 %.not25.i.i.i.i, label %37, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
 
-38:                                               ; preds = %._crit_edge.i.i.i.i
-  %39 = add i64 %.sroa.10.0.i.i.i.i, 16
-  %40 = add i64 %39, %.sroa.4.0.i.i.i.i
+37:                                               ; preds = %._crit_edge.i.i.i.i
+  %38 = add i64 %.sroa.10.0.i.i.i.i, 16
+  %39 = add i64 %38, %.sroa.4.0.i.i.i.i
   br label %18, !llvm.loop !54
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i: ; preds = %._crit_edge.i.i.i.i, %30
   %.pn.i.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i, %30 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i ]
-  %41 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %46, label %43
+  %40 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 0
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %45, label %42
 
-43:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
-  %44 = load i8, ptr %41, align 1
-  %45 = icmp sgt i8 %44, -1
-  br i1 %45, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i
+42:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+  %43 = load i8, ptr %40, align 1
+  %44 = icmp sgt i8 %43, -1
+  br i1 %44, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, label %.critedge.i.i.i.i
 
-.critedge.i.i.i.i:                                ; preds = %43
+.critedge.i.i.i.i:                                ; preds = %42
   tail call void @llvm.trap()
   unreachable
 
-46:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
+45:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %43
-  %47 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load i32, ptr %48, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 5304
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 5312
-  %54 = load ptr, ptr %53, align 8
-  %.not5.i.i = icmp eq ptr %52, %54
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit: ; preds = %42
+  %46 = extractvalue { ptr, ptr } %.pn.i.i.i.i, 1
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = load i32, ptr %47, align 4
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 5304
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 5312
+  %53 = load ptr, ptr %52, align 8
+  %.not5.i.i = icmp eq ptr %51, %53
   br i1 %.not5.i.i, label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit, %.lr.ph.i.i
   %.07.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit ]
-  %.sroa.03.06.i.i = phi ptr [ %58, %.lr.ph.i.i ], [ %52, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit ]
-  %55 = load i32, ptr %.sroa.03.06.i.i, align 4
-  %56 = icmp eq i32 %55, %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE.val31
-  %57 = zext i1 %56 to i64
-  %spec.select.i.i = add nuw nsw i64 %.07.i.i, %57
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i, i64 16
-  %.not.i.i = icmp eq ptr %58, %54
+  %.sroa.03.06.i.i = phi ptr [ %57, %.lr.ph.i.i ], [ %51, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit ]
+  %54 = load i32, ptr %.sroa.03.06.i.i, align 4
+  %55 = icmp eq i32 %54, %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE.val31
+  %56 = zext i1 %55 to i64
+  %spec.select.i.i = add nuw nsw i64 %.07.i.i, %56
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i, i64 16
+  %.not.i.i = icmp eq ptr %57, %53
   br i1 %.not.i.i, label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !86
 
 _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit.loopexit: ; preds = %.lr.ph.i.i
-  %59 = mul nsw i64 %spec.select.i.i, %50
-  %60 = sitofp i64 %59 to double
-  %61 = fadd double %60, %4
+  %58 = mul nsw i64 %spec.select.i.i, %49
+  %59 = sitofp i64 %58 to double
+  %60 = fadd double %59, %4
   br label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit
 
 _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit: ; preds = %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit.loopexit, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit
-  %.0.lcssa.i.i = phi double [ %4, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit ], [ %61, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit.loopexit ]
-  br label %62
+  %.0.lcssa.i.i = phi double [ %4, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit ], [ %60, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit.loopexit ]
+  br label %61
 
-62:                                               ; preds = %82, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit
-  %.pn29.i.i.i.i32 = phi i64 [ %12, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit ], [ %84, %82 ]
-  %.sroa.10.0.i.i.i.i33 = phi i64 [ 0, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit ], [ %83, %82 ]
+61:                                               ; preds = %80, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit
+  %.pn29.i.i.i.i32 = phi i64 [ %12, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit ], [ %82, %80 ]
+  %.sroa.10.0.i.i.i.i33 = phi i64 [ 0, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit ], [ %81, %80 ]
   %.sroa.4.0.i.i.i.i34 = and i64 %.pn29.i.i.i.i32, %8
-  %63 = getelementptr inbounds i8, ptr %7, i64 %.sroa.4.0.i.i.i.i34
-  %64 = load <16 x i8>, ptr %63, align 1
-  %65 = icmp eq <16 x i8> %16, %64
-  %66 = bitcast <16 x i1> %65 to i16
-  %.not27.i.i.i.i35 = icmp eq i16 %66, 0
+  %62 = getelementptr inbounds i8, ptr %7, i64 %.sroa.4.0.i.i.i.i34
+  %63 = load <16 x i8>, ptr %62, align 1
+  %64 = icmp eq <16 x i8> %16, %63
+  %65 = bitcast <16 x i1> %64 to i16
+  %.not27.i.i.i.i35 = icmp eq i16 %65, 0
   br i1 %.not27.i.i.i.i35, label %._crit_edge.i.i.i.i41, label %.lr.ph.preheader.i.i.i.i36
 
-.lr.ph.preheader.i.i.i.i36:                       ; preds = %62
-  %67 = zext i16 %66 to i32
+.lr.ph.preheader.i.i.i.i36:                       ; preds = %61
+  %66 = zext i16 %65 to i32
   br label %.lr.ph.i.i.i.i37
 
-.lr.ph.i.i.i.i37:                                 ; preds = %77, %.lr.ph.preheader.i.i.i.i36
-  %.sroa.013.028.i.i.i.i38 = phi i32 [ %79, %77 ], [ %67, %.lr.ph.preheader.i.i.i.i36 ]
-  %68 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i38, i1 true)
-  %69 = zext nneg i32 %68 to i64
-  %70 = add i64 %.sroa.4.0.i.i.i.i34, %69
-  %71 = and i64 %70, %8
-  %72 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.227", ptr %17, i64 %71
-  %.val8.i.i.i.i39 = load i32, ptr %72, align 4
-  %73 = icmp eq i32 %.val8.i.i.i.i39, %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE.val31
-  br i1 %73, label %74, label %77
+.lr.ph.i.i.i.i37:                                 ; preds = %75, %.lr.ph.preheader.i.i.i.i36
+  %.sroa.013.028.i.i.i.i38 = phi i32 [ %77, %75 ], [ %66, %.lr.ph.preheader.i.i.i.i36 ]
+  %67 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.013.028.i.i.i.i38, i1 true)
+  %68 = zext nneg i32 %67 to i64
+  %69 = add i64 %.sroa.4.0.i.i.i.i34, %68
+  %70 = and i64 %69, %8
+  %71 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.227", ptr %17, i64 %70
+  %.val8.i.i.i.i39 = load i32, ptr %71, align 4
+  %72 = icmp eq i32 %.val8.i.i.i.i39, %_ZN10open_spiel15stones_and_gems12_GLOBAL__N_110kElDiamondE.val31
+  br i1 %72, label %73, label %75
 
-74:                                               ; preds = %.lr.ph.i.i.i.i37
-  %75 = getelementptr inbounds i8, ptr %7, i64 %71
-  %76 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %76)
-  %.fca.0.insert.i.i.i.i.i46 = insertvalue { ptr, ptr } poison, ptr %75, 0
-  %.fca.1.insert.i.i.i.i.i47 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i46, ptr %72, 1
+73:                                               ; preds = %.lr.ph.i.i.i.i37
+  %74 = getelementptr inbounds i8, ptr %7, i64 %70
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %74) ]
+  %.fca.0.insert.i.i.i.i.i46 = insertvalue { ptr, ptr } poison, ptr %74, 0
+  %.fca.1.insert.i.i.i.i.i47 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i.i46, ptr %71, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i43
 
-77:                                               ; preds = %.lr.ph.i.i.i.i37
-  %78 = add nsw i32 %.sroa.013.028.i.i.i.i38, -1
-  %79 = and i32 %78, %.sroa.013.028.i.i.i.i38
-  %.not.i.i.i.i40 = icmp eq i32 %79, 0
+75:                                               ; preds = %.lr.ph.i.i.i.i37
+  %76 = add nsw i32 %.sroa.013.028.i.i.i.i38, -1
+  %77 = and i32 %76, %.sroa.013.028.i.i.i.i38
+  %.not.i.i.i.i40 = icmp eq i32 %77, 0
   br i1 %.not.i.i.i.i40, label %._crit_edge.i.i.i.i41, label %.lr.ph.i.i.i.i37
 
-._crit_edge.i.i.i.i41:                            ; preds = %77, %62
-  %80 = icmp eq <16 x i8> %64, splat (i8 -128)
-  %81 = bitcast <16 x i1> %80 to i16
-  %.not25.i.i.i.i42 = icmp eq i16 %81, 0
-  br i1 %.not25.i.i.i.i42, label %82, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i43
+._crit_edge.i.i.i.i41:                            ; preds = %75, %61
+  %78 = icmp eq <16 x i8> %63, splat (i8 -128)
+  %79 = bitcast <16 x i1> %78 to i16
+  %.not25.i.i.i.i42 = icmp eq i16 %79, 0
+  br i1 %.not25.i.i.i.i42, label %80, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i43
 
-82:                                               ; preds = %._crit_edge.i.i.i.i41
-  %83 = add i64 %.sroa.10.0.i.i.i.i33, 16
-  %84 = add i64 %83, %.sroa.4.0.i.i.i.i34
-  br label %62, !llvm.loop !54
+80:                                               ; preds = %._crit_edge.i.i.i.i41
+  %81 = add i64 %.sroa.10.0.i.i.i.i33, 16
+  %82 = add i64 %81, %.sroa.4.0.i.i.i.i34
+  br label %61, !llvm.loop !54
 
-_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i43: ; preds = %._crit_edge.i.i.i.i41, %74
-  %.pn.i.i.i.i44 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i47, %74 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i41 ]
-  %85 = extractvalue { ptr, ptr } %.pn.i.i.i.i44, 0
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %90, label %87
+_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i43: ; preds = %._crit_edge.i.i.i.i41, %73
+  %.pn.i.i.i.i44 = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i.i47, %73 ], [ { ptr null, ptr undef }, %._crit_edge.i.i.i.i41 ]
+  %83 = extractvalue { ptr, ptr } %.pn.i.i.i.i44, 0
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %88, label %85
 
-87:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i43
-  %88 = load i8, ptr %85, align 1
-  %89 = icmp sgt i8 %88, -1
-  br i1 %89, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit48, label %.critedge.i.i.i.i45
+85:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i43
+  %86 = load i8, ptr %83, align 1
+  %87 = icmp sgt i8 %86, -1
+  br i1 %87, label %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit48, label %.critedge.i.i.i.i45
 
-.critedge.i.i.i.i45:                              ; preds = %87
+.critedge.i.i.i.i45:                              ; preds = %85
   tail call void @llvm.trap()
   unreachable
 
-90:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i43
+88:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE4findIS6_EENSG_14const_iteratorERSD_.exit.i43
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.176) #35
   unreachable
 
-_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit48: ; preds = %87
-  %91 = extractvalue { ptr, ptr } %.pn.i.i.i.i44, 1
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load i32, ptr %92, align 4
-  %94 = sext i32 %93 to i64
+_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit48: ; preds = %85
+  %89 = extractvalue { ptr, ptr } %.pn.i.i.i.i44, 1
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %91 = load i32, ptr %90, align 4
+  %92 = sext i32 %91 to i64
   br i1 %.not5.i.i, label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120, label %.lr.ph.i.i50
 
 .lr.ph.i.i50:                                     ; preds = %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit48
-  %95 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, align 8
-  br label %96
+  %93 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElDiamondFallingE, align 8
+  br label %94
 
-96:                                               ; preds = %96, %.lr.ph.i.i50
-  %.07.i.i51 = phi i64 [ 0, %.lr.ph.i.i50 ], [ %spec.select.i.i53, %96 ]
-  %.sroa.03.06.i.i52 = phi ptr [ %52, %.lr.ph.i.i50 ], [ %100, %96 ]
-  %97 = load i32, ptr %.sroa.03.06.i.i52, align 4
-  %98 = icmp eq i32 %97, %95
-  %99 = zext i1 %98 to i64
-  %spec.select.i.i53 = add nuw nsw i64 %.07.i.i51, %99
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i52, i64 16
-  %.not.i.i54 = icmp eq ptr %100, %54
-  br i1 %.not.i.i54, label %.lr.ph.i.i58, label %96, !llvm.loop !86
+94:                                               ; preds = %94, %.lr.ph.i.i50
+  %.07.i.i51 = phi i64 [ 0, %.lr.ph.i.i50 ], [ %spec.select.i.i53, %94 ]
+  %.sroa.03.06.i.i52 = phi ptr [ %51, %.lr.ph.i.i50 ], [ %98, %94 ]
+  %95 = load i32, ptr %.sroa.03.06.i.i52, align 4
+  %96 = icmp eq i32 %95, %93
+  %97 = zext i1 %96 to i64
+  %spec.select.i.i53 = add nuw nsw i64 %.07.i.i51, %97
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i52, i64 16
+  %.not.i.i54 = icmp eq ptr %98, %53
+  br i1 %.not.i.i54, label %.lr.ph.i.i58, label %94, !llvm.loop !86
 
-.lr.ph.i.i58:                                     ; preds = %96
-  %101 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElStoneE, align 8
-  br label %102
+.lr.ph.i.i58:                                     ; preds = %94
+  %99 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElStoneE, align 8
+  br label %100
 
-102:                                              ; preds = %102, %.lr.ph.i.i58
-  %.07.i.i59 = phi i64 [ 0, %.lr.ph.i.i58 ], [ %spec.select.i.i61, %102 ]
-  %.sroa.03.06.i.i60 = phi ptr [ %52, %.lr.ph.i.i58 ], [ %106, %102 ]
-  %103 = load i32, ptr %.sroa.03.06.i.i60, align 4
-  %104 = icmp eq i32 %103, %101
-  %105 = zext i1 %104 to i64
-  %spec.select.i.i61 = add nuw nsw i64 %.07.i.i59, %105
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i60, i64 16
-  %.not.i.i62 = icmp eq ptr %106, %54
-  br i1 %.not.i.i62, label %.lr.ph.i.i66, label %102, !llvm.loop !86
+100:                                              ; preds = %100, %.lr.ph.i.i58
+  %.07.i.i59 = phi i64 [ 0, %.lr.ph.i.i58 ], [ %spec.select.i.i61, %100 ]
+  %.sroa.03.06.i.i60 = phi ptr [ %51, %.lr.ph.i.i58 ], [ %104, %100 ]
+  %101 = load i32, ptr %.sroa.03.06.i.i60, align 4
+  %102 = icmp eq i32 %101, %99
+  %103 = zext i1 %102 to i64
+  %spec.select.i.i61 = add nuw nsw i64 %.07.i.i59, %103
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i60, i64 16
+  %.not.i.i62 = icmp eq ptr %104, %53
+  br i1 %.not.i.i62, label %.lr.ph.i.i66, label %100, !llvm.loop !86
 
-.lr.ph.i.i66:                                     ; preds = %102
-  %107 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, align 8
-  br label %108
+.lr.ph.i.i66:                                     ; preds = %100
+  %105 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, align 8
+  br label %106
 
-108:                                              ; preds = %108, %.lr.ph.i.i66
-  %.07.i.i67 = phi i64 [ 0, %.lr.ph.i.i66 ], [ %spec.select.i.i69, %108 ]
-  %.sroa.03.06.i.i68 = phi ptr [ %52, %.lr.ph.i.i66 ], [ %112, %108 ]
-  %109 = load i32, ptr %.sroa.03.06.i.i68, align 4
-  %110 = icmp eq i32 %109, %107
-  %111 = zext i1 %110 to i64
-  %spec.select.i.i69 = add nuw nsw i64 %.07.i.i67, %111
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i68, i64 16
-  %.not.i.i70 = icmp eq ptr %112, %54
-  br i1 %.not.i.i70, label %.lr.ph.i.i74, label %108, !llvm.loop !86
+106:                                              ; preds = %106, %.lr.ph.i.i66
+  %.07.i.i67 = phi i64 [ 0, %.lr.ph.i.i66 ], [ %spec.select.i.i69, %106 ]
+  %.sroa.03.06.i.i68 = phi ptr [ %51, %.lr.ph.i.i66 ], [ %110, %106 ]
+  %107 = load i32, ptr %.sroa.03.06.i.i68, align 4
+  %108 = icmp eq i32 %107, %105
+  %109 = zext i1 %108 to i64
+  %spec.select.i.i69 = add nuw nsw i64 %.07.i.i67, %109
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i68, i64 16
+  %.not.i.i70 = icmp eq ptr %110, %53
+  br i1 %.not.i.i70, label %.lr.ph.i.i74, label %106, !llvm.loop !86
 
-.lr.ph.i.i74:                                     ; preds = %108
-  %113 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElButterflyUpE, align 4
-  br label %114
+.lr.ph.i.i74:                                     ; preds = %106
+  %111 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElButterflyUpE, align 4
+  br label %112
 
-114:                                              ; preds = %114, %.lr.ph.i.i74
-  %.07.i.i75 = phi i64 [ 0, %.lr.ph.i.i74 ], [ %spec.select.i.i77, %114 ]
-  %.sroa.03.06.i.i76 = phi ptr [ %52, %.lr.ph.i.i74 ], [ %118, %114 ]
-  %115 = load i32, ptr %.sroa.03.06.i.i76, align 4
-  %116 = icmp eq i32 %115, %113
-  %117 = zext i1 %116 to i64
-  %spec.select.i.i77 = add nuw nsw i64 %.07.i.i75, %117
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i76, i64 16
-  %.not.i.i78 = icmp eq ptr %118, %54
-  br i1 %.not.i.i78, label %.lr.ph.i.i82, label %114, !llvm.loop !86
+112:                                              ; preds = %112, %.lr.ph.i.i74
+  %.07.i.i75 = phi i64 [ 0, %.lr.ph.i.i74 ], [ %spec.select.i.i77, %112 ]
+  %.sroa.03.06.i.i76 = phi ptr [ %51, %.lr.ph.i.i74 ], [ %116, %112 ]
+  %113 = load i32, ptr %.sroa.03.06.i.i76, align 4
+  %114 = icmp eq i32 %113, %111
+  %115 = zext i1 %114 to i64
+  %spec.select.i.i77 = add nuw nsw i64 %.07.i.i75, %115
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i76, i64 16
+  %.not.i.i78 = icmp eq ptr %116, %53
+  br i1 %.not.i.i78, label %.lr.ph.i.i82, label %112, !llvm.loop !86
 
-.lr.ph.i.i82:                                     ; preds = %114
-  %119 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kElButterflyLeftE, align 4
-  br label %120
+.lr.ph.i.i82:                                     ; preds = %112
+  %117 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kElButterflyLeftE, align 4
+  br label %118
 
-120:                                              ; preds = %120, %.lr.ph.i.i82
-  %.07.i.i83 = phi i64 [ 0, %.lr.ph.i.i82 ], [ %spec.select.i.i85, %120 ]
-  %.sroa.03.06.i.i84 = phi ptr [ %52, %.lr.ph.i.i82 ], [ %124, %120 ]
-  %121 = load i32, ptr %.sroa.03.06.i.i84, align 4
-  %122 = icmp eq i32 %121, %119
-  %123 = zext i1 %122 to i64
-  %spec.select.i.i85 = add nuw nsw i64 %.07.i.i83, %123
-  %124 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i84, i64 16
-  %.not.i.i86 = icmp eq ptr %124, %54
-  br i1 %.not.i.i86, label %.lr.ph.i.i90, label %120, !llvm.loop !86
+118:                                              ; preds = %118, %.lr.ph.i.i82
+  %.07.i.i83 = phi i64 [ 0, %.lr.ph.i.i82 ], [ %spec.select.i.i85, %118 ]
+  %.sroa.03.06.i.i84 = phi ptr [ %51, %.lr.ph.i.i82 ], [ %122, %118 ]
+  %119 = load i32, ptr %.sroa.03.06.i.i84, align 4
+  %120 = icmp eq i32 %119, %117
+  %121 = zext i1 %120 to i64
+  %spec.select.i.i85 = add nuw nsw i64 %.07.i.i83, %121
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i84, i64 16
+  %.not.i.i86 = icmp eq ptr %122, %53
+  br i1 %.not.i.i86, label %.lr.ph.i.i90, label %118, !llvm.loop !86
 
-.lr.ph.i.i90:                                     ; preds = %120
-  %125 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kElButterflyDownE, align 4
-  br label %126
+.lr.ph.i.i90:                                     ; preds = %118
+  %123 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kElButterflyDownE, align 4
+  br label %124
 
-126:                                              ; preds = %126, %.lr.ph.i.i90
-  %.07.i.i91 = phi i64 [ 0, %.lr.ph.i.i90 ], [ %spec.select.i.i93, %126 ]
-  %.sroa.03.06.i.i92 = phi ptr [ %52, %.lr.ph.i.i90 ], [ %130, %126 ]
-  %127 = load i32, ptr %.sroa.03.06.i.i92, align 4
-  %128 = icmp eq i32 %127, %125
-  %129 = zext i1 %128 to i64
-  %spec.select.i.i93 = add nuw nsw i64 %.07.i.i91, %129
-  %130 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i92, i64 16
-  %.not.i.i94 = icmp eq ptr %130, %54
-  br i1 %.not.i.i94, label %.lr.ph.i.i98, label %126, !llvm.loop !86
+124:                                              ; preds = %124, %.lr.ph.i.i90
+  %.07.i.i91 = phi i64 [ 0, %.lr.ph.i.i90 ], [ %spec.select.i.i93, %124 ]
+  %.sroa.03.06.i.i92 = phi ptr [ %51, %.lr.ph.i.i90 ], [ %128, %124 ]
+  %125 = load i32, ptr %.sroa.03.06.i.i92, align 4
+  %126 = icmp eq i32 %125, %123
+  %127 = zext i1 %126 to i64
+  %spec.select.i.i93 = add nuw nsw i64 %.07.i.i91, %127
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i92, i64 16
+  %.not.i.i94 = icmp eq ptr %128, %53
+  br i1 %.not.i.i94, label %.lr.ph.i.i98, label %124, !llvm.loop !86
 
-.lr.ph.i.i98:                                     ; preds = %126
-  %131 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElButterflyRightE, align 4
-  br label %132
+.lr.ph.i.i98:                                     ; preds = %124
+  %129 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElButterflyRightE, align 4
+  br label %130
 
-132:                                              ; preds = %132, %.lr.ph.i.i98
-  %.07.i.i99 = phi i64 [ 0, %.lr.ph.i.i98 ], [ %spec.select.i.i101, %132 ]
-  %.sroa.03.06.i.i100 = phi ptr [ %52, %.lr.ph.i.i98 ], [ %136, %132 ]
-  %133 = load i32, ptr %.sroa.03.06.i.i100, align 4
-  %134 = icmp eq i32 %133, %131
-  %135 = zext i1 %134 to i64
-  %spec.select.i.i101 = add nuw nsw i64 %.07.i.i99, %135
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i100, i64 16
-  %.not.i.i102 = icmp eq ptr %136, %54
-  br i1 %.not.i.i102, label %.lr.ph.i.i106, label %132, !llvm.loop !86
+130:                                              ; preds = %130, %.lr.ph.i.i98
+  %.07.i.i99 = phi i64 [ 0, %.lr.ph.i.i98 ], [ %spec.select.i.i101, %130 ]
+  %.sroa.03.06.i.i100 = phi ptr [ %51, %.lr.ph.i.i98 ], [ %134, %130 ]
+  %131 = load i32, ptr %.sroa.03.06.i.i100, align 4
+  %132 = icmp eq i32 %131, %129
+  %133 = zext i1 %132 to i64
+  %spec.select.i.i101 = add nuw nsw i64 %.07.i.i99, %133
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i100, i64 16
+  %.not.i.i102 = icmp eq ptr %134, %53
+  br i1 %.not.i.i102, label %.lr.ph.i.i106, label %130, !llvm.loop !86
 
-.lr.ph.i.i106:                                    ; preds = %132
-  %137 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_16kElNutE, align 8
-  br label %138
+.lr.ph.i.i106:                                    ; preds = %130
+  %135 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_16kElNutE, align 8
+  br label %136
 
-138:                                              ; preds = %138, %.lr.ph.i.i106
-  %.07.i.i107 = phi i64 [ 0, %.lr.ph.i.i106 ], [ %spec.select.i.i109, %138 ]
-  %.sroa.03.06.i.i108 = phi ptr [ %52, %.lr.ph.i.i106 ], [ %142, %138 ]
-  %139 = load i32, ptr %.sroa.03.06.i.i108, align 4
-  %140 = icmp eq i32 %139, %137
-  %141 = zext i1 %140 to i64
-  %spec.select.i.i109 = add nuw nsw i64 %.07.i.i107, %141
-  %142 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i108, i64 16
-  %.not.i.i110 = icmp eq ptr %142, %54
-  br i1 %.not.i.i110, label %.lr.ph.i.i114, label %138, !llvm.loop !86
+136:                                              ; preds = %136, %.lr.ph.i.i106
+  %.07.i.i107 = phi i64 [ 0, %.lr.ph.i.i106 ], [ %spec.select.i.i109, %136 ]
+  %.sroa.03.06.i.i108 = phi ptr [ %51, %.lr.ph.i.i106 ], [ %140, %136 ]
+  %137 = load i32, ptr %.sroa.03.06.i.i108, align 4
+  %138 = icmp eq i32 %137, %135
+  %139 = zext i1 %138 to i64
+  %spec.select.i.i109 = add nuw nsw i64 %.07.i.i107, %139
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i108, i64 16
+  %.not.i.i110 = icmp eq ptr %140, %53
+  br i1 %.not.i.i110, label %.lr.ph.i.i114, label %136, !llvm.loop !86
 
-.lr.ph.i.i114:                                    ; preds = %138
-  %143 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, align 8
-  br label %144
+.lr.ph.i.i114:                                    ; preds = %136
+  %141 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, align 8
+  br label %142
 
-144:                                              ; preds = %144, %.lr.ph.i.i114
-  %.07.i.i115 = phi i64 [ 0, %.lr.ph.i.i114 ], [ %spec.select.i.i117, %144 ]
-  %.sroa.03.06.i.i116 = phi ptr [ %52, %.lr.ph.i.i114 ], [ %148, %144 ]
-  %145 = load i32, ptr %.sroa.03.06.i.i116, align 4
-  %146 = icmp eq i32 %145, %143
-  %147 = zext i1 %146 to i64
-  %spec.select.i.i117 = add nuw nsw i64 %.07.i.i115, %147
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i116, i64 16
-  %.not.i.i118 = icmp eq ptr %148, %54
-  br i1 %.not.i.i118, label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120.loopexit, label %144, !llvm.loop !86
+142:                                              ; preds = %142, %.lr.ph.i.i114
+  %.07.i.i115 = phi i64 [ 0, %.lr.ph.i.i114 ], [ %spec.select.i.i117, %142 ]
+  %.sroa.03.06.i.i116 = phi ptr [ %51, %.lr.ph.i.i114 ], [ %146, %142 ]
+  %143 = load i32, ptr %.sroa.03.06.i.i116, align 4
+  %144 = icmp eq i32 %143, %141
+  %145 = zext i1 %144 to i64
+  %spec.select.i.i117 = add nuw nsw i64 %.07.i.i115, %145
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i116, i64 16
+  %.not.i.i118 = icmp eq ptr %146, %53
+  br i1 %.not.i.i118, label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120.loopexit, label %142, !llvm.loop !86
 
-_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120.loopexit: ; preds = %144
-  %149 = mul nsw i64 %spec.select.i.i53, %94
-  %150 = sitofp i64 %149 to double
-  %151 = fadd double %.0.lcssa.i.i, %150
-  %152 = uitofp nneg i64 %spec.select.i.i61 to double
+_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120.loopexit: ; preds = %142
+  %147 = mul nsw i64 %spec.select.i.i53, %92
+  %148 = sitofp i64 %147 to double
+  %149 = fadd double %.0.lcssa.i.i, %148
+  %150 = uitofp nneg i64 %spec.select.i.i61 to double
+  %151 = fadd double %149, %150
+  %152 = uitofp nneg i64 %spec.select.i.i69 to double
   %153 = fadd double %151, %152
-  %154 = uitofp nneg i64 %spec.select.i.i69 to double
-  %155 = fadd double %153, %154
-  %156 = mul nuw nsw i64 %spec.select.i.i77, 9
-  %157 = uitofp nneg i64 %156 to double
-  %158 = fadd double %155, %157
-  %159 = mul nuw nsw i64 %spec.select.i.i85, 9
-  %160 = uitofp nneg i64 %159 to double
-  %161 = fadd double %158, %160
-  %162 = mul nuw nsw i64 %spec.select.i.i93, 9
-  %163 = uitofp nneg i64 %162 to double
-  %164 = fadd double %161, %163
-  %165 = mul nuw nsw i64 %spec.select.i.i101, 9
-  %166 = uitofp nneg i64 %165 to double
-  %167 = fadd double %164, %166
-  %168 = uitofp nneg i64 %spec.select.i.i109 to double
+  %154 = mul nuw nsw i64 %spec.select.i.i77, 9
+  %155 = uitofp nneg i64 %154 to double
+  %156 = fadd double %153, %155
+  %157 = mul nuw nsw i64 %spec.select.i.i85, 9
+  %158 = uitofp nneg i64 %157 to double
+  %159 = fadd double %156, %158
+  %160 = mul nuw nsw i64 %spec.select.i.i93, 9
+  %161 = uitofp nneg i64 %160 to double
+  %162 = fadd double %159, %161
+  %163 = mul nuw nsw i64 %spec.select.i.i101, 9
+  %164 = uitofp nneg i64 %163 to double
+  %165 = fadd double %162, %164
+  %166 = uitofp nneg i64 %spec.select.i.i109 to double
+  %167 = fadd double %165, %166
+  %168 = uitofp nneg i64 %spec.select.i.i117 to double
   %169 = fadd double %167, %168
-  %170 = uitofp nneg i64 %spec.select.i.i117 to double
-  %171 = fadd double %169, %170
   br label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120
 
 _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120: ; preds = %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120.loopexit, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit48
-  %172 = phi double [ %.0.lcssa.i.i, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit48 ], [ %171, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120.loopexit ]
-  ret double %172
+  %170 = phi double [ %.0.lcssa.i.i, %_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_.exit48 ], [ %169, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120.loopexit ]
+  ret double %170
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15910,6 +15906,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 257:                                              ; preds = %.lr.ph.i.i.i
   %258 = getelementptr inbounds i8, ptr %233, i64 %253
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %258) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %258, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %254, 1
   br label %.loopexit113
@@ -21149,31 +21146,32 @@ _ZN4absl7debian218container_internal8AllocateILm4ESaISt4pairIKiN10open_spiel15st
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEEC2EmRKSA_RKSC_RKSG_.exit
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEEC2EmRKSA_RKSC_RKSG_.exit: ; preds = %7, %_ZN4absl7debian218container_internal8AllocateILm4ESaISt4pairIKiN10open_spiel15stones_and_gems7ElementEEEEEPvPT0_m.exit.i.i
-  %.not5.i = icmp eq ptr %1, %2
-  br i1 %.not5.i, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE6insertIPKSD_IiS6_EEEvT_SM_.exit, label %.lr.ph.i
+  %.pre.i = phi ptr [ @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, %7 ], [ %19, %_ZN4absl7debian218container_internal8AllocateILm4ESaISt4pairIKiN10open_spiel15stones_and_gems7ElementEEEEEPvPT0_m.exit.i.i ]
+  %.not6.i = icmp eq ptr %1, %2
+  br i1 %.not6.i, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE6insertIPKSD_IiS6_EEEvT_SM_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEEC2EmRKSA_RKSC_RKSG_.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
 26:                                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE7emplaceIJRKSD_IiS6_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESD_INSH_8iteratorEbEDpOSN_.exit.i, %.lr.ph.i
-  %.06.i = phi ptr [ %1, %.lr.ph.i ], [ %74, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE7emplaceIJRKSD_IiS6_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESD_INSH_8iteratorEbEDpOSN_.exit.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %.06.i, i64 4
-  %28 = load i32, ptr %.06.i, align 4, !noalias !112
-  %29 = sext i32 %28 to i64
-  %30 = add i64 %29, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
-  %31 = zext i64 %30 to i128
-  %32 = mul nuw i128 %31, 11376068507788127593
-  %33 = lshr i128 %32, 64
-  %34 = xor i128 %33, %32
-  %35 = trunc i128 %34 to i64
-  %36 = load ptr, ptr %0, align 8, !noalias !112
+  %27 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %74, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE7emplaceIJRKSD_IiS6_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESD_INSH_8iteratorEbEDpOSN_.exit.i ]
+  %.07.i = phi ptr [ %1, %.lr.ph.i ], [ %75, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE7emplaceIJRKSD_IiS6_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESD_INSH_8iteratorEbEDpOSN_.exit.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 4
+  %29 = load i32, ptr %.07.i, align 4, !noalias !112
+  %30 = sext i32 %29 to i64
+  %31 = add i64 %30, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
+  %32 = zext i64 %31 to i128
+  %33 = mul nuw i128 %32, 11376068507788127593
+  %34 = lshr i128 %33, 64
+  %35 = xor i128 %34, %33
+  %36 = trunc i128 %35 to i64
   %37 = load i64, ptr %25, align 8, !noalias !112
-  %38 = lshr i64 %35, 7
-  %39 = ptrtoint ptr %36 to i64
+  %38 = lshr i64 %36, 7
+  %39 = ptrtoint ptr %27 to i64
   %40 = lshr i64 %39, 12
   %41 = xor i64 %38, %40
-  %42 = trunc i128 %34 to i8
+  %42 = trunc i128 %35 to i8
   %43 = and i8 %42, 127
   %44 = insertelement <16 x i8> poison, i8 %43, i64 0
   %45 = shufflevector <16 x i8> %44, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -21184,7 +21182,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10o
   %.pn.i.i.i.i.i = phi i64 [ %41, %26 ], [ %67, %65 ]
   %.sroa.10.0.i.i.i.i.i = phi i64 [ 0, %26 ], [ %66, %65 ]
   %.sroa.4.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %37
-  %48 = getelementptr inbounds i8, ptr %36, i64 %.sroa.4.0.i.i.i.i.i
+  %48 = getelementptr inbounds i8, ptr %27, i64 %.sroa.4.0.i.i.i.i.i
   %49 = load <16 x i8>, ptr %48, align 1, !noalias !112
   %50 = icmp eq <16 x i8> %45, %49
   %51 = bitcast <16 x i1> %50 to i16
@@ -21203,7 +21201,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10o
   %56 = and i64 %55, %37
   %57 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %46, i64 %56
   %58 = load i32, ptr %57, align 4, !noalias !112
-  %59 = icmp eq i32 %58, %28
+  %59 = icmp eq i32 %58, %29
   br i1 %59, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE7emplaceIJRKSD_IiS6_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESD_INSH_8iteratorEbEDpOSN_.exit.i, label %60
 
 60:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -21224,31 +21222,33 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10o
   br label %47, !llvm.loop !119
 
 68:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %69 = invoke noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %35)
-          to label %.noexc unwind label %75
+  %69 = invoke noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %36)
+          to label %.noexc unwind label %76
 
 .noexc:                                           ; preds = %68
   %70 = load ptr, ptr %8, align 8, !noalias !112
   %71 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %70, i64 %69
-  %72 = load i32, ptr %.06.i, align 4, !noalias !112
+  %72 = load i32, ptr %.07.i, align 4, !noalias !112
   store i32 %72, ptr %71, align 4, !noalias !112
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %73, ptr noundef nonnull align 4 dereferenceable(16) %27, i64 16, i1 false), !noalias !112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %73, ptr noundef nonnull align 4 dereferenceable(16) %28, i64 16, i1 false), !noalias !112
+  %.pre20.i.i.i.i = load ptr, ptr %0, align 8, !noalias !112
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE7emplaceIJRKSD_IiS6_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESD_INSH_8iteratorEbEDpOSN_.exit.i
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE7emplaceIJRKSD_IiS6_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESD_INSH_8iteratorEbEDpOSN_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc
-  %74 = getelementptr inbounds nuw i8, ptr %.06.i, i64 20
-  %.not.i8 = icmp eq ptr %74, %2
+  %74 = phi ptr [ %.pre20.i.i.i.i, %.noexc ], [ %27, %.lr.ph.i.i.i.i.i ]
+  %75 = getelementptr inbounds nuw i8, ptr %.07.i, i64 20
+  %.not.i8 = icmp eq ptr %75, %2
   br i1 %.not.i8, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE6insertIPKSD_IiS6_EEEvT_SM_.exit, label %26, !llvm.loop !120
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE6insertIPKSD_IiS6_EEEvT_SM_.exit: ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEE7emplaceIJRKSD_IiS6_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESD_INSH_8iteratorEbEDpOSN_.exit.i, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEEC2EmRKSA_RKSC_RKSG_.exit
   ret void
 
-75:                                               ; preds = %68
-  %76 = landingpad { ptr, i32 }
+76:                                               ; preds = %68
+  %77 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel15stones_and_gems7ElementEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #34
-  resume { ptr, i32 } %76
+  resume { ptr, i32 } %77
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22172,32 +22172,33 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE6insertIPKSG_IiS9_EEEvT_SP_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.not8 = icmp eq ptr %1, %2
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
+  %.not9 = icmp eq ptr %1, %2
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre = load ptr, ptr %0, align 8, !noalias !125
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE19EmplaceDecomposableclIiJRKSt21piecewise_construct_tSt5tupleIJRSH_EESQ_IJRKS9_EEEEESG_INSK_8iteratorEbERKT_DpOT0_.exit
-  %.09 = phi ptr [ %1, %.lr.ph ], [ %54, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE19EmplaceDecomposableclIiJRKSt21piecewise_construct_tSt5tupleIJRSH_EESQ_IJRKS9_EEEEESG_INSK_8iteratorEbERKT_DpOT0_.exit ]
-  %7 = getelementptr inbounds nuw i8, ptr %.09, i64 8
-  %8 = load i32, ptr %.09, align 4, !noalias !125
-  %9 = sext i32 %8 to i64
-  %10 = add i64 %9, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
-  %11 = zext i64 %10 to i128
-  %12 = mul nuw i128 %11, 11376068507788127593
-  %13 = lshr i128 %12, 64
-  %14 = xor i128 %13, %12
-  %15 = trunc i128 %14 to i64
-  %16 = load ptr, ptr %0, align 8, !noalias !125
+  %7 = phi ptr [ %.pre, %.lr.ph ], [ %54, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE19EmplaceDecomposableclIiJRKSt21piecewise_construct_tSt5tupleIJRSH_EESQ_IJRKS9_EEEEESG_INSK_8iteratorEbERKT_DpOT0_.exit ]
+  %.010 = phi ptr [ %1, %.lr.ph ], [ %55, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE19EmplaceDecomposableclIiJRKSt21piecewise_construct_tSt5tupleIJRSH_EESQ_IJRKS9_EEEEESG_INSK_8iteratorEbERKT_DpOT0_.exit ]
+  %8 = getelementptr inbounds nuw i8, ptr %.010, i64 8
+  %9 = load i32, ptr %.010, align 4, !noalias !125
+  %10 = sext i32 %9 to i64
+  %11 = add i64 %10, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
+  %12 = zext i64 %11 to i128
+  %13 = mul nuw i128 %12, 11376068507788127593
+  %14 = lshr i128 %13, 64
+  %15 = xor i128 %14, %13
+  %16 = trunc i128 %15 to i64
   %17 = load i64, ptr %4, align 8, !noalias !125
-  %18 = lshr i64 %15, 7
-  %19 = ptrtoint ptr %16 to i64
+  %18 = lshr i64 %16, 7
+  %19 = ptrtoint ptr %7 to i64
   %20 = lshr i64 %19, 12
   %21 = xor i64 %18, %20
-  %22 = trunc i128 %14 to i8
+  %22 = trunc i128 %15 to i8
   %23 = and i8 %22, 127
   %24 = insertelement <16 x i8> poison, i8 %23, i64 0
   %25 = shufflevector <16 x i8> %24, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -22208,7 +22209,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal12raw_hash_setINS1
   %.pn.i.i = phi i64 [ %21, %6 ], [ %47, %45 ]
   %.sroa.10.0.i.i = phi i64 [ 0, %6 ], [ %46, %45 ]
   %.sroa.4.0.i.i = and i64 %.pn.i.i, %17
-  %28 = getelementptr inbounds i8, ptr %16, i64 %.sroa.4.0.i.i
+  %28 = getelementptr inbounds i8, ptr %7, i64 %.sroa.4.0.i.i
   %29 = load <16 x i8>, ptr %28, align 1, !noalias !125
   %30 = icmp eq <16 x i8> %25, %29
   %31 = bitcast <16 x i1> %30 to i16
@@ -22227,7 +22228,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal12raw_hash_setINS1
   %36 = and i64 %35, %17
   %37 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.200", ptr %26, i64 %36
   %38 = load i32, ptr %37, align 4, !noalias !125
-  %39 = icmp eq i32 %38, %8
+  %39 = icmp eq i32 %38, %9
   br i1 %39, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE19EmplaceDecomposableclIiJRKSt21piecewise_construct_tSt5tupleIJRSH_EESQ_IJRKS9_EEEEESG_INSK_8iteratorEbERKT_DpOT0_.exit, label %40
 
 40:                                               ; preds = %.lr.ph.i.i
@@ -22248,18 +22249,20 @@ define linkonce_odr void @_ZN4absl7debian218container_internal12raw_hash_setINS1
   br label %27, !llvm.loop !128
 
 48:                                               ; preds = %._crit_edge.i.i
-  %49 = tail call noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %15), !noalias !125
+  %49 = tail call noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %16), !noalias !125
   %50 = load ptr, ptr %5, align 8, !noalias !125
   %51 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.200", ptr %50, i64 %49
-  %52 = load i32, ptr %.09, align 4, !noalias !125
+  %52 = load i32, ptr %.010, align 4, !noalias !125
   store i32 %52, ptr %51, align 8, !noalias !125
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %7), !noalias !125
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %8), !noalias !125
+  %.pre20.i = load ptr, ptr %0, align 8, !noalias !125
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE19EmplaceDecomposableclIiJRKSt21piecewise_construct_tSt5tupleIJRSH_EESQ_IJRKS9_EEEEESG_INSK_8iteratorEbERKT_DpOT0_.exit
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE19EmplaceDecomposableclIiJRKSt21piecewise_construct_tSt5tupleIJRSH_EESQ_IJRKS9_EEEEESG_INSK_8iteratorEbERKT_DpOT0_.exit: ; preds = %.lr.ph.i.i, %48
-  %54 = getelementptr inbounds nuw i8, ptr %.09, i64 40
-  %.not = icmp eq ptr %54, %2
+  %54 = phi ptr [ %.pre20.i, %48 ], [ %7, %.lr.ph.i.i ]
+  %55 = getelementptr inbounds nuw i8, ptr %.010, i64 40
+  %.not = icmp eq ptr %55, %2
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE19EmplaceDecomposableclIiJRKSt21piecewise_construct_tSt5tupleIJRSH_EESQ_IJRKS9_EEEEESG_INSK_8iteratorEbERKT_DpOT0_.exit, %3
@@ -22805,31 +22808,32 @@ _ZN4absl7debian218container_internal8AllocateILm4ESaISt4pairIKiS3_IiiEEEEEPvPT0_
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEEC2EmRKS9_RKSB_RKSE_.exit
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEEC2EmRKS9_RKSB_RKSE_.exit: ; preds = %7, %_ZN4absl7debian218container_internal8AllocateILm4ESaISt4pairIKiS3_IiiEEEEEPvPT0_m.exit.i.i
-  %.not5.i = icmp eq ptr %1, %2
-  br i1 %.not5.i, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE6insertIPKS4_IiS5_EEEvT_SK_.exit, label %.lr.ph.i
+  %.pre.i = phi ptr [ @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, %7 ], [ %19, %_ZN4absl7debian218container_internal8AllocateILm4ESaISt4pairIKiS3_IiiEEEEEPvPT0_m.exit.i.i ]
+  %.not6.i = icmp eq ptr %1, %2
+  br i1 %.not6.i, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE6insertIPKS4_IiS5_EEEvT_SK_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEEC2EmRKS9_RKSB_RKSE_.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
 26:                                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE7emplaceIJRKS4_IiS5_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES4_INSF_8iteratorEbEDpOSL_.exit.i, %.lr.ph.i
-  %.06.i = phi ptr [ %1, %.lr.ph.i ], [ %75, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE7emplaceIJRKS4_IiS5_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES4_INSF_8iteratorEbEDpOSL_.exit.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %.06.i, i64 4
-  %28 = load i32, ptr %.06.i, align 4, !noalias !132
-  %29 = sext i32 %28 to i64
-  %30 = add i64 %29, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
-  %31 = zext i64 %30 to i128
-  %32 = mul nuw i128 %31, 11376068507788127593
-  %33 = lshr i128 %32, 64
-  %34 = xor i128 %33, %32
-  %35 = trunc i128 %34 to i64
-  %36 = load ptr, ptr %0, align 8, !noalias !132
+  %27 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %75, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE7emplaceIJRKS4_IiS5_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES4_INSF_8iteratorEbEDpOSL_.exit.i ]
+  %.07.i = phi ptr [ %1, %.lr.ph.i ], [ %76, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE7emplaceIJRKS4_IiS5_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES4_INSF_8iteratorEbEDpOSL_.exit.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 4
+  %29 = load i32, ptr %.07.i, align 4, !noalias !132
+  %30 = sext i32 %29 to i64
+  %31 = add i64 %30, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
+  %32 = zext i64 %31 to i128
+  %33 = mul nuw i128 %32, 11376068507788127593
+  %34 = lshr i128 %33, 64
+  %35 = xor i128 %34, %33
+  %36 = trunc i128 %35 to i64
   %37 = load i64, ptr %25, align 8, !noalias !132
-  %38 = lshr i64 %35, 7
-  %39 = ptrtoint ptr %36 to i64
+  %38 = lshr i64 %36, 7
+  %39 = ptrtoint ptr %27 to i64
   %40 = lshr i64 %39, 12
   %41 = xor i64 %38, %40
-  %42 = trunc i128 %34 to i8
+  %42 = trunc i128 %35 to i8
   %43 = and i8 %42, 127
   %44 = insertelement <16 x i8> poison, i8 %43, i64 0
   %45 = shufflevector <16 x i8> %44, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -22840,7 +22844,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4p
   %.pn.i.i.i.i.i = phi i64 [ %41, %26 ], [ %67, %65 ]
   %.sroa.10.0.i.i.i.i.i = phi i64 [ 0, %26 ], [ %66, %65 ]
   %.sroa.4.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %37
-  %48 = getelementptr inbounds i8, ptr %36, i64 %.sroa.4.0.i.i.i.i.i
+  %48 = getelementptr inbounds i8, ptr %27, i64 %.sroa.4.0.i.i.i.i.i
   %49 = load <16 x i8>, ptr %48, align 1, !noalias !132
   %50 = icmp eq <16 x i8> %45, %49
   %51 = bitcast <16 x i1> %50 to i16
@@ -22859,7 +22863,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4p
   %56 = and i64 %55, %37
   %57 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.215", ptr %46, i64 %56
   %58 = load i32, ptr %57, align 4, !noalias !132
-  %59 = icmp eq i32 %58, %28
+  %59 = icmp eq i32 %58, %29
   br i1 %59, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE7emplaceIJRKS4_IiS5_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES4_INSF_8iteratorEbEDpOSL_.exit.i, label %60
 
 60:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -22880,32 +22884,34 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4p
   br label %47, !llvm.loop !139
 
 68:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %69 = invoke noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %35)
-          to label %.noexc unwind label %76
+  %69 = invoke noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %36)
+          to label %.noexc unwind label %77
 
 .noexc:                                           ; preds = %68
   %70 = load ptr, ptr %8, align 8, !noalias !132
   %71 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.215", ptr %70, i64 %69
-  %72 = load i32, ptr %.06.i, align 4, !noalias !132
+  %72 = load i32, ptr %.07.i, align 4, !noalias !132
   store i32 %72, ptr %71, align 4, !noalias !132
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %74 = load i64, ptr %27, align 4, !noalias !132
+  %74 = load i64, ptr %28, align 4, !noalias !132
   store i64 %74, ptr %73, align 4, !noalias !132
+  %.pre20.i.i.i.i = load ptr, ptr %0, align 8, !noalias !132
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE7emplaceIJRKS4_IiS5_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES4_INSF_8iteratorEbEDpOSL_.exit.i
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE7emplaceIJRKS4_IiS5_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES4_INSF_8iteratorEbEDpOSL_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc
-  %75 = getelementptr inbounds nuw i8, ptr %.06.i, i64 12
-  %.not.i8 = icmp eq ptr %75, %2
+  %75 = phi ptr [ %.pre20.i.i.i.i, %.noexc ], [ %27, %.lr.ph.i.i.i.i.i ]
+  %76 = getelementptr inbounds nuw i8, ptr %.07.i, i64 12
+  %.not.i8 = icmp eq ptr %76, %2
   br i1 %.not.i8, label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE6insertIPKS4_IiS5_EEEvT_SK_.exit, label %26, !llvm.loop !140
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE6insertIPKS4_IiS5_EEEvT_SK_.exit: ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE7emplaceIJRKS4_IiS5_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES4_INSF_8iteratorEbEDpOSL_.exit.i, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEEC2EmRKS9_RKSB_RKSE_.exit
   ret void
 
-76:                                               ; preds = %68
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %68
+  %78 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #34
-  resume { ptr, i32 } %77
+  resume { ptr, i32 } %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -27272,10 +27278,10 @@ define internal void @_GLOBAL__sub_I_stones_and_gems.cc() #27 section ".text.sta
   %162 = phi ptr [ null, %0 ], [ %209, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i ]
   %163 = phi i64 [ 0, %0 ], [ %210, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i ]
   %164 = phi ptr [ @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, %0 ], [ %211, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i ]
-  %.06.i.i.idx.i = phi i64 [ 0, %0 ], [ %.06.i.i.add.i, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i ]
-  %.06.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %49, i64 %.06.i.i.idx.i
-  %165 = getelementptr inbounds nuw i8, ptr %.06.i.i.ptr.i, i64 4
-  %166 = load i32, ptr %.06.i.i.ptr.i, align 4, !noalias !167
+  %.07.i.i.idx.i = phi i64 [ 0, %0 ], [ %.07.i.i.add.i, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i ]
+  %.07.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %49, i64 %.07.i.i.idx.i
+  %165 = getelementptr inbounds nuw i8, ptr %.07.i.i.ptr.i, i64 4
+  %166 = load i32, ptr %.07.i.i.ptr.i, align 4, !noalias !167
   %167 = sext i32 %166 to i64
   %168 = add i64 %167, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
   %169 = zext i64 %168 to i128
@@ -27347,21 +27353,21 @@ define internal void @_GLOBAL__sub_I_stones_and_gems.cc() #27 section ".text.sta
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 4
   %208 = load i32, ptr %165, align 4, !noalias !167
   store i32 %208, ptr %207, align 4, !noalias !167
-  %.pre.i = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kRotateRightE, align 8, !noalias !167
-  %.pre11.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kRotateRightE, i64 24), align 8, !noalias !167
+  %.pre20.i.i.i.i.i.i.i.i.i = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kRotateRightE, align 8, !noalias !167
+  %.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kRotateRightE, i64 24), align 8, !noalias !167
   %.pre13.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_112kRotateRightE, i64 8), align 8, !noalias !167
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc.i.i
   %209 = phi ptr [ %.pre13.i, %.noexc.i.i ], [ %162, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %210 = phi i64 [ %.pre11.i, %.noexc.i.i ], [ %163, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %211 = phi ptr [ %.pre.i, %.noexc.i.i ], [ %164, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %.06.i.i.add.i = add nuw nsw i64 %.06.i.i.idx.i, 8
-  %.not.i8.i.i = icmp eq i64 %.06.i.i.add.i, 40
+  %210 = phi i64 [ %.pre.i, %.noexc.i.i ], [ %163, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %211 = phi ptr [ %.pre20.i.i.i.i.i.i.i.i.i, %.noexc.i.i ], [ %164, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.07.i.i.add.i = add nuw nsw i64 %.07.i.i.idx.i, 8
+  %.not.i8.i.i = icmp eq i64 %.07.i.i.add.i, 40
   br i1 %.not.i8.i.i, label %__cxx_global_var_init.50.exit, label %161, !llvm.loop !181
 
-common.resume:                                    ; preds = %292, %297, %596, %599, %.body.i22, %.body.i13, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %212, %.body.i ], [ %274, %.body.i13 ], [ %285, %297 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i22 ], [ %597, %596 ], [ %597, %599 ], [ %291, %292 ]
+common.resume:                                    ; preds = %292, %297, %596, %599, %.body.i23, %.body.i13, %.body.i
+  %common.resume.op = phi { ptr, i32 } [ %212, %.body.i ], [ %274, %.body.i13 ], [ %285, %297 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i23 ], [ %597, %596 ], [ %597, %599 ], [ %291, %292 ]
   resume { ptr, i32 } %common.resume.op
 
 .body.i:                                          ; preds = %203
@@ -27401,10 +27407,10 @@ __cxx_global_var_init.50.exit:                    ; preds = %_ZN4absl7debian218c
   %224 = phi ptr [ null, %__cxx_global_var_init.50.exit ], [ %271, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i18 ]
   %225 = phi i64 [ 0, %__cxx_global_var_init.50.exit ], [ %272, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i18 ]
   %226 = phi ptr [ @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, %__cxx_global_var_init.50.exit ], [ %273, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i18 ]
-  %.06.i.i.idx.i1 = phi i64 [ 0, %__cxx_global_var_init.50.exit ], [ %.06.i.i.add.i19, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i18 ]
-  %.06.i.i.ptr.i2 = getelementptr inbounds nuw i8, ptr %48, i64 %.06.i.i.idx.i1
-  %227 = getelementptr inbounds nuw i8, ptr %.06.i.i.ptr.i2, i64 4
-  %228 = load i32, ptr %.06.i.i.ptr.i2, align 4, !noalias !182
+  %.07.i.i.idx.i1 = phi i64 [ 0, %__cxx_global_var_init.50.exit ], [ %.07.i.i.add.i20, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i18 ]
+  %.07.i.i.ptr.i2 = getelementptr inbounds nuw i8, ptr %48, i64 %.07.i.i.idx.i1
+  %227 = getelementptr inbounds nuw i8, ptr %.07.i.i.ptr.i2, i64 4
+  %228 = load i32, ptr %.07.i.i.ptr.i2, align 4, !noalias !182
   %229 = sext i32 %228 to i64
   %230 = add i64 %229, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
   %231 = zext i64 %230 to i128
@@ -27476,18 +27482,18 @@ __cxx_global_var_init.50.exit:                    ; preds = %_ZN4absl7debian218c
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 4
   %270 = load i32, ptr %227, align 4, !noalias !182
   store i32 %270, ptr %269, align 4, !noalias !182
-  %.pre.i15 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kRotateLeftE, align 8, !noalias !182
-  %.pre11.i16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kRotateLeftE, i64 24), align 8, !noalias !182
+  %.pre20.i.i.i.i.i.i.i.i.i15 = load ptr, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kRotateLeftE, align 8, !noalias !182
+  %.pre.i16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kRotateLeftE, i64 24), align 8, !noalias !182
   %.pre13.i17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kRotateLeftE, i64 8), align 8, !noalias !182
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i18
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE7emplaceIJRKSA_IiiEETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESA_INSE_8iteratorEbEDpOSK_.exit.i.i.i18: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i8, %.noexc.i.i14
   %271 = phi ptr [ %.pre13.i17, %.noexc.i.i14 ], [ %224, %.lr.ph.i.i.i.i.i.i.i.i.i.i8 ]
-  %272 = phi i64 [ %.pre11.i16, %.noexc.i.i14 ], [ %225, %.lr.ph.i.i.i.i.i.i.i.i.i.i8 ]
-  %273 = phi ptr [ %.pre.i15, %.noexc.i.i14 ], [ %226, %.lr.ph.i.i.i.i.i.i.i.i.i.i8 ]
-  %.06.i.i.add.i19 = add nuw nsw i64 %.06.i.i.idx.i1, 8
-  %.not.i8.i.i20 = icmp eq i64 %.06.i.i.add.i19, 40
-  br i1 %.not.i8.i.i20, label %__cxx_global_var_init.51.exit, label %223, !llvm.loop !181
+  %272 = phi i64 [ %.pre.i16, %.noexc.i.i14 ], [ %225, %.lr.ph.i.i.i.i.i.i.i.i.i.i8 ]
+  %273 = phi ptr [ %.pre20.i.i.i.i.i.i.i.i.i15, %.noexc.i.i14 ], [ %226, %.lr.ph.i.i.i.i.i.i.i.i.i.i8 ]
+  %.07.i.i.add.i20 = add nuw nsw i64 %.07.i.i.idx.i1, 8
+  %.not.i8.i.i21 = icmp eq i64 %.07.i.i.add.i20, 40
+  br i1 %.not.i8.i.i21, label %__cxx_global_var_init.51.exit, label %223, !llvm.loop !181
 
 .body.i13:                                        ; preds = %265
   %274 = landingpad { ptr, i32 }
@@ -27534,9 +27540,9 @@ __cxx_global_var_init.51.exit:                    ; preds = %_ZN4absl7debian218c
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kActionsToStringB5cxx11E, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kActionsToStringB5cxx11E, i64 8), i8 0, i64 32, i1 false)
   invoke void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEE6insertIPKSG_IiS9_EEEvT_SP_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kActionsToStringB5cxx11E, ptr noundef nonnull %42, ptr noundef nonnull %284)
-          to label %_ZN4absl7debian213flat_hash_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS7_EEECI2NS0_18container_internal12raw_hash_setINSI_17FlatHashMapPolicyIiS7_EESA_SC_SG_EEESt16initializer_listISD_IiS7_EEmRKSA_RKSC_RKSG_.exit.i unwind label %.body.i21
+          to label %_ZN4absl7debian213flat_hash_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS7_EEECI2NS0_18container_internal12raw_hash_setINSI_17FlatHashMapPolicyIiS7_EESA_SC_SG_EEESt16initializer_listISD_IiS7_EEmRKSA_RKSC_RKSG_.exit.i unwind label %.body.i22
 
-.body.i21:                                        ; preds = %283
+.body.i22:                                        ; preds = %283
   %285 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kActionsToStringB5cxx11E) #34
@@ -27564,8 +27570,8 @@ _ZN4absl7debian213flat_hash_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %296 = icmp eq ptr %294, %42
   br i1 %296, label %common.resume, label %292
 
-297:                                              ; preds = %297, %.body.i21
-  %298 = phi ptr [ %284, %.body.i21 ], [ %299, %297 ]
+297:                                              ; preds = %297, %.body.i22
+  %298 = phi ptr [ %284, %.body.i22 ], [ %299, %297 ]
   %299 = getelementptr inbounds i8, ptr %298, i64 -40
   %300 = getelementptr inbounds i8, ptr %298, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %300) #34
@@ -27952,20 +27958,20 @@ __cxx_global_var_init.52.exit:                    ; preds = %_ZN4absl7debian213f
 446:                                              ; preds = %.noexc47.i
   store ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE, ptr %1, align 8
   %447 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE)
-          to label %448 unwind label %.body27
+          to label %448 unwind label %.body31
 
 448:                                              ; preds = %446
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %447, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.72, i64 15)) #34
   store ptr null, ptr %1, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE, i64 noundef 15)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body27
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body31
 
-.body27:                                          ; preds = %448, %446
+.body31:                                          ; preds = %448, %446
   %449 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #34
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE) #34
-  br label %.body.i22
+  br label %.body.i23
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %448
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -28122,24 +28128,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit57.i: 
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_insert_unique_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit.i.i.i, %488
-  %.07.i.i.idx.i = phi i64 [ %.07.i.i.add.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_insert_unique_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit.i.i.i ], [ 0, %488 ]
-  %.07.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 %.07.i.i.idx.i
-  %490 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE, i64 96), ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE, i64 104), ptr noundef nonnull align 8 dereferenceable(144) %.07.i.i.ptr.i)
-          to label %.noexc.i.i25 unwind label %.body59.i
+  %.07.i.i.idx.i26 = phi i64 [ %.07.i.i.add.i29, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_insert_unique_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit.i.i.i ], [ 0, %488 ]
+  %.07.i.i.ptr.i27 = getelementptr inbounds nuw i8, ptr %7, i64 %.07.i.i.idx.i26
+  %490 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE, i64 96), ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE, i64 104), ptr noundef nonnull align 8 dereferenceable(144) %.07.i.i.ptr.i27)
+          to label %.noexc.i.i28 unwind label %.body59.i
 
-.noexc.i.i25:                                     ; preds = %.lr.ph.i.i.i
+.noexc.i.i28:                                     ; preds = %.lr.ph.i.i.i
   %491 = extractvalue { ptr, ptr } %490, 1
   %.not.i.i.i.i = icmp eq ptr %491, null
   br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_insert_unique_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit.i.i.i, label %492
 
-492:                                              ; preds = %.noexc.i.i25
+492:                                              ; preds = %.noexc.i.i28
   %493 = extractvalue { ptr, ptr } %490, 0
-  %494 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_M_insert_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE, i64 96), ptr noundef %493, ptr noundef nonnull %491, ptr noundef nonnull align 8 dereferenceable(144) %.07.i.i.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %494 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_M_insert_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE, i64 96), ptr noundef %493, ptr noundef nonnull %491, ptr noundef nonnull align 8 dereferenceable(144) %.07.i.i.ptr.i27, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_insert_unique_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit.i.i.i unwind label %.body59.i
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_insert_unique_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit.i.i.i: ; preds = %492, %.noexc.i.i25
-  %.07.i.i.add.i = add nuw nsw i64 %.07.i.i.idx.i, 144
-  %.not.i.i.i = icmp eq i64 %.07.i.i.add.i, 864
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_insert_unique_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit.i.i.i: ; preds = %492, %.noexc.i.i28
+  %.07.i.i.add.i29 = add nuw nsw i64 %.07.i.i.idx.i26, 144
+  %.not.i.i.i = icmp eq i64 %.07.i.i.add.i29, 864
   br i1 %.not.i.i.i, label %496, label %.lr.ph.i.i.i, !llvm.loop !195
 
 .body59.i:                                        ; preds = %492, %.lr.ph.i.i.i
@@ -28274,7 +28280,7 @@ _ZN10open_spiel13GameParameterD2Ev.exit64.i:      ; preds = %_ZN10open_spiel13Ga
 548:                                              ; preds = %.noexc.i, %__cxx_global_var_init.52.exit
   %549 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.i22
+  br label %.body.i23
 
 550:                                              ; preds = %.noexc48.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   %551 = landingpad { ptr, i32 }
@@ -28284,7 +28290,7 @@ _ZN10open_spiel13GameParameterD2Ev.exit64.i:      ; preds = %_ZN10open_spiel13Ga
 .thread.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit52.i
   %552 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.i23
+  br label %.loopexit.i24
 
 553:                                              ; preds = %460, %459
   %.06.i = phi ptr [ %461, %460 ], [ %7, %459 ]
@@ -28338,13 +28344,13 @@ _ZN10open_spiel13GameParameterD2Ev.exit64.i:      ; preds = %_ZN10open_spiel13Ga
   br i1 %572, label %.loopexit71.i, label %569
 
 .loopexit71.i:                                    ; preds = %569, %567
-  %.pn.i24 = phi { ptr, i32 } [ %568, %567 ], [ %495, %569 ]
+  %.pn.i25 = phi { ptr, i32 } [ %568, %567 ], [ %495, %569 ]
   %573 = phi i1 [ false, %567 ], [ true, %569 ]
   call void @_ZN10open_spiel13GameParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %13) #34
   br label %574
 
 574:                                              ; preds = %.loopexit71.i, %565
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i24, %.loopexit71.i ], [ %566, %565 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i25, %.loopexit71.i ], [ %566, %565 ]
   %.7.i = phi i1 [ %573, %.loopexit71.i ], [ false, %565 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #34
   br label %.body55.i
@@ -28390,28 +28396,28 @@ _ZN10open_spiel13GameParameterD2Ev.exit64.i:      ; preds = %_ZN10open_spiel13Ga
   call void @_ZN10open_spiel13GameParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %8) #34
   %580 = icmp eq ptr %7, %.511.i
   %or.cond.i = select i1 %.1.i, i1 true, i1 %580
-  br i1 %or.cond.i, label %.loopexit.i23, label %.preheader.i
+  br i1 %or.cond.i, label %.loopexit.i24, label %.preheader.i
 
 .preheader.i:                                     ; preds = %579, %.preheader.i
   %581 = phi ptr [ %582, %.preheader.i ], [ %.511.i, %579 ]
   %582 = getelementptr inbounds i8, ptr %581, i64 -144
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %582) #34
   %583 = icmp eq ptr %582, %7
-  br i1 %583, label %.loopexit.i23, label %.preheader.i
+  br i1 %583, label %.loopexit.i24, label %.preheader.i
 
-.loopexit.i23:                                    ; preds = %.preheader.i, %579, %.thread.i
+.loopexit.i24:                                    ; preds = %.preheader.i, %579, %.thread.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn70.i = phi { ptr, i32 } [ %552, %.thread.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %579 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE, i64 32)) #34
   br label %.body50.i
 
-.body50.i:                                        ; preds = %.loopexit.i23, %550, %.body
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn70.i, %.loopexit.i23 ], [ %551, %550 ], [ %458, %.body ]
+.body50.i:                                        ; preds = %.loopexit.i24, %550, %.body
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn70.i, %.loopexit.i24 ], [ %551, %550 ], [ %458, %.body ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_19kGameTypeE) #34
-  br label %.body.i22
+  br label %.body.i23
 
-.body.i22:                                        ; preds = %.body50.i, %548, %.body27
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body50.i ], [ %549, %548 ], [ %449, %.body27 ]
+.body.i23:                                        ; preds = %.body50.i, %548, %.body31
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body50.i ], [ %549, %548 ], [ %449, %.body31 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
   br label %common.resume
 
@@ -28445,8 +28451,8 @@ __cxx_global_var_init.71.exit:                    ; preds = %_ZN10open_spiel13Ga
 
 589:                                              ; preds = %__cxx_global_var_init.71.exit
   %590 = load ptr, ptr %586, align 8
-  %.not.i.i.i26 = icmp eq ptr %590, null
-  br i1 %.not.i.i.i26, label %__cxx_global_var_init.80.exit, label %591
+  %.not.i.i.i30 = icmp eq ptr %590, null
+  br i1 %.not.i.i.i30, label %__cxx_global_var_init.80.exit, label %591
 
 591:                                              ; preds = %589
   %592 = invoke noundef zeroext i1 %590(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)

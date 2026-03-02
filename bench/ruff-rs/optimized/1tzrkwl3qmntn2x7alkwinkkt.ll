@@ -196,4781 +196,4619 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.26b749dcf8b027f533ca223922618460.199 = private unnamed_addr constant <{ [24 x i8], ptr }> <{ [24 x i8] c"\00\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN75_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb0debf6eccda950E" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h01ca26e0aae413b1E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h01ca26e0aae413b1E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !3, !noalias !6, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !6, !noalias !3, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN78_$LT$ruff_python_ast..generated..ModModule$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf1c299bfefd107aE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !3, !noalias !6, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !6, !noalias !3, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN78_$LT$ruff_python_ast..generated..ModModule$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf1c299bfefd107aE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !3, !noalias !6, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !6, !noalias !3, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN78_$LT$ruff_python_ast..generated..ModModule$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf1c299bfefd107aE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !3, !noalias !6, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !6, !noalias !3, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN78_$LT$ruff_python_ast..generated..ModModule$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf1c299bfefd107aE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !3, !noalias !6, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !3, !noalias !6, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !6, !noalias !3, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !6, !noalias !3, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !9
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !3, !noalias !6, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !3, !noalias !6, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !6, !noalias !3, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !6, !noalias !3, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !9
   br label %"_ZN78_$LT$ruff_python_ast..generated..ModModule$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf1c299bfefd107aE.exit"
 
-"_ZN78_$LT$ruff_python_ast..generated..ModModule$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf1c299bfefd107aE.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %19, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN78_$LT$ruff_python_ast..generated..ModModule$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf1c299bfefd107aE.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %17, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h036b75b3640b4dd0E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h036b75b3640b4dd0E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !10, !noalias !13, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !13, !noalias !10, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN72_$LT$ruff_python_ast..nodes..FString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a66b46757f50bf3E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !10, !noalias !13, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !13, !noalias !10, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN72_$LT$ruff_python_ast..nodes..FString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a66b46757f50bf3E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !10, !noalias !13, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !13, !noalias !10, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN72_$LT$ruff_python_ast..nodes..FString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a66b46757f50bf3E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !10, !noalias !13, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !13, !noalias !10, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN72_$LT$ruff_python_ast..nodes..FString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a66b46757f50bf3E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !10, !noalias !13, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !10, !noalias !13, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !13, !noalias !10, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !13, !noalias !10, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1024069da89c0899E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !15
-  br i1 %19, label %20, label %"_ZN72_$LT$ruff_python_ast..nodes..FString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a66b46757f50bf3E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !10, !noalias !13, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !10, !noalias !13, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !13, !noalias !10, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !13, !noalias !10, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1024069da89c0899E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !15
+  br i1 %17, label %18, label %"_ZN72_$LT$ruff_python_ast..nodes..FString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a66b46757f50bf3E.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %22 = load i8, ptr %21, align 8, !alias.scope !10, !noalias !13, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %24 = load i8, ptr %23, align 8, !alias.scope !13, !noalias !10, !noundef !8
-  %25 = icmp eq i8 %22, %24
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %20 = load i8, ptr %19, align 8, !alias.scope !10, !noalias !13, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %22 = load i8, ptr %21, align 8, !alias.scope !13, !noalias !10, !noundef !8
+  %23 = icmp eq i8 %20, %22
   br label %"_ZN72_$LT$ruff_python_ast..nodes..FString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a66b46757f50bf3E.exit"
 
-"_ZN72_$LT$ruff_python_ast..nodes..FString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a66b46757f50bf3E.exit": ; preds = %0, %8, %14, %20
-  %.sroa.0.0.i = phi i1 [ %25, %20 ], [ false, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN72_$LT$ruff_python_ast..nodes..FString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3a66b46757f50bf3E.exit": ; preds = %0, %6, %12, %18
+  %.sroa.0.0.i = phi i1 [ %23, %18 ], [ false, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h05cf9cf45dbf82e7E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !16, !noalias !19, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !19, !noalias !16, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN77_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa41d48902d0c8a9E.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !16, !noalias !19, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !19, !noalias !16, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN77_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa41d48902d0c8a9E.exit"
-
-14:                                               ; preds = %8
-  %15 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.val1)
-  br i1 %15, label %16, label %"_ZN77_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa41d48902d0c8a9E.exit"
-
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %18 = load i8, ptr %17, align 8, !range !21, !alias.scope !16, !noalias !19, !noundef !8
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %20 = load i8, ptr %19, align 8, !range !21, !alias.scope !19, !noalias !16, !noundef !8
-  %21 = icmp eq i8 %18, %20
-  br label %"_ZN77_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa41d48902d0c8a9E.exit"
-
-"_ZN77_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa41d48902d0c8a9E.exit": ; preds = %0, %8, %14, %16
-  %.sroa.0.0.i = phi i1 [ %21, %16 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h05fe0fa89d958246E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %4 = load i32, ptr %3, align 8, !alias.scope !22, !noalias !25, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %6 = load i32, ptr %5, align 8, !alias.scope !25, !noalias !22, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN80_$LT$ruff_python_ast..generated..ExprSetComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5368de791447260eE.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
-  %10 = load i32, ptr %9, align 4, !alias.scope !22, !noalias !25, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
-  %12 = load i32, ptr %11, align 4, !alias.scope !25, !noalias !22, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN80_$LT$ruff_python_ast..generated..ExprSetComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5368de791447260eE.exit"
-
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !22, !noalias !25, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %18 = load ptr, ptr %17, align 8, !alias.scope !25, !noalias !22, !nonnull !8, !noundef !8
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %18) #11, !noalias !27
-  br i1 %19, label %20, label %"_ZN80_$LT$ruff_python_ast..generated..ExprSetComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5368de791447260eE.exit"
-
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %21, align 8, !alias.scope !22, !noalias !25, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %22, align 8, !alias.scope !22, !noalias !25, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %23, align 8, !alias.scope !25, !noalias !22, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %24, align 8, !alias.scope !25, !noalias !22, !noundef !8
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1f968a2ff8d16119E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !27
-  br label %"_ZN80_$LT$ruff_python_ast..generated..ExprSetComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5368de791447260eE.exit"
-
-"_ZN80_$LT$ruff_python_ast..generated..ExprSetComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5368de791447260eE.exit": ; preds = %0, %8, %14, %20
-  %.sroa.0.0.i = phi i1 [ %25, %20 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h07e1007b618d6f6aE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %4 = load i32, ptr %3, align 8, !alias.scope !28, !noalias !31, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %6 = load i32, ptr %5, align 8, !alias.scope !31, !noalias !28, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN78_$LT$ruff_python_ast..generated..ExprNamed$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbec28930de8d2b6dE.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %10 = load i32, ptr %9, align 4, !alias.scope !28, !noalias !31, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %12 = load i32, ptr %11, align 4, !alias.scope !31, !noalias !28, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN78_$LT$ruff_python_ast..generated..ExprNamed$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbec28930de8d2b6dE.exit"
-
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !28, !noalias !31, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !31, !noalias !28, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16) #11, !noalias !33
-  br i1 %17, label %18, label %"_ZN78_$LT$ruff_python_ast..generated..ExprNamed$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbec28930de8d2b6dE.exit"
-
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %20 = load ptr, ptr %19, align 8, !alias.scope !28, !noalias !31, !nonnull !8, !noundef !8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %22 = load ptr, ptr %21, align 8, !alias.scope !31, !noalias !28, !nonnull !8, !noundef !8
-  %23 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %20, ptr noundef nonnull align 8 %22) #11, !noalias !33
-  br label %"_ZN78_$LT$ruff_python_ast..generated..ExprNamed$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbec28930de8d2b6dE.exit"
-
-"_ZN78_$LT$ruff_python_ast..generated..ExprNamed$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbec28930de8d2b6dE.exit": ; preds = %0, %8, %14, %18
-  %.sroa.0.0.i = phi i1 [ %23, %18 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h105c560fe23607ffE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %3 = load i32, ptr %.0.val, align 8, !alias.scope !34, !noalias !37, !noundef !8
-  %4 = load i32, ptr %.0.val1, align 8, !alias.scope !37, !noalias !34, !noundef !8
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %6, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !16, !noalias !19, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !19, !noalias !16, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN77_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa41d48902d0c8a9E.exit"
 
 6:                                                ; preds = %0
-  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %8 = load i32, ptr %7, align 4, !alias.scope !34, !noalias !37, !noundef !8
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !37, !noalias !34, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !16, !noalias !19, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !19, !noalias !16, !noundef !8
   %11 = icmp eq i32 %8, %10
-  br i1 %11, label %12, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
+  br i1 %11, label %12, label %"_ZN77_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa41d48902d0c8a9E.exit"
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %14 = load ptr, ptr %13, align 8, !alias.scope !34, !noalias !37, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %14, null
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %16 = load ptr, ptr %15, align 8, !alias.scope !37, !noalias !34, !align !39, !noundef !8
-  %17 = icmp eq ptr %16, null
-  br i1 %.not.i, label %19, label %18
+  %13 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.0.val1)
+  br i1 %13, label %14, label %"_ZN77_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa41d48902d0c8a9E.exit"
+
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %16 = load i8, ptr %15, align 8, !range !21, !alias.scope !16, !noalias !19, !noundef !8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %18 = load i8, ptr %17, align 8, !range !21, !alias.scope !19, !noalias !16, !noundef !8
+  %19 = icmp eq i8 %16, %18
+  br label %"_ZN77_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa41d48902d0c8a9E.exit"
+
+"_ZN77_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$core..cmp..PartialEq$GT$2eq17haa41d48902d0c8a9E.exit": ; preds = %0, %6, %12, %14
+  %.sroa.0.0.i = phi i1 [ %19, %14 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
+  ret i1 %.sroa.0.0.i
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h05fe0fa89d958246E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %2 = load i32, ptr %1, align 8, !alias.scope !22, !noalias !25, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %4 = load i32, ptr %3, align 8, !alias.scope !25, !noalias !22, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN80_$LT$ruff_python_ast..generated..ExprSetComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5368de791447260eE.exit"
+
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
+  %8 = load i32, ptr %7, align 4, !alias.scope !22, !noalias !25, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
+  %10 = load i32, ptr %9, align 4, !alias.scope !25, !noalias !22, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN80_$LT$ruff_python_ast..generated..ExprSetComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5368de791447260eE.exit"
+
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %14 = load ptr, ptr %13, align 8, !alias.scope !22, !noalias !25, !nonnull !8, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %16 = load ptr, ptr %15, align 8, !alias.scope !25, !noalias !22, !nonnull !8, !noundef !8
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16) #11, !noalias !27
+  br i1 %17, label %18, label %"_ZN80_$LT$ruff_python_ast..generated..ExprSetComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5368de791447260eE.exit"
 
 18:                                               ; preds = %12
-  br i1 %17, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit", label %20
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %19, align 8, !alias.scope !22, !noalias !25, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %20, align 8, !alias.scope !22, !noalias !25, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %21, align 8, !alias.scope !25, !noalias !22, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %22, align 8, !alias.scope !25, !noalias !22, !noundef !8
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1f968a2ff8d16119E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !27
+  br label %"_ZN80_$LT$ruff_python_ast..generated..ExprSetComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5368de791447260eE.exit"
 
-19:                                               ; preds = %12
-  br i1 %17, label %22, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
+"_ZN80_$LT$ruff_python_ast..generated..ExprSetComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5368de791447260eE.exit": ; preds = %0, %6, %12, %18
+  %.sroa.0.0.i = phi i1 [ %23, %18 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
+  ret i1 %.sroa.0.0.i
+}
 
-20:                                               ; preds = %18
-  %21 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16) #11, !noalias !40
-  br i1 %21, label %22, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h07e1007b618d6f6aE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %2 = load i32, ptr %1, align 8, !alias.scope !28, !noalias !31, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %4 = load i32, ptr %3, align 8, !alias.scope !31, !noalias !28, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN78_$LT$ruff_python_ast..generated..ExprNamed$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbec28930de8d2b6dE.exit"
 
-22:                                               ; preds = %20, %19
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %24 = load ptr, ptr %23, align 8, !alias.scope !34, !noalias !37, !align !39, !noundef !8
-  %.not4.i = icmp eq ptr %24, null
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %26 = load ptr, ptr %25, align 8, !alias.scope !37, !noalias !34, !align !39, !noundef !8
-  %27 = icmp eq ptr %26, null
-  br i1 %.not4.i, label %29, label %28
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %8 = load i32, ptr %7, align 4, !alias.scope !28, !noalias !31, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %10 = load i32, ptr %9, align 4, !alias.scope !31, !noalias !28, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN78_$LT$ruff_python_ast..generated..ExprNamed$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbec28930de8d2b6dE.exit"
 
-28:                                               ; preds = %22
-  br i1 %27, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit", label %30
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !28, !noalias !31, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !31, !noalias !28, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14) #11, !noalias !33
+  br i1 %15, label %16, label %"_ZN78_$LT$ruff_python_ast..generated..ExprNamed$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbec28930de8d2b6dE.exit"
 
-29:                                               ; preds = %22
-  br i1 %27, label %32, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %18 = load ptr, ptr %17, align 8, !alias.scope !28, !noalias !31, !nonnull !8, !noundef !8
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %20 = load ptr, ptr %19, align 8, !alias.scope !31, !noalias !28, !nonnull !8, !noundef !8
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %18, ptr noundef nonnull align 8 %20) #11, !noalias !33
+  br label %"_ZN78_$LT$ruff_python_ast..generated..ExprNamed$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbec28930de8d2b6dE.exit"
 
-30:                                               ; preds = %28
-  %31 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %24, ptr noundef nonnull align 8 %26) #11, !noalias !40
-  br i1 %31, label %32, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
+"_ZN78_$LT$ruff_python_ast..generated..ExprNamed$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbec28930de8d2b6dE.exit": ; preds = %0, %6, %12, %16
+  %.sroa.0.0.i = phi i1 [ %21, %16 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
+  ret i1 %.sroa.0.0.i
+}
 
-32:                                               ; preds = %30, %29
-  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %34 = load ptr, ptr %33, align 8, !alias.scope !34, !noalias !37, !align !39, !noundef !8
-  %.not6.i = icmp eq ptr %34, null
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %36 = load ptr, ptr %35, align 8, !alias.scope !37, !noalias !34, !align !39, !noundef !8
-  %37 = icmp eq ptr %36, null
-  %brmerge.i = or i1 %.not6.i, %37
-  %.mux.i = and i1 %.not6.i, %37
-  br i1 %brmerge.i, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit", label %38
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h105c560fe23607ffE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  %1 = load i32, ptr %.0.val, align 8, !alias.scope !34, !noalias !37, !noundef !8
+  %2 = load i32, ptr %.0.val1, align 8, !alias.scope !37, !noalias !34, !noundef !8
+  %3 = icmp eq i32 %1, %2
+  br i1 %3, label %4, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
 
-38:                                               ; preds = %32
-  %39 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %34, ptr noundef nonnull align 8 %36) #11, !noalias !40
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %6 = load i32, ptr %5, align 4, !alias.scope !34, !noalias !37, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %8 = load i32, ptr %7, align 4, !alias.scope !37, !noalias !34, !noundef !8
+  %9 = icmp eq i32 %6, %8
+  br i1 %9, label %10, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
+
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %12 = load ptr, ptr %11, align 8, !alias.scope !34, !noalias !37, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %12, null
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %14 = load ptr, ptr %13, align 8, !alias.scope !37, !noalias !34, !align !39, !noundef !8
+  %15 = icmp eq ptr %14, null
+  br i1 %.not.i, label %17, label %16
+
+16:                                               ; preds = %10
+  br i1 %15, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit", label %18
+
+17:                                               ; preds = %10
+  br i1 %15, label %20, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
+
+18:                                               ; preds = %16
+  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %12, ptr noundef nonnull align 8 %14) #11, !noalias !40
+  br i1 %19, label %20, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
+
+20:                                               ; preds = %18, %17
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %22 = load ptr, ptr %21, align 8, !alias.scope !34, !noalias !37, !align !39, !noundef !8
+  %.not4.i = icmp eq ptr %22, null
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %24 = load ptr, ptr %23, align 8, !alias.scope !37, !noalias !34, !align !39, !noundef !8
+  %25 = icmp eq ptr %24, null
+  br i1 %.not4.i, label %27, label %26
+
+26:                                               ; preds = %20
+  br i1 %25, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit", label %28
+
+27:                                               ; preds = %20
+  br i1 %25, label %30, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
+
+28:                                               ; preds = %26
+  %29 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %22, ptr noundef nonnull align 8 %24) #11, !noalias !40
+  br i1 %29, label %30, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
+
+30:                                               ; preds = %28, %27
+  %31 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %32 = load ptr, ptr %31, align 8, !alias.scope !34, !noalias !37, !align !39, !noundef !8
+  %.not6.i = icmp eq ptr %32, null
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %34 = load ptr, ptr %33, align 8, !alias.scope !37, !noalias !34, !align !39, !noundef !8
+  %35 = icmp eq ptr %34, null
+  %brmerge.i = or i1 %.not6.i, %35
+  %.mux.i = and i1 %.not6.i, %35
+  br i1 %brmerge.i, label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit", label %36
+
+36:                                               ; preds = %30
+  %37 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %32, ptr noundef nonnull align 8 %34) #11, !noalias !40
   br label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
 
-"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit": ; preds = %0, %6, %18, %19, %20, %28, %29, %30, %32, %38
-  %.sroa.0.0.shrunk.i = phi i1 [ %39, %38 ], [ false, %6 ], [ false, %30 ], [ false, %28 ], [ false, %18 ], [ false, %0 ], [ false, %29 ], [ false, %19 ], [ %.mux.i, %32 ], [ false, %20 ]
+"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit": ; preds = %0, %4, %16, %17, %18, %26, %27, %28, %30, %36
+  %.sroa.0.0.shrunk.i = phi i1 [ %37, %36 ], [ false, %4 ], [ false, %28 ], [ false, %26 ], [ false, %16 ], [ false, %0 ], [ false, %27 ], [ false, %17 ], [ %.mux.i, %30 ], [ false, %18 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h16e90405f6414a61E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h16e90405f6414a61E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %4 = load i32, ptr %3, align 8, !alias.scope !41, !noalias !44, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %6 = load i32, ptr %5, align 8, !alias.scope !44, !noalias !41, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN78_$LT$ruff_python_ast..generated..ExprBinOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17he057ad68afa02ff0E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %2 = load i32, ptr %1, align 8, !alias.scope !41, !noalias !44, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %4 = load i32, ptr %3, align 8, !alias.scope !44, !noalias !41, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN78_$LT$ruff_python_ast..generated..ExprBinOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17he057ad68afa02ff0E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %10 = load i32, ptr %9, align 4, !alias.scope !41, !noalias !44, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %12 = load i32, ptr %11, align 4, !alias.scope !44, !noalias !41, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN78_$LT$ruff_python_ast..generated..ExprBinOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17he057ad68afa02ff0E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %8 = load i32, ptr %7, align 4, !alias.scope !41, !noalias !44, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %10 = load i32, ptr %9, align 4, !alias.scope !44, !noalias !41, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN78_$LT$ruff_python_ast..generated..ExprBinOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17he057ad68afa02ff0E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !41, !noalias !44, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !44, !noalias !41, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16) #11, !noalias !46
-  br i1 %17, label %18, label %"_ZN78_$LT$ruff_python_ast..generated..ExprBinOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17he057ad68afa02ff0E.exit"
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !41, !noalias !44, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !44, !noalias !41, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14) #11, !noalias !46
+  br i1 %15, label %16, label %"_ZN78_$LT$ruff_python_ast..generated..ExprBinOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17he057ad68afa02ff0E.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %20 = load i8, ptr %19, align 8, !range !47, !alias.scope !41, !noalias !44, !noundef !8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %22 = load i8, ptr %21, align 8, !range !47, !alias.scope !44, !noalias !41, !noundef !8
-  %23 = icmp eq i8 %20, %22
-  br i1 %23, label %24, label %"_ZN78_$LT$ruff_python_ast..generated..ExprBinOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17he057ad68afa02ff0E.exit"
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %18 = load i8, ptr %17, align 8, !range !47, !alias.scope !41, !noalias !44, !noundef !8
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %20 = load i8, ptr %19, align 8, !range !47, !alias.scope !44, !noalias !41, !noundef !8
+  %21 = icmp eq i8 %18, %20
+  br i1 %21, label %22, label %"_ZN78_$LT$ruff_python_ast..generated..ExprBinOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17he057ad68afa02ff0E.exit"
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %26 = load ptr, ptr %25, align 8, !alias.scope !41, !noalias !44, !nonnull !8, !noundef !8
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %28 = load ptr, ptr %27, align 8, !alias.scope !44, !noalias !41, !nonnull !8, !noundef !8
-  %29 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %26, ptr noundef nonnull align 8 %28) #11, !noalias !46
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %24 = load ptr, ptr %23, align 8, !alias.scope !41, !noalias !44, !nonnull !8, !noundef !8
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %26 = load ptr, ptr %25, align 8, !alias.scope !44, !noalias !41, !nonnull !8, !noundef !8
+  %27 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %24, ptr noundef nonnull align 8 %26) #11, !noalias !46
   br label %"_ZN78_$LT$ruff_python_ast..generated..ExprBinOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17he057ad68afa02ff0E.exit"
 
-"_ZN78_$LT$ruff_python_ast..generated..ExprBinOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17he057ad68afa02ff0E.exit": ; preds = %0, %8, %14, %18, %24
-  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %0 ], [ false, %18 ], [ false, %14 ], [ false, %8 ]
+"_ZN78_$LT$ruff_python_ast..generated..ExprBinOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17he057ad68afa02ff0E.exit": ; preds = %0, %6, %12, %16, %22
+  %.sroa.0.0.i = phi i1 [ %27, %22 ], [ false, %0 ], [ false, %16 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h186716b609c5e7a8E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
-  %4 = load i32, ptr %3, align 8, !alias.scope !48, !noalias !51, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 120
-  %6 = load i32, ptr %5, align 8, !alias.scope !51, !noalias !48, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
+  %2 = load i32, ptr %1, align 8, !alias.scope !48, !noalias !51, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 120
+  %4 = load i32, ptr %3, align 8, !alias.scope !51, !noalias !48, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 124
-  %10 = load i32, ptr %9, align 4, !alias.scope !48, !noalias !51, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 124
-  %12 = load i32, ptr %11, align 4, !alias.scope !51, !noalias !48, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 124
+  %8 = load i32, ptr %7, align 4, !alias.scope !48, !noalias !51, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 124
+  %10 = load i32, ptr %9, align 4, !alias.scope !51, !noalias !48, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 96
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 96
-  %17 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
-  br i1 %17, label %18, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 96
+  %15 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
+  br i1 %15, label %16, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 88
-  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
-  %21 = load i32, ptr %20, align 8, !alias.scope !48, !noalias !51, !noundef !8
-  %22 = load i32, ptr %19, align 8, !alias.scope !51, !noalias !48, !noundef !8
-  %23 = icmp eq i32 %21, %22
-  br i1 %23, label %24, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit"
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
+  %19 = load i32, ptr %18, align 8, !alias.scope !48, !noalias !51, !noundef !8
+  %20 = load i32, ptr %17, align 8, !alias.scope !51, !noalias !48, !noundef !8
+  %21 = icmp eq i32 %19, %20
+  br i1 %21, label %22, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit"
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 92
-  %26 = load i32, ptr %25, align 4, !alias.scope !48, !noalias !51, !noundef !8
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 92
-  %28 = load i32, ptr %27, align 4, !alias.scope !51, !noalias !48, !noundef !8
-  %29 = icmp eq i32 %26, %28
-  br i1 %29, label %30, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit"
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 92
+  %24 = load i32, ptr %23, align 4, !alias.scope !48, !noalias !51, !noundef !8
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 92
+  %26 = load i32, ptr %25, align 4, !alias.scope !51, !noalias !48, !noundef !8
+  %27 = icmp eq i32 %24, %26
+  br i1 %27, label %28, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit"
 
-30:                                               ; preds = %24
-  %31 = tail call fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated..Pattern$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91d82b5c0d6c8e35E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.0.val1)
+28:                                               ; preds = %22
+  %29 = tail call fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated..Pattern$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91d82b5c0d6c8e35E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.0.val1)
   br label %"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit"
 
-"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit": ; preds = %0, %8, %14, %18, %24, %30
-  %.sroa.0.0.i = phi i1 [ %31, %30 ], [ false, %18 ], [ false, %14 ], [ false, %0 ], [ false, %24 ], [ false, %8 ]
+"_ZN79_$LT$ruff_python_ast..nodes..PatternKeyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82abaed304285bf1E.exit": ; preds = %0, %6, %12, %16, %22, %28
+  %.sroa.0.0.i = phi i1 [ %29, %28 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %22 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h1b699fbc9ce6d7d9E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h1b699fbc9ce6d7d9E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %4 = load i32, ptr %3, align 8, !alias.scope !53, !noalias !56, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %6 = load i32, ptr %5, align 8, !alias.scope !56, !noalias !53, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN82_$LT$ruff_python_ast..generated..ExprGenerator$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb28248bf67a5ccb9E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %2 = load i32, ptr %1, align 8, !alias.scope !53, !noalias !56, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %4 = load i32, ptr %3, align 8, !alias.scope !56, !noalias !53, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN82_$LT$ruff_python_ast..generated..ExprGenerator$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb28248bf67a5ccb9E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
-  %10 = load i32, ptr %9, align 4, !alias.scope !53, !noalias !56, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
-  %12 = load i32, ptr %11, align 4, !alias.scope !56, !noalias !53, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN82_$LT$ruff_python_ast..generated..ExprGenerator$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb28248bf67a5ccb9E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
+  %8 = load i32, ptr %7, align 4, !alias.scope !53, !noalias !56, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
+  %10 = load i32, ptr %9, align 4, !alias.scope !56, !noalias !53, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN82_$LT$ruff_python_ast..generated..ExprGenerator$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb28248bf67a5ccb9E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !53, !noalias !56, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %18 = load ptr, ptr %17, align 8, !alias.scope !56, !noalias !53, !nonnull !8, !noundef !8
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %18) #11, !noalias !58
-  br i1 %19, label %20, label %"_ZN82_$LT$ruff_python_ast..generated..ExprGenerator$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb28248bf67a5ccb9E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %14 = load ptr, ptr %13, align 8, !alias.scope !53, !noalias !56, !nonnull !8, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %16 = load ptr, ptr %15, align 8, !alias.scope !56, !noalias !53, !nonnull !8, !noundef !8
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16) #11, !noalias !58
+  br i1 %17, label %18, label %"_ZN82_$LT$ruff_python_ast..generated..ExprGenerator$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb28248bf67a5ccb9E.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %21, align 8, !alias.scope !53, !noalias !56, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %22, align 8, !alias.scope !53, !noalias !56, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %23, align 8, !alias.scope !56, !noalias !53, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %24, align 8, !alias.scope !56, !noalias !53, !noundef !8
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1f968a2ff8d16119E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !58
-  br i1 %25, label %26, label %"_ZN82_$LT$ruff_python_ast..generated..ExprGenerator$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb28248bf67a5ccb9E.exit"
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %19, align 8, !alias.scope !53, !noalias !56, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %20, align 8, !alias.scope !53, !noalias !56, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %21, align 8, !alias.scope !56, !noalias !53, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %22, align 8, !alias.scope !56, !noalias !53, !noundef !8
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1f968a2ff8d16119E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !58
+  br i1 %23, label %24, label %"_ZN82_$LT$ruff_python_ast..generated..ExprGenerator$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb28248bf67a5ccb9E.exit"
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %28 = load i8, ptr %27, align 8, !range !59, !alias.scope !53, !noalias !56, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %30 = load i8, ptr %29, align 8, !range !59, !alias.scope !56, !noalias !53, !noundef !8
-  %31 = icmp eq i8 %28, %30
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %26 = load i8, ptr %25, align 8, !range !59, !alias.scope !53, !noalias !56, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %28 = load i8, ptr %27, align 8, !range !59, !alias.scope !56, !noalias !53, !noundef !8
+  %29 = icmp eq i8 %26, %28
   br label %"_ZN82_$LT$ruff_python_ast..generated..ExprGenerator$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb28248bf67a5ccb9E.exit"
 
-"_ZN82_$LT$ruff_python_ast..generated..ExprGenerator$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb28248bf67a5ccb9E.exit": ; preds = %0, %8, %14, %20, %26
-  %.sroa.0.0.i = phi i1 [ %31, %26 ], [ false, %20 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
+"_ZN82_$LT$ruff_python_ast..generated..ExprGenerator$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb28248bf67a5ccb9E.exit": ; preds = %0, %6, %12, %18, %24
+  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %18 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h1e03d589550df506E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  %3 = load i32, ptr %.0.val, align 8, !alias.scope !60, !noalias !63, !noundef !8
-  %4 = load i32, ptr %.0.val1, align 8, !alias.scope !63, !noalias !60, !noundef !8
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %6, label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit"
+  %1 = load i32, ptr %.0.val, align 8, !alias.scope !60, !noalias !63, !noundef !8
+  %2 = load i32, ptr %.0.val1, align 8, !alias.scope !63, !noalias !60, !noundef !8
+  %3 = icmp eq i32 %1, %2
+  br i1 %3, label %4, label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit"
 
-6:                                                ; preds = %0
-  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %8 = load i32, ptr %7, align 4, !alias.scope !60, !noalias !63, !noundef !8
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !63, !noalias !60, !noundef !8
-  %11 = icmp eq i32 %8, %10
-  br i1 %11, label %12, label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit"
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %6 = load i32, ptr %5, align 4, !alias.scope !60, !noalias !63, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %8 = load i32, ptr %7, align 4, !alias.scope !63, !noalias !60, !noundef !8
+  %9 = icmp eq i32 %6, %8
+  br i1 %9, label %10, label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit"
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %15 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
-  br i1 %15, label %16, label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit"
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %13 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  br i1 %13, label %14, label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit"
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %19 = load i32, ptr %18, align 8, !alias.scope !60, !noalias !63, !noundef !8
-  %20 = load i32, ptr %17, align 8, !alias.scope !63, !noalias !60, !noundef !8
-  %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit"
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %17 = load i32, ptr %16, align 8, !alias.scope !60, !noalias !63, !noundef !8
+  %18 = load i32, ptr %15, align 8, !alias.scope !63, !noalias !60, !noundef !8
+  %19 = icmp eq i32 %17, %18
+  br i1 %19, label %20, label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit"
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %24 = load i32, ptr %23, align 4, !alias.scope !60, !noalias !63, !noundef !8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %26 = load i32, ptr %25, align 4, !alias.scope !63, !noalias !60, !noundef !8
-  %27 = icmp eq i32 %24, %26
-  br i1 %27, label %28, label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit"
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %22 = load i32, ptr %21, align 4, !alias.scope !60, !noalias !63, !noundef !8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %24 = load i32, ptr %23, align 4, !alias.scope !63, !noalias !60, !noundef !8
+  %25 = icmp eq i32 %22, %24
+  br i1 %25, label %26, label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit"
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %30 = load ptr, ptr %29, align 8, !alias.scope !60, !noalias !63, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %30, null
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %32 = load ptr, ptr %31, align 8, !alias.scope !63, !noalias !60, !align !39, !noundef !8
-  %33 = icmp eq ptr %32, null
-  %brmerge.i = or i1 %.not.i, %33
-  %.mux.i = and i1 %.not.i, %33
-  br i1 %brmerge.i, label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit", label %34
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %28 = load ptr, ptr %27, align 8, !alias.scope !60, !noalias !63, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %28, null
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %30 = load ptr, ptr %29, align 8, !alias.scope !63, !noalias !60, !align !39, !noundef !8
+  %31 = icmp eq ptr %30, null
+  %brmerge.i = or i1 %.not.i, %31
+  %.mux.i = and i1 %.not.i, %31
+  br i1 %brmerge.i, label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit", label %32
 
-34:                                               ; preds = %28
-  %35 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %30, ptr noundef nonnull align 8 %32)
+32:                                               ; preds = %26
+  %33 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %28, ptr noundef nonnull align 8 %30)
   br label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit"
 
-"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit": ; preds = %0, %6, %12, %16, %22, %28, %34
-  %.sroa.0.0.shrunk.i = phi i1 [ %35, %34 ], [ false, %6 ], [ %.mux.i, %28 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %22 ]
+"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit": ; preds = %0, %4, %10, %14, %20, %26, %32
+  %.sroa.0.0.shrunk.i = phi i1 [ %33, %32 ], [ false, %4 ], [ %.mux.i, %26 ], [ false, %14 ], [ false, %10 ], [ false, %0 ], [ false, %20 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h20ca67e9b8fc610cE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h20ca67e9b8fc610cE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !65, !noalias !68, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !68, !noalias !65, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN81_$LT$ruff_python_ast..generated..StmtNonlocal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ce68a6eeaae22c1E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !65, !noalias !68, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !68, !noalias !65, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN81_$LT$ruff_python_ast..generated..StmtNonlocal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ce68a6eeaae22c1E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !65, !noalias !68, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !68, !noalias !65, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN81_$LT$ruff_python_ast..generated..StmtNonlocal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ce68a6eeaae22c1E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !65, !noalias !68, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !68, !noalias !65, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN81_$LT$ruff_python_ast..generated..StmtNonlocal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ce68a6eeaae22c1E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !65, !noalias !68, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !65, !noalias !68, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !68, !noalias !65, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !68, !noalias !65, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb5efa72fc3b72838E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !70
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !65, !noalias !68, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !65, !noalias !68, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !68, !noalias !65, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !68, !noalias !65, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb5efa72fc3b72838E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !70
   br label %"_ZN81_$LT$ruff_python_ast..generated..StmtNonlocal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ce68a6eeaae22c1E.exit"
 
-"_ZN81_$LT$ruff_python_ast..generated..StmtNonlocal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ce68a6eeaae22c1E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %19, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN81_$LT$ruff_python_ast..generated..StmtNonlocal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ce68a6eeaae22c1E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %17, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h225e8d3ad5ac4452E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h225e8d3ad5ac4452E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %4 = load i32, ptr %3, align 8, !alias.scope !71, !noalias !74, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %6 = load i32, ptr %5, align 8, !alias.scope !74, !noalias !71, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN81_$LT$ruff_python_ast..generated..ExprDictComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha1a024a2dd5f7e6fE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %2 = load i32, ptr %1, align 8, !alias.scope !71, !noalias !74, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %4 = load i32, ptr %3, align 8, !alias.scope !74, !noalias !71, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN81_$LT$ruff_python_ast..generated..ExprDictComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha1a024a2dd5f7e6fE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 44
-  %10 = load i32, ptr %9, align 4, !alias.scope !71, !noalias !74, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 44
-  %12 = load i32, ptr %11, align 4, !alias.scope !74, !noalias !71, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN81_$LT$ruff_python_ast..generated..ExprDictComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha1a024a2dd5f7e6fE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 44
+  %8 = load i32, ptr %7, align 4, !alias.scope !71, !noalias !74, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 44
+  %10 = load i32, ptr %9, align 4, !alias.scope !74, !noalias !71, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN81_$LT$ruff_python_ast..generated..ExprDictComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha1a024a2dd5f7e6fE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !71, !noalias !74, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %18 = load ptr, ptr %17, align 8, !alias.scope !74, !noalias !71, !nonnull !8, !noundef !8
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %18) #11, !noalias !76
-  br i1 %19, label %20, label %"_ZN81_$LT$ruff_python_ast..generated..ExprDictComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha1a024a2dd5f7e6fE.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %14 = load ptr, ptr %13, align 8, !alias.scope !71, !noalias !74, !nonnull !8, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %16 = load ptr, ptr %15, align 8, !alias.scope !74, !noalias !71, !nonnull !8, !noundef !8
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16) #11, !noalias !76
+  br i1 %17, label %18, label %"_ZN81_$LT$ruff_python_ast..generated..ExprDictComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha1a024a2dd5f7e6fE.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %22 = load ptr, ptr %21, align 8, !alias.scope !71, !noalias !74, !nonnull !8, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %24 = load ptr, ptr %23, align 8, !alias.scope !74, !noalias !71, !nonnull !8, !noundef !8
-  %25 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %22, ptr noundef nonnull align 8 %24) #11, !noalias !76
-  br i1 %25, label %26, label %"_ZN81_$LT$ruff_python_ast..generated..ExprDictComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha1a024a2dd5f7e6fE.exit"
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %20 = load ptr, ptr %19, align 8, !alias.scope !71, !noalias !74, !nonnull !8, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %22 = load ptr, ptr %21, align 8, !alias.scope !74, !noalias !71, !nonnull !8, !noundef !8
+  %23 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %20, ptr noundef nonnull align 8 %22) #11, !noalias !76
+  br i1 %23, label %24, label %"_ZN81_$LT$ruff_python_ast..generated..ExprDictComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha1a024a2dd5f7e6fE.exit"
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %27, align 8, !alias.scope !71, !noalias !74, !nonnull !8, !noundef !8
-  %28 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %28, align 8, !alias.scope !71, !noalias !74, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %29, align 8, !alias.scope !74, !noalias !71, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %30, align 8, !alias.scope !74, !noalias !71, !noundef !8
-  %31 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1f968a2ff8d16119E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !76
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %25, align 8, !alias.scope !71, !noalias !74, !nonnull !8, !noundef !8
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %26, align 8, !alias.scope !71, !noalias !74, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %27, align 8, !alias.scope !74, !noalias !71, !nonnull !8, !noundef !8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %28, align 8, !alias.scope !74, !noalias !71, !noundef !8
+  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1f968a2ff8d16119E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !76
   br label %"_ZN81_$LT$ruff_python_ast..generated..ExprDictComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha1a024a2dd5f7e6fE.exit"
 
-"_ZN81_$LT$ruff_python_ast..generated..ExprDictComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha1a024a2dd5f7e6fE.exit": ; preds = %0, %8, %14, %20, %26
-  %.sroa.0.0.i = phi i1 [ %31, %26 ], [ false, %0 ], [ false, %20 ], [ false, %14 ], [ false, %8 ]
+"_ZN81_$LT$ruff_python_ast..generated..ExprDictComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha1a024a2dd5f7e6fE.exit": ; preds = %0, %6, %12, %18, %24
+  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %0 ], [ false, %18 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h24750f750e236357E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  %3 = load i32, ptr %.0.val, align 8, !alias.scope !77, !noalias !80, !noundef !8
-  %4 = load i32, ptr %.0.val1, align 8, !alias.scope !80, !noalias !77, !noundef !8
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %6, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
+  %1 = load i32, ptr %.0.val, align 8, !alias.scope !77, !noalias !80, !noundef !8
+  %2 = load i32, ptr %.0.val1, align 8, !alias.scope !80, !noalias !77, !noundef !8
+  %3 = icmp eq i32 %1, %2
+  br i1 %3, label %4, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
 
-6:                                                ; preds = %0
-  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %8 = load i32, ptr %7, align 4, !alias.scope !77, !noalias !80, !noundef !8
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !80, !noalias !77, !noundef !8
-  %11 = icmp eq i32 %8, %10
-  br i1 %11, label %12, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %6 = load i32, ptr %5, align 4, !alias.scope !77, !noalias !80, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %8 = load i32, ptr %7, align 4, !alias.scope !80, !noalias !77, !noundef !8
+  %9 = icmp eq i32 %6, %8
+  br i1 %9, label %10, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %14 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %15 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
-  br i1 %15, label %16, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %13 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  br i1 %13, label %14, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %19 = load i32, ptr %18, align 8, !alias.scope !77, !noalias !80, !noundef !8
-  %20 = load i32, ptr %17, align 8, !alias.scope !80, !noalias !77, !noundef !8
-  %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %17 = load i32, ptr %16, align 8, !alias.scope !77, !noalias !80, !noundef !8
+  %18 = load i32, ptr %15, align 8, !alias.scope !80, !noalias !77, !noundef !8
+  %19 = icmp eq i32 %17, %18
+  br i1 %19, label %20, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %24 = load i32, ptr %23, align 4, !alias.scope !77, !noalias !80, !noundef !8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %26 = load i32, ptr %25, align 4, !alias.scope !80, !noalias !77, !noundef !8
-  %27 = icmp eq i32 %24, %26
-  br i1 %27, label %28, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %22 = load i32, ptr %21, align 4, !alias.scope !77, !noalias !80, !noundef !8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %24 = load i32, ptr %23, align 4, !alias.scope !80, !noalias !77, !noundef !8
+  %25 = icmp eq i32 %22, %24
+  br i1 %25, label %26, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %30 = load ptr, ptr %29, align 8, !alias.scope !77, !noalias !80, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %30, null
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %32 = load ptr, ptr %31, align 8, !alias.scope !80, !noalias !77, !align !39, !noundef !8
-  %33 = icmp eq ptr %32, null
-  br i1 %.not.i, label %35, label %34
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %28 = load ptr, ptr %27, align 8, !alias.scope !77, !noalias !80, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %28, null
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %30 = load ptr, ptr %29, align 8, !alias.scope !80, !noalias !77, !align !39, !noundef !8
+  %31 = icmp eq ptr %30, null
+  br i1 %.not.i, label %33, label %32
 
-34:                                               ; preds = %28
-  br i1 %33, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit", label %36
+32:                                               ; preds = %26
+  br i1 %31, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit", label %34
 
-35:                                               ; preds = %28
-  br i1 %33, label %38, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
+33:                                               ; preds = %26
+  br i1 %31, label %36, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
 
-36:                                               ; preds = %34
-  %37 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %30, ptr noundef nonnull align 8 %32)
-  br i1 %37, label %38, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
+34:                                               ; preds = %32
+  %35 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %28, ptr noundef nonnull align 8 %30)
+  br i1 %35, label %36, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
 
-38:                                               ; preds = %36, %35
-  %39 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %40 = load ptr, ptr %39, align 8, !alias.scope !77, !noalias !80, !align !39, !noundef !8
-  %.not3.i = icmp eq ptr %40, null
-  %41 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %42 = load ptr, ptr %41, align 8, !alias.scope !80, !noalias !77, !align !39, !noundef !8
-  %43 = icmp eq ptr %42, null
-  %brmerge.i = or i1 %.not3.i, %43
-  %.mux.i = and i1 %.not3.i, %43
-  br i1 %brmerge.i, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit", label %44
+36:                                               ; preds = %34, %33
+  %37 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %38 = load ptr, ptr %37, align 8, !alias.scope !77, !noalias !80, !align !39, !noundef !8
+  %.not3.i = icmp eq ptr %38, null
+  %39 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %40 = load ptr, ptr %39, align 8, !alias.scope !80, !noalias !77, !align !39, !noundef !8
+  %41 = icmp eq ptr %40, null
+  %brmerge.i = or i1 %.not3.i, %41
+  %.mux.i = and i1 %.not3.i, %41
+  br i1 %brmerge.i, label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit", label %42
 
-44:                                               ; preds = %38
-  %45 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %40, ptr noundef nonnull align 8 %42)
+42:                                               ; preds = %36
+  %43 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %38, ptr noundef nonnull align 8 %40)
   br label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
 
-"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit": ; preds = %0, %6, %12, %16, %22, %34, %35, %36, %38, %44
-  %.sroa.0.0.shrunk.i = phi i1 [ %45, %44 ], [ false, %6 ], [ false, %36 ], [ false, %34 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %35 ], [ false, %22 ], [ %.mux.i, %38 ]
+"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit": ; preds = %0, %4, %10, %14, %20, %32, %33, %34, %36, %42
+  %.sroa.0.0.shrunk.i = phi i1 [ %43, %42 ], [ false, %4 ], [ false, %34 ], [ false, %32 ], [ false, %14 ], [ false, %10 ], [ false, %0 ], [ false, %33 ], [ false, %20 ], [ %.mux.i, %36 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h250b7bcfa7c0b0e8E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h250b7bcfa7c0b0e8E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !82, !noalias !85, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !85, !noalias !82, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN75_$LT$ruff_python_ast..nodes..TypeParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ec03eacd5d8b066E.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !82, !noalias !85, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !85, !noalias !82, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN75_$LT$ruff_python_ast..nodes..TypeParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ec03eacd5d8b066E.exit"
-
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !82, !noalias !85, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !82, !noalias !85, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !85, !noalias !82, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !85, !noalias !82, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he7aa9dd5810bcd27E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !87
-  br label %"_ZN75_$LT$ruff_python_ast..nodes..TypeParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ec03eacd5d8b066E.exit"
-
-"_ZN75_$LT$ruff_python_ast..nodes..TypeParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ec03eacd5d8b066E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %19, %14 ], [ false, %0 ], [ false, %8 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h25231688648bfd02E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
-  %3 = load i32, ptr %.0.val, align 8, !alias.scope !88, !noalias !91, !noundef !8
-  %4 = load i32, ptr %.0.val1, align 8, !alias.scope !91, !noalias !88, !noundef !8
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %6, label %"_ZN78_$LT$ruff_python_ast..generated..ExprYield$u20$as$u20$core..cmp..PartialEq$GT$2eq17had2484cfd75b280cE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !82, !noalias !85, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !85, !noalias !82, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN75_$LT$ruff_python_ast..nodes..TypeParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ec03eacd5d8b066E.exit"
 
 6:                                                ; preds = %0
-  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %8 = load i32, ptr %7, align 4, !alias.scope !88, !noalias !91, !noundef !8
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !91, !noalias !88, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !82, !noalias !85, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !85, !noalias !82, !noundef !8
   %11 = icmp eq i32 %8, %10
-  br i1 %11, label %12, label %"_ZN78_$LT$ruff_python_ast..generated..ExprYield$u20$as$u20$core..cmp..PartialEq$GT$2eq17had2484cfd75b280cE.exit"
+  br i1 %11, label %12, label %"_ZN75_$LT$ruff_python_ast..nodes..TypeParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ec03eacd5d8b066E.exit"
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %14 = load ptr, ptr %13, align 8, !alias.scope !88, !noalias !91, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %14, null
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !82, !noalias !85, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !82, !noalias !85, !noundef !8
   %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %16 = load ptr, ptr %15, align 8, !alias.scope !91, !noalias !88, !align !39, !noundef !8
-  %17 = icmp eq ptr %16, null
-  %brmerge.i = or i1 %.not.i, %17
-  %.mux.i = and i1 %.not.i, %17
-  br i1 %brmerge.i, label %"_ZN78_$LT$ruff_python_ast..generated..ExprYield$u20$as$u20$core..cmp..PartialEq$GT$2eq17had2484cfd75b280cE.exit", label %18
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !85, !noalias !82, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !85, !noalias !82, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he7aa9dd5810bcd27E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !87
+  br label %"_ZN75_$LT$ruff_python_ast..nodes..TypeParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ec03eacd5d8b066E.exit"
 
-18:                                               ; preds = %12
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16) #11, !noalias !93
+"_ZN75_$LT$ruff_python_ast..nodes..TypeParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ec03eacd5d8b066E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %17, %12 ], [ false, %0 ], [ false, %6 ]
+  ret i1 %.sroa.0.0.i
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h25231688648bfd02E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  %1 = load i32, ptr %.0.val, align 8, !alias.scope !88, !noalias !91, !noundef !8
+  %2 = load i32, ptr %.0.val1, align 8, !alias.scope !91, !noalias !88, !noundef !8
+  %3 = icmp eq i32 %1, %2
+  br i1 %3, label %4, label %"_ZN78_$LT$ruff_python_ast..generated..ExprYield$u20$as$u20$core..cmp..PartialEq$GT$2eq17had2484cfd75b280cE.exit"
+
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %6 = load i32, ptr %5, align 4, !alias.scope !88, !noalias !91, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %8 = load i32, ptr %7, align 4, !alias.scope !91, !noalias !88, !noundef !8
+  %9 = icmp eq i32 %6, %8
+  br i1 %9, label %10, label %"_ZN78_$LT$ruff_python_ast..generated..ExprYield$u20$as$u20$core..cmp..PartialEq$GT$2eq17had2484cfd75b280cE.exit"
+
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %12 = load ptr, ptr %11, align 8, !alias.scope !88, !noalias !91, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %12, null
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %14 = load ptr, ptr %13, align 8, !alias.scope !91, !noalias !88, !align !39, !noundef !8
+  %15 = icmp eq ptr %14, null
+  %brmerge.i = or i1 %.not.i, %15
+  %.mux.i = and i1 %.not.i, %15
+  br i1 %brmerge.i, label %"_ZN78_$LT$ruff_python_ast..generated..ExprYield$u20$as$u20$core..cmp..PartialEq$GT$2eq17had2484cfd75b280cE.exit", label %16
+
+16:                                               ; preds = %10
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %12, ptr noundef nonnull align 8 %14) #11, !noalias !93
   br label %"_ZN78_$LT$ruff_python_ast..generated..ExprYield$u20$as$u20$core..cmp..PartialEq$GT$2eq17had2484cfd75b280cE.exit"
 
-"_ZN78_$LT$ruff_python_ast..generated..ExprYield$u20$as$u20$core..cmp..PartialEq$GT$2eq17had2484cfd75b280cE.exit": ; preds = %0, %6, %12, %18
-  %.sroa.0.0.shrunk.i = phi i1 [ %19, %18 ], [ false, %6 ], [ %.mux.i, %12 ], [ false, %0 ]
+"_ZN78_$LT$ruff_python_ast..generated..ExprYield$u20$as$u20$core..cmp..PartialEq$GT$2eq17had2484cfd75b280cE.exit": ; preds = %0, %4, %10, %16
+  %.sroa.0.0.shrunk.i = phi i1 [ %17, %16 ], [ false, %4 ], [ %.mux.i, %10 ], [ false, %0 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h295391cc486acfa2E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h295391cc486acfa2E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %4 = load i32, ptr %3, align 8, !alias.scope !94, !noalias !97, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %6 = load i32, ptr %5, align 8, !alias.scope !97, !noalias !94, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h284a90bc60b9307eE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %2 = load i32, ptr %1, align 8, !alias.scope !94, !noalias !97, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %4 = load i32, ptr %3, align 8, !alias.scope !97, !noalias !94, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h284a90bc60b9307eE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
-  %10 = load i32, ptr %9, align 4, !alias.scope !94, !noalias !97, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
-  %12 = load i32, ptr %11, align 4, !alias.scope !97, !noalias !94, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h284a90bc60b9307eE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
+  %8 = load i32, ptr %7, align 4, !alias.scope !94, !noalias !97, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
+  %10 = load i32, ptr %9, align 4, !alias.scope !97, !noalias !94, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h284a90bc60b9307eE.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !94, !noalias !97, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !97, !noalias !94, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16), !noalias !99
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !94, !noalias !97, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !97, !noalias !94, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14), !noalias !99
   br label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h284a90bc60b9307eE.exit"
 
-"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h284a90bc60b9307eE.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %17, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h284a90bc60b9307eE.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %15, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h2ac9c1cb60300650E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h2ac9c1cb60300650E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !100, !noalias !103, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !103, !noalias !100, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN85_$LT$ruff_python_ast..nodes..PatternMatchSequence$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6cc740c362ed6977E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !100, !noalias !103, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !103, !noalias !100, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN85_$LT$ruff_python_ast..nodes..PatternMatchSequence$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6cc740c362ed6977E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !100, !noalias !103, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !103, !noalias !100, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN85_$LT$ruff_python_ast..nodes..PatternMatchSequence$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6cc740c362ed6977E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !100, !noalias !103, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !103, !noalias !100, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN85_$LT$ruff_python_ast..nodes..PatternMatchSequence$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6cc740c362ed6977E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !100, !noalias !103, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !100, !noalias !103, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !103, !noalias !100, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !103, !noalias !100, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hca6f43dbf3f8b2aaE"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !105
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !100, !noalias !103, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !100, !noalias !103, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !103, !noalias !100, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !103, !noalias !100, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hca6f43dbf3f8b2aaE"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !105
   br label %"_ZN85_$LT$ruff_python_ast..nodes..PatternMatchSequence$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6cc740c362ed6977E.exit"
 
-"_ZN85_$LT$ruff_python_ast..nodes..PatternMatchSequence$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6cc740c362ed6977E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %19, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN85_$LT$ruff_python_ast..nodes..PatternMatchSequence$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6cc740c362ed6977E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %17, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h2beb70fb9bf401ddE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h2beb70fb9bf401ddE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %4 = load i32, ptr %3, align 8, !alias.scope !106, !noalias !109, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %6 = load i32, ptr %5, align 8, !alias.scope !109, !noalias !106, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %2 = load i32, ptr %1, align 8, !alias.scope !106, !noalias !109, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %4 = load i32, ptr %3, align 8, !alias.scope !109, !noalias !106, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
-  %10 = load i32, ptr %9, align 4, !alias.scope !106, !noalias !109, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
-  %12 = load i32, ptr %11, align 4, !alias.scope !109, !noalias !106, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
+  %8 = load i32, ptr %7, align 4, !alias.scope !106, !noalias !109, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
+  %10 = load i32, ptr %9, align 4, !alias.scope !109, !noalias !106, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %16 = load ptr, ptr %15, align 8, !alias.scope !106, !noalias !109, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %16, null
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %18 = load ptr, ptr %17, align 8, !alias.scope !109, !noalias !106, !align !39, !noundef !8
-  %19 = icmp eq ptr %18, null
-  br i1 %.not.i, label %21, label %20
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %14 = load ptr, ptr %13, align 8, !alias.scope !106, !noalias !109, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %14, null
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %16 = load ptr, ptr %15, align 8, !alias.scope !109, !noalias !106, !align !39, !noundef !8
+  %17 = icmp eq ptr %16, null
+  br i1 %.not.i, label %19, label %18
 
-20:                                               ; preds = %14
-  br i1 %19, label %"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit", label %22
+18:                                               ; preds = %12
+  br i1 %17, label %"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit", label %20
 
-21:                                               ; preds = %14
-  br i1 %19, label %24, label %"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit"
+19:                                               ; preds = %12
+  br i1 %17, label %22, label %"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit"
 
-22:                                               ; preds = %20
-  %23 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..nodes..Parameters$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ad75d9997808284E"(ptr noalias noundef readonly align 8 dereferenceable(96) %16, ptr noalias noundef readonly align 8 dereferenceable(96) %18) #11, !noalias !111
-  br i1 %23, label %24, label %"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit"
+20:                                               ; preds = %18
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..nodes..Parameters$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ad75d9997808284E"(ptr noalias noundef readonly align 8 dereferenceable(96) %14, ptr noalias noundef readonly align 8 dereferenceable(96) %16) #11, !noalias !111
+  br i1 %21, label %22, label %"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit"
 
-24:                                               ; preds = %22, %21
-  %25 = load ptr, ptr %.0.val, align 8, !alias.scope !106, !noalias !109, !nonnull !8, !noundef !8
-  %26 = load ptr, ptr %.0.val1, align 8, !alias.scope !109, !noalias !106, !nonnull !8, !noundef !8
-  %27 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %25, ptr noundef nonnull align 8 %26) #11, !noalias !111
+22:                                               ; preds = %20, %19
+  %23 = load ptr, ptr %.0.val, align 8, !alias.scope !106, !noalias !109, !nonnull !8, !noundef !8
+  %24 = load ptr, ptr %.0.val1, align 8, !alias.scope !109, !noalias !106, !nonnull !8, !noundef !8
+  %25 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %23, ptr noundef nonnull align 8 %24) #11, !noalias !111
   br label %"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit"
 
-"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit": ; preds = %0, %8, %20, %21, %22, %24
-  %.sroa.0.0.i = phi i1 [ %27, %24 ], [ false, %20 ], [ false, %0 ], [ false, %21 ], [ false, %8 ], [ false, %22 ]
+"_ZN79_$LT$ruff_python_ast..generated..ExprLambda$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0c2b6b450905cbaE.exit": ; preds = %0, %6, %18, %19, %20, %22
+  %.sroa.0.0.i = phi i1 [ %25, %22 ], [ false, %18 ], [ false, %0 ], [ false, %19 ], [ false, %6 ], [ false, %20 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h30d4e8c4d7ff3a4aE"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %4 = load i32, ptr %3, align 8, !alias.scope !112, !noalias !115, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
-  %6 = load i32, ptr %5, align 8, !alias.scope !115, !noalias !112, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
+  %2 = load i32, ptr %1, align 8, !alias.scope !112, !noalias !115, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
+  %4 = load i32, ptr %3, align 8, !alias.scope !115, !noalias !112, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 60
-  %10 = load i32, ptr %9, align 4, !alias.scope !112, !noalias !115, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 60
-  %12 = load i32, ptr %11, align 4, !alias.scope !115, !noalias !112, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 60
+  %8 = load i32, ptr %7, align 4, !alias.scope !112, !noalias !115, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 60
+  %10 = load i32, ptr %9, align 4, !alias.scope !115, !noalias !112, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 55
-  %17 = load i8, ptr %16, align 1, !range !117, !alias.scope !112, !noalias !115, !noundef !8
-  %.not.i = icmp eq i8 %17, -38
-  br i1 %.not.i, label %22, label %18
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 55
+  %15 = load i8, ptr %14, align 1, !range !117, !alias.scope !112, !noalias !115, !noundef !8
+  %.not.i = icmp eq i8 %15, -38
+  br i1 %.not.i, label %20, label %16
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %20 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 55
-  %21 = load i8, ptr %20, align 1, !range !117, !alias.scope !115, !noalias !112, !noundef !8
-  %.not2.i = icmp eq i8 %21, -38
-  br i1 %.not2.i, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit", label %26
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 55
+  %19 = load i8, ptr %18, align 1, !range !117, !alias.scope !115, !noalias !112, !noundef !8
+  %.not2.i = icmp eq i8 %19, -38
+  br i1 %.not2.i, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit", label %24
 
-22:                                               ; preds = %14
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 55
-  %24 = load i8, ptr %23, align 1, !range !117, !alias.scope !115, !noalias !112, !noundef !8
-  %25 = icmp eq i8 %24, -38
-  br i1 %25, label %40, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 55
+  %22 = load i8, ptr %21, align 1, !range !117, !alias.scope !115, !noalias !112, !noundef !8
+  %23 = icmp eq i8 %22, -38
+  br i1 %23, label %38, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %28 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %29 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
-  br i1 %29, label %30, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
+24:                                               ; preds = %16
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %27 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
+  br i1 %27, label %28, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
 
-30:                                               ; preds = %26
-  %31 = load i32, ptr %15, align 8, !alias.scope !112, !noalias !115, !noundef !8
-  %32 = load i32, ptr %19, align 8, !alias.scope !115, !noalias !112, !noundef !8
-  %33 = icmp eq i32 %31, %32
-  br i1 %33, label %34, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
+28:                                               ; preds = %24
+  %29 = load i32, ptr %13, align 8, !alias.scope !112, !noalias !115, !noundef !8
+  %30 = load i32, ptr %17, align 8, !alias.scope !115, !noalias !112, !noundef !8
+  %31 = icmp eq i32 %29, %30
+  br i1 %31, label %32, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %36 = load i32, ptr %35, align 4, !alias.scope !112, !noalias !115, !noundef !8
-  %37 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %38 = load i32, ptr %37, align 4, !alias.scope !115, !noalias !112, !noundef !8
-  %39 = icmp eq i32 %36, %38
-  br i1 %39, label %40, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %34 = load i32, ptr %33, align 4, !alias.scope !112, !noalias !115, !noundef !8
+  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %36 = load i32, ptr %35, align 4, !alias.scope !115, !noalias !112, !noundef !8
+  %37 = icmp eq i32 %34, %36
+  br i1 %37, label %38, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
 
-40:                                               ; preds = %34, %22
-  %41 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %41, align 8, !alias.scope !112, !noalias !115, !nonnull !8, !noundef !8
-  %42 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val3.i = load i64, ptr %42, align 8, !alias.scope !112, !noalias !115, !noundef !8
-  %43 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val4.i = load ptr, ptr %43, align 8, !alias.scope !115, !noalias !112, !nonnull !8, !noundef !8
-  %44 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val5.i = load i64, ptr %44, align 8, !alias.scope !115, !noalias !112, !noundef !8
-  %45 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24122ca1bfe1aba5E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i)
-  br i1 %45, label %46, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
+38:                                               ; preds = %32, %20
+  %39 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %39, align 8, !alias.scope !112, !noalias !115, !nonnull !8, !noundef !8
+  %40 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val3.i = load i64, ptr %40, align 8, !alias.scope !112, !noalias !115, !noundef !8
+  %41 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val4.i = load ptr, ptr %41, align 8, !alias.scope !115, !noalias !112, !nonnull !8, !noundef !8
+  %42 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val5.i = load i64, ptr %42, align 8, !alias.scope !115, !noalias !112, !noundef !8
+  %43 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24122ca1bfe1aba5E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i)
+  br i1 %43, label %44, label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
 
-46:                                               ; preds = %40
-  %47 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
-  %48 = load i32, ptr %47, align 8, !alias.scope !112, !noalias !115, !noundef !8
-  %49 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
-  %50 = load i32, ptr %49, align 8, !alias.scope !115, !noalias !112, !noundef !8
-  %51 = icmp eq i32 %48, %50
+44:                                               ; preds = %38
+  %45 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
+  %46 = load i32, ptr %45, align 8, !alias.scope !112, !noalias !115, !noundef !8
+  %47 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
+  %48 = load i32, ptr %47, align 8, !alias.scope !115, !noalias !112, !noundef !8
+  %49 = icmp eq i32 %46, %48
   br label %"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit"
 
-"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit": ; preds = %0, %8, %18, %22, %26, %30, %34, %40, %46
-  %.sroa.0.0.i = phi i1 [ %51, %46 ], [ false, %40 ], [ false, %30 ], [ false, %26 ], [ false, %18 ], [ false, %0 ], [ false, %22 ], [ false, %8 ], [ false, %34 ]
+"_ZN83_$LT$ruff_python_ast..generated..StmtImportFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf55c40c3710ea194E.exit": ; preds = %0, %6, %16, %20, %24, %28, %32, %38, %44
+  %.sroa.0.0.i = phi i1 [ %49, %44 ], [ false, %38 ], [ false, %28 ], [ false, %24 ], [ false, %16 ], [ false, %0 ], [ false, %20 ], [ false, %6 ], [ false, %32 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h3903bfc436d547e7E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
+  %2 = load i32, ptr %1, align 8, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 88
   %4 = load i32, ptr %3, align 8, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 88
-  %6 = load i32, ptr %5, align 8, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit"
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 92
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 92
+  %8 = load i32, ptr %7, align 4, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 92
   %10 = load i32, ptr %9, align 4, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 92
-  %12 = load i32, ptr %11, align 4, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit"
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %14 = load i32, ptr %13, align 8, !range !118, !noundef !8
+  %.not.i = icmp eq i32 %14, 32
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
   %16 = load i32, ptr %15, align 8, !range !118, !noundef !8
-  %.not.i = icmp eq i32 %16, 32
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %18 = load i32, ptr %17, align 8, !range !118, !noundef !8
-  %19 = icmp eq i32 %18, 32
-  br i1 %.not.i, label %21, label %20
+  %17 = icmp eq i32 %16, 32
+  br i1 %.not.i, label %19, label %18
 
-20:                                               ; preds = %14
-  br i1 %19, label %"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit", label %22
+18:                                               ; preds = %12
+  br i1 %17, label %"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit", label %20
 
-21:                                               ; preds = %14
-  br i1 %19, label %24, label %"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit"
+19:                                               ; preds = %12
+  br i1 %17, label %22, label %"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit"
 
-22:                                               ; preds = %20
-  %23 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %17)
-  br i1 %23, label %24, label %"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit"
+20:                                               ; preds = %18
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %15)
+  br i1 %21, label %22, label %"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit"
 
-24:                                               ; preds = %22, %21
-  %25 = getelementptr i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %25, align 8, !nonnull !8, !noundef !8
-  %26 = getelementptr i8, ptr %.0.val, i64 16
-  %.val3.i = load i64, ptr %26, align 8, !noundef !8
-  %27 = getelementptr i8, ptr %.0.val1, i64 8
-  %.val4.i = load ptr, ptr %27, align 8, !nonnull !8, !noundef !8
-  %28 = getelementptr i8, ptr %.0.val1, i64 16
-  %.val5.i = load i64, ptr %28, align 8, !noundef !8
-  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i)
+22:                                               ; preds = %20, %19
+  %23 = getelementptr i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %23, align 8, !nonnull !8, !noundef !8
+  %24 = getelementptr i8, ptr %.0.val, i64 16
+  %.val3.i = load i64, ptr %24, align 8, !noundef !8
+  %25 = getelementptr i8, ptr %.0.val1, i64 8
+  %.val4.i = load ptr, ptr %25, align 8, !nonnull !8, !noundef !8
+  %26 = getelementptr i8, ptr %.0.val1, i64 16
+  %.val5.i = load i64, ptr %26, align 8, !noundef !8
+  %27 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i)
   br label %"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit"
 
-"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit": ; preds = %0, %8, %20, %21, %22, %24
-  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %20 ], [ false, %0 ], [ false, %21 ], [ false, %8 ], [ false, %22 ]
+"_ZN79_$LT$ruff_python_ast..nodes..ElifElseClause$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9bd253953659aa75E.exit": ; preds = %0, %6, %18, %19, %20, %22
+  %.sroa.0.0.i = phi i1 [ %27, %22 ], [ false, %18 ], [ false, %0 ], [ false, %19 ], [ false, %6 ], [ false, %20 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h39e0b858145329dfE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h39e0b858145329dfE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %4 = load i32, ptr %3, align 8, !alias.scope !119, !noalias !122, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
-  %6 = load i32, ptr %5, align 8, !alias.scope !122, !noalias !119, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN75_$LT$ruff_python_ast..generated..StmtIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8dc3ddc4b9417bdbE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
+  %2 = load i32, ptr %1, align 8, !alias.scope !119, !noalias !122, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
+  %4 = load i32, ptr %3, align 8, !alias.scope !122, !noalias !119, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN75_$LT$ruff_python_ast..generated..StmtIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8dc3ddc4b9417bdbE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 60
-  %10 = load i32, ptr %9, align 4, !alias.scope !119, !noalias !122, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 60
-  %12 = load i32, ptr %11, align 4, !alias.scope !122, !noalias !119, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN75_$LT$ruff_python_ast..generated..StmtIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8dc3ddc4b9417bdbE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 60
+  %8 = load i32, ptr %7, align 4, !alias.scope !119, !noalias !122, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 60
+  %10 = load i32, ptr %9, align 4, !alias.scope !122, !noalias !119, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN75_$LT$ruff_python_ast..generated..StmtIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8dc3ddc4b9417bdbE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %16 = load ptr, ptr %15, align 8, !alias.scope !119, !noalias !122, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %18 = load ptr, ptr %17, align 8, !alias.scope !122, !noalias !119, !nonnull !8, !noundef !8
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %18), !noalias !124
-  br i1 %19, label %20, label %"_ZN75_$LT$ruff_python_ast..generated..StmtIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8dc3ddc4b9417bdbE.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %14 = load ptr, ptr %13, align 8, !alias.scope !119, !noalias !122, !nonnull !8, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %16 = load ptr, ptr %15, align 8, !alias.scope !122, !noalias !119, !nonnull !8, !noundef !8
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16), !noalias !124
+  br i1 %17, label %18, label %"_ZN75_$LT$ruff_python_ast..generated..StmtIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8dc3ddc4b9417bdbE.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %21, align 8, !alias.scope !119, !noalias !122, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %22, align 8, !alias.scope !119, !noalias !122, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %23, align 8, !alias.scope !122, !noalias !119, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %24, align 8, !alias.scope !122, !noalias !119, !noundef !8
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !124
-  br i1 %25, label %26, label %"_ZN75_$LT$ruff_python_ast..generated..StmtIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8dc3ddc4b9417bdbE.exit"
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %19, align 8, !alias.scope !119, !noalias !122, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %20, align 8, !alias.scope !119, !noalias !122, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %21, align 8, !alias.scope !122, !noalias !119, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %22, align 8, !alias.scope !122, !noalias !119, !noundef !8
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !124
+  br i1 %23, label %24, label %"_ZN75_$LT$ruff_python_ast..generated..StmtIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8dc3ddc4b9417bdbE.exit"
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %.val4.i = load ptr, ptr %27, align 8, !alias.scope !119, !noalias !122, !nonnull !8, !noundef !8
-  %28 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %.val5.i = load i64, ptr %28, align 8, !alias.scope !119, !noalias !122, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %.val6.i = load ptr, ptr %29, align 8, !alias.scope !122, !noalias !119, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %.val7.i = load i64, ptr %30, align 8, !alias.scope !122, !noalias !119, !noundef !8
-  %31 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0f03a2d61e482645E"(ptr noundef nonnull align 8 %.val4.i, i64 noundef %.val5.i, ptr noundef nonnull align 8 %.val6.i, i64 noundef %.val7.i), !noalias !124
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %.val4.i = load ptr, ptr %25, align 8, !alias.scope !119, !noalias !122, !nonnull !8, !noundef !8
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %.val5.i = load i64, ptr %26, align 8, !alias.scope !119, !noalias !122, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %.val6.i = load ptr, ptr %27, align 8, !alias.scope !122, !noalias !119, !nonnull !8, !noundef !8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %.val7.i = load i64, ptr %28, align 8, !alias.scope !122, !noalias !119, !noundef !8
+  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0f03a2d61e482645E"(ptr noundef nonnull align 8 %.val4.i, i64 noundef %.val5.i, ptr noundef nonnull align 8 %.val6.i, i64 noundef %.val7.i), !noalias !124
   br label %"_ZN75_$LT$ruff_python_ast..generated..StmtIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8dc3ddc4b9417bdbE.exit"
 
-"_ZN75_$LT$ruff_python_ast..generated..StmtIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8dc3ddc4b9417bdbE.exit": ; preds = %0, %8, %14, %20, %26
-  %.sroa.0.0.i = phi i1 [ %31, %26 ], [ false, %20 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
+"_ZN75_$LT$ruff_python_ast..generated..StmtIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8dc3ddc4b9417bdbE.exit": ; preds = %0, %6, %12, %18, %24
+  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %18 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h45ad9c2900ba512eE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h45ad9c2900ba512eE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %4 = load i32, ptr %3, align 8, !alias.scope !125, !noalias !128, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %6 = load i32, ptr %5, align 8, !alias.scope !128, !noalias !125, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN82_$LT$ruff_python_ast..generated..ExprSubscript$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f00e9533b9701ddE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %2 = load i32, ptr %1, align 8, !alias.scope !125, !noalias !128, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %4 = load i32, ptr %3, align 8, !alias.scope !128, !noalias !125, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN82_$LT$ruff_python_ast..generated..ExprSubscript$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f00e9533b9701ddE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %10 = load i32, ptr %9, align 4, !alias.scope !125, !noalias !128, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %12 = load i32, ptr %11, align 4, !alias.scope !128, !noalias !125, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN82_$LT$ruff_python_ast..generated..ExprSubscript$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f00e9533b9701ddE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %8 = load i32, ptr %7, align 4, !alias.scope !125, !noalias !128, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %10 = load i32, ptr %9, align 4, !alias.scope !128, !noalias !125, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN82_$LT$ruff_python_ast..generated..ExprSubscript$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f00e9533b9701ddE.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !125, !noalias !128, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !128, !noalias !125, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16) #11, !noalias !130
-  br i1 %17, label %18, label %"_ZN82_$LT$ruff_python_ast..generated..ExprSubscript$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f00e9533b9701ddE.exit"
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !125, !noalias !128, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !128, !noalias !125, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14) #11, !noalias !130
+  br i1 %15, label %16, label %"_ZN82_$LT$ruff_python_ast..generated..ExprSubscript$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f00e9533b9701ddE.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %20 = load ptr, ptr %19, align 8, !alias.scope !125, !noalias !128, !nonnull !8, !noundef !8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %22 = load ptr, ptr %21, align 8, !alias.scope !128, !noalias !125, !nonnull !8, !noundef !8
-  %23 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %20, ptr noundef nonnull align 8 %22) #11, !noalias !130
-  br i1 %23, label %24, label %"_ZN82_$LT$ruff_python_ast..generated..ExprSubscript$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f00e9533b9701ddE.exit"
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %18 = load ptr, ptr %17, align 8, !alias.scope !125, !noalias !128, !nonnull !8, !noundef !8
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %20 = load ptr, ptr %19, align 8, !alias.scope !128, !noalias !125, !nonnull !8, !noundef !8
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %18, ptr noundef nonnull align 8 %20) #11, !noalias !130
+  br i1 %21, label %22, label %"_ZN82_$LT$ruff_python_ast..generated..ExprSubscript$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f00e9533b9701ddE.exit"
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %26 = load i8, ptr %25, align 8, !range !21, !alias.scope !125, !noalias !128, !noundef !8
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %28 = load i8, ptr %27, align 8, !range !21, !alias.scope !128, !noalias !125, !noundef !8
-  %29 = icmp eq i8 %26, %28
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %24 = load i8, ptr %23, align 8, !range !21, !alias.scope !125, !noalias !128, !noundef !8
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %26 = load i8, ptr %25, align 8, !range !21, !alias.scope !128, !noalias !125, !noundef !8
+  %27 = icmp eq i8 %24, %26
   br label %"_ZN82_$LT$ruff_python_ast..generated..ExprSubscript$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f00e9533b9701ddE.exit"
 
-"_ZN82_$LT$ruff_python_ast..generated..ExprSubscript$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f00e9533b9701ddE.exit": ; preds = %0, %8, %14, %18, %24
-  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %0 ], [ false, %18 ], [ false, %14 ], [ false, %8 ]
+"_ZN82_$LT$ruff_python_ast..generated..ExprSubscript$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f00e9533b9701ddE.exit": ; preds = %0, %6, %12, %16, %22
+  %.sroa.0.0.i = phi i1 [ %27, %22 ], [ false, %0 ], [ false, %16 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h48b92b134b1994d0E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %4 = load i32, ptr %3, align 8, !alias.scope !131, !noalias !134, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %6 = load i32, ptr %5, align 8, !alias.scope !134, !noalias !131, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 44
-  %10 = load i32, ptr %9, align 4, !alias.scope !131, !noalias !134, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 44
-  %12 = load i32, ptr %11, align 4, !alias.scope !134, !noalias !131, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
-
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %16 = load ptr, ptr %15, align 8, !alias.scope !131, !noalias !134, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %18 = load ptr, ptr %17, align 8, !alias.scope !134, !noalias !131, !nonnull !8, !noundef !8
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %18) #11, !noalias !136
-  br i1 %19, label %20, label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
-
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %23 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
-  br i1 %23, label %24, label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
-
-24:                                               ; preds = %20
-  %25 = load i32, ptr %.0.val, align 8, !alias.scope !131, !noalias !134, !noundef !8
-  %26 = load i32, ptr %.0.val1, align 8, !alias.scope !134, !noalias !131, !noundef !8
-  %27 = icmp eq i32 %25, %26
-  br i1 %27, label %28, label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
-
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %30 = load i32, ptr %29, align 4, !alias.scope !131, !noalias !134, !noundef !8
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %32 = load i32, ptr %31, align 4, !alias.scope !134, !noalias !131, !noundef !8
-  %33 = icmp eq i32 %30, %32
-  br i1 %33, label %34, label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
-
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %36 = load i8, ptr %35, align 8, !range !21, !alias.scope !131, !noalias !134, !noundef !8
-  %37 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %38 = load i8, ptr %37, align 8, !range !21, !alias.scope !134, !noalias !131, !noundef !8
-  %39 = icmp eq i8 %36, %38
-  br label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
-
-"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit": ; preds = %0, %8, %14, %20, %24, %28, %34
-  %.sroa.0.0.i = phi i1 [ %39, %34 ], [ false, %24 ], [ false, %20 ], [ false, %0 ], [ false, %28 ], [ false, %14 ], [ false, %8 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h49b5303f46d4fe74E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %4 = load i32, ptr %3, align 8, !alias.scope !137, !noalias !140, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %6 = load i32, ptr %5, align 8, !alias.scope !140, !noalias !137, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN78_$LT$ruff_python_ast..nodes..StringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd8b86725a846f7efE.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %10 = load i32, ptr %9, align 4, !alias.scope !137, !noalias !140, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %12 = load i32, ptr %11, align 4, !alias.scope !140, !noalias !137, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN78_$LT$ruff_python_ast..nodes..StringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd8b86725a846f7efE.exit"
-
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !137, !noalias !140, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %17 = load i64, ptr %16, align 8, !alias.scope !137, !noalias !140, !noundef !8
-  %18 = load ptr, ptr %.0.val1, align 8, !alias.scope !140, !noalias !137, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %20 = load i64, ptr %19, align 8, !alias.scope !140, !noalias !137, !noundef !8
-  %21 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20), !noalias !142
-  br i1 %21, label %22, label %"_ZN78_$LT$ruff_python_ast..nodes..StringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd8b86725a846f7efE.exit"
-
-22:                                               ; preds = %14
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %24 = load i8, ptr %23, align 8, !alias.scope !137, !noalias !140, !noundef !8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %26 = load i8, ptr %25, align 8, !alias.scope !140, !noalias !137, !noundef !8
-  %27 = icmp eq i8 %24, %26
-  br label %"_ZN78_$LT$ruff_python_ast..nodes..StringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd8b86725a846f7efE.exit"
-
-"_ZN78_$LT$ruff_python_ast..nodes..StringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd8b86725a846f7efE.exit": ; preds = %0, %8, %14, %22
-  %.sroa.0.0.i = phi i1 [ %27, %22 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h49b83bd2b8344578E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %4 = load i32, ptr %3, align 8, !alias.scope !143, !noalias !146, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %6 = load i32, ptr %5, align 8, !alias.scope !146, !noalias !143, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN89_$LT$ruff_python_ast..generated..ExprIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h601592f971afb003E.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %10 = load i32, ptr %9, align 4, !alias.scope !143, !noalias !146, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %12 = load i32, ptr %11, align 4, !alias.scope !146, !noalias !143, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN89_$LT$ruff_python_ast..generated..ExprIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h601592f971afb003E.exit"
-
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %16 = load i8, ptr %15, align 8, !range !148, !alias.scope !143, !noalias !146, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %18 = load i8, ptr %17, align 8, !range !148, !alias.scope !146, !noalias !143, !noundef !8
-  %19 = icmp eq i8 %16, %18
-  br i1 %19, label %20, label %"_ZN89_$LT$ruff_python_ast..generated..ExprIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h601592f971afb003E.exit"
-
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %.0.val, align 8, !alias.scope !143, !noalias !146, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %23 = load i64, ptr %22, align 8, !alias.scope !143, !noalias !146, !noundef !8
-  %24 = load ptr, ptr %.0.val1, align 8, !alias.scope !146, !noalias !143, !nonnull !8, !noundef !8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %26 = load i64, ptr %25, align 8, !alias.scope !146, !noalias !143, !noundef !8
-  %27 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %23, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef %26), !noalias !149
-  br label %"_ZN89_$LT$ruff_python_ast..generated..ExprIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h601592f971afb003E.exit"
-
-"_ZN89_$LT$ruff_python_ast..generated..ExprIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h601592f971afb003E.exit": ; preds = %0, %8, %14, %20
-  %.sroa.0.0.i = phi i1 [ %27, %20 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4a96b74f13d52f3cE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %4 = load i32, ptr %3, align 8, !alias.scope !150, !noalias !153, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %6 = load i32, ptr %5, align 8, !alias.scope !153, !noalias !150, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN77_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19a3c96eb1b67b3aE.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
-  %10 = load i32, ptr %9, align 4, !alias.scope !150, !noalias !153, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
-  %12 = load i32, ptr %11, align 4, !alias.scope !153, !noalias !150, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN77_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19a3c96eb1b67b3aE.exit"
-
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %16 = load i8, ptr %15, align 8, !range !59, !alias.scope !150, !noalias !153, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
-  %18 = load i8, ptr %17, align 8, !range !59, !alias.scope !153, !noalias !150, !noundef !8
-  %19 = icmp eq i8 %16, %18
-  br i1 %19, label %20, label %"_ZN77_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19a3c96eb1b67b3aE.exit"
-
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val4.i = load ptr, ptr %21, align 8, !alias.scope !150, !noalias !153, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val5.i = load i64, ptr %22, align 8, !alias.scope !150, !noalias !153, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val6.i = load ptr, ptr %23, align 8, !alias.scope !153, !noalias !150, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val7.i = load i64, ptr %24, align 8, !alias.scope !153, !noalias !150, !noundef !8
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17had8d2f42db9f60cbE"(ptr noundef nonnull align 8 %.val4.i, i64 noundef %.val5.i, ptr noundef nonnull align 8 %.val6.i, i64 noundef %.val7.i), !noalias !155
-  br i1 %25, label %26, label %"_ZN77_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19a3c96eb1b67b3aE.exit"
-
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %.val.i = load ptr, ptr %27, align 8, !alias.scope !150, !noalias !153, !nonnull !8, !noundef !8
-  %28 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %.val1.i = load i64, ptr %28, align 8, !alias.scope !150, !noalias !153, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %.val2.i = load ptr, ptr %29, align 8, !alias.scope !153, !noalias !150, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %.val3.i = load i64, ptr %30, align 8, !alias.scope !153, !noalias !150, !noundef !8
-  %31 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !155
-  br label %"_ZN77_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19a3c96eb1b67b3aE.exit"
-
-"_ZN77_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19a3c96eb1b67b3aE.exit": ; preds = %0, %8, %14, %20, %26
-  %.sroa.0.0.i = phi i1 [ %31, %26 ], [ false, %20 ], [ false, %14 ], [ false, %0 ], [ false, %8 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4e3a5c4fcc188278E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !156, !noalias !159, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !159, !noalias !156, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN82_$LT$ruff_python_ast..nodes..FStringFormatSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h158efe0c264f4ec1E.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !156, !noalias !159, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !159, !noalias !156, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN82_$LT$ruff_python_ast..nodes..FStringFormatSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h158efe0c264f4ec1E.exit"
-
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !156, !noalias !159, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !156, !noalias !159, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !159, !noalias !156, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !159, !noalias !156, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1024069da89c0899E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !161
-  br label %"_ZN82_$LT$ruff_python_ast..nodes..FStringFormatSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h158efe0c264f4ec1E.exit"
-
-"_ZN82_$LT$ruff_python_ast..nodes..FStringFormatSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h158efe0c264f4ec1E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %19, %14 ], [ false, %0 ], [ false, %8 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4f131928800e3e63E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
-  %3 = load i32, ptr %.0.val, align 8, !alias.scope !162, !noalias !165, !noundef !8
-  %4 = load i32, ptr %.0.val1, align 8, !alias.scope !165, !noalias !162, !noundef !8
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %6, label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %2 = load i32, ptr %1, align 8, !alias.scope !131, !noalias !134, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %4 = load i32, ptr %3, align 8, !alias.scope !134, !noalias !131, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
 
 6:                                                ; preds = %0
-  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %8 = load i32, ptr %7, align 4, !alias.scope !162, !noalias !165, !noundef !8
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !165, !noalias !162, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 44
+  %8 = load i32, ptr %7, align 4, !alias.scope !131, !noalias !134, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 44
+  %10 = load i32, ptr %9, align 4, !alias.scope !134, !noalias !131, !noundef !8
   %11 = icmp eq i32 %8, %10
-  br i1 %11, label %12, label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit"
+  br i1 %11, label %12, label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
+
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %14 = load ptr, ptr %13, align 8, !alias.scope !131, !noalias !134, !nonnull !8, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %16 = load ptr, ptr %15, align 8, !alias.scope !134, !noalias !131, !nonnull !8, !noundef !8
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16) #11, !noalias !136
+  br i1 %17, label %18, label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
+
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %21 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20)
+  br i1 %21, label %22, label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
+
+22:                                               ; preds = %18
+  %23 = load i32, ptr %.0.val, align 8, !alias.scope !131, !noalias !134, !noundef !8
+  %24 = load i32, ptr %.0.val1, align 8, !alias.scope !134, !noalias !131, !noundef !8
+  %25 = icmp eq i32 %23, %24
+  br i1 %25, label %26, label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
+
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %28 = load i32, ptr %27, align 4, !alias.scope !131, !noalias !134, !noundef !8
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %30 = load i32, ptr %29, align 4, !alias.scope !134, !noalias !131, !noundef !8
+  %31 = icmp eq i32 %28, %30
+  br i1 %31, label %32, label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
+
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %34 = load i8, ptr %33, align 8, !range !21, !alias.scope !131, !noalias !134, !noundef !8
+  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %36 = load i8, ptr %35, align 8, !range !21, !alias.scope !134, !noalias !131, !noundef !8
+  %37 = icmp eq i8 %34, %36
+  br label %"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit"
+
+"_ZN82_$LT$ruff_python_ast..generated..ExprAttribute$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb42f06b3e01ff46eE.exit": ; preds = %0, %6, %12, %18, %22, %26, %32
+  %.sroa.0.0.i = phi i1 [ %37, %32 ], [ false, %22 ], [ false, %18 ], [ false, %0 ], [ false, %26 ], [ false, %12 ], [ false, %6 ]
+  ret i1 %.sroa.0.0.i
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h49b5303f46d4fe74E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %2 = load i32, ptr %1, align 8, !alias.scope !137, !noalias !140, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %4 = load i32, ptr %3, align 8, !alias.scope !140, !noalias !137, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN78_$LT$ruff_python_ast..nodes..StringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd8b86725a846f7efE.exit"
+
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %8 = load i32, ptr %7, align 4, !alias.scope !137, !noalias !140, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %10 = load i32, ptr %9, align 4, !alias.scope !140, !noalias !137, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN78_$LT$ruff_python_ast..nodes..StringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd8b86725a846f7efE.exit"
+
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !137, !noalias !140, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %15 = load i64, ptr %14, align 8, !alias.scope !137, !noalias !140, !noundef !8
+  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !140, !noalias !137, !nonnull !8, !noundef !8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %18 = load i64, ptr %17, align 8, !alias.scope !140, !noalias !137, !noundef !8
+  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %15, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %18), !noalias !142
+  br i1 %19, label %20, label %"_ZN78_$LT$ruff_python_ast..nodes..StringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd8b86725a846f7efE.exit"
+
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %22 = load i8, ptr %21, align 8, !alias.scope !137, !noalias !140, !noundef !8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %24 = load i8, ptr %23, align 8, !alias.scope !140, !noalias !137, !noundef !8
+  %25 = icmp eq i8 %22, %24
+  br label %"_ZN78_$LT$ruff_python_ast..nodes..StringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd8b86725a846f7efE.exit"
+
+"_ZN78_$LT$ruff_python_ast..nodes..StringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd8b86725a846f7efE.exit": ; preds = %0, %6, %12, %20
+  %.sroa.0.0.i = phi i1 [ %25, %20 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
+  ret i1 %.sroa.0.0.i
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h49b83bd2b8344578E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %2 = load i32, ptr %1, align 8, !alias.scope !143, !noalias !146, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %4 = load i32, ptr %3, align 8, !alias.scope !146, !noalias !143, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN89_$LT$ruff_python_ast..generated..ExprIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h601592f971afb003E.exit"
+
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %8 = load i32, ptr %7, align 4, !alias.scope !143, !noalias !146, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %10 = load i32, ptr %9, align 4, !alias.scope !146, !noalias !143, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN89_$LT$ruff_python_ast..generated..ExprIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h601592f971afb003E.exit"
+
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %14 = load i8, ptr %13, align 8, !range !148, !alias.scope !143, !noalias !146, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %16 = load i8, ptr %15, align 8, !range !148, !alias.scope !146, !noalias !143, !noundef !8
+  %17 = icmp eq i8 %14, %16
+  br i1 %17, label %18, label %"_ZN89_$LT$ruff_python_ast..generated..ExprIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h601592f971afb003E.exit"
+
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %.0.val, align 8, !alias.scope !143, !noalias !146, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %21 = load i64, ptr %20, align 8, !alias.scope !143, !noalias !146, !noundef !8
+  %22 = load ptr, ptr %.0.val1, align 8, !alias.scope !146, !noalias !143, !nonnull !8, !noundef !8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %24 = load i64, ptr %23, align 8, !alias.scope !146, !noalias !143, !noundef !8
+  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %21, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %24), !noalias !149
+  br label %"_ZN89_$LT$ruff_python_ast..generated..ExprIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h601592f971afb003E.exit"
+
+"_ZN89_$LT$ruff_python_ast..generated..ExprIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h601592f971afb003E.exit": ; preds = %0, %6, %12, %18
+  %.sroa.0.0.i = phi i1 [ %25, %18 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
+  ret i1 %.sroa.0.0.i
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4a96b74f13d52f3cE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %2 = load i32, ptr %1, align 8, !alias.scope !150, !noalias !153, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %4 = load i32, ptr %3, align 8, !alias.scope !153, !noalias !150, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN77_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19a3c96eb1b67b3aE.exit"
+
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !150, !noalias !153, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
+  %10 = load i32, ptr %9, align 4, !alias.scope !153, !noalias !150, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN77_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19a3c96eb1b67b3aE.exit"
+
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
+  %14 = load i8, ptr %13, align 8, !range !59, !alias.scope !150, !noalias !153, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
+  %16 = load i8, ptr %15, align 8, !range !59, !alias.scope !153, !noalias !150, !noundef !8
+  %17 = icmp eq i8 %14, %16
+  br i1 %17, label %18, label %"_ZN77_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19a3c96eb1b67b3aE.exit"
+
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val4.i = load ptr, ptr %19, align 8, !alias.scope !150, !noalias !153, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val5.i = load i64, ptr %20, align 8, !alias.scope !150, !noalias !153, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val6.i = load ptr, ptr %21, align 8, !alias.scope !153, !noalias !150, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val7.i = load i64, ptr %22, align 8, !alias.scope !153, !noalias !150, !noundef !8
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17had8d2f42db9f60cbE"(ptr noundef nonnull align 8 %.val4.i, i64 noundef %.val5.i, ptr noundef nonnull align 8 %.val6.i, i64 noundef %.val7.i), !noalias !155
+  br i1 %23, label %24, label %"_ZN77_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19a3c96eb1b67b3aE.exit"
+
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %.val.i = load ptr, ptr %25, align 8, !alias.scope !150, !noalias !153, !nonnull !8, !noundef !8
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %.val1.i = load i64, ptr %26, align 8, !alias.scope !150, !noalias !153, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %.val2.i = load ptr, ptr %27, align 8, !alias.scope !153, !noalias !150, !nonnull !8, !noundef !8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %.val3.i = load i64, ptr %28, align 8, !alias.scope !153, !noalias !150, !noundef !8
+  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !155
+  br label %"_ZN77_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19a3c96eb1b67b3aE.exit"
+
+"_ZN77_$LT$ruff_python_ast..generated..StmtWith$u20$as$u20$core..cmp..PartialEq$GT$2eq17h19a3c96eb1b67b3aE.exit": ; preds = %0, %6, %12, %18, %24
+  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %18 ], [ false, %12 ], [ false, %0 ], [ false, %6 ]
+  ret i1 %.sroa.0.0.i
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4e3a5c4fcc188278E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !156, !noalias !159, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !159, !noalias !156, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN82_$LT$ruff_python_ast..nodes..FStringFormatSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h158efe0c264f4ec1E.exit"
+
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !156, !noalias !159, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !159, !noalias !156, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN82_$LT$ruff_python_ast..nodes..FStringFormatSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h158efe0c264f4ec1E.exit"
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %14 = load ptr, ptr %13, align 8, !alias.scope !162, !noalias !165, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %14, null
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !156, !noalias !159, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !156, !noalias !159, !noundef !8
   %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %16 = load ptr, ptr %15, align 8, !alias.scope !165, !noalias !162, !align !39, !noundef !8
-  %17 = icmp eq ptr %16, null
-  br i1 %.not.i, label %19, label %18
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !159, !noalias !156, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !159, !noalias !156, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1024069da89c0899E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !161
+  br label %"_ZN82_$LT$ruff_python_ast..nodes..FStringFormatSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h158efe0c264f4ec1E.exit"
 
-18:                                               ; preds = %12
-  br i1 %17, label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit", label %20
+"_ZN82_$LT$ruff_python_ast..nodes..FStringFormatSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h158efe0c264f4ec1E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %17, %12 ], [ false, %0 ], [ false, %6 ]
+  ret i1 %.sroa.0.0.i
+}
 
-19:                                               ; preds = %12
-  br i1 %17, label %22, label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit"
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4f131928800e3e63E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
+  %1 = load i32, ptr %.0.val, align 8, !alias.scope !162, !noalias !165, !noundef !8
+  %2 = load i32, ptr %.0.val1, align 8, !alias.scope !165, !noalias !162, !noundef !8
+  %3 = icmp eq i32 %1, %2
+  br i1 %3, label %4, label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit"
 
-20:                                               ; preds = %18
-  %21 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16), !noalias !167
-  br i1 %21, label %22, label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit"
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %6 = load i32, ptr %5, align 4, !alias.scope !162, !noalias !165, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %8 = load i32, ptr %7, align 4, !alias.scope !165, !noalias !162, !noundef !8
+  %9 = icmp eq i32 %6, %8
+  br i1 %9, label %10, label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit"
 
-22:                                               ; preds = %20, %19
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %24 = load ptr, ptr %23, align 8, !alias.scope !162, !noalias !165, !align !39, !noundef !8
-  %.not3.i = icmp eq ptr %24, null
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %26 = load ptr, ptr %25, align 8, !alias.scope !165, !noalias !162, !align !39, !noundef !8
-  %27 = icmp eq ptr %26, null
-  %brmerge.i = or i1 %.not3.i, %27
-  %.mux.i = and i1 %.not3.i, %27
-  br i1 %brmerge.i, label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit", label %28
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %12 = load ptr, ptr %11, align 8, !alias.scope !162, !noalias !165, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %12, null
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %14 = load ptr, ptr %13, align 8, !alias.scope !165, !noalias !162, !align !39, !noundef !8
+  %15 = icmp eq ptr %14, null
+  br i1 %.not.i, label %17, label %16
 
-28:                                               ; preds = %22
-  %29 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %24, ptr noundef nonnull align 8 %26), !noalias !167
+16:                                               ; preds = %10
+  br i1 %15, label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit", label %18
+
+17:                                               ; preds = %10
+  br i1 %15, label %20, label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit"
+
+18:                                               ; preds = %16
+  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %12, ptr noundef nonnull align 8 %14), !noalias !167
+  br i1 %19, label %20, label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit"
+
+20:                                               ; preds = %18, %17
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %22 = load ptr, ptr %21, align 8, !alias.scope !162, !noalias !165, !align !39, !noundef !8
+  %.not3.i = icmp eq ptr %22, null
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %24 = load ptr, ptr %23, align 8, !alias.scope !165, !noalias !162, !align !39, !noundef !8
+  %25 = icmp eq ptr %24, null
+  %brmerge.i = or i1 %.not3.i, %25
+  %.mux.i = and i1 %.not3.i, %25
+  br i1 %brmerge.i, label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit", label %26
+
+26:                                               ; preds = %20
+  %27 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %22, ptr noundef nonnull align 8 %24), !noalias !167
   br label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit"
 
-"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit": ; preds = %0, %6, %18, %19, %20, %22, %28
-  %.sroa.0.0.shrunk.i = phi i1 [ %29, %28 ], [ false, %6 ], [ false, %20 ], [ false, %18 ], [ false, %0 ], [ false, %19 ], [ %.mux.i, %22 ]
+"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit": ; preds = %0, %4, %16, %17, %18, %20, %26
+  %.sroa.0.0.shrunk.i = phi i1 [ %27, %26 ], [ false, %4 ], [ false, %18 ], [ false, %16 ], [ false, %0 ], [ false, %17 ], [ %.mux.i, %20 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4fa9d63053e6f457E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4fa9d63053e6f457E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %4 = load i32, ptr %3, align 8, !alias.scope !168, !noalias !171, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %6 = load i32, ptr %5, align 8, !alias.scope !171, !noalias !168, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN80_$LT$ruff_python_ast..generated..ExprStarred$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5604e7c62c9a2dbdE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %2 = load i32, ptr %1, align 8, !alias.scope !168, !noalias !171, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %4 = load i32, ptr %3, align 8, !alias.scope !171, !noalias !168, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN80_$LT$ruff_python_ast..generated..ExprStarred$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5604e7c62c9a2dbdE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
-  %10 = load i32, ptr %9, align 4, !alias.scope !168, !noalias !171, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
-  %12 = load i32, ptr %11, align 4, !alias.scope !171, !noalias !168, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN80_$LT$ruff_python_ast..generated..ExprStarred$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5604e7c62c9a2dbdE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
+  %8 = load i32, ptr %7, align 4, !alias.scope !168, !noalias !171, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
+  %10 = load i32, ptr %9, align 4, !alias.scope !171, !noalias !168, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN80_$LT$ruff_python_ast..generated..ExprStarred$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5604e7c62c9a2dbdE.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !168, !noalias !171, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !171, !noalias !168, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16) #11, !noalias !173
-  br i1 %17, label %18, label %"_ZN80_$LT$ruff_python_ast..generated..ExprStarred$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5604e7c62c9a2dbdE.exit"
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !168, !noalias !171, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !171, !noalias !168, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14) #11, !noalias !173
+  br i1 %15, label %16, label %"_ZN80_$LT$ruff_python_ast..generated..ExprStarred$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5604e7c62c9a2dbdE.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %20 = load i8, ptr %19, align 8, !range !21, !alias.scope !168, !noalias !171, !noundef !8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %22 = load i8, ptr %21, align 8, !range !21, !alias.scope !171, !noalias !168, !noundef !8
-  %23 = icmp eq i8 %20, %22
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %18 = load i8, ptr %17, align 8, !range !21, !alias.scope !168, !noalias !171, !noundef !8
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %20 = load i8, ptr %19, align 8, !range !21, !alias.scope !171, !noalias !168, !noundef !8
+  %21 = icmp eq i8 %18, %20
   br label %"_ZN80_$LT$ruff_python_ast..generated..ExprStarred$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5604e7c62c9a2dbdE.exit"
 
-"_ZN80_$LT$ruff_python_ast..generated..ExprStarred$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5604e7c62c9a2dbdE.exit": ; preds = %0, %8, %14, %18
-  %.sroa.0.0.i = phi i1 [ %23, %18 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
+"_ZN80_$LT$ruff_python_ast..generated..ExprStarred$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5604e7c62c9a2dbdE.exit": ; preds = %0, %6, %12, %16
+  %.sroa.0.0.i = phi i1 [ %21, %16 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h518c3a55d64d560cE"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
-  %3 = load i32, ptr %.0.val, align 8, !alias.scope !174, !noalias !177, !noundef !8
-  %4 = load i32, ptr %.0.val1, align 8, !alias.scope !177, !noalias !174, !noundef !8
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %6, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
+  %1 = load i32, ptr %.0.val, align 8, !alias.scope !174, !noalias !177, !noundef !8
+  %2 = load i32, ptr %.0.val1, align 8, !alias.scope !177, !noalias !174, !noundef !8
+  %3 = icmp eq i32 %1, %2
+  br i1 %3, label %4, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
 
-6:                                                ; preds = %0
-  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %8 = load i32, ptr %7, align 4, !alias.scope !174, !noalias !177, !noundef !8
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !177, !noalias !174, !noundef !8
-  %11 = icmp eq i32 %8, %10
-  br i1 %11, label %12, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %6 = load i32, ptr %5, align 4, !alias.scope !174, !noalias !177, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %8 = load i32, ptr %7, align 4, !alias.scope !177, !noalias !174, !noundef !8
+  %9 = icmp eq i32 %6, %8
+  br i1 %9, label %10, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
-  %15 = load i32, ptr %13, align 8, !alias.scope !184, !noalias !185, !noundef !8
-  %16 = load i32, ptr %14, align 8, !alias.scope !185, !noalias !184, !noundef !8
-  %17 = icmp eq i32 %15, %16
-  br i1 %17, label %18, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
+  %13 = load i32, ptr %11, align 8, !alias.scope !184, !noalias !185, !noundef !8
+  %14 = load i32, ptr %12, align 8, !alias.scope !185, !noalias !184, !noundef !8
+  %15 = icmp eq i32 %13, %14
+  br i1 %15, label %16, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %20 = load i32, ptr %19, align 4, !alias.scope !184, !noalias !185, !noundef !8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %22 = load i32, ptr %21, align 4, !alias.scope !185, !noalias !184, !noundef !8
-  %23 = icmp eq i32 %20, %22
-  br i1 %23, label %24, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %18 = load i32, ptr %17, align 4, !alias.scope !184, !noalias !185, !noundef !8
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %20 = load i32, ptr %19, align 4, !alias.scope !185, !noalias !184, !noundef !8
+  %21 = icmp eq i32 %18, %20
+  br i1 %21, label %22, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %26 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %27 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
-  br i1 %27, label %28, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %25 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  br i1 %25, label %26, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %30 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %31 = load i32, ptr %30, align 8, !alias.scope !184, !noalias !185, !noundef !8
-  %32 = load i32, ptr %29, align 8, !alias.scope !185, !noalias !184, !noundef !8
-  %33 = icmp eq i32 %31, %32
-  br i1 %33, label %34, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %29 = load i32, ptr %28, align 8, !alias.scope !184, !noalias !185, !noundef !8
+  %30 = load i32, ptr %27, align 8, !alias.scope !185, !noalias !184, !noundef !8
+  %31 = icmp eq i32 %29, %30
+  br i1 %31, label %32, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
-  %36 = load i32, ptr %35, align 4, !alias.scope !184, !noalias !185, !noundef !8
-  %37 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
-  %38 = load i32, ptr %37, align 4, !alias.scope !185, !noalias !184, !noundef !8
-  %39 = icmp eq i32 %36, %38
-  br i1 %39, label %40, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
+  %34 = load i32, ptr %33, align 4, !alias.scope !184, !noalias !185, !noundef !8
+  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
+  %36 = load i32, ptr %35, align 4, !alias.scope !185, !noalias !184, !noundef !8
+  %37 = icmp eq i32 %34, %36
+  br i1 %37, label %38, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
 
-40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %42 = load ptr, ptr %41, align 8, !alias.scope !184, !noalias !185, !align !39, !noundef !8
-  %.not.i.i = icmp eq ptr %42, null
-  %43 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %44 = load ptr, ptr %43, align 8, !alias.scope !185, !noalias !184, !align !39, !noundef !8
-  %45 = icmp eq ptr %44, null
-  %brmerge.i.i = or i1 %.not.i.i, %45
-  br i1 %brmerge.i.i, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i", label %46
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %40 = load ptr, ptr %39, align 8, !alias.scope !184, !noalias !185, !align !39, !noundef !8
+  %.not.i.i = icmp eq ptr %40, null
+  %41 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %42 = load ptr, ptr %41, align 8, !alias.scope !185, !noalias !184, !align !39, !noundef !8
+  %43 = icmp eq ptr %42, null
+  %brmerge.i.i = or i1 %.not.i.i, %43
+  br i1 %brmerge.i.i, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i", label %44
 
-46:                                               ; preds = %40
-  %47 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %42, ptr noundef nonnull align 8 %44) #11
-  br i1 %47, label %48, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
+44:                                               ; preds = %38
+  %45 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %40, ptr noundef nonnull align 8 %42) #11
+  br i1 %45, label %46, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
 
-"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i": ; preds = %40
-  %.mux.i.i = and i1 %.not.i.i, %45
-  br i1 %.mux.i.i, label %48, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
+"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i": ; preds = %38
+  %.mux.i.i = and i1 %.not.i.i, %43
+  br i1 %.mux.i.i, label %46, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
 
-48:                                               ; preds = %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i", %46
-  %49 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %50 = load ptr, ptr %49, align 8, !alias.scope !174, !noalias !177, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %50, null
-  %51 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %52 = load ptr, ptr %51, align 8, !alias.scope !177, !noalias !174, !align !39, !noundef !8
-  %53 = icmp eq ptr %52, null
-  %brmerge.i = or i1 %.not.i, %53
-  %.mux.i = and i1 %.not.i, %53
-  br i1 %brmerge.i, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit", label %54
+46:                                               ; preds = %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i", %44
+  %47 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %48 = load ptr, ptr %47, align 8, !alias.scope !174, !noalias !177, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %48, null
+  %49 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %50 = load ptr, ptr %49, align 8, !alias.scope !177, !noalias !174, !align !39, !noundef !8
+  %51 = icmp eq ptr %50, null
+  %brmerge.i = or i1 %.not.i, %51
+  %.mux.i = and i1 %.not.i, %51
+  br i1 %brmerge.i, label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit", label %52
 
-54:                                               ; preds = %48
-  %55 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %50, ptr noundef nonnull align 8 %52)
+52:                                               ; preds = %46
+  %53 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %48, ptr noundef nonnull align 8 %50)
   br label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
 
-"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit": ; preds = %0, %6, %12, %18, %24, %28, %34, %46, %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i", %48, %54
-  %.sroa.0.0.shrunk.i = phi i1 [ %55, %54 ], [ false, %6 ], [ false, %34 ], [ false, %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i" ], [ false, %0 ], [ %.mux.i, %48 ], [ false, %46 ], [ false, %18 ], [ false, %28 ], [ false, %24 ], [ false, %12 ]
+"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit": ; preds = %0, %4, %10, %16, %22, %26, %32, %44, %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i", %46, %52
+  %.sroa.0.0.shrunk.i = phi i1 [ %53, %52 ], [ false, %4 ], [ false, %32 ], [ false, %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i" ], [ false, %0 ], [ %.mux.i, %46 ], [ false, %44 ], [ false, %16 ], [ false, %26 ], [ false, %22 ], [ false, %10 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h52d4b978617937a2E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h52d4b978617937a2E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %4 = load i32, ptr %3, align 8, !alias.scope !186, !noalias !189, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %6 = load i32, ptr %5, align 8, !alias.scope !189, !noalias !186, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN77_$LT$ruff_python_ast..nodes..BytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfd2c47e04c64e8d5E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %2 = load i32, ptr %1, align 8, !alias.scope !186, !noalias !189, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %4 = load i32, ptr %3, align 8, !alias.scope !189, !noalias !186, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN77_$LT$ruff_python_ast..nodes..BytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfd2c47e04c64e8d5E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %10 = load i32, ptr %9, align 4, !alias.scope !186, !noalias !189, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %12 = load i32, ptr %11, align 4, !alias.scope !189, !noalias !186, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN77_$LT$ruff_python_ast..nodes..BytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfd2c47e04c64e8d5E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %8 = load i32, ptr %7, align 4, !alias.scope !186, !noalias !189, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %10 = load i32, ptr %9, align 4, !alias.scope !189, !noalias !186, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN77_$LT$ruff_python_ast..nodes..BytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfd2c47e04c64e8d5E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !186, !noalias !189, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %17 = load i64, ptr %16, align 8, !alias.scope !186, !noalias !189, !noundef !8
-  %18 = load ptr, ptr %.0.val1, align 8, !alias.scope !189, !noalias !186, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %20 = load i64, ptr %19, align 8, !alias.scope !189, !noalias !186, !noundef !8
-  %21 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20), !noalias !191
-  br i1 %21, label %22, label %"_ZN77_$LT$ruff_python_ast..nodes..BytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfd2c47e04c64e8d5E.exit"
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !186, !noalias !189, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %15 = load i64, ptr %14, align 8, !alias.scope !186, !noalias !189, !noundef !8
+  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !189, !noalias !186, !nonnull !8, !noundef !8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %18 = load i64, ptr %17, align 8, !alias.scope !189, !noalias !186, !noundef !8
+  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %15, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %18), !noalias !191
+  br i1 %19, label %20, label %"_ZN77_$LT$ruff_python_ast..nodes..BytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfd2c47e04c64e8d5E.exit"
 
-22:                                               ; preds = %14
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %24 = load i8, ptr %23, align 8, !alias.scope !186, !noalias !189, !noundef !8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %26 = load i8, ptr %25, align 8, !alias.scope !189, !noalias !186, !noundef !8
-  %27 = icmp eq i8 %24, %26
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %22 = load i8, ptr %21, align 8, !alias.scope !186, !noalias !189, !noundef !8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %24 = load i8, ptr %23, align 8, !alias.scope !189, !noalias !186, !noundef !8
+  %25 = icmp eq i8 %22, %24
   br label %"_ZN77_$LT$ruff_python_ast..nodes..BytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfd2c47e04c64e8d5E.exit"
 
-"_ZN77_$LT$ruff_python_ast..nodes..BytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfd2c47e04c64e8d5E.exit": ; preds = %0, %8, %14, %22
-  %.sroa.0.0.i = phi i1 [ %27, %22 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
+"_ZN77_$LT$ruff_python_ast..nodes..BytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfd2c47e04c64e8d5E.exit": ; preds = %0, %6, %12, %20
+  %.sroa.0.0.i = phi i1 [ %25, %20 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h551c4c6c1195b8dbE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h551c4c6c1195b8dbE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
-  %4 = load i32, ptr %3, align 8, !alias.scope !192, !noalias !195, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
-  %6 = load i32, ptr %5, align 8, !alias.scope !195, !noalias !192, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
+  %2 = load i32, ptr %1, align 8, !alias.scope !192, !noalias !195, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
+  %4 = load i32, ptr %3, align 8, !alias.scope !195, !noalias !192, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 68
-  %10 = load i32, ptr %9, align 4, !alias.scope !192, !noalias !195, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 68
-  %12 = load i32, ptr %11, align 4, !alias.scope !195, !noalias !192, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 68
+  %8 = load i32, ptr %7, align 4, !alias.scope !192, !noalias !195, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 68
+  %10 = load i32, ptr %9, align 4, !alias.scope !195, !noalias !192, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %16 = load ptr, ptr %15, align 8, !alias.scope !192, !noalias !195, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
-  %18 = load ptr, ptr %17, align 8, !alias.scope !195, !noalias !192, !nonnull !8, !noundef !8
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %18), !noalias !197
-  br i1 %19, label %20, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
+  %14 = load ptr, ptr %13, align 8, !alias.scope !192, !noalias !195, !nonnull !8, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
+  %16 = load ptr, ptr %15, align 8, !alias.scope !195, !noalias !192, !nonnull !8, !noundef !8
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16), !noalias !197
+  br i1 %17, label %18, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
 
-20:                                               ; preds = %14
+18:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %22 = load i32, ptr %21, align 8, !alias.scope !203, !noalias !204, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %24 = load i32, ptr %23, align 8, !alias.scope !204, !noalias !203, !noundef !8
-  %25 = icmp eq i32 %22, %24
-  br i1 %25, label %26, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %20 = load i32, ptr %19, align 8, !alias.scope !203, !noalias !204, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %22 = load i32, ptr %21, align 8, !alias.scope !204, !noalias !203, !noundef !8
+  %23 = icmp eq i32 %20, %22
+  br i1 %23, label %24, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
-  %28 = load i32, ptr %27, align 4, !alias.scope !203, !noalias !204, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
-  %30 = load i32, ptr %29, align 4, !alias.scope !204, !noalias !203, !noundef !8
-  %31 = icmp eq i32 %28, %30
-  br i1 %31, label %32, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
+  %26 = load i32, ptr %25, align 4, !alias.scope !203, !noalias !204, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
+  %28 = load i32, ptr %27, align 4, !alias.scope !204, !noalias !203, !noundef !8
+  %29 = icmp eq i32 %26, %28
+  br i1 %29, label %30, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i.i = load ptr, ptr %33, align 8, !alias.scope !203, !noalias !204, !nonnull !8, !noundef !8
-  %34 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i.i = load i64, ptr %34, align 8, !alias.scope !203, !noalias !204, !noundef !8
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i.i = load ptr, ptr %35, align 8, !alias.scope !204, !noalias !203, !nonnull !8, !noundef !8
-  %36 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i.i = load i64, ptr %36, align 8, !alias.scope !204, !noalias !203, !noundef !8
-  %37 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hca6f43dbf3f8b2aaE"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val1.i.i, ptr noalias noundef nonnull readonly align 8 %.val2.i.i, i64 noundef %.val3.i.i), !noalias !205
-  br i1 %37, label %38, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i.i = load ptr, ptr %31, align 8, !alias.scope !203, !noalias !204, !nonnull !8, !noundef !8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i.i = load i64, ptr %32, align 8, !alias.scope !203, !noalias !204, !noundef !8
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i.i = load ptr, ptr %33, align 8, !alias.scope !204, !noalias !203, !nonnull !8, !noundef !8
+  %34 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i.i = load i64, ptr %34, align 8, !alias.scope !204, !noalias !203, !noundef !8
+  %35 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hca6f43dbf3f8b2aaE"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val1.i.i, ptr noalias noundef nonnull readonly align 8 %.val2.i.i, i64 noundef %.val3.i.i), !noalias !205
+  br i1 %35, label %36, label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %.val4.i.i = load ptr, ptr %39, align 8, !alias.scope !203, !noalias !204, !nonnull !8, !noundef !8
-  %40 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %.val5.i.i = load i64, ptr %40, align 8, !alias.scope !203, !noalias !204, !noundef !8
-  %41 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %.val6.i.i = load ptr, ptr %41, align 8, !alias.scope !204, !noalias !203, !nonnull !8, !noundef !8
-  %42 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %.val7.i.i = load i64, ptr %42, align 8, !alias.scope !204, !noalias !203, !noundef !8
-  %43 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4ad9e6bc6e28ad96E"(ptr noalias noundef nonnull readonly align 8 %.val4.i.i, i64 noundef %.val5.i.i, ptr noalias noundef nonnull readonly align 8 %.val6.i.i, i64 noundef %.val7.i.i), !noalias !205
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %.val4.i.i = load ptr, ptr %37, align 8, !alias.scope !203, !noalias !204, !nonnull !8, !noundef !8
+  %38 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %.val5.i.i = load i64, ptr %38, align 8, !alias.scope !203, !noalias !204, !noundef !8
+  %39 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %.val6.i.i = load ptr, ptr %39, align 8, !alias.scope !204, !noalias !203, !nonnull !8, !noundef !8
+  %40 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %.val7.i.i = load i64, ptr %40, align 8, !alias.scope !204, !noalias !203, !noundef !8
+  %41 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4ad9e6bc6e28ad96E"(ptr noalias noundef nonnull readonly align 8 %.val4.i.i, i64 noundef %.val5.i.i, ptr noalias noundef nonnull readonly align 8 %.val6.i.i, i64 noundef %.val7.i.i), !noalias !205
   br label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
 
-"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit": ; preds = %0, %8, %14, %20, %26, %32, %38
-  %.sroa.0.0.i = phi i1 [ false, %8 ], [ false, %0 ], [ false, %14 ], [ %43, %38 ], [ false, %32 ], [ false, %20 ], [ false, %26 ]
+"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit": ; preds = %0, %6, %12, %18, %24, %30, %36
+  %.sroa.0.0.i = phi i1 [ false, %6 ], [ false, %0 ], [ false, %12 ], [ %41, %36 ], [ false, %30 ], [ false, %18 ], [ false, %24 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5646e489e2c27ad9E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5646e489e2c27ad9E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %4 = load i32, ptr %3, align 8, !alias.scope !206, !noalias !209, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %6 = load i32, ptr %5, align 8, !alias.scope !209, !noalias !206, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %2 = load i32, ptr %1, align 8, !alias.scope !206, !noalias !209, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %4 = load i32, ptr %3, align 8, !alias.scope !209, !noalias !206, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
-  %10 = load i32, ptr %9, align 4, !alias.scope !206, !noalias !209, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
-  %12 = load i32, ptr %11, align 4, !alias.scope !209, !noalias !206, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !206, !noalias !209, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
+  %10 = load i32, ptr %9, align 4, !alias.scope !209, !noalias !206, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !206, !noalias !209, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !209, !noalias !206, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16) #11, !noalias !211
-  br i1 %17, label %18, label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !206, !noalias !209, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !209, !noalias !206, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14) #11, !noalias !211
+  br i1 %15, label %16, label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !215)
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %22 = load i32, ptr %21, align 8, !alias.scope !217, !noalias !218, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %24 = load i32, ptr %23, align 8, !alias.scope !218, !noalias !217, !noundef !8
-  %25 = icmp eq i32 %22, %24
-  br i1 %25, label %26, label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %20 = load i32, ptr %19, align 8, !alias.scope !217, !noalias !218, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %22 = load i32, ptr %21, align 8, !alias.scope !218, !noalias !217, !noundef !8
+  %23 = icmp eq i32 %20, %22
+  br i1 %23, label %24, label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 44
-  %28 = load i32, ptr %27, align 4, !alias.scope !217, !noalias !218, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 44
-  %30 = load i32, ptr %29, align 4, !alias.scope !218, !noalias !217, !noundef !8
-  %31 = icmp eq i32 %28, %30
-  br i1 %31, label %32, label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
+24:                                               ; preds = %16
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 44
+  %26 = load i32, ptr %25, align 4, !alias.scope !217, !noalias !218, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 44
+  %28 = load i32, ptr %27, align 4, !alias.scope !218, !noalias !217, !noundef !8
+  %29 = icmp eq i32 %26, %28
+  br i1 %29, label %30, label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
 
-32:                                               ; preds = %26
-  %33 = load ptr, ptr %19, align 8, !alias.scope !217, !noalias !218, !nonnull !8, !noundef !8
-  %34 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %35 = load i64, ptr %34, align 8, !alias.scope !217, !noalias !218, !noundef !8
-  %36 = load ptr, ptr %20, align 8, !alias.scope !218, !noalias !217, !nonnull !8, !noundef !8
-  %37 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %38 = load i64, ptr %37, align 8, !alias.scope !218, !noalias !217, !noundef !8
-  %39 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %33, i64 noundef %35, ptr noundef nonnull align 8 %36, i64 noundef %38), !noalias !219
-  br i1 %39, label %40, label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %17, align 8, !alias.scope !217, !noalias !218, !nonnull !8, !noundef !8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %33 = load i64, ptr %32, align 8, !alias.scope !217, !noalias !218, !noundef !8
+  %34 = load ptr, ptr %18, align 8, !alias.scope !218, !noalias !217, !nonnull !8, !noundef !8
+  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %36 = load i64, ptr %35, align 8, !alias.scope !218, !noalias !217, !noundef !8
+  %37 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %31, i64 noundef %33, ptr noundef nonnull align 8 %34, i64 noundef %36), !noalias !219
+  br i1 %37, label %38, label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
 
-40:                                               ; preds = %32
-  %41 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %42 = load ptr, ptr %41, align 8, !alias.scope !217, !noalias !218, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %44 = load i64, ptr %43, align 8, !alias.scope !217, !noalias !218, !noundef !8
-  %45 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %46 = load ptr, ptr %45, align 8, !alias.scope !218, !noalias !217, !nonnull !8, !noundef !8
-  %47 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %48 = load i64, ptr %47, align 8, !alias.scope !218, !noalias !217, !noundef !8
-  %49 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h981d8491c0417a73E"(ptr noundef nonnull align 8 %42, i64 noundef %44, ptr noundef nonnull align 8 %46, i64 noundef %48), !noalias !219
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %40 = load ptr, ptr %39, align 8, !alias.scope !217, !noalias !218, !nonnull !8, !noundef !8
+  %41 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %42 = load i64, ptr %41, align 8, !alias.scope !217, !noalias !218, !noundef !8
+  %43 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %44 = load ptr, ptr %43, align 8, !alias.scope !218, !noalias !217, !nonnull !8, !noundef !8
+  %45 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %46 = load i64, ptr %45, align 8, !alias.scope !218, !noalias !217, !noundef !8
+  %47 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h981d8491c0417a73E"(ptr noundef nonnull align 8 %40, i64 noundef %42, ptr noundef nonnull align 8 %44, i64 noundef %46), !noalias !219
   br label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
 
-"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit": ; preds = %0, %8, %14, %18, %26, %32, %40
-  %.sroa.0.0.i = phi i1 [ false, %8 ], [ false, %0 ], [ false, %14 ], [ %49, %40 ], [ false, %18 ], [ false, %32 ], [ false, %26 ]
+"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit": ; preds = %0, %6, %12, %16, %24, %30, %38
+  %.sroa.0.0.i = phi i1 [ false, %6 ], [ false, %0 ], [ false, %12 ], [ %47, %38 ], [ false, %16 ], [ false, %30 ], [ false, %24 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h59874956c2333fe0E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h59874956c2333fe0E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %4 = load i32, ptr %3, align 8, !alias.scope !220, !noalias !223, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
-  %6 = load i32, ptr %5, align 8, !alias.scope !223, !noalias !220, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
+  %2 = load i32, ptr %1, align 8, !alias.scope !220, !noalias !223, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
+  %4 = load i32, ptr %3, align 8, !alias.scope !223, !noalias !220, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 60
-  %10 = load i32, ptr %9, align 4, !alias.scope !220, !noalias !223, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 60
-  %12 = load i32, ptr %11, align 4, !alias.scope !223, !noalias !220, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 60
+  %8 = load i32, ptr %7, align 4, !alias.scope !220, !noalias !223, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 60
+  %10 = load i32, ptr %9, align 4, !alias.scope !223, !noalias !220, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %16 = load ptr, ptr %15, align 8, !alias.scope !220, !noalias !223, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %18 = load ptr, ptr %17, align 8, !alias.scope !223, !noalias !220, !nonnull !8, !noundef !8
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %18), !noalias !225
-  br i1 %19, label %20, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %14 = load ptr, ptr %13, align 8, !alias.scope !220, !noalias !223, !nonnull !8, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %16 = load ptr, ptr %15, align 8, !alias.scope !223, !noalias !220, !nonnull !8, !noundef !8
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16), !noalias !225
+  br i1 %17, label %18, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
 
-20:                                               ; preds = %14
-  %21 = load i64, ptr %.0.val, align 8, !range !226, !alias.scope !220, !noalias !223, !noundef !8
-  %.not.i = icmp eq i64 %21, -9223372036854775808
-  %22 = load i64, ptr %.0.val1, align 8, !range !226, !alias.scope !223, !noalias !220, !noundef !8
-  %23 = icmp eq i64 %22, -9223372036854775808
-  br i1 %.not.i, label %25, label %24
+18:                                               ; preds = %12
+  %19 = load i64, ptr %.0.val, align 8, !range !226, !alias.scope !220, !noalias !223, !noundef !8
+  %.not.i = icmp eq i64 %19, -9223372036854775808
+  %20 = load i64, ptr %.0.val1, align 8, !range !226, !alias.scope !223, !noalias !220, !noundef !8
+  %21 = icmp eq i64 %20, -9223372036854775808
+  br i1 %.not.i, label %23, label %22
 
-24:                                               ; preds = %20
-  br i1 %23, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit", label %26
+22:                                               ; preds = %18
+  br i1 %21, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit", label %24
 
-25:                                               ; preds = %20
-  br i1 %23, label %38, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
+23:                                               ; preds = %18
+  br i1 %21, label %36, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val8.i = load ptr, ptr %27, align 8, !alias.scope !220, !noalias !223, !nonnull !8, !noundef !8
-  %28 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val9.i = load i64, ptr %28, align 8, !alias.scope !220, !noalias !223, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val10.i = load ptr, ptr %29, align 8, !alias.scope !223, !noalias !220, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val11.i = load i64, ptr %30, align 8, !alias.scope !223, !noalias !220, !noundef !8
-  %31 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %.val8.i, i64 noundef %.val9.i, ptr noalias noundef nonnull readonly align 1 %.val10.i, i64 noundef %.val11.i), !noalias !225
-  br i1 %31, label %32, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val8.i = load ptr, ptr %25, align 8, !alias.scope !220, !noalias !223, !nonnull !8, !noundef !8
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val9.i = load i64, ptr %26, align 8, !alias.scope !220, !noalias !223, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val10.i = load ptr, ptr %27, align 8, !alias.scope !223, !noalias !220, !nonnull !8, !noundef !8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val11.i = load i64, ptr %28, align 8, !alias.scope !223, !noalias !220, !noundef !8
+  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %.val8.i, i64 noundef %.val9.i, ptr noalias noundef nonnull readonly align 1 %.val10.i, i64 noundef %.val11.i), !noalias !225
+  br i1 %29, label %30, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %.val.i = load ptr, ptr %33, align 8, !alias.scope !220, !noalias !223, !nonnull !8, !noundef !8
-  %34 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %.val5.i = load i64, ptr %34, align 8, !alias.scope !220, !noalias !223, !noundef !8
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %.val6.i = load ptr, ptr %35, align 8, !alias.scope !223, !noalias !220, !nonnull !8, !noundef !8
-  %36 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %.val7.i = load i64, ptr %36, align 8, !alias.scope !223, !noalias !220, !noundef !8
-  %37 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val5.i, ptr noalias noundef nonnull readonly align 1 %.val6.i, i64 noundef %.val7.i), !noalias !225
-  br i1 %37, label %38, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %.val.i = load ptr, ptr %31, align 8, !alias.scope !220, !noalias !223, !nonnull !8, !noundef !8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %.val5.i = load i64, ptr %32, align 8, !alias.scope !220, !noalias !223, !noundef !8
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %.val6.i = load ptr, ptr %33, align 8, !alias.scope !223, !noalias !220, !nonnull !8, !noundef !8
+  %34 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %.val7.i = load i64, ptr %34, align 8, !alias.scope !223, !noalias !220, !noundef !8
+  %35 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val5.i, ptr noalias noundef nonnull readonly align 1 %.val6.i, i64 noundef %.val7.i), !noalias !225
+  br i1 %35, label %36, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
 
-38:                                               ; preds = %32, %25
-  %39 = getelementptr inbounds nuw i8, ptr %.0.val, i64 72
-  %40 = load i8, ptr %39, align 8, !range !227, !alias.scope !220, !noalias !223, !noundef !8
-  %41 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 72
-  %42 = load i8, ptr %41, align 8, !range !227, !alias.scope !223, !noalias !220, !noundef !8
-  %43 = icmp eq i8 %40, %42
-  br i1 %43, label %44, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
+36:                                               ; preds = %30, %23
+  %37 = getelementptr inbounds nuw i8, ptr %.0.val, i64 72
+  %38 = load i8, ptr %37, align 8, !range !227, !alias.scope !220, !noalias !223, !noundef !8
+  %39 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 72
+  %40 = load i8, ptr %39, align 8, !range !227, !alias.scope !223, !noalias !220, !noundef !8
+  %41 = icmp eq i8 %38, %40
+  br i1 %41, label %42, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
 
-44:                                               ; preds = %38
-  %45 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
-  %46 = load ptr, ptr %45, align 8, !alias.scope !220, !noalias !223, !align !39, !noundef !8
-  %.not3.i = icmp eq ptr %46, null
-  %47 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
-  %48 = load ptr, ptr %47, align 8, !alias.scope !223, !noalias !220, !align !39, !noundef !8
-  %49 = icmp eq ptr %48, null
-  %brmerge.i = or i1 %.not3.i, %49
-  %.mux.i = and i1 %.not3.i, %49
-  br i1 %brmerge.i, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit", label %50
+42:                                               ; preds = %36
+  %43 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
+  %44 = load ptr, ptr %43, align 8, !alias.scope !220, !noalias !223, !align !39, !noundef !8
+  %.not3.i = icmp eq ptr %44, null
+  %45 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
+  %46 = load ptr, ptr %45, align 8, !alias.scope !223, !noalias !220, !align !39, !noundef !8
+  %47 = icmp eq ptr %46, null
+  %brmerge.i = or i1 %.not3.i, %47
+  %.mux.i = and i1 %.not3.i, %47
+  br i1 %brmerge.i, label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit", label %48
 
-50:                                               ; preds = %44
-  %51 = tail call fastcc noundef zeroext i1 @"_ZN82_$LT$ruff_python_ast..nodes..FStringFormatSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h158efe0c264f4ec1E"(ptr noalias noundef readonly align 8 dereferenceable(32) %46, ptr noalias noundef readonly align 8 dereferenceable(32) %48), !noalias !225
+48:                                               ; preds = %42
+  %49 = tail call fastcc noundef zeroext i1 @"_ZN82_$LT$ruff_python_ast..nodes..FStringFormatSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h158efe0c264f4ec1E"(ptr noalias noundef readonly align 8 dereferenceable(32) %44, ptr noalias noundef readonly align 8 dereferenceable(32) %46), !noalias !225
   br label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
 
-"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit": ; preds = %0, %8, %14, %24, %25, %26, %32, %38, %44, %50
-  %.sroa.0.0.shrunk.i = phi i1 [ %51, %50 ], [ false, %8 ], [ false, %32 ], [ false, %26 ], [ false, %24 ], [ false, %0 ], [ false, %38 ], [ false, %25 ], [ false, %14 ], [ %.mux.i, %44 ]
+"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit": ; preds = %0, %6, %12, %22, %23, %24, %30, %36, %42, %48
+  %.sroa.0.0.shrunk.i = phi i1 [ %49, %48 ], [ false, %6 ], [ false, %30 ], [ false, %24 ], [ false, %22 ], [ false, %0 ], [ false, %36 ], [ false, %23 ], [ false, %12 ], [ %.mux.i, %42 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5bd1edb21933fc7cE"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %2 = load i32, ptr %1, align 8, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
   %4 = load i32, ptr %3, align 8, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %6 = load i32, ptr %5, align 8, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
+  %8 = load i32, ptr %7, align 4, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
   %10 = load i32, ptr %9, align 4, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
-  %12 = load i32, ptr %11, align 4, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
 
-14:                                               ; preds = %8
-  %15 = load i64, ptr %.0.val, align 8, !range !226, !noundef !8
-  %16 = icmp ne i64 %15, -9223372036854775808
-  %17 = load i64, ptr %.0.val1, align 8, !range !226, !noundef !8
-  %18 = icmp eq i64 %17, -9223372036854775808
-  %not..i.i = xor i1 %18, true
-  %19 = xor i1 %16, %18
-  br i1 %19, label %20, label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
+12:                                               ; preds = %6
+  %13 = load i64, ptr %.0.val, align 8, !range !226, !noundef !8
+  %14 = icmp ne i64 %13, -9223372036854775808
+  %15 = load i64, ptr %.0.val1, align 8, !range !226, !noundef !8
+  %16 = icmp eq i64 %15, -9223372036854775808
+  %not..i.i = xor i1 %16, true
+  %17 = xor i1 %14, %16
+  br i1 %17, label %18, label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
 
-20:                                               ; preds = %14
-  br i1 %16, label %21, label %23
+18:                                               ; preds = %12
+  br i1 %14, label %19, label %21
 
-21:                                               ; preds = %20
+19:                                               ; preds = %18
   tail call void @llvm.assume(i1 %not..i.i)
-  %22 = tail call noundef zeroext i1 @"_ZN90_$LT$ruff_python_ast..nodes..ConcatenatedStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2b7ce10650513dbbE"(ptr noundef nonnull align 8 %.0.val, ptr noundef nonnull align 8 %.0.val1)
+  %20 = tail call noundef zeroext i1 @"_ZN90_$LT$ruff_python_ast..nodes..ConcatenatedStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2b7ce10650513dbbE"(ptr noundef nonnull align 8 %.0.val, ptr noundef nonnull align 8 %.0.val1)
   br label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
 
-23:                                               ; preds = %20
-  tail call void @llvm.assume(i1 %18)
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+21:                                               ; preds = %18
+  tail call void @llvm.assume(i1 %16)
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
-  %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %27 = load i32, ptr %26, align 8, !alias.scope !228, !noalias !231, !noundef !8
-  %28 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %29 = load i32, ptr %28, align 8, !alias.scope !231, !noalias !228, !noundef !8
-  %30 = icmp eq i32 %27, %29
-  br i1 %30, label %31, label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
+  %24 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %25 = load i32, ptr %24, align 8, !alias.scope !228, !noalias !231, !noundef !8
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %27 = load i32, ptr %26, align 8, !alias.scope !231, !noalias !228, !noundef !8
+  %28 = icmp eq i32 %25, %27
+  br i1 %28, label %29, label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
 
-31:                                               ; preds = %23
-  %32 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %33 = load i32, ptr %32, align 4, !alias.scope !228, !noalias !231, !noundef !8
-  %34 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %35 = load i32, ptr %34, align 4, !alias.scope !231, !noalias !228, !noundef !8
-  %36 = icmp eq i32 %33, %35
-  br i1 %36, label %37, label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %31 = load i32, ptr %30, align 4, !alias.scope !228, !noalias !231, !noundef !8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %33 = load i32, ptr %32, align 4, !alias.scope !231, !noalias !228, !noundef !8
+  %34 = icmp eq i32 %31, %33
+  br i1 %34, label %35, label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %24, align 8, !alias.scope !228, !noalias !231, !nonnull !8, !noundef !8
-  %39 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %40 = load i64, ptr %39, align 8, !alias.scope !228, !noalias !231, !noundef !8
-  %41 = load ptr, ptr %25, align 8, !alias.scope !231, !noalias !228, !nonnull !8, !noundef !8
-  %42 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %43 = load i64, ptr %42, align 8, !alias.scope !231, !noalias !228, !noundef !8
-  %44 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %40, ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %43), !noalias !233
-  br i1 %44, label %45, label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %22, align 8, !alias.scope !228, !noalias !231, !nonnull !8, !noundef !8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %38 = load i64, ptr %37, align 8, !alias.scope !228, !noalias !231, !noundef !8
+  %39 = load ptr, ptr %23, align 8, !alias.scope !231, !noalias !228, !nonnull !8, !noundef !8
+  %40 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %41 = load i64, ptr %40, align 8, !alias.scope !231, !noalias !228, !noundef !8
+  %42 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %38, ptr noalias noundef nonnull readonly align 1 %39, i64 noundef %41), !noalias !233
+  br i1 %42, label %43, label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
 
-45:                                               ; preds = %37
-  %46 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %47 = load i8, ptr %46, align 8, !alias.scope !228, !noalias !231, !noundef !8
-  %48 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %49 = load i8, ptr %48, align 8, !alias.scope !231, !noalias !228, !noundef !8
-  %50 = icmp eq i8 %47, %49
+43:                                               ; preds = %35
+  %44 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %45 = load i8, ptr %44, align 8, !alias.scope !228, !noalias !231, !noundef !8
+  %46 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %47 = load i8, ptr %46, align 8, !alias.scope !231, !noalias !228, !noundef !8
+  %48 = icmp eq i8 %45, %47
   br label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
 
-"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit": ; preds = %0, %8, %14, %21, %23, %31, %37, %45
-  %.sroa.0.0.i = phi i1 [ false, %8 ], [ false, %0 ], [ %22, %21 ], [ false, %14 ], [ %50, %45 ], [ false, %23 ], [ false, %37 ], [ false, %31 ]
+"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit": ; preds = %0, %6, %12, %19, %21, %29, %35, %43
+  %.sroa.0.0.i = phi i1 [ false, %6 ], [ false, %0 ], [ %20, %19 ], [ false, %12 ], [ %48, %43 ], [ false, %21 ], [ false, %35 ], [ false, %29 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h67827e06489ccc04E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h67827e06489ccc04E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !234, !noalias !237, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !237, !noalias !234, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN79_$LT$ruff_python_ast..generated..StmtImport$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a9d0b2657531eb0E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !234, !noalias !237, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !237, !noalias !234, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN79_$LT$ruff_python_ast..generated..StmtImport$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a9d0b2657531eb0E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !234, !noalias !237, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !237, !noalias !234, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN79_$LT$ruff_python_ast..generated..StmtImport$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a9d0b2657531eb0E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !234, !noalias !237, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !237, !noalias !234, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN79_$LT$ruff_python_ast..generated..StmtImport$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a9d0b2657531eb0E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !234, !noalias !237, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !234, !noalias !237, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !237, !noalias !234, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !237, !noalias !234, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24122ca1bfe1aba5E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !239
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !234, !noalias !237, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !234, !noalias !237, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !237, !noalias !234, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !237, !noalias !234, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24122ca1bfe1aba5E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !239
   br label %"_ZN79_$LT$ruff_python_ast..generated..StmtImport$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a9d0b2657531eb0E.exit"
 
-"_ZN79_$LT$ruff_python_ast..generated..StmtImport$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a9d0b2657531eb0E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %19, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN79_$LT$ruff_python_ast..generated..StmtImport$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a9d0b2657531eb0E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %17, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6ae18d75d1d980cfE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6ae18d75d1d980cfE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %4 = load i32, ptr %3, align 8, !alias.scope !240, !noalias !243, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %6 = load i32, ptr %5, align 8, !alias.scope !243, !noalias !240, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %2 = load i32, ptr %1, align 8, !alias.scope !240, !noalias !243, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %4 = load i32, ptr %3, align 8, !alias.scope !243, !noalias !240, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
-  %10 = load i32, ptr %9, align 4, !alias.scope !240, !noalias !243, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
-  %12 = load i32, ptr %11, align 4, !alias.scope !243, !noalias !240, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
+  %8 = load i32, ptr %7, align 4, !alias.scope !240, !noalias !243, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
+  %10 = load i32, ptr %9, align 4, !alias.scope !243, !noalias !240, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !240, !noalias !243, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !243, !noalias !240, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16), !noalias !245
-  br i1 %17, label %18, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit"
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !240, !noalias !243, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !243, !noalias !240, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14), !noalias !245
+  br i1 %15, label %16, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %20 = load ptr, ptr %19, align 8, !alias.scope !240, !noalias !243, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %20, null
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %22 = load ptr, ptr %21, align 8, !alias.scope !243, !noalias !240, !align !39, !noundef !8
-  %23 = icmp eq ptr %22, null
-  %brmerge.i = or i1 %.not.i, %23
-  %.mux.i = and i1 %.not.i, %23
-  br i1 %brmerge.i, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit", label %24
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %18 = load ptr, ptr %17, align 8, !alias.scope !240, !noalias !243, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %18, null
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %20 = load ptr, ptr %19, align 8, !alias.scope !243, !noalias !240, !align !39, !noundef !8
+  %21 = icmp eq ptr %20, null
+  %brmerge.i = or i1 %.not.i, %21
+  %.mux.i = and i1 %.not.i, %21
+  br i1 %brmerge.i, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit", label %22
 
-24:                                               ; preds = %18
-  %25 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %20, ptr noundef nonnull align 8 %22), !noalias !245
+22:                                               ; preds = %16
+  %23 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %18, ptr noundef nonnull align 8 %20), !noalias !245
   br label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit"
 
-"_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit": ; preds = %0, %8, %14, %18, %24
-  %.sroa.0.0.shrunk.i = phi i1 [ %25, %24 ], [ false, %8 ], [ %.mux.i, %18 ], [ false, %0 ], [ false, %14 ]
+"_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit": ; preds = %0, %6, %12, %16, %22
+  %.sroa.0.0.shrunk.i = phi i1 [ %23, %22 ], [ false, %6 ], [ %.mux.i, %16 ], [ false, %0 ], [ false, %12 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6b6a2c8eb9cd393bE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6b6a2c8eb9cd393bE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !246, !noalias !249, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !249, !noalias !246, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !246, !noalias !249, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !249, !noalias !246, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !246, !noalias !249, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !249, !noalias !246, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !246, !noalias !249, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !249, !noalias !246, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
 
-14:                                               ; preds = %8
+12:                                               ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
-  %15 = load i64, ptr %.0.val, align 8, !range !256, !alias.scope !257, !noalias !258, !noundef !8
-  %16 = load i64, ptr %.0.val1, align 8, !range !256, !alias.scope !258, !noalias !257, !noundef !8
-  %17 = icmp eq i64 %15, %16
-  br i1 %17, label %18, label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
+  %13 = load i64, ptr %.0.val, align 8, !range !256, !alias.scope !257, !noalias !258, !noundef !8
+  %14 = load i64, ptr %.0.val1, align 8, !range !256, !alias.scope !258, !noalias !257, !noundef !8
+  %15 = icmp eq i64 %13, %14
+  br i1 %15, label %16, label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  switch i64 %15, label %default.unreachable [
-    i64 0, label %20
-    i64 1, label %33
-    i64 2, label %38
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  switch i64 %13, label %default.unreachable [
+    i64 0, label %18
+    i64 1, label %30
+    i64 2, label %35
   ]
 
-default.unreachable:                              ; preds = %18
+default.unreachable:                              ; preds = %16
   unreachable
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val.i.i = load ptr, ptr %19, align 8, !alias.scope !257, !noalias !258, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val2.i.i = load i64, ptr %22, align 8, !alias.scope !257, !noalias !258
-  %.val3.i.i = load ptr, ptr %21, align 8, !alias.scope !258, !noalias !257, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val4.i.i = load i64, ptr %23, align 8, !alias.scope !258, !noalias !257
-  %24 = icmp ne ptr %.val.i.i, null
-  %25 = icmp eq ptr %.val3.i.i, null
-  %not..i.i.i = xor i1 %25, true
-  %26 = xor i1 %24, %25
-  br i1 %26, label %27, label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val.i.i = load ptr, ptr %17, align 8, !alias.scope !257, !noalias !258, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val2.i.i = load i64, ptr %20, align 8, !alias.scope !257, !noalias !258
+  %.val3.i.i = load ptr, ptr %19, align 8, !alias.scope !258, !noalias !257, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val4.i.i = load i64, ptr %21, align 8, !alias.scope !258, !noalias !257
+  %22 = icmp ne ptr %.val.i.i, null
+  %23 = icmp eq ptr %.val3.i.i, null
+  %not..i.i.i = xor i1 %23, true
+  %24 = xor i1 %22, %23
+  br i1 %24, label %25, label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
 
-27:                                               ; preds = %20
-  br i1 %24, label %28, label %31
+25:                                               ; preds = %18
+  br i1 %22, label %26, label %28
 
-28:                                               ; preds = %27
+26:                                               ; preds = %25
   tail call void @llvm.assume(i1 %not..i.i.i)
-  %29 = icmp ne ptr %.val3.i.i, null
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val2.i.i, ptr noalias noundef nonnull readonly align 1 %.val3.i.i, i64 noundef %.val4.i.i), !noalias !259
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3.i.i) ]
+  %27 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val2.i.i, ptr noalias noundef nonnull readonly align 1 %.val3.i.i, i64 noundef %.val4.i.i), !noalias !259
   br label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
 
-31:                                               ; preds = %27
-  tail call void @llvm.assume(i1 %25)
-  %32 = icmp eq i64 %.val2.i.i, %.val4.i.i
+28:                                               ; preds = %25
+  tail call void @llvm.assume(i1 %23)
+  %29 = icmp eq i64 %.val2.i.i, %.val4.i.i
   br label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
 
-33:                                               ; preds = %18
-  %34 = load double, ptr %19, align 8, !alias.scope !257, !noalias !258, !noundef !8
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %36 = load double, ptr %35, align 8, !alias.scope !258, !noalias !257, !noundef !8
-  %37 = fcmp oeq double %34, %36
+30:                                               ; preds = %16
+  %31 = load double, ptr %17, align 8, !alias.scope !257, !noalias !258, !noundef !8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %33 = load double, ptr %32, align 8, !alias.scope !258, !noalias !257, !noundef !8
+  %34 = fcmp oeq double %31, %33
   br label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
 
-38:                                               ; preds = %18
-  %39 = load double, ptr %19, align 8, !alias.scope !257, !noalias !258, !noundef !8
-  %40 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %41 = load double, ptr %40, align 8, !alias.scope !258, !noalias !257, !noundef !8
-  %42 = fcmp oeq double %39, %41
-  br i1 %42, label %43, label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
+35:                                               ; preds = %16
+  %36 = load double, ptr %17, align 8, !alias.scope !257, !noalias !258, !noundef !8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %38 = load double, ptr %37, align 8, !alias.scope !258, !noalias !257, !noundef !8
+  %39 = fcmp oeq double %36, %38
+  br i1 %39, label %40, label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %45 = load double, ptr %44, align 8, !alias.scope !257, !noalias !258, !noundef !8
-  %46 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %47 = load double, ptr %46, align 8, !alias.scope !258, !noalias !257, !noundef !8
-  %48 = fcmp oeq double %45, %47
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %42 = load double, ptr %41, align 8, !alias.scope !257, !noalias !258, !noundef !8
+  %43 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %44 = load double, ptr %43, align 8, !alias.scope !258, !noalias !257, !noundef !8
+  %45 = fcmp oeq double %42, %44
   br label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
 
-"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit": ; preds = %0, %8, %14, %20, %28, %31, %33, %38, %43
-  %.sroa.0.0.i = phi i1 [ false, %8 ], [ false, %0 ], [ false, %38 ], [ %37, %33 ], [ %48, %43 ], [ false, %14 ], [ %30, %28 ], [ %32, %31 ], [ false, %20 ]
+"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit": ; preds = %0, %6, %12, %18, %26, %28, %30, %35, %40
+  %.sroa.0.0.i = phi i1 [ false, %6 ], [ false, %0 ], [ false, %35 ], [ %34, %30 ], [ %45, %40 ], [ false, %12 ], [ %27, %26 ], [ %29, %28 ], [ false, %18 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6b9d804d7ca53a43E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
-  %3 = load i32, ptr %.0.val, align 8, !alias.scope !260, !noalias !263, !noundef !8
-  %4 = load i32, ptr %.0.val1, align 8, !alias.scope !263, !noalias !260, !noundef !8
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %6, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
+  %1 = load i32, ptr %.0.val, align 8, !alias.scope !260, !noalias !263, !noundef !8
+  %2 = load i32, ptr %.0.val1, align 8, !alias.scope !263, !noalias !260, !noundef !8
+  %3 = icmp eq i32 %1, %2
+  br i1 %3, label %4, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
 
-6:                                                ; preds = %0
-  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %8 = load i32, ptr %7, align 4, !alias.scope !260, !noalias !263, !noundef !8
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !263, !noalias !260, !noundef !8
-  %11 = icmp eq i32 %8, %10
-  br i1 %11, label %12, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %6 = load i32, ptr %5, align 4, !alias.scope !260, !noalias !263, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %8 = load i32, ptr %7, align 4, !alias.scope !263, !noalias !260, !noundef !8
+  %9 = icmp eq i32 %6, %8
+  br i1 %9, label %10, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %14 = load ptr, ptr %13, align 8, !alias.scope !260, !noalias !263, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %14, null
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %16 = load ptr, ptr %15, align 8, !alias.scope !263, !noalias !260, !align !39, !noundef !8
-  %17 = icmp eq ptr %16, null
-  br i1 %.not.i, label %19, label %18
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %12 = load ptr, ptr %11, align 8, !alias.scope !260, !noalias !263, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %12, null
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %14 = load ptr, ptr %13, align 8, !alias.scope !263, !noalias !260, !align !39, !noundef !8
+  %15 = icmp eq ptr %14, null
+  br i1 %.not.i, label %17, label %16
 
-18:                                               ; preds = %12
-  br i1 %17, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit", label %20
+16:                                               ; preds = %10
+  br i1 %15, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit", label %18
 
-19:                                               ; preds = %12
-  br i1 %17, label %22, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
+17:                                               ; preds = %10
+  br i1 %15, label %20, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
 
-20:                                               ; preds = %18
-  %21 = tail call fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated..Pattern$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91d82b5c0d6c8e35E"(ptr noalias noundef readonly align 8 dereferenceable(88) %14, ptr noalias noundef readonly align 8 dereferenceable(88) %16), !noalias !265
-  br i1 %21, label %22, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
+18:                                               ; preds = %16
+  %19 = tail call fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated..Pattern$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91d82b5c0d6c8e35E"(ptr noalias noundef readonly align 8 dereferenceable(88) %12, ptr noalias noundef readonly align 8 dereferenceable(88) %14), !noalias !265
+  br i1 %19, label %20, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
 
-22:                                               ; preds = %20, %19
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val, i64 47
-  %25 = load i8, ptr %24, align 1, !range !117, !alias.scope !260, !noalias !263, !noundef !8
-  %.not3.i = icmp eq i8 %25, -38
-  br i1 %.not3.i, label %30, label %26
+20:                                               ; preds = %18, %17
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 47
+  %23 = load i8, ptr %22, align 1, !range !117, !alias.scope !260, !noalias !263, !noundef !8
+  %.not3.i = icmp eq i8 %23, -38
+  br i1 %.not3.i, label %28, label %24
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %28 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 47
-  %29 = load i8, ptr %28, align 1, !range !117, !alias.scope !263, !noalias !260, !noundef !8
-  %.not4.i = icmp eq i8 %29, -38
-  br i1 %.not4.i, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit", label %34
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 47
+  %27 = load i8, ptr %26, align 1, !range !117, !alias.scope !263, !noalias !260, !noundef !8
+  %.not4.i = icmp eq i8 %27, -38
+  br i1 %.not4.i, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit", label %32
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 47
-  %32 = load i8, ptr %31, align 1, !range !117, !alias.scope !263, !noalias !260, !noundef !8
-  %33 = icmp eq i8 %32, -38
+28:                                               ; preds = %20
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 47
+  %30 = load i8, ptr %29, align 1, !range !117, !alias.scope !263, !noalias !260, !noundef !8
+  %31 = icmp eq i8 %30, -38
   br label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
 
-34:                                               ; preds = %26
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %36 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %37 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36)
-  br i1 %37, label %38, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %35 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34)
+  br i1 %35, label %36, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
 
-38:                                               ; preds = %34
-  %39 = load i32, ptr %23, align 8, !alias.scope !260, !noalias !263, !noundef !8
-  %40 = load i32, ptr %27, align 8, !alias.scope !263, !noalias !260, !noundef !8
-  %41 = icmp eq i32 %39, %40
-  br i1 %41, label %42, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
+36:                                               ; preds = %32
+  %37 = load i32, ptr %21, align 8, !alias.scope !260, !noalias !263, !noundef !8
+  %38 = load i32, ptr %25, align 8, !alias.scope !263, !noalias !260, !noundef !8
+  %39 = icmp eq i32 %37, %38
+  br i1 %39, label %40, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %44 = load i32, ptr %43, align 4, !alias.scope !260, !noalias !263, !noundef !8
-  %45 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %46 = load i32, ptr %45, align 4, !alias.scope !263, !noalias !260, !noundef !8
-  %47 = icmp eq i32 %44, %46
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %42 = load i32, ptr %41, align 4, !alias.scope !260, !noalias !263, !noundef !8
+  %43 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %44 = load i32, ptr %43, align 4, !alias.scope !263, !noalias !260, !noundef !8
+  %45 = icmp eq i32 %42, %44
   br label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
 
-"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit": ; preds = %0, %6, %18, %19, %20, %26, %30, %34, %38, %42
-  %.sroa.0.0.shrunk.i = phi i1 [ %47, %42 ], [ false, %34 ], [ false, %26 ], [ false, %6 ], [ %33, %30 ], [ false, %18 ], [ false, %0 ], [ false, %19 ], [ false, %38 ], [ false, %20 ]
+"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit": ; preds = %0, %4, %16, %17, %18, %24, %28, %32, %36, %40
+  %.sroa.0.0.shrunk.i = phi i1 [ %45, %40 ], [ false, %32 ], [ false, %24 ], [ false, %4 ], [ %31, %28 ], [ false, %16 ], [ false, %0 ], [ false, %17 ], [ false, %36 ], [ false, %18 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6cec051dd832a9ffE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6cec051dd832a9ffE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !266, !noalias !269, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !269, !noalias !266, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN75_$LT$ruff_python_ast..generated..ExprIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d3db6cdef4a5072E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !266, !noalias !269, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !269, !noalias !266, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN75_$LT$ruff_python_ast..generated..ExprIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d3db6cdef4a5072E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !266, !noalias !269, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !269, !noalias !266, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN75_$LT$ruff_python_ast..generated..ExprIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d3db6cdef4a5072E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !266, !noalias !269, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !269, !noalias !266, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN75_$LT$ruff_python_ast..generated..ExprIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d3db6cdef4a5072E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !266, !noalias !269, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !269, !noalias !266, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16) #11, !noalias !271
-  br i1 %17, label %18, label %"_ZN75_$LT$ruff_python_ast..generated..ExprIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d3db6cdef4a5072E.exit"
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !266, !noalias !269, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !269, !noalias !266, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14) #11, !noalias !271
+  br i1 %15, label %16, label %"_ZN75_$LT$ruff_python_ast..generated..ExprIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d3db6cdef4a5072E.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %20 = load ptr, ptr %19, align 8, !alias.scope !266, !noalias !269, !nonnull !8, !noundef !8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %22 = load ptr, ptr %21, align 8, !alias.scope !269, !noalias !266, !nonnull !8, !noundef !8
-  %23 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %20, ptr noundef nonnull align 8 %22) #11, !noalias !271
-  br i1 %23, label %24, label %"_ZN75_$LT$ruff_python_ast..generated..ExprIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d3db6cdef4a5072E.exit"
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %18 = load ptr, ptr %17, align 8, !alias.scope !266, !noalias !269, !nonnull !8, !noundef !8
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %20 = load ptr, ptr %19, align 8, !alias.scope !269, !noalias !266, !nonnull !8, !noundef !8
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %18, ptr noundef nonnull align 8 %20) #11, !noalias !271
+  br i1 %21, label %22, label %"_ZN75_$LT$ruff_python_ast..generated..ExprIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d3db6cdef4a5072E.exit"
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %26 = load ptr, ptr %25, align 8, !alias.scope !266, !noalias !269, !nonnull !8, !noundef !8
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %28 = load ptr, ptr %27, align 8, !alias.scope !269, !noalias !266, !nonnull !8, !noundef !8
-  %29 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %26, ptr noundef nonnull align 8 %28) #11, !noalias !271
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %24 = load ptr, ptr %23, align 8, !alias.scope !266, !noalias !269, !nonnull !8, !noundef !8
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %26 = load ptr, ptr %25, align 8, !alias.scope !269, !noalias !266, !nonnull !8, !noundef !8
+  %27 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %24, ptr noundef nonnull align 8 %26) #11, !noalias !271
   br label %"_ZN75_$LT$ruff_python_ast..generated..ExprIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d3db6cdef4a5072E.exit"
 
-"_ZN75_$LT$ruff_python_ast..generated..ExprIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d3db6cdef4a5072E.exit": ; preds = %0, %8, %14, %18, %24
-  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %0 ], [ false, %18 ], [ false, %14 ], [ false, %8 ]
+"_ZN75_$LT$ruff_python_ast..generated..ExprIf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d3db6cdef4a5072E.exit": ; preds = %0, %6, %12, %16, %22
+  %.sroa.0.0.i = phi i1 [ %27, %22 ], [ false, %0 ], [ false, %16 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6cff50f9a1a0ba40E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6cff50f9a1a0ba40E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !275)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !272, !noalias !275, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !275, !noalias !272, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN79_$LT$ruff_python_ast..generated..StmtDelete$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6bacdfde29fd5070E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !272, !noalias !275, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !275, !noalias !272, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN79_$LT$ruff_python_ast..generated..StmtDelete$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6bacdfde29fd5070E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !272, !noalias !275, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !275, !noalias !272, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN79_$LT$ruff_python_ast..generated..StmtDelete$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6bacdfde29fd5070E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !272, !noalias !275, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !275, !noalias !272, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN79_$LT$ruff_python_ast..generated..StmtDelete$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6bacdfde29fd5070E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !272, !noalias !275, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !272, !noalias !275, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !275, !noalias !272, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !275, !noalias !272, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !277
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !272, !noalias !275, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !272, !noalias !275, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !275, !noalias !272, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !275, !noalias !272, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !277
   br label %"_ZN79_$LT$ruff_python_ast..generated..StmtDelete$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6bacdfde29fd5070E.exit"
 
-"_ZN79_$LT$ruff_python_ast..generated..StmtDelete$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6bacdfde29fd5070E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %19, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN79_$LT$ruff_python_ast..generated..StmtDelete$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6bacdfde29fd5070E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %17, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h71b1c2aafd80c5e0E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
-  %3 = load i32, ptr %.0.val, align 8, !alias.scope !278, !noalias !281, !noundef !8
-  %4 = load i32, ptr %.0.val1, align 8, !alias.scope !281, !noalias !278, !noundef !8
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %6, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit"
+  %1 = load i32, ptr %.0.val, align 8, !alias.scope !278, !noalias !281, !noundef !8
+  %2 = load i32, ptr %.0.val1, align 8, !alias.scope !281, !noalias !278, !noundef !8
+  %3 = icmp eq i32 %1, %2
+  br i1 %3, label %4, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit"
 
-6:                                                ; preds = %0
-  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %8 = load i32, ptr %7, align 4, !alias.scope !278, !noalias !281, !noundef !8
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !281, !noalias !278, !noundef !8
-  %11 = icmp eq i32 %8, %10
-  br i1 %11, label %12, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit"
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %6 = load i32, ptr %5, align 4, !alias.scope !278, !noalias !281, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %8 = load i32, ptr %7, align 4, !alias.scope !281, !noalias !278, !noundef !8
+  %9 = icmp eq i32 %6, %8
+  br i1 %9, label %10, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit"
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 39
-  %15 = load i8, ptr %14, align 1, !range !117, !alias.scope !278, !noalias !281, !noundef !8
-  %.not.i = icmp eq i8 %15, -38
-  br i1 %.not.i, label %20, label %16
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0.val, i64 39
+  %13 = load i8, ptr %12, align 1, !range !117, !alias.scope !278, !noalias !281, !noundef !8
+  %.not.i = icmp eq i8 %13, -38
+  br i1 %.not.i, label %18, label %14
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 39
-  %19 = load i8, ptr %18, align 1, !range !117, !alias.scope !281, !noalias !278, !noundef !8
-  %.not1.i = icmp eq i8 %19, -38
-  br i1 %.not1.i, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit", label %24
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 39
+  %17 = load i8, ptr %16, align 1, !range !117, !alias.scope !281, !noalias !278, !noundef !8
+  %.not1.i = icmp eq i8 %17, -38
+  br i1 %.not1.i, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit", label %22
 
-20:                                               ; preds = %12
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 39
-  %22 = load i8, ptr %21, align 1, !range !117, !alias.scope !281, !noalias !278, !noundef !8
-  %23 = icmp eq i8 %22, -38
+18:                                               ; preds = %10
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 39
+  %20 = load i8, ptr %19, align 1, !range !117, !alias.scope !281, !noalias !278, !noundef !8
+  %21 = icmp eq i8 %20, -38
   br label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit"
 
-24:                                               ; preds = %16
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %27 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
-  br i1 %27, label %28, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit"
+22:                                               ; preds = %14
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %25 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  br i1 %25, label %26, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit"
 
-28:                                               ; preds = %24
-  %29 = load i32, ptr %13, align 8, !alias.scope !278, !noalias !281, !noundef !8
-  %30 = load i32, ptr %17, align 8, !alias.scope !281, !noalias !278, !noundef !8
-  %31 = icmp eq i32 %29, %30
-  br i1 %31, label %32, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit"
+26:                                               ; preds = %22
+  %27 = load i32, ptr %11, align 8, !alias.scope !278, !noalias !281, !noundef !8
+  %28 = load i32, ptr %15, align 8, !alias.scope !281, !noalias !278, !noundef !8
+  %29 = icmp eq i32 %27, %28
+  br i1 %29, label %30, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit"
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
-  %34 = load i32, ptr %33, align 4, !alias.scope !278, !noalias !281, !noundef !8
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
-  %36 = load i32, ptr %35, align 4, !alias.scope !281, !noalias !278, !noundef !8
-  %37 = icmp eq i32 %34, %36
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
+  %32 = load i32, ptr %31, align 4, !alias.scope !278, !noalias !281, !noundef !8
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
+  %34 = load i32, ptr %33, align 4, !alias.scope !281, !noalias !278, !noundef !8
+  %35 = icmp eq i32 %32, %34
   br label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit"
 
-"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit": ; preds = %0, %6, %16, %20, %24, %28, %32
-  %.sroa.0.0.shrunk.i = phi i1 [ %37, %32 ], [ false, %24 ], [ false, %16 ], [ false, %6 ], [ %23, %20 ], [ false, %0 ], [ false, %28 ]
+"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit": ; preds = %0, %4, %14, %18, %22, %26, %30
+  %.sroa.0.0.shrunk.i = phi i1 [ %35, %30 ], [ false, %22 ], [ false, %14 ], [ false, %4 ], [ %21, %18 ], [ false, %0 ], [ false, %26 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h732cf4f336efc016E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
-  %4 = load i32, ptr %3, align 8, !alias.scope !283, !noalias !286, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 88
-  %6 = load i32, ptr %5, align 8, !alias.scope !286, !noalias !283, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
+  %2 = load i32, ptr %1, align 8, !alias.scope !283, !noalias !286, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 88
+  %4 = load i32, ptr %3, align 8, !alias.scope !286, !noalias !283, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 92
-  %10 = load i32, ptr %9, align 4, !alias.scope !283, !noalias !286, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 92
-  %12 = load i32, ptr %11, align 4, !alias.scope !286, !noalias !283, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 92
+  %8 = load i32, ptr %7, align 4, !alias.scope !283, !noalias !286, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 92
+  %10 = load i32, ptr %9, align 4, !alias.scope !286, !noalias !283, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 112
-  %16 = load i8, ptr %15, align 8, !range !59, !alias.scope !283, !noalias !286, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 112
-  %18 = load i8, ptr %17, align 8, !range !59, !alias.scope !286, !noalias !283, !noundef !8
-  %19 = icmp eq i8 %16, %18
-  br i1 %19, label %20, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 112
+  %14 = load i8, ptr %13, align 8, !range !59, !alias.scope !283, !noalias !286, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 112
+  %16 = load i8, ptr %15, align 8, !range !59, !alias.scope !286, !noalias !283, !noundef !8
+  %17 = icmp eq i8 %14, %16
+  br i1 %17, label %18, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val9.i = load ptr, ptr %21, align 8, !alias.scope !283, !noalias !286, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val10.i = load i64, ptr %22, align 8, !alias.scope !283, !noalias !286, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val11.i = load ptr, ptr %23, align 8, !alias.scope !286, !noalias !283, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val12.i = load i64, ptr %24, align 8, !alias.scope !286, !noalias !283, !noundef !8
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6805e14718df5a86E"(ptr noundef nonnull align 8 %.val9.i, i64 noundef %.val10.i, ptr noundef nonnull align 8 %.val11.i, i64 noundef %.val12.i), !noalias !288
-  br i1 %25, label %26, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val9.i = load ptr, ptr %19, align 8, !alias.scope !283, !noalias !286, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val10.i = load i64, ptr %20, align 8, !alias.scope !283, !noalias !286, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val11.i = load ptr, ptr %21, align 8, !alias.scope !286, !noalias !283, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val12.i = load i64, ptr %22, align 8, !alias.scope !286, !noalias !283, !noundef !8
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6805e14718df5a86E"(ptr noundef nonnull align 8 %.val9.i, i64 noundef %.val10.i, ptr noundef nonnull align 8 %.val11.i, i64 noundef %.val12.i), !noalias !288
+  br i1 %23, label %24, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %28 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
-  %29 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
-  br i1 %29, label %30, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
+  %27 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
+  br i1 %27, label %28, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %32 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %33 = load i32, ptr %32, align 8, !alias.scope !283, !noalias !286, !noundef !8
-  %34 = load i32, ptr %31, align 8, !alias.scope !286, !noalias !283, !noundef !8
-  %35 = icmp eq i32 %33, %34
-  br i1 %35, label %36, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %31 = load i32, ptr %30, align 8, !alias.scope !283, !noalias !286, !noundef !8
+  %32 = load i32, ptr %29, align 8, !alias.scope !286, !noalias !283, !noundef !8
+  %33 = icmp eq i32 %31, %32
+  br i1 %33, label %34, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
-  %38 = load i32, ptr %37, align 4, !alias.scope !283, !noalias !286, !noundef !8
-  %39 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
-  %40 = load i32, ptr %39, align 4, !alias.scope !286, !noalias !283, !noundef !8
-  %41 = icmp eq i32 %38, %40
-  br i1 %41, label %42, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
+  %36 = load i32, ptr %35, align 4, !alias.scope !283, !noalias !286, !noundef !8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
+  %38 = load i32, ptr %37, align 4, !alias.scope !286, !noalias !283, !noundef !8
+  %39 = icmp eq i32 %36, %38
+  br i1 %39, label %40, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw i8, ptr %.0.val, i64 96
-  %44 = load ptr, ptr %43, align 8, !alias.scope !283, !noalias !286, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %44, null
-  %45 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 96
-  %46 = load ptr, ptr %45, align 8, !alias.scope !286, !noalias !283, !align !39, !noundef !8
-  %47 = icmp eq ptr %46, null
-  br i1 %.not.i, label %49, label %48
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %.0.val, i64 96
+  %42 = load ptr, ptr %41, align 8, !alias.scope !283, !noalias !286, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %42, null
+  %43 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 96
+  %44 = load ptr, ptr %43, align 8, !alias.scope !286, !noalias !283, !align !39, !noundef !8
+  %45 = icmp eq ptr %44, null
+  br i1 %.not.i, label %47, label %46
 
-48:                                               ; preds = %42
-  br i1 %47, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit", label %50
+46:                                               ; preds = %40
+  br i1 %45, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit", label %48
 
-49:                                               ; preds = %42
-  br i1 %47, label %68, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+47:                                               ; preds = %40
+  br i1 %45, label %66, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-50:                                               ; preds = %48
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %50 = load i32, ptr %49, align 8, !noundef !8
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %52 = load i32, ptr %51, align 8, !noundef !8
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %54 = load i32, ptr %53, align 8, !noundef !8
-  %55 = icmp eq i32 %52, %54
-  br i1 %55, label %56, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+  %53 = icmp eq i32 %50, %52
+  br i1 %53, label %54, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-56:                                               ; preds = %50
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds nuw i8, ptr %42, i64 28
+  %56 = load i32, ptr %55, align 4, !noundef !8
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %58 = load i32, ptr %57, align 4, !noundef !8
-  %59 = getelementptr inbounds nuw i8, ptr %46, i64 28
-  %60 = load i32, ptr %59, align 4, !noundef !8
-  %61 = icmp eq i32 %58, %60
-  br i1 %61, label %62, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+  %59 = icmp eq i32 %56, %58
+  br i1 %59, label %60, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-62:                                               ; preds = %56
+60:                                               ; preds = %54
+  %61 = getelementptr i8, ptr %42, i64 8
+  %.val13.i = load ptr, ptr %61, align 8, !nonnull !8, !noundef !8
+  %62 = getelementptr i8, ptr %42, i64 16
+  %.val14.i = load i64, ptr %62, align 8, !noundef !8
   %63 = getelementptr i8, ptr %44, i64 8
-  %.val13.i = load ptr, ptr %63, align 8, !nonnull !8, !noundef !8
+  %.val15.i = load ptr, ptr %63, align 8, !nonnull !8, !noundef !8
   %64 = getelementptr i8, ptr %44, i64 16
-  %.val14.i = load i64, ptr %64, align 8, !noundef !8
-  %65 = getelementptr i8, ptr %46, i64 8
-  %.val15.i = load ptr, ptr %65, align 8, !nonnull !8, !noundef !8
-  %66 = getelementptr i8, ptr %46, i64 16
-  %.val16.i = load i64, ptr %66, align 8, !noundef !8
-  %67 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he7aa9dd5810bcd27E"(ptr noalias noundef nonnull readonly align 8 %.val13.i, i64 noundef %.val14.i, ptr noalias noundef nonnull readonly align 8 %.val15.i, i64 noundef %.val16.i)
-  br i1 %67, label %68, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+  %.val16.i = load i64, ptr %64, align 8, !noundef !8
+  %65 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he7aa9dd5810bcd27E"(ptr noalias noundef nonnull readonly align 8 %.val13.i, i64 noundef %.val14.i, ptr noalias noundef nonnull readonly align 8 %.val15.i, i64 noundef %.val16.i)
+  br i1 %65, label %66, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-68:                                               ; preds = %62, %49
-  %69 = getelementptr inbounds nuw i8, ptr %.0.val, i64 80
-  %70 = load ptr, ptr %69, align 8, !alias.scope !283, !noalias !286, !nonnull !8, !noundef !8
-  %71 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 80
-  %72 = load ptr, ptr %71, align 8, !alias.scope !286, !noalias !283, !nonnull !8, !noundef !8
-  %73 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..nodes..Parameters$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ad75d9997808284E"(ptr noalias noundef readonly align 8 dereferenceable(96) %70, ptr noalias noundef readonly align 8 dereferenceable(96) %72)
-  br i1 %73, label %74, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+66:                                               ; preds = %60, %47
+  %67 = getelementptr inbounds nuw i8, ptr %.0.val, i64 80
+  %68 = load ptr, ptr %67, align 8, !alias.scope !283, !noalias !286, !nonnull !8, !noundef !8
+  %69 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 80
+  %70 = load ptr, ptr %69, align 8, !alias.scope !286, !noalias !283, !nonnull !8, !noundef !8
+  %71 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..nodes..Parameters$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ad75d9997808284E"(ptr noalias noundef readonly align 8 dereferenceable(96) %68, ptr noalias noundef readonly align 8 dereferenceable(96) %70)
+  br i1 %71, label %72, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-74:                                               ; preds = %68
-  %75 = getelementptr inbounds nuw i8, ptr %.0.val, i64 104
-  %76 = load ptr, ptr %75, align 8, !alias.scope !283, !noalias !286, !align !39, !noundef !8
-  %.not4.i = icmp eq ptr %76, null
-  %77 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 104
-  %78 = load ptr, ptr %77, align 8, !alias.scope !286, !noalias !283, !align !39, !noundef !8
-  %79 = icmp eq ptr %78, null
-  br i1 %.not4.i, label %81, label %80
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %.0.val, i64 104
+  %74 = load ptr, ptr %73, align 8, !alias.scope !283, !noalias !286, !align !39, !noundef !8
+  %.not4.i = icmp eq ptr %74, null
+  %75 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 104
+  %76 = load ptr, ptr %75, align 8, !alias.scope !286, !noalias !283, !align !39, !noundef !8
+  %77 = icmp eq ptr %76, null
+  br i1 %.not4.i, label %79, label %78
 
-80:                                               ; preds = %74
-  br i1 %79, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit", label %82
+78:                                               ; preds = %72
+  br i1 %77, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit", label %80
 
-81:                                               ; preds = %74
-  br i1 %79, label %84, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+79:                                               ; preds = %72
+  br i1 %77, label %82, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-82:                                               ; preds = %80
-  %83 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %76, ptr noundef nonnull align 8 %78)
-  br i1 %83, label %84, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
+80:                                               ; preds = %78
+  %81 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %74, ptr noundef nonnull align 8 %76)
+  br i1 %81, label %82, label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-84:                                               ; preds = %82, %81
-  %85 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %.val.i = load ptr, ptr %85, align 8, !alias.scope !283, !noalias !286, !nonnull !8, !noundef !8
-  %86 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %.val6.i = load i64, ptr %86, align 8, !alias.scope !283, !noalias !286, !noundef !8
-  %87 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %.val7.i = load ptr, ptr %87, align 8, !alias.scope !286, !noalias !283, !nonnull !8, !noundef !8
-  %88 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %.val8.i = load i64, ptr %88, align 8, !alias.scope !286, !noalias !283, !noundef !8
-  %89 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 8 %.val7.i, i64 noundef %.val8.i)
+82:                                               ; preds = %80, %79
+  %83 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %.val.i = load ptr, ptr %83, align 8, !alias.scope !283, !noalias !286, !nonnull !8, !noundef !8
+  %84 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %.val6.i = load i64, ptr %84, align 8, !alias.scope !283, !noalias !286, !noundef !8
+  %85 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %.val7.i = load ptr, ptr %85, align 8, !alias.scope !286, !noalias !283, !nonnull !8, !noundef !8
+  %86 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %.val8.i = load i64, ptr %86, align 8, !alias.scope !286, !noalias !283, !noundef !8
+  %87 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 8 %.val7.i, i64 noundef %.val8.i)
   br label %"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit"
 
-"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit": ; preds = %0, %8, %14, %20, %26, %30, %36, %48, %49, %50, %56, %62, %68, %80, %81, %82, %84
-  %.sroa.0.0.i = phi i1 [ %89, %84 ], [ false, %80 ], [ false, %56 ], [ false, %50 ], [ false, %48 ], [ false, %30 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %0 ], [ false, %81 ], [ false, %68 ], [ false, %49 ], [ false, %36 ], [ false, %8 ], [ false, %62 ], [ false, %82 ]
+"_ZN84_$LT$ruff_python_ast..generated..StmtFunctionDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f9522e079ec8efeE.exit": ; preds = %0, %6, %12, %18, %24, %28, %34, %46, %47, %48, %54, %60, %66, %78, %79, %80, %82
+  %.sroa.0.0.i = phi i1 [ %87, %82 ], [ false, %78 ], [ false, %54 ], [ false, %48 ], [ false, %46 ], [ false, %28 ], [ false, %24 ], [ false, %18 ], [ false, %12 ], [ false, %0 ], [ false, %79 ], [ false, %66 ], [ false, %47 ], [ false, %34 ], [ false, %6 ], [ false, %60 ], [ false, %80 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h735dc4ce9c224aedE"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !289)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !292)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 80
-  %4 = load i32, ptr %3, align 8, !alias.scope !289, !noalias !292, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 80
-  %6 = load i32, ptr %5, align 8, !alias.scope !292, !noalias !289, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 80
+  %2 = load i32, ptr %1, align 8, !alias.scope !289, !noalias !292, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 80
+  %4 = load i32, ptr %3, align 8, !alias.scope !292, !noalias !289, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 84
-  %10 = load i32, ptr %9, align 4, !alias.scope !289, !noalias !292, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 84
-  %12 = load i32, ptr %11, align 4, !alias.scope !292, !noalias !289, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 84
+  %8 = load i32, ptr %7, align 4, !alias.scope !289, !noalias !292, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 84
+  %10 = load i32, ptr %9, align 4, !alias.scope !292, !noalias !289, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val9.i = load ptr, ptr %15, align 8, !alias.scope !289, !noalias !292, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val10.i = load i64, ptr %16, align 8, !alias.scope !289, !noalias !292, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val11.i = load ptr, ptr %17, align 8, !alias.scope !292, !noalias !289, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val12.i = load i64, ptr %18, align 8, !alias.scope !292, !noalias !289, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6805e14718df5a86E"(ptr noundef nonnull align 8 %.val9.i, i64 noundef %.val10.i, ptr noundef nonnull align 8 %.val11.i, i64 noundef %.val12.i), !noalias !294
-  br i1 %19, label %20, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val9.i = load ptr, ptr %13, align 8, !alias.scope !289, !noalias !292, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val10.i = load i64, ptr %14, align 8, !alias.scope !289, !noalias !292, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val11.i = load ptr, ptr %15, align 8, !alias.scope !292, !noalias !289, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val12.i = load i64, ptr %16, align 8, !alias.scope !292, !noalias !289, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6805e14718df5a86E"(ptr noundef nonnull align 8 %.val9.i, i64 noundef %.val10.i, ptr noundef nonnull align 8 %.val11.i, i64 noundef %.val12.i), !noalias !294
+  br i1 %17, label %18, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
-  %23 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
-  br i1 %23, label %24, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
+  %21 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20)
+  br i1 %21, label %22, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %27 = load i32, ptr %26, align 8, !alias.scope !289, !noalias !292, !noundef !8
-  %28 = load i32, ptr %25, align 8, !alias.scope !292, !noalias !289, !noundef !8
-  %29 = icmp eq i32 %27, %28
-  br i1 %29, label %30, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %25 = load i32, ptr %24, align 8, !alias.scope !289, !noalias !292, !noundef !8
+  %26 = load i32, ptr %23, align 8, !alias.scope !292, !noalias !289, !noundef !8
+  %27 = icmp eq i32 %25, %26
+  br i1 %27, label %28, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
-  %32 = load i32, ptr %31, align 4, !alias.scope !289, !noalias !292, !noundef !8
-  %33 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
-  %34 = load i32, ptr %33, align 4, !alias.scope !292, !noalias !289, !noundef !8
-  %35 = icmp eq i32 %32, %34
-  br i1 %35, label %36, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
+  %30 = load i32, ptr %29, align 4, !alias.scope !289, !noalias !292, !noundef !8
+  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
+  %32 = load i32, ptr %31, align 4, !alias.scope !292, !noalias !289, !noundef !8
+  %33 = icmp eq i32 %30, %32
+  br i1 %33, label %34, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
-  %38 = load ptr, ptr %37, align 8, !alias.scope !289, !noalias !292, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %38, null
-  %39 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 88
-  %40 = load ptr, ptr %39, align 8, !alias.scope !292, !noalias !289, !align !39, !noundef !8
-  %41 = icmp eq ptr %40, null
-  br i1 %.not.i, label %43, label %42
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
+  %36 = load ptr, ptr %35, align 8, !alias.scope !289, !noalias !292, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %36, null
+  %37 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 88
+  %38 = load ptr, ptr %37, align 8, !alias.scope !292, !noalias !289, !align !39, !noundef !8
+  %39 = icmp eq ptr %38, null
+  br i1 %.not.i, label %41, label %40
 
-42:                                               ; preds = %36
-  br i1 %41, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit", label %44
+40:                                               ; preds = %34
+  br i1 %39, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit", label %42
 
-43:                                               ; preds = %36
-  br i1 %41, label %62, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
+41:                                               ; preds = %34
+  br i1 %39, label %60, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-44:                                               ; preds = %42
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %44 = load i32, ptr %43, align 8, !noundef !8
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %46 = load i32, ptr %45, align 8, !noundef !8
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %48 = load i32, ptr %47, align 8, !noundef !8
-  %49 = icmp eq i32 %46, %48
-  br i1 %49, label %50, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
+  %47 = icmp eq i32 %44, %46
+  br i1 %47, label %48, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-50:                                               ; preds = %44
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 28
+  %50 = load i32, ptr %49, align 4, !noundef !8
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 28
   %52 = load i32, ptr %51, align 4, !noundef !8
-  %53 = getelementptr inbounds nuw i8, ptr %40, i64 28
-  %54 = load i32, ptr %53, align 4, !noundef !8
-  %55 = icmp eq i32 %52, %54
-  br i1 %55, label %56, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
+  %53 = icmp eq i32 %50, %52
+  br i1 %53, label %54, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-56:                                               ; preds = %50
+54:                                               ; preds = %48
+  %55 = getelementptr i8, ptr %36, i64 8
+  %.val13.i = load ptr, ptr %55, align 8, !nonnull !8, !noundef !8
+  %56 = getelementptr i8, ptr %36, i64 16
+  %.val14.i = load i64, ptr %56, align 8, !noundef !8
   %57 = getelementptr i8, ptr %38, i64 8
-  %.val13.i = load ptr, ptr %57, align 8, !nonnull !8, !noundef !8
+  %.val15.i = load ptr, ptr %57, align 8, !nonnull !8, !noundef !8
   %58 = getelementptr i8, ptr %38, i64 16
-  %.val14.i = load i64, ptr %58, align 8, !noundef !8
-  %59 = getelementptr i8, ptr %40, i64 8
-  %.val15.i = load ptr, ptr %59, align 8, !nonnull !8, !noundef !8
-  %60 = getelementptr i8, ptr %40, i64 16
-  %.val16.i = load i64, ptr %60, align 8, !noundef !8
-  %61 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he7aa9dd5810bcd27E"(ptr noalias noundef nonnull readonly align 8 %.val13.i, i64 noundef %.val14.i, ptr noalias noundef nonnull readonly align 8 %.val15.i, i64 noundef %.val16.i)
-  br i1 %61, label %62, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
+  %.val16.i = load i64, ptr %58, align 8, !noundef !8
+  %59 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he7aa9dd5810bcd27E"(ptr noalias noundef nonnull readonly align 8 %.val13.i, i64 noundef %.val14.i, ptr noalias noundef nonnull readonly align 8 %.val15.i, i64 noundef %.val16.i)
+  br i1 %59, label %60, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-62:                                               ; preds = %56, %43
-  %63 = getelementptr inbounds nuw i8, ptr %.0.val, i64 96
-  %64 = load ptr, ptr %63, align 8, !alias.scope !289, !noalias !292, !align !39, !noundef !8
-  %.not4.i = icmp eq ptr %64, null
-  %65 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 96
-  %66 = load ptr, ptr %65, align 8, !alias.scope !292, !noalias !289, !align !39, !noundef !8
-  %67 = icmp eq ptr %66, null
-  br i1 %.not4.i, label %69, label %68
+60:                                               ; preds = %54, %41
+  %61 = getelementptr inbounds nuw i8, ptr %.0.val, i64 96
+  %62 = load ptr, ptr %61, align 8, !alias.scope !289, !noalias !292, !align !39, !noundef !8
+  %.not4.i = icmp eq ptr %62, null
+  %63 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 96
+  %64 = load ptr, ptr %63, align 8, !alias.scope !292, !noalias !289, !align !39, !noundef !8
+  %65 = icmp eq ptr %64, null
+  br i1 %.not4.i, label %67, label %66
 
-68:                                               ; preds = %62
-  br i1 %67, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit", label %70
+66:                                               ; preds = %60
+  br i1 %65, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit", label %68
 
-69:                                               ; preds = %62
-  br i1 %67, label %72, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
+67:                                               ; preds = %60
+  br i1 %65, label %70, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-70:                                               ; preds = %68
-  %71 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E"(ptr noalias noundef readonly align 8 dereferenceable(40) %64, ptr noalias noundef readonly align 8 dereferenceable(40) %66)
-  br i1 %71, label %72, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
+68:                                               ; preds = %66
+  %69 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E"(ptr noalias noundef readonly align 8 dereferenceable(40) %62, ptr noalias noundef readonly align 8 dereferenceable(40) %64)
+  br i1 %69, label %70, label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-72:                                               ; preds = %70, %69
-  %73 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %.val.i = load ptr, ptr %73, align 8, !alias.scope !289, !noalias !292, !nonnull !8, !noundef !8
-  %74 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %.val6.i = load i64, ptr %74, align 8, !alias.scope !289, !noalias !292, !noundef !8
-  %75 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %.val7.i = load ptr, ptr %75, align 8, !alias.scope !292, !noalias !289, !nonnull !8, !noundef !8
-  %76 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %.val8.i = load i64, ptr %76, align 8, !alias.scope !292, !noalias !289, !noundef !8
-  %77 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 8 %.val7.i, i64 noundef %.val8.i)
+70:                                               ; preds = %68, %67
+  %71 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %.val.i = load ptr, ptr %71, align 8, !alias.scope !289, !noalias !292, !nonnull !8, !noundef !8
+  %72 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %.val6.i = load i64, ptr %72, align 8, !alias.scope !289, !noalias !292, !noundef !8
+  %73 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %.val7.i = load ptr, ptr %73, align 8, !alias.scope !292, !noalias !289, !nonnull !8, !noundef !8
+  %74 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %.val8.i = load i64, ptr %74, align 8, !alias.scope !292, !noalias !289, !noundef !8
+  %75 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 8 %.val7.i, i64 noundef %.val8.i)
   br label %"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit"
 
-"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit": ; preds = %0, %8, %14, %20, %24, %30, %42, %43, %44, %50, %56, %68, %69, %70, %72
-  %.sroa.0.0.i = phi i1 [ %77, %72 ], [ false, %68 ], [ false, %50 ], [ false, %44 ], [ false, %42 ], [ false, %24 ], [ false, %20 ], [ false, %14 ], [ false, %0 ], [ false, %69 ], [ false, %43 ], [ false, %30 ], [ false, %8 ], [ false, %56 ], [ false, %70 ]
+"_ZN81_$LT$ruff_python_ast..generated..StmtClassDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78b287f1fafae39fE.exit": ; preds = %0, %6, %12, %18, %22, %28, %40, %41, %42, %48, %54, %66, %67, %68, %70
+  %.sroa.0.0.i = phi i1 [ %75, %70 ], [ false, %66 ], [ false, %48 ], [ false, %42 ], [ false, %40 ], [ false, %22 ], [ false, %18 ], [ false, %12 ], [ false, %0 ], [ false, %67 ], [ false, %41 ], [ false, %28 ], [ false, %6 ], [ false, %54 ], [ false, %68 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h75a04afd29d0b431E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h75a04afd29d0b431E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !295)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %4 = load i32, ptr %3, align 8, !alias.scope !295, !noalias !298, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %6 = load i32, ptr %5, align 8, !alias.scope !298, !noalias !295, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN82_$LT$ruff_python_ast..generated..ExprYieldFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hac0ee345e0899ea3E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %2 = load i32, ptr %1, align 8, !alias.scope !295, !noalias !298, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %4 = load i32, ptr %3, align 8, !alias.scope !298, !noalias !295, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN82_$LT$ruff_python_ast..generated..ExprYieldFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hac0ee345e0899ea3E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
-  %10 = load i32, ptr %9, align 4, !alias.scope !295, !noalias !298, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
-  %12 = load i32, ptr %11, align 4, !alias.scope !298, !noalias !295, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN82_$LT$ruff_python_ast..generated..ExprYieldFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hac0ee345e0899ea3E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
+  %8 = load i32, ptr %7, align 4, !alias.scope !295, !noalias !298, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
+  %10 = load i32, ptr %9, align 4, !alias.scope !298, !noalias !295, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN82_$LT$ruff_python_ast..generated..ExprYieldFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hac0ee345e0899ea3E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !295, !noalias !298, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !298, !noalias !295, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16) #11, !noalias !300
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !295, !noalias !298, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !298, !noalias !295, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14) #11, !noalias !300
   br label %"_ZN82_$LT$ruff_python_ast..generated..ExprYieldFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hac0ee345e0899ea3E.exit"
 
-"_ZN82_$LT$ruff_python_ast..generated..ExprYieldFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hac0ee345e0899ea3E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %17, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN82_$LT$ruff_python_ast..generated..ExprYieldFrom$u20$as$u20$core..cmp..PartialEq$GT$2eq17hac0ee345e0899ea3E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %15, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h77ef153c6cbbe4b5E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h77ef153c6cbbe4b5E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %4 = load i32, ptr %3, align 8, !alias.scope !301, !noalias !304, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %6 = load i32, ptr %5, align 8, !alias.scope !304, !noalias !301, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN78_$LT$ruff_python_ast..generated..StmtMatch$u20$as$u20$core..cmp..PartialEq$GT$2eq17h63f48e23ca8adccbE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %2 = load i32, ptr %1, align 8, !alias.scope !301, !noalias !304, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %4 = load i32, ptr %3, align 8, !alias.scope !304, !noalias !301, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN78_$LT$ruff_python_ast..generated..StmtMatch$u20$as$u20$core..cmp..PartialEq$GT$2eq17h63f48e23ca8adccbE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
-  %10 = load i32, ptr %9, align 4, !alias.scope !301, !noalias !304, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
-  %12 = load i32, ptr %11, align 4, !alias.scope !304, !noalias !301, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN78_$LT$ruff_python_ast..generated..StmtMatch$u20$as$u20$core..cmp..PartialEq$GT$2eq17h63f48e23ca8adccbE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
+  %8 = load i32, ptr %7, align 4, !alias.scope !301, !noalias !304, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
+  %10 = load i32, ptr %9, align 4, !alias.scope !304, !noalias !301, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN78_$LT$ruff_python_ast..generated..StmtMatch$u20$as$u20$core..cmp..PartialEq$GT$2eq17h63f48e23ca8adccbE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !301, !noalias !304, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %18 = load ptr, ptr %17, align 8, !alias.scope !304, !noalias !301, !nonnull !8, !noundef !8
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %18), !noalias !306
-  br i1 %19, label %20, label %"_ZN78_$LT$ruff_python_ast..generated..StmtMatch$u20$as$u20$core..cmp..PartialEq$GT$2eq17h63f48e23ca8adccbE.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %14 = load ptr, ptr %13, align 8, !alias.scope !301, !noalias !304, !nonnull !8, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %16 = load ptr, ptr %15, align 8, !alias.scope !304, !noalias !301, !nonnull !8, !noundef !8
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16), !noalias !306
+  br i1 %17, label %18, label %"_ZN78_$LT$ruff_python_ast..generated..StmtMatch$u20$as$u20$core..cmp..PartialEq$GT$2eq17h63f48e23ca8adccbE.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %21, align 8, !alias.scope !301, !noalias !304, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %22, align 8, !alias.scope !301, !noalias !304, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %23, align 8, !alias.scope !304, !noalias !301, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %24, align 8, !alias.scope !304, !noalias !301, !noundef !8
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h637a0f64130ad34bE"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !306
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %19, align 8, !alias.scope !301, !noalias !304, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %20, align 8, !alias.scope !301, !noalias !304, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %21, align 8, !alias.scope !304, !noalias !301, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %22, align 8, !alias.scope !304, !noalias !301, !noundef !8
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h637a0f64130ad34bE"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !306
   br label %"_ZN78_$LT$ruff_python_ast..generated..StmtMatch$u20$as$u20$core..cmp..PartialEq$GT$2eq17h63f48e23ca8adccbE.exit"
 
-"_ZN78_$LT$ruff_python_ast..generated..StmtMatch$u20$as$u20$core..cmp..PartialEq$GT$2eq17h63f48e23ca8adccbE.exit": ; preds = %0, %8, %14, %20
-  %.sroa.0.0.i = phi i1 [ %25, %20 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
+"_ZN78_$LT$ruff_python_ast..generated..StmtMatch$u20$as$u20$core..cmp..PartialEq$GT$2eq17h63f48e23ca8adccbE.exit": ; preds = %0, %6, %12, %18
+  %.sroa.0.0.i = phi i1 [ %23, %18 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7a3d33fca62d602fE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7a3d33fca62d602fE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %4 = load i32, ptr %3, align 8, !alias.scope !307, !noalias !310, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %6 = load i32, ptr %5, align 8, !alias.scope !310, !noalias !307, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN82_$LT$ruff_python_ast..generated..ModExpression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h757169844678da86E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %2 = load i32, ptr %1, align 8, !alias.scope !307, !noalias !310, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %4 = load i32, ptr %3, align 8, !alias.scope !310, !noalias !307, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN82_$LT$ruff_python_ast..generated..ModExpression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h757169844678da86E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
-  %10 = load i32, ptr %9, align 4, !alias.scope !307, !noalias !310, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
-  %12 = load i32, ptr %11, align 4, !alias.scope !310, !noalias !307, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN82_$LT$ruff_python_ast..generated..ModExpression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h757169844678da86E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
+  %8 = load i32, ptr %7, align 4, !alias.scope !307, !noalias !310, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
+  %10 = load i32, ptr %9, align 4, !alias.scope !310, !noalias !307, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN82_$LT$ruff_python_ast..generated..ModExpression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h757169844678da86E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !307, !noalias !310, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !310, !noalias !307, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16), !noalias !312
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !307, !noalias !310, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !310, !noalias !307, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14), !noalias !312
   br label %"_ZN82_$LT$ruff_python_ast..generated..ModExpression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h757169844678da86E.exit"
 
-"_ZN82_$LT$ruff_python_ast..generated..ModExpression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h757169844678da86E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %17, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN82_$LT$ruff_python_ast..generated..ModExpression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h757169844678da86E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %15, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7c4e4591bfcccc96E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 112
-  %4 = load i32, ptr %3, align 8, !alias.scope !313, !noalias !316, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 112
-  %6 = load i32, ptr %5, align 8, !alias.scope !316, !noalias !313, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 112
+  %2 = load i32, ptr %1, align 8, !alias.scope !313, !noalias !316, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 112
+  %4 = load i32, ptr %3, align 8, !alias.scope !316, !noalias !313, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 116
-  %10 = load i32, ptr %9, align 4, !alias.scope !313, !noalias !316, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 116
-  %12 = load i32, ptr %11, align 4, !alias.scope !316, !noalias !313, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 116
+  %8 = load i32, ptr %7, align 4, !alias.scope !313, !noalias !316, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 116
+  %10 = load i32, ptr %9, align 4, !alias.scope !316, !noalias !313, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated..Pattern$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91d82b5c0d6c8e35E"(ptr noalias noundef readonly align 8 dereferenceable(88) %15, ptr noalias noundef readonly align 8 dereferenceable(88) %16)
-  br i1 %17, label %18, label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated..Pattern$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91d82b5c0d6c8e35E"(ptr noalias noundef readonly align 8 dereferenceable(88) %13, ptr noalias noundef readonly align 8 dereferenceable(88) %14)
+  br i1 %15, label %16, label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
-  %20 = load ptr, ptr %19, align 8, !alias.scope !313, !noalias !316, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %20, null
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 120
-  %22 = load ptr, ptr %21, align 8, !alias.scope !316, !noalias !313, !align !39, !noundef !8
-  %23 = icmp eq ptr %22, null
-  br i1 %.not.i, label %25, label %24
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
+  %18 = load ptr, ptr %17, align 8, !alias.scope !313, !noalias !316, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %18, null
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 120
+  %20 = load ptr, ptr %19, align 8, !alias.scope !316, !noalias !313, !align !39, !noundef !8
+  %21 = icmp eq ptr %20, null
+  br i1 %.not.i, label %23, label %22
 
-24:                                               ; preds = %18
-  br i1 %23, label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit", label %26
+22:                                               ; preds = %16
+  br i1 %21, label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit", label %24
 
-25:                                               ; preds = %18
-  br i1 %23, label %28, label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit"
+23:                                               ; preds = %16
+  br i1 %21, label %26, label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit"
 
-26:                                               ; preds = %24
-  %27 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %20, ptr noundef nonnull align 8 %22)
-  br i1 %27, label %28, label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit"
+24:                                               ; preds = %22
+  %25 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %18, ptr noundef nonnull align 8 %20)
+  br i1 %25, label %26, label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit"
 
-28:                                               ; preds = %26, %25
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %29, align 8, !alias.scope !313, !noalias !316, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val3.i = load i64, ptr %30, align 8, !alias.scope !313, !noalias !316, !noundef !8
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val4.i = load ptr, ptr %31, align 8, !alias.scope !316, !noalias !313, !nonnull !8, !noundef !8
-  %32 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val5.i = load i64, ptr %32, align 8, !alias.scope !316, !noalias !313, !noundef !8
-  %33 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i)
+26:                                               ; preds = %24, %23
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %27, align 8, !alias.scope !313, !noalias !316, !nonnull !8, !noundef !8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val3.i = load i64, ptr %28, align 8, !alias.scope !313, !noalias !316, !noundef !8
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val4.i = load ptr, ptr %29, align 8, !alias.scope !316, !noalias !313, !nonnull !8, !noundef !8
+  %30 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val5.i = load i64, ptr %30, align 8, !alias.scope !316, !noalias !313, !noundef !8
+  %31 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i)
   br label %"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit"
 
-"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit": ; preds = %0, %8, %14, %24, %25, %26, %28
-  %.sroa.0.0.i = phi i1 [ %33, %28 ], [ false, %24 ], [ false, %14 ], [ false, %0 ], [ false, %25 ], [ false, %8 ], [ false, %26 ]
+"_ZN74_$LT$ruff_python_ast..nodes..MatchCase$u20$as$u20$core..cmp..PartialEq$GT$2eq17h040b5c22149a835dE.exit": ; preds = %0, %6, %12, %22, %23, %24, %26
+  %.sroa.0.0.i = phi i1 [ %31, %26 ], [ false, %22 ], [ false, %12 ], [ false, %0 ], [ false, %23 ], [ false, %6 ], [ false, %24 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7cdd4d866bd3533aE"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
+  %2 = load i32, ptr %1, align 8, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 152
   %4 = load i32, ptr %3, align 8, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 152
-  %6 = load i32, ptr %5, align 8, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit"
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 156
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 156
+  %8 = load i32, ptr %7, align 4, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 156
   %10 = load i32, ptr %9, align 4, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 156
-  %12 = load i32, ptr %11, align 4, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit"
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16)
-  br i1 %17, label %18, label %"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14)
+  br i1 %15, label %16, label %"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
-  %20 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 88
-  %21 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %19, ptr noundef nonnull align 8 %20)
-  br i1 %21, label %22, label %"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit"
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 88
+  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %18)
+  br i1 %19, label %20, label %"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit"
 
-22:                                               ; preds = %18
-  %23 = getelementptr i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %23, align 8, !nonnull !8, !noundef !8
-  %24 = getelementptr i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %24, align 8, !noundef !8
-  %25 = getelementptr i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %25, align 8, !nonnull !8, !noundef !8
-  %26 = getelementptr i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %26, align 8, !noundef !8
-  %27 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i)
-  br i1 %27, label %28, label %"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit"
+20:                                               ; preds = %16
+  %21 = getelementptr i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %21, align 8, !nonnull !8, !noundef !8
+  %22 = getelementptr i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %22, align 8, !noundef !8
+  %23 = getelementptr i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %23, align 8, !nonnull !8, !noundef !8
+  %24 = getelementptr i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %24, align 8, !noundef !8
+  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i)
+  br i1 %25, label %26, label %"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit"
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 160
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 160
+  %28 = load i8, ptr %27, align 8, !range !59, !noundef !8
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 160
   %30 = load i8, ptr %29, align 8, !range !59, !noundef !8
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 160
-  %32 = load i8, ptr %31, align 8, !range !59, !noundef !8
-  %33 = icmp eq i8 %30, %32
+  %31 = icmp eq i8 %28, %30
   br label %"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit"
 
-"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit": ; preds = %0, %8, %14, %18, %22, %28
-  %.sroa.0.0.i = phi i1 [ %33, %28 ], [ false, %22 ], [ false, %18 ], [ false, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN78_$LT$ruff_python_ast..nodes..Comprehension$u20$as$u20$core..cmp..PartialEq$GT$2eq17h54e321fac50c4fdcE.exit": ; preds = %0, %6, %12, %16, %20, %26
+  %.sroa.0.0.i = phi i1 [ %31, %26 ], [ false, %20 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8928f7bef9dbfaceE"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !321)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 80
-  %4 = load i32, ptr %3, align 8, !alias.scope !318, !noalias !321, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 80
-  %6 = load i32, ptr %5, align 8, !alias.scope !321, !noalias !318, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 80
+  %2 = load i32, ptr %1, align 8, !alias.scope !318, !noalias !321, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 80
+  %4 = load i32, ptr %3, align 8, !alias.scope !321, !noalias !318, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 84
-  %10 = load i32, ptr %9, align 4, !alias.scope !318, !noalias !321, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 84
-  %12 = load i32, ptr %11, align 4, !alias.scope !321, !noalias !318, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 84
+  %8 = load i32, ptr %7, align 4, !alias.scope !318, !noalias !321, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 84
+  %10 = load i32, ptr %9, align 4, !alias.scope !321, !noalias !318, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !318, !noalias !321, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val2.i = load i64, ptr %16, align 8, !alias.scope !318, !noalias !321, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val3.i = load ptr, ptr %17, align 8, !alias.scope !321, !noalias !318, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val4.i = load i64, ptr %18, align 8, !alias.scope !321, !noalias !318, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val2.i, ptr noundef nonnull align 8 %.val3.i, i64 noundef %.val4.i), !noalias !323
-  br i1 %19, label %20, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !318, !noalias !321, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val2.i = load i64, ptr %14, align 8, !alias.scope !318, !noalias !321, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val3.i = load ptr, ptr %15, align 8, !alias.scope !321, !noalias !318, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val4.i = load i64, ptr %16, align 8, !alias.scope !321, !noalias !318, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val2.i, ptr noundef nonnull align 8 %.val3.i, i64 noundef %.val4.i), !noalias !323
+  br i1 %17, label %18, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %.val5.i = load ptr, ptr %21, align 8, !alias.scope !318, !noalias !321, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %.val6.i = load i64, ptr %22, align 8, !alias.scope !318, !noalias !321, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %.val7.i = load ptr, ptr %23, align 8, !alias.scope !321, !noalias !318, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %.val8.i = load i64, ptr %24, align 8, !alias.scope !321, !noalias !318, !noundef !8
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hca6f43dbf3f8b2aaE"(ptr noalias noundef nonnull readonly align 8 %.val5.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 8 %.val7.i, i64 noundef %.val8.i), !noalias !323
-  br i1 %25, label %26, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %.val5.i = load ptr, ptr %19, align 8, !alias.scope !318, !noalias !321, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %.val6.i = load i64, ptr %20, align 8, !alias.scope !318, !noalias !321, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %.val7.i = load ptr, ptr %21, align 8, !alias.scope !321, !noalias !318, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %.val8.i = load i64, ptr %22, align 8, !alias.scope !321, !noalias !318, !noundef !8
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hca6f43dbf3f8b2aaE"(ptr noalias noundef nonnull readonly align 8 %.val5.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 8 %.val7.i, i64 noundef %.val8.i), !noalias !323
+  br i1 %23, label %24, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %28 = getelementptr inbounds nuw i8, ptr %.0.val, i64 79
-  %29 = load i8, ptr %28, align 1, !range !117, !alias.scope !318, !noalias !321, !noundef !8
-  %.not.i = icmp eq i8 %29, -38
-  br i1 %.not.i, label %34, label %30
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 79
+  %27 = load i8, ptr %26, align 1, !range !117, !alias.scope !318, !noalias !321, !noundef !8
+  %.not.i = icmp eq i8 %27, -38
+  br i1 %.not.i, label %32, label %28
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %32 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 79
-  %33 = load i8, ptr %32, align 1, !range !117, !alias.scope !321, !noalias !318, !noundef !8
-  %.not1.i = icmp eq i8 %33, -38
-  br i1 %.not1.i, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit", label %38
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 79
+  %31 = load i8, ptr %30, align 1, !range !117, !alias.scope !321, !noalias !318, !noundef !8
+  %.not1.i = icmp eq i8 %31, -38
+  br i1 %.not1.i, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit", label %36
 
-34:                                               ; preds = %26
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 79
-  %36 = load i8, ptr %35, align 1, !range !117, !alias.scope !321, !noalias !318, !noundef !8
-  %37 = icmp eq i8 %36, -38
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 79
+  %34 = load i8, ptr %33, align 1, !range !117, !alias.scope !321, !noalias !318, !noundef !8
+  %35 = icmp eq i8 %34, -38
   br label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %40 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
-  %41 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %40)
-  br i1 %41, label %42, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
+36:                                               ; preds = %28
+  %37 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
+  %39 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
+  br i1 %39, label %40, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
 
-42:                                               ; preds = %38
-  %43 = load i32, ptr %27, align 8, !alias.scope !318, !noalias !321, !noundef !8
-  %44 = load i32, ptr %31, align 8, !alias.scope !321, !noalias !318, !noundef !8
-  %45 = icmp eq i32 %43, %44
-  br i1 %45, label %46, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
+40:                                               ; preds = %36
+  %41 = load i32, ptr %25, align 8, !alias.scope !318, !noalias !321, !noundef !8
+  %42 = load i32, ptr %29, align 8, !alias.scope !321, !noalias !318, !noundef !8
+  %43 = icmp eq i32 %41, %42
+  br i1 %43, label %44, label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
-  %48 = load i32, ptr %47, align 4, !alias.scope !318, !noalias !321, !noundef !8
-  %49 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
-  %50 = load i32, ptr %49, align 4, !alias.scope !321, !noalias !318, !noundef !8
-  %51 = icmp eq i32 %48, %50
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
+  %46 = load i32, ptr %45, align 4, !alias.scope !318, !noalias !321, !noundef !8
+  %47 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
+  %48 = load i32, ptr %47, align 4, !alias.scope !321, !noalias !318, !noundef !8
+  %49 = icmp eq i32 %46, %48
   br label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
 
-"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit": ; preds = %0, %8, %14, %20, %30, %34, %38, %42, %46
-  %.sroa.0.0.shrunk.i = phi i1 [ %51, %46 ], [ false, %38 ], [ false, %30 ], [ false, %8 ], [ %37, %34 ], [ false, %20 ], [ false, %14 ], [ false, %0 ], [ false, %42 ]
+"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit": ; preds = %0, %6, %12, %18, %28, %32, %36, %40, %44
+  %.sroa.0.0.shrunk.i = phi i1 [ %49, %44 ], [ false, %36 ], [ false, %28 ], [ false, %6 ], [ %35, %32 ], [ false, %18 ], [ false, %12 ], [ false, %0 ], [ false, %40 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8b83d7f2b5dd1cc8E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8b83d7f2b5dd1cc8E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !324)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !327)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %4 = load i32, ptr %3, align 8, !alias.scope !324, !noalias !327, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %6 = load i32, ptr %5, align 8, !alias.scope !327, !noalias !324, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %2 = load i32, ptr %1, align 8, !alias.scope !324, !noalias !327, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %4 = load i32, ptr %3, align 8, !alias.scope !327, !noalias !324, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %10 = load i32, ptr %9, align 4, !alias.scope !324, !noalias !327, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %12 = load i32, ptr %11, align 4, !alias.scope !327, !noalias !324, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %8 = load i32, ptr %7, align 4, !alias.scope !324, !noalias !327, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %10 = load i32, ptr %9, align 4, !alias.scope !327, !noalias !324, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !324, !noalias !327, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !327, !noalias !324, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16), !noalias !329
-  br i1 %17, label %18, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !324, !noalias !327, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !327, !noalias !324, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14), !noalias !329
+  br i1 %15, label %16, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %20 = load ptr, ptr %19, align 8, !alias.scope !324, !noalias !327, !nonnull !8, !noundef !8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %22 = load ptr, ptr %21, align 8, !alias.scope !327, !noalias !324, !nonnull !8, !noundef !8
-  %23 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %20, ptr noundef nonnull align 8 %22), !noalias !329
-  br i1 %23, label %24, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %18 = load ptr, ptr %17, align 8, !alias.scope !324, !noalias !327, !nonnull !8, !noundef !8
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %20 = load ptr, ptr %19, align 8, !alias.scope !327, !noalias !324, !nonnull !8, !noundef !8
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %18, ptr noundef nonnull align 8 %20), !noalias !329
+  br i1 %21, label %22, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %26 = load ptr, ptr %25, align 8, !alias.scope !324, !noalias !327, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %26, null
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %28 = load ptr, ptr %27, align 8, !alias.scope !327, !noalias !324, !align !39, !noundef !8
-  %29 = icmp eq ptr %28, null
-  br i1 %.not.i, label %31, label %30
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %24 = load ptr, ptr %23, align 8, !alias.scope !324, !noalias !327, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %24, null
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %26 = load ptr, ptr %25, align 8, !alias.scope !327, !noalias !324, !align !39, !noundef !8
+  %27 = icmp eq ptr %26, null
+  br i1 %.not.i, label %29, label %28
 
-30:                                               ; preds = %24
-  br i1 %29, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit", label %32
+28:                                               ; preds = %22
+  br i1 %27, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit", label %30
 
-31:                                               ; preds = %24
-  br i1 %29, label %34, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
+29:                                               ; preds = %22
+  br i1 %27, label %32, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
 
-32:                                               ; preds = %30
-  %33 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %26, ptr noundef nonnull align 8 %28), !noalias !329
-  br i1 %33, label %34, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
+30:                                               ; preds = %28
+  %31 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %24, ptr noundef nonnull align 8 %26), !noalias !329
+  br i1 %31, label %32, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
 
-34:                                               ; preds = %32, %31
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %36 = load i8, ptr %35, align 8, !range !59, !alias.scope !324, !noalias !327, !noundef !8
-  %37 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %38 = load i8, ptr %37, align 8, !range !59, !alias.scope !327, !noalias !324, !noundef !8
-  %39 = icmp eq i8 %36, %38
+32:                                               ; preds = %30, %29
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %34 = load i8, ptr %33, align 8, !range !59, !alias.scope !324, !noalias !327, !noundef !8
+  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %36 = load i8, ptr %35, align 8, !range !59, !alias.scope !327, !noalias !324, !noundef !8
+  %37 = icmp eq i8 %34, %36
   br label %"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit"
 
-"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit": ; preds = %0, %8, %14, %18, %30, %31, %32, %34
-  %.sroa.0.0.i = phi i1 [ %39, %34 ], [ false, %30 ], [ false, %0 ], [ false, %31 ], [ false, %18 ], [ false, %14 ], [ false, %8 ], [ false, %32 ]
+"_ZN82_$LT$ruff_python_ast..generated..StmtAnnAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29ead5e0b8f058e2E.exit": ; preds = %0, %6, %12, %16, %28, %29, %30, %32
+  %.sroa.0.0.i = phi i1 [ %37, %32 ], [ false, %28 ], [ false, %0 ], [ false, %29 ], [ false, %16 ], [ false, %12 ], [ false, %6 ], [ false, %30 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h91ca308cc75150a4E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h91ca308cc75150a4E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !330, !noalias !333, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !333, !noalias !330, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchOr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h204e05a1864af440E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !330, !noalias !333, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !333, !noalias !330, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchOr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h204e05a1864af440E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !330, !noalias !333, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !333, !noalias !330, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchOr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h204e05a1864af440E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !330, !noalias !333, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !333, !noalias !330, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchOr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h204e05a1864af440E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !330, !noalias !333, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !330, !noalias !333, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !333, !noalias !330, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !333, !noalias !330, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hca6f43dbf3f8b2aaE"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !335
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !330, !noalias !333, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !330, !noalias !333, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !333, !noalias !330, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !333, !noalias !330, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hca6f43dbf3f8b2aaE"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !335
   br label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchOr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h204e05a1864af440E.exit"
 
-"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchOr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h204e05a1864af440E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %19, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchOr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h204e05a1864af440E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %17, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h927f1499c6b5d6feE"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 96
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 96
+  %2 = load i32, ptr %1, align 8, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 96
   %4 = load i32, ptr %3, align 8, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 96
-  %6 = load i32, ptr %5, align 8, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 100
-  %10 = load i32, ptr %9, align 4, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 100
-  %12 = load i32, ptr %11, align 4, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
-
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 95
-  %17 = load i8, ptr %16, align 1, !range !117, !noundef !8
-  %.not.i = icmp eq i8 %17, -38
-  br i1 %.not.i, label %22, label %18
-
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
-  %20 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 95
-  %21 = load i8, ptr %20, align 1, !range !117, !noundef !8
-  %.not2.i = icmp eq i8 %21, -38
-  br i1 %.not2.i, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit", label %26
-
-22:                                               ; preds = %14
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 95
-  %24 = load i8, ptr %23, align 1, !range !117, !noundef !8
-  %25 = icmp eq i8 %24, -38
-  br i1 %25, label %40, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
-
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 72
-  %28 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 72
-  %29 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
-  br i1 %29, label %30, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
-
-30:                                               ; preds = %26
-  %31 = load i32, ptr %15, align 8, !noundef !8
-  %32 = load i32, ptr %19, align 8, !noundef !8
-  %33 = icmp eq i32 %31, %32
-  br i1 %33, label %34, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
-
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val, i64 68
-  %36 = load i32, ptr %35, align 4, !noundef !8
-  %37 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 68
-  %38 = load i32, ptr %37, align 4, !noundef !8
-  %39 = icmp eq i32 %36, %38
-  br i1 %39, label %40, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
-
-40:                                               ; preds = %34, %22
-  %41 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %.0.val, ptr noundef nonnull align 8 %.0.val1)
-  br label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
-
-"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit": ; preds = %0, %8, %18, %22, %26, %30, %34, %40
-  %.sroa.0.0.i = phi i1 [ %41, %40 ], [ false, %30 ], [ false, %26 ], [ false, %18 ], [ false, %0 ], [ false, %22 ], [ false, %8 ], [ false, %34 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h94f154f53d69d807E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !336)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !339)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !336, !noalias !339, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !339, !noalias !336, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN76_$LT$ruff_python_ast..generated..ExprSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9701bde596846a87E.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !336, !noalias !339, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !339, !noalias !336, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN76_$LT$ruff_python_ast..generated..ExprSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9701bde596846a87E.exit"
-
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !336, !noalias !339, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !336, !noalias !339, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !339, !noalias !336, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !339, !noalias !336, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !341
-  br label %"_ZN76_$LT$ruff_python_ast..generated..ExprSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9701bde596846a87E.exit"
-
-"_ZN76_$LT$ruff_python_ast..generated..ExprSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9701bde596846a87E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %19, %14 ], [ false, %0 ], [ false, %8 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h97d7175096ccb736E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !342)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !342, !noalias !345, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !345, !noalias !342, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !342, !noalias !345, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !345, !noalias !342, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E.exit"
-
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !342, !noalias !345, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !342, !noalias !345, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !345, !noalias !342, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !345, !noalias !342, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !347
-  br i1 %19, label %20, label %"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E.exit"
-
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 33
-  %22 = load i8, ptr %21, align 1, !range !21, !alias.scope !342, !noalias !345, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 33
-  %24 = load i8, ptr %23, align 1, !range !21, !alias.scope !345, !noalias !342, !noundef !8
-  %25 = icmp eq i8 %22, %24
-  br i1 %25, label %26, label %"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E.exit"
-
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %28 = load i8, ptr %27, align 8, !range !59, !alias.scope !342, !noalias !345, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %30 = load i8, ptr %29, align 8, !range !59, !alias.scope !345, !noalias !342, !noundef !8
-  %31 = icmp eq i8 %28, %30
-  br label %"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E.exit"
-
-"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E.exit": ; preds = %0, %8, %14, %20, %26
-  %.sroa.0.0.i = phi i1 [ %31, %26 ], [ false, %14 ], [ false, %0 ], [ false, %20 ], [ false, %8 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9ab064e10d039f92E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
-  %4 = load i32, ptr %3, align 8, !alias.scope !348, !noalias !351, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
-  %6 = load i32, ptr %5, align 8, !alias.scope !351, !noalias !348, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 68
-  %10 = load i32, ptr %9, align 4, !alias.scope !348, !noalias !351, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 68
-  %12 = load i32, ptr %11, align 4, !alias.scope !351, !noalias !348, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
-
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 72
-  %16 = load i8, ptr %15, align 8, !range !59, !alias.scope !348, !noalias !351, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 72
-  %18 = load i8, ptr %17, align 8, !range !59, !alias.scope !351, !noalias !348, !noundef !8
-  %19 = icmp eq i8 %16, %18
-  br i1 %19, label %20, label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
-
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %22 = load ptr, ptr %21, align 8, !alias.scope !348, !noalias !351, !nonnull !8, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %24 = load ptr, ptr %23, align 8, !alias.scope !351, !noalias !348, !nonnull !8, !noundef !8
-  %25 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %22, ptr noundef nonnull align 8 %24), !noalias !353
-  br i1 %25, label %26, label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
-
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %28 = load ptr, ptr %27, align 8, !alias.scope !348, !noalias !351, !nonnull !8, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
-  %30 = load ptr, ptr %29, align 8, !alias.scope !351, !noalias !348, !nonnull !8, !noundef !8
-  %31 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %28, ptr noundef nonnull align 8 %30), !noalias !353
-  br i1 %31, label %32, label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
-
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val4.i = load ptr, ptr %33, align 8, !alias.scope !348, !noalias !351, !nonnull !8, !noundef !8
-  %34 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val5.i = load i64, ptr %34, align 8, !alias.scope !348, !noalias !351, !noundef !8
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val6.i = load ptr, ptr %35, align 8, !alias.scope !351, !noalias !348, !nonnull !8, !noundef !8
-  %36 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val7.i = load i64, ptr %36, align 8, !alias.scope !351, !noalias !348, !noundef !8
-  %37 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i, ptr noalias noundef nonnull readonly align 8 %.val6.i, i64 noundef %.val7.i), !noalias !353
-  br i1 %37, label %38, label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
-
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %.val.i = load ptr, ptr %39, align 8, !alias.scope !348, !noalias !351, !nonnull !8, !noundef !8
-  %40 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %.val1.i = load i64, ptr %40, align 8, !alias.scope !348, !noalias !351, !noundef !8
-  %41 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %.val2.i = load ptr, ptr %41, align 8, !alias.scope !351, !noalias !348, !nonnull !8, !noundef !8
-  %42 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %.val3.i = load i64, ptr %42, align 8, !alias.scope !351, !noalias !348, !noundef !8
-  %43 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !353
-  br label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
-
-"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit": ; preds = %0, %8, %14, %20, %26, %32, %38
-  %.sroa.0.0.i = phi i1 [ %43, %38 ], [ false, %32 ], [ false, %14 ], [ false, %0 ], [ false, %26 ], [ false, %20 ], [ false, %8 ]
-  ret i1 %.sroa.0.0.i
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha01446d2e1abccbcE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !357)
-  %3 = load i32, ptr %.0.val, align 8, !alias.scope !354, !noalias !357, !noundef !8
-  %4 = load i32, ptr %.0.val1, align 8, !alias.scope !357, !noalias !354, !noundef !8
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %6, label %"_ZN79_$LT$ruff_python_ast..generated..StmtReturn$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha760b00922318136E.exit"
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
 
 6:                                                ; preds = %0
-  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %8 = load i32, ptr %7, align 4, !alias.scope !354, !noalias !357, !noundef !8
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !357, !noalias !354, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 100
+  %8 = load i32, ptr %7, align 4, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 100
+  %10 = load i32, ptr %9, align 4, !noundef !8
   %11 = icmp eq i32 %8, %10
-  br i1 %11, label %12, label %"_ZN79_$LT$ruff_python_ast..generated..StmtReturn$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha760b00922318136E.exit"
+  br i1 %11, label %12, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
+
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 95
+  %15 = load i8, ptr %14, align 1, !range !117, !noundef !8
+  %.not.i = icmp eq i8 %15, -38
+  br i1 %.not.i, label %20, label %16
+
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 95
+  %19 = load i8, ptr %18, align 1, !range !117, !noundef !8
+  %.not2.i = icmp eq i8 %19, -38
+  br i1 %.not2.i, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit", label %24
+
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 95
+  %22 = load i8, ptr %21, align 1, !range !117, !noundef !8
+  %23 = icmp eq i8 %22, -38
+  br i1 %23, label %38, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
+
+24:                                               ; preds = %16
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 72
+  %27 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
+  br i1 %27, label %28, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
+
+28:                                               ; preds = %24
+  %29 = load i32, ptr %13, align 8, !noundef !8
+  %30 = load i32, ptr %17, align 8, !noundef !8
+  %31 = icmp eq i32 %29, %30
+  br i1 %31, label %32, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 68
+  %34 = load i32, ptr %33, align 4, !noundef !8
+  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 68
+  %36 = load i32, ptr %35, align 4, !noundef !8
+  %37 = icmp eq i32 %34, %36
+  br i1 %37, label %38, label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
+
+38:                                               ; preds = %32, %20
+  %39 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %.0.val, ptr noundef nonnull align 8 %.0.val1)
+  br label %"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit"
+
+"_ZN72_$LT$ruff_python_ast..nodes..Keyword$u20$as$u20$core..cmp..PartialEq$GT$2eq17h585a0da154a05da7E.exit": ; preds = %0, %6, %16, %20, %24, %28, %32, %38
+  %.sroa.0.0.i = phi i1 [ %39, %38 ], [ false, %28 ], [ false, %24 ], [ false, %16 ], [ false, %0 ], [ false, %20 ], [ false, %6 ], [ false, %32 ]
+  ret i1 %.sroa.0.0.i
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h94f154f53d69d807E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !336)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !339)
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !336, !noalias !339, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !339, !noalias !336, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN76_$LT$ruff_python_ast..generated..ExprSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9701bde596846a87E.exit"
+
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !336, !noalias !339, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !339, !noalias !336, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN76_$LT$ruff_python_ast..generated..ExprSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9701bde596846a87E.exit"
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %14 = load ptr, ptr %13, align 8, !alias.scope !354, !noalias !357, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %14, null
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !336, !noalias !339, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !336, !noalias !339, !noundef !8
   %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %16 = load ptr, ptr %15, align 8, !alias.scope !357, !noalias !354, !align !39, !noundef !8
-  %17 = icmp eq ptr %16, null
-  %brmerge.i = or i1 %.not.i, %17
-  %.mux.i = and i1 %.not.i, %17
-  br i1 %brmerge.i, label %"_ZN79_$LT$ruff_python_ast..generated..StmtReturn$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha760b00922318136E.exit", label %18
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !339, !noalias !336, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !339, !noalias !336, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !341
+  br label %"_ZN76_$LT$ruff_python_ast..generated..ExprSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9701bde596846a87E.exit"
+
+"_ZN76_$LT$ruff_python_ast..generated..ExprSet$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9701bde596846a87E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %17, %12 ], [ false, %0 ], [ false, %6 ]
+  ret i1 %.sroa.0.0.i
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h97d7175096ccb736E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !342)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !342, !noalias !345, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !345, !noalias !342, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E.exit"
+
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !342, !noalias !345, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !345, !noalias !342, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E.exit"
+
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !342, !noalias !345, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !342, !noalias !345, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !345, !noalias !342, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !345, !noalias !342, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !347
+  br i1 %17, label %18, label %"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E.exit"
 
 18:                                               ; preds = %12
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16), !noalias !359
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 33
+  %20 = load i8, ptr %19, align 1, !range !21, !alias.scope !342, !noalias !345, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 33
+  %22 = load i8, ptr %21, align 1, !range !21, !alias.scope !345, !noalias !342, !noundef !8
+  %23 = icmp eq i8 %20, %22
+  br i1 %23, label %24, label %"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E.exit"
+
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %26 = load i8, ptr %25, align 8, !range !59, !alias.scope !342, !noalias !345, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %28 = load i8, ptr %27, align 8, !range !59, !alias.scope !345, !noalias !342, !noundef !8
+  %29 = icmp eq i8 %26, %28
+  br label %"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E.exit"
+
+"_ZN78_$LT$ruff_python_ast..generated..ExprTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2bb4cd82dbe6690E.exit": ; preds = %0, %6, %12, %18, %24
+  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %12 ], [ false, %0 ], [ false, %18 ], [ false, %6 ]
+  ret i1 %.sroa.0.0.i
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9ab064e10d039f92E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
+  %2 = load i32, ptr %1, align 8, !alias.scope !348, !noalias !351, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
+  %4 = load i32, ptr %3, align 8, !alias.scope !351, !noalias !348, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
+
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 68
+  %8 = load i32, ptr %7, align 4, !alias.scope !348, !noalias !351, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 68
+  %10 = load i32, ptr %9, align 4, !alias.scope !351, !noalias !348, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
+
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 72
+  %14 = load i8, ptr %13, align 8, !range !59, !alias.scope !348, !noalias !351, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 72
+  %16 = load i8, ptr %15, align 8, !range !59, !alias.scope !351, !noalias !348, !noundef !8
+  %17 = icmp eq i8 %14, %16
+  br i1 %17, label %18, label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
+
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %20 = load ptr, ptr %19, align 8, !alias.scope !348, !noalias !351, !nonnull !8, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %22 = load ptr, ptr %21, align 8, !alias.scope !351, !noalias !348, !nonnull !8, !noundef !8
+  %23 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %20, ptr noundef nonnull align 8 %22), !noalias !353
+  br i1 %23, label %24, label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
+
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
+  %26 = load ptr, ptr %25, align 8, !alias.scope !348, !noalias !351, !nonnull !8, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
+  %28 = load ptr, ptr %27, align 8, !alias.scope !351, !noalias !348, !nonnull !8, !noundef !8
+  %29 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %26, ptr noundef nonnull align 8 %28), !noalias !353
+  br i1 %29, label %30, label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
+
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val4.i = load ptr, ptr %31, align 8, !alias.scope !348, !noalias !351, !nonnull !8, !noundef !8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val5.i = load i64, ptr %32, align 8, !alias.scope !348, !noalias !351, !noundef !8
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val6.i = load ptr, ptr %33, align 8, !alias.scope !351, !noalias !348, !nonnull !8, !noundef !8
+  %34 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val7.i = load i64, ptr %34, align 8, !alias.scope !351, !noalias !348, !noundef !8
+  %35 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i, ptr noalias noundef nonnull readonly align 8 %.val6.i, i64 noundef %.val7.i), !noalias !353
+  br i1 %35, label %36, label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
+
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %.val.i = load ptr, ptr %37, align 8, !alias.scope !348, !noalias !351, !nonnull !8, !noundef !8
+  %38 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %.val1.i = load i64, ptr %38, align 8, !alias.scope !348, !noalias !351, !noundef !8
+  %39 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %.val2.i = load ptr, ptr %39, align 8, !alias.scope !351, !noalias !348, !nonnull !8, !noundef !8
+  %40 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %.val3.i = load i64, ptr %40, align 8, !alias.scope !351, !noalias !348, !noundef !8
+  %41 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !353
+  br label %"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit"
+
+"_ZN76_$LT$ruff_python_ast..generated..StmtFor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1e3b104d9f15a021E.exit": ; preds = %0, %6, %12, %18, %24, %30, %36
+  %.sroa.0.0.i = phi i1 [ %41, %36 ], [ false, %30 ], [ false, %12 ], [ false, %0 ], [ false, %24 ], [ false, %18 ], [ false, %6 ]
+  ret i1 %.sroa.0.0.i
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha01446d2e1abccbcE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !357)
+  %1 = load i32, ptr %.0.val, align 8, !alias.scope !354, !noalias !357, !noundef !8
+  %2 = load i32, ptr %.0.val1, align 8, !alias.scope !357, !noalias !354, !noundef !8
+  %3 = icmp eq i32 %1, %2
+  br i1 %3, label %4, label %"_ZN79_$LT$ruff_python_ast..generated..StmtReturn$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha760b00922318136E.exit"
+
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %6 = load i32, ptr %5, align 4, !alias.scope !354, !noalias !357, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %8 = load i32, ptr %7, align 4, !alias.scope !357, !noalias !354, !noundef !8
+  %9 = icmp eq i32 %6, %8
+  br i1 %9, label %10, label %"_ZN79_$LT$ruff_python_ast..generated..StmtReturn$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha760b00922318136E.exit"
+
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %12 = load ptr, ptr %11, align 8, !alias.scope !354, !noalias !357, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %12, null
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %14 = load ptr, ptr %13, align 8, !alias.scope !357, !noalias !354, !align !39, !noundef !8
+  %15 = icmp eq ptr %14, null
+  %brmerge.i = or i1 %.not.i, %15
+  %.mux.i = and i1 %.not.i, %15
+  br i1 %brmerge.i, label %"_ZN79_$LT$ruff_python_ast..generated..StmtReturn$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha760b00922318136E.exit", label %16
+
+16:                                               ; preds = %10
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %12, ptr noundef nonnull align 8 %14), !noalias !359
   br label %"_ZN79_$LT$ruff_python_ast..generated..StmtReturn$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha760b00922318136E.exit"
 
-"_ZN79_$LT$ruff_python_ast..generated..StmtReturn$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha760b00922318136E.exit": ; preds = %0, %6, %12, %18
-  %.sroa.0.0.shrunk.i = phi i1 [ %19, %18 ], [ false, %6 ], [ %.mux.i, %12 ], [ false, %0 ]
+"_ZN79_$LT$ruff_python_ast..generated..StmtReturn$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha760b00922318136E.exit": ; preds = %0, %4, %10, %16
+  %.sroa.0.0.shrunk.i = phi i1 [ %17, %16 ], [ false, %4 ], [ %.mux.i, %10 ], [ false, %0 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha0f49ed68b1c77fcE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha0f49ed68b1c77fcE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !360)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !363)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %4 = load i32, ptr %3, align 8, !alias.scope !360, !noalias !363, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %6 = load i32, ptr %5, align 8, !alias.scope !363, !noalias !360, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN80_$LT$ruff_python_ast..generated..ExprCompare$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ddc827e56297891E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %2 = load i32, ptr %1, align 8, !alias.scope !360, !noalias !363, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %4 = load i32, ptr %3, align 8, !alias.scope !363, !noalias !360, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN80_$LT$ruff_python_ast..generated..ExprCompare$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ddc827e56297891E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 44
-  %10 = load i32, ptr %9, align 4, !alias.scope !360, !noalias !363, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 44
-  %12 = load i32, ptr %11, align 4, !alias.scope !363, !noalias !360, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN80_$LT$ruff_python_ast..generated..ExprCompare$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ddc827e56297891E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 44
+  %8 = load i32, ptr %7, align 4, !alias.scope !360, !noalias !363, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 44
+  %10 = load i32, ptr %9, align 4, !alias.scope !363, !noalias !360, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN80_$LT$ruff_python_ast..generated..ExprCompare$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ddc827e56297891E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !360, !noalias !363, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !363, !noalias !360, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16) #11, !noalias !365
-  br i1 %17, label %18, label %"_ZN80_$LT$ruff_python_ast..generated..ExprCompare$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ddc827e56297891E.exit"
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !360, !noalias !363, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !363, !noalias !360, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14) #11, !noalias !365
+  br i1 %15, label %16, label %"_ZN80_$LT$ruff_python_ast..generated..ExprCompare$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ddc827e56297891E.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %20 = load ptr, ptr %19, align 8, !alias.scope !360, !noalias !363, !nonnull !8, !noundef !8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %22 = load i64, ptr %21, align 8, !alias.scope !360, !noalias !363, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %24 = load ptr, ptr %23, align 8, !alias.scope !363, !noalias !360, !nonnull !8, !noundef !8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %26 = load i64, ptr %25, align 8, !alias.scope !363, !noalias !360, !noundef !8
-  %27 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4cc79547f7fb0bb9E"(ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %22, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef %26), !noalias !365
-  br i1 %27, label %28, label %"_ZN80_$LT$ruff_python_ast..generated..ExprCompare$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ddc827e56297891E.exit"
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %18 = load ptr, ptr %17, align 8, !alias.scope !360, !noalias !363, !nonnull !8, !noundef !8
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %20 = load i64, ptr %19, align 8, !alias.scope !360, !noalias !363, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %22 = load ptr, ptr %21, align 8, !alias.scope !363, !noalias !360, !nonnull !8, !noundef !8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %24 = load i64, ptr %23, align 8, !alias.scope !363, !noalias !360, !noundef !8
+  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4cc79547f7fb0bb9E"(ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %24), !noalias !365
+  br i1 %25, label %26, label %"_ZN80_$LT$ruff_python_ast..generated..ExprCompare$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ddc827e56297891E.exit"
 
-28:                                               ; preds = %18
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %30 = load ptr, ptr %29, align 8, !alias.scope !360, !noalias !363, !nonnull !8, !noundef !8
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %32 = load i64, ptr %31, align 8, !alias.scope !360, !noalias !363, !noundef !8
-  %33 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %34 = load ptr, ptr %33, align 8, !alias.scope !363, !noalias !360, !nonnull !8, !noundef !8
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %36 = load i64, ptr %35, align 8, !alias.scope !363, !noalias !360, !noundef !8
-  %37 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %30, i64 noundef %32, ptr noundef nonnull align 8 %34, i64 noundef %36), !noalias !365
+26:                                               ; preds = %16
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %28 = load ptr, ptr %27, align 8, !alias.scope !360, !noalias !363, !nonnull !8, !noundef !8
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %30 = load i64, ptr %29, align 8, !alias.scope !360, !noalias !363, !noundef !8
+  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %32 = load ptr, ptr %31, align 8, !alias.scope !363, !noalias !360, !nonnull !8, !noundef !8
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %34 = load i64, ptr %33, align 8, !alias.scope !363, !noalias !360, !noundef !8
+  %35 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %28, i64 noundef %30, ptr noundef nonnull align 8 %32, i64 noundef %34), !noalias !365
   br label %"_ZN80_$LT$ruff_python_ast..generated..ExprCompare$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ddc827e56297891E.exit"
 
-"_ZN80_$LT$ruff_python_ast..generated..ExprCompare$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ddc827e56297891E.exit": ; preds = %0, %8, %14, %18, %28
-  %.sroa.0.0.i = phi i1 [ %37, %28 ], [ false, %0 ], [ false, %18 ], [ false, %14 ], [ false, %8 ]
+"_ZN80_$LT$ruff_python_ast..generated..ExprCompare$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6ddc827e56297891E.exit": ; preds = %0, %6, %12, %16, %26
+  %.sroa.0.0.i = phi i1 [ %35, %26 ], [ false, %0 ], [ false, %16 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha1fbe7f3bdc14ad0E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha1fbe7f3bdc14ad0E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !366)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !369)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %4 = load i32, ptr %3, align 8, !alias.scope !366, !noalias !369, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %6 = load i32, ptr %5, align 8, !alias.scope !369, !noalias !366, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN78_$LT$ruff_python_ast..generated..ExprAwait$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d59004b7a749868E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %2 = load i32, ptr %1, align 8, !alias.scope !366, !noalias !369, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %4 = load i32, ptr %3, align 8, !alias.scope !369, !noalias !366, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN78_$LT$ruff_python_ast..generated..ExprAwait$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d59004b7a749868E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
-  %10 = load i32, ptr %9, align 4, !alias.scope !366, !noalias !369, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
-  %12 = load i32, ptr %11, align 4, !alias.scope !369, !noalias !366, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN78_$LT$ruff_python_ast..generated..ExprAwait$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d59004b7a749868E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
+  %8 = load i32, ptr %7, align 4, !alias.scope !366, !noalias !369, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
+  %10 = load i32, ptr %9, align 4, !alias.scope !369, !noalias !366, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN78_$LT$ruff_python_ast..generated..ExprAwait$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d59004b7a749868E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !366, !noalias !369, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !369, !noalias !366, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16) #11, !noalias !371
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !366, !noalias !369, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !369, !noalias !366, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14) #11, !noalias !371
   br label %"_ZN78_$LT$ruff_python_ast..generated..ExprAwait$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d59004b7a749868E.exit"
 
-"_ZN78_$LT$ruff_python_ast..generated..ExprAwait$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d59004b7a749868E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %17, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN78_$LT$ruff_python_ast..generated..ExprAwait$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d59004b7a749868E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %15, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha909415a406bab25E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha909415a406bab25E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !372)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !375)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %4 = load i32, ptr %3, align 8, !alias.scope !372, !noalias !375, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %6 = load i32, ptr %5, align 8, !alias.scope !375, !noalias !372, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %2 = load i32, ptr %1, align 8, !alias.scope !372, !noalias !375, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %4 = load i32, ptr %3, align 8, !alias.scope !375, !noalias !372, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
-  %10 = load i32, ptr %9, align 4, !alias.scope !372, !noalias !375, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
-  %12 = load i32, ptr %11, align 4, !alias.scope !375, !noalias !372, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
+  %8 = load i32, ptr %7, align 4, !alias.scope !372, !noalias !375, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
+  %10 = load i32, ptr %9, align 4, !alias.scope !375, !noalias !372, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !372, !noalias !375, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %17 = load i64, ptr %16, align 8, !alias.scope !372, !noalias !375, !noundef !8
-  %18 = load ptr, ptr %.0.val1, align 8, !alias.scope !375, !noalias !372, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %20 = load i64, ptr %19, align 8, !alias.scope !375, !noalias !372, !noundef !8
-  %21 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %15, i64 noundef %17, ptr noundef nonnull align 8 %18, i64 noundef %20), !noalias !377
-  br i1 %21, label %22, label %"_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E.exit"
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !372, !noalias !375, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %15 = load i64, ptr %14, align 8, !alias.scope !372, !noalias !375, !noundef !8
+  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !375, !noalias !372, !nonnull !8, !noundef !8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %18 = load i64, ptr %17, align 8, !alias.scope !375, !noalias !372, !noundef !8
+  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %13, i64 noundef %15, ptr noundef nonnull align 8 %16, i64 noundef %18), !noalias !377
+  br i1 %19, label %20, label %"_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E.exit"
 
-22:                                               ; preds = %14
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %24 = load ptr, ptr %23, align 8, !alias.scope !372, !noalias !375, !nonnull !8, !noundef !8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %26 = load i64, ptr %25, align 8, !alias.scope !372, !noalias !375, !noundef !8
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %28 = load ptr, ptr %27, align 8, !alias.scope !375, !noalias !372, !nonnull !8, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %30 = load i64, ptr %29, align 8, !alias.scope !375, !noalias !372, !noundef !8
-  %31 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h981d8491c0417a73E"(ptr noundef nonnull align 8 %24, i64 noundef %26, ptr noundef nonnull align 8 %28, i64 noundef %30), !noalias !377
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %22 = load ptr, ptr %21, align 8, !alias.scope !372, !noalias !375, !nonnull !8, !noundef !8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %24 = load i64, ptr %23, align 8, !alias.scope !372, !noalias !375, !noundef !8
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %26 = load ptr, ptr %25, align 8, !alias.scope !375, !noalias !372, !nonnull !8, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %28 = load i64, ptr %27, align 8, !alias.scope !375, !noalias !372, !noundef !8
+  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h981d8491c0417a73E"(ptr noundef nonnull align 8 %22, i64 noundef %24, ptr noundef nonnull align 8 %26, i64 noundef %28), !noalias !377
   br label %"_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E.exit"
 
-"_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E.exit": ; preds = %0, %8, %14, %22
-  %.sroa.0.0.i = phi i1 [ %31, %22 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
+"_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E.exit": ; preds = %0, %6, %12, %20
+  %.sroa.0.0.i = phi i1 [ %29, %20 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17haec8fac89c90ab26E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17haec8fac89c90ab26E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !378)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !381)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !378, !noalias !381, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !381, !noalias !378, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN77_$LT$ruff_python_ast..generated..ExprDict$u20$as$u20$core..cmp..PartialEq$GT$2eq17h742ba0d71fe42699E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !378, !noalias !381, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !381, !noalias !378, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN77_$LT$ruff_python_ast..generated..ExprDict$u20$as$u20$core..cmp..PartialEq$GT$2eq17h742ba0d71fe42699E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !378, !noalias !381, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !381, !noalias !378, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN77_$LT$ruff_python_ast..generated..ExprDict$u20$as$u20$core..cmp..PartialEq$GT$2eq17h742ba0d71fe42699E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !378, !noalias !381, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !381, !noalias !378, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN77_$LT$ruff_python_ast..generated..ExprDict$u20$as$u20$core..cmp..PartialEq$GT$2eq17h742ba0d71fe42699E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !378, !noalias !381, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !378, !noalias !381, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !381, !noalias !378, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !381, !noalias !378, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdc67a51525745b8E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !383
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !378, !noalias !381, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !378, !noalias !381, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !381, !noalias !378, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !381, !noalias !378, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdc67a51525745b8E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !383
   br label %"_ZN77_$LT$ruff_python_ast..generated..ExprDict$u20$as$u20$core..cmp..PartialEq$GT$2eq17h742ba0d71fe42699E.exit"
 
-"_ZN77_$LT$ruff_python_ast..generated..ExprDict$u20$as$u20$core..cmp..PartialEq$GT$2eq17h742ba0d71fe42699E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %19, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN77_$LT$ruff_python_ast..generated..ExprDict$u20$as$u20$core..cmp..PartialEq$GT$2eq17h742ba0d71fe42699E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %17, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb340c06ae6c87fc4E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb340c06ae6c87fc4E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !384)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !387)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %4 = load i32, ptr %3, align 8, !alias.scope !384, !noalias !387, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %6 = load i32, ptr %5, align 8, !alias.scope !387, !noalias !384, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN89_$LT$ruff_python_ast..generated..StmtIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6696851035ed252eE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %2 = load i32, ptr %1, align 8, !alias.scope !384, !noalias !387, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %4 = load i32, ptr %3, align 8, !alias.scope !387, !noalias !384, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN89_$LT$ruff_python_ast..generated..StmtIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6696851035ed252eE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %10 = load i32, ptr %9, align 4, !alias.scope !384, !noalias !387, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %12 = load i32, ptr %11, align 4, !alias.scope !387, !noalias !384, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN89_$LT$ruff_python_ast..generated..StmtIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6696851035ed252eE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %8 = load i32, ptr %7, align 4, !alias.scope !384, !noalias !387, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %10 = load i32, ptr %9, align 4, !alias.scope !387, !noalias !384, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN89_$LT$ruff_python_ast..generated..StmtIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6696851035ed252eE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %16 = load i8, ptr %15, align 8, !range !148, !alias.scope !384, !noalias !387, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %18 = load i8, ptr %17, align 8, !range !148, !alias.scope !387, !noalias !384, !noundef !8
-  %19 = icmp eq i8 %16, %18
-  br i1 %19, label %20, label %"_ZN89_$LT$ruff_python_ast..generated..StmtIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6696851035ed252eE.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %14 = load i8, ptr %13, align 8, !range !148, !alias.scope !384, !noalias !387, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %16 = load i8, ptr %15, align 8, !range !148, !alias.scope !387, !noalias !384, !noundef !8
+  %17 = icmp eq i8 %14, %16
+  br i1 %17, label %18, label %"_ZN89_$LT$ruff_python_ast..generated..StmtIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6696851035ed252eE.exit"
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %.0.val, align 8, !alias.scope !384, !noalias !387, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %23 = load i64, ptr %22, align 8, !alias.scope !384, !noalias !387, !noundef !8
-  %24 = load ptr, ptr %.0.val1, align 8, !alias.scope !387, !noalias !384, !nonnull !8, !noundef !8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %26 = load i64, ptr %25, align 8, !alias.scope !387, !noalias !384, !noundef !8
-  %27 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %23, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef %26), !noalias !389
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %.0.val, align 8, !alias.scope !384, !noalias !387, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %21 = load i64, ptr %20, align 8, !alias.scope !384, !noalias !387, !noundef !8
+  %22 = load ptr, ptr %.0.val1, align 8, !alias.scope !387, !noalias !384, !nonnull !8, !noundef !8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %24 = load i64, ptr %23, align 8, !alias.scope !387, !noalias !384, !noundef !8
+  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %21, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %24), !noalias !389
   br label %"_ZN89_$LT$ruff_python_ast..generated..StmtIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6696851035ed252eE.exit"
 
-"_ZN89_$LT$ruff_python_ast..generated..StmtIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6696851035ed252eE.exit": ; preds = %0, %8, %14, %20
-  %.sroa.0.0.i = phi i1 [ %27, %20 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
+"_ZN89_$LT$ruff_python_ast..generated..StmtIpyEscapeCommand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6696851035ed252eE.exit": ; preds = %0, %6, %12, %18
+  %.sroa.0.0.i = phi i1 [ %25, %18 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hbf528c0f6cadd4d6E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hbf528c0f6cadd4d6E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !390)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !393)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %4 = load i32, ptr %3, align 8, !alias.scope !390, !noalias !393, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
-  %6 = load i32, ptr %5, align 8, !alias.scope !393, !noalias !390, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN78_$LT$ruff_python_ast..generated..StmtWhile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h45ef02b769767f11E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
+  %2 = load i32, ptr %1, align 8, !alias.scope !390, !noalias !393, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
+  %4 = load i32, ptr %3, align 8, !alias.scope !393, !noalias !390, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN78_$LT$ruff_python_ast..generated..StmtWhile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h45ef02b769767f11E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 60
-  %10 = load i32, ptr %9, align 4, !alias.scope !390, !noalias !393, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 60
-  %12 = load i32, ptr %11, align 4, !alias.scope !393, !noalias !390, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN78_$LT$ruff_python_ast..generated..StmtWhile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h45ef02b769767f11E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 60
+  %8 = load i32, ptr %7, align 4, !alias.scope !390, !noalias !393, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 60
+  %10 = load i32, ptr %9, align 4, !alias.scope !393, !noalias !390, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN78_$LT$ruff_python_ast..generated..StmtWhile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h45ef02b769767f11E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %16 = load ptr, ptr %15, align 8, !alias.scope !390, !noalias !393, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %18 = load ptr, ptr %17, align 8, !alias.scope !393, !noalias !390, !nonnull !8, !noundef !8
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %18), !noalias !395
-  br i1 %19, label %20, label %"_ZN78_$LT$ruff_python_ast..generated..StmtWhile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h45ef02b769767f11E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %14 = load ptr, ptr %13, align 8, !alias.scope !390, !noalias !393, !nonnull !8, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %16 = load ptr, ptr %15, align 8, !alias.scope !393, !noalias !390, !nonnull !8, !noundef !8
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16), !noalias !395
+  br i1 %17, label %18, label %"_ZN78_$LT$ruff_python_ast..generated..StmtWhile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h45ef02b769767f11E.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val4.i = load ptr, ptr %21, align 8, !alias.scope !390, !noalias !393, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val5.i = load i64, ptr %22, align 8, !alias.scope !390, !noalias !393, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val6.i = load ptr, ptr %23, align 8, !alias.scope !393, !noalias !390, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val7.i = load i64, ptr %24, align 8, !alias.scope !393, !noalias !390, !noundef !8
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i, ptr noalias noundef nonnull readonly align 8 %.val6.i, i64 noundef %.val7.i), !noalias !395
-  br i1 %25, label %26, label %"_ZN78_$LT$ruff_python_ast..generated..StmtWhile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h45ef02b769767f11E.exit"
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val4.i = load ptr, ptr %19, align 8, !alias.scope !390, !noalias !393, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val5.i = load i64, ptr %20, align 8, !alias.scope !390, !noalias !393, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val6.i = load ptr, ptr %21, align 8, !alias.scope !393, !noalias !390, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val7.i = load i64, ptr %22, align 8, !alias.scope !393, !noalias !390, !noundef !8
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i, ptr noalias noundef nonnull readonly align 8 %.val6.i, i64 noundef %.val7.i), !noalias !395
+  br i1 %23, label %24, label %"_ZN78_$LT$ruff_python_ast..generated..StmtWhile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h45ef02b769767f11E.exit"
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %.val.i = load ptr, ptr %27, align 8, !alias.scope !390, !noalias !393, !nonnull !8, !noundef !8
-  %28 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %.val1.i = load i64, ptr %28, align 8, !alias.scope !390, !noalias !393, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %.val2.i = load ptr, ptr %29, align 8, !alias.scope !393, !noalias !390, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %.val3.i = load i64, ptr %30, align 8, !alias.scope !393, !noalias !390, !noundef !8
-  %31 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !395
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %.val.i = load ptr, ptr %25, align 8, !alias.scope !390, !noalias !393, !nonnull !8, !noundef !8
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %.val1.i = load i64, ptr %26, align 8, !alias.scope !390, !noalias !393, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %.val2.i = load ptr, ptr %27, align 8, !alias.scope !393, !noalias !390, !nonnull !8, !noundef !8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %.val3.i = load i64, ptr %28, align 8, !alias.scope !393, !noalias !390, !noundef !8
+  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !395
   br label %"_ZN78_$LT$ruff_python_ast..generated..StmtWhile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h45ef02b769767f11E.exit"
 
-"_ZN78_$LT$ruff_python_ast..generated..StmtWhile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h45ef02b769767f11E.exit": ; preds = %0, %8, %14, %20, %26
-  %.sroa.0.0.i = phi i1 [ %31, %26 ], [ false, %20 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
+"_ZN78_$LT$ruff_python_ast..generated..StmtWhile$u20$as$u20$core..cmp..PartialEq$GT$2eq17h45ef02b769767f11E.exit": ; preds = %0, %6, %12, %18, %24
+  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %18 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc01dd1ec795ef6c3E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc01dd1ec795ef6c3E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !396)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !399)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %4 = load i32, ptr %3, align 8, !alias.scope !396, !noalias !399, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %6 = load i32, ptr %5, align 8, !alias.scope !399, !noalias !396, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7edc0411e908f932E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %2 = load i32, ptr %1, align 8, !alias.scope !396, !noalias !399, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %4 = load i32, ptr %3, align 8, !alias.scope !399, !noalias !396, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7edc0411e908f932E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
-  %10 = load i32, ptr %9, align 4, !alias.scope !396, !noalias !399, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
-  %12 = load i32, ptr %11, align 4, !alias.scope !399, !noalias !396, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7edc0411e908f932E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 52
+  %8 = load i32, ptr %7, align 4, !alias.scope !396, !noalias !399, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 52
+  %10 = load i32, ptr %9, align 4, !alias.scope !399, !noalias !396, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7edc0411e908f932E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !396, !noalias !399, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !396, !noalias !399, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !399, !noalias !396, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !399, !noalias !396, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hca6f43dbf3f8b2aaE"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !401
-  br i1 %19, label %20, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7edc0411e908f932E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !396, !noalias !399, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !396, !noalias !399, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !399, !noalias !396, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !399, !noalias !396, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hca6f43dbf3f8b2aaE"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !401
+  br i1 %17, label %18, label %"_ZN81_$LT$ruff_python_ast..nodes..PatternArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7edc0411e908f932E.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %.val4.i = load ptr, ptr %21, align 8, !alias.scope !396, !noalias !399, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %.val5.i = load i64, ptr %22, align 8, !alias.scope !396, !noalias !399, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %.val6.i = load ptr, ptr %23, align 8, !alias.scope !399, !noalias !396, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %.val7.i = load i64, ptr %24, align 8, !alias.scope !399, !noalias !396, !noundef !8
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4ad9e6bc6e28ad96E"(ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i, ptr noalias noundef nonnull readonly align 8 %.val6.i, i64 noundef %.val7.i), !noalias !401
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %.val4.i = load ptr, ptr %19, align 8, !alias.scope !396, !noalias !399, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %.val5.i = load i64, ptr %20, align 8, !alias.scope !396, !noalias !399, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %.val6.i = load ptr, ptr %21, align 8, !alias.scope !399, !noalias !396, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %.val7.i = load i64, ptr %22, align 8, !alias.scope !399, !noalias !396, !noundef !8
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4ad9e6bc6e28ad96E"(ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i, ptr noalias noundef nonnull readonly align 8 %.val6.i, i64 noundef %.val7.i), !noalias !401
   br label %"_ZN81_$LT$ruff_python_ast..nodes..PatternArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7edc0411e908f932E.exit"
 
-"_ZN81_$LT$ruff_python_ast..nodes..PatternArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7edc0411e908f932E.exit": ; preds = %0, %8, %14, %20
-  %.sroa.0.0.i = phi i1 [ %25, %20 ], [ false, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN81_$LT$ruff_python_ast..nodes..PatternArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7edc0411e908f932E.exit": ; preds = %0, %6, %12, %18
+  %.sroa.0.0.i = phi i1 [ %23, %18 ], [ false, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc297a57ef8ab79c7E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc297a57ef8ab79c7E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !402)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !405)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %4 = load i32, ptr %3, align 8, !alias.scope !402, !noalias !405, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %6 = load i32, ptr %5, align 8, !alias.scope !405, !noalias !402, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN81_$LT$ruff_python_ast..generated..ExprListComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h507b5918ad010b35E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %2 = load i32, ptr %1, align 8, !alias.scope !402, !noalias !405, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %4 = load i32, ptr %3, align 8, !alias.scope !405, !noalias !402, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN81_$LT$ruff_python_ast..generated..ExprListComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h507b5918ad010b35E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
-  %10 = load i32, ptr %9, align 4, !alias.scope !402, !noalias !405, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
-  %12 = load i32, ptr %11, align 4, !alias.scope !405, !noalias !402, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN81_$LT$ruff_python_ast..generated..ExprListComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h507b5918ad010b35E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
+  %8 = load i32, ptr %7, align 4, !alias.scope !402, !noalias !405, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
+  %10 = load i32, ptr %9, align 4, !alias.scope !405, !noalias !402, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN81_$LT$ruff_python_ast..generated..ExprListComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h507b5918ad010b35E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %16 = load ptr, ptr %15, align 8, !alias.scope !402, !noalias !405, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %18 = load ptr, ptr %17, align 8, !alias.scope !405, !noalias !402, !nonnull !8, !noundef !8
-  %19 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %18) #11, !noalias !407
-  br i1 %19, label %20, label %"_ZN81_$LT$ruff_python_ast..generated..ExprListComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h507b5918ad010b35E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %14 = load ptr, ptr %13, align 8, !alias.scope !402, !noalias !405, !nonnull !8, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %16 = load ptr, ptr %15, align 8, !alias.scope !405, !noalias !402, !nonnull !8, !noundef !8
+  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16) #11, !noalias !407
+  br i1 %17, label %18, label %"_ZN81_$LT$ruff_python_ast..generated..ExprListComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h507b5918ad010b35E.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %21, align 8, !alias.scope !402, !noalias !405, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %22, align 8, !alias.scope !402, !noalias !405, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %23, align 8, !alias.scope !405, !noalias !402, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %24, align 8, !alias.scope !405, !noalias !402, !noundef !8
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1f968a2ff8d16119E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !407
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %19, align 8, !alias.scope !402, !noalias !405, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %20, align 8, !alias.scope !402, !noalias !405, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %21, align 8, !alias.scope !405, !noalias !402, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %22, align 8, !alias.scope !405, !noalias !402, !noundef !8
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1f968a2ff8d16119E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !407
   br label %"_ZN81_$LT$ruff_python_ast..generated..ExprListComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h507b5918ad010b35E.exit"
 
-"_ZN81_$LT$ruff_python_ast..generated..ExprListComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h507b5918ad010b35E.exit": ; preds = %0, %8, %14, %20
-  %.sroa.0.0.i = phi i1 [ %25, %20 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
+"_ZN81_$LT$ruff_python_ast..generated..ExprListComp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h507b5918ad010b35E.exit": ; preds = %0, %6, %12, %18
+  %.sroa.0.0.i = phi i1 [ %23, %18 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc6ff61e33eec6dc6E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !411)
-  %3 = load i32, ptr %.0.val, align 8, !alias.scope !408, !noalias !411, !noundef !8
-  %4 = load i32, ptr %.0.val1, align 8, !alias.scope !411, !noalias !408, !noundef !8
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %6, label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit"
+  %1 = load i32, ptr %.0.val, align 8, !alias.scope !408, !noalias !411, !noundef !8
+  %2 = load i32, ptr %.0.val1, align 8, !alias.scope !411, !noalias !408, !noundef !8
+  %3 = icmp eq i32 %1, %2
+  br i1 %3, label %4, label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit"
 
-6:                                                ; preds = %0
-  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %8 = load i32, ptr %7, align 4, !alias.scope !408, !noalias !411, !noundef !8
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !411, !noalias !408, !noundef !8
-  %11 = icmp eq i32 %8, %10
-  br i1 %11, label %12, label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit"
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %6 = load i32, ptr %5, align 4, !alias.scope !408, !noalias !411, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %8 = load i32, ptr %7, align 4, !alias.scope !411, !noalias !408, !noundef !8
+  %9 = icmp eq i32 %6, %8
+  br i1 %9, label %10, label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit"
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %15 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
-  br i1 %15, label %16, label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit"
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %13 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  br i1 %13, label %14, label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit"
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %19 = load i32, ptr %18, align 8, !alias.scope !408, !noalias !411, !noundef !8
-  %20 = load i32, ptr %17, align 8, !alias.scope !411, !noalias !408, !noundef !8
-  %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit"
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %17 = load i32, ptr %16, align 8, !alias.scope !408, !noalias !411, !noundef !8
+  %18 = load i32, ptr %15, align 8, !alias.scope !411, !noalias !408, !noundef !8
+  %19 = icmp eq i32 %17, %18
+  br i1 %19, label %20, label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit"
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %24 = load i32, ptr %23, align 4, !alias.scope !408, !noalias !411, !noundef !8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %26 = load i32, ptr %25, align 4, !alias.scope !411, !noalias !408, !noundef !8
-  %27 = icmp eq i32 %24, %26
-  br i1 %27, label %28, label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit"
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %22 = load i32, ptr %21, align 4, !alias.scope !408, !noalias !411, !noundef !8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %24 = load i32, ptr %23, align 4, !alias.scope !411, !noalias !408, !noundef !8
+  %25 = icmp eq i32 %22, %24
+  br i1 %25, label %26, label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit"
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %30 = load ptr, ptr %29, align 8, !alias.scope !408, !noalias !411, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %30, null
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %32 = load ptr, ptr %31, align 8, !alias.scope !411, !noalias !408, !align !39, !noundef !8
-  %33 = icmp eq ptr %32, null
-  %brmerge.i = or i1 %.not.i, %33
-  %.mux.i = and i1 %.not.i, %33
-  br i1 %brmerge.i, label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit", label %34
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %28 = load ptr, ptr %27, align 8, !alias.scope !408, !noalias !411, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %28, null
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %30 = load ptr, ptr %29, align 8, !alias.scope !411, !noalias !408, !align !39, !noundef !8
+  %31 = icmp eq ptr %30, null
+  %brmerge.i = or i1 %.not.i, %31
+  %.mux.i = and i1 %.not.i, %31
+  br i1 %brmerge.i, label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit", label %32
 
-34:                                               ; preds = %28
-  %35 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %30, ptr noundef nonnull align 8 %32)
+32:                                               ; preds = %26
+  %33 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %28, ptr noundef nonnull align 8 %30)
   br label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit"
 
-"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit": ; preds = %0, %6, %12, %16, %22, %28, %34
-  %.sroa.0.0.shrunk.i = phi i1 [ %35, %34 ], [ false, %6 ], [ %.mux.i, %28 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %22 ]
+"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit": ; preds = %0, %4, %10, %14, %20, %26, %32
+  %.sroa.0.0.shrunk.i = phi i1 [ %33, %32 ], [ false, %4 ], [ %.mux.i, %26 ], [ false, %14 ], [ false, %10 ], [ false, %0 ], [ false, %20 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc71cf1b35a7a2fb8E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !413)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %4 = load i32, ptr %3, align 8, !alias.scope !413, !noalias !416, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
-  %6 = load i32, ptr %5, align 8, !alias.scope !416, !noalias !413, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
+  %2 = load i32, ptr %1, align 8, !alias.scope !413, !noalias !416, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
+  %4 = load i32, ptr %3, align 8, !alias.scope !416, !noalias !413, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 60
-  %10 = load i32, ptr %9, align 4, !alias.scope !413, !noalias !416, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 60
-  %12 = load i32, ptr %11, align 4, !alias.scope !416, !noalias !413, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 60
+  %8 = load i32, ptr %7, align 4, !alias.scope !413, !noalias !416, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 60
+  %10 = load i32, ptr %9, align 4, !alias.scope !416, !noalias !413, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
-  %16 = load ptr, ptr %15, align 8, !alias.scope !413, !noalias !416, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %16, null
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
-  %18 = load ptr, ptr %17, align 8, !alias.scope !416, !noalias !413, !align !39, !noundef !8
-  %19 = icmp eq ptr %18, null
-  br i1 %.not.i, label %21, label %20
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
+  %14 = load ptr, ptr %13, align 8, !alias.scope !413, !noalias !416, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %14, null
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
+  %16 = load ptr, ptr %15, align 8, !alias.scope !416, !noalias !413, !align !39, !noundef !8
+  %17 = icmp eq ptr %16, null
+  br i1 %.not.i, label %19, label %18
 
-20:                                               ; preds = %14
-  br i1 %19, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit", label %22
+18:                                               ; preds = %12
+  br i1 %17, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit", label %20
 
-21:                                               ; preds = %14
-  br i1 %19, label %24, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
+19:                                               ; preds = %12
+  br i1 %17, label %22, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
 
-22:                                               ; preds = %20
-  %23 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %18), !noalias !418
-  br i1 %23, label %24, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
+20:                                               ; preds = %18
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %16), !noalias !418
+  br i1 %21, label %22, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
 
-24:                                               ; preds = %22, %21
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 55
-  %27 = load i8, ptr %26, align 1, !range !117, !alias.scope !413, !noalias !416, !noundef !8
-  %.not4.i = icmp eq i8 %27, -38
-  br i1 %.not4.i, label %32, label %28
+22:                                               ; preds = %20, %19
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.0.val, i64 55
+  %25 = load i8, ptr %24, align 1, !range !117, !alias.scope !413, !noalias !416, !noundef !8
+  %.not4.i = icmp eq i8 %25, -38
+  br i1 %.not4.i, label %30, label %26
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %30 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 55
-  %31 = load i8, ptr %30, align 1, !range !117, !alias.scope !416, !noalias !413, !noundef !8
-  %.not5.i = icmp eq i8 %31, -38
-  br i1 %.not5.i, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit", label %36
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 55
+  %29 = load i8, ptr %28, align 1, !range !117, !alias.scope !416, !noalias !413, !noundef !8
+  %.not5.i = icmp eq i8 %29, -38
+  br i1 %.not5.i, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit", label %34
 
-32:                                               ; preds = %24
-  %33 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 55
-  %34 = load i8, ptr %33, align 1, !range !117, !alias.scope !416, !noalias !413, !noundef !8
-  %35 = icmp eq i8 %34, -38
-  br i1 %35, label %50, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
+30:                                               ; preds = %22
+  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 55
+  %32 = load i8, ptr %31, align 1, !range !117, !alias.scope !416, !noalias !413, !noundef !8
+  %33 = icmp eq i8 %32, -38
+  br i1 %33, label %48, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
 
-36:                                               ; preds = %28
-  %37 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %38 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %39 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
-  br i1 %39, label %40, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
+34:                                               ; preds = %26
+  %35 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %37 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36)
+  br i1 %37, label %38, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
 
-40:                                               ; preds = %36
-  %41 = load i32, ptr %25, align 8, !alias.scope !413, !noalias !416, !noundef !8
-  %42 = load i32, ptr %29, align 8, !alias.scope !416, !noalias !413, !noundef !8
-  %43 = icmp eq i32 %41, %42
-  br i1 %43, label %44, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
+38:                                               ; preds = %34
+  %39 = load i32, ptr %23, align 8, !alias.scope !413, !noalias !416, !noundef !8
+  %40 = load i32, ptr %27, align 8, !alias.scope !416, !noalias !413, !noundef !8
+  %41 = icmp eq i32 %39, %40
+  br i1 %41, label %42, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %46 = load i32, ptr %45, align 4, !alias.scope !413, !noalias !416, !noundef !8
-  %47 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %48 = load i32, ptr %47, align 4, !alias.scope !416, !noalias !413, !noundef !8
-  %49 = icmp eq i32 %46, %48
-  br i1 %49, label %50, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %44 = load i32, ptr %43, align 4, !alias.scope !413, !noalias !416, !noundef !8
+  %45 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %46 = load i32, ptr %45, align 4, !alias.scope !416, !noalias !413, !noundef !8
+  %47 = icmp eq i32 %44, %46
+  br i1 %47, label %48, label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
 
-50:                                               ; preds = %44, %32
-  %51 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %51, align 8, !alias.scope !413, !noalias !416, !nonnull !8, !noundef !8
-  %52 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val6.i = load i64, ptr %52, align 8, !alias.scope !413, !noalias !416, !noundef !8
-  %53 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val7.i = load ptr, ptr %53, align 8, !alias.scope !416, !noalias !413, !nonnull !8, !noundef !8
-  %54 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val8.i = load i64, ptr %54, align 8, !alias.scope !416, !noalias !413, !noundef !8
-  %55 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 8 %.val7.i, i64 noundef %.val8.i)
+48:                                               ; preds = %42, %30
+  %49 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %49, align 8, !alias.scope !413, !noalias !416, !nonnull !8, !noundef !8
+  %50 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val6.i = load i64, ptr %50, align 8, !alias.scope !413, !noalias !416, !noundef !8
+  %51 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val7.i = load ptr, ptr %51, align 8, !alias.scope !416, !noalias !413, !nonnull !8, !noundef !8
+  %52 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val8.i = load i64, ptr %52, align 8, !alias.scope !416, !noalias !413, !noundef !8
+  %53 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 8 %.val7.i, i64 noundef %.val8.i)
   br label %"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit"
 
-"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit": ; preds = %0, %8, %20, %21, %22, %28, %32, %36, %40, %44, %50
-  %.sroa.0.0.i = phi i1 [ %55, %50 ], [ false, %40 ], [ false, %36 ], [ false, %28 ], [ false, %20 ], [ false, %0 ], [ false, %32 ], [ false, %21 ], [ false, %8 ], [ false, %22 ], [ false, %44 ]
+"_ZN91_$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5e7ee24b658caffE.exit": ; preds = %0, %6, %18, %19, %20, %26, %30, %34, %38, %42, %48
+  %.sroa.0.0.i = phi i1 [ %53, %48 ], [ false, %38 ], [ false, %34 ], [ false, %26 ], [ false, %18 ], [ false, %0 ], [ false, %30 ], [ false, %19 ], [ false, %6 ], [ false, %20 ], [ false, %42 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc8566fa5ea3a6d64E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc8566fa5ea3a6d64E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !419)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 96
-  %4 = load i32, ptr %3, align 8, !alias.scope !419, !noalias !422, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 96
-  %6 = load i32, ptr %5, align 8, !alias.scope !422, !noalias !419, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 96
+  %2 = load i32, ptr %1, align 8, !alias.scope !419, !noalias !422, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 96
+  %4 = load i32, ptr %3, align 8, !alias.scope !422, !noalias !419, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 100
-  %10 = load i32, ptr %9, align 4, !alias.scope !419, !noalias !422, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 100
-  %12 = load i32, ptr %11, align 4, !alias.scope !422, !noalias !419, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 100
+  %8 = load i32, ptr %7, align 4, !alias.scope !419, !noalias !422, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 100
+  %10 = load i32, ptr %9, align 4, !alias.scope !422, !noalias !419, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val8.i = load ptr, ptr %15, align 8, !alias.scope !419, !noalias !422, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val9.i = load i64, ptr %16, align 8, !alias.scope !419, !noalias !422, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val10.i = load ptr, ptr %17, align 8, !alias.scope !422, !noalias !419, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val11.i = load i64, ptr %18, align 8, !alias.scope !422, !noalias !419, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val8.i, i64 noundef %.val9.i, ptr noalias noundef nonnull readonly align 8 %.val10.i, i64 noundef %.val11.i), !noalias !424
-  br i1 %19, label %20, label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val8.i = load ptr, ptr %13, align 8, !alias.scope !419, !noalias !422, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val9.i = load i64, ptr %14, align 8, !alias.scope !419, !noalias !422, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val10.i = load ptr, ptr %15, align 8, !alias.scope !422, !noalias !419, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val11.i = load i64, ptr %16, align 8, !alias.scope !422, !noalias !419, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val8.i, i64 noundef %.val9.i, ptr noalias noundef nonnull readonly align 8 %.val10.i, i64 noundef %.val11.i), !noalias !424
+  br i1 %17, label %18, label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %.val12.i = load ptr, ptr %21, align 8, !alias.scope !419, !noalias !422, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %.val13.i = load i64, ptr %22, align 8, !alias.scope !419, !noalias !422, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %.val14.i = load ptr, ptr %23, align 8, !alias.scope !422, !noalias !419, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %.val15.i = load i64, ptr %24, align 8, !alias.scope !422, !noalias !419, !noundef !8
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6eb1cfb57667d577E"(ptr noalias noundef nonnull readonly align 8 %.val12.i, i64 noundef %.val13.i, ptr noalias noundef nonnull readonly align 8 %.val14.i, i64 noundef %.val15.i), !noalias !424
-  br i1 %25, label %26, label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %.val12.i = load ptr, ptr %19, align 8, !alias.scope !419, !noalias !422, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %.val13.i = load i64, ptr %20, align 8, !alias.scope !419, !noalias !422, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %.val14.i = load ptr, ptr %21, align 8, !alias.scope !422, !noalias !419, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %.val15.i = load i64, ptr %22, align 8, !alias.scope !422, !noalias !419, !noundef !8
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6eb1cfb57667d577E"(ptr noalias noundef nonnull readonly align 8 %.val12.i, i64 noundef %.val13.i, ptr noalias noundef nonnull readonly align 8 %.val14.i, i64 noundef %.val15.i), !noalias !424
+  br i1 %23, label %24, label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
-  %.val4.i = load ptr, ptr %27, align 8, !alias.scope !419, !noalias !422, !nonnull !8, !noundef !8
-  %28 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
-  %.val5.i = load i64, ptr %28, align 8, !alias.scope !419, !noalias !422, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
-  %.val6.i = load ptr, ptr %29, align 8, !alias.scope !422, !noalias !419, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
-  %.val7.i = load i64, ptr %30, align 8, !alias.scope !422, !noalias !419, !noundef !8
-  %31 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i, ptr noalias noundef nonnull readonly align 8 %.val6.i, i64 noundef %.val7.i), !noalias !424
-  br i1 %31, label %32, label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
+  %.val4.i = load ptr, ptr %25, align 8, !alias.scope !419, !noalias !422, !nonnull !8, !noundef !8
+  %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
+  %.val5.i = load i64, ptr %26, align 8, !alias.scope !419, !noalias !422, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
+  %.val6.i = load ptr, ptr %27, align 8, !alias.scope !422, !noalias !419, !nonnull !8, !noundef !8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
+  %.val7.i = load i64, ptr %28, align 8, !alias.scope !422, !noalias !419, !noundef !8
+  %29 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i, ptr noalias noundef nonnull readonly align 8 %.val6.i, i64 noundef %.val7.i), !noalias !424
+  br i1 %29, label %30, label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 80
-  %.val.i = load ptr, ptr %33, align 8, !alias.scope !419, !noalias !422, !nonnull !8, !noundef !8
-  %34 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
-  %.val1.i = load i64, ptr %34, align 8, !alias.scope !419, !noalias !422, !noundef !8
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 80
-  %.val2.i = load ptr, ptr %35, align 8, !alias.scope !422, !noalias !419, !nonnull !8, !noundef !8
-  %36 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 88
-  %.val3.i = load i64, ptr %36, align 8, !alias.scope !422, !noalias !419, !noundef !8
-  %37 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !424
-  br i1 %37, label %38, label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %.0.val, i64 80
+  %.val.i = load ptr, ptr %31, align 8, !alias.scope !419, !noalias !422, !nonnull !8, !noundef !8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.val, i64 88
+  %.val1.i = load i64, ptr %32, align 8, !alias.scope !419, !noalias !422, !noundef !8
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 80
+  %.val2.i = load ptr, ptr %33, align 8, !alias.scope !422, !noalias !419, !nonnull !8, !noundef !8
+  %34 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 88
+  %.val3.i = load i64, ptr %34, align 8, !alias.scope !422, !noalias !419, !noundef !8
+  %35 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h54fe00ea2f63a359E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !424
+  br i1 %35, label %36, label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %.0.val, i64 104
-  %40 = load i8, ptr %39, align 8, !range !59, !alias.scope !419, !noalias !422, !noundef !8
-  %41 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 104
-  %42 = load i8, ptr %41, align 8, !range !59, !alias.scope !422, !noalias !419, !noundef !8
-  %43 = icmp eq i8 %40, %42
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %.0.val, i64 104
+  %38 = load i8, ptr %37, align 8, !range !59, !alias.scope !419, !noalias !422, !noundef !8
+  %39 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 104
+  %40 = load i8, ptr %39, align 8, !range !59, !alias.scope !422, !noalias !419, !noundef !8
+  %41 = icmp eq i8 %38, %40
   br label %"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit"
 
-"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit": ; preds = %0, %8, %14, %20, %26, %32, %38
-  %.sroa.0.0.i = phi i1 [ %43, %38 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN76_$LT$ruff_python_ast..generated..StmtTry$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b5af0d15116366cE.exit": ; preds = %0, %6, %12, %18, %24, %30, %36
+  %.sroa.0.0.i = phi i1 [ %41, %36 ], [ false, %30 ], [ false, %24 ], [ false, %18 ], [ false, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hccac9d0fcb3d7c8aE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hccac9d0fcb3d7c8aE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !425)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %4 = load i32, ptr %3, align 8, !alias.scope !425, !noalias !428, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %6 = load i32, ptr %5, align 8, !alias.scope !428, !noalias !425, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN77_$LT$ruff_python_ast..generated..StmtExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf565d582a7811cfE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %2 = load i32, ptr %1, align 8, !alias.scope !425, !noalias !428, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %4 = load i32, ptr %3, align 8, !alias.scope !428, !noalias !425, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN77_$LT$ruff_python_ast..generated..StmtExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf565d582a7811cfE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
-  %10 = load i32, ptr %9, align 4, !alias.scope !425, !noalias !428, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
-  %12 = load i32, ptr %11, align 4, !alias.scope !428, !noalias !425, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN77_$LT$ruff_python_ast..generated..StmtExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf565d582a7811cfE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
+  %8 = load i32, ptr %7, align 4, !alias.scope !425, !noalias !428, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
+  %10 = load i32, ptr %9, align 4, !alias.scope !428, !noalias !425, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN77_$LT$ruff_python_ast..generated..StmtExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf565d582a7811cfE.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !425, !noalias !428, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !428, !noalias !425, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16), !noalias !430
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !425, !noalias !428, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !428, !noalias !425, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14), !noalias !430
   br label %"_ZN77_$LT$ruff_python_ast..generated..StmtExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf565d582a7811cfE.exit"
 
-"_ZN77_$LT$ruff_python_ast..generated..StmtExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf565d582a7811cfE.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %17, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN77_$LT$ruff_python_ast..generated..StmtExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcf565d582a7811cfE.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %15, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd24805042da6fac1E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd24805042da6fac1E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !431, !noalias !434, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !434, !noalias !431, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN79_$LT$ruff_python_ast..generated..StmtGlobal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62b2dc928a3bae58E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !431, !noalias !434, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !434, !noalias !431, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN79_$LT$ruff_python_ast..generated..StmtGlobal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62b2dc928a3bae58E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !431, !noalias !434, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !434, !noalias !431, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN79_$LT$ruff_python_ast..generated..StmtGlobal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62b2dc928a3bae58E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !431, !noalias !434, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !434, !noalias !431, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN79_$LT$ruff_python_ast..generated..StmtGlobal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62b2dc928a3bae58E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !431, !noalias !434, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !431, !noalias !434, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !434, !noalias !431, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !434, !noalias !431, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb5efa72fc3b72838E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !436
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !431, !noalias !434, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !431, !noalias !434, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !434, !noalias !431, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !434, !noalias !431, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb5efa72fc3b72838E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i), !noalias !436
   br label %"_ZN79_$LT$ruff_python_ast..generated..StmtGlobal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62b2dc928a3bae58E.exit"
 
-"_ZN79_$LT$ruff_python_ast..generated..StmtGlobal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62b2dc928a3bae58E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %19, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN79_$LT$ruff_python_ast..generated..StmtGlobal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62b2dc928a3bae58E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %17, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd34ebb2ab1cdd88aE"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !437)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !440)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %4 = load i32, ptr %3, align 8, !alias.scope !437, !noalias !440, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %6 = load i32, ptr %5, align 8, !alias.scope !440, !noalias !437, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %2 = load i32, ptr %1, align 8, !alias.scope !437, !noalias !440, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %4 = load i32, ptr %3, align 8, !alias.scope !440, !noalias !437, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
-  %10 = load i32, ptr %9, align 4, !alias.scope !437, !noalias !440, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
-  %12 = load i32, ptr %11, align 4, !alias.scope !440, !noalias !437, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
+  %8 = load i32, ptr %7, align 4, !alias.scope !437, !noalias !440, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
+  %10 = load i32, ptr %9, align 4, !alias.scope !440, !noalias !437, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %17 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
-  br i1 %17, label %18, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
+  %15 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
+  br i1 %15, label %16, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
-  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
-  %21 = load i32, ptr %20, align 8, !alias.scope !437, !noalias !440, !noundef !8
-  %22 = load i32, ptr %19, align 8, !alias.scope !440, !noalias !437, !noundef !8
-  %23 = icmp eq i32 %21, %22
-  br i1 %23, label %24, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
+  %19 = load i32, ptr %18, align 8, !alias.scope !437, !noalias !440, !noundef !8
+  %20 = load i32, ptr %17, align 8, !alias.scope !440, !noalias !437, !noundef !8
+  %21 = icmp eq i32 %19, %20
+  br i1 %21, label %22, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 44
-  %26 = load i32, ptr %25, align 4, !alias.scope !437, !noalias !440, !noundef !8
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 44
-  %28 = load i32, ptr %27, align 4, !alias.scope !440, !noalias !437, !noundef !8
-  %29 = icmp eq i32 %26, %28
-  br i1 %29, label %30, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 44
+  %24 = load i32, ptr %23, align 4, !alias.scope !437, !noalias !440, !noundef !8
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 44
+  %26 = load i32, ptr %25, align 4, !alias.scope !440, !noalias !437, !noundef !8
+  %27 = icmp eq i32 %24, %26
+  br i1 %27, label %28, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val, i64 31
-  %32 = load i8, ptr %31, align 1, !range !117, !alias.scope !437, !noalias !440, !noundef !8
-  %.not.i = icmp eq i8 %32, -38
-  %33 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 31
-  %34 = load i8, ptr %33, align 1, !range !117, !alias.scope !440, !noalias !437, !noundef !8
-  %35 = icmp eq i8 %34, -38
-  %brmerge.i = or i1 %.not.i, %35
-  %.mux.i = and i1 %.not.i, %35
-  br i1 %brmerge.i, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit", label %36
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 31
+  %30 = load i8, ptr %29, align 1, !range !117, !alias.scope !437, !noalias !440, !noundef !8
+  %.not.i = icmp eq i8 %30, -38
+  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 31
+  %32 = load i8, ptr %31, align 1, !range !117, !alias.scope !440, !noalias !437, !noundef !8
+  %33 = icmp eq i8 %32, -38
+  %brmerge.i = or i1 %.not.i, %33
+  %.mux.i = and i1 %.not.i, %33
+  br i1 %brmerge.i, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit", label %34
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %39 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
-  br i1 %39, label %40, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %37 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36)
+  br i1 %37, label %38, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
 
-40:                                               ; preds = %36
-  %41 = load i32, ptr %.0.val, align 8, !alias.scope !437, !noalias !440, !noundef !8
-  %42 = load i32, ptr %.0.val1, align 8, !alias.scope !440, !noalias !437, !noundef !8
-  %43 = icmp eq i32 %41, %42
-  br i1 %43, label %44, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
+38:                                               ; preds = %34
+  %39 = load i32, ptr %.0.val, align 8, !alias.scope !437, !noalias !440, !noundef !8
+  %40 = load i32, ptr %.0.val1, align 8, !alias.scope !440, !noalias !437, !noundef !8
+  %41 = icmp eq i32 %39, %40
+  br i1 %41, label %42, label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %46 = load i32, ptr %45, align 4, !alias.scope !437, !noalias !440, !noundef !8
-  %47 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %48 = load i32, ptr %47, align 4, !alias.scope !440, !noalias !437, !noundef !8
-  %49 = icmp eq i32 %46, %48
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %44 = load i32, ptr %43, align 4, !alias.scope !437, !noalias !440, !noundef !8
+  %45 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %46 = load i32, ptr %45, align 4, !alias.scope !440, !noalias !437, !noundef !8
+  %47 = icmp eq i32 %44, %46
   br label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
 
-"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit": ; preds = %0, %8, %14, %18, %24, %30, %36, %40, %44
-  %.sroa.0.0.shrunk.i = phi i1 [ %49, %44 ], [ false, %36 ], [ %.mux.i, %30 ], [ false, %8 ], [ false, %40 ], [ false, %18 ], [ false, %14 ], [ false, %0 ], [ false, %24 ]
+"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit": ; preds = %0, %6, %12, %16, %22, %28, %34, %38, %42
+  %.sroa.0.0.shrunk.i = phi i1 [ %47, %42 ], [ false, %34 ], [ %.mux.i, %28 ], [ false, %6 ], [ false, %38 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %22 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd96d6fa073e515f4E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd96d6fa073e515f4E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !442)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !445)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %4 = load i32, ptr %3, align 8, !alias.scope !442, !noalias !445, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %6 = load i32, ptr %5, align 8, !alias.scope !445, !noalias !442, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN80_$LT$ruff_python_ast..generated..ExprUnaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h480ab60cb3273471E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %2 = load i32, ptr %1, align 8, !alias.scope !442, !noalias !445, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %4 = load i32, ptr %3, align 8, !alias.scope !445, !noalias !442, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN80_$LT$ruff_python_ast..generated..ExprUnaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h480ab60cb3273471E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
-  %10 = load i32, ptr %9, align 4, !alias.scope !442, !noalias !445, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
-  %12 = load i32, ptr %11, align 4, !alias.scope !445, !noalias !442, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN80_$LT$ruff_python_ast..generated..ExprUnaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h480ab60cb3273471E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
+  %8 = load i32, ptr %7, align 4, !alias.scope !442, !noalias !445, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 12
+  %10 = load i32, ptr %9, align 4, !alias.scope !445, !noalias !442, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN80_$LT$ruff_python_ast..generated..ExprUnaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h480ab60cb3273471E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %16 = load i8, ptr %15, align 8, !range !21, !alias.scope !442, !noalias !445, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %18 = load i8, ptr %17, align 8, !range !21, !alias.scope !445, !noalias !442, !noundef !8
-  %19 = icmp eq i8 %16, %18
-  br i1 %19, label %20, label %"_ZN80_$LT$ruff_python_ast..generated..ExprUnaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h480ab60cb3273471E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %14 = load i8, ptr %13, align 8, !range !21, !alias.scope !442, !noalias !445, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %16 = load i8, ptr %15, align 8, !range !21, !alias.scope !445, !noalias !442, !noundef !8
+  %17 = icmp eq i8 %14, %16
+  br i1 %17, label %18, label %"_ZN80_$LT$ruff_python_ast..generated..ExprUnaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h480ab60cb3273471E.exit"
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %.0.val, align 8, !alias.scope !442, !noalias !445, !nonnull !8, !noundef !8
-  %22 = load ptr, ptr %.0.val1, align 8, !alias.scope !445, !noalias !442, !nonnull !8, !noundef !8
-  %23 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %21, ptr noundef nonnull align 8 %22) #11, !noalias !447
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %.0.val, align 8, !alias.scope !442, !noalias !445, !nonnull !8, !noundef !8
+  %20 = load ptr, ptr %.0.val1, align 8, !alias.scope !445, !noalias !442, !nonnull !8, !noundef !8
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %19, ptr noundef nonnull align 8 %20) #11, !noalias !447
   br label %"_ZN80_$LT$ruff_python_ast..generated..ExprUnaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h480ab60cb3273471E.exit"
 
-"_ZN80_$LT$ruff_python_ast..generated..ExprUnaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h480ab60cb3273471E.exit": ; preds = %0, %8, %14, %20
-  %.sroa.0.0.i = phi i1 [ %23, %20 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
+"_ZN80_$LT$ruff_python_ast..generated..ExprUnaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h480ab60cb3273471E.exit": ; preds = %0, %6, %12, %18
+  %.sroa.0.0.i = phi i1 [ %21, %18 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hde557f2d71191bdaE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hde557f2d71191bdaE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !448)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !451)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %4 = load i32, ptr %3, align 8, !alias.scope !448, !noalias !451, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %6 = load i32, ptr %5, align 8, !alias.scope !451, !noalias !448, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8efb39eeb4251a69E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %2 = load i32, ptr %1, align 8, !alias.scope !448, !noalias !451, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %4 = load i32, ptr %3, align 8, !alias.scope !451, !noalias !448, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8efb39eeb4251a69E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
-  %10 = load i32, ptr %9, align 4, !alias.scope !448, !noalias !451, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
-  %12 = load i32, ptr %11, align 4, !alias.scope !451, !noalias !448, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8efb39eeb4251a69E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
+  %8 = load i32, ptr %7, align 4, !alias.scope !448, !noalias !451, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
+  %10 = load i32, ptr %9, align 4, !alias.scope !451, !noalias !448, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8efb39eeb4251a69E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !448, !noalias !451, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !448, !noalias !451, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !451, !noalias !448, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !451, !noalias !448, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !453
-  br i1 %19, label %20, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8efb39eeb4251a69E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !448, !noalias !451, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !448, !noalias !451, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !451, !noalias !448, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !451, !noalias !448, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !453
+  br i1 %17, label %18, label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8efb39eeb4251a69E.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %22 = load ptr, ptr %21, align 8, !alias.scope !448, !noalias !451, !nonnull !8, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %24 = load ptr, ptr %23, align 8, !alias.scope !451, !noalias !448, !nonnull !8, !noundef !8
-  %25 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %22, ptr noundef nonnull align 8 %24), !noalias !453
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %20 = load ptr, ptr %19, align 8, !alias.scope !448, !noalias !451, !nonnull !8, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %22 = load ptr, ptr %21, align 8, !alias.scope !451, !noalias !448, !nonnull !8, !noundef !8
+  %23 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %20, ptr noundef nonnull align 8 %22), !noalias !453
   br label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8efb39eeb4251a69E.exit"
 
-"_ZN79_$LT$ruff_python_ast..generated..StmtAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8efb39eeb4251a69E.exit": ; preds = %0, %8, %14, %20
-  %.sroa.0.0.i = phi i1 [ %25, %20 ], [ false, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN79_$LT$ruff_python_ast..generated..StmtAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8efb39eeb4251a69E.exit": ; preds = %0, %6, %12, %18
+  %.sroa.0.0.i = phi i1 [ %23, %18 ], [ false, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he09eb2e7198ab78eE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he09eb2e7198ab78eE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !454)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !457)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %4 = load i32, ptr %3, align 8, !alias.scope !454, !noalias !457, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %6 = load i32, ptr %5, align 8, !alias.scope !457, !noalias !454, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAugAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a65461c6ed34cffE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %2 = load i32, ptr %1, align 8, !alias.scope !454, !noalias !457, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %4 = load i32, ptr %3, align 8, !alias.scope !457, !noalias !454, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAugAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a65461c6ed34cffE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %10 = load i32, ptr %9, align 4, !alias.scope !454, !noalias !457, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %12 = load i32, ptr %11, align 4, !alias.scope !457, !noalias !454, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAugAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a65461c6ed34cffE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %8 = load i32, ptr %7, align 4, !alias.scope !454, !noalias !457, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %10 = load i32, ptr %9, align 4, !alias.scope !457, !noalias !454, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAugAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a65461c6ed34cffE.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !454, !noalias !457, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !457, !noalias !454, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16), !noalias !459
-  br i1 %17, label %18, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAugAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a65461c6ed34cffE.exit"
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !454, !noalias !457, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !457, !noalias !454, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14), !noalias !459
+  br i1 %15, label %16, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAugAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a65461c6ed34cffE.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %20 = load i8, ptr %19, align 8, !range !47, !alias.scope !454, !noalias !457, !noundef !8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %22 = load i8, ptr %21, align 8, !range !47, !alias.scope !457, !noalias !454, !noundef !8
-  %23 = icmp eq i8 %20, %22
-  br i1 %23, label %24, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAugAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a65461c6ed34cffE.exit"
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %18 = load i8, ptr %17, align 8, !range !47, !alias.scope !454, !noalias !457, !noundef !8
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %20 = load i8, ptr %19, align 8, !range !47, !alias.scope !457, !noalias !454, !noundef !8
+  %21 = icmp eq i8 %18, %20
+  br i1 %21, label %22, label %"_ZN82_$LT$ruff_python_ast..generated..StmtAugAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a65461c6ed34cffE.exit"
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %26 = load ptr, ptr %25, align 8, !alias.scope !454, !noalias !457, !nonnull !8, !noundef !8
-  %27 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %28 = load ptr, ptr %27, align 8, !alias.scope !457, !noalias !454, !nonnull !8, !noundef !8
-  %29 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %26, ptr noundef nonnull align 8 %28), !noalias !459
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %24 = load ptr, ptr %23, align 8, !alias.scope !454, !noalias !457, !nonnull !8, !noundef !8
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %26 = load ptr, ptr %25, align 8, !alias.scope !457, !noalias !454, !nonnull !8, !noundef !8
+  %27 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %24, ptr noundef nonnull align 8 %26), !noalias !459
   br label %"_ZN82_$LT$ruff_python_ast..generated..StmtAugAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a65461c6ed34cffE.exit"
 
-"_ZN82_$LT$ruff_python_ast..generated..StmtAugAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a65461c6ed34cffE.exit": ; preds = %0, %8, %14, %18, %24
-  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %0 ], [ false, %18 ], [ false, %14 ], [ false, %8 ]
+"_ZN82_$LT$ruff_python_ast..generated..StmtAugAssign$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6a65461c6ed34cffE.exit": ; preds = %0, %6, %12, %16, %22
+  %.sroa.0.0.i = phi i1 [ %27, %22 ], [ false, %0 ], [ false, %16 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he5ca3648121b1345E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he5ca3648121b1345E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !463)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %4 = load i32, ptr %3, align 8, !alias.scope !460, !noalias !463, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %6 = load i32, ptr %5, align 8, !alias.scope !463, !noalias !460, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %2 = load i32, ptr %1, align 8, !alias.scope !460, !noalias !463, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %4 = load i32, ptr %3, align 8, !alias.scope !463, !noalias !460, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %10 = load i32, ptr %9, align 4, !alias.scope !460, !noalias !463, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %12 = load i32, ptr %11, align 4, !alias.scope !463, !noalias !460, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %8 = load i32, ptr %7, align 4, !alias.scope !460, !noalias !463, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %10 = load i32, ptr %9, align 4, !alias.scope !463, !noalias !460, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !460, !noalias !463, !nonnull !8, !noundef !8
-  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !463, !noalias !460, !nonnull !8, !noundef !8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %16), !noalias !465
-  br i1 %17, label %18, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !460, !noalias !463, !nonnull !8, !noundef !8
+  %14 = load ptr, ptr %.0.val1, align 8, !alias.scope !463, !noalias !460, !nonnull !8, !noundef !8
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %13, ptr noundef nonnull align 8 %14), !noalias !465
+  br i1 %15, label %16, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %20 = load ptr, ptr %19, align 8, !alias.scope !460, !noalias !463, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %20, null
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %22 = load ptr, ptr %21, align 8, !alias.scope !463, !noalias !460, !align !39, !noundef !8
-  %23 = icmp eq ptr %22, null
-  br i1 %.not.i, label %25, label %24
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %18 = load ptr, ptr %17, align 8, !alias.scope !460, !noalias !463, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %18, null
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %20 = load ptr, ptr %19, align 8, !alias.scope !463, !noalias !460, !align !39, !noundef !8
+  %21 = icmp eq ptr %20, null
+  br i1 %.not.i, label %23, label %22
 
-24:                                               ; preds = %18
-  br i1 %23, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit", label %26
+22:                                               ; preds = %16
+  br i1 %21, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit", label %24
 
-25:                                               ; preds = %18
-  br i1 %23, label %44, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
+23:                                               ; preds = %16
+  br i1 %21, label %42, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
 
-26:                                               ; preds = %24
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %26 = load i32, ptr %25, align 8, !noalias !465, !noundef !8
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %28 = load i32, ptr %27, align 8, !noalias !465, !noundef !8
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %30 = load i32, ptr %29, align 8, !noalias !465, !noundef !8
-  %31 = icmp eq i32 %28, %30
-  br i1 %31, label %32, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
+  %29 = icmp eq i32 %26, %28
+  br i1 %29, label %30, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
 
-32:                                               ; preds = %26
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 28
+  %32 = load i32, ptr %31, align 4, !noalias !465, !noundef !8
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %34 = load i32, ptr %33, align 4, !noalias !465, !noundef !8
-  %35 = getelementptr inbounds nuw i8, ptr %22, i64 28
-  %36 = load i32, ptr %35, align 4, !noalias !465, !noundef !8
-  %37 = icmp eq i32 %34, %36
-  br i1 %37, label %38, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
+  %35 = icmp eq i32 %32, %34
+  br i1 %35, label %36, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
 
-38:                                               ; preds = %32
+36:                                               ; preds = %30
+  %37 = getelementptr i8, ptr %18, i64 8
+  %.val.i = load ptr, ptr %37, align 8, !noalias !465, !nonnull !8, !noundef !8
+  %38 = getelementptr i8, ptr %18, i64 16
+  %.val3.i = load i64, ptr %38, align 8, !noalias !465, !noundef !8
   %39 = getelementptr i8, ptr %20, i64 8
-  %.val.i = load ptr, ptr %39, align 8, !noalias !465, !nonnull !8, !noundef !8
+  %.val4.i = load ptr, ptr %39, align 8, !noalias !465, !nonnull !8, !noundef !8
   %40 = getelementptr i8, ptr %20, i64 16
-  %.val3.i = load i64, ptr %40, align 8, !noalias !465, !noundef !8
-  %41 = getelementptr i8, ptr %22, i64 8
-  %.val4.i = load ptr, ptr %41, align 8, !noalias !465, !nonnull !8, !noundef !8
-  %42 = getelementptr i8, ptr %22, i64 16
-  %.val5.i = load i64, ptr %42, align 8, !noalias !465, !noundef !8
-  %43 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he7aa9dd5810bcd27E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i), !noalias !465
-  br i1 %43, label %44, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
+  %.val5.i = load i64, ptr %40, align 8, !noalias !465, !noundef !8
+  %41 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he7aa9dd5810bcd27E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 %.val4.i, i64 noundef %.val5.i), !noalias !465
+  br i1 %41, label %42, label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
 
-44:                                               ; preds = %38, %25
-  %45 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %46 = load ptr, ptr %45, align 8, !alias.scope !460, !noalias !463, !nonnull !8, !noundef !8
-  %47 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %48 = load ptr, ptr %47, align 8, !alias.scope !463, !noalias !460, !nonnull !8, !noundef !8
-  %49 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %46, ptr noundef nonnull align 8 %48), !noalias !465
+42:                                               ; preds = %36, %23
+  %43 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %44 = load ptr, ptr %43, align 8, !alias.scope !460, !noalias !463, !nonnull !8, !noundef !8
+  %45 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %46 = load ptr, ptr %45, align 8, !alias.scope !463, !noalias !460, !nonnull !8, !noundef !8
+  %47 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %44, ptr noundef nonnull align 8 %46), !noalias !465
   br label %"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit"
 
-"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit": ; preds = %0, %8, %14, %24, %25, %26, %32, %38, %44
-  %.sroa.0.0.i = phi i1 [ %49, %44 ], [ false, %32 ], [ false, %26 ], [ false, %24 ], [ false, %0 ], [ false, %25 ], [ false, %14 ], [ false, %8 ], [ false, %38 ]
+"_ZN82_$LT$ruff_python_ast..generated..StmtTypeAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17he24b3b067af7e8b1E.exit": ; preds = %0, %6, %12, %22, %23, %24, %30, %36, %42
+  %.sroa.0.0.i = phi i1 [ %47, %42 ], [ false, %30 ], [ false, %24 ], [ false, %22 ], [ false, %0 ], [ false, %23 ], [ false, %12 ], [ false, %6 ], [ false, %36 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he9c48906a12f248eE"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
+  %2 = load i32, ptr %1, align 8, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
   %4 = load i32, ptr %3, align 8, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 64
-  %6 = load i32, ptr %5, align 8, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN73_$LT$ruff_python_ast..nodes..WithItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb9c5bb8fba66a4dE.exit"
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN73_$LT$ruff_python_ast..nodes..WithItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb9c5bb8fba66a4dE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 68
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 68
+  %8 = load i32, ptr %7, align 4, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 68
   %10 = load i32, ptr %9, align 4, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 68
-  %12 = load i32, ptr %11, align 4, !noundef !8
-  %13 = icmp eq i32 %10, %12
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN73_$LT$ruff_python_ast..nodes..WithItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb9c5bb8fba66a4dE.exit"
+
+12:                                               ; preds = %6
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %.0.val, ptr noundef nonnull align 8 %.0.val1)
   br i1 %13, label %14, label %"_ZN73_$LT$ruff_python_ast..nodes..WithItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb9c5bb8fba66a4dE.exit"
 
-14:                                               ; preds = %8
-  %15 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %.0.val, ptr noundef nonnull align 8 %.0.val1)
-  br i1 %15, label %16, label %"_ZN73_$LT$ruff_python_ast..nodes..WithItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb9c5bb8fba66a4dE.exit"
-
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 72
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 72
+  %16 = load ptr, ptr %15, align 8, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %16, null
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 72
   %18 = load ptr, ptr %17, align 8, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %18, null
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 72
-  %20 = load ptr, ptr %19, align 8, !align !39, !noundef !8
-  %21 = icmp eq ptr %20, null
-  %brmerge.i = or i1 %.not.i, %21
-  %.mux.i = and i1 %.not.i, %21
-  br i1 %brmerge.i, label %"_ZN73_$LT$ruff_python_ast..nodes..WithItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb9c5bb8fba66a4dE.exit", label %22
+  %19 = icmp eq ptr %18, null
+  %brmerge.i = or i1 %.not.i, %19
+  %.mux.i = and i1 %.not.i, %19
+  br i1 %brmerge.i, label %"_ZN73_$LT$ruff_python_ast..nodes..WithItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb9c5bb8fba66a4dE.exit", label %20
 
-22:                                               ; preds = %16
-  %23 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %18, ptr noundef nonnull align 8 %20)
+20:                                               ; preds = %14
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %18)
   br label %"_ZN73_$LT$ruff_python_ast..nodes..WithItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb9c5bb8fba66a4dE.exit"
 
-"_ZN73_$LT$ruff_python_ast..nodes..WithItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb9c5bb8fba66a4dE.exit": ; preds = %0, %8, %14, %16, %22
-  %.sroa.0.0.shrunk.i = phi i1 [ %23, %22 ], [ false, %8 ], [ %.mux.i, %16 ], [ false, %14 ], [ false, %0 ]
+"_ZN73_$LT$ruff_python_ast..nodes..WithItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb9c5bb8fba66a4dE.exit": ; preds = %0, %6, %12, %14, %20
+  %.sroa.0.0.shrunk.i = phi i1 [ %21, %20 ], [ false, %6 ], [ %.mux.i, %14 ], [ false, %12 ], [ false, %0 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hed56a155e8e1b86dE"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hed56a155e8e1b86dE"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !466)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !469)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %4 = load i32, ptr %3, align 8, !alias.scope !466, !noalias !469, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %6 = load i32, ptr %5, align 8, !alias.scope !469, !noalias !466, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN86_$LT$ruff_python_ast..nodes..FStringLiteralElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h543625649800ae15E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %2 = load i32, ptr %1, align 8, !alias.scope !466, !noalias !469, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %4 = load i32, ptr %3, align 8, !alias.scope !469, !noalias !466, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN86_$LT$ruff_python_ast..nodes..FStringLiteralElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h543625649800ae15E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %10 = load i32, ptr %9, align 4, !alias.scope !466, !noalias !469, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %12 = load i32, ptr %11, align 4, !alias.scope !469, !noalias !466, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN86_$LT$ruff_python_ast..nodes..FStringLiteralElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h543625649800ae15E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %8 = load i32, ptr %7, align 4, !alias.scope !466, !noalias !469, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %10 = load i32, ptr %9, align 4, !alias.scope !469, !noalias !466, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN86_$LT$ruff_python_ast..nodes..FStringLiteralElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h543625649800ae15E.exit"
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !466, !noalias !469, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %17 = load i64, ptr %16, align 8, !alias.scope !466, !noalias !469, !noundef !8
-  %18 = load ptr, ptr %.0.val1, align 8, !alias.scope !469, !noalias !466, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %20 = load i64, ptr %19, align 8, !alias.scope !469, !noalias !466, !noundef !8
-  %21 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20), !noalias !471
+12:                                               ; preds = %6
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !466, !noalias !469, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %15 = load i64, ptr %14, align 8, !alias.scope !466, !noalias !469, !noundef !8
+  %16 = load ptr, ptr %.0.val1, align 8, !alias.scope !469, !noalias !466, !nonnull !8, !noundef !8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %18 = load i64, ptr %17, align 8, !alias.scope !469, !noalias !466, !noundef !8
+  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %15, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %18), !noalias !471
   br label %"_ZN86_$LT$ruff_python_ast..nodes..FStringLiteralElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h543625649800ae15E.exit"
 
-"_ZN86_$LT$ruff_python_ast..nodes..FStringLiteralElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h543625649800ae15E.exit": ; preds = %0, %8, %14
-  %.sroa.0.0.i = phi i1 [ %21, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN86_$LT$ruff_python_ast..nodes..FStringLiteralElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h543625649800ae15E.exit": ; preds = %0, %6, %12
+  %.sroa.0.0.i = phi i1 [ %19, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hee655070a5c6e640E"(ptr %.0.val, ptr %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !472)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !475)
-  %3 = load i32, ptr %.0.val, align 8, !alias.scope !472, !noalias !475, !noundef !8
-  %4 = load i32, ptr %.0.val1, align 8, !alias.scope !475, !noalias !472, !noundef !8
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %6, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit"
+  %1 = load i32, ptr %.0.val, align 8, !alias.scope !472, !noalias !475, !noundef !8
+  %2 = load i32, ptr %.0.val1, align 8, !alias.scope !475, !noalias !472, !noundef !8
+  %3 = icmp eq i32 %1, %2
+  br i1 %3, label %4, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit"
 
-6:                                                ; preds = %0
-  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %8 = load i32, ptr %7, align 4, !alias.scope !472, !noalias !475, !noundef !8
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !475, !noalias !472, !noundef !8
-  %11 = icmp eq i32 %8, %10
-  br i1 %11, label %12, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit"
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
+  %6 = load i32, ptr %5, align 4, !alias.scope !472, !noalias !475, !noundef !8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 4
+  %8 = load i32, ptr %7, align 4, !alias.scope !475, !noalias !472, !noundef !8
+  %9 = icmp eq i32 %6, %8
+  br i1 %9, label %10, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit"
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %15 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
-  br i1 %15, label %16, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit"
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %13 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  br i1 %13, label %14, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit"
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %19 = load i32, ptr %18, align 8, !alias.scope !472, !noalias !475, !noundef !8
-  %20 = load i32, ptr %17, align 8, !alias.scope !475, !noalias !472, !noundef !8
-  %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit"
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %17 = load i32, ptr %16, align 8, !alias.scope !472, !noalias !475, !noundef !8
+  %18 = load i32, ptr %15, align 8, !alias.scope !475, !noalias !472, !noundef !8
+  %19 = icmp eq i32 %17, %18
+  br i1 %19, label %20, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit"
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %24 = load i32, ptr %23, align 4, !alias.scope !472, !noalias !475, !noundef !8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %26 = load i32, ptr %25, align 4, !alias.scope !475, !noalias !472, !noundef !8
-  %27 = icmp eq i32 %24, %26
-  br i1 %27, label %28, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit"
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %22 = load i32, ptr %21, align 4, !alias.scope !472, !noalias !475, !noundef !8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %24 = load i32, ptr %23, align 4, !alias.scope !475, !noalias !472, !noundef !8
+  %25 = icmp eq i32 %22, %24
+  br i1 %25, label %26, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit"
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %30 = load ptr, ptr %29, align 8, !alias.scope !472, !noalias !475, !align !39, !noundef !8
-  %.not.i = icmp eq ptr %30, null
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %32 = load ptr, ptr %31, align 8, !alias.scope !475, !noalias !472, !align !39, !noundef !8
-  %33 = icmp eq ptr %32, null
-  %brmerge.i = or i1 %.not.i, %33
-  %.mux.i = and i1 %.not.i, %33
-  br i1 %brmerge.i, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit", label %34
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %28 = load ptr, ptr %27, align 8, !alias.scope !472, !noalias !475, !align !39, !noundef !8
+  %.not.i = icmp eq ptr %28, null
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %30 = load ptr, ptr %29, align 8, !alias.scope !475, !noalias !472, !align !39, !noundef !8
+  %31 = icmp eq ptr %30, null
+  %brmerge.i = or i1 %.not.i, %31
+  %.mux.i = and i1 %.not.i, %31
+  br i1 %brmerge.i, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit", label %32
 
-34:                                               ; preds = %28
-  %35 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %30, ptr noundef nonnull align 8 %32) #11
+32:                                               ; preds = %26
+  %33 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %28, ptr noundef nonnull align 8 %30) #11
   br label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit"
 
-"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit": ; preds = %0, %6, %12, %16, %22, %28, %34
-  %.sroa.0.0.shrunk.i = phi i1 [ %35, %34 ], [ false, %6 ], [ %.mux.i, %28 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %22 ]
+"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit": ; preds = %0, %4, %10, %14, %20, %26, %32
+  %.sroa.0.0.shrunk.i = phi i1 [ %33, %32 ], [ false, %4 ], [ %.mux.i, %26 ], [ false, %14 ], [ false, %10 ], [ false, %0 ], [ false, %20 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hf5822757b876a409E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hf5822757b876a409E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !477)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !480)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %4 = load i32, ptr %3, align 8, !alias.scope !477, !noalias !480, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %6 = load i32, ptr %5, align 8, !alias.scope !480, !noalias !477, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %2 = load i32, ptr %1, align 8, !alias.scope !477, !noalias !480, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %4 = load i32, ptr %3, align 8, !alias.scope !480, !noalias !477, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
-  %10 = load i32, ptr %9, align 4, !alias.scope !477, !noalias !480, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
-  %12 = load i32, ptr %11, align 4, !alias.scope !480, !noalias !477, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 36
+  %8 = load i32, ptr %7, align 4, !alias.scope !477, !noalias !480, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 36
+  %10 = load i32, ptr %9, align 4, !alias.scope !480, !noalias !477, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
 
-14:                                               ; preds = %8
+12:                                               ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !485)
-  %15 = load ptr, ptr %.0.val, align 8, !alias.scope !487, !noalias !488, !noundef !8
+  %13 = load ptr, ptr %.0.val, align 8, !alias.scope !487, !noalias !488, !noundef !8
+  %14 = icmp eq ptr %13, null
+  %15 = load ptr, ptr %.0.val1, align 8, !alias.scope !488, !noalias !487, !noundef !8
   %16 = icmp eq ptr %15, null
-  %17 = load ptr, ptr %.0.val1, align 8, !alias.scope !488, !noalias !487, !noundef !8
-  %18 = icmp eq ptr %17, null
-  %19 = xor i1 %16, %18
-  br i1 %19, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit", label %20
+  %17 = xor i1 %14, %16
+  br i1 %17, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit", label %18
 
-20:                                               ; preds = %14
-  br i1 %16, label %21, label %27
+18:                                               ; preds = %12
+  br i1 %14, label %19, label %25
 
-21:                                               ; preds = %20
-  tail call void @llvm.assume(i1 %18)
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val.i.i = load ptr, ptr %22, align 8, !alias.scope !487, !noalias !488, !nonnull !8, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %.val2.i.i = load i64, ptr %23, align 8, !alias.scope !487, !noalias !488, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i.i = load ptr, ptr %24, align 8, !alias.scope !488, !noalias !487, !nonnull !8, !noundef !8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %.val4.i.i = load i64, ptr %25, align 8, !alias.scope !488, !noalias !487, !noundef !8
-  %26 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h609505c30b7d446dE"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val2.i.i, ptr noalias noundef nonnull readonly align 8 %.val3.i.i, i64 noundef %.val4.i.i), !noalias !489
+19:                                               ; preds = %18
+  tail call void @llvm.assume(i1 %16)
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val.i.i = load ptr, ptr %20, align 8, !alias.scope !487, !noalias !488, !nonnull !8, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %.val2.i.i = load i64, ptr %21, align 8, !alias.scope !487, !noalias !488, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i.i = load ptr, ptr %22, align 8, !alias.scope !488, !noalias !487, !nonnull !8, !noundef !8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %.val4.i.i = load i64, ptr %23, align 8, !alias.scope !488, !noalias !487, !noundef !8
+  %24 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h609505c30b7d446dE"(ptr noalias noundef nonnull readonly align 8 %.val.i.i, i64 noundef %.val2.i.i, ptr noalias noundef nonnull readonly align 8 %.val3.i.i, i64 noundef %.val4.i.i), !noalias !489
   br label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
 
-27:                                               ; preds = %20
-  %28 = xor i1 %18, true
-  tail call void @llvm.assume(i1 %28)
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %30 = load i32, ptr %29, align 8, !alias.scope !487, !noalias !488, !noundef !8
-  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %32 = load i32, ptr %31, align 8, !alias.scope !488, !noalias !487, !noundef !8
-  %33 = icmp eq i32 %30, %32
-  br i1 %33, label %34, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
+25:                                               ; preds = %18
+  %26 = xor i1 %16, true
+  tail call void @llvm.assume(i1 %26)
+  %27 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %28 = load i32, ptr %27, align 8, !alias.scope !487, !noalias !488, !noundef !8
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %30 = load i32, ptr %29, align 8, !alias.scope !488, !noalias !487, !noundef !8
+  %31 = icmp eq i32 %28, %30
+  br i1 %31, label %32, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
 
-34:                                               ; preds = %27
-  %35 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
-  %36 = load i32, ptr %35, align 4, !alias.scope !487, !noalias !488, !noundef !8
-  %37 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
-  %38 = load i32, ptr %37, align 4, !alias.scope !488, !noalias !487, !noundef !8
-  %39 = icmp eq i32 %36, %38
-  br i1 %39, label %40, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds nuw i8, ptr %.0.val, i64 20
+  %34 = load i32, ptr %33, align 4, !alias.scope !487, !noalias !488, !noundef !8
+  %35 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 20
+  %36 = load i32, ptr %35, align 4, !alias.scope !488, !noalias !487, !noundef !8
+  %37 = icmp eq i32 %34, %36
+  br i1 %37, label %38, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
 
-40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %42 = load i64, ptr %41, align 8, !alias.scope !487, !noalias !488, !noundef !8
-  %43 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %44 = load i64, ptr %43, align 8, !alias.scope !488, !noalias !487, !noundef !8
-  %45 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %42, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %44), !noalias !489
-  br i1 %45, label %46, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %40 = load i64, ptr %39, align 8, !alias.scope !487, !noalias !488, !noundef !8
+  %41 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %42 = load i64, ptr %41, align 8, !alias.scope !488, !noalias !487, !noundef !8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
+  %43 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %40, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %42), !noalias !489
+  br i1 %43, label %44, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
 
-46:                                               ; preds = %40
-  %47 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %48 = load i8, ptr %47, align 8, !alias.scope !487, !noalias !488, !noundef !8
-  %49 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %50 = load i8, ptr %49, align 8, !alias.scope !488, !noalias !487, !noundef !8
-  %51 = icmp eq i8 %48, %50
+44:                                               ; preds = %38
+  %45 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %46 = load i8, ptr %45, align 8, !alias.scope !487, !noalias !488, !noundef !8
+  %47 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %48 = load i8, ptr %47, align 8, !alias.scope !488, !noalias !487, !noundef !8
+  %49 = icmp eq i8 %46, %48
   br label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
 
-"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit": ; preds = %0, %8, %14, %21, %27, %34, %40, %46
-  %.sroa.0.0.i = phi i1 [ false, %8 ], [ false, %0 ], [ %26, %21 ], [ %51, %46 ], [ false, %14 ], [ false, %27 ], [ false, %40 ], [ false, %34 ]
+"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit": ; preds = %0, %6, %12, %19, %25, %32, %38, %44
+  %.sroa.0.0.i = phi i1 [ false, %6 ], [ false, %0 ], [ %24, %19 ], [ %49, %44 ], [ false, %12 ], [ false, %25 ], [ false, %38 ], [ false, %32 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hf67702bdb4e61669E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hf67702bdb4e61669E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !490)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !493)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !490, !noalias !493, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !493, !noalias !490, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN79_$LT$ruff_python_ast..generated..ExprBoolOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h939f14b80747e999E.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !490, !noalias !493, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !493, !noalias !490, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN79_$LT$ruff_python_ast..generated..ExprBoolOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h939f14b80747e999E.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !490, !noalias !493, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !493, !noalias !490, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN79_$LT$ruff_python_ast..generated..ExprBoolOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h939f14b80747e999E.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !490, !noalias !493, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !493, !noalias !490, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN79_$LT$ruff_python_ast..generated..ExprBoolOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h939f14b80747e999E.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %16 = load i8, ptr %15, align 8, !range !59, !alias.scope !490, !noalias !493, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %18 = load i8, ptr %17, align 8, !range !59, !alias.scope !493, !noalias !490, !noundef !8
-  %19 = icmp eq i8 %16, %18
-  br i1 %19, label %20, label %"_ZN79_$LT$ruff_python_ast..generated..ExprBoolOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h939f14b80747e999E.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %14 = load i8, ptr %13, align 8, !range !59, !alias.scope !490, !noalias !493, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %16 = load i8, ptr %15, align 8, !range !59, !alias.scope !493, !noalias !490, !noundef !8
+  %17 = icmp eq i8 %14, %16
+  br i1 %17, label %18, label %"_ZN79_$LT$ruff_python_ast..generated..ExprBoolOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h939f14b80747e999E.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %21, align 8, !alias.scope !490, !noalias !493, !nonnull !8, !noundef !8
-  %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %22, align 8, !alias.scope !490, !noalias !493, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %23, align 8, !alias.scope !493, !noalias !490, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %24, align 8, !alias.scope !493, !noalias !490, !noundef !8
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !495
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %19, align 8, !alias.scope !490, !noalias !493, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %20, align 8, !alias.scope !490, !noalias !493, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %21, align 8, !alias.scope !493, !noalias !490, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %22, align 8, !alias.scope !493, !noalias !490, !noundef !8
+  %23 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !495
   br label %"_ZN79_$LT$ruff_python_ast..generated..ExprBoolOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h939f14b80747e999E.exit"
 
-"_ZN79_$LT$ruff_python_ast..generated..ExprBoolOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h939f14b80747e999E.exit": ; preds = %0, %8, %14, %20
-  %.sroa.0.0.i = phi i1 [ %25, %20 ], [ false, %0 ], [ false, %14 ], [ false, %8 ]
+"_ZN79_$LT$ruff_python_ast..generated..ExprBoolOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h939f14b80747e999E.exit": ; preds = %0, %6, %12, %18
+  %.sroa.0.0.i = phi i1 [ %23, %18 ], [ false, %0 ], [ false, %12 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hfd891d3fd080bb63E"(ptr readonly captures(address_is_null) %.0.val, ptr readonly captures(address_is_null) %.0.val1) unnamed_addr #0 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp ne ptr %.0.val1, null
-  tail call void @llvm.assume(i1 %2)
+define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hfd891d3fd080bb63E"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.0.val1) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val1) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !496)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !499)
-  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %4 = load i32, ptr %3, align 8, !alias.scope !496, !noalias !499, !noundef !8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %6 = load i32, ptr %5, align 8, !alias.scope !499, !noalias !496, !noundef !8
-  %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %"_ZN77_$LT$ruff_python_ast..generated..ExprList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a12dc1e296b8c1eE.exit"
+  %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %2 = load i32, ptr %1, align 8, !alias.scope !496, !noalias !499, !noundef !8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %4 = load i32, ptr %3, align 8, !alias.scope !499, !noalias !496, !noundef !8
+  %5 = icmp eq i32 %2, %4
+  br i1 %5, label %6, label %"_ZN77_$LT$ruff_python_ast..generated..ExprList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a12dc1e296b8c1eE.exit"
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
-  %10 = load i32, ptr %9, align 4, !alias.scope !496, !noalias !499, !noundef !8
-  %11 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
-  %12 = load i32, ptr %11, align 4, !alias.scope !499, !noalias !496, !noundef !8
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %"_ZN77_$LT$ruff_python_ast..generated..ExprList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a12dc1e296b8c1eE.exit"
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
+  %8 = load i32, ptr %7, align 4, !alias.scope !496, !noalias !499, !noundef !8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !499, !noalias !496, !noundef !8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %12, label %"_ZN77_$LT$ruff_python_ast..generated..ExprList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a12dc1e296b8c1eE.exit"
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !alias.scope !496, !noalias !499, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %.val1.i = load i64, ptr %16, align 8, !alias.scope !496, !noalias !499, !noundef !8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
-  %.val2.i = load ptr, ptr %17, align 8, !alias.scope !499, !noalias !496, !nonnull !8, !noundef !8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
-  %.val3.i = load i64, ptr %18, align 8, !alias.scope !499, !noalias !496, !noundef !8
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !501
-  br i1 %19, label %20, label %"_ZN77_$LT$ruff_python_ast..generated..ExprList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a12dc1e296b8c1eE.exit"
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !alias.scope !496, !noalias !499, !nonnull !8, !noundef !8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %.val1.i = load i64, ptr %14, align 8, !alias.scope !496, !noalias !499, !noundef !8
+  %15 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
+  %.val2.i = load ptr, ptr %15, align 8, !alias.scope !499, !noalias !496, !nonnull !8, !noundef !8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
+  %.val3.i = load i64, ptr %16, align 8, !alias.scope !499, !noalias !496, !noundef !8
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfe977f091c44340E"(ptr noundef nonnull align 8 %.val.i, i64 noundef %.val1.i, ptr noundef nonnull align 8 %.val2.i, i64 noundef %.val3.i), !noalias !501
+  br i1 %17, label %18, label %"_ZN77_$LT$ruff_python_ast..generated..ExprList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a12dc1e296b8c1eE.exit"
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
-  %22 = load i8, ptr %21, align 8, !range !21, !alias.scope !496, !noalias !499, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
-  %24 = load i8, ptr %23, align 8, !range !21, !alias.scope !499, !noalias !496, !noundef !8
-  %25 = icmp eq i8 %22, %24
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
+  %20 = load i8, ptr %19, align 8, !range !21, !alias.scope !496, !noalias !499, !noundef !8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 32
+  %22 = load i8, ptr %21, align 8, !range !21, !alias.scope !499, !noalias !496, !noundef !8
+  %23 = icmp eq i8 %20, %22
   br label %"_ZN77_$LT$ruff_python_ast..generated..ExprList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a12dc1e296b8c1eE.exit"
 
-"_ZN77_$LT$ruff_python_ast..generated..ExprList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a12dc1e296b8c1eE.exit": ; preds = %0, %8, %14, %20
-  %.sroa.0.0.i = phi i1 [ %25, %20 ], [ false, %14 ], [ false, %0 ], [ false, %8 ]
+"_ZN77_$LT$ruff_python_ast..generated..ExprList$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7a12dc1e296b8c1eE.exit": ; preds = %0, %6, %12, %18
+  %.sroa.0.0.i = phi i1 [ %23, %18 ], [ false, %12 ], [ false, %0 ], [ false, %6 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -4985,12 +4823,12 @@ define internal fastcc noundef zeroext i1 @"_ZN71_$LT$ruff_python_ast..nodes..Nu
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   switch i64 %3, label %default.unreachable5 [
     i64 0, label %8
-    i64 1, label %21
-    i64 2, label %26
+    i64 1, label %20
+    i64 2, label %25
   ]
 
-"_ZN69_$LT$ruff_python_ast..int..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3339b1251ab82da9E.exit": ; preds = %19, %16, %8, %26, %2, %31, %21
-  %.sroa.0.0.shrunk = phi i1 [ false, %26 ], [ %25, %21 ], [ %36, %31 ], [ false, %2 ], [ %18, %16 ], [ %20, %19 ], [ false, %8 ]
+"_ZN69_$LT$ruff_python_ast..int..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3339b1251ab82da9E.exit": ; preds = %18, %16, %8, %25, %2, %30, %20
+  %.sroa.0.0.shrunk = phi i1 [ false, %25 ], [ %24, %20 ], [ %35, %30 ], [ false, %2 ], [ %17, %16 ], [ %19, %18 ], [ false, %8 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable5:                             ; preds = %6
@@ -5011,40 +4849,39 @@ default.unreachable5:                             ; preds = %6
   br i1 %14, label %15, label %"_ZN69_$LT$ruff_python_ast..int..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3339b1251ab82da9E.exit"
 
 15:                                               ; preds = %8
-  br i1 %12, label %16, label %19
+  br i1 %12, label %16, label %18
 
 16:                                               ; preds = %15
   tail call void @llvm.assume(i1 %not..i)
-  %17 = icmp ne ptr %.val3, null
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val2, ptr noalias noundef nonnull readonly align 1 %.val3, i64 noundef %.val4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3) ]
+  %17 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val2, ptr noalias noundef nonnull readonly align 1 %.val3, i64 noundef %.val4)
   br label %"_ZN69_$LT$ruff_python_ast..int..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3339b1251ab82da9E.exit"
 
-19:                                               ; preds = %15
+18:                                               ; preds = %15
   tail call void @llvm.assume(i1 %13)
-  %20 = icmp eq i64 %.val2, %.val4
+  %19 = icmp eq i64 %.val2, %.val4
   br label %"_ZN69_$LT$ruff_python_ast..int..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3339b1251ab82da9E.exit"
 
-21:                                               ; preds = %6
-  %22 = load double, ptr %7, align 8, !noundef !8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load double, ptr %23, align 8, !noundef !8
-  %25 = fcmp oeq double %22, %24
+20:                                               ; preds = %6
+  %21 = load double, ptr %7, align 8, !noundef !8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = load double, ptr %22, align 8, !noundef !8
+  %24 = fcmp oeq double %21, %23
   br label %"_ZN69_$LT$ruff_python_ast..int..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3339b1251ab82da9E.exit"
 
-26:                                               ; preds = %6
-  %27 = load double, ptr %7, align 8, !noundef !8
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load double, ptr %28, align 8, !noundef !8
-  %30 = fcmp oeq double %27, %29
-  br i1 %30, label %31, label %"_ZN69_$LT$ruff_python_ast..int..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3339b1251ab82da9E.exit"
+25:                                               ; preds = %6
+  %26 = load double, ptr %7, align 8, !noundef !8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %28 = load double, ptr %27, align 8, !noundef !8
+  %29 = fcmp oeq double %26, %28
+  br i1 %29, label %30, label %"_ZN69_$LT$ruff_python_ast..int..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3339b1251ab82da9E.exit"
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load double, ptr %32, align 8, !noundef !8
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load double, ptr %34, align 8, !noundef !8
-  %36 = fcmp oeq double %33, %35
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = load double, ptr %31, align 8, !noundef !8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load double, ptr %33, align 8, !noundef !8
+  %35 = fcmp oeq double %32, %34
   br label %"_ZN69_$LT$ruff_python_ast..int..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3339b1251ab82da9E.exit"
 }
 
@@ -8161,6 +7998,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$ruff_python_ast..nodes..By
   %31 = load i64, ptr %30, align 8, !noundef !8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i64, ptr %32, align 8, !noundef !8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   %34 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %31, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %33)
   br i1 %34, label %35, label %9
 
@@ -8436,7 +8274,7 @@ define void @"_ZN120_$LT$ty_ide..find_node..covering_node..Visitor$u20$as$u20$ru
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread", label %10
 
-"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread": ; preds = %259, %255, %231, %173, %123, %237, %177, %127, %10, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %64, %69, %74, %79, %81, %83, %85, %87, %89, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %113, %115, %117, %119, %121, %133, %139, %144, %149, %151, %153, %155, %157, %159, %161, %163, %165, %167, %169, %171, %243, %189, %191, %193, %195, %197, %199, %201, %203, %205, %207, %209, %211, %213, %215, %217, %219, %221, %223, %225, %227, %229, %183, %245, %247, %249, %251, %253, %263, %20, %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit", %7, %270, %3
+"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread": ; preds = %257, %253, %229, %171, %121, %235, %175, %125, %10, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %67, %72, %77, %79, %81, %83, %85, %87, %89, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %113, %115, %117, %119, %131, %137, %142, %147, %149, %151, %153, %155, %157, %159, %161, %163, %165, %167, %169, %241, %187, %189, %191, %193, %195, %197, %199, %201, %203, %205, %207, %209, %211, %213, %215, %217, %219, %221, %223, %225, %227, %181, %243, %245, %247, %249, %251, %261, %18, %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit", %7, %268, %3
   ret void
 
 10:                                               ; preds = %7
@@ -8451,591 +8289,589 @@ define void @"_ZN120_$LT$ty_ide..find_node..covering_node..Visitor$u20$as$u20$ru
   br i1 %16, label %17, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 17:                                               ; preds = %10
-  %18 = icmp ne ptr %.val1, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %19)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val1) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   switch i64 %1, label %default.unreachable [
-    i64 0, label %20
+    i64 0, label %18
     i64 1, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit"
-    i64 2, label %22
-    i64 3, label %24
-    i64 4, label %26
-    i64 5, label %28
-    i64 6, label %30
-    i64 7, label %32
-    i64 8, label %34
-    i64 9, label %36
-    i64 10, label %38
-    i64 11, label %40
-    i64 12, label %42
-    i64 13, label %44
-    i64 14, label %46
-    i64 15, label %48
-    i64 16, label %50
-    i64 17, label %52
-    i64 18, label %54
-    i64 19, label %56
-    i64 20, label %58
-    i64 21, label %60
-    i64 22, label %62
-    i64 23, label %64
-    i64 24, label %69
-    i64 25, label %74
-    i64 26, label %79
-    i64 27, label %81
-    i64 28, label %83
-    i64 29, label %85
-    i64 30, label %87
-    i64 31, label %89
-    i64 32, label %91
-    i64 33, label %93
-    i64 34, label %95
-    i64 35, label %97
-    i64 36, label %99
-    i64 37, label %101
-    i64 38, label %103
-    i64 39, label %105
-    i64 40, label %107
-    i64 41, label %109
-    i64 42, label %111
-    i64 43, label %113
-    i64 44, label %115
-    i64 45, label %117
-    i64 46, label %119
-    i64 47, label %121
-    i64 48, label %123
-    i64 49, label %139
-    i64 50, label %144
-    i64 51, label %149
-    i64 52, label %151
-    i64 53, label %153
-    i64 54, label %155
-    i64 55, label %157
-    i64 56, label %159
-    i64 57, label %161
-    i64 58, label %163
-    i64 59, label %165
-    i64 60, label %167
-    i64 61, label %169
-    i64 62, label %171
-    i64 63, label %173
-    i64 64, label %189
-    i64 65, label %191
-    i64 66, label %193
-    i64 67, label %195
-    i64 68, label %197
-    i64 69, label %199
-    i64 70, label %201
-    i64 71, label %203
-    i64 72, label %205
-    i64 73, label %207
-    i64 74, label %209
-    i64 75, label %211
-    i64 76, label %213
-    i64 77, label %215
-    i64 78, label %217
-    i64 79, label %219
-    i64 80, label %221
-    i64 81, label %223
-    i64 82, label %225
-    i64 83, label %227
-    i64 84, label %229
-    i64 85, label %231
-    i64 86, label %245
-    i64 87, label %247
-    i64 88, label %249
-    i64 89, label %251
-    i64 90, label %253
-    i64 91, label %255
+    i64 2, label %20
+    i64 3, label %22
+    i64 4, label %24
+    i64 5, label %26
+    i64 6, label %28
+    i64 7, label %30
+    i64 8, label %32
+    i64 9, label %34
+    i64 10, label %36
+    i64 11, label %38
+    i64 12, label %40
+    i64 13, label %42
+    i64 14, label %44
+    i64 15, label %46
+    i64 16, label %48
+    i64 17, label %50
+    i64 18, label %52
+    i64 19, label %54
+    i64 20, label %56
+    i64 21, label %58
+    i64 22, label %60
+    i64 23, label %62
+    i64 24, label %67
+    i64 25, label %72
+    i64 26, label %77
+    i64 27, label %79
+    i64 28, label %81
+    i64 29, label %83
+    i64 30, label %85
+    i64 31, label %87
+    i64 32, label %89
+    i64 33, label %91
+    i64 34, label %93
+    i64 35, label %95
+    i64 36, label %97
+    i64 37, label %99
+    i64 38, label %101
+    i64 39, label %103
+    i64 40, label %105
+    i64 41, label %107
+    i64 42, label %109
+    i64 43, label %111
+    i64 44, label %113
+    i64 45, label %115
+    i64 46, label %117
+    i64 47, label %119
+    i64 48, label %121
+    i64 49, label %137
+    i64 50, label %142
+    i64 51, label %147
+    i64 52, label %149
+    i64 53, label %151
+    i64 54, label %153
+    i64 55, label %155
+    i64 56, label %157
+    i64 57, label %159
+    i64 58, label %161
+    i64 59, label %163
+    i64 60, label %165
+    i64 61, label %167
+    i64 62, label %169
+    i64 63, label %171
+    i64 64, label %187
+    i64 65, label %189
+    i64 66, label %191
+    i64 67, label %193
+    i64 68, label %195
+    i64 69, label %197
+    i64 70, label %199
+    i64 71, label %201
+    i64 72, label %203
+    i64 73, label %205
+    i64 74, label %207
+    i64 75, label %209
+    i64 76, label %211
+    i64 77, label %213
+    i64 78, label %215
+    i64 79, label %217
+    i64 80, label %219
+    i64 81, label %221
+    i64 82, label %223
+    i64 83, label %225
+    i64 84, label %227
+    i64 85, label %229
+    i64 86, label %243
+    i64 87, label %245
+    i64 88, label %247
+    i64 89, label %249
+    i64 90, label %251
+    i64 91, label %253
   ]
 
 default.unreachable:                              ; preds = %17
   unreachable
 
+18:                                               ; preds = %17
+  %19 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h01ca26e0aae413b1E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %19, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+
 20:                                               ; preds = %17
-  %21 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h01ca26e0aae413b1E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %21, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h732cf4f336efc016E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %21, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 22:                                               ; preds = %17
-  %23 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h732cf4f336efc016E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %23, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %23 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h735dc4ce9c224aedE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %23, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 24:                                               ; preds = %17
-  %25 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h735dc4ce9c224aedE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %25, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %25 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha01446d2e1abccbcE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %25, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 26:                                               ; preds = %17
-  %27 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha01446d2e1abccbcE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %27, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %27 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6cff50f9a1a0ba40E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %27, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 28:                                               ; preds = %17
-  %29 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6cff50f9a1a0ba40E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %29, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %29 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he5ca3648121b1345E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %29, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 30:                                               ; preds = %17
-  %31 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he5ca3648121b1345E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %31, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %31 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hde557f2d71191bdaE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %31, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 32:                                               ; preds = %17
-  %33 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hde557f2d71191bdaE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %33, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %33 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he09eb2e7198ab78eE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %33, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 34:                                               ; preds = %17
-  %35 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he09eb2e7198ab78eE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %35, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %35 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8b83d7f2b5dd1cc8E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %35, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 36:                                               ; preds = %17
-  %37 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8b83d7f2b5dd1cc8E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %37, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %37 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9ab064e10d039f92E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %37, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 38:                                               ; preds = %17
-  %39 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9ab064e10d039f92E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %39, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %39 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hbf528c0f6cadd4d6E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %39, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 40:                                               ; preds = %17
-  %41 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hbf528c0f6cadd4d6E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %41, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %41 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h39e0b858145329dfE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %41, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 42:                                               ; preds = %17
-  %43 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h39e0b858145329dfE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %43, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %43 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4a96b74f13d52f3cE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %43, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 44:                                               ; preds = %17
-  %45 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4a96b74f13d52f3cE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %45, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %45 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h77ef153c6cbbe4b5E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %45, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 46:                                               ; preds = %17
-  %47 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h77ef153c6cbbe4b5E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %47, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %47 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4f131928800e3e63E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %47, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 48:                                               ; preds = %17
-  %49 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4f131928800e3e63E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %49, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %49 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc8566fa5ea3a6d64E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %49, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 50:                                               ; preds = %17
-  %51 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc8566fa5ea3a6d64E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %51, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %51 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6ae18d75d1d980cfE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %51, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 52:                                               ; preds = %17
-  %53 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6ae18d75d1d980cfE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %53, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %53 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h67827e06489ccc04E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %53, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 54:                                               ; preds = %17
-  %55 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h67827e06489ccc04E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %55, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %55 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h30d4e8c4d7ff3a4aE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %55, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 56:                                               ; preds = %17
-  %57 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h30d4e8c4d7ff3a4aE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %57, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %57 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd24805042da6fac1E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %57, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 58:                                               ; preds = %17
-  %59 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd24805042da6fac1E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %59, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %59 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h20ca67e9b8fc610cE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %59, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 60:                                               ; preds = %17
-  %61 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h20ca67e9b8fc610cE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %61, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %61 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hccac9d0fcb3d7c8aE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %61, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 62:                                               ; preds = %17
-  %63 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hccac9d0fcb3d7c8aE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %63, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
-
-64:                                               ; preds = %17
   %.val.i.i = load i32, ptr %.val1, align 4, !noundef !8
-  %65 = getelementptr i8, ptr %.val1, i64 4
-  %.val1.i.i = load i32, ptr %65, align 4
+  %63 = getelementptr i8, ptr %.val1, i64 4
+  %.val1.i.i = load i32, ptr %63, align 4
   %.val2.i.i = load i32, ptr %2, align 4, !noundef !8
-  %66 = getelementptr i8, ptr %2, i64 4
-  %.val3.i.i = load i32, ptr %66, align 4
-  %67 = icmp eq i32 %.val.i.i, %.val2.i.i
-  %68 = icmp eq i32 %.val1.i.i, %.val3.i.i
-  %.sroa.0.0.i.i.i.i = select i1 %67, i1 %68, i1 false
-  br i1 %.sroa.0.0.i.i.i.i, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %64 = getelementptr i8, ptr %2, i64 4
+  %.val3.i.i = load i32, ptr %64, align 4
+  %65 = icmp eq i32 %.val.i.i, %.val2.i.i
+  %66 = icmp eq i32 %.val1.i.i, %.val3.i.i
+  %.sroa.0.0.i.i.i.i = select i1 %65, i1 %66, i1 false
+  br i1 %.sroa.0.0.i.i.i.i, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-69:                                               ; preds = %17
+67:                                               ; preds = %17
   %.val.i185.i = load i32, ptr %.val1, align 4, !noundef !8
-  %70 = getelementptr i8, ptr %.val1, i64 4
-  %.val1.i186.i = load i32, ptr %70, align 4
+  %68 = getelementptr i8, ptr %.val1, i64 4
+  %.val1.i186.i = load i32, ptr %68, align 4
   %.val2.i187.i = load i32, ptr %2, align 4, !noundef !8
-  %71 = getelementptr i8, ptr %2, i64 4
-  %.val3.i188.i = load i32, ptr %71, align 4
-  %72 = icmp eq i32 %.val.i185.i, %.val2.i187.i
-  %73 = icmp eq i32 %.val1.i186.i, %.val3.i188.i
-  %.sroa.0.0.i.i.i189.i = select i1 %72, i1 %73, i1 false
-  br i1 %.sroa.0.0.i.i.i189.i, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %69 = getelementptr i8, ptr %2, i64 4
+  %.val3.i188.i = load i32, ptr %69, align 4
+  %70 = icmp eq i32 %.val.i185.i, %.val2.i187.i
+  %71 = icmp eq i32 %.val1.i186.i, %.val3.i188.i
+  %.sroa.0.0.i.i.i189.i = select i1 %70, i1 %71, i1 false
+  br i1 %.sroa.0.0.i.i.i189.i, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-74:                                               ; preds = %17
+72:                                               ; preds = %17
   %.val.i190.i = load i32, ptr %.val1, align 4, !noundef !8
-  %75 = getelementptr i8, ptr %.val1, i64 4
-  %.val1.i191.i = load i32, ptr %75, align 4
+  %73 = getelementptr i8, ptr %.val1, i64 4
+  %.val1.i191.i = load i32, ptr %73, align 4
   %.val2.i192.i = load i32, ptr %2, align 4, !noundef !8
-  %76 = getelementptr i8, ptr %2, i64 4
-  %.val3.i193.i = load i32, ptr %76, align 4
-  %77 = icmp eq i32 %.val.i190.i, %.val2.i192.i
-  %78 = icmp eq i32 %.val1.i191.i, %.val3.i193.i
-  %.sroa.0.0.i.i.i194.i = select i1 %77, i1 %78, i1 false
-  br i1 %.sroa.0.0.i.i.i194.i, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %74 = getelementptr i8, ptr %2, i64 4
+  %.val3.i193.i = load i32, ptr %74, align 4
+  %75 = icmp eq i32 %.val.i190.i, %.val2.i192.i
+  %76 = icmp eq i32 %.val1.i191.i, %.val3.i193.i
+  %.sroa.0.0.i.i.i194.i = select i1 %75, i1 %76, i1 false
+  br i1 %.sroa.0.0.i.i.i194.i, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+
+77:                                               ; preds = %17
+  %78 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb340c06ae6c87fc4E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %78, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 79:                                               ; preds = %17
-  %80 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb340c06ae6c87fc4E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %80, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %80 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hf67702bdb4e61669E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %80, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 81:                                               ; preds = %17
-  %82 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hf67702bdb4e61669E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %82, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %82 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h07e1007b618d6f6aE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %82, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 83:                                               ; preds = %17
-  %84 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h07e1007b618d6f6aE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %84, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %84 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h16e90405f6414a61E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %84, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 85:                                               ; preds = %17
-  %86 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h16e90405f6414a61E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %86, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %86 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd96d6fa073e515f4E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %86, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 87:                                               ; preds = %17
-  %88 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd96d6fa073e515f4E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %88, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %88 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h2beb70fb9bf401ddE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %88, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 89:                                               ; preds = %17
-  %90 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h2beb70fb9bf401ddE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %90, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %90 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6cec051dd832a9ffE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %90, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 91:                                               ; preds = %17
-  %92 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6cec051dd832a9ffE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %92, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %92 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17haec8fac89c90ab26E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %92, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 93:                                               ; preds = %17
-  %94 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17haec8fac89c90ab26E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %94, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %94 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h94f154f53d69d807E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %94, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 95:                                               ; preds = %17
-  %96 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h94f154f53d69d807E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %96, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %96 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc297a57ef8ab79c7E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %96, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 97:                                               ; preds = %17
-  %98 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc297a57ef8ab79c7E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %98, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %98 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h05fe0fa89d958246E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %98, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 99:                                               ; preds = %17
-  %100 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h05fe0fa89d958246E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %100, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %100 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h225e8d3ad5ac4452E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %100, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 101:                                              ; preds = %17
-  %102 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h225e8d3ad5ac4452E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %102, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %102 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h1b699fbc9ce6d7d9E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %102, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 103:                                              ; preds = %17
-  %104 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h1b699fbc9ce6d7d9E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %104, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %104 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha1fbe7f3bdc14ad0E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %104, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 105:                                              ; preds = %17
-  %106 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha1fbe7f3bdc14ad0E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %106, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %106 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h25231688648bfd02E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %106, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 107:                                              ; preds = %17
-  %108 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h25231688648bfd02E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %108, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %108 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h75a04afd29d0b431E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %108, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 109:                                              ; preds = %17
-  %110 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h75a04afd29d0b431E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %110, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %110 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha0f49ed68b1c77fcE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %110, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 111:                                              ; preds = %17
-  %112 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha0f49ed68b1c77fcE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %112, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %112 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5646e489e2c27ad9E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %112, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 113:                                              ; preds = %17
-  %114 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5646e489e2c27ad9E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %114, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %114 = tail call fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated..ExprFString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h12480722649b2ec7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
+  br i1 %114, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 115:                                              ; preds = %17
-  %116 = tail call fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated..ExprFString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h12480722649b2ec7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
-  br i1 %116, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %116 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5bd1edb21933fc7cE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %116, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 117:                                              ; preds = %17
-  %118 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5bd1edb21933fc7cE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %118, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %118 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hf5822757b876a409E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %118, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 119:                                              ; preds = %17
-  %120 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hf5822757b876a409E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %120, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %120 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6b6a2c8eb9cd393bE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %120, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 121:                                              ; preds = %17
-  %122 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6b6a2c8eb9cd393bE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %122, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
-
-123:                                              ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !606)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !609)
-  %124 = load i32, ptr %.val1, align 4, !alias.scope !606, !noalias !609, !noundef !8
-  %125 = load i32, ptr %2, align 4, !alias.scope !609, !noalias !606, !noundef !8
-  %126 = icmp eq i32 %124, %125
-  br i1 %126, label %127, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %122 = load i32, ptr %.val1, align 4, !alias.scope !606, !noalias !609, !noundef !8
+  %123 = load i32, ptr %2, align 4, !alias.scope !609, !noalias !606, !noundef !8
+  %124 = icmp eq i32 %122, %123
+  br i1 %124, label %125, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds nuw i8, ptr %.val1, i64 4
-  %129 = load i32, ptr %128, align 4, !alias.scope !606, !noalias !609, !noundef !8
-  %130 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %131 = load i32, ptr %130, align 4, !alias.scope !609, !noalias !606, !noundef !8
-  %132 = icmp eq i32 %129, %131
-  br i1 %132, label %133, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds nuw i8, ptr %.val1, i64 4
+  %127 = load i32, ptr %126, align 4, !alias.scope !606, !noalias !609, !noundef !8
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %129 = load i32, ptr %128, align 4, !alias.scope !609, !noalias !606, !noundef !8
+  %130 = icmp eq i32 %127, %129
+  br i1 %130, label %131, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-133:                                              ; preds = %127
-  %134 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %135 = load i8, ptr %134, align 4, !range !59, !alias.scope !606, !noalias !609, !noundef !8
-  %136 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %137 = load i8, ptr %136, align 4, !range !59, !alias.scope !609, !noalias !606, !noundef !8
-  %138 = icmp eq i8 %135, %137
-  br i1 %138, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %133 = load i8, ptr %132, align 4, !range !59, !alias.scope !606, !noalias !609, !noundef !8
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %135 = load i8, ptr %134, align 4, !range !59, !alias.scope !609, !noalias !606, !noundef !8
+  %136 = icmp eq i8 %133, %135
+  br i1 %136, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-139:                                              ; preds = %17
+137:                                              ; preds = %17
   %.val.i195.i = load i32, ptr %.val1, align 4, !noundef !8
-  %140 = getelementptr i8, ptr %.val1, i64 4
-  %.val1.i196.i = load i32, ptr %140, align 4
+  %138 = getelementptr i8, ptr %.val1, i64 4
+  %.val1.i196.i = load i32, ptr %138, align 4
   %.val2.i197.i = load i32, ptr %2, align 4, !noundef !8
-  %141 = getelementptr i8, ptr %2, i64 4
-  %.val3.i198.i = load i32, ptr %141, align 4
-  %142 = icmp eq i32 %.val.i195.i, %.val2.i197.i
-  %143 = icmp eq i32 %.val1.i196.i, %.val3.i198.i
-  %.sroa.0.0.i.i.i199.i = select i1 %142, i1 %143, i1 false
-  br i1 %.sroa.0.0.i.i.i199.i, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %139 = getelementptr i8, ptr %2, i64 4
+  %.val3.i198.i = load i32, ptr %139, align 4
+  %140 = icmp eq i32 %.val.i195.i, %.val2.i197.i
+  %141 = icmp eq i32 %.val1.i196.i, %.val3.i198.i
+  %.sroa.0.0.i.i.i199.i = select i1 %140, i1 %141, i1 false
+  br i1 %.sroa.0.0.i.i.i199.i, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-144:                                              ; preds = %17
+142:                                              ; preds = %17
   %.val.i200.i = load i32, ptr %.val1, align 4, !noundef !8
-  %145 = getelementptr i8, ptr %.val1, i64 4
-  %.val1.i201.i = load i32, ptr %145, align 4
+  %143 = getelementptr i8, ptr %.val1, i64 4
+  %.val1.i201.i = load i32, ptr %143, align 4
   %.val2.i202.i = load i32, ptr %2, align 4, !noundef !8
-  %146 = getelementptr i8, ptr %2, i64 4
-  %.val3.i203.i = load i32, ptr %146, align 4
-  %147 = icmp eq i32 %.val.i200.i, %.val2.i202.i
-  %148 = icmp eq i32 %.val1.i201.i, %.val3.i203.i
-  %.sroa.0.0.i.i.i204.i = select i1 %147, i1 %148, i1 false
-  br i1 %.sroa.0.0.i.i.i204.i, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %144 = getelementptr i8, ptr %2, i64 4
+  %.val3.i203.i = load i32, ptr %144, align 4
+  %145 = icmp eq i32 %.val.i200.i, %.val2.i202.i
+  %146 = icmp eq i32 %.val1.i201.i, %.val3.i203.i
+  %.sroa.0.0.i.i.i204.i = select i1 %145, i1 %146, i1 false
+  br i1 %.sroa.0.0.i.i.i204.i, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+
+147:                                              ; preds = %17
+  %148 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h48b92b134b1994d0E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %148, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 149:                                              ; preds = %17
-  %150 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h48b92b134b1994d0E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %150, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %150 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h45ad9c2900ba512eE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %150, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 151:                                              ; preds = %17
-  %152 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h45ad9c2900ba512eE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %152, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %152 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4fa9d63053e6f457E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %152, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 153:                                              ; preds = %17
-  %154 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4fa9d63053e6f457E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %154, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %154 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h05cf9cf45dbf82e7E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %154, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 155:                                              ; preds = %17
-  %156 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h05cf9cf45dbf82e7E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %156, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %156 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hfd891d3fd080bb63E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %156, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 157:                                              ; preds = %17
-  %158 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hfd891d3fd080bb63E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %158, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %158 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h97d7175096ccb736E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %158, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 159:                                              ; preds = %17
-  %160 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h97d7175096ccb736E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %160, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %160 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h105c560fe23607ffE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %160, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 161:                                              ; preds = %17
-  %162 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h105c560fe23607ffE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %162, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %162 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h49b83bd2b8344578E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %162, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 163:                                              ; preds = %17
-  %164 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h49b83bd2b8344578E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %164, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %164 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc71cf1b35a7a2fb8E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %164, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 165:                                              ; preds = %17
-  %166 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc71cf1b35a7a2fb8E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %166, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %166 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h59874956c2333fe0E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %166, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 167:                                              ; preds = %17
-  %168 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h59874956c2333fe0E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %168, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %168 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hed56a155e8e1b86dE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %168, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 169:                                              ; preds = %17
-  %170 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hed56a155e8e1b86dE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %170, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %170 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h295391cc486acfa2E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %170, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 171:                                              ; preds = %17
-  %172 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h295391cc486acfa2E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %172, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
-
-173:                                              ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !611)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !614)
-  %174 = load i32, ptr %.val1, align 4, !alias.scope !611, !noalias !614, !noundef !8
-  %175 = load i32, ptr %2, align 4, !alias.scope !614, !noalias !611, !noundef !8
-  %176 = icmp eq i32 %174, %175
-  br i1 %176, label %177, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %172 = load i32, ptr %.val1, align 4, !alias.scope !611, !noalias !614, !noundef !8
+  %173 = load i32, ptr %2, align 4, !alias.scope !614, !noalias !611, !noundef !8
+  %174 = icmp eq i32 %172, %173
+  br i1 %174, label %175, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-177:                                              ; preds = %173
-  %178 = getelementptr inbounds nuw i8, ptr %.val1, i64 4
-  %179 = load i32, ptr %178, align 4, !alias.scope !611, !noalias !614, !noundef !8
-  %180 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %181 = load i32, ptr %180, align 4, !alias.scope !614, !noalias !611, !noundef !8
-  %182 = icmp eq i32 %179, %181
-  br i1 %182, label %183, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+175:                                              ; preds = %171
+  %176 = getelementptr inbounds nuw i8, ptr %.val1, i64 4
+  %177 = load i32, ptr %176, align 4, !alias.scope !611, !noalias !614, !noundef !8
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %179 = load i32, ptr %178, align 4, !alias.scope !614, !noalias !611, !noundef !8
+  %180 = icmp eq i32 %177, %179
+  br i1 %180, label %181, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-183:                                              ; preds = %177
-  %184 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %185 = load i8, ptr %184, align 4, !range !553, !alias.scope !611, !noalias !614, !noundef !8
-  %186 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %187 = load i8, ptr %186, align 4, !range !553, !alias.scope !614, !noalias !611, !noundef !8
-  %188 = icmp eq i8 %185, %187
-  br i1 %188, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+181:                                              ; preds = %175
+  %182 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %183 = load i8, ptr %182, align 4, !range !553, !alias.scope !611, !noalias !614, !noundef !8
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %185 = load i8, ptr %184, align 4, !range !553, !alias.scope !614, !noalias !611, !noundef !8
+  %186 = icmp eq i8 %183, %185
+  br i1 %186, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+
+187:                                              ; preds = %17
+  %188 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h2ac9c1cb60300650E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %188, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 189:                                              ; preds = %17
-  %190 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h2ac9c1cb60300650E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %190, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %190 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8928f7bef9dbfaceE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %190, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 191:                                              ; preds = %17
-  %192 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8928f7bef9dbfaceE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %192, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %192 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h551c4c6c1195b8dbE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %192, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 193:                                              ; preds = %17
-  %194 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h551c4c6c1195b8dbE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %194, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %194 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h71b1c2aafd80c5e0E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %194, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 195:                                              ; preds = %17
-  %196 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h71b1c2aafd80c5e0E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %196, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %196 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6b9d804d7ca53a43E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %196, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 197:                                              ; preds = %17
-  %198 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6b9d804d7ca53a43E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %198, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %198 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h91ca308cc75150a4E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %198, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 199:                                              ; preds = %17
-  %200 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h91ca308cc75150a4E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %200, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %200 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h24750f750e236357E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %200, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 201:                                              ; preds = %17
-  %202 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h24750f750e236357E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %202, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %202 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc6ff61e33eec6dc6E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %202, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 203:                                              ; preds = %17
-  %204 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc6ff61e33eec6dc6E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %204, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %204 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h1e03d589550df506E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %204, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 205:                                              ; preds = %17
-  %206 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h1e03d589550df506E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %206, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %206 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4e3a5c4fcc188278E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %206, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 207:                                              ; preds = %17
-  %208 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4e3a5c4fcc188278E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %208, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %208 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc01dd1ec795ef6c3E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %208, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 209:                                              ; preds = %17
-  %210 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc01dd1ec795ef6c3E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %210, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %210 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h186716b609c5e7a8E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %210, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 211:                                              ; preds = %17
-  %212 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h186716b609c5e7a8E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %212, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %212 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7cdd4d866bd3533aE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %212, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 213:                                              ; preds = %17
-  %214 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7cdd4d866bd3533aE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %214, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %214 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha909415a406bab25E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %214, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 215:                                              ; preds = %17
-  %216 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha909415a406bab25E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %216, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %216 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..nodes..Parameters$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ad75d9997808284E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.val1, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %2)
+  br i1 %216, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 217:                                              ; preds = %17
-  %218 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..nodes..Parameters$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ad75d9997808284E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.val1, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %2)
-  br i1 %218, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %218 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hee655070a5c6e640E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %218, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 219:                                              ; preds = %17
-  %220 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hee655070a5c6e640E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %220, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %220 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h518c3a55d64d560cE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %220, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 221:                                              ; preds = %17
-  %222 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h518c3a55d64d560cE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %222, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %222 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h927f1499c6b5d6feE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %222, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 223:                                              ; preds = %17
-  %224 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h927f1499c6b5d6feE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %224, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %224 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd34ebb2ab1cdd88aE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %224, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 225:                                              ; preds = %17
-  %226 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd34ebb2ab1cdd88aE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %226, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %226 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he9c48906a12f248eE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %226, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 227:                                              ; preds = %17
-  %228 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he9c48906a12f248eE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %228, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %228 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7c4e4591bfcccc96E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %228, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 229:                                              ; preds = %17
-  %230 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7c4e4591bfcccc96E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %230, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
-
-231:                                              ; preds = %17
-  %232 = getelementptr inbounds nuw i8, ptr %.val1, i64 64
+  %230 = getelementptr inbounds nuw i8, ptr %.val1, i64 64
+  %231 = load i32, ptr %230, align 8, !noundef !8
+  %232 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %233 = load i32, ptr %232, align 8, !noundef !8
-  %234 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %235 = load i32, ptr %234, align 8, !noundef !8
-  %236 = icmp eq i32 %233, %235
-  br i1 %236, label %237, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %234 = icmp eq i32 %231, %233
+  br i1 %234, label %235, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-237:                                              ; preds = %231
-  %238 = getelementptr inbounds nuw i8, ptr %.val1, i64 68
+235:                                              ; preds = %229
+  %236 = getelementptr inbounds nuw i8, ptr %.val1, i64 68
+  %237 = load i32, ptr %236, align 4, !noundef !8
+  %238 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %239 = load i32, ptr %238, align 4, !noundef !8
-  %240 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %241 = load i32, ptr %240, align 4, !noundef !8
-  %242 = icmp eq i32 %239, %241
-  br i1 %242, label %243, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %240 = icmp eq i32 %237, %239
+  br i1 %240, label %241, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-243:                                              ; preds = %237
-  %244 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %.val1, ptr noundef nonnull align 8 %2)
-  br i1 %244, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+241:                                              ; preds = %235
+  %242 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %.val1, ptr noundef nonnull align 8 %2)
+  br i1 %242, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+
+243:                                              ; preds = %17
+  %244 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h3903bfc436d547e7E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %244, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 245:                                              ; preds = %17
-  %246 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h3903bfc436d547e7E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %246, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %246 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h250b7bcfa7c0b0e8E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %246, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 247:                                              ; preds = %17
-  %248 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h250b7bcfa7c0b0e8E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %248, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %248 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h036b75b3640b4dd0E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %248, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 249:                                              ; preds = %17
-  %250 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h036b75b3640b4dd0E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %250, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %250 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h49b5303f46d4fe74E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %250, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 251:                                              ; preds = %17
-  %252 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h49b5303f46d4fe74E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %252, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %252 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h52d4b978617937a2E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %252, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 253:                                              ; preds = %17
-  %254 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h52d4b978617937a2E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %254, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
-
-255:                                              ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !616)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !619)
-  %256 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %257 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %258 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %256, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %257)
-  br i1 %258, label %259, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %254 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %256 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %254, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %255)
+  br i1 %256, label %257, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-259:                                              ; preds = %255
-  %260 = load i32, ptr %.val1, align 8, !alias.scope !616, !noalias !619, !noundef !8
-  %261 = load i32, ptr %2, align 8, !alias.scope !619, !noalias !616, !noundef !8
-  %262 = icmp eq i32 %260, %261
-  br i1 %262, label %263, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+257:                                              ; preds = %253
+  %258 = load i32, ptr %.val1, align 8, !alias.scope !616, !noalias !619, !noundef !8
+  %259 = load i32, ptr %2, align 8, !alias.scope !619, !noalias !616, !noundef !8
+  %260 = icmp eq i32 %258, %259
+  br i1 %260, label %261, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-263:                                              ; preds = %259
-  %264 = getelementptr inbounds nuw i8, ptr %.val1, i64 4
-  %265 = load i32, ptr %264, align 4, !alias.scope !616, !noalias !619, !noundef !8
-  %266 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %267 = load i32, ptr %266, align 4, !alias.scope !619, !noalias !616, !noundef !8
-  %268 = icmp eq i32 %265, %267
-  br i1 %268, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+261:                                              ; preds = %257
+  %262 = getelementptr inbounds nuw i8, ptr %.val1, i64 4
+  %263 = load i32, ptr %262, align 4, !alias.scope !616, !noalias !619, !noundef !8
+  %264 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %265 = load i32, ptr %264, align 4, !alias.scope !619, !noalias !616, !noundef !8
+  %266 = icmp eq i32 %263, %265
+  br i1 %266, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 "_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit": ; preds = %17
-  %269 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7a3d33fca62d602fE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %269, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %267 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7a3d33fca62d602fE"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %267, label %268, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-270:                                              ; preds = %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %64, %69, %74, %79, %81, %83, %85, %87, %89, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %113, %115, %117, %119, %121, %133, %139, %144, %149, %151, %153, %155, %157, %159, %161, %163, %165, %167, %169, %171, %243, %189, %191, %193, %195, %197, %199, %201, %203, %205, %207, %209, %211, %213, %215, %217, %219, %221, %223, %225, %227, %229, %183, %245, %247, %249, %251, %253, %263, %20, %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit"
+268:                                              ; preds = %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %67, %72, %77, %79, %81, %83, %85, %87, %89, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %113, %115, %117, %119, %131, %137, %142, %147, %149, %151, %153, %155, %157, %159, %161, %163, %165, %167, %169, %241, %187, %189, %191, %193, %195, %197, %199, %201, %203, %205, %207, %209, %211, %213, %215, %217, %219, %221, %223, %225, %227, %181, %243, %245, %247, %249, %251, %261, %18, %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit"
   store i8 1, ptr %4, align 8
   br label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 }

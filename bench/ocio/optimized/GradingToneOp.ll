@@ -3202,8 +3202,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113GradingToneOp23rem
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1 = load ptr, ptr %3, align 8
   %4 = tail call ptr @__dynamic_cast(ptr nonnull %.val, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev17GradingToneOpDataE, i64 0) #18, !noalias !139
-  %.not.not.i.i.i = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %.not.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   %.not.i.i.i.i.i.i = icmp eq ptr %.val1, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113GradingToneOp8toneDataEv.exit.thread, label %5
 

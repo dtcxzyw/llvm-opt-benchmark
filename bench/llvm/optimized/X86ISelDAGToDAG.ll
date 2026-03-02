@@ -31767,7 +31767,6 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel12m
   %.sroa.082.0.copyload = load ptr, ptr %50, align 8, !tbaa !463
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 24
   %52 = load i32, ptr %51, align 8, !tbaa !471
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 88
   switch i32 %52, label %unreachable [
     i32 13, label %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit
     i32 37, label %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit
@@ -31777,7 +31776,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel12m
     i32 17, label %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRT0_.exit
     i32 42, label %_ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeENS_7SDValueEEEDcRT0_.exit
     i32 18, label %_ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeENS_7SDValueEEEDcRT0_.exit
-    i32 44, label %77
+    i32 44, label %79
     i32 40, label %_ZN4llvm8dyn_castINS_15JumpTableSDNodeENS_7SDValueEEEDcRT0_.exit
     i32 16, label %_ZN4llvm8dyn_castINS_15JumpTableSDNodeENS_7SDValueEEEDcRT0_.exit
     i32 43, label %_ZN4llvm8dyn_castINS_18BlockAddressSDNodeENS_7SDValueEEEDcRT0_.exit
@@ -31785,6 +31784,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel12m
   ]
 
 _ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %48, %48, %48, %48
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 88
   %54 = load ptr, ptr %53, align 8, !tbaa !836
   store ptr %54, ptr %5, align 8, !tbaa !917
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 104
@@ -31794,119 +31794,125 @@ _ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = 
   store i8 %57, ptr %58, align 1, !tbaa !879
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 96
   %60 = load i64, ptr %59, align 8, !tbaa !841
-  br label %91
+  br label %96
 
 _ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %48, %48
-  %61 = load ptr, ptr %53, align 8, !tbaa !479
-  store ptr %61, ptr %7, align 8, !tbaa !918
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 100
-  %.sroa.0.0.copyload.i = load i8, ptr %62, align 4, !tbaa !479
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 116
-  store i8 %.sroa.0.0.copyload.i, ptr %63, align 4, !tbaa !479
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 104
-  %65 = load i32, ptr %64, align 8, !tbaa !931
-  %66 = trunc i32 %65 to i8
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 117
-  store i8 %66, ptr %67, align 1, !tbaa !879
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 96
-  %69 = load i32, ptr %68, align 8, !tbaa !933
-  %70 = and i32 %69, 2147483647
-  %71 = zext nneg i32 %70 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 88
+  %62 = load ptr, ptr %61, align 8, !tbaa !479
+  store ptr %62, ptr %7, align 8, !tbaa !918
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 100
+  %.sroa.0.0.copyload.i = load i8, ptr %63, align 4, !tbaa !479
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 116
+  store i8 %.sroa.0.0.copyload.i, ptr %64, align 4, !tbaa !479
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 104
+  %66 = load i32, ptr %65, align 8, !tbaa !931
+  %67 = trunc i32 %66 to i8
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 117
+  store i8 %67, ptr %68, align 1, !tbaa !879
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 96
+  %70 = load i32, ptr %69, align 8, !tbaa !933
+  %71 = and i32 %70, 2147483647
+  %72 = zext nneg i32 %71 to i64
   %.pre = load ptr, ptr %33, align 8, !tbaa !175
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 477
   %.pre114 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !480, !range !48
-  br label %91
+  br label %96
 
 _ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %48, %48
-  %72 = load ptr, ptr %53, align 8, !tbaa !934
-  store ptr %72, ptr %9, align 8, !tbaa !919
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 96
-  %74 = load i32, ptr %73, align 8, !tbaa !936
-  %75 = trunc i32 %74 to i8
-  %76 = getelementptr inbounds nuw i8, ptr %2, i64 117
-  store i8 %75, ptr %76, align 1, !tbaa !879
-  br label %91
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 88
+  %74 = load ptr, ptr %73, align 8, !tbaa !934
+  store ptr %74, ptr %9, align 8, !tbaa !919
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 96
+  %76 = load i32, ptr %75, align 8, !tbaa !936
+  %77 = trunc i32 %76 to i8
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 117
+  store i8 %77, ptr %78, align 1, !tbaa !879
+  br label %96
 
-77:                                               ; preds = %48
-  %78 = load ptr, ptr %53, align 8, !tbaa !937
-  store ptr %78, ptr %11, align 8, !tbaa !920
-  br label %91
+79:                                               ; preds = %48
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 88
+  %81 = load ptr, ptr %80, align 8, !tbaa !937
+  store ptr %81, ptr %11, align 8, !tbaa !920
+  br label %96
 
 _ZN4llvm8dyn_castINS_15JumpTableSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %48, %48
-  %79 = load i32, ptr %53, align 8, !tbaa !939
-  store i32 %79, ptr %13, align 8, !tbaa !877
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 92
-  %81 = load i32, ptr %80, align 4, !tbaa !941
-  %82 = trunc i32 %81 to i8
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 117
-  store i8 %82, ptr %83, align 1, !tbaa !879
-  br label %91
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 88
+  %83 = load i32, ptr %82, align 8, !tbaa !939
+  store i32 %83, ptr %13, align 8, !tbaa !877
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 92
+  %85 = load i32, ptr %84, align 4, !tbaa !941
+  %86 = trunc i32 %85 to i8
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 117
+  store i8 %86, ptr %87, align 1, !tbaa !879
+  br label %96
 
 _ZN4llvm8dyn_castINS_18BlockAddressSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %48, %48
-  %84 = load ptr, ptr %53, align 8, !tbaa !942
-  store ptr %84, ptr %15, align 8, !tbaa !921
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 104
-  %86 = load i32, ptr %85, align 8, !tbaa !944
-  %87 = trunc i32 %86 to i8
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 117
-  store i8 %87, ptr %88, align 1, !tbaa !879
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 96
-  %90 = load i64, ptr %89, align 8, !tbaa !945
-  br label %91
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.082.0.copyload) ]
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 88
+  %89 = load ptr, ptr %88, align 8, !tbaa !942
+  store ptr %89, ptr %15, align 8, !tbaa !921
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 104
+  %91 = load i32, ptr %90, align 8, !tbaa !944
+  %92 = trunc i32 %91 to i8
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 117
+  store i8 %92, ptr %93, align 1, !tbaa !879
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.082.0.copyload, i64 96
+  %95 = load i64, ptr %94, align 8, !tbaa !945
+  br label %96
 
 unreachable:                                      ; preds = %48
   unreachable
 
-91:                                               ; preds = %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRT0_.exit, %77, %_ZN4llvm8dyn_castINS_18BlockAddressSDNodeENS_7SDValueEEEDcRT0_.exit, %_ZN4llvm8dyn_castINS_15JumpTableSDNodeENS_7SDValueEEEDcRT0_.exit, %_ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeENS_7SDValueEEEDcRT0_.exit, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit
-  %92 = phi ptr [ %54, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit ], [ null, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRT0_.exit ], [ null, %_ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeENS_7SDValueEEEDcRT0_.exit ], [ null, %77 ], [ null, %_ZN4llvm8dyn_castINS_15JumpTableSDNodeENS_7SDValueEEEDcRT0_.exit ], [ null, %_ZN4llvm8dyn_castINS_18BlockAddressSDNodeENS_7SDValueEEEDcRT0_.exit ]
-  %93 = phi i8 [ %36, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %.pre114, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %36, %_ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %36, %77 ], [ %36, %_ZN4llvm8dyn_castINS_15JumpTableSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %36, %_ZN4llvm8dyn_castINS_18BlockAddressSDNodeENS_7SDValueEEEDcRT0_.exit ]
-  %.060 = phi i64 [ %60, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %71, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRT0_.exit ], [ 0, %_ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeENS_7SDValueEEEDcRT0_.exit ], [ 0, %77 ], [ 0, %_ZN4llvm8dyn_castINS_15JumpTableSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %90, %_ZN4llvm8dyn_castINS_18BlockAddressSDNodeENS_7SDValueEEEDcRT0_.exit ]
-  %94 = trunc nuw i8 %93 to i1
-  %or.cond5.not = and i1 %21, %94
-  %.not = icmp ne ptr %92, null
+96:                                               ; preds = %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRT0_.exit, %79, %_ZN4llvm8dyn_castINS_18BlockAddressSDNodeENS_7SDValueEEEDcRT0_.exit, %_ZN4llvm8dyn_castINS_15JumpTableSDNodeENS_7SDValueEEEDcRT0_.exit, %_ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeENS_7SDValueEEEDcRT0_.exit, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit
+  %97 = phi ptr [ %54, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit ], [ null, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRT0_.exit ], [ null, %_ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeENS_7SDValueEEEDcRT0_.exit ], [ null, %79 ], [ null, %_ZN4llvm8dyn_castINS_15JumpTableSDNodeENS_7SDValueEEEDcRT0_.exit ], [ null, %_ZN4llvm8dyn_castINS_18BlockAddressSDNodeENS_7SDValueEEEDcRT0_.exit ]
+  %98 = phi i8 [ %36, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %.pre114, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %36, %_ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %36, %79 ], [ %36, %_ZN4llvm8dyn_castINS_15JumpTableSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %36, %_ZN4llvm8dyn_castINS_18BlockAddressSDNodeENS_7SDValueEEEDcRT0_.exit ]
+  %.060 = phi i64 [ %60, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %72, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRT0_.exit ], [ 0, %_ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeENS_7SDValueEEEDcRT0_.exit ], [ 0, %79 ], [ 0, %_ZN4llvm8dyn_castINS_15JumpTableSDNodeENS_7SDValueEEEDcRT0_.exit ], [ %95, %_ZN4llvm8dyn_castINS_18BlockAddressSDNodeENS_7SDValueEEEDcRT0_.exit ]
+  %99 = trunc nuw i8 %98 to i1
+  %or.cond5.not = and i1 %21, %99
+  %.not = icmp ne ptr %97, null
   %or.cond116.not = select i1 %or.cond5.not, i1 %.not, i1 false
-  br i1 %or.cond116.not, label %95, label %99
+  br i1 %or.cond116.not, label %100, label %104
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr %29, align 8, !tbaa !628
-  %97 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1264) %96, ptr noundef nonnull %92) #27
-  br i1 %97, label %98, label %99
+100:                                              ; preds = %96
+  %101 = load ptr, ptr %29, align 8, !tbaa !628
+  %102 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1264) %101, ptr noundef nonnull %97) #27
+  br i1 %102, label %103, label %104
 
-98:                                               ; preds = %95
+103:                                              ; preds = %100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(119) %2, ptr noundef nonnull align 8 dereferenceable(119) %4, i64 119, i1 false), !tbaa.struct !926
-  br label %108
+  br label %113
 
-99:                                               ; preds = %95, %91
-  %100 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel21foldOffsetIntoAddressEmRNS_18X86ISelAddressModeE(ptr noundef nonnull align 8 dereferenceable(936) %0, i64 noundef %.060, ptr noundef nonnull align 8 dereferenceable(119) %2)
-  br i1 %100, label %101, label %102
+104:                                              ; preds = %100, %96
+  %105 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel21foldOffsetIntoAddressEmRNS_18X86ISelAddressModeE(ptr noundef nonnull align 8 dereferenceable(936) %0, i64 noundef %.060, ptr noundef nonnull align 8 dereferenceable(119) %2)
+  br i1 %105, label %106, label %107
 
-101:                                              ; preds = %99
+106:                                              ; preds = %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(119) %2, ptr noundef nonnull align 8 dereferenceable(119) %4, i64 119, i1 false), !tbaa.struct !926
-  br label %108
+  br label %113
 
-102:                                              ; preds = %99
-  br i1 %21, label %108, label %103
+107:                                              ; preds = %104
+  br i1 %21, label %113, label %108
 
-103:                                              ; preds = %102
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %105 = load ptr, ptr %104, align 8, !tbaa !341
-  %106 = tail call { ptr, i32 } @_ZN4llvm12SelectionDAG11getRegisterENS_8RegisterENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(952) %105, i32 58, i16 8, ptr null) #27
-  %.fca.0.extract = extractvalue { ptr, i32 } %106, 0
-  %.fca.1.extract = extractvalue { ptr, i32 } %106, 1
+108:                                              ; preds = %107
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %110 = load ptr, ptr %109, align 8, !tbaa !341
+  %111 = tail call { ptr, i32 } @_ZN4llvm12SelectionDAG11getRegisterENS_8RegisterENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(952) %110, i32 58, i16 8, ptr null) #27
+  %.fca.0.extract = extractvalue { ptr, i32 } %111, 0
+  %.fca.1.extract = extractvalue { ptr, i32 } %111, 1
   store i32 0, ptr %2, align 8, !tbaa !870
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.fca.0.extract, ptr %107, align 8, !tbaa !463
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %.fca.0.extract, ptr %112, align 8, !tbaa !463
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !464
-  br label %108
+  br label %113
 
-108:                                              ; preds = %102, %103, %101, %98
-  %.2 = phi i1 [ true, %101 ], [ true, %98 ], [ false, %103 ], [ false, %102 ]
+113:                                              ; preds = %107, %108, %106, %103
+  %.2 = phi i1 [ true, %106 ], [ true, %103 ], [ false, %108 ], [ false, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit.thread
 
-_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit.thread: ; preds = %40, %3, %108, %28
-  %.0 = phi i1 [ true, %40 ], [ true, %28 ], [ %.2, %108 ], [ true, %3 ]
+_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit.thread: ; preds = %40, %3, %113, %28
+  %.0 = phi i1 [ true, %40 ], [ true, %28 ], [ %.2, %113 ], [ true, %3 ]
   ret i1 %.0
 }
 

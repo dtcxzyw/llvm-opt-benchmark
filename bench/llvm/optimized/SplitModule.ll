@@ -2827,8 +2827,9 @@ _ZN4llvm15SmallVectorImplIPKNS_4UserEE6appendINS_5Value18user_iterator_implIS2_E
 53:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %switch.selectcmp.i.i.i.i.i.i.i.i.i = icmp samesign ult i8 %21, 4
-  store ptr %19, ptr %5, align 8, !tbaa !55
-  call void @llvm.assume(i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i)
+  %spec.select.i.i7.i = select i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i, ptr %19, ptr null
+  store ptr %spec.select.i.i7.i, ptr %5, align 8, !tbaa !55
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i7.i) ]
   %54 = call ptr @_ZN4llvm18EquivalenceClassesIPKNS_11GlobalValueESt4lessIS3_EE9unionSetsERKS3_S8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL15addNonConstUserRN4llvm18EquivalenceClassesIPKNS_11GlobalValueESt4lessIS3_EEES3_PKNS_4UserE.exit

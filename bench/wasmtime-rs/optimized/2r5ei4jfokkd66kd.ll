@@ -7,15 +7,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h265bd8b99f6650c0E"(ptr align 8 %0, ptr align 8 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca { ptr, ptr, {} }, align 8
   %5 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   store ptr %1, ptr %4, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %5, ptr %7, align 8
-  %8 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8491bcb0a1304197E"(ptr nonnull align 8 %4, ptr nonnull align 8 %0)
-  ret i1 %9
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %5, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %7 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8491bcb0a1304197E"(ptr nonnull align 8 %4, ptr nonnull align 8 %0)
+  ret i1 %7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

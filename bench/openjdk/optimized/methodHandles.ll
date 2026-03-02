@@ -5664,8 +5664,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %34
   store volatile i32 6, ptr %24, align 4
-  %.not.i = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %35 = ptrtoint ptr %2 to i64
   %36 = and i64 %35, 3
   switch i64 %36, label %45 [

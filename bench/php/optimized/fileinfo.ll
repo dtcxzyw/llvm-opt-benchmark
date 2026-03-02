@@ -542,7 +542,7 @@ define hidden void @zif_finfo_set_flags(ptr noundef %0, ptr noundef writeonly ca
   store i32 3, ptr %35, align 8, !tbaa !30
   br label %36
 
-36:                                               ; preds = %2, %20, %34, %28
+36:                                               ; preds = %20, %2, %34, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -877,11 +877,11 @@ zend_string_alloc.exit:                           ; preds = %120
   store i32 2, ptr %147, align 8, !tbaa !30
   br label %148
 
-.critedge92:                                      ; preds = %36, %52
+.critedge92:                                      ; preds = %52, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %148
 
-148:                                              ; preds = %14, %136, %138, %.critedge92, %143, %61, %29
+148:                                              ; preds = %136, %138, %.critedge92, %14, %143, %61, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

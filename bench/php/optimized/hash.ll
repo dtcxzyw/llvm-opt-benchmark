@@ -1962,7 +1962,7 @@ php_hash_fetch_ops.exit:                          ; preds = %zend_hash_find_ptr.
   store ptr %63, ptr %58, align 8, !tbaa !60
   br label %87
 
-87:                                               ; preds = %2, %45, %._crit_edge, %44, %37, %29
+87:                                               ; preds = %45, %._crit_edge, %2, %44, %37, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2107,7 +2107,7 @@ thread-pre-split:                                 ; preds = %19
   store i32 4, ptr %37, align 8, !tbaa !4
   br label %38
 
-38:                                               ; preds = %2, %.thread, %19, %._crit_edge, %18
+38:                                               ; preds = %.thread, %19, %2, %._crit_edge, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2441,7 +2441,7 @@ define hidden void @zif_hash_copy(ptr noundef readonly captures(none) %0, ptr no
   %6 = load ptr, ptr @php_hashcontext_ce, align 8, !tbaa !58
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef %6) #16
   %8 = icmp eq i32 %7, -1
-  br i1 %8, label %.sink.split, label %9
+  br i1 %8, label %26, label %9
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %3, align 8, !tbaa !61
@@ -2453,7 +2453,7 @@ define hidden void @zif_hash_copy(ptr noundef readonly captures(none) %0, ptr no
 
 14:                                               ; preds = %9
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.6) #16
-  br label %.sink.split
+  br label %26
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -2467,14 +2467,14 @@ define hidden void @zif_hash_copy(ptr noundef readonly captures(none) %0, ptr no
   %22 = getelementptr inbounds i8, ptr %20, i64 -24
   %23 = load ptr, ptr %22, align 8, !tbaa !19
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %.sink.split
+  br i1 %24, label %25, label %26
 
 25:                                               ; preds = %15
   call void @zval_ptr_dtor(ptr noundef nonnull %1) #16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.14) #16
-  br label %.sink.split
+  br label %26
 
-.sink.split:                                      ; preds = %25, %14, %2, %15
+26:                                               ; preds = %15, %2, %25, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3606,7 +3606,7 @@ zend_string_alloc.exit._crit_edge:                ; preds = %zend_string_alloc.e
   %56 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.27, ptr noundef %55) #16
   br label %57
 
-57:                                               ; preds = %53, %42, %20, %10
+57:                                               ; preds = %10, %53, %42, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -4508,8 +4508,7 @@ define hidden noundef i32 @zm_startup_hash(i32 %0, i32 noundef %1) #0 {
   call void @zend_register_long_constant(ptr noundef nonnull @.str.103, i64 noundef 9, i64 noundef 1, i32 noundef 1, i32 noundef %1) #16
   %364 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !74
   %365 = call ptr @zend_hash_str_find(ptr noundef %364, ptr noundef nonnull @.str.104, i64 noundef 9) #16
-  %.not.i7.i = icmp ne ptr %365, null
-  call void @llvm.assume(i1 %.not.i7.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %365) ]
   %366 = load ptr, ptr %365, align 8, !tbaa !4, !nonnull !7, !noundef !7
   %367 = load ptr, ptr @zend_known_strings, align 8, !tbaa !89
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 584
@@ -4521,8 +4520,7 @@ define hidden noundef i32 @zm_startup_hash(i32 %0, i32 noundef %1) #0 {
   %373 = call ptr @zend_add_attribute(ptr noundef nonnull %372, ptr noundef %369, i32 noundef 0, i32 noundef %371, i32 noundef 3, i32 noundef 0) #16
   %374 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !74
   %375 = call ptr @zend_hash_str_find(ptr noundef %374, ptr noundef nonnull @.str.105, i64 noundef 14) #16
-  %.not.i8.i = icmp ne ptr %375, null
-  call void @llvm.assume(i1 %.not.i8.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %375) ]
   %376 = load ptr, ptr %375, align 8, !tbaa !4, !nonnull !7, !noundef !7
   %377 = load ptr, ptr @zend_known_strings, align 8, !tbaa !89
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 584
@@ -4534,8 +4532,7 @@ define hidden noundef i32 @zm_startup_hash(i32 %0, i32 noundef %1) #0 {
   %383 = call ptr @zend_add_attribute(ptr noundef nonnull %382, ptr noundef %379, i32 noundef 0, i32 noundef %381, i32 noundef 3, i32 noundef 0) #16
   %384 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !74
   %385 = call ptr @zend_hash_str_find(ptr noundef %384, ptr noundef nonnull @.str.106, i64 noundef 9) #16
-  %.not.i11.i = icmp ne ptr %385, null
-  call void @llvm.assume(i1 %.not.i11.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %385) ]
   %386 = load ptr, ptr %385, align 8, !tbaa !4, !nonnull !7, !noundef !7
   %387 = load ptr, ptr @zend_known_strings, align 8, !tbaa !89
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 584
@@ -4547,8 +4544,7 @@ define hidden noundef i32 @zm_startup_hash(i32 %0, i32 noundef %1) #0 {
   %393 = call ptr @zend_add_attribute(ptr noundef nonnull %392, ptr noundef %389, i32 noundef 0, i32 noundef %391, i32 noundef 3, i32 noundef 0) #16
   %394 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !74
   %395 = call ptr @zend_hash_str_find(ptr noundef %394, ptr noundef nonnull @.str.107, i64 noundef 11) #16
-  %.not.i14.i = icmp ne ptr %395, null
-  call void @llvm.assume(i1 %.not.i14.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %395) ]
   %396 = load ptr, ptr %395, align 8, !tbaa !4, !nonnull !7, !noundef !7
   %397 = load ptr, ptr @zend_known_strings, align 8, !tbaa !89
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 584
@@ -4560,8 +4556,7 @@ define hidden noundef i32 @zm_startup_hash(i32 %0, i32 noundef %1) #0 {
   %403 = call ptr @zend_add_attribute(ptr noundef nonnull %402, ptr noundef %399, i32 noundef 0, i32 noundef %401, i32 noundef 2, i32 noundef 0) #16
   %404 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !74
   %405 = call ptr @zend_hash_str_find(ptr noundef %404, ptr noundef nonnull @.str.108, i64 noundef 11) #16
-  %.not.i17.i = icmp ne ptr %405, null
-  call void @llvm.assume(i1 %.not.i17.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %405) ]
   %406 = load ptr, ptr %405, align 8, !tbaa !4, !nonnull !7, !noundef !7
   %407 = load ptr, ptr @zend_known_strings, align 8, !tbaa !89
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 584
@@ -4573,8 +4568,7 @@ define hidden noundef i32 @zm_startup_hash(i32 %0, i32 noundef %1) #0 {
   %413 = call ptr @zend_add_attribute(ptr noundef nonnull %412, ptr noundef %409, i32 noundef 0, i32 noundef %411, i32 noundef 1, i32 noundef 0) #16
   %414 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !74
   %415 = call ptr @zend_hash_str_find(ptr noundef %414, ptr noundef nonnull @.str.108, i64 noundef 11) #16
-  %.not.i20.i = icmp ne ptr %415, null
-  call void @llvm.assume(i1 %.not.i20.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %415) ]
   %416 = load ptr, ptr %415, align 8, !tbaa !4, !nonnull !7, !noundef !7
   %417 = load ptr, ptr @zend_known_strings, align 8, !tbaa !89
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 584
@@ -4586,8 +4580,7 @@ define hidden noundef i32 @zm_startup_hash(i32 %0, i32 noundef %1) #0 {
   %423 = call ptr @zend_add_attribute(ptr noundef nonnull %422, ptr noundef %419, i32 noundef 0, i32 noundef %421, i32 noundef 2, i32 noundef 0) #16
   %424 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !74
   %425 = call ptr @zend_hash_str_find(ptr noundef %424, ptr noundef nonnull @.str.109, i64 noundef 9) #16
-  %.not.i23.i = icmp ne ptr %425, null
-  call void @llvm.assume(i1 %.not.i23.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %425) ]
   %426 = load ptr, ptr %425, align 8, !tbaa !4, !nonnull !7, !noundef !7
   %427 = load ptr, ptr @zend_known_strings, align 8, !tbaa !89
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 584

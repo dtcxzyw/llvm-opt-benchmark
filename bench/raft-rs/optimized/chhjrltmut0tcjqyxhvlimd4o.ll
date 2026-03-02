@@ -162,7 +162,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %122, label %117
+  br i1 %.not, label %121, label %117
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -276,7 +276,7 @@ default.unreachable1.i:                           ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %7, i64 23, i1 false)
   br label %112
 
-112:                                              ; preds = %122, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h2e3be7273fb12304E.exit", %61, %48
+112:                                              ; preds = %121, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h2e3be7273fb12304E.exit", %61, %48
   ret void
 
 113:                                              ; preds = %19
@@ -295,15 +295,14 @@ default.unreachable1.i:                           ; preds = %74
 
 117:                                              ; preds = %33
   %118 = extractvalue { ptr, ptr } %46, 1
-  %119 = icmp ne ptr %118, null
-  tail call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %121 = load ptr, ptr %120, align 8, !invariant.load !3, !nonnull !3
-  call void %121(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %120 = load ptr, ptr %119, align 8, !invariant.load !3, !nonnull !3
+  call void %120(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
-  br label %122
+  br label %121
 
-122:                                              ; preds = %33, %117
+121:                                              ; preds = %33, %117
   %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload, %117 ], [ 11, %33 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -371,7 +370,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %122, label %117
+  br i1 %.not, label %121, label %117
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -485,7 +484,7 @@ default.unreachable1.i:                           ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %7, i64 23, i1 false)
   br label %112
 
-112:                                              ; preds = %122, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbeece39611097364E.exit", %61, %48
+112:                                              ; preds = %121, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbeece39611097364E.exit", %61, %48
   ret void
 
 113:                                              ; preds = %19
@@ -504,15 +503,14 @@ default.unreachable1.i:                           ; preds = %74
 
 117:                                              ; preds = %33
   %118 = extractvalue { ptr, ptr } %46, 1
-  %119 = icmp ne ptr %118, null
-  tail call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %121 = load ptr, ptr %120, align 8, !invariant.load !3, !nonnull !3
-  call void %121(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %120 = load ptr, ptr %119, align 8, !invariant.load !3, !nonnull !3
+  call void %120(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
-  br label %122
+  br label %121
 
-122:                                              ; preds = %33, %117
+121:                                              ; preds = %33, %117
   %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload, %117 ], [ 11, %33 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -580,7 +578,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %122, label %117
+  br i1 %.not, label %121, label %117
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -694,7 +692,7 @@ default.unreachable1.i:                           ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %7, i64 23, i1 false)
   br label %112
 
-112:                                              ; preds = %122, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h822685c462d5ff3eE.exit", %61, %48
+112:                                              ; preds = %121, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h822685c462d5ff3eE.exit", %61, %48
   ret void
 
 113:                                              ; preds = %19
@@ -713,15 +711,14 @@ default.unreachable1.i:                           ; preds = %74
 
 117:                                              ; preds = %33
   %118 = extractvalue { ptr, ptr } %46, 1
-  %119 = icmp ne ptr %118, null
-  tail call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %121 = load ptr, ptr %120, align 8, !invariant.load !3, !nonnull !3
-  call void %121(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %120 = load ptr, ptr %119, align 8, !invariant.load !3, !nonnull !3
+  call void %120(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
-  br label %122
+  br label %121
 
-122:                                              ; preds = %33, %117
+121:                                              ; preds = %33, %117
   %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload, %117 ], [ 11, %33 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -789,7 +786,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %122, label %117
+  br i1 %.not, label %121, label %117
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -903,7 +900,7 @@ default.unreachable1.i:                           ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %7, i64 23, i1 false)
   br label %112
 
-112:                                              ; preds = %122, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbfbf17dd479f5776E.exit", %61, %48
+112:                                              ; preds = %121, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbfbf17dd479f5776E.exit", %61, %48
   ret void
 
 113:                                              ; preds = %19
@@ -922,15 +919,14 @@ default.unreachable1.i:                           ; preds = %74
 
 117:                                              ; preds = %33
   %118 = extractvalue { ptr, ptr } %46, 1
-  %119 = icmp ne ptr %118, null
-  tail call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %121 = load ptr, ptr %120, align 8, !invariant.load !3, !nonnull !3
-  call void %121(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %120 = load ptr, ptr %119, align 8, !invariant.load !3, !nonnull !3
+  call void %120(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
-  br label %122
+  br label %121
 
-122:                                              ; preds = %33, %117
+121:                                              ; preds = %33, %117
   %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload, %117 ], [ 11, %33 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -998,7 +994,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %122, label %117
+  br i1 %.not, label %121, label %117
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1112,7 +1108,7 @@ default.unreachable1.i:                           ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %7, i64 23, i1 false)
   br label %112
 
-112:                                              ; preds = %122, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hef17fcc232eb74abE.exit", %61, %48
+112:                                              ; preds = %121, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hef17fcc232eb74abE.exit", %61, %48
   ret void
 
 113:                                              ; preds = %19
@@ -1131,15 +1127,14 @@ default.unreachable1.i:                           ; preds = %74
 
 117:                                              ; preds = %33
   %118 = extractvalue { ptr, ptr } %46, 1
-  %119 = icmp ne ptr %118, null
-  tail call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %121 = load ptr, ptr %120, align 8, !invariant.load !3, !nonnull !3
-  call void %121(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %120 = load ptr, ptr %119, align 8, !invariant.load !3, !nonnull !3
+  call void %120(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
-  br label %122
+  br label %121
 
-122:                                              ; preds = %33, %117
+121:                                              ; preds = %33, %117
   %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload, %117 ], [ 11, %33 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -1207,7 +1202,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %122, label %117
+  br i1 %.not, label %121, label %117
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1321,7 +1316,7 @@ default.unreachable1.i:                           ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %7, i64 23, i1 false)
   br label %112
 
-112:                                              ; preds = %122, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17he648df4efe49681eE.exit", %61, %48
+112:                                              ; preds = %121, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17he648df4efe49681eE.exit", %61, %48
   ret void
 
 113:                                              ; preds = %19
@@ -1340,15 +1335,14 @@ default.unreachable1.i:                           ; preds = %74
 
 117:                                              ; preds = %33
   %118 = extractvalue { ptr, ptr } %46, 1
-  %119 = icmp ne ptr %118, null
-  tail call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %121 = load ptr, ptr %120, align 8, !invariant.load !3, !nonnull !3
-  call void %121(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %120 = load ptr, ptr %119, align 8, !invariant.load !3, !nonnull !3
+  call void %120(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
-  br label %122
+  br label %121
 
-122:                                              ; preds = %33, %117
+121:                                              ; preds = %33, %117
   %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload, %117 ], [ 11, %33 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -1416,7 +1410,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %122, label %117
+  br i1 %.not, label %121, label %117
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1530,7 +1524,7 @@ default.unreachable1.i:                           ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %7, i64 23, i1 false)
   br label %112
 
-112:                                              ; preds = %122, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h52b82e287134b3e6E.exit", %61, %48
+112:                                              ; preds = %121, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h52b82e287134b3e6E.exit", %61, %48
   ret void
 
 113:                                              ; preds = %19
@@ -1549,15 +1543,14 @@ default.unreachable1.i:                           ; preds = %74
 
 117:                                              ; preds = %33
   %118 = extractvalue { ptr, ptr } %46, 1
-  %119 = icmp ne ptr %118, null
-  tail call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %121 = load ptr, ptr %120, align 8, !invariant.load !3, !nonnull !3
-  call void %121(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %120 = load ptr, ptr %119, align 8, !invariant.load !3, !nonnull !3
+  call void %120(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
-  br label %122
+  br label %121
 
-122:                                              ; preds = %33, %117
+121:                                              ; preds = %33, %117
   %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload, %117 ], [ 11, %33 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -1625,7 +1618,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %122, label %117
+  br i1 %.not, label %121, label %117
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1739,7 +1732,7 @@ default.unreachable1.i:                           ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %7, i64 23, i1 false)
   br label %112
 
-112:                                              ; preds = %122, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17ha701b962268cf95dE.exit", %61, %48
+112:                                              ; preds = %121, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17ha701b962268cf95dE.exit", %61, %48
   ret void
 
 113:                                              ; preds = %19
@@ -1758,15 +1751,14 @@ default.unreachable1.i:                           ; preds = %74
 
 117:                                              ; preds = %33
   %118 = extractvalue { ptr, ptr } %46, 1
-  %119 = icmp ne ptr %118, null
-  tail call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %121 = load ptr, ptr %120, align 8, !invariant.load !3, !nonnull !3
-  call void %121(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %120 = load ptr, ptr %119, align 8, !invariant.load !3, !nonnull !3
+  call void %120(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
-  br label %122
+  br label %121
 
-122:                                              ; preds = %33, %117
+121:                                              ; preds = %33, %117
   %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload, %117 ], [ 11, %33 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -1834,7 +1826,7 @@ define internal void @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAccessorImpl$
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %122, label %117
+  br i1 %.not, label %121, label %117
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1948,7 +1940,7 @@ default.unreachable1.i:                           ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(23) %7, i64 23, i1 false)
   br label %112
 
-112:                                              ; preds = %122, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hb0b0533ba8db5a64E.exit", %61, %48
+112:                                              ; preds = %121, %116, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hb0b0533ba8db5a64E.exit", %61, %48
   ret void
 
 113:                                              ; preds = %19
@@ -1967,15 +1959,14 @@ default.unreachable1.i:                           ; preds = %74
 
 117:                                              ; preds = %33
   %118 = extractvalue { ptr, ptr } %46, 1
-  %119 = icmp ne ptr %118, null
-  tail call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %121 = load ptr, ptr %120, align 8, !invariant.load !3, !nonnull !3
-  call void %121(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %120 = load ptr, ptr %119, align 8, !invariant.load !3, !nonnull !3
+  call void %120(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %47)
   %.sroa.0.0.copyload = load i8, ptr %5, align 8
-  br label %122
+  br label %121
 
-122:                                              ; preds = %33, %117
+121:                                              ; preds = %33, %117
   %.sroa.0.0 = phi i8 [ %.sroa.0.0.copyload, %117 ], [ 11, %33 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -4056,7 +4047,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %69, label %62, !prof !67
+  br i1 %.not, label %68, label %62, !prof !67
 
 48:                                               ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4069,8 +4060,8 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %56 = tail call noundef align 8 dereferenceable(8) ptr %55(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 8 %53)
   br label %57
 
-57:                                               ; preds = %70, %58, %48
-  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %72, %70 ]
+57:                                               ; preds = %69, %58, %48
+  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %71, %69 ]
   ret ptr %.sroa.0.0
 
 58:                                               ; preds = %18
@@ -4085,26 +4076,25 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 
 62:                                               ; preds = %33
   %63 = extractvalue { ptr, ptr } %46, 1
-  %64 = icmp ne ptr %63, null
-  tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %66 = load ptr, ptr %65, align 8, !invariant.load !3, !nonnull !3
-  call void %66(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
-  %67 = load i8, ptr %8, align 8, !range !66, !noundef !3
-  %68 = icmp eq i8 %67, 9
-  br i1 %68, label %70, label %73, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8, !invariant.load !3, !nonnull !3
+  call void %65(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
+  %66 = load i8, ptr %8, align 8, !range !66, !noundef !3
+  %67 = icmp eq i8 %66, 9
+  br i1 %67, label %69, label %72, !prof !65
 
-69:                                               ; preds = %33
+68:                                               ; preds = %33
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.13) #14
   unreachable
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %72 = load ptr, ptr %71, align 8, !nonnull !3, !align !6, !noundef !3
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %71 = load ptr, ptr %70, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
-73:                                               ; preds = %62
+72:                                               ; preds = %62
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.10, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.14) #14
   unreachable
 }
@@ -4184,7 +4174,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %69, label %62, !prof !67
+  br i1 %.not, label %68, label %62, !prof !67
 
 48:                                               ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4197,8 +4187,8 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %56 = tail call noundef align 8 dereferenceable(8) ptr %55(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 8 %53)
   br label %57
 
-57:                                               ; preds = %70, %58, %48
-  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %72, %70 ]
+57:                                               ; preds = %69, %58, %48
+  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %71, %69 ]
   ret ptr %.sroa.0.0
 
 58:                                               ; preds = %18
@@ -4213,26 +4203,25 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 
 62:                                               ; preds = %33
   %63 = extractvalue { ptr, ptr } %46, 1
-  %64 = icmp ne ptr %63, null
-  tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %66 = load ptr, ptr %65, align 8, !invariant.load !3, !nonnull !3
-  call void %66(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
-  %67 = load i8, ptr %8, align 8, !range !66, !noundef !3
-  %68 = icmp eq i8 %67, 9
-  br i1 %68, label %70, label %73, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8, !invariant.load !3, !nonnull !3
+  call void %65(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
+  %66 = load i8, ptr %8, align 8, !range !66, !noundef !3
+  %67 = icmp eq i8 %66, 9
+  br i1 %67, label %69, label %72, !prof !65
 
-69:                                               ; preds = %33
+68:                                               ; preds = %33
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.13) #14
   unreachable
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %72 = load ptr, ptr %71, align 8, !nonnull !3, !align !6, !noundef !3
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %71 = load ptr, ptr %70, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
-73:                                               ; preds = %62
+72:                                               ; preds = %62
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.10, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.14) #14
   unreachable
 }
@@ -4312,7 +4301,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %69, label %62, !prof !67
+  br i1 %.not, label %68, label %62, !prof !67
 
 48:                                               ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4325,8 +4314,8 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %56 = tail call noundef align 8 dereferenceable(8) ptr %55(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 8 %53)
   br label %57
 
-57:                                               ; preds = %70, %58, %48
-  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %72, %70 ]
+57:                                               ; preds = %69, %58, %48
+  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %71, %69 ]
   ret ptr %.sroa.0.0
 
 58:                                               ; preds = %18
@@ -4341,26 +4330,25 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 
 62:                                               ; preds = %33
   %63 = extractvalue { ptr, ptr } %46, 1
-  %64 = icmp ne ptr %63, null
-  tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %66 = load ptr, ptr %65, align 8, !invariant.load !3, !nonnull !3
-  call void %66(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
-  %67 = load i8, ptr %8, align 8, !range !66, !noundef !3
-  %68 = icmp eq i8 %67, 9
-  br i1 %68, label %70, label %73, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8, !invariant.load !3, !nonnull !3
+  call void %65(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
+  %66 = load i8, ptr %8, align 8, !range !66, !noundef !3
+  %67 = icmp eq i8 %66, 9
+  br i1 %67, label %69, label %72, !prof !65
 
-69:                                               ; preds = %33
+68:                                               ; preds = %33
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.13) #14
   unreachable
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %72 = load ptr, ptr %71, align 8, !nonnull !3, !align !6, !noundef !3
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %71 = load ptr, ptr %70, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
-73:                                               ; preds = %62
+72:                                               ; preds = %62
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.10, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.14) #14
   unreachable
 }
@@ -4440,7 +4428,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %69, label %62, !prof !67
+  br i1 %.not, label %68, label %62, !prof !67
 
 48:                                               ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4453,8 +4441,8 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %56 = tail call noundef align 8 dereferenceable(8) ptr %55(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 8 %53)
   br label %57
 
-57:                                               ; preds = %70, %58, %48
-  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %72, %70 ]
+57:                                               ; preds = %69, %58, %48
+  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %71, %69 ]
   ret ptr %.sroa.0.0
 
 58:                                               ; preds = %18
@@ -4469,26 +4457,25 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 
 62:                                               ; preds = %33
   %63 = extractvalue { ptr, ptr } %46, 1
-  %64 = icmp ne ptr %63, null
-  tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %66 = load ptr, ptr %65, align 8, !invariant.load !3, !nonnull !3
-  call void %66(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
-  %67 = load i8, ptr %8, align 8, !range !66, !noundef !3
-  %68 = icmp eq i8 %67, 9
-  br i1 %68, label %70, label %73, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8, !invariant.load !3, !nonnull !3
+  call void %65(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
+  %66 = load i8, ptr %8, align 8, !range !66, !noundef !3
+  %67 = icmp eq i8 %66, 9
+  br i1 %67, label %69, label %72, !prof !65
 
-69:                                               ; preds = %33
+68:                                               ; preds = %33
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.13) #14
   unreachable
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %72 = load ptr, ptr %71, align 8, !nonnull !3, !align !6, !noundef !3
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %71 = load ptr, ptr %70, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
-73:                                               ; preds = %62
+72:                                               ; preds = %62
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.10, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.14) #14
   unreachable
 }
@@ -4568,7 +4555,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %69, label %62, !prof !67
+  br i1 %.not, label %68, label %62, !prof !67
 
 48:                                               ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4581,8 +4568,8 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %56 = tail call noundef align 8 dereferenceable(8) ptr %55(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 8 %53)
   br label %57
 
-57:                                               ; preds = %70, %58, %48
-  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %72, %70 ]
+57:                                               ; preds = %69, %58, %48
+  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %71, %69 ]
   ret ptr %.sroa.0.0
 
 58:                                               ; preds = %18
@@ -4597,26 +4584,25 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 
 62:                                               ; preds = %33
   %63 = extractvalue { ptr, ptr } %46, 1
-  %64 = icmp ne ptr %63, null
-  tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %66 = load ptr, ptr %65, align 8, !invariant.load !3, !nonnull !3
-  call void %66(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
-  %67 = load i8, ptr %8, align 8, !range !66, !noundef !3
-  %68 = icmp eq i8 %67, 9
-  br i1 %68, label %70, label %73, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8, !invariant.load !3, !nonnull !3
+  call void %65(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
+  %66 = load i8, ptr %8, align 8, !range !66, !noundef !3
+  %67 = icmp eq i8 %66, 9
+  br i1 %67, label %69, label %72, !prof !65
 
-69:                                               ; preds = %33
+68:                                               ; preds = %33
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.13) #14
   unreachable
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %72 = load ptr, ptr %71, align 8, !nonnull !3, !align !6, !noundef !3
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %71 = load ptr, ptr %70, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
-73:                                               ; preds = %62
+72:                                               ; preds = %62
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.10, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.14) #14
   unreachable
 }
@@ -4696,7 +4682,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %69, label %62, !prof !67
+  br i1 %.not, label %68, label %62, !prof !67
 
 48:                                               ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4709,8 +4695,8 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %56 = tail call noundef align 8 dereferenceable(8) ptr %55(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 8 %53)
   br label %57
 
-57:                                               ; preds = %70, %58, %48
-  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %72, %70 ]
+57:                                               ; preds = %69, %58, %48
+  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %71, %69 ]
   ret ptr %.sroa.0.0
 
 58:                                               ; preds = %18
@@ -4725,26 +4711,25 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 
 62:                                               ; preds = %33
   %63 = extractvalue { ptr, ptr } %46, 1
-  %64 = icmp ne ptr %63, null
-  tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %66 = load ptr, ptr %65, align 8, !invariant.load !3, !nonnull !3
-  call void %66(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
-  %67 = load i8, ptr %8, align 8, !range !66, !noundef !3
-  %68 = icmp eq i8 %67, 9
-  br i1 %68, label %70, label %73, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8, !invariant.load !3, !nonnull !3
+  call void %65(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
+  %66 = load i8, ptr %8, align 8, !range !66, !noundef !3
+  %67 = icmp eq i8 %66, 9
+  br i1 %67, label %69, label %72, !prof !65
 
-69:                                               ; preds = %33
+68:                                               ; preds = %33
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.13) #14
   unreachable
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %72 = load ptr, ptr %71, align 8, !nonnull !3, !align !6, !noundef !3
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %71 = load ptr, ptr %70, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
-73:                                               ; preds = %62
+72:                                               ; preds = %62
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.10, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.14) #14
   unreachable
 }
@@ -4824,7 +4809,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %69, label %62, !prof !67
+  br i1 %.not, label %68, label %62, !prof !67
 
 48:                                               ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4837,8 +4822,8 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %56 = tail call noundef align 8 dereferenceable(8) ptr %55(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 8 %53)
   br label %57
 
-57:                                               ; preds = %70, %58, %48
-  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %72, %70 ]
+57:                                               ; preds = %69, %58, %48
+  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %71, %69 ]
   ret ptr %.sroa.0.0
 
 58:                                               ; preds = %18
@@ -4853,26 +4838,25 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 
 62:                                               ; preds = %33
   %63 = extractvalue { ptr, ptr } %46, 1
-  %64 = icmp ne ptr %63, null
-  tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %66 = load ptr, ptr %65, align 8, !invariant.load !3, !nonnull !3
-  call void %66(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
-  %67 = load i8, ptr %8, align 8, !range !66, !noundef !3
-  %68 = icmp eq i8 %67, 9
-  br i1 %68, label %70, label %73, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8, !invariant.load !3, !nonnull !3
+  call void %65(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
+  %66 = load i8, ptr %8, align 8, !range !66, !noundef !3
+  %67 = icmp eq i8 %66, 9
+  br i1 %67, label %69, label %72, !prof !65
 
-69:                                               ; preds = %33
+68:                                               ; preds = %33
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.13) #14
   unreachable
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %72 = load ptr, ptr %71, align 8, !nonnull !3, !align !6, !noundef !3
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %71 = load ptr, ptr %70, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
-73:                                               ; preds = %62
+72:                                               ; preds = %62
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.10, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.14) #14
   unreachable
 }
@@ -4952,7 +4936,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %69, label %62, !prof !67
+  br i1 %.not, label %68, label %62, !prof !67
 
 48:                                               ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4965,8 +4949,8 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %56 = tail call noundef align 8 dereferenceable(8) ptr %55(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 8 %53)
   br label %57
 
-57:                                               ; preds = %70, %58, %48
-  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %72, %70 ]
+57:                                               ; preds = %69, %58, %48
+  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %71, %69 ]
   ret ptr %.sroa.0.0
 
 58:                                               ; preds = %18
@@ -4981,26 +4965,25 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 
 62:                                               ; preds = %33
   %63 = extractvalue { ptr, ptr } %46, 1
-  %64 = icmp ne ptr %63, null
-  tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %66 = load ptr, ptr %65, align 8, !invariant.load !3, !nonnull !3
-  call void %66(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
-  %67 = load i8, ptr %8, align 8, !range !66, !noundef !3
-  %68 = icmp eq i8 %67, 9
-  br i1 %68, label %70, label %73, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8, !invariant.load !3, !nonnull !3
+  call void %65(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
+  %66 = load i8, ptr %8, align 8, !range !66, !noundef !3
+  %67 = icmp eq i8 %66, 9
+  br i1 %67, label %69, label %72, !prof !65
 
-69:                                               ; preds = %33
+68:                                               ; preds = %33
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.13) #14
   unreachable
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %72 = load ptr, ptr %71, align 8, !nonnull !3, !align !6, !noundef !3
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %71 = load ptr, ptr %70, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
-73:                                               ; preds = %62
+72:                                               ; preds = %62
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.10, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.14) #14
   unreachable
 }
@@ -5080,7 +5063,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %46 = tail call { ptr, ptr } %45(ptr noundef align 1 %42)
   %47 = extractvalue { ptr, ptr } %46, 0
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %69, label %62, !prof !67
+  br i1 %.not, label %68, label %62, !prof !67
 
 48:                                               ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5093,8 +5076,8 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
   %56 = tail call noundef align 8 dereferenceable(8) ptr %55(ptr noundef nonnull align 1 %50, ptr noundef nonnull align 8 %53)
   br label %57
 
-57:                                               ; preds = %70, %58, %48
-  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %72, %70 ]
+57:                                               ; preds = %69, %58, %48
+  %.sroa.0.0 = phi ptr [ %56, %48 ], [ %60, %58 ], [ %71, %69 ]
   ret ptr %.sroa.0.0
 
 58:                                               ; preds = %18
@@ -5109,26 +5092,25 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN121_$LT$prot
 
 62:                                               ; preds = %33
   %63 = extractvalue { ptr, ptr } %46, 1
-  %64 = icmp ne ptr %63, null
-  tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %66 = load ptr, ptr %65, align 8, !invariant.load !3, !nonnull !3
-  call void %66(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
-  %67 = load i8, ptr %8, align 8, !range !66, !noundef !3
-  %68 = icmp eq i8 %67, 9
-  br i1 %68, label %70, label %73, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8, !invariant.load !3, !nonnull !3
+  call void %65(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 1 %47)
+  %66 = load i8, ptr %8, align 8, !range !66, !noundef !3
+  %67 = icmp eq i8 %66, 9
+  br i1 %67, label %69, label %72, !prof !65
 
-69:                                               ; preds = %33
+68:                                               ; preds = %33
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.13) #14
   unreachable
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %72 = load ptr, ptr %71, align 8, !nonnull !3, !align !6, !noundef !3
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %71 = load ptr, ptr %70, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
-73:                                               ; preds = %62
+72:                                               ; preds = %62
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.10, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.14) #14
   unreachable
 }
@@ -6303,7 +6285,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %30 = tail call { ptr, ptr } %29(ptr noundef align 1 %26)
   %31 = extractvalue { ptr, ptr } %30, 0
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %49, label %42, !prof !67
+  br i1 %.not, label %48, label %42, !prof !67
 
 32:                                               ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6316,36 +6298,35 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %40 = tail call { ptr, ptr } %39(ptr noundef nonnull align 1 %34, ptr noundef nonnull align 8 %37)
   br label %41
 
-41:                                               ; preds = %50, %32
-  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %56, %50 ]
+41:                                               ; preds = %49, %32
+  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %55, %49 ]
   ret { ptr, ptr } %.merged
 
 42:                                               ; preds = %17
   %43 = extractvalue { ptr, ptr } %30, 1
-  %44 = icmp ne ptr %43, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %46 = load ptr, ptr %45, align 8, !invariant.load !3, !nonnull !3
-  call void %46(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
-  %47 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %48 = icmp eq i8 %47, 10
-  br i1 %48, label %50, label %57, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8, !invariant.load !3, !nonnull !3
+  call void %45(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
+  %46 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %47 = icmp eq i8 %46, 10
+  br i1 %47, label %49, label %56, !prof !65
 
-49:                                               ; preds = %17
+48:                                               ; preds = %17
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #14
   unreachable
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %52 = load ptr, ptr %51, align 8, !nonnull !3, !align !5, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %54 = load ptr, ptr %53, align 8, !nonnull !3, !align !6, !noundef !3
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %51 = load ptr, ptr %50, align 8, !nonnull !3, !align !5, !noundef !3
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %53 = load ptr, ptr %52, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %55 = insertvalue { ptr, ptr } poison, ptr %52, 0
-  %56 = insertvalue { ptr, ptr } %55, ptr %54, 1
+  %54 = insertvalue { ptr, ptr } poison, ptr %51, 0
+  %55 = insertvalue { ptr, ptr } %54, ptr %53, 1
   br label %41
 
-57:                                               ; preds = %42
+56:                                               ; preds = %42
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #14
   unreachable
 }
@@ -6404,7 +6385,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %30 = tail call { ptr, ptr } %29(ptr noundef align 1 %26)
   %31 = extractvalue { ptr, ptr } %30, 0
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %49, label %42, !prof !67
+  br i1 %.not, label %48, label %42, !prof !67
 
 32:                                               ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6417,36 +6398,35 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %40 = tail call { ptr, ptr } %39(ptr noundef nonnull align 1 %34, ptr noundef nonnull align 8 %37)
   br label %41
 
-41:                                               ; preds = %50, %32
-  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %56, %50 ]
+41:                                               ; preds = %49, %32
+  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %55, %49 ]
   ret { ptr, ptr } %.merged
 
 42:                                               ; preds = %17
   %43 = extractvalue { ptr, ptr } %30, 1
-  %44 = icmp ne ptr %43, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %46 = load ptr, ptr %45, align 8, !invariant.load !3, !nonnull !3
-  call void %46(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
-  %47 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %48 = icmp eq i8 %47, 10
-  br i1 %48, label %50, label %57, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8, !invariant.load !3, !nonnull !3
+  call void %45(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
+  %46 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %47 = icmp eq i8 %46, 10
+  br i1 %47, label %49, label %56, !prof !65
 
-49:                                               ; preds = %17
+48:                                               ; preds = %17
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #14
   unreachable
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %52 = load ptr, ptr %51, align 8, !nonnull !3, !align !5, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %54 = load ptr, ptr %53, align 8, !nonnull !3, !align !6, !noundef !3
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %51 = load ptr, ptr %50, align 8, !nonnull !3, !align !5, !noundef !3
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %53 = load ptr, ptr %52, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %55 = insertvalue { ptr, ptr } poison, ptr %52, 0
-  %56 = insertvalue { ptr, ptr } %55, ptr %54, 1
+  %54 = insertvalue { ptr, ptr } poison, ptr %51, 0
+  %55 = insertvalue { ptr, ptr } %54, ptr %53, 1
   br label %41
 
-57:                                               ; preds = %42
+56:                                               ; preds = %42
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #14
   unreachable
 }
@@ -6505,7 +6485,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %30 = tail call { ptr, ptr } %29(ptr noundef align 1 %26)
   %31 = extractvalue { ptr, ptr } %30, 0
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %49, label %42, !prof !67
+  br i1 %.not, label %48, label %42, !prof !67
 
 32:                                               ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6518,36 +6498,35 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %40 = tail call { ptr, ptr } %39(ptr noundef nonnull align 1 %34, ptr noundef nonnull align 8 %37)
   br label %41
 
-41:                                               ; preds = %50, %32
-  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %56, %50 ]
+41:                                               ; preds = %49, %32
+  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %55, %49 ]
   ret { ptr, ptr } %.merged
 
 42:                                               ; preds = %17
   %43 = extractvalue { ptr, ptr } %30, 1
-  %44 = icmp ne ptr %43, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %46 = load ptr, ptr %45, align 8, !invariant.load !3, !nonnull !3
-  call void %46(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
-  %47 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %48 = icmp eq i8 %47, 10
-  br i1 %48, label %50, label %57, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8, !invariant.load !3, !nonnull !3
+  call void %45(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
+  %46 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %47 = icmp eq i8 %46, 10
+  br i1 %47, label %49, label %56, !prof !65
 
-49:                                               ; preds = %17
+48:                                               ; preds = %17
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #14
   unreachable
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %52 = load ptr, ptr %51, align 8, !nonnull !3, !align !5, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %54 = load ptr, ptr %53, align 8, !nonnull !3, !align !6, !noundef !3
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %51 = load ptr, ptr %50, align 8, !nonnull !3, !align !5, !noundef !3
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %53 = load ptr, ptr %52, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %55 = insertvalue { ptr, ptr } poison, ptr %52, 0
-  %56 = insertvalue { ptr, ptr } %55, ptr %54, 1
+  %54 = insertvalue { ptr, ptr } poison, ptr %51, 0
+  %55 = insertvalue { ptr, ptr } %54, ptr %53, 1
   br label %41
 
-57:                                               ; preds = %42
+56:                                               ; preds = %42
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #14
   unreachable
 }
@@ -6606,7 +6585,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %30 = tail call { ptr, ptr } %29(ptr noundef align 1 %26)
   %31 = extractvalue { ptr, ptr } %30, 0
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %49, label %42, !prof !67
+  br i1 %.not, label %48, label %42, !prof !67
 
 32:                                               ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6619,36 +6598,35 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %40 = tail call { ptr, ptr } %39(ptr noundef nonnull align 1 %34, ptr noundef nonnull align 8 %37)
   br label %41
 
-41:                                               ; preds = %50, %32
-  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %56, %50 ]
+41:                                               ; preds = %49, %32
+  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %55, %49 ]
   ret { ptr, ptr } %.merged
 
 42:                                               ; preds = %17
   %43 = extractvalue { ptr, ptr } %30, 1
-  %44 = icmp ne ptr %43, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %46 = load ptr, ptr %45, align 8, !invariant.load !3, !nonnull !3
-  call void %46(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
-  %47 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %48 = icmp eq i8 %47, 10
-  br i1 %48, label %50, label %57, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8, !invariant.load !3, !nonnull !3
+  call void %45(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
+  %46 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %47 = icmp eq i8 %46, 10
+  br i1 %47, label %49, label %56, !prof !65
 
-49:                                               ; preds = %17
+48:                                               ; preds = %17
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #14
   unreachable
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %52 = load ptr, ptr %51, align 8, !nonnull !3, !align !5, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %54 = load ptr, ptr %53, align 8, !nonnull !3, !align !6, !noundef !3
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %51 = load ptr, ptr %50, align 8, !nonnull !3, !align !5, !noundef !3
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %53 = load ptr, ptr %52, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %55 = insertvalue { ptr, ptr } poison, ptr %52, 0
-  %56 = insertvalue { ptr, ptr } %55, ptr %54, 1
+  %54 = insertvalue { ptr, ptr } poison, ptr %51, 0
+  %55 = insertvalue { ptr, ptr } %54, ptr %53, 1
   br label %41
 
-57:                                               ; preds = %42
+56:                                               ; preds = %42
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #14
   unreachable
 }
@@ -6707,7 +6685,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %30 = tail call { ptr, ptr } %29(ptr noundef align 1 %26)
   %31 = extractvalue { ptr, ptr } %30, 0
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %49, label %42, !prof !67
+  br i1 %.not, label %48, label %42, !prof !67
 
 32:                                               ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6720,36 +6698,35 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %40 = tail call { ptr, ptr } %39(ptr noundef nonnull align 1 %34, ptr noundef nonnull align 8 %37)
   br label %41
 
-41:                                               ; preds = %50, %32
-  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %56, %50 ]
+41:                                               ; preds = %49, %32
+  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %55, %49 ]
   ret { ptr, ptr } %.merged
 
 42:                                               ; preds = %17
   %43 = extractvalue { ptr, ptr } %30, 1
-  %44 = icmp ne ptr %43, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %46 = load ptr, ptr %45, align 8, !invariant.load !3, !nonnull !3
-  call void %46(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
-  %47 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %48 = icmp eq i8 %47, 10
-  br i1 %48, label %50, label %57, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8, !invariant.load !3, !nonnull !3
+  call void %45(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
+  %46 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %47 = icmp eq i8 %46, 10
+  br i1 %47, label %49, label %56, !prof !65
 
-49:                                               ; preds = %17
+48:                                               ; preds = %17
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #14
   unreachable
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %52 = load ptr, ptr %51, align 8, !nonnull !3, !align !5, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %54 = load ptr, ptr %53, align 8, !nonnull !3, !align !6, !noundef !3
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %51 = load ptr, ptr %50, align 8, !nonnull !3, !align !5, !noundef !3
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %53 = load ptr, ptr %52, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %55 = insertvalue { ptr, ptr } poison, ptr %52, 0
-  %56 = insertvalue { ptr, ptr } %55, ptr %54, 1
+  %54 = insertvalue { ptr, ptr } poison, ptr %51, 0
+  %55 = insertvalue { ptr, ptr } %54, ptr %53, 1
   br label %41
 
-57:                                               ; preds = %42
+56:                                               ; preds = %42
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #14
   unreachable
 }
@@ -6808,7 +6785,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %30 = tail call { ptr, ptr } %29(ptr noundef align 1 %26)
   %31 = extractvalue { ptr, ptr } %30, 0
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %49, label %42, !prof !67
+  br i1 %.not, label %48, label %42, !prof !67
 
 32:                                               ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6821,36 +6798,35 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %40 = tail call { ptr, ptr } %39(ptr noundef nonnull align 1 %34, ptr noundef nonnull align 8 %37)
   br label %41
 
-41:                                               ; preds = %50, %32
-  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %56, %50 ]
+41:                                               ; preds = %49, %32
+  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %55, %49 ]
   ret { ptr, ptr } %.merged
 
 42:                                               ; preds = %17
   %43 = extractvalue { ptr, ptr } %30, 1
-  %44 = icmp ne ptr %43, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %46 = load ptr, ptr %45, align 8, !invariant.load !3, !nonnull !3
-  call void %46(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
-  %47 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %48 = icmp eq i8 %47, 10
-  br i1 %48, label %50, label %57, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8, !invariant.load !3, !nonnull !3
+  call void %45(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
+  %46 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %47 = icmp eq i8 %46, 10
+  br i1 %47, label %49, label %56, !prof !65
 
-49:                                               ; preds = %17
+48:                                               ; preds = %17
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #14
   unreachable
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %52 = load ptr, ptr %51, align 8, !nonnull !3, !align !5, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %54 = load ptr, ptr %53, align 8, !nonnull !3, !align !6, !noundef !3
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %51 = load ptr, ptr %50, align 8, !nonnull !3, !align !5, !noundef !3
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %53 = load ptr, ptr %52, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %55 = insertvalue { ptr, ptr } poison, ptr %52, 0
-  %56 = insertvalue { ptr, ptr } %55, ptr %54, 1
+  %54 = insertvalue { ptr, ptr } poison, ptr %51, 0
+  %55 = insertvalue { ptr, ptr } %54, ptr %53, 1
   br label %41
 
-57:                                               ; preds = %42
+56:                                               ; preds = %42
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #14
   unreachable
 }
@@ -6909,7 +6885,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %30 = tail call { ptr, ptr } %29(ptr noundef align 1 %26)
   %31 = extractvalue { ptr, ptr } %30, 0
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %49, label %42, !prof !67
+  br i1 %.not, label %48, label %42, !prof !67
 
 32:                                               ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6922,36 +6898,35 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %40 = tail call { ptr, ptr } %39(ptr noundef nonnull align 1 %34, ptr noundef nonnull align 8 %37)
   br label %41
 
-41:                                               ; preds = %50, %32
-  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %56, %50 ]
+41:                                               ; preds = %49, %32
+  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %55, %49 ]
   ret { ptr, ptr } %.merged
 
 42:                                               ; preds = %17
   %43 = extractvalue { ptr, ptr } %30, 1
-  %44 = icmp ne ptr %43, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %46 = load ptr, ptr %45, align 8, !invariant.load !3, !nonnull !3
-  call void %46(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
-  %47 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %48 = icmp eq i8 %47, 10
-  br i1 %48, label %50, label %57, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8, !invariant.load !3, !nonnull !3
+  call void %45(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
+  %46 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %47 = icmp eq i8 %46, 10
+  br i1 %47, label %49, label %56, !prof !65
 
-49:                                               ; preds = %17
+48:                                               ; preds = %17
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #14
   unreachable
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %52 = load ptr, ptr %51, align 8, !nonnull !3, !align !5, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %54 = load ptr, ptr %53, align 8, !nonnull !3, !align !6, !noundef !3
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %51 = load ptr, ptr %50, align 8, !nonnull !3, !align !5, !noundef !3
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %53 = load ptr, ptr %52, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %55 = insertvalue { ptr, ptr } poison, ptr %52, 0
-  %56 = insertvalue { ptr, ptr } %55, ptr %54, 1
+  %54 = insertvalue { ptr, ptr } poison, ptr %51, 0
+  %55 = insertvalue { ptr, ptr } %54, ptr %53, 1
   br label %41
 
-57:                                               ; preds = %42
+56:                                               ; preds = %42
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #14
   unreachable
 }
@@ -7010,7 +6985,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %30 = tail call { ptr, ptr } %29(ptr noundef align 1 %26)
   %31 = extractvalue { ptr, ptr } %30, 0
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %49, label %42, !prof !67
+  br i1 %.not, label %48, label %42, !prof !67
 
 32:                                               ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7023,36 +6998,35 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %40 = tail call { ptr, ptr } %39(ptr noundef nonnull align 1 %34, ptr noundef nonnull align 8 %37)
   br label %41
 
-41:                                               ; preds = %50, %32
-  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %56, %50 ]
+41:                                               ; preds = %49, %32
+  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %55, %49 ]
   ret { ptr, ptr } %.merged
 
 42:                                               ; preds = %17
   %43 = extractvalue { ptr, ptr } %30, 1
-  %44 = icmp ne ptr %43, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %46 = load ptr, ptr %45, align 8, !invariant.load !3, !nonnull !3
-  call void %46(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
-  %47 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %48 = icmp eq i8 %47, 10
-  br i1 %48, label %50, label %57, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8, !invariant.load !3, !nonnull !3
+  call void %45(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
+  %46 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %47 = icmp eq i8 %46, 10
+  br i1 %47, label %49, label %56, !prof !65
 
-49:                                               ; preds = %17
+48:                                               ; preds = %17
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #14
   unreachable
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %52 = load ptr, ptr %51, align 8, !nonnull !3, !align !5, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %54 = load ptr, ptr %53, align 8, !nonnull !3, !align !6, !noundef !3
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %51 = load ptr, ptr %50, align 8, !nonnull !3, !align !5, !noundef !3
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %53 = load ptr, ptr %52, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %55 = insertvalue { ptr, ptr } poison, ptr %52, 0
-  %56 = insertvalue { ptr, ptr } %55, ptr %54, 1
+  %54 = insertvalue { ptr, ptr } poison, ptr %51, 0
+  %55 = insertvalue { ptr, ptr } %54, ptr %53, 1
   br label %41
 
-57:                                               ; preds = %42
+56:                                               ; preds = %42
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #14
   unreachable
 }
@@ -7111,7 +7085,7 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %30 = tail call { ptr, ptr } %29(ptr noundef align 1 %26)
   %31 = extractvalue { ptr, ptr } %30, 0
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %49, label %42, !prof !67
+  br i1 %.not, label %48, label %42, !prof !67
 
 32:                                               ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7124,36 +7098,35 @@ define internal { ptr, ptr } @"_ZN121_$LT$protobuf..reflect..acc..v1..FieldAcces
   %40 = tail call { ptr, ptr } %39(ptr noundef nonnull align 1 %34, ptr noundef nonnull align 8 %37)
   br label %41
 
-41:                                               ; preds = %50, %32
-  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %56, %50 ]
+41:                                               ; preds = %49, %32
+  %.merged = phi { ptr, ptr } [ %40, %32 ], [ %55, %49 ]
   ret { ptr, ptr } %.merged
 
 42:                                               ; preds = %17
   %43 = extractvalue { ptr, ptr } %30, 1
-  %44 = icmp ne ptr %43, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %46 = load ptr, ptr %45, align 8, !invariant.load !3, !nonnull !3
-  call void %46(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
-  %47 = load i8, ptr %7, align 8, !range !66, !noundef !3
-  %48 = icmp eq i8 %47, 10
-  br i1 %48, label %50, label %57, !prof !65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8, !invariant.load !3, !nonnull !3
+  call void %45(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %31)
+  %46 = load i8, ptr %7, align 8, !range !66, !noundef !3
+  %47 = icmp eq i8 %46, 10
+  br i1 %47, label %49, label %56, !prof !65
 
-49:                                               ; preds = %17
+48:                                               ; preds = %17
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.12, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.24) #14
   unreachable
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %52 = load ptr, ptr %51, align 8, !nonnull !3, !align !5, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %54 = load ptr, ptr %53, align 8, !nonnull !3, !align !6, !noundef !3
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %51 = load ptr, ptr %50, align 8, !nonnull !3, !align !5, !noundef !3
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %53 = load ptr, ptr %52, align 8, !nonnull !3, !align !6, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %55 = insertvalue { ptr, ptr } poison, ptr %52, 0
-  %56 = insertvalue { ptr, ptr } %55, ptr %54, 1
+  %54 = insertvalue { ptr, ptr } poison, ptr %51, 0
+  %55 = insertvalue { ptr, ptr } %54, ptr %53, 1
   br label %41
 
-57:                                               ; preds = %42
+56:                                               ; preds = %42
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.25, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.26) #14
   unreachable
 }
@@ -8245,7 +8218,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   %36 = tail call { ptr, ptr } %35(ptr noundef align 1 %32)
   %37 = extractvalue { ptr, ptr } %36, 0
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %83, label %78
+  br i1 %.not, label %82, label %78
 
 38:                                               ; preds = %3, %3
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.44, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.45) #14
@@ -8333,19 +8306,18 @@ default.unreachable1.i:                           ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
-77:                                               ; preds = %78, %83, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hef17fcc232eb74abE.exit", %12
+77:                                               ; preds = %78, %82, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hef17fcc232eb74abE.exit", %12
   ret void
 
 78:                                               ; preds = %24
   %79 = extractvalue { ptr, ptr } %36, 1
-  %80 = icmp ne ptr %79, null
-  tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %82 = load ptr, ptr %81, align 8, !invariant.load !3, !nonnull !3
-  tail call void %82(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = load ptr, ptr %80, align 8, !invariant.load !3, !nonnull !3
+  tail call void %81(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
   br label %77
 
-83:                                               ; preds = %24
+82:                                               ; preds = %24
   store i8 11, ptr %0, align 8
   br label %77
 }
@@ -8402,7 +8374,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   %36 = tail call { ptr, ptr } %35(ptr noundef align 1 %32)
   %37 = extractvalue { ptr, ptr } %36, 0
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %83, label %78
+  br i1 %.not, label %82, label %78
 
 38:                                               ; preds = %3, %3
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.44, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.45) #14
@@ -8490,19 +8462,18 @@ default.unreachable1.i:                           ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
-77:                                               ; preds = %78, %83, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hb0b0533ba8db5a64E.exit", %12
+77:                                               ; preds = %78, %82, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hb0b0533ba8db5a64E.exit", %12
   ret void
 
 78:                                               ; preds = %24
   %79 = extractvalue { ptr, ptr } %36, 1
-  %80 = icmp ne ptr %79, null
-  tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %82 = load ptr, ptr %81, align 8, !invariant.load !3, !nonnull !3
-  tail call void %82(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = load ptr, ptr %80, align 8, !invariant.load !3, !nonnull !3
+  tail call void %81(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
   br label %77
 
-83:                                               ; preds = %24
+82:                                               ; preds = %24
   store i8 11, ptr %0, align 8
   br label %77
 }
@@ -8559,7 +8530,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   %36 = tail call { ptr, ptr } %35(ptr noundef align 1 %32)
   %37 = extractvalue { ptr, ptr } %36, 0
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %83, label %78
+  br i1 %.not, label %82, label %78
 
 38:                                               ; preds = %3, %3
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.44, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.45) #14
@@ -8647,19 +8618,18 @@ default.unreachable1.i:                           ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
-77:                                               ; preds = %78, %83, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17ha701b962268cf95dE.exit", %12
+77:                                               ; preds = %78, %82, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17ha701b962268cf95dE.exit", %12
   ret void
 
 78:                                               ; preds = %24
   %79 = extractvalue { ptr, ptr } %36, 1
-  %80 = icmp ne ptr %79, null
-  tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %82 = load ptr, ptr %81, align 8, !invariant.load !3, !nonnull !3
-  tail call void %82(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = load ptr, ptr %80, align 8, !invariant.load !3, !nonnull !3
+  tail call void %81(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
   br label %77
 
-83:                                               ; preds = %24
+82:                                               ; preds = %24
   store i8 11, ptr %0, align 8
   br label %77
 }
@@ -8716,7 +8686,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   %36 = tail call { ptr, ptr } %35(ptr noundef align 1 %32)
   %37 = extractvalue { ptr, ptr } %36, 0
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %83, label %78
+  br i1 %.not, label %82, label %78
 
 38:                                               ; preds = %3, %3
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.44, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.45) #14
@@ -8804,19 +8774,18 @@ default.unreachable1.i:                           ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
-77:                                               ; preds = %78, %83, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h822685c462d5ff3eE.exit", %12
+77:                                               ; preds = %78, %82, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h822685c462d5ff3eE.exit", %12
   ret void
 
 78:                                               ; preds = %24
   %79 = extractvalue { ptr, ptr } %36, 1
-  %80 = icmp ne ptr %79, null
-  tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %82 = load ptr, ptr %81, align 8, !invariant.load !3, !nonnull !3
-  tail call void %82(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = load ptr, ptr %80, align 8, !invariant.load !3, !nonnull !3
+  tail call void %81(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
   br label %77
 
-83:                                               ; preds = %24
+82:                                               ; preds = %24
   store i8 11, ptr %0, align 8
   br label %77
 }
@@ -8873,7 +8842,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   %36 = tail call { ptr, ptr } %35(ptr noundef align 1 %32)
   %37 = extractvalue { ptr, ptr } %36, 0
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %83, label %78
+  br i1 %.not, label %82, label %78
 
 38:                                               ; preds = %3, %3
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.44, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.45) #14
@@ -8961,19 +8930,18 @@ default.unreachable1.i:                           ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
-77:                                               ; preds = %78, %83, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbfbf17dd479f5776E.exit", %12
+77:                                               ; preds = %78, %82, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbfbf17dd479f5776E.exit", %12
   ret void
 
 78:                                               ; preds = %24
   %79 = extractvalue { ptr, ptr } %36, 1
-  %80 = icmp ne ptr %79, null
-  tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %82 = load ptr, ptr %81, align 8, !invariant.load !3, !nonnull !3
-  tail call void %82(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = load ptr, ptr %80, align 8, !invariant.load !3, !nonnull !3
+  tail call void %81(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
   br label %77
 
-83:                                               ; preds = %24
+82:                                               ; preds = %24
   store i8 11, ptr %0, align 8
   br label %77
 }
@@ -9030,7 +8998,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   %36 = tail call { ptr, ptr } %35(ptr noundef align 1 %32)
   %37 = extractvalue { ptr, ptr } %36, 0
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %83, label %78
+  br i1 %.not, label %82, label %78
 
 38:                                               ; preds = %3, %3
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.44, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.45) #14
@@ -9118,19 +9086,18 @@ default.unreachable1.i:                           ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
-77:                                               ; preds = %78, %83, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbeece39611097364E.exit", %12
+77:                                               ; preds = %78, %82, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17hbeece39611097364E.exit", %12
   ret void
 
 78:                                               ; preds = %24
   %79 = extractvalue { ptr, ptr } %36, 1
-  %80 = icmp ne ptr %79, null
-  tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %82 = load ptr, ptr %81, align 8, !invariant.load !3, !nonnull !3
-  tail call void %82(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = load ptr, ptr %80, align 8, !invariant.load !3, !nonnull !3
+  tail call void %81(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
   br label %77
 
-83:                                               ; preds = %24
+82:                                               ; preds = %24
   store i8 11, ptr %0, align 8
   br label %77
 }
@@ -9187,7 +9154,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   %36 = tail call { ptr, ptr } %35(ptr noundef align 1 %32)
   %37 = extractvalue { ptr, ptr } %36, 0
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %83, label %78
+  br i1 %.not, label %82, label %78
 
 38:                                               ; preds = %3, %3
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.44, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.45) #14
@@ -9275,19 +9242,18 @@ default.unreachable1.i:                           ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
-77:                                               ; preds = %78, %83, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h52b82e287134b3e6E.exit", %12
+77:                                               ; preds = %78, %82, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h52b82e287134b3e6E.exit", %12
   ret void
 
 78:                                               ; preds = %24
   %79 = extractvalue { ptr, ptr } %36, 1
-  %80 = icmp ne ptr %79, null
-  tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %82 = load ptr, ptr %81, align 8, !invariant.load !3, !nonnull !3
-  tail call void %82(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = load ptr, ptr %80, align 8, !invariant.load !3, !nonnull !3
+  tail call void %81(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
   br label %77
 
-83:                                               ; preds = %24
+82:                                               ; preds = %24
   store i8 11, ptr %0, align 8
   br label %77
 }
@@ -9344,7 +9310,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   %36 = tail call { ptr, ptr } %35(ptr noundef align 1 %32)
   %37 = extractvalue { ptr, ptr } %36, 0
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %83, label %78
+  br i1 %.not, label %82, label %78
 
 38:                                               ; preds = %3, %3
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.44, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.45) #14
@@ -9432,19 +9398,18 @@ default.unreachable1.i:                           ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
-77:                                               ; preds = %78, %83, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h2e3be7273fb12304E.exit", %12
+77:                                               ; preds = %78, %82, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17h2e3be7273fb12304E.exit", %12
   ret void
 
 78:                                               ; preds = %24
   %79 = extractvalue { ptr, ptr } %36, 1
-  %80 = icmp ne ptr %79, null
-  tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %82 = load ptr, ptr %81, align 8, !invariant.load !3, !nonnull !3
-  tail call void %82(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = load ptr, ptr %80, align 8, !invariant.load !3, !nonnull !3
+  tail call void %81(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
   br label %77
 
-83:                                               ; preds = %24
+82:                                               ; preds = %24
   store i8 11, ptr %0, align 8
   br label %77
 }
@@ -9501,7 +9466,7 @@ define internal fastcc void @"_ZN8protobuf7reflect3acc2v126FieldAccessorImpl$LT$
   %36 = tail call { ptr, ptr } %35(ptr noundef align 1 %32)
   %37 = extractvalue { ptr, ptr } %36, 0
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %83, label %78
+  br i1 %.not, label %82, label %78
 
 38:                                               ; preds = %3, %3
   tail call void @_ZN3std9panicking11begin_panic17h1d3025962acfa9b8E(ptr noalias noundef nonnull readonly align 1 @anon.dfd331fd308c35b48573fcc7036a02ad.44, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfd331fd308c35b48573fcc7036a02ad.45) #14
@@ -9589,19 +9554,18 @@ default.unreachable1.i:                           ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
-77:                                               ; preds = %78, %83, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17he648df4efe49681eE.exit", %12
+77:                                               ; preds = %78, %82, %39, %"_ZN8protobuf7reflect3acc2v123SingularGetSet$LT$M$GT$7get_ref17he648df4efe49681eE.exit", %12
   ret void
 
 78:                                               ; preds = %24
   %79 = extractvalue { ptr, ptr } %36, 1
-  %80 = icmp ne ptr %79, null
-  tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %82 = load ptr, ptr %81, align 8, !invariant.load !3, !nonnull !3
-  tail call void %82(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = load ptr, ptr %80, align 8, !invariant.load !3, !nonnull !3
+  tail call void %81(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %37)
   br label %77
 
-83:                                               ; preds = %24
+82:                                               ; preds = %24
   store i8 11, ptr %0, align 8
   br label %77
 }

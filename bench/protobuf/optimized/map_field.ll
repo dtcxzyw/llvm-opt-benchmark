@@ -1187,8 +1187,7 @@ cond.false.i.i:                                   ; preds = %if.else.i.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi ptr [ %6, %cond.true.i.i ], [ %10, %cond.false.i.i ]
-  %cmp16.i.i = icmp ne ptr %cond.i.i, null
-  tail call void @llvm.assume(i1 %cmp16.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i) ]
   br label %_ZNK6google8protobuf8internal14UntypedMapBase5beginEv.exit
 
 _ZNK6google8protobuf8internal14UntypedMapBase5beginEv.exit: ; preds = %entry, %cond.end.i.i
@@ -2012,8 +2011,7 @@ cond.false.i.i:                                   ; preds = %if.else.i.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi ptr [ %18, %cond.true.i.i ], [ %22, %cond.false.i.i ]
-  %cmp16.i.i = icmp ne ptr %cond.i.i, null
-  call void @llvm.assume(i1 %cmp16.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i) ]
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %cond.end.i.i, %invoke.cont
@@ -5506,8 +5504,7 @@ cond.false.i.i.i:                                 ; preds = %if.else.i.i.i
 
 for.body.lr.ph:                                   ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi ptr [ %8, %cond.true.i.i.i ], [ %12, %cond.false.i.i.i ]
-  %cmp16.i.i.i = icmp ne ptr %cond.i.i.i, null
-  tail call void @llvm.assume(i1 %cmp16.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i) ]
   %table_.i.i.i8 = getelementptr inbounds nuw i8, ptr %base, i64 32
   br label %for.body
 
@@ -5640,8 +5637,7 @@ cond.false.i.i.i17:                               ; preds = %if.else.i.i.i
 
 for.body.lr.ph:                                   ; preds = %cond.false.i.i.i17, %cond.true.i.i.i
   %cond.i.i.i = phi ptr [ %7, %cond.true.i.i.i ], [ %11, %cond.false.i.i.i17 ]
-  %cmp16.i.i.i = icmp ne ptr %cond.i.i.i, null
-  tail call void @llvm.assume(i1 %cmp16.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i) ]
   %default_entry_ = getelementptr inbounds nuw i8, ptr %base, i64 48
   %table_.i.i.i38 = getelementptr inbounds nuw i8, ptr %other, i64 32
   br label %for.body
@@ -5968,8 +5964,7 @@ cond.false.i.i.i35:                               ; preds = %if.else.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i35, %cond.true.i.i.i33
   %cond.i.i.i34 = phi ptr [ %14, %cond.true.i.i.i33 ], [ %18, %cond.false.i.i.i35 ]
-  %cmp16.i.i.i = icmp ne ptr %cond.i.i.i34, null
-  tail call void @llvm.assume(i1 %cmp16.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i34) ]
   br label %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit
 
 _ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit: ; preds = %if.then4, %cond.end.i.i.i
@@ -6216,8 +6211,7 @@ cond.false.i.i.i:                                 ; preds = %if.else.i.i.i
 
 for.body.lr.ph:                                   ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi ptr [ %5, %cond.true.i.i.i ], [ %9, %cond.false.i.i.i ]
-  %cmp16.i.i.i = icmp ne ptr %cond.i.i.i, null
-  tail call void @llvm.assume(i1 %cmp16.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i) ]
   %table_.i.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.body
 
@@ -8249,8 +8243,7 @@ cond.false.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %cond.false.i.i.i.i.i, %cond.true.i.i.i.i.i
   %cond.i.i.i.i.i = phi ptr [ %17, %cond.true.i.i.i.i.i ], [ %21, %cond.false.i.i.i.i.i ]
-  %cmp16.i.i.i.i.i = icmp ne ptr %cond.i.i.i.i.i, null
-  tail call void @llvm.assume(i1 %cmp16.i.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i.i.i) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i.i)
   br label %for.body.i.i.i
 
@@ -8362,8 +8355,7 @@ cond.false.i.i.i.i:                               ; preds = %if.else.i.i.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %cond.false.i.i.i.i, %cond.true.i.i.i.i
   %cond.i.i.i.i = phi ptr [ %40, %cond.true.i.i.i.i ], [ %44, %cond.false.i.i.i.i ]
-  %cmp16.i.i.i.i = icmp ne ptr %cond.i.i.i.i, null
-  call void @llvm.assume(i1 %cmp16.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i.i) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i)
   br label %for.body.i.i
 
@@ -8450,11 +8442,11 @@ _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit.i21: ; pred
   %59 = load i32, ptr %index_of_first_non_null_.i.i.i.i, align 4, !noalias !56
   %60 = load i32, ptr %num_buckets_.i.i.i.i, align 4, !noalias !56
   %cmp.i.i.i.i24 = icmp eq i32 %59, %60
-  br i1 %cmp.i.i.i.i24, label %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i64, label %if.else.i.i.i.i25
+  br i1 %cmp.i.i.i.i24, label %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i63, label %if.else.i.i.i.i25
 
-_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i64: ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit.i21
+_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i63: ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit.i21
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i15)
-  br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i42
+  br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i41
 
 if.else.i.i.i.i25:                                ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit.i21
   %61 = load ptr, ptr %table_.i.i.i.i, align 8, !noalias !56
@@ -8462,97 +8454,96 @@ if.else.i.i.i.i25:                                ; preds = %_ZN6google8protobuf
   %arrayidx.i.i.i.i28 = getelementptr inbounds nuw i64, ptr %61, i64 %idxprom.i.i.i.i27
   %62 = load i64, ptr %arrayidx.i.i.i.i28, align 8, !noalias !56
   %cmp.i.i.i.i.i.i29 = trunc i64 %62 to i1
-  br i1 %cmp.i.i.i.i.i.i29, label %cond.false.i.i.i.i61, label %cond.true.i.i.i.i30
+  br i1 %cmp.i.i.i.i.i.i29, label %cond.false.i.i.i.i60, label %cond.true.i.i.i.i30
 
 cond.true.i.i.i.i30:                              ; preds = %if.else.i.i.i.i25
   %63 = inttoptr i64 %62 to ptr
   br label %for.body.lr.ph.i.i31
 
-cond.false.i.i.i.i61:                             ; preds = %if.else.i.i.i.i25
-  %sub.i.i.i.i.i62 = add nsw i64 %62, -1
-  %64 = inttoptr i64 %sub.i.i.i.i.i62 to ptr
+cond.false.i.i.i.i60:                             ; preds = %if.else.i.i.i.i25
+  %sub.i.i.i.i.i61 = add nsw i64 %62, -1
+  %64 = inttoptr i64 %sub.i.i.i.i.i61 to ptr
   %65 = load ptr, ptr %64, align 8, !noalias !56
   %66 = load ptr, ptr %65, align 8, !noalias !56
-  %second.i.i.i.i63 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %67 = load ptr, ptr %second.i.i.i.i63, align 8, !noalias !56
+  %second.i.i.i.i62 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  %67 = load ptr, ptr %second.i.i.i.i62, align 8, !noalias !56
   br label %for.body.lr.ph.i.i31
 
-for.body.lr.ph.i.i31:                             ; preds = %cond.false.i.i.i.i61, %cond.true.i.i.i.i30
-  %cond.i.i.i.i32 = phi ptr [ %63, %cond.true.i.i.i.i30 ], [ %67, %cond.false.i.i.i.i61 ]
-  %cmp16.i.i.i.i33 = icmp ne ptr %cond.i.i.i.i32, null
-  call void @llvm.assume(i1 %cmp16.i.i.i.i33)
+for.body.lr.ph.i.i31:                             ; preds = %cond.false.i.i.i.i60, %cond.true.i.i.i.i30
+  %cond.i.i.i.i32 = phi ptr [ %63, %cond.true.i.i.i.i30 ], [ %67, %cond.false.i.i.i.i60 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i.i32) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i15)
-  br label %for.body.i.i34
+  br label %for.body.i.i33
 
-for.body.i.i34:                                   ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i39, %for.body.lr.ph.i.i31
-  %agg.tmp3.sroa.6.0.i35 = phi i32 [ %59, %for.body.lr.ph.i.i31 ], [ %agg.tmp3.sroa.6.1.i40, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i39 ]
-  %68 = phi ptr [ %cond.i.i.i.i32, %for.body.lr.ph.i.i31 ], [ %80, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i39 ]
-  %kv.i.i.i36 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %second.i.i37 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  invoke void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE18TryEmplaceInternalIRKS2_JRKS3_EEESt4pairINS4_8iteratorEbEOT_DpOT0_(ptr nonnull sret(%"struct.std::pair.51") align 8 %tmp.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %other, ptr noundef nonnull align 8 dereferenceable(36) %kv.i.i.i36, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i37)
-          to label %.noexc66 unwind label %lpad.loopexit
+for.body.i.i33:                                   ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i38, %for.body.lr.ph.i.i31
+  %agg.tmp3.sroa.6.0.i34 = phi i32 [ %59, %for.body.lr.ph.i.i31 ], [ %agg.tmp3.sroa.6.1.i39, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i38 ]
+  %68 = phi ptr [ %cond.i.i.i.i32, %for.body.lr.ph.i.i31 ], [ %80, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i38 ]
+  %kv.i.i.i35 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %second.i.i36 = getelementptr inbounds nuw i8, ptr %68, i64 48
+  invoke void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE18TryEmplaceInternalIRKS2_JRKS3_EEESt4pairINS4_8iteratorEbEOT_DpOT0_(ptr nonnull sret(%"struct.std::pair.51") align 8 %tmp.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %other, ptr noundef nonnull align 8 dereferenceable(36) %kv.i.i.i35, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i36)
+          to label %.noexc65 unwind label %lpad.loopexit
 
-.noexc66:                                         ; preds = %for.body.i.i34
+.noexc65:                                         ; preds = %for.body.i.i33
   %69 = load ptr, ptr %68, align 8
-  %cmp.i.i2.i.i38 = icmp eq ptr %69, null
-  br i1 %cmp.i.i2.i.i38, label %if.then.i.i.i6.i43, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i39
+  %cmp.i.i2.i.i37 = icmp eq ptr %69, null
+  br i1 %cmp.i.i2.i.i37, label %if.then.i.i.i6.i42, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i38
 
-if.then.i.i.i6.i43:                               ; preds = %.noexc66
-  %add.i.i.i.i44 = add i32 %agg.tmp3.sroa.6.0.i35, 1
+if.then.i.i.i6.i42:                               ; preds = %.noexc65
+  %add.i.i.i.i43 = add i32 %agg.tmp3.sroa.6.0.i34, 1
   %70 = load i32, ptr %num_buckets_.i.i.i.i, align 4
-  %cmp8.i.i.i.i.i45 = icmp ult i32 %add.i.i.i.i44, %70
-  br i1 %cmp8.i.i.i.i.i45, label %for.body.lr.ph.i.i.i.i.i46, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i42
+  %cmp8.i.i.i.i.i44 = icmp ult i32 %add.i.i.i.i43, %70
+  br i1 %cmp8.i.i.i.i.i44, label %for.body.lr.ph.i.i.i.i.i45, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i41
 
-for.body.lr.ph.i.i.i.i.i46:                       ; preds = %if.then.i.i.i6.i43
+for.body.lr.ph.i.i.i.i.i45:                       ; preds = %if.then.i.i.i6.i42
   %71 = load ptr, ptr %table_.i.i.i.i, align 8
-  %72 = zext i32 %add.i.i.i.i44 to i64
-  %wide.trip.count.i.i.i.i.i47 = zext i32 %70 to i64
-  br label %for.body.i.i.i.i.i48
+  %72 = zext i32 %add.i.i.i.i43 to i64
+  %wide.trip.count.i.i.i.i.i46 = zext i32 %70 to i64
+  br label %for.body.i.i.i.i.i47
 
-for.body.i.i.i.i.i48:                             ; preds = %for.inc.i.i.i.i.i58, %for.body.lr.ph.i.i.i.i.i46
-  %indvars.iv.i.i.i.i.i49 = phi i64 [ %72, %for.body.lr.ph.i.i.i.i.i46 ], [ %indvars.iv.next.i.i.i.i.i59, %for.inc.i.i.i.i.i58 ]
-  %arrayidx.i.i.i.i.i50 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv.i.i.i.i.i49
-  %73 = load i64, ptr %arrayidx.i.i.i.i.i50, align 8
-  %cmp4.i.i.i.i.i51 = icmp eq i64 %73, 0
-  br i1 %cmp4.i.i.i.i.i51, label %for.inc.i.i.i.i.i58, label %if.end.i.i.i.i.i52
+for.body.i.i.i.i.i47:                             ; preds = %for.inc.i.i.i.i.i57, %for.body.lr.ph.i.i.i.i.i45
+  %indvars.iv.i.i.i.i.i48 = phi i64 [ %72, %for.body.lr.ph.i.i.i.i.i45 ], [ %indvars.iv.next.i.i.i.i.i58, %for.inc.i.i.i.i.i57 ]
+  %arrayidx.i.i.i.i.i49 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv.i.i.i.i.i48
+  %73 = load i64, ptr %arrayidx.i.i.i.i.i49, align 8
+  %cmp4.i.i.i.i.i50 = icmp eq i64 %73, 0
+  br i1 %cmp4.i.i.i.i.i50, label %for.inc.i.i.i.i.i57, label %if.end.i.i.i.i.i51
 
-if.end.i.i.i.i.i52:                               ; preds = %for.body.i.i.i.i.i48
-  %74 = trunc nuw i64 %indvars.iv.i.i.i.i.i49 to i32
-  %cmp.i.i.i.i.i.i.i53 = trunc i64 %73 to i1
-  br i1 %cmp.i.i.i.i.i.i.i53, label %if.else.i.i.i.i.i55, label %if.then5.i.i.i.i.i54
+if.end.i.i.i.i.i51:                               ; preds = %for.body.i.i.i.i.i47
+  %74 = trunc nuw i64 %indvars.iv.i.i.i.i.i48 to i32
+  %cmp.i.i.i.i.i.i.i52 = trunc i64 %73 to i1
+  br i1 %cmp.i.i.i.i.i.i.i52, label %if.else.i.i.i.i.i54, label %if.then5.i.i.i.i.i53
 
-if.then5.i.i.i.i.i54:                             ; preds = %if.end.i.i.i.i.i52
+if.then5.i.i.i.i.i53:                             ; preds = %if.end.i.i.i.i.i51
   %75 = inttoptr i64 %73 to ptr
-  br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i39
+  br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i38
 
-if.else.i.i.i.i.i55:                              ; preds = %if.end.i.i.i.i.i52
-  %sub.i.i.i.i.i.i56 = add nsw i64 %73, -1
-  %76 = inttoptr i64 %sub.i.i.i.i.i.i56 to ptr
+if.else.i.i.i.i.i54:                              ; preds = %if.end.i.i.i.i.i51
+  %sub.i.i.i.i.i.i55 = add nsw i64 %73, -1
+  %76 = inttoptr i64 %sub.i.i.i.i.i.i55 to ptr
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %77, align 8
-  %second.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  %79 = load ptr, ptr %second.i.i.i.i.i57, align 8
-  br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i39
+  %second.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %79 = load ptr, ptr %second.i.i.i.i.i56, align 8
+  br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i38
 
-for.inc.i.i.i.i.i58:                              ; preds = %for.body.i.i.i.i.i48
-  %indvars.iv.next.i.i.i.i.i59 = add nuw nsw i64 %indvars.iv.i.i.i.i.i49, 1
-  %exitcond.not.i.i.i.i.i60 = icmp eq i64 %indvars.iv.next.i.i.i.i.i59, %wide.trip.count.i.i.i.i.i47
-  br i1 %exitcond.not.i.i.i.i.i60, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i42, label %for.body.i.i.i.i.i48, !llvm.loop !7
+for.inc.i.i.i.i.i57:                              ; preds = %for.body.i.i.i.i.i47
+  %indvars.iv.next.i.i.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i.i.i48, 1
+  %exitcond.not.i.i.i.i.i59 = icmp eq i64 %indvars.iv.next.i.i.i.i.i58, %wide.trip.count.i.i.i.i.i46
+  br i1 %exitcond.not.i.i.i.i.i59, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i41, label %for.body.i.i.i.i.i47, !llvm.loop !7
 
-_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i39: ; preds = %if.else.i.i.i.i.i55, %if.then5.i.i.i.i.i54, %.noexc66
-  %agg.tmp3.sroa.6.1.i40 = phi i32 [ %agg.tmp3.sroa.6.0.i35, %.noexc66 ], [ %74, %if.else.i.i.i.i.i55 ], [ %74, %if.then5.i.i.i.i.i54 ]
-  %80 = phi ptr [ %69, %.noexc66 ], [ %79, %if.else.i.i.i.i.i55 ], [ %75, %if.then5.i.i.i.i.i54 ]
-  %cmp.i.i.not.i.i41 = icmp eq ptr %80, null
-  br i1 %cmp.i.i.not.i.i41, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i42, label %for.body.i.i34, !llvm.loop !52
+_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i38: ; preds = %if.else.i.i.i.i.i54, %if.then5.i.i.i.i.i53, %.noexc65
+  %agg.tmp3.sroa.6.1.i39 = phi i32 [ %agg.tmp3.sroa.6.0.i34, %.noexc65 ], [ %74, %if.else.i.i.i.i.i54 ], [ %74, %if.then5.i.i.i.i.i53 ]
+  %80 = phi ptr [ %69, %.noexc65 ], [ %79, %if.else.i.i.i.i.i54 ], [ %75, %if.then5.i.i.i.i.i53 ]
+  %cmp.i.i.not.i.i40 = icmp eq ptr %80, null
+  br i1 %cmp.i.i.not.i.i40, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i41, label %for.body.i.i33, !llvm.loop !52
 
-_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i42: ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i39, %if.then.i.i.i6.i43, %for.inc.i.i.i.i.i58, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i64
+_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i41: ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i38, %if.then.i.i.i6.i42, %for.inc.i.i.i.i.i57, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i63
   call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i15)
   br label %invoke.cont4
 
-invoke.cont4:                                     ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i42, %invoke.cont
+invoke.cont4:                                     ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i41, %invoke.cont
   %81 = load i32, ptr %num_buckets_.i.i.i.i, align 4
-  %cmp.not.i68 = icmp eq i32 %81, 1
-  br i1 %cmp.not.i68, label %if.end, label %invoke.cont.i
+  %cmp.not.i67 = icmp eq i32 %81, 1
+  br i1 %cmp.not.i67, label %if.end, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont4
   invoke void @_ZN6google8protobuf8internal14UntypedMapBase10ClearTableENS2_10ClearInputE(ptr noundef nonnull align 8 dereferenceable(32) %copy, i64 34363932720, ptr nonnull @_ZN6google8protobuf8internal14UntypedMapBase11DestroyNodeINS0_3MapINS0_6MapKeyENS0_11MapValueRefEE4NodeEEEvPNS1_8NodeBaseE)
@@ -8565,23 +8556,23 @@ terminate.lpad.i:                                 ; preds = %invoke.cont.i
   call void @__clang_call_terminate(ptr %83) #25
   unreachable
 
-lpad.loopexit:                                    ; preds = %for.body.i.i34
-  %lpad.loopexit69 = landingpad { ptr, i32 }
+lpad.loopexit:                                    ; preds = %for.body.i.i33
+  %lpad.loopexit68 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %for.body.i.i
-  %lpad.loopexit72 = landingpad { ptr, i32 }
+  %lpad.loopexit71 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end.i.i20, %if.end.i.i
-  %lpad.loopexit.split-lp73 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp72 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit69, %lpad.loopexit ], [ %lpad.loopexit72, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp73, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit68, %lpad.loopexit ], [ %lpad.loopexit71, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp72, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %copy) #26
   resume { ptr, i32 } %lpad.phi
 

@@ -733,6 +733,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hbe8d5069f3b9ae10E(ptr noa
 
 96:                                               ; preds = %.lr.ph311
   %97 = sub nuw i64 %.sroa.27.0310, %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.016.0309) ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.0309, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !alias.scope !116, !noalias !120
   %.not.i168 = icmp ugt i64 %.val3.i158, %97
   br i1 %.not.i168, label %.invoke, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he39ac50599e88614E.exit173"
@@ -1826,8 +1827,8 @@ _ZN14regex_automata3dfa7onepass3DFA20set_pattern_epsilons17hd7653d042860e1b5E.ex
 
 .lr.ph498:                                        ; preds = %.loopexit364
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %150 = getelementptr inbounds nuw i8, ptr %1, i64 432
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 432
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 792
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 464
@@ -1875,7 +1876,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
   %174 = getelementptr inbounds i32, ptr %173, i64 %170
   %175 = load i32, ptr %174, align 4, !noalias !271, !noundef !4
   %176 = zext i32 %175 to i64
-  %.val211 = load i64, ptr %149, align 8, !noundef !4
+  %.val211 = load i64, ptr %150, align 8, !noundef !4
   %177 = icmp ugt i64 %.val211, %176
   br i1 %177, label %178, label %.invoke753, !prof !29
 
@@ -1884,7 +1885,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
           to label %345 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 178:                                              ; preds = %168
-  %.val = load ptr, ptr %150, align 8, !nonnull !4, !noundef !4
+  %.val = load ptr, ptr %149, align 8, !nonnull !4, !noundef !4
   %179 = getelementptr inbounds nuw i32, ptr %.val, i64 %176
   %180 = load i32, ptr %179, align 4, !noundef !4
   store i8 0, ptr %151, align 8

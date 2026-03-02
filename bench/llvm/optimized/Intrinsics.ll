@@ -1247,7 +1247,7 @@ define internal fastcc noundef ptr @_ZL15DecodeFixedTypeRN4llvm8ArrayRefINS_9Int
   %5 = alloca %"class.llvm::ArrayRef.13", align 8
   %6 = alloca %"class.llvm::SmallVector.8", align 8
   %7 = load ptr, ptr %0, align 8, !tbaa !132
-  %.sroa.097.0.copyload = load i32, ptr %7, align 4, !tbaa !137
+  %.sroa.096.0.copyload = load i32, ptr %7, align 4, !tbaa !137
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1256,7 +1256,7 @@ define internal fastcc noundef ptr @_ZL15DecodeFixedTypeRN4llvm8ArrayRefINS_9Int
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store ptr %11, ptr %0, align 8, !tbaa !138
   store i64 %10, ptr %8, align 8, !tbaa !13
-  switch i32 %.sroa.097.0.copyload, label %206 [
+  switch i32 %.sroa.096.0.copyload, label %206 [
     i32 0, label %12
     i32 1, label %14
     i32 2, label %16
@@ -1341,8 +1341,8 @@ define internal fastcc noundef ptr @_ZL15DecodeFixedTypeRN4llvm8ArrayRefINS_9Int
   br label %common.ret4
 
 39:                                               ; preds = %3
-  %.sroa.5.4.extract.trunc103 = trunc i64 %.sroa.5.0.copyload to i32
-  %40 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %.sroa.5.4.extract.trunc103) #18
+  %.sroa.5.4.extract.trunc102 = trunc i64 %.sroa.5.0.copyload to i32
+  %40 = tail call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %.sroa.5.4.extract.trunc102) #18
   br label %common.ret4
 
 common.ret4:                                      ; preds = %164, %154, %111, %85, %113, %98, %201, %182, %181, %139, %71, %_ZN4llvm11SmallVectorIPNS_4TypeELj8EED2Ev.exit, %44, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %16, %14, %12, %.lr.ph.i, %41
@@ -1355,8 +1355,8 @@ common.ret4:                                      ; preds = %164, %154, %111, %8
   br label %common.ret4
 
 44:                                               ; preds = %3
-  %.sroa.5.4.extract.trunc101 = trunc i64 %.sroa.5.0.copyload to i32
-  %45 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %.sroa.5.4.extract.trunc101) #18
+  %.sroa.5.4.extract.trunc100 = trunc i64 %.sroa.5.0.copyload to i32
+  %45 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %.sroa.5.4.extract.trunc100) #18
   br label %common.ret4
 
 46:                                               ; preds = %3
@@ -1368,8 +1368,8 @@ common.ret4:                                      ; preds = %164, %154, %111, %8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 8, ptr %49, align 4, !tbaa !128
   %.sroa.5.4.extract.trunc = trunc i64 %.sroa.5.0.copyload to i32
-  %.not78140 = icmp eq i32 %.sroa.5.4.extract.trunc, 0
-  br i1 %.not78140, label %._crit_edge, label %.lr.ph
+  %.not77138 = icmp eq i32 %.sroa.5.4.extract.trunc, 0
+  br i1 %.not77138, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit
   %.pre = load ptr, ptr %6, align 8, !tbaa !130
@@ -1393,7 +1393,7 @@ _ZN4llvm11SmallVectorIPNS_4TypeELj8EED2Ev.exit:   ; preds = %._crit_edge, %56
   br label %common.ret4
 
 .lr.ph:                                           ; preds = %46, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit
-  %.070141 = phi i32 [ %70, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ], [ 0, %46 ]
+  %.070139 = phi i32 [ %70, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit ], [ 0, %46 ]
   %57 = call fastcc noundef ptr @_ZL15DecodeFixedTypeRN4llvm8ArrayRefINS_9Intrinsic13IITDescriptorEEENS0_IPNS_4TypeEEERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %58 = load i32, ptr %48, align 8, !tbaa !127
   %59 = load i32, ptr %49, align 4, !tbaa !128
@@ -1417,9 +1417,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %68 = load i32, ptr %48, align 8, !tbaa !127
   %69 = add i32 %68, 1
   store i32 %69, ptr %48, align 8, !tbaa !127
-  %70 = add nuw i32 %.070141, 1
-  %.not78 = icmp eq i32 %70, %.sroa.5.4.extract.trunc
-  br i1 %.not78, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !139
+  %70 = add nuw i32 %.070139, 1
+  %.not77 = icmp eq i32 %70, %.sroa.5.4.extract.trunc
+  br i1 %.not77, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !139
 
 71:                                               ; preds = %3
   %72 = lshr i64 %.sroa.5.0.copyload, 3
@@ -1438,9 +1438,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %83 = and i32 %82, 255
   %84 = add nsw i32 %83, -19
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %84, -2
-  %.not77139 = icmp eq ptr %80, null
-  %.not77 = or i1 %.not77139, %spec.select.i.i.i.i.i.i.i.i
-  br i1 %.not77, label %98, label %85
+  %.not76137 = icmp eq ptr %80, null
+  %.not76 = or i1 %.not76137, %spec.select.i.i.i.i.i.i.i.i
+  br i1 %.not76, label %98, label %85
 
 85:                                               ; preds = %76
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 24
@@ -1475,10 +1475,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %108 = load i32, ptr %107, align 8
   %109 = and i32 %108, 255
   %110 = add nsw i32 %109, -19
-  %spec.select.i.i.i.i.i.i.i.i79 = icmp ult i32 %110, -2
-  %.not76138 = icmp eq ptr %106, null
-  %.not76 = or i1 %.not76138, %spec.select.i.i.i.i.i.i.i.i79
-  br i1 %.not76, label %113, label %111
+  %spec.select.i.i.i.i.i.i.i.i78 = icmp ult i32 %110, -2
+  %.not75136 = icmp eq ptr %106, null
+  %.not75 = or i1 %.not75136, %spec.select.i.i.i.i.i.i.i.i78
+  br i1 %.not75, label %113, label %111
 
 111:                                              ; preds = %102
   %112 = tail call noundef ptr @_ZN4llvm10VectorType29getTruncatedElementVectorTypeEPS0_(ptr noundef nonnull %106)
@@ -1498,15 +1498,15 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %122 = load i32, ptr %121, align 8
   %123 = and i32 %122, 255
   %124 = add nsw i32 %123, -17
-  %spec.select.i.i.i.i.i.i.i.i81 = icmp ult i32 %124, 2
-  %spec.select.i.i82 = select i1 %spec.select.i.i.i.i.i.i.i.i81, ptr %120, ptr null
-  %125 = icmp eq i32 %.sroa.097.0.copyload, 21
+  %spec.select.i.i.i.i.i.i.i.i80 = icmp ult i32 %124, 2
+  %spec.select.i.i81 = select i1 %spec.select.i.i.i.i.i.i.i.i80, ptr %120, ptr null
+  %125 = icmp eq i32 %.sroa.096.0.copyload, 21
   %126 = select i1 %125, i32 1, i32 2
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.i
   %.07.i = phi i32 [ %138, %.lr.ph.i ], [ 0, %116 ]
-  %.056.i = phi ptr [ %137, %.lr.ph.i ], [ %spec.select.i.i82, %116 ]
+  %.056.i = phi ptr [ %137, %.lr.ph.i ], [ %spec.select.i.i81, %116 ]
   %127 = getelementptr inbounds nuw i8, ptr %.056.i, i64 32
   %128 = load i32, ptr %127, align 8, !tbaa !146
   %129 = getelementptr inbounds nuw i8, ptr %.056.i, i64 8
@@ -1517,9 +1517,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %133 = getelementptr inbounds nuw i8, ptr %.056.i, i64 24
   %134 = load ptr, ptr %133, align 8, !tbaa !140
   %135 = shl i32 %128, 1
-  %.sroa.0.0.insert.ext.i.i.i83 = zext i32 %135 to i64
-  %.sroa.0.0.insert.insert.i.i.i84 = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i83
-  %136 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %134, i64 %.sroa.0.0.insert.insert.i.i.i84) #18
+  %.sroa.0.0.insert.ext.i.i.i82 = zext i32 %135 to i64
+  %.sroa.0.0.insert.insert.i.i.i83 = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i82
+  %136 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %134, i64 %.sroa.0.0.insert.insert.i.i.i83) #18
   %137 = tail call noundef ptr @_ZN4llvm10VectorType29getTruncatedElementVectorTypeEPS0_(ptr noundef %136)
   %138 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %138, %126
@@ -1555,10 +1555,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %161 = load i32, ptr %160, align 8
   %162 = and i32 %161, 255
   %163 = add nsw i32 %162, -19
-  %spec.select.i.i.i.i.i.i.i.i85 = icmp ult i32 %163, -2
-  %.not75137 = icmp eq ptr %159, null
-  %.not75 = or i1 %.not75137, %spec.select.i.i.i.i.i.i.i.i85
-  br i1 %.not75, label %common.ret4, label %164
+  %spec.select.i.i.i.i.i.i.i.i84 = icmp ult i32 %163, -2
+  %.not135 = icmp eq ptr %159, null
+  %.not = or i1 %.not135, %spec.select.i.i.i.i.i.i.i.i84
+  br i1 %.not, label %common.ret4, label %164
 
 164:                                              ; preds = %154
   %165 = getelementptr inbounds nuw i8, ptr %159, i64 32
@@ -1579,10 +1579,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %175 = load i32, ptr %174, align 8
   %176 = and i32 %175, 255
   %177 = add nsw i32 %176, -17
-  %spec.select.i.i.i.i.i.i.i.i87 = icmp ult i32 %177, 2
-  %.not136 = icmp ne ptr %173, null
-  %.not = and i1 %.not136, %spec.select.i.i.i.i.i.i.i.i87
-  br i1 %.not, label %178, label %181
+  %spec.select.i.i.i.i.i.i.i.i86 = icmp ult i32 %177, 2
+  %spec.select.i.i87 = select i1 %spec.select.i.i.i.i.i.i.i.i86, ptr %173, ptr null
+  %.not.not = icmp eq ptr %spec.select.i.i87, null
+  br i1 %.not.not, label %181, label %178
 
 178:                                              ; preds = %169
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 24
@@ -1591,8 +1591,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
 
 181:                                              ; preds = %169, %178
   %.7 = phi ptr [ %180, %178 ], [ undef, %169 ]
-  tail call void @llvm.assume(i1 %spec.select.i.i.i.i.i.i.i.i87)
-  tail call void @llvm.assume(i1 %.not136)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i87) ]
   br label %common.ret4
 
 182:                                              ; preds = %3
@@ -1620,10 +1619,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %197 = load i32, ptr %196, align 8
   %198 = and i32 %197, 255
   %199 = icmp eq i32 %198, 18
-  %.sroa.2.0.insert.shift.i.i.i91 = select i1 %199, i64 4294967296, i64 0
-  %.sroa.0.0.insert.ext.i.i.i92 = zext i32 %195 to i64
-  %.sroa.0.0.insert.insert.i.i.i93 = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i91, %.sroa.0.0.insert.ext.i.i.i92
-  %200 = call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %193, i64 %.sroa.0.0.insert.insert.i.i.i93) #18
+  %.sroa.2.0.insert.shift.i.i.i90 = select i1 %199, i64 4294967296, i64 0
+  %.sroa.0.0.insert.ext.i.i.i91 = zext i32 %195 to i64
+  %.sroa.0.0.insert.insert.i.i.i92 = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i90, %.sroa.0.0.insert.ext.i.i.i91
+  %200 = call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %193, i64 %.sroa.0.0.insert.insert.i.i.i92) #18
   br label %common.ret4
 
 201:                                              ; preds = %3

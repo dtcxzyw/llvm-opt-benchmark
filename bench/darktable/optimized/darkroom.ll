@@ -4109,9 +4109,8 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %3, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @skip_f_key_accel_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
-  %.not5.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not5.i)
+define internal void @skip_f_key_accel_callback(ptr noundef readonly captures(none) %0) #1 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = load i32, ptr %0, align 8, !tbaa !287
   %.not4.i1 = icmp eq i32 %2, 2
   br i1 %.not4.i1, label %dt_action_view.exit, label %.lr.ph.i
@@ -4133,9 +4132,8 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @skip_b_key_accel_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
-  %.not5.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not5.i)
+define internal void @skip_b_key_accel_callback(ptr noundef readonly captures(none) %0) #1 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = load i32, ptr %0, align 8, !tbaa !287
   %.not4.i1 = icmp eq i32 %2, 2
   br i1 %.not4.i1, label %dt_action_view.exit, label %.lr.ph.i
@@ -4168,7 +4166,7 @@ define internal void @_overlay_cycle_callback(ptr readnone captures(none) %0) #1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_toggle_mask_visibility_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
+define internal void @_toggle_mask_visibility_callback(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !130
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = load i32, ptr %3, align 8, !tbaa !131
@@ -4176,8 +4174,7 @@ define internal void @_toggle_mask_visibility_callback(ptr noundef readonly capt
   br i1 %.not, label %5, label %63
 
 5:                                                ; preds = %1
-  %.not5.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not5.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %6 = load i32, ptr %0, align 8, !tbaa !287
   %.not4.i31 = icmp eq i32 %6, 2
   br i1 %.not4.i31, label %dt_action_view.exit, label %.lr.ph.i
@@ -4286,9 +4283,8 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_brush_size_up_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
-  %.not5.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not5.i)
+define internal void @_brush_size_up_callback(ptr noundef readonly captures(none) %0) #1 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = load i32, ptr %0, align 8, !tbaa !287
   %.not4.i3 = icmp eq i32 %2, 2
   br i1 %.not4.i3, label %dt_action_view.exit, label %.lr.ph.i
@@ -4321,9 +4317,8 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_brush_size_down_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
-  %.not5.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not5.i)
+define internal void @_brush_size_down_callback(ptr noundef readonly captures(none) %0) #1 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = load i32, ptr %0, align 8, !tbaa !287
   %.not4.i3 = icmp eq i32 %2, 2
   br i1 %.not4.i3, label %dt_action_view.exit, label %.lr.ph.i
@@ -4356,9 +4351,8 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_brush_hardness_up_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
-  %.not5.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not5.i)
+define internal void @_brush_hardness_up_callback(ptr noundef readonly captures(none) %0) #1 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = load i32, ptr %0, align 8, !tbaa !287
   %.not4.i3 = icmp eq i32 %2, 2
   br i1 %.not4.i3, label %dt_action_view.exit, label %.lr.ph.i
@@ -4391,9 +4385,8 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_brush_hardness_down_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
-  %.not5.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not5.i)
+define internal void @_brush_hardness_down_callback(ptr noundef readonly captures(none) %0) #1 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = load i32, ptr %0, align 8, !tbaa !287
   %.not4.i3 = icmp eq i32 %2, 2
   br i1 %.not4.i3, label %dt_action_view.exit, label %.lr.ph.i
@@ -4426,9 +4419,8 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_brush_opacity_up_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
-  %.not5.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not5.i)
+define internal void @_brush_opacity_up_callback(ptr noundef readonly captures(none) %0) #1 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = load i32, ptr %0, align 8, !tbaa !287
   %.not4.i3 = icmp eq i32 %2, 2
   br i1 %.not4.i3, label %dt_action_view.exit, label %.lr.ph.i
@@ -4461,9 +4453,8 @@ dt_action_view.exit:                              ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_brush_opacity_down_callback(ptr noundef readonly captures(address_is_null) %0) #1 {
-  %.not5.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not5.i)
+define internal void @_brush_opacity_down_callback(ptr noundef readonly captures(none) %0) #1 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = load i32, ptr %0, align 8, !tbaa !287
   %.not4.i3 = icmp eq i32 %2, 2
   br i1 %.not4.i3, label %dt_action_view.exit, label %.lr.ph.i

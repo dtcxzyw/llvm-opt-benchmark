@@ -1758,6 +1758,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %and.i.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i.i.i.i) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i.i, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %add.ptr19.i.i.i, 1
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_7MessageEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit.i
@@ -1852,34 +1853,34 @@ if.end11:                                         ; preds = %cleanup.cont
   br i1 %cmp.i2.i.i.i.i.i.i.i.i.i.i.i, label %while.body.us.i.i.i, label %while.body.i.i.i17
 
 while.body.us.i.i.i:                              ; preds = %if.end11, %if.end34.us.i.i.i
-  %seq.sroa.4.0.us.i.i.i = phi i64 [ %and.i19.us.i.i.i, %if.end34.us.i.i.i ], [ %and.i.i.i.i.i.i, %if.end11 ]
-  %seq.sroa.10.0.us.i.i.i = phi i64 [ %add.i17.us.i.i.i, %if.end34.us.i.i.i ], [ 0, %if.end11 ]
+  %seq.sroa.4.0.us.i.i.i = phi i64 [ %and.i18.us.i.i.i, %if.end34.us.i.i.i ], [ %and.i.i.i.i.i.i, %if.end11 ]
+  %seq.sroa.10.0.us.i.i.i = phi i64 [ %add.i16.us.i.i.i, %if.end34.us.i.i.i ], [ 0, %if.end11 ]
   %add.ptr.us.i.i.i = getelementptr inbounds i8, ptr %23, i64 %seq.sroa.4.0.us.i.i.i
   %28 = load <16 x i8>, ptr %add.ptr.us.i.i.i, align 1
   %cmp.i.i.us.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i.i16, %28
   %29 = bitcast <16 x i1> %cmp.i.i.us.i.i.i to i16
-  %cmp.i.not29.us.i.i.i = icmp eq i16 %29, 0
-  br i1 %cmp.i.not29.us.i.i.i, label %for.end.us.i.i.i, label %for.body.us.us.preheader.i.i.i
+  %cmp.i.not28.us.i.i.i = icmp eq i16 %29, 0
+  br i1 %cmp.i.not28.us.i.i.i, label %for.end.us.i.i.i, label %for.body.us.us.preheader.i.i.i
 
 for.body.us.us.preheader.i.i.i:                   ; preds = %while.body.us.i.i.i
   %30 = zext i16 %29 to i32
   br label %for.body.us.us.i.i.i
 
 for.end.us.i.i.i:                                 ; preds = %for.inc.us.us.i.i.i, %while.body.us.i.i.i
-  %cmp.i.i15.us.i.i.i = icmp eq <16 x i8> %28, splat (i8 -128)
-  %31 = bitcast <16 x i1> %cmp.i.i15.us.i.i.i to i16
-  %cmp.i16.not.us.i.i.i = icmp eq i16 %31, 0
-  br i1 %cmp.i16.not.us.i.i.i, label %if.end34.us.i.i.i, label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf8internal15DescriptorTableEEENS5_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENSC_18DescriptorByNameEqESaIS9_EE4findISt17basic_string_viewIcSt11char_traitsIcEEEENSG_8iteratorERKT_.exit.i
+  %cmp.i.i14.us.i.i.i = icmp eq <16 x i8> %28, splat (i8 -128)
+  %31 = bitcast <16 x i1> %cmp.i.i14.us.i.i.i to i16
+  %cmp.i15.not.us.i.i.i = icmp eq i16 %31, 0
+  br i1 %cmp.i15.not.us.i.i.i, label %if.end34.us.i.i.i, label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf8internal15DescriptorTableEEENS5_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENSC_18DescriptorByNameEqESaIS9_EE4findISt17basic_string_viewIcSt11char_traitsIcEEEENSG_8iteratorERKT_.exit.i
 
 if.end34.us.i.i.i:                                ; preds = %for.end.us.i.i.i
-  %add.i17.us.i.i.i = add i64 %seq.sroa.10.0.us.i.i.i, 16
-  %add3.i.us.i.i.i = add i64 %add.i17.us.i.i.i, %seq.sroa.4.0.us.i.i.i
-  %and.i19.us.i.i.i = and i64 %add3.i.us.i.i.i, %24
+  %add.i16.us.i.i.i = add i64 %seq.sroa.10.0.us.i.i.i, 16
+  %add3.i.us.i.i.i = add i64 %add.i16.us.i.i.i, %seq.sroa.4.0.us.i.i.i
+  %and.i18.us.i.i.i = and i64 %add3.i.us.i.i.i, %24
   br label %while.body.us.i.i.i, !llvm.loop !35
 
 for.body.us.us.i.i.i:                             ; preds = %for.inc.us.us.i.i.i, %for.body.us.us.preheader.i.i.i
-  %__begin5.sroa.0.030.us.us.i.i.i = phi i32 [ %and.i14.us.us.i.i.i, %for.inc.us.us.i.i.i ], [ %30, %for.body.us.us.preheader.i.i.i ]
-  %32 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.030.us.us.i.i.i, i1 true)
+  %__begin5.sroa.0.029.us.us.i.i.i = phi i32 [ %and.i13.us.us.i.i.i, %for.inc.us.us.i.i.i ], [ %30, %for.body.us.us.preheader.i.i.i ]
+  %32 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.029.us.us.i.i.i, i1 true)
   %conv.us.us.i.i.i = zext nneg i32 %32 to i64
   %add.i.us.us.i.i.i = add i64 %seq.sroa.4.0.us.i.i.i, %conv.us.us.i.i.i
   %and.i.us.us.i.i.i = and i64 %add.i.us.us.i.i.i, %24
@@ -1892,28 +1893,28 @@ for.body.us.us.i.i.i:                             ; preds = %for.inc.us.us.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.us.us.i.i.i, label %if.then.i.i.i37, label %for.inc.us.us.i.i.i
 
 for.inc.us.us.i.i.i:                              ; preds = %for.body.us.us.i.i.i
-  %sub.i.us.us.i.i.i = add nsw i32 %__begin5.sroa.0.030.us.us.i.i.i, -1
-  %and.i14.us.us.i.i.i = and i32 %sub.i.us.us.i.i.i, %__begin5.sroa.0.030.us.us.i.i.i
-  %cmp.i.not.us.us.i.i.i = icmp eq i32 %and.i14.us.us.i.i.i, 0
+  %sub.i.us.us.i.i.i = add nsw i32 %__begin5.sroa.0.029.us.us.i.i.i, -1
+  %and.i13.us.us.i.i.i = and i32 %sub.i.us.us.i.i.i, %__begin5.sroa.0.029.us.us.i.i.i
+  %cmp.i.not.us.us.i.i.i = icmp eq i32 %and.i13.us.us.i.i.i, 0
   br i1 %cmp.i.not.us.us.i.i.i, label %for.end.us.i.i.i, label %for.body.us.us.i.i.i
 
 while.body.i.i.i17:                               ; preds = %if.end11, %if.end34.i.i.i35
-  %seq.sroa.4.0.i.i.i18 = phi i64 [ %and.i19.i.i.i, %if.end34.i.i.i35 ], [ %and.i.i.i.i.i.i, %if.end11 ]
-  %seq.sroa.10.0.i.i.i19 = phi i64 [ %add.i17.i.i.i, %if.end34.i.i.i35 ], [ 0, %if.end11 ]
+  %seq.sroa.4.0.i.i.i18 = phi i64 [ %and.i18.i.i.i, %if.end34.i.i.i35 ], [ %and.i.i.i.i.i.i, %if.end11 ]
+  %seq.sroa.10.0.i.i.i19 = phi i64 [ %add.i16.i.i.i, %if.end34.i.i.i35 ], [ 0, %if.end11 ]
   %add.ptr.i.i.i20 = getelementptr inbounds i8, ptr %23, i64 %seq.sroa.4.0.i.i.i18
   %34 = load <16 x i8>, ptr %add.ptr.i.i.i20, align 1
   %cmp.i.i.i.i.i21 = icmp eq <16 x i8> %vecinit15.i.i.i.i.i16, %34
   %35 = bitcast <16 x i1> %cmp.i.i.i.i.i21 to i16
-  %cmp.i.not29.i.i.i = icmp eq i16 %35, 0
-  br i1 %cmp.i.not29.i.i.i, label %for.end.i.i.i31, label %for.body.preheader.i.i.i22
+  %cmp.i.not28.i.i.i = icmp eq i16 %35, 0
+  br i1 %cmp.i.not28.i.i.i, label %for.end.i.i.i31, label %for.body.preheader.i.i.i22
 
 for.body.preheader.i.i.i22:                       ; preds = %while.body.i.i.i17
   %36 = zext i16 %35 to i32
   br label %for.body.i.i.i23
 
 for.body.i.i.i23:                                 ; preds = %for.inc.i.i.i28, %for.body.preheader.i.i.i22
-  %__begin5.sroa.0.030.i.i.i = phi i32 [ %and.i14.i.i.i, %for.inc.i.i.i28 ], [ %36, %for.body.preheader.i.i.i22 ]
-  %37 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.030.i.i.i, i1 true)
+  %__begin5.sroa.0.029.i.i.i = phi i32 [ %and.i13.i.i.i, %for.inc.i.i.i28 ], [ %36, %for.body.preheader.i.i.i22 ]
+  %37 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.029.i.i.i, i1 true)
   %conv.i.i.i24 = zext nneg i32 %37 to i64
   %add.i.i.i.i25 = add i64 %seq.sroa.4.0.i.i.i18, %conv.i.i.i24
   %and.i.i.i.i26 = and i64 %add.i.i.i.i25, %24
@@ -1934,28 +1935,27 @@ if.then.i.i.i37:                                  ; preds = %land.rhs.i.i.i.i.i.
   %.us-phi.i.i.i = phi i64 [ %and.i.us.us.i.i.i, %for.body.us.us.i.i.i ], [ %and.i.i.i.i26, %land.rhs.i.i.i.i.i.i.i.i.i.i ]
   %add.ptr19.le.i.i.i = getelementptr inbounds ptr, ptr %this.val5.i.i.i, i64 %.us-phi.i.i.i
   %add.ptr.i.i.i.i38 = getelementptr inbounds i8, ptr %23, i64 %.us-phi.i.i.i
-  %cmp.i.i13.i.i.i = icmp ne ptr %23, null
-  tail call void @llvm.assume(i1 %cmp.i.i13.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i.i.i.i38) ]
   %.fca.0.insert.i.i.i.i39 = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i.i38, 0
   %.fca.1.insert.i.i.i.i40 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i39, ptr %add.ptr19.le.i.i.i, 1
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf8internal15DescriptorTableEEENS5_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENSC_18DescriptorByNameEqESaIS9_EE4findISt17basic_string_viewIcSt11char_traitsIcEEEENSG_8iteratorERKT_.exit.i
 
 for.inc.i.i.i28:                                  ; preds = %land.rhs.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i23
-  %sub.i.i.i.i29 = add nsw i32 %__begin5.sroa.0.030.i.i.i, -1
-  %and.i14.i.i.i = and i32 %sub.i.i.i.i29, %__begin5.sroa.0.030.i.i.i
-  %cmp.i.not.i.i.i30 = icmp eq i32 %and.i14.i.i.i, 0
+  %sub.i.i.i.i29 = add nsw i32 %__begin5.sroa.0.029.i.i.i, -1
+  %and.i13.i.i.i = and i32 %sub.i.i.i.i29, %__begin5.sroa.0.029.i.i.i
+  %cmp.i.not.i.i.i30 = icmp eq i32 %and.i13.i.i.i, 0
   br i1 %cmp.i.not.i.i.i30, label %for.end.i.i.i31, label %for.body.i.i.i23
 
 for.end.i.i.i31:                                  ; preds = %for.inc.i.i.i28, %while.body.i.i.i17
-  %cmp.i.i15.i.i.i = icmp eq <16 x i8> %34, splat (i8 -128)
-  %39 = bitcast <16 x i1> %cmp.i.i15.i.i.i to i16
-  %cmp.i16.not.i.i.i = icmp eq i16 %39, 0
-  br i1 %cmp.i16.not.i.i.i, label %if.end34.i.i.i35, label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf8internal15DescriptorTableEEENS5_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENSC_18DescriptorByNameEqESaIS9_EE4findISt17basic_string_viewIcSt11char_traitsIcEEEENSG_8iteratorERKT_.exit.i
+  %cmp.i.i14.i.i.i = icmp eq <16 x i8> %34, splat (i8 -128)
+  %39 = bitcast <16 x i1> %cmp.i.i14.i.i.i to i16
+  %cmp.i15.not.i.i.i = icmp eq i16 %39, 0
+  br i1 %cmp.i15.not.i.i.i, label %if.end34.i.i.i35, label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf8internal15DescriptorTableEEENS5_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENSC_18DescriptorByNameEqESaIS9_EE4findISt17basic_string_viewIcSt11char_traitsIcEEEENSG_8iteratorERKT_.exit.i
 
 if.end34.i.i.i35:                                 ; preds = %for.end.i.i.i31
-  %add.i17.i.i.i = add i64 %seq.sroa.10.0.i.i.i19, 16
-  %add3.i.i.i.i36 = add i64 %add.i17.i.i.i, %seq.sroa.4.0.i.i.i18
-  %and.i19.i.i.i = and i64 %add3.i.i.i.i36, %24
+  %add.i16.i.i.i = add i64 %seq.sroa.10.0.i.i.i19, 16
+  %add3.i.i.i.i36 = add i64 %add.i16.i.i.i, %seq.sroa.4.0.i.i.i18
+  %and.i18.i.i.i = and i64 %add3.i.i.i.i36, %24
   br label %while.body.i.i.i17, !llvm.loop !35
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf8internal15DescriptorTableEEENS5_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENSC_18DescriptorByNameEqESaIS9_EE4findISt17basic_string_viewIcSt11char_traitsIcEEEENSG_8iteratorERKT_.exit.i: ; preds = %for.end.i.i.i31, %for.end.us.i.i.i, %if.then.i.i.i37
@@ -2009,6 +2009,7 @@ for.body.i.i.i70:                                 ; preds = %for.inc.i.i.i77, %f
 
 if.then.i.i.i96:                                  ; preds = %for.body.i.i.i70
   %add.ptr.i.i.i.i97 = getelementptr inbounds i8, ptr %43, i64 %and.i.i.i.i74
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i.i.i.i97) ]
   %.fca.0.insert.i.i.i.i98 = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i.i97, 0
   %.fca.1.insert.i.i.i.i99 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i98, ptr %add.ptr19.i.i.i75, 1
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_7MessageEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit.i84
@@ -2078,6 +2079,7 @@ for.body.i.i.i132:                                ; preds = %for.inc.i.i.i139, %
 
 if.then.i.i.i158:                                 ; preds = %for.body.i.i.i132
   %add.ptr.i.i.i.i159 = getelementptr inbounds i8, ptr %54, i64 %and.i.i.i.i136
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i.i.i.i159) ]
   %.fca.0.insert.i.i.i.i160 = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i.i159, 0
   %.fca.1.insert.i.i.i.i161 = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i160, ptr %add.ptr19.i.i.i137, 1
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_7MessageEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit.i146

@@ -5433,7 +5433,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit1111: ; preds 
   %3225 = getelementptr inbounds nuw i8, ptr %11, i64 984
   %3226 = getelementptr inbounds nuw i8, ptr %11, i64 1000
   %3227 = getelementptr inbounds nuw i8, ptr %11, i64 992
-  call void @llvm.assume(i1 %835)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   br label %.split.i
 
 .split.i:                                         ; preds = %.split.i.backedge, %3215

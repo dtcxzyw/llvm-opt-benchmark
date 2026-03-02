@@ -1472,9 +1472,8 @@ declare i64 @gtk_widget_get_type() local_unnamed_addr #7
 declare ptr @dt_action_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_snapshots_toggle_last(ptr noundef readonly captures(address_is_null) %0) #1 {
-  %.not5.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not5.i)
+define internal void @_lib_snapshots_toggle_last(ptr noundef readonly captures(none) %0) #1 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = load i32, ptr %0, align 8, !tbaa !190
   %.not4.i7 = icmp eq i32 %2, 3
   br i1 %.not4.i7, label %dt_action_lib.exit, label %.lr.ph.i

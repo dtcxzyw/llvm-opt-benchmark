@@ -5674,16 +5674,15 @@ declare i32 @locate_var_of_level(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @determineRecursiveColTypes(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
-  %.not56 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not56)
+define internal fastcc void @determineRecursiveColTypes(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 142
   br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sink57 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sink57, i64 16
+  %.sink56 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sink56, i64 16
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 142

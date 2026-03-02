@@ -172,7 +172,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   store i32 %30, ptr %31, align 8, !tbaa !11
   br label %32
 
-32:                                               ; preds = %.critedge, %21, %26
+32:                                               ; preds = %21, %.critedge, %26
   ret void
 }
 
@@ -1844,7 +1844,7 @@ php_formatted_print_get_array.exit:               ; preds = %47, %.critedge
   store i32 %57, ptr %58, align 8, !tbaa !11
   br label %59
 
-59:                                               ; preds = %php_formatted_print_get_array.exit, %.thread, %53
+59:                                               ; preds = %.thread, %php_formatted_print_get_array.exit, %53
   ret void
 }
 
@@ -1920,7 +1920,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   store i32 4, ptr %31, align 8, !tbaa !11
   br label %32
 
-32:                                               ; preds = %.critedge, %21, %26
+32:                                               ; preds = %21, %.critedge, %26
   ret void
 }
 
@@ -2043,7 +2043,7 @@ php_formatted_print_get_array.exit:               ; preds = %47, %.critedge
   store i32 4, ptr %58, align 8, !tbaa !11
   br label %59
 
-59:                                               ; preds = %php_formatted_print_get_array.exit, %.thread, %53
+59:                                               ; preds = %.thread, %php_formatted_print_get_array.exit, %53
   ret void
 }
 
@@ -2132,7 +2132,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   call void @_efree(ptr noundef nonnull %33) #17
   br label %42
 
-42:                                               ; preds = %32, %27, %.critedge, %35
+42:                                               ; preds = %27, %32, %.critedge, %35
   ret void
 }
 
@@ -2276,7 +2276,7 @@ php_formatted_print_get_array.exit:               ; preds = %56, %30
   call void @_efree(ptr noundef nonnull %60) #17
   br label %69
 
-69:                                               ; preds = %php_formatted_print_get_array.exit, %.thread, %.critedge, %62
+69:                                               ; preds = %.thread, %php_formatted_print_get_array.exit, %.critedge, %62
   ret void
 }
 

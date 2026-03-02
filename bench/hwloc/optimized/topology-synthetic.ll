@@ -188,8 +188,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_topology_export_synthetic(ptr nound
 
 hwloc_get_next_obj_by_type.exit.i.i:              ; preds = %34, %32
   %.0.i.i.i = phi ptr [ %38, %34 ], [ %33, %32 ]
-  %.not.i.i = icmp ne ptr %.0.i.i.i, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i) ]
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %40 = load i32, ptr %39, align 8, !tbaa !42
   %41 = icmp eq i32 %40, %29

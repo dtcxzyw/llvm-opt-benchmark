@@ -5739,8 +5739,7 @@ Vec_IntAlloc.exit.i:
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !32
   store i32 %.val, ptr %7, align 4, !tbaa !30
-  %.not.i = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   %12 = sext i32 %.val to i64
   %13 = shl nsw i64 %12, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %10, i8 -1, i64 %13, i1 false)
@@ -6044,8 +6043,7 @@ Vec_IntAlloc.exit.i:
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !32
   store i32 %.val, ptr %8, align 4, !tbaa !30
-  %.not.i = icmp ne ptr %11, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   %13 = sext i32 %.val to i64
   %14 = shl nsw i64 %13, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %11, i8 -1, i64 %14, i1 false)

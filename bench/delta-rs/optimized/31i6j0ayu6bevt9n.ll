@@ -390,6 +390,7 @@ common.resume:                                    ; preds = %30, %27, %6
 6:                                                ; preds = %4
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 64, i64 noundef 8) #19
   br label %common.resume
 
@@ -447,6 +448,7 @@ common.resume:                                    ; preds = %30, %27, %6
 
 27:                                               ; preds = %25, %18
   %eh.lpad-body.i = phi { ptr, i32 } [ %26, %25 ], [ %19, %18 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val1) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.val1, i64 noundef 48, i64 noundef 8) #19
   br label %common.resume
 
@@ -463,6 +465,7 @@ common.resume:                                    ; preds = %30, %27, %6
 30:                                               ; preds = %28
   %31 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val2) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef 48, i64 noundef 8) #19
   br label %common.resume
 

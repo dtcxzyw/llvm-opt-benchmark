@@ -6502,8 +6502,7 @@ _ZN4llvm18TypedTrackingMDRefINS_15DICompositeTypeEEC2EPS1_.exit: ; preds = %4, %
 _ZN4llvm18TypedTrackingMDRefINS_15DICompositeTypeEED2Ev.exit: ; preds = %13, %12
   %14 = phi ptr [ %.pre, %13 ], [ %.pre22, %12 ]
   store ptr %14, ptr %1, align 8, !tbaa !233
-  %.not.i.i.i4 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %.not.i.i.i4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %14) #13
   %.pre23 = load ptr, ptr %1, align 8, !tbaa !233
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -505,210 +505,209 @@ _ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit: ; preds = %9, %1
   %56 = extractvalue { ptr, i64 } %55, 0
   %57 = extractvalue { ptr, i64 } %55, 1
   %58 = getelementptr inbounds i64, ptr %56, i64 %57
-  %59 = icmp ne ptr %56, null
-  call void @llvm.assume(i1 %59)
-  br label %60
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %56) ]
+  br label %59
 
-60:                                               ; preds = %.loopexit31, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit
-  %61 = phi i64 [ %.promoted, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit ], [ %90, %.loopexit31 ]
+59:                                               ; preds = %.loopexit31, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit
+  %60 = phi i64 [ %.promoted, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit ], [ %89, %.loopexit31 ]
   %.sroa.4.0 = phi ptr [ %58, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit ], [ %.sroa.4.2, %.loopexit31 ]
   %.sroa.8.0 = phi i1 [ false, %_ZN9uv_pep4407version7Version7release17h3b904b11940ddafeE.exit ], [ true, %.loopexit31 ]
   br i1 %.sroa.8.0, label %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h0518c6fa4f788b7cE.exit.us.i", label %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h0518c6fa4f788b7cE.exit.i"
 
-"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h0518c6fa4f788b7cE.exit.us.i": ; preds = %60
-  %62 = icmp eq ptr %56, %.sroa.4.0
-  br i1 %62, label %.loopexit, label %.split10.us.i
+"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h0518c6fa4f788b7cE.exit.us.i": ; preds = %59
+  %61 = icmp eq ptr %56, %.sroa.4.0
+  br i1 %61, label %.loopexit, label %.split10.us.i
 
 .split10.us.i:                                    ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h0518c6fa4f788b7cE.exit.us.i"
-  %63 = getelementptr inbounds i8, ptr %.sroa.4.0, i64 -8
-  %.pre = load i64, ptr %63, align 8
+  %62 = getelementptr inbounds i8, ptr %.sroa.4.0, i64 -8
+  %.pre = load i64, ptr %62, align 8
   br label %.loopexit31
 
-"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h0518c6fa4f788b7cE.exit.i": ; preds = %60, %66
-  %64 = phi ptr [ %67, %66 ], [ %.sroa.4.0, %60 ]
-  %65 = icmp eq ptr %56, %64
-  br i1 %65, label %.loopexit, label %66
+"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h0518c6fa4f788b7cE.exit.i": ; preds = %59, %65
+  %63 = phi ptr [ %66, %65 ], [ %.sroa.4.0, %59 ]
+  %64 = icmp eq ptr %56, %63
+  br i1 %64, label %.loopexit, label %65
 
-66:                                               ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h0518c6fa4f788b7cE.exit.i"
-  %67 = getelementptr inbounds i8, ptr %64, i64 -8
-  %68 = load i64, ptr %67, align 8, !alias.scope !45, !noalias !48
-  %.not.i = icmp eq i64 %68, 0
+65:                                               ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h0518c6fa4f788b7cE.exit.i"
+  %66 = getelementptr inbounds i8, ptr %63, i64 -8
+  %67 = load i64, ptr %66, align 8, !alias.scope !45, !noalias !48
+  %.not.i = icmp eq i64 %67, 0
   br i1 %.not.i, label %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h0518c6fa4f788b7cE.exit.i", label %.loopexit31
 
 .loopexit:                                        ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h0518c6fa4f788b7cE.exit.us.i", %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h0518c6fa4f788b7cE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  br i1 %8, label %_ZN9uv_pep4407version7Version3pre17h95d233939197304aE.exit, label %69
+  br i1 %8, label %_ZN9uv_pep4407version7Version3pre17h95d233939197304aE.exit, label %68
 
-69:                                               ; preds = %.loopexit
-  %70 = load i64, ptr %0, align 8, !alias.scope !52, !noundef !3
-  %71 = lshr i64 %70, 20
-  %72 = and i64 %71, 15
-  %switch.tableidx = add nsw i64 %72, -2
-  %73 = icmp ult i64 %switch.tableidx, 3
-  br i1 %73, label %switch.lookup, label %.thread48
+68:                                               ; preds = %.loopexit
+  %69 = load i64, ptr %0, align 8, !alias.scope !52, !noundef !3
+  %70 = lshr i64 %69, 20
+  %71 = and i64 %70, 15
+  %switch.tableidx = add nsw i64 %71, -2
+  %72 = icmp ult i64 %switch.tableidx, 3
+  br i1 %72, label %switch.lookup, label %.thread48
 
 _ZN9uv_pep4407version7Version3pre17h95d233939197304aE.exit: ; preds = %.loopexit
-  %74 = load ptr, ptr %0, align 8, !alias.scope !52, !nonnull !3, !noundef !3
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 136
-  %76 = load i8, ptr %75, align 8, !range !55, !noalias !52, !noundef !3
-  %77 = icmp ne i8 %76, 3
-  %78 = zext i1 %77 to i64
-  %79 = add i64 %61, %78
-  %80 = mul i64 %79, -1065810590584100411
-  br i1 %77, label %.thread49, label %.thread
+  %73 = load ptr, ptr %0, align 8, !alias.scope !52, !nonnull !3, !noundef !3
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 136
+  %75 = load i8, ptr %74, align 8, !range !55, !noalias !52, !noundef !3
+  %76 = icmp ne i8 %75, 3
+  %77 = zext i1 %76 to i64
+  %78 = add i64 %60, %77
+  %79 = mul i64 %78, -1065810590584100411
+  br i1 %76, label %.thread49, label %.thread
 
 .thread49:                                        ; preds = %_ZN9uv_pep4407version7Version3pre17h95d233939197304aE.exit
-  %81 = getelementptr inbounds nuw i8, ptr %74, i64 128
-  %82 = load i64, ptr %81, align 8, !noalias !52
-  %83 = zext nneg i8 %76 to i64
-  %84 = add i64 %80, %83
-  %85 = mul i64 %84, -1065810590584100411
-  %86 = add i64 %85, %82
-  %87 = mul i64 %86, -1065810590584100411
+  %80 = getelementptr inbounds nuw i8, ptr %73, i64 128
+  %81 = load i64, ptr %80, align 8, !noalias !52
+  %82 = zext nneg i8 %75 to i64
+  %83 = add i64 %79, %82
+  %84 = mul i64 %83, -1065810590584100411
+  %85 = add i64 %84, %81
+  %86 = mul i64 %85, -1065810590584100411
   br label %.thread
 
-.loopexit31:                                      ; preds = %66, %.split10.us.i
-  %88 = phi i64 [ %.pre, %.split10.us.i ], [ %68, %66 ]
-  %.sroa.4.2 = phi ptr [ %63, %.split10.us.i ], [ %67, %66 ]
-  %89 = add i64 %61, %88
-  %90 = mul i64 %89, -1065810590584100411
-  store i64 %90, ptr %1, align 8, !alias.scope !56
-  br label %60
+.loopexit31:                                      ; preds = %65, %.split10.us.i
+  %87 = phi i64 [ %.pre, %.split10.us.i ], [ %67, %65 ]
+  %.sroa.4.2 = phi ptr [ %62, %.split10.us.i ], [ %66, %65 ]
+  %88 = add i64 %60, %87
+  %89 = mul i64 %88, -1065810590584100411
+  store i64 %89, ptr %1, align 8, !alias.scope !56
+  br label %59
 
-switch.lookup:                                    ; preds = %69
-  %91 = and i64 %70, 1048575
-  %92 = mul i64 %61, -1065810590584100411
-  %93 = add i64 %92, -1065810590584100411
-  %94 = add i64 %93, %switch.tableidx
-  %95 = mul i64 %94, -1065810590584100411
-  %96 = add i64 %95, %91
+switch.lookup:                                    ; preds = %68
+  %90 = and i64 %69, 1048575
+  %91 = mul i64 %60, -1065810590584100411
+  %92 = add i64 %91, -1065810590584100411
+  %93 = add i64 %92, %switch.tableidx
+  %94 = mul i64 %93, -1065810590584100411
+  %95 = add i64 %94, %90
   br label %.thread48
 
-.thread48:                                        ; preds = %69, %switch.lookup
-  %.sink = phi i64 [ %96, %switch.lookup ], [ %61, %69 ]
-  %97 = mul i64 %.sink, -1065810590584100411
-  %98 = and i64 %70, 15728640
-  %99 = icmp eq i64 %98, 1048576
-  %100 = and i64 %70, 1048575
-  %spec.select = zext i1 %99 to i64
-  %101 = add i64 %97, %spec.select
-  %102 = mul i64 %101, -1065810590584100411
-  %103 = add i64 %102, %100
-  %104 = mul i64 %103, -1065810590584100411
-  %storemerge29 = select i1 %99, i64 %104, i64 %102
-  %105 = and i64 %70, 15728640
-  %106 = icmp eq i64 %105, 7340032
-  %107 = and i64 %70, 1048575
-  %spec.select20 = zext i1 %106 to i64
-  %108 = add i64 %storemerge29, %spec.select20
-  %109 = mul i64 %108, -1065810590584100411
-  %110 = add i64 %109, %107
-  %111 = mul i64 %110, -1065810590584100411
-  %storemerge30 = select i1 %106, i64 %111, i64 %109
+.thread48:                                        ; preds = %68, %switch.lookup
+  %.sink = phi i64 [ %95, %switch.lookup ], [ %60, %68 ]
+  %96 = mul i64 %.sink, -1065810590584100411
+  %97 = and i64 %69, 15728640
+  %98 = icmp eq i64 %97, 1048576
+  %99 = and i64 %69, 1048575
+  %spec.select = zext i1 %98 to i64
+  %100 = add i64 %96, %spec.select
+  %101 = mul i64 %100, -1065810590584100411
+  %102 = add i64 %101, %99
+  %103 = mul i64 %102, -1065810590584100411
+  %storemerge29 = select i1 %98, i64 %103, i64 %101
+  %104 = and i64 %69, 15728640
+  %105 = icmp eq i64 %104, 7340032
+  %106 = and i64 %69, 1048575
+  %spec.select20 = zext i1 %105 to i64
+  %107 = add i64 %storemerge29, %spec.select20
+  %108 = mul i64 %107, -1065810590584100411
+  %109 = add i64 %108, %106
+  %110 = mul i64 %109, -1065810590584100411
+  %storemerge30 = select i1 %105, i64 %110, i64 %108
   store i64 %storemerge30, ptr %1, align 8
-  %112 = and i64 %70, 15728640
-  %113 = icmp eq i64 %112, 6291456
-  br i1 %113, label %_ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit.thread, label %135
+  %111 = and i64 %69, 15728640
+  %112 = icmp eq i64 %111, 6291456
+  br i1 %112, label %_ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit.thread, label %134
 
 _ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit.thread: ; preds = %.thread48
-  %114 = mul i64 %storemerge30, -1065810590584100411
-  %115 = add i64 %114, -1065810590584100411
-  store i64 %115, ptr %1, align 8, !alias.scope !59
+  %113 = mul i64 %storemerge30, -1065810590584100411
+  %114 = add i64 %113, -1065810590584100411
+  store i64 %114, ptr %1, align 8, !alias.scope !59
   br label %_ZN4core4hash4Hash10hash_slice17h9dcc221eadb1c36bE.exit
 
 .thread:                                          ; preds = %_ZN9uv_pep4407version7Version3pre17h95d233939197304aE.exit, %.thread49
-  %116 = phi i64 [ %87, %.thread49 ], [ %80, %_ZN9uv_pep4407version7Version3pre17h95d233939197304aE.exit ]
-  %117 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %118 = load i64, ptr %117, align 8, !range !64, !noundef !3
-  %119 = getelementptr inbounds nuw i8, ptr %74, i64 40
-  %120 = load i64, ptr %119, align 8
-  %121 = add i64 %116, %118
-  %122 = mul i64 %121, -1065810590584100411
-  %trunc55 = trunc nuw i64 %118 to i1
-  %123 = add i64 %122, %120
-  %124 = mul i64 %123, -1065810590584100411
-  %storemerge2956 = select i1 %trunc55, i64 %124, i64 %122
-  %125 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %126 = load i64, ptr %125, align 8, !range !64, !noundef !3
-  %127 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %128 = load i64, ptr %127, align 8
-  %129 = add i64 %storemerge2956, %126
-  %130 = mul i64 %129, -1065810590584100411
-  %trunc1763 = trunc nuw i64 %126 to i1
-  %131 = add i64 %130, %128
-  %132 = mul i64 %131, -1065810590584100411
-  %storemerge3064 = select i1 %trunc1763, i64 %132, i64 %130
+  %115 = phi i64 [ %86, %.thread49 ], [ %79, %_ZN9uv_pep4407version7Version3pre17h95d233939197304aE.exit ]
+  %116 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  %117 = load i64, ptr %116, align 8, !range !64, !noundef !3
+  %118 = getelementptr inbounds nuw i8, ptr %73, i64 40
+  %119 = load i64, ptr %118, align 8
+  %120 = add i64 %115, %117
+  %121 = mul i64 %120, -1065810590584100411
+  %trunc55 = trunc nuw i64 %117 to i1
+  %122 = add i64 %121, %119
+  %123 = mul i64 %122, -1065810590584100411
+  %storemerge2956 = select i1 %trunc55, i64 %123, i64 %121
+  %124 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %125 = load i64, ptr %124, align 8, !range !64, !noundef !3
+  %126 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %127 = load i64, ptr %126, align 8
+  %128 = add i64 %storemerge2956, %125
+  %129 = mul i64 %128, -1065810590584100411
+  %trunc1763 = trunc nuw i64 %125 to i1
+  %130 = add i64 %129, %127
+  %131 = mul i64 %130, -1065810590584100411
+  %storemerge3064 = select i1 %trunc1763, i64 %131, i64 %129
   store i64 %storemerge3064, ptr %1, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %74, i64 104
-  %134 = call { ptr, i64 } @_ZN9uv_pep4407version12LocalVersion8as_slice17h3de8b380c5718439E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %133), !noalias !65
+  %132 = getelementptr inbounds nuw i8, ptr %73, i64 104
+  %133 = call { ptr, i64 } @_ZN9uv_pep4407version12LocalVersion8as_slice17h3de8b380c5718439E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %132), !noalias !65
   br label %_ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit
 
-135:                                              ; preds = %.thread48
-  %136 = call { ptr, i64 } @_ZN9uv_pep4407version17LocalVersionSlice5empty17h49785baf17a3287cE(), !noalias !65
+134:                                              ; preds = %.thread48
+  %135 = call { ptr, i64 } @_ZN9uv_pep4407version17LocalVersionSlice5empty17h49785baf17a3287cE(), !noalias !65
   br label %_ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit
 
-_ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit: ; preds = %.thread, %135
-  %.sink75 = phi { ptr, i64 } [ %134, %.thread ], [ %136, %135 ]
-  %storemerge3065 = phi i64 [ %storemerge3064, %.thread ], [ %storemerge30, %135 ]
-  %137 = extractvalue { ptr, i64 } %.sink75, 0
-  %138 = icmp eq ptr %137, null
-  %139 = zext i1 %138 to i64
-  %140 = add i64 %storemerge3065, %139
-  %141 = mul i64 %140, -1065810590584100411
-  store i64 %141, ptr %1, align 8, !alias.scope !59
-  br i1 %138, label %_ZN4core4hash4Hash10hash_slice17h9dcc221eadb1c36bE.exit, label %142
+_ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit: ; preds = %.thread, %134
+  %.sink75 = phi { ptr, i64 } [ %133, %.thread ], [ %135, %134 ]
+  %storemerge3065 = phi i64 [ %storemerge3064, %.thread ], [ %storemerge30, %134 ]
+  %136 = extractvalue { ptr, i64 } %.sink75, 0
+  %137 = icmp eq ptr %136, null
+  %138 = zext i1 %137 to i64
+  %139 = add i64 %storemerge3065, %138
+  %140 = mul i64 %139, -1065810590584100411
+  store i64 %140, ptr %1, align 8, !alias.scope !59
+  br i1 %137, label %_ZN4core4hash4Hash10hash_slice17h9dcc221eadb1c36bE.exit, label %141
 
-142:                                              ; preds = %_ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit
-  %143 = extractvalue { ptr, i64 } %.sink75, 1
-  %144 = add i64 %141, %143
-  %145 = mul i64 %144, -1065810590584100411
-  store i64 %145, ptr %1, align 8, !alias.scope !68
+141:                                              ; preds = %_ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit
+  %142 = extractvalue { ptr, i64 } %.sink75, 1
+  %143 = add i64 %140, %142
+  %144 = mul i64 %143, -1065810590584100411
+  store i64 %144, ptr %1, align 8, !alias.scope !68
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  %.idx.i = mul nsw i64 %143, 24
-  %146 = getelementptr inbounds i8, ptr %137, i64 %.idx.i
-  %147 = icmp eq i64 %143, 0
-  br i1 %147, label %_ZN4core4hash4Hash10hash_slice17h9dcc221eadb1c36bE.exit, label %.lr.ph.i
+  %.idx.i = mul nsw i64 %142, 24
+  %145 = getelementptr inbounds i8, ptr %136, i64 %.idx.i
+  %146 = icmp eq i64 %142, 0
+  br i1 %146, label %_ZN4core4hash4Hash10hash_slice17h9dcc221eadb1c36bE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %142, %"_ZN69_$LT$uv_pep440..version..LocalSegment$u20$as$u20$core..hash..Hash$GT$4hash17hb4c499d17aae4329E.llvm.7794713298238116213.exit.i"
-  %.sroa.0.07.i = phi ptr [ %148, %"_ZN69_$LT$uv_pep440..version..LocalSegment$u20$as$u20$core..hash..Hash$GT$4hash17hb4c499d17aae4329E.llvm.7794713298238116213.exit.i" ], [ %137, %142 ]
-  %storemerge.i56.i = phi i64 [ %storemerge.i.i, %"_ZN69_$LT$uv_pep440..version..LocalSegment$u20$as$u20$core..hash..Hash$GT$4hash17hb4c499d17aae4329E.llvm.7794713298238116213.exit.i" ], [ %145, %142 ]
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 24
+.lr.ph.i:                                         ; preds = %141, %"_ZN69_$LT$uv_pep440..version..LocalSegment$u20$as$u20$core..hash..Hash$GT$4hash17hb4c499d17aae4329E.llvm.7794713298238116213.exit.i"
+  %.sroa.0.07.i = phi ptr [ %147, %"_ZN69_$LT$uv_pep440..version..LocalSegment$u20$as$u20$core..hash..Hash$GT$4hash17hb4c499d17aae4329E.llvm.7794713298238116213.exit.i" ], [ %136, %141 ]
+  %storemerge.i56.i = phi i64 [ %storemerge.i.i, %"_ZN69_$LT$uv_pep440..version..LocalSegment$u20$as$u20$core..hash..Hash$GT$4hash17hb4c499d17aae4329E.llvm.7794713298238116213.exit.i" ], [ %144, %141 ]
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %149 = load i64, ptr %.sroa.0.07.i, align 8, !range !83, !alias.scope !84, !noalias !85, !noundef !3
-  %150 = icmp eq i64 %149, -9223372036854775808
-  %151 = zext i1 %150 to i64
-  %152 = add i64 %storemerge.i56.i, %151
-  %153 = mul i64 %152, -1065810590584100411
-  store i64 %153, ptr %1, align 8, !alias.scope !86, !noalias !84
-  %154 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 8
-  br i1 %150, label %163, label %155
+  %148 = load i64, ptr %.sroa.0.07.i, align 8, !range !83, !alias.scope !84, !noalias !85, !noundef !3
+  %149 = icmp eq i64 %148, -9223372036854775808
+  %150 = zext i1 %149 to i64
+  %151 = add i64 %storemerge.i56.i, %150
+  %152 = mul i64 %151, -1065810590584100411
+  store i64 %152, ptr %1, align 8, !alias.scope !86, !noalias !84
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 8
+  br i1 %149, label %162, label %154
 
-155:                                              ; preds = %.lr.ph.i
-  %156 = load ptr, ptr %154, align 8, !alias.scope !84, !noalias !85, !nonnull !3, !noundef !3
-  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 16
-  %158 = load i64, ptr %157, align 8, !alias.scope !84, !noalias !85, !noundef !3
-  %159 = call noundef i64 @_ZN10rustc_hash10hash_bytes17h2d395f088116f3ccE.llvm.7794713298238116213(ptr noalias noundef nonnull readonly align 1 %156, i64 noundef %158), !noalias !91
-  %160 = add i64 %159, %153
-  %161 = mul i64 %160, 1452335207727870361
-  %162 = add i64 %161, 4919460506697669435
+154:                                              ; preds = %.lr.ph.i
+  %155 = load ptr, ptr %153, align 8, !alias.scope !84, !noalias !85, !nonnull !3, !noundef !3
+  %156 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 16
+  %157 = load i64, ptr %156, align 8, !alias.scope !84, !noalias !85, !noundef !3
+  %158 = call noundef i64 @_ZN10rustc_hash10hash_bytes17h2d395f088116f3ccE.llvm.7794713298238116213(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %157), !noalias !91
+  %159 = add i64 %158, %152
+  %160 = mul i64 %159, 1452335207727870361
+  %161 = add i64 %160, 4919460506697669435
   br label %"_ZN69_$LT$uv_pep440..version..LocalSegment$u20$as$u20$core..hash..Hash$GT$4hash17hb4c499d17aae4329E.llvm.7794713298238116213.exit.i"
 
-163:                                              ; preds = %.lr.ph.i
-  %164 = load i64, ptr %154, align 8, !alias.scope !84, !noalias !85, !noundef !3
-  %165 = add i64 %164, %153
-  %166 = mul i64 %165, -1065810590584100411
+162:                                              ; preds = %.lr.ph.i
+  %163 = load i64, ptr %153, align 8, !alias.scope !84, !noalias !85, !noundef !3
+  %164 = add i64 %163, %152
+  %165 = mul i64 %164, -1065810590584100411
   br label %"_ZN69_$LT$uv_pep440..version..LocalSegment$u20$as$u20$core..hash..Hash$GT$4hash17hb4c499d17aae4329E.llvm.7794713298238116213.exit.i"
 
-"_ZN69_$LT$uv_pep440..version..LocalSegment$u20$as$u20$core..hash..Hash$GT$4hash17hb4c499d17aae4329E.llvm.7794713298238116213.exit.i": ; preds = %163, %155
-  %storemerge.i.i = phi i64 [ %162, %155 ], [ %166, %163 ]
+"_ZN69_$LT$uv_pep440..version..LocalSegment$u20$as$u20$core..hash..Hash$GT$4hash17hb4c499d17aae4329E.llvm.7794713298238116213.exit.i": ; preds = %162, %154
+  %storemerge.i.i = phi i64 [ %161, %154 ], [ %165, %162 ]
   store i64 %storemerge.i.i, ptr %1, align 8, !alias.scope !85, !noalias !84
-  %167 = icmp eq ptr %148, %146
-  br i1 %167, label %_ZN4core4hash4Hash10hash_slice17h9dcc221eadb1c36bE.exit, label %.lr.ph.i
+  %166 = icmp eq ptr %147, %145
+  br i1 %166, label %_ZN4core4hash4Hash10hash_slice17h9dcc221eadb1c36bE.exit, label %.lr.ph.i
 
-_ZN4core4hash4Hash10hash_slice17h9dcc221eadb1c36bE.exit: ; preds = %"_ZN69_$LT$uv_pep440..version..LocalSegment$u20$as$u20$core..hash..Hash$GT$4hash17hb4c499d17aae4329E.llvm.7794713298238116213.exit.i", %_ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit.thread, %142, %_ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit
+_ZN4core4hash4Hash10hash_slice17h9dcc221eadb1c36bE.exit: ; preds = %"_ZN69_$LT$uv_pep440..version..LocalSegment$u20$as$u20$core..hash..Hash$GT$4hash17hb4c499d17aae4329E.llvm.7794713298238116213.exit.i", %_ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit.thread, %141, %_ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit
   ret void
 }
 

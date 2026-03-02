@@ -16422,8 +16422,7 @@ common.resume:                                    ; preds = %253, %247, %242, %2
   %.sroa.11.1 = phi ptr [ %177, %176 ], [ %185, %184 ], [ %183, %182 ], [ %163, %_ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit.thread32 ], [ %167, %_ZN5prost8encoding13decode_varint17h47157dda86746f37E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !1638
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %259 = icmp ne ptr %.sroa.11.1, null
-  call void @llvm.assume(i1 %259)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.11.1) ]
   br label %"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field17h1c849390a9cb4c63E.exit.thread"
 }
 
@@ -16925,50 +16924,49 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h01
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h04278cbd12fe8e75E(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #8 personality ptr @rust_eh_personality {
-  %1 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp eq i64 %.16.val, 0
-  br i1 %2, label %"_ZN79_$LT$proto..FindSearchCandidatesResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h1594fa83adf0e252E.exit", label %.preheader.i.i
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h04278cbd12fe8e75E(ptr readonly captures(none) %.8.val, i64 %.16.val) unnamed_addr #8 personality ptr @rust_eh_personality {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
+  %1 = icmp eq i64 %.16.val, 0
+  br i1 %1, label %"_ZN79_$LT$proto..FindSearchCandidatesResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h1594fa83adf0e252E.exit", label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %0, %.preheader.i.i
-  %.sroa.07.0.i.i.i = phi i64 [ %10, %.preheader.i.i ], [ 0, %0 ]
-  %.sroa.09.0.i.i.i = phi i64 [ %11, %.preheader.i.i ], [ 0, %0 ]
-  %3 = getelementptr inbounds i64, ptr %.8.val, i64 %.sroa.09.0.i.i.i
-  %.val.i.i.i = load i64, ptr %3, align 8, !alias.scope !1771, !noundef !13
-  %4 = or i64 %.val.i.i.i, 1
-  %5 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %4, i1 true)
-  %6 = xor i64 %5, 63
-  %7 = mul nuw nsw i64 %6, 9
-  %8 = add nuw nsw i64 %7, 73
-  %9 = lshr i64 %8, 6
-  %10 = add i64 %9, %.sroa.07.0.i.i.i
-  %11 = add nuw i64 %.sroa.09.0.i.i.i, 1
-  %12 = icmp eq i64 %11, %.16.val
-  br i1 %12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i", label %.preheader.i.i
+  %.sroa.07.0.i.i.i = phi i64 [ %9, %.preheader.i.i ], [ 0, %0 ]
+  %.sroa.09.0.i.i.i = phi i64 [ %10, %.preheader.i.i ], [ 0, %0 ]
+  %2 = getelementptr inbounds i64, ptr %.8.val, i64 %.sroa.09.0.i.i.i
+  %.val.i.i.i = load i64, ptr %2, align 8, !alias.scope !1771, !noundef !13
+  %3 = or i64 %.val.i.i.i, 1
+  %4 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
+  %5 = xor i64 %4, 63
+  %6 = mul nuw nsw i64 %5, 9
+  %7 = add nuw nsw i64 %6, 73
+  %8 = lshr i64 %7, 6
+  %9 = add i64 %8, %.sroa.07.0.i.i.i
+  %10 = add nuw i64 %.sroa.09.0.i.i.i, 1
+  %11 = icmp eq i64 %10, %.16.val
+  br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i", label %.preheader.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i": ; preds = %.preheader.i.i
-  %13 = or i64 %10, 1
-  %14 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %13, i1 true)
-  %15 = xor i64 %14, 63
-  %16 = mul nuw nsw i64 %15, 9
-  %17 = add nuw nsw i64 %16, 73
-  %18 = lshr i64 %17, 6
-  %19 = add i64 %10, 1
-  %20 = add i64 %19, %18
+  %12 = or i64 %9, 1
+  %13 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %12, i1 true)
+  %14 = xor i64 %13, 63
+  %15 = mul nuw nsw i64 %14, 9
+  %16 = add nuw nsw i64 %15, 73
+  %17 = lshr i64 %16, 6
+  %18 = add i64 %9, 1
+  %19 = add i64 %18, %17
   br label %"_ZN79_$LT$proto..FindSearchCandidatesResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h1594fa83adf0e252E.exit"
 
 "_ZN79_$LT$proto..FindSearchCandidatesResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h1594fa83adf0e252E.exit": ; preds = %0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i"
-  %.sroa.0.0.i.i = phi i64 [ %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i" ], [ 0, %0 ]
-  %21 = or i64 %.sroa.0.0.i.i, 1
-  %22 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %21, i1 true)
-  %23 = xor i64 %22, 63
-  %24 = mul nuw nsw i64 %23, 9
-  %25 = add nuw nsw i64 %24, 73
-  %26 = lshr i64 %25, 6
-  %27 = add i64 %.sroa.0.0.i.i, 2
-  %28 = add i64 %27, %26
-  ret i64 %28
+  %.sroa.0.0.i.i = phi i64 [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i" ], [ 0, %0 ]
+  %20 = or i64 %.sroa.0.0.i.i, 1
+  %21 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %20, i1 true)
+  %22 = xor i64 %21, 63
+  %23 = mul nuw nsw i64 %22, 9
+  %24 = add nuw nsw i64 %23, 73
+  %25 = lshr i64 %24, 6
+  %26 = add i64 %.sroa.0.0.i.i, 2
+  %27 = add i64 %26, %25
+  ret i64 %27
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -19755,7 +19753,7 @@ define internal fastcc noundef range(i64 3, 37) i64 @_ZN5prost8encoding7message1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h110f289c7d15dcf0E(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #11 {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h110f289c7d15dcf0E(ptr readnone captures(none) %.8.val, i64 %.16.val) unnamed_addr #11 {
   %.not.i.i.i = icmp eq i64 %.16.val, 0
   br i1 %.not.i.i.i, label %"_ZN83_$LT$proto..LspExtSwitchSourceHeaderResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h3446ae8b49b56e84E.exit", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.17923508281735383458.exit.thread.i"
 
@@ -19911,7 +19909,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h13
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h141a316469858e3dE(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #11 {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h141a316469858e3dE(ptr readnone captures(none) %.8.val, i64 %.16.val) unnamed_addr #11 {
   %.not.i.i.i = icmp eq i64 %.16.val, 0
   br i1 %.not.i.i.i, label %"_ZN67_$LT$proto..FuzzySearchUsers$u20$as$u20$prost..message..Message$GT$11encoded_len17h3f40e3f06fc440baE.exit", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.17923508281735383458.exit.thread.i"
 
@@ -21111,42 +21109,41 @@ define internal fastcc noundef range(i64 3, 26) i64 @_ZN5prost8encoding7message1
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2b4bbfb51d579caaE(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #8 personality ptr @rust_eh_personality {
-  %1 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp eq i64 %.16.val, 0
-  br i1 %2, label %"_ZN78_$LT$proto..ListRemoteDirectoryResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h88513def1b8e1132E.exit", label %.preheader.i
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2b4bbfb51d579caaE(ptr readonly captures(none) %.8.val, i64 %.16.val) unnamed_addr #8 personality ptr @rust_eh_personality {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
+  %1 = icmp eq i64 %.16.val, 0
+  br i1 %1, label %"_ZN78_$LT$proto..ListRemoteDirectoryResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h88513def1b8e1132E.exit", label %.preheader.i
 
 .preheader.i:                                     ; preds = %0, %.preheader.i
-  %.sroa.07.0.i.i = phi i64 [ %12, %.preheader.i ], [ 0, %0 ]
-  %.sroa.09.0.i.i = phi i64 [ %13, %.preheader.i ], [ 0, %0 ]
-  %3 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.8.val, i64 %.sroa.09.0.i.i
-  %4 = getelementptr i8, ptr %3, i64 16
-  %.val.i.i = load i64, ptr %4, align 8, !noundef !13
-  %5 = or i64 %.val.i.i, 1
-  %6 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %5, i1 true)
-  %7 = xor i64 %6, 63
-  %8 = mul nuw nsw i64 %7, 9
-  %9 = add nuw nsw i64 %8, 73
-  %10 = lshr i64 %9, 6
-  %11 = add i64 %.val.i.i, %.sroa.07.0.i.i
-  %12 = add i64 %11, %10
-  %13 = add nuw i64 %.sroa.09.0.i.i, 1
-  %14 = icmp eq i64 %13, %.16.val
-  br i1 %14, label %"_ZN78_$LT$proto..ListRemoteDirectoryResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h88513def1b8e1132E.exit", label %.preheader.i
+  %.sroa.07.0.i.i = phi i64 [ %11, %.preheader.i ], [ 0, %0 ]
+  %.sroa.09.0.i.i = phi i64 [ %12, %.preheader.i ], [ 0, %0 ]
+  %2 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.8.val, i64 %.sroa.09.0.i.i
+  %3 = getelementptr i8, ptr %2, i64 16
+  %.val.i.i = load i64, ptr %3, align 8, !noundef !13
+  %4 = or i64 %.val.i.i, 1
+  %5 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %4, i1 true)
+  %6 = xor i64 %5, 63
+  %7 = mul nuw nsw i64 %6, 9
+  %8 = add nuw nsw i64 %7, 73
+  %9 = lshr i64 %8, 6
+  %10 = add i64 %.val.i.i, %.sroa.07.0.i.i
+  %11 = add i64 %10, %9
+  %12 = add nuw i64 %.sroa.09.0.i.i, 1
+  %13 = icmp eq i64 %12, %.16.val
+  br i1 %13, label %"_ZN78_$LT$proto..ListRemoteDirectoryResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h88513def1b8e1132E.exit", label %.preheader.i
 
 "_ZN78_$LT$proto..ListRemoteDirectoryResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h88513def1b8e1132E.exit": ; preds = %.preheader.i, %0
-  %.sroa.04.0.i.i = phi i64 [ 0, %0 ], [ %12, %.preheader.i ]
-  %15 = add i64 %.sroa.04.0.i.i, %.16.val
-  %16 = or i64 %15, 1
-  %17 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %16, i1 true)
-  %18 = xor i64 %17, 63
-  %19 = mul nuw nsw i64 %18, 9
-  %20 = add nuw nsw i64 %19, 73
-  %21 = lshr i64 %20, 6
-  %22 = add i64 %15, 2
-  %23 = add i64 %22, %21
-  ret i64 %23
+  %.sroa.04.0.i.i = phi i64 [ 0, %0 ], [ %11, %.preheader.i ]
+  %14 = add i64 %.sroa.04.0.i.i, %.16.val
+  %15 = or i64 %14, 1
+  %16 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %15, i1 true)
+  %17 = xor i64 %16, 63
+  %18 = mul nuw nsw i64 %17, 9
+  %19 = add nuw nsw i64 %18, 73
+  %20 = lshr i64 %19, 6
+  %21 = add i64 %14, 2
+  %22 = add i64 %21, %20
+  ret i64 %22
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -21696,7 +21693,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h32
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h370bb68424d4675eE(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #11 {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h370bb68424d4675eE(ptr readnone captures(none) %.8.val, i64 %.16.val) unnamed_addr #11 {
   %.not.i.i.i = icmp eq i64 %.16.val, 0
   br i1 %.not.i.i.i, label %"_ZN78_$LT$proto..GetSupermavenApiKeyResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h5d2a05a8def9f532E.exit", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.17923508281735383458.exit.thread.i"
 
@@ -21982,50 +21979,49 @@ define internal fastcc noundef range(i64 3, 48) i64 @_ZN5prost8encoding7message1
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3f3ce157048de4f7E(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #8 personality ptr @rust_eh_personality {
-  %1 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp eq i64 %.16.val, 0
-  br i1 %2, label %"_ZN73_$LT$proto..GetChannelMessagesById$u20$as$u20$prost..message..Message$GT$11encoded_len17h3c43d9571b527ac8E.exit", label %.preheader.i.i
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3f3ce157048de4f7E(ptr readonly captures(none) %.8.val, i64 %.16.val) unnamed_addr #8 personality ptr @rust_eh_personality {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
+  %1 = icmp eq i64 %.16.val, 0
+  br i1 %1, label %"_ZN73_$LT$proto..GetChannelMessagesById$u20$as$u20$prost..message..Message$GT$11encoded_len17h3c43d9571b527ac8E.exit", label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %0, %.preheader.i.i
-  %.sroa.07.0.i.i.i = phi i64 [ %10, %.preheader.i.i ], [ 0, %0 ]
-  %.sroa.09.0.i.i.i = phi i64 [ %11, %.preheader.i.i ], [ 0, %0 ]
-  %3 = getelementptr inbounds i64, ptr %.8.val, i64 %.sroa.09.0.i.i.i
-  %.val.i.i.i = load i64, ptr %3, align 8, !alias.scope !2528, !noundef !13
-  %4 = or i64 %.val.i.i.i, 1
-  %5 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %4, i1 true)
-  %6 = xor i64 %5, 63
-  %7 = mul nuw nsw i64 %6, 9
-  %8 = add nuw nsw i64 %7, 73
-  %9 = lshr i64 %8, 6
-  %10 = add i64 %9, %.sroa.07.0.i.i.i
-  %11 = add nuw i64 %.sroa.09.0.i.i.i, 1
-  %12 = icmp eq i64 %11, %.16.val
-  br i1 %12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i", label %.preheader.i.i
+  %.sroa.07.0.i.i.i = phi i64 [ %9, %.preheader.i.i ], [ 0, %0 ]
+  %.sroa.09.0.i.i.i = phi i64 [ %10, %.preheader.i.i ], [ 0, %0 ]
+  %2 = getelementptr inbounds i64, ptr %.8.val, i64 %.sroa.09.0.i.i.i
+  %.val.i.i.i = load i64, ptr %2, align 8, !alias.scope !2528, !noundef !13
+  %3 = or i64 %.val.i.i.i, 1
+  %4 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
+  %5 = xor i64 %4, 63
+  %6 = mul nuw nsw i64 %5, 9
+  %7 = add nuw nsw i64 %6, 73
+  %8 = lshr i64 %7, 6
+  %9 = add i64 %8, %.sroa.07.0.i.i.i
+  %10 = add nuw i64 %.sroa.09.0.i.i.i, 1
+  %11 = icmp eq i64 %10, %.16.val
+  br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i", label %.preheader.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i": ; preds = %.preheader.i.i
-  %13 = or i64 %10, 1
-  %14 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %13, i1 true)
-  %15 = xor i64 %14, 63
-  %16 = mul nuw nsw i64 %15, 9
-  %17 = add nuw nsw i64 %16, 73
-  %18 = lshr i64 %17, 6
-  %19 = add i64 %10, 1
-  %20 = add i64 %19, %18
+  %12 = or i64 %9, 1
+  %13 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %12, i1 true)
+  %14 = xor i64 %13, 63
+  %15 = mul nuw nsw i64 %14, 9
+  %16 = add nuw nsw i64 %15, 73
+  %17 = lshr i64 %16, 6
+  %18 = add i64 %9, 1
+  %19 = add i64 %18, %17
   br label %"_ZN73_$LT$proto..GetChannelMessagesById$u20$as$u20$prost..message..Message$GT$11encoded_len17h3c43d9571b527ac8E.exit"
 
 "_ZN73_$LT$proto..GetChannelMessagesById$u20$as$u20$prost..message..Message$GT$11encoded_len17h3c43d9571b527ac8E.exit": ; preds = %0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i"
-  %.sroa.0.0.i.i = phi i64 [ %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i" ], [ 0, %0 ]
-  %21 = or i64 %.sroa.0.0.i.i, 1
-  %22 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %21, i1 true)
-  %23 = xor i64 %22, 63
-  %24 = mul nuw nsw i64 %23, 9
-  %25 = add nuw nsw i64 %24, 73
-  %26 = lshr i64 %25, 6
-  %27 = add i64 %.sroa.0.0.i.i, 2
-  %28 = add i64 %27, %26
-  ret i64 %28
+  %.sroa.0.0.i.i = phi i64 [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i" ], [ 0, %0 ]
+  %20 = or i64 %.sroa.0.0.i.i, 1
+  %21 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %20, i1 true)
+  %22 = xor i64 %21, 63
+  %23 = mul nuw nsw i64 %22, 9
+  %24 = add nuw nsw i64 %23, 73
+  %25 = lshr i64 %24, 6
+  %26 = add i64 %.sroa.0.0.i.i, 2
+  %27 = add i64 %26, %25
+  ret i64 %27
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, target_mem0: none, target_mem1: none) uwtable
@@ -22513,7 +22509,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h49
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4a5b670532aa029cE(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #11 {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4a5b670532aa029cE(ptr readnone captures(none) %.8.val, i64 %.16.val) unnamed_addr #11 {
   %.not.i.i.i = icmp eq i64 %.16.val, 0
   br i1 %.not.i.i.i, label %"_ZN82_$LT$proto..ValidateDevServerProjectRequest$u20$as$u20$prost..message..Message$GT$11encoded_len17h5ea0592b86ba7d2bE.exit", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.17923508281735383458.exit.thread.i"
 
@@ -23457,7 +23453,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h57
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h5a5525926d3862ccE(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #11 {
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h5a5525926d3862ccE(ptr readnone captures(none) %.8.val, i64 %.16.val) unnamed_addr #11 {
   %.not.i.i.i = icmp eq i64 %.16.val, 0
   br i1 %.not.i.i.i, label %"_ZN70_$LT$proto..GetLlmTokenResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17hbb1fd521eea64953E.exit", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.17923508281735383458.exit.thread.i"
 
@@ -29820,50 +29816,49 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hbb
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hbc44955b7454160eE(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #8 personality ptr @rust_eh_personality {
-  %1 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = icmp eq i64 %.16.val, 0
-  br i1 %2, label %"_ZN59_$LT$proto..GetUsers$u20$as$u20$prost..message..Message$GT$11encoded_len17h521abc4f4081d7ccE.exit", label %.preheader.i.i
+define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hbc44955b7454160eE(ptr readonly captures(none) %.8.val, i64 %.16.val) unnamed_addr #8 personality ptr @rust_eh_personality {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.8.val) ]
+  %1 = icmp eq i64 %.16.val, 0
+  br i1 %1, label %"_ZN59_$LT$proto..GetUsers$u20$as$u20$prost..message..Message$GT$11encoded_len17h521abc4f4081d7ccE.exit", label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %0, %.preheader.i.i
-  %.sroa.07.0.i.i.i = phi i64 [ %10, %.preheader.i.i ], [ 0, %0 ]
-  %.sroa.09.0.i.i.i = phi i64 [ %11, %.preheader.i.i ], [ 0, %0 ]
-  %3 = getelementptr inbounds i64, ptr %.8.val, i64 %.sroa.09.0.i.i.i
-  %.val.i.i.i = load i64, ptr %3, align 8, !alias.scope !3410, !noundef !13
-  %4 = or i64 %.val.i.i.i, 1
-  %5 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %4, i1 true)
-  %6 = xor i64 %5, 63
-  %7 = mul nuw nsw i64 %6, 9
-  %8 = add nuw nsw i64 %7, 73
-  %9 = lshr i64 %8, 6
-  %10 = add i64 %9, %.sroa.07.0.i.i.i
-  %11 = add nuw i64 %.sroa.09.0.i.i.i, 1
-  %12 = icmp eq i64 %11, %.16.val
-  br i1 %12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i", label %.preheader.i.i
+  %.sroa.07.0.i.i.i = phi i64 [ %9, %.preheader.i.i ], [ 0, %0 ]
+  %.sroa.09.0.i.i.i = phi i64 [ %10, %.preheader.i.i ], [ 0, %0 ]
+  %2 = getelementptr inbounds i64, ptr %.8.val, i64 %.sroa.09.0.i.i.i
+  %.val.i.i.i = load i64, ptr %2, align 8, !alias.scope !3410, !noundef !13
+  %3 = or i64 %.val.i.i.i, 1
+  %4 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
+  %5 = xor i64 %4, 63
+  %6 = mul nuw nsw i64 %5, 9
+  %7 = add nuw nsw i64 %6, 73
+  %8 = lshr i64 %7, 6
+  %9 = add i64 %8, %.sroa.07.0.i.i.i
+  %10 = add nuw i64 %.sroa.09.0.i.i.i, 1
+  %11 = icmp eq i64 %10, %.16.val
+  br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i", label %.preheader.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i": ; preds = %.preheader.i.i
-  %13 = or i64 %10, 1
-  %14 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %13, i1 true)
-  %15 = xor i64 %14, 63
-  %16 = mul nuw nsw i64 %15, 9
-  %17 = add nuw nsw i64 %16, 73
-  %18 = lshr i64 %17, 6
-  %19 = add i64 %10, 1
-  %20 = add i64 %19, %18
+  %12 = or i64 %9, 1
+  %13 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %12, i1 true)
+  %14 = xor i64 %13, 63
+  %15 = mul nuw nsw i64 %14, 9
+  %16 = add nuw nsw i64 %15, 73
+  %17 = lshr i64 %16, 6
+  %18 = add i64 %9, 1
+  %19 = add i64 %18, %17
   br label %"_ZN59_$LT$proto..GetUsers$u20$as$u20$prost..message..Message$GT$11encoded_len17h521abc4f4081d7ccE.exit"
 
 "_ZN59_$LT$proto..GetUsers$u20$as$u20$prost..message..Message$GT$11encoded_len17h521abc4f4081d7ccE.exit": ; preds = %0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i"
-  %.sroa.0.0.i.i = phi i64 [ %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i" ], [ 0, %0 ]
-  %21 = or i64 %.sroa.0.0.i.i, 1
-  %22 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %21, i1 true)
-  %23 = xor i64 %22, 63
-  %24 = mul nuw nsw i64 %23, 9
-  %25 = add nuw nsw i64 %24, 73
-  %26 = lshr i64 %25, 6
-  %27 = add i64 %.sroa.0.0.i.i, 2
-  %28 = add i64 %27, %26
-  ret i64 %28
+  %.sroa.0.0.i.i = phi i64 [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.exit.i.i" ], [ 0, %0 ]
+  %20 = or i64 %.sroa.0.0.i.i, 1
+  %21 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %20, i1 true)
+  %22 = xor i64 %21, 63
+  %23 = mul nuw nsw i64 %22, 9
+  %24 = add nuw nsw i64 %23, 73
+  %25 = lshr i64 %24, 6
+  %26 = add i64 %.sroa.0.0.i.i, 2
+  %27 = add i64 %26, %25
+  ret i64 %27
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

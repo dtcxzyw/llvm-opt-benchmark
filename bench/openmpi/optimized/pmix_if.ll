@@ -571,8 +571,7 @@ define i32 @pmix_ifnext(i32 noundef %0) local_unnamed_addr #2 {
 
 .preheader:                                       ; preds = %.lr.ph, %.thread
   %.116 = phi ptr [ %7, %.thread ], [ %.01529, %.lr.ph ]
-  %.not21 = icmp ne ptr %.116, null
-  tail call void @llvm.assume(i1 %.not21)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.116) ]
   %6 = getelementptr inbounds nuw i8, ptr %.116, i64 120
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %.not22 = icmp eq ptr %7, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)

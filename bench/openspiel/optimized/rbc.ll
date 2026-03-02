@@ -1441,9 +1441,9 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %19, %37, %50, %_ZNS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %69, i8 0, i64 33, i1 false)
   %72 = load i64, ptr %71, align 8
   %73 = invoke noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(40) %68, i64 noundef %72)
-          to label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i unwind label %84
+          to label %.noexc unwind label %84
 
-_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i: ; preds = %._crit_edge.i.i.i.i
+.noexc:                                           ; preds = %._crit_edge.i.i.i.i
   %74 = load ptr, ptr %69, align 8, !noalias !7
   %75 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %74, i64 %73
   store i64 %72, ptr %75, align 8, !noalias !7
@@ -1451,16 +1451,13 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN
   store i32 0, ptr %76, align 8, !noalias !7
   %.pre.i.i.i = load ptr, ptr %68, align 8, !noalias !7
   %.pre19.i.i.i = load ptr, ptr %69, align 8, !noalias !7
-  %.not.i.i.i12 = icmp eq ptr %.pre.i.i.i, null
-  br i1 %.not.i.i.i12, label %.critedge.i.i.i, label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i.thread
-
-_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i.thread: ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i
   %77 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 %73
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %77) ]
   %78 = load i8, ptr %77, align 1
   %79 = icmp sgt i8 %78, -1
   br i1 %79, label %87, label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i.thread, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i
+.critedge.i.i.i:                                  ; preds = %.noexc
   call void @llvm.trap()
   unreachable
 
@@ -1483,7 +1480,7 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN
   call void @_ZN4absl7debian213flat_hash_mapImiN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %68) #27
   br label %90
 
-87:                                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i.thread
+87:                                               ; preds = %.noexc
   %88 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %.pre19.i.i.i, i64 %73
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i32 1, ptr %89, align 4
@@ -1492,8 +1489,8 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN
 90:                                               ; preds = %84, %82
   %.pn = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ]
   %91 = load ptr, ptr %55, align 8
-  %.not.i.i.i13 = icmp eq ptr %91, null
-  br i1 %.not.i.i.i13, label %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EED2Ev.exit, label %92
+  %.not.i.i.i12 = icmp eq ptr %91, null
+  br i1 %.not.i.i.i12, label %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EED2Ev.exit, label %92
 
 92:                                               ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1781,7 +1778,7 @@ define void @_ZN10open_spiel3rbc8RbcState13DoApplyActionEl(ptr noundef nonnull a
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i32, ptr %17, i64 %22
   store i32 %16, ptr %23, align 4
-  br label %216
+  br label %215
 
 24:                                               ; preds = %2
   store i32 365, ptr %7, align 4
@@ -2112,7 +2109,7 @@ _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE9push_backERKS2_.exit: ; preds = %
   %190 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %179, i64 %189
   %191 = load i64, ptr %190, align 8, !noalias !18
   %192 = icmp eq i64 %191, %166
-  br i1 %192, label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i, label %193
+  br i1 %192, label %.loopexit.i, label %193
 
 193:                                              ; preds = %.lr.ph.i.i.i.i
   %194 = add nsw i32 %.sroa.014.029.i.i.i.i, -1
@@ -2140,61 +2137,58 @@ _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE9push_backERKS2_.exit: ; preds = %
   store i32 0, ptr %205, align 8, !noalias !18
   %.pre.i.i.i = load ptr, ptr %164, align 8, !noalias !18
   %.pre19.i.i.i = load ptr, ptr %178, align 8, !noalias !18
-  br label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i
+  br label %.loopexit.i
 
-_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i: ; preds = %.lr.ph.i.i.i.i, %201
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i, %201
   %206 = phi ptr [ %.pre19.i.i.i, %201 ], [ %179, %.lr.ph.i.i.i.i ]
   %207 = phi ptr [ %.pre.i.i.i, %201 ], [ %167, %.lr.ph.i.i.i.i ]
   %.sroa.026.0.i14.i.i.i = phi i64 [ %202, %201 ], [ %189, %.lr.ph.i.i.i.i ]
-  %.not.i.i.i10 = icmp eq ptr %207, null
-  br i1 %.not.i.i.i10, label %.critedge.i.i.i, label %208
+  %208 = getelementptr inbounds i8, ptr %207, i64 %.sroa.026.0.i14.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %208) ]
+  %209 = load i8, ptr %208, align 1
+  %210 = icmp sgt i8 %209, -1
+  br i1 %210, label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit, label %.critedge.i.i.i
 
-208:                                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i
-  %209 = getelementptr inbounds i8, ptr %207, i64 %.sroa.026.0.i14.i.i.i
-  %210 = load i8, ptr %209, align 1
-  %211 = icmp sgt i8 %210, -1
-  br i1 %211, label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit, label %.critedge.i.i.i
-
-.critedge.i.i.i:                                  ; preds = %208, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i
+.critedge.i.i.i:                                  ; preds = %.loopexit.i
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit: ; preds = %208
-  %212 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %206, i64 %.sroa.026.0.i14.i.i.i
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  %214 = load i32, ptr %213, align 4
-  %215 = add nsw i32 %214, 1
-  store i32 %215, ptr %213, align 4
-  br label %216
+_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit: ; preds = %.loopexit.i
+  %211 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %206, i64 %.sroa.026.0.i14.i.i.i
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %213 = load i32, ptr %212, align 4
+  %214 = add nsw i32 %213, 1
+  store i32 %214, ptr %212, align 4
+  br label %215
 
-216:                                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit, %15
+215:                                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit, %15
   %storemerge = phi i32 [ 0, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit ], [ 1, %15 ]
   store i32 %storemerge, ptr %13, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %218 = load i8, ptr %217, align 8
-  %219 = trunc i8 %218 to i1
-  br i1 %219, label %220, label %_ZN4absl7debian28optionalISt6vectorIlSaIlEEE5resetEv.exit
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %217 = load i8, ptr %216, align 8
+  %218 = trunc i8 %217 to i1
+  br i1 %218, label %219, label %_ZN4absl7debian28optionalISt6vectorIlSaIlEEE5resetEv.exit
 
-220:                                              ; preds = %216
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %222 = load ptr, ptr %221, align 8
-  %.not.i.i.i.i.i11 = icmp eq ptr %222, null
-  br i1 %.not.i.i.i.i.i11, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i, label %223
+219:                                              ; preds = %215
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %221 = load ptr, ptr %220, align 8
+  %.not.i.i.i.i.i10 = icmp eq ptr %221, null
+  br i1 %.not.i.i.i.i.i10, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i, label %222
 
-223:                                              ; preds = %220
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %225 = load ptr, ptr %224, align 8
-  %226 = ptrtoint ptr %225 to i64
-  %227 = ptrtoint ptr %222 to i64
-  %228 = sub i64 %226, %227
-  call void @_ZdlPvm(ptr noundef nonnull %222, i64 noundef %228) #31
+222:                                              ; preds = %219
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %224 = load ptr, ptr %223, align 8
+  %225 = ptrtoint ptr %224 to i64
+  %226 = ptrtoint ptr %221 to i64
+  %227 = sub i64 %225, %226
+  call void @_ZdlPvm(ptr noundef nonnull %221, i64 noundef %227) #31
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i
 
-_ZNSt6vectorIlSaIlEED2Ev.exit.i.i:                ; preds = %223, %220
-  store i8 0, ptr %217, align 8
+_ZNSt6vectorIlSaIlEED2Ev.exit.i.i:                ; preds = %222, %219
+  store i8 0, ptr %216, align 8
   br label %_ZN4absl7debian28optionalISt6vectorIlSaIlEEE5resetEv.exit
 
-_ZN4absl7debian28optionalISt6vectorIlSaIlEEE5resetEv.exit: ; preds = %216, %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i
+_ZN4absl7debian28optionalISt6vectorIlSaIlEEE5resetEv.exit: ; preds = %215, %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i
   ret void
 }
 
@@ -3349,7 +3343,7 @@ define void @_ZN10open_spiel3rbc8RbcState10UndoActionEil(ptr noundef nonnull ali
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %100
+  br label %99
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds i8, ptr %13, i64 -16
@@ -3393,7 +3387,7 @@ define void @_ZN10open_spiel3rbc8RbcState10UndoActionEil(ptr noundef nonnull ali
 39:                                               ; preds = %37
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %100
+  br label %99
 
 41:                                               ; preds = %28
   store i32 1, ptr %24, align 8
@@ -3440,7 +3434,7 @@ define void @_ZN10open_spiel3rbc8RbcState10UndoActionEil(ptr noundef nonnull ali
   %69 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %58, i64 %68
   %70 = load i64, ptr %69, align 8, !noalias !28
   %71 = icmp eq i64 %70, %45
-  br i1 %71, label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i, label %72
+  br i1 %71, label %.loopexit.i, label %72
 
 72:                                               ; preds = %.lr.ph.i.i.i.i
   %73 = add nsw i32 %.sroa.014.029.i.i.i.i, -1
@@ -3468,51 +3462,48 @@ define void @_ZN10open_spiel3rbc8RbcState10UndoActionEil(ptr noundef nonnull ali
   store i32 0, ptr %84, align 8, !noalias !28
   %.pre.i.i.i = load ptr, ptr %42, align 8, !noalias !28
   %.pre19.i.i.i = load ptr, ptr %57, align 8, !noalias !28
-  br label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i
+  br label %.loopexit.i
 
-_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i: ; preds = %.lr.ph.i.i.i.i, %80
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i, %80
   %85 = phi ptr [ %.pre19.i.i.i, %80 ], [ %58, %.lr.ph.i.i.i.i ]
   %86 = phi ptr [ %.pre.i.i.i, %80 ], [ %46, %.lr.ph.i.i.i.i ]
   %.sroa.026.0.i14.i.i.i = phi i64 [ %81, %80 ], [ %68, %.lr.ph.i.i.i.i ]
-  %.not.i.i.i = icmp eq ptr %86, null
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %87
+  %87 = getelementptr inbounds i8, ptr %86, i64 %.sroa.026.0.i14.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %87) ]
+  %88 = load i8, ptr %87, align 1
+  %89 = icmp sgt i8 %88, -1
+  br i1 %89, label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit, label %.critedge.i.i.i
 
-87:                                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i
-  %88 = getelementptr inbounds i8, ptr %86, i64 %.sroa.026.0.i14.i.i.i
-  %89 = load i8, ptr %88, align 1
-  %90 = icmp sgt i8 %89, -1
-  br i1 %90, label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit, label %.critedge.i.i.i
-
-.critedge.i.i.i:                                  ; preds = %87, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE11try_emplaceImJETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setIS4_S8_SA_SE_E14const_iteratorEEE5valueEiE4typeELi0ETnPSI_LPm0EEESB_INSK_8iteratorEbEOmDpOT0_.exit.i
+.critedge.i.i.i:                                  ; preds = %.loopexit.i
   tail call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit: ; preds = %87
-  %91 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %85, i64 %.sroa.026.0.i14.i.i.i
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load i32, ptr %92, align 4
-  %94 = add nsw i32 %93, -1
-  store i32 %94, ptr %92, align 4
-  %95 = load ptr, ptr %30, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 -12
-  store ptr %96, ptr %30, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %43, ptr noundef nonnull align 8 dereferenceable(168) %97, i64 168, i1 false)
-  %98 = load ptr, ptr %29, align 8
-  %.not1113 = icmp eq ptr %98, %96
+_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit: ; preds = %.loopexit.i
+  %90 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %85, i64 %.sroa.026.0.i14.i.i.i
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load i32, ptr %91, align 4
+  %93 = add nsw i32 %92, -1
+  store i32 %93, ptr %91, align 4
+  %94 = load ptr, ptr %30, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 -12
+  store ptr %95, ptr %30, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %43, ptr noundef nonnull align 8 dereferenceable(168) %96, i64 168, i1 false)
+  %97 = load ptr, ptr %29, align 8
+  %.not1113 = icmp eq ptr %97, %95
   br i1 %.not1113, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit, %.lr.ph
-  %.sroa.07.014 = phi ptr [ %99, %.lr.ph ], [ %98, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit ]
+  %.sroa.07.014 = phi ptr [ %98, %.lr.ph ], [ %97, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit ]
   tail call void @_ZN10open_spiel5chess10ChessBoard9ApplyMoveERKNS0_4MoveE(ptr noundef nonnull align 8 dereferenceable(168) %43, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.014)
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.07.014, i64 12
-  %.not11 = icmp eq ptr %99, %96
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.07.014, i64 12
+  %.not11 = icmp eq ptr %98, %95
   br i1 %.not11, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEEixImS4_TnPT_LPm0EEEDTclsrT0_5valueclL_ZSt9addressofISD_ESI_RSH_EclL_ZSt7declvalIRSD_EDTcl9__declvalISH_ELi0EEEvEEEEEOm.exit, %27
   ret void
 
-100:                                              ; preds = %39, %17
+99:                                               ; preds = %39, %17
   %.sink = phi ptr [ %8, %39 ], [ %4, %17 ]
   %.pn = phi { ptr, i32 } [ %40, %39 ], [ %18, %17 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #27
@@ -3673,6 +3664,7 @@ define noundef zeroext i1 @_ZNK10open_spiel3rbc8RbcState16IsRepetitionDrawEv(ptr
 
 33:                                               ; preds = %.lr.ph.i.i.i
   %34 = getelementptr inbounds i8, ptr %7, i64 %29
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %34, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %30, 1
   br label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEEN10open_spiel3rbc8RbcState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEE4findImEENSF_14const_iteratorERSC_.exit

@@ -3882,257 +3882,254 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(408) ptr @
 ; Function Attrs: inlinehint mustprogress nounwind
 define linkonce_odr dso_local noundef i64 @_Z11hash_stringSt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr %1) local_unnamed_addr #5 comdat {
   %3 = icmp ult i64 %0, 17
-  br i1 %3, label %4, label %75
+  br i1 %3, label %4, label %72
 
 4:                                                ; preds = %2
   %5 = icmp samesign ugt i64 %0, 8
-  br i1 %5, label %6, label %27, !prof !479
+  br i1 %5, label %6, label %26, !prof !479
 
 6:                                                ; preds = %4
-  %7 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %7)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %.val39.i = load i64, ptr %1, align 1, !tbaa !80
-  %8 = xor i64 %.val39.i, 7458650908927343033
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %0
-  %10 = getelementptr inbounds i8, ptr %9, i64 -8
-  %.val40.i = load i64, ptr %10, align 1, !tbaa !80
-  %11 = xor i64 %.val40.i, -5812251307325107654
-  %12 = tail call noundef i64 @llvm.bswap.i64(i64 %8)
-  %13 = add i64 %12, %0
-  %14 = add i64 %13, %11
-  %15 = zext i64 %8 to i128
-  %16 = zext i64 %11 to i128
-  %17 = mul nuw i128 %16, %15
-  %18 = lshr i128 %17, 64
-  %19 = xor i128 %18, %17
-  %20 = trunc i128 %19 to i64
-  %21 = add i64 %14, %20
-  %22 = lshr i64 %21, 37
-  %23 = xor i64 %22, %21
-  %24 = mul i64 %23, 1609587791953885689
-  %25 = lshr i64 %24, 32
-  %26 = xor i64 %25, %24
+  %7 = xor i64 %.val39.i, 7458650908927343033
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %0
+  %9 = getelementptr inbounds i8, ptr %8, i64 -8
+  %.val40.i = load i64, ptr %9, align 1, !tbaa !80
+  %10 = xor i64 %.val40.i, -5812251307325107654
+  %11 = tail call noundef i64 @llvm.bswap.i64(i64 %7)
+  %12 = add i64 %11, %0
+  %13 = add i64 %12, %10
+  %14 = zext i64 %7 to i128
+  %15 = zext i64 %10 to i128
+  %16 = mul nuw i128 %15, %14
+  %17 = lshr i128 %16, 64
+  %18 = xor i128 %17, %16
+  %19 = trunc i128 %18 to i64
+  %20 = add i64 %13, %19
+  %21 = lshr i64 %20, 37
+  %22 = xor i64 %21, %20
+  %23 = mul i64 %22, 1609587791953885689
+  %24 = lshr i64 %23, 32
+  %25 = xor i64 %24, %23
   br label %_ZL22XXH_INLINE_XXH3_64bitsPKvm.exit
 
-27:                                               ; preds = %4
-  %28 = icmp samesign ugt i64 %0, 3
-  br i1 %28, label %29, label %49, !prof !479
+26:                                               ; preds = %4
+  %27 = icmp samesign ugt i64 %0, 3
+  br i1 %27, label %28, label %47, !prof !479
 
-29:                                               ; preds = %27
-  %30 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %30)
+28:                                               ; preds = %26
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %.val43.i = load i32, ptr %1, align 1, !tbaa !426
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %0
-  %32 = getelementptr inbounds i8, ptr %31, i64 -4
-  %.val44.i = load i32, ptr %32, align 1, !tbaa !426
-  %33 = zext i32 %.val44.i to i64
-  %34 = zext i32 %.val43.i to i64
-  %35 = shl nuw i64 %34, 32
-  %36 = or disjoint i64 %35, %33
-  %37 = xor i64 %36, -4090762196417718878
-  %38 = tail call i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 49)
-  %39 = tail call i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 24)
-  %40 = xor i64 %39, %38
-  %41 = xor i64 %40, %37
-  %42 = mul i64 %41, -6939452855193903323
-  %43 = lshr i64 %42, 35
-  %44 = add nuw nsw i64 %43, %0
-  %45 = xor i64 %44, %42
-  %46 = mul i64 %45, -6939452855193903323
-  %47 = lshr i64 %46, 28
-  %48 = xor i64 %47, %46
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %0
+  %30 = getelementptr inbounds i8, ptr %29, i64 -4
+  %.val44.i = load i32, ptr %30, align 1, !tbaa !426
+  %31 = zext i32 %.val44.i to i64
+  %32 = zext i32 %.val43.i to i64
+  %33 = shl nuw i64 %32, 32
+  %34 = or disjoint i64 %33, %31
+  %35 = xor i64 %34, -4090762196417718878
+  %36 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 49)
+  %37 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 24)
+  %38 = xor i64 %37, %36
+  %39 = xor i64 %38, %35
+  %40 = mul i64 %39, -6939452855193903323
+  %41 = lshr i64 %40, 35
+  %42 = add nuw nsw i64 %41, %0
+  %43 = xor i64 %42, %40
+  %44 = mul i64 %43, -6939452855193903323
+  %45 = lshr i64 %44, 28
+  %46 = xor i64 %45, %44
   br label %_ZL22XXH_INLINE_XXH3_64bitsPKvm.exit
 
-49:                                               ; preds = %27
+47:                                               ; preds = %26
   %.not.i.i = icmp eq i64 %0, 0
-  br i1 %.not.i.i, label %_ZL22XXH_INLINE_XXH3_64bitsPKvm.exit, label %50
+  br i1 %.not.i.i, label %_ZL22XXH_INLINE_XXH3_64bitsPKvm.exit, label %48
 
-50:                                               ; preds = %49
-  %51 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %51)
-  %52 = load i8, ptr %1, align 1, !tbaa !120
-  %53 = lshr i64 %0, 1
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 %53
+48:                                               ; preds = %47
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %49 = load i8, ptr %1, align 1, !tbaa !120
+  %50 = lshr i64 %0, 1
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 %50
+  %52 = load i8, ptr %51, align 1, !tbaa !120
+  %53 = getelementptr i8, ptr %1, i64 %0
+  %54 = getelementptr i8, ptr %53, i64 -1
   %55 = load i8, ptr %54, align 1, !tbaa !120
-  %56 = getelementptr i8, ptr %1, i64 %0
-  %57 = getelementptr i8, ptr %56, i64 -1
-  %58 = load i8, ptr %57, align 1, !tbaa !120
-  %59 = zext i8 %52 to i64
-  %60 = shl nuw nsw i64 %59, 16
+  %56 = zext i8 %49 to i64
+  %57 = shl nuw nsw i64 %56, 16
+  %58 = zext i8 %52 to i64
+  %59 = shl nuw nsw i64 %58, 24
+  %60 = or disjoint i64 %59, %57
   %61 = zext i8 %55 to i64
-  %62 = shl nuw nsw i64 %61, 24
-  %63 = or disjoint i64 %62, %60
-  %64 = zext i8 %58 to i64
-  %65 = or disjoint i64 %63, %64
-  %66 = shl nuw nsw i64 %0, 8
-  %67 = or disjoint i64 %65, %66
-  %68 = xor i64 %67, 2267503259
-  %69 = mul i64 %68, -4417276706812531889
-  %70 = lshr i64 %69, 29
+  %62 = or disjoint i64 %60, %61
+  %63 = shl nuw nsw i64 %0, 8
+  %64 = or disjoint i64 %62, %63
+  %65 = xor i64 %64, 2267503259
+  %66 = mul i64 %65, -4417276706812531889
+  %67 = lshr i64 %66, 29
+  %68 = xor i64 %67, %66
+  %69 = mul i64 %68, 1609587929392839161
+  %70 = lshr i64 %69, 32
   %71 = xor i64 %70, %69
-  %72 = mul i64 %71, 1609587929392839161
-  %73 = lshr i64 %72, 32
-  %74 = xor i64 %73, %72
   br label %_ZL22XXH_INLINE_XXH3_64bitsPKvm.exit
 
-75:                                               ; preds = %2
-  %76 = icmp ult i64 %0, 129
-  br i1 %76, label %77, label %183
+72:                                               ; preds = %2
+  %73 = icmp ult i64 %0, 129
+  br i1 %73, label %74, label %180
 
-77:                                               ; preds = %75
-  %78 = mul i64 %0, -7046029288634856825
-  %79 = icmp samesign ugt i64 %0, 32
-  br i1 %79, label %80, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i
+74:                                               ; preds = %72
+  %75 = mul i64 %0, -7046029288634856825
+  %76 = icmp samesign ugt i64 %0, 32
+  br i1 %76, label %77, label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i
 
-80:                                               ; preds = %77
-  %81 = icmp samesign ugt i64 %0, 64
-  br i1 %81, label %82, label %132
+77:                                               ; preds = %74
+  %78 = icmp samesign ugt i64 %0, 64
+  br i1 %78, label %79, label %129
 
-82:                                               ; preds = %80
-  %83 = icmp samesign ugt i64 %0, 96
-  br i1 %83, label %84, label %108
+79:                                               ; preds = %77
+  %80 = icmp samesign ugt i64 %0, 96
+  br i1 %80, label %81, label %105
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.val28.i = load i64, ptr %85, align 1, !tbaa !80
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.val27.i = load i64, ptr %86, align 1, !tbaa !80
-  %87 = xor i64 %.val28.i, 4554437623014685352
-  %88 = xor i64 %.val27.i, 2111919702937427193
-  %89 = zext i64 %87 to i128
-  %90 = zext i64 %88 to i128
-  %91 = mul nuw i128 %90, %89
-  %92 = lshr i128 %91, 64
-  %93 = xor i128 %92, %91
-  %94 = trunc i128 %93 to i64
-  %95 = add i64 %78, %94
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 %0
-  %97 = getelementptr inbounds i8, ptr %96, i64 -64
-  %.val32.i = load i64, ptr %97, align 1, !tbaa !80
-  %98 = getelementptr inbounds i8, ptr %96, i64 -56
-  %.val31.i = load i64, ptr %98, align 1, !tbaa !80
-  %99 = xor i64 %.val32.i, 3556072174620004746
-  %100 = xor i64 %.val31.i, 7238261902898274248
-  %101 = zext i64 %99 to i128
-  %102 = zext i64 %100 to i128
-  %103 = mul nuw i128 %102, %101
-  %104 = lshr i128 %103, 64
-  %105 = xor i128 %104, %103
-  %106 = trunc i128 %105 to i64
-  %107 = add i64 %95, %106
-  br label %108
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.val28.i = load i64, ptr %82, align 1, !tbaa !80
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.val27.i = load i64, ptr %83, align 1, !tbaa !80
+  %84 = xor i64 %.val28.i, 4554437623014685352
+  %85 = xor i64 %.val27.i, 2111919702937427193
+  %86 = zext i64 %84 to i128
+  %87 = zext i64 %85 to i128
+  %88 = mul nuw i128 %87, %86
+  %89 = lshr i128 %88, 64
+  %90 = xor i128 %89, %88
+  %91 = trunc i128 %90 to i64
+  %92 = add i64 %75, %91
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 %0
+  %94 = getelementptr inbounds i8, ptr %93, i64 -64
+  %.val32.i = load i64, ptr %94, align 1, !tbaa !80
+  %95 = getelementptr inbounds i8, ptr %93, i64 -56
+  %.val31.i = load i64, ptr %95, align 1, !tbaa !80
+  %96 = xor i64 %.val32.i, 3556072174620004746
+  %97 = xor i64 %.val31.i, 7238261902898274248
+  %98 = zext i64 %96 to i128
+  %99 = zext i64 %97 to i128
+  %100 = mul nuw i128 %99, %98
+  %101 = lshr i128 %100, 64
+  %102 = xor i128 %101, %100
+  %103 = trunc i128 %102 to i64
+  %104 = add i64 %92, %103
+  br label %105
 
-108:                                              ; preds = %84, %82
-  %.2.i.i = phi i64 [ %107, %84 ], [ %78, %82 ]
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val20.i = load i64, ptr %109, align 1, !tbaa !80
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val19.i = load i64, ptr %110, align 1, !tbaa !80
-  %111 = xor i64 %.val20.i, -3818837453329782724
-  %112 = xor i64 %.val19.i, -6688317018830679928
-  %113 = zext i64 %111 to i128
-  %114 = zext i64 %112 to i128
-  %115 = mul nuw i128 %114, %113
-  %116 = lshr i128 %115, 64
-  %117 = xor i128 %116, %115
-  %118 = trunc i128 %117 to i64
-  %119 = add i64 %.2.i.i, %118
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 %0
-  %121 = getelementptr inbounds i8, ptr %120, i64 -48
-  %.val24.i = load i64, ptr %121, align 1, !tbaa !80
-  %122 = getelementptr inbounds i8, ptr %120, i64 -40
-  %.val23.i = load i64, ptr %122, align 1, !tbaa !80
-  %123 = xor i64 %.val24.i, 5690594596133299313
-  %124 = xor i64 %.val23.i, -2833645246901970632
-  %125 = zext i64 %123 to i128
-  %126 = zext i64 %124 to i128
-  %127 = mul nuw i128 %126, %125
-  %128 = lshr i128 %127, 64
-  %129 = xor i128 %128, %127
-  %130 = trunc i128 %129 to i64
-  %131 = add i64 %119, %130
-  br label %132
+105:                                              ; preds = %81, %79
+  %.2.i.i = phi i64 [ %104, %81 ], [ %75, %79 ]
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.val20.i = load i64, ptr %106, align 1, !tbaa !80
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val19.i = load i64, ptr %107, align 1, !tbaa !80
+  %108 = xor i64 %.val20.i, -3818837453329782724
+  %109 = xor i64 %.val19.i, -6688317018830679928
+  %110 = zext i64 %108 to i128
+  %111 = zext i64 %109 to i128
+  %112 = mul nuw i128 %111, %110
+  %113 = lshr i128 %112, 64
+  %114 = xor i128 %113, %112
+  %115 = trunc i128 %114 to i64
+  %116 = add i64 %.2.i.i, %115
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 %0
+  %118 = getelementptr inbounds i8, ptr %117, i64 -48
+  %.val24.i = load i64, ptr %118, align 1, !tbaa !80
+  %119 = getelementptr inbounds i8, ptr %117, i64 -40
+  %.val23.i = load i64, ptr %119, align 1, !tbaa !80
+  %120 = xor i64 %.val24.i, 5690594596133299313
+  %121 = xor i64 %.val23.i, -2833645246901970632
+  %122 = zext i64 %120 to i128
+  %123 = zext i64 %121 to i128
+  %124 = mul nuw i128 %123, %122
+  %125 = lshr i128 %124, 64
+  %126 = xor i128 %125, %124
+  %127 = trunc i128 %126 to i64
+  %128 = add i64 %116, %127
+  br label %129
 
-132:                                              ; preds = %108, %80
-  %.1.i.i = phi i64 [ %131, %108 ], [ %78, %80 ]
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val12.i = load i64, ptr %133, align 1, !tbaa !80
-  %134 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val11.i = load i64, ptr %134, align 1, !tbaa !80
-  %135 = xor i64 %.val12.i, 8711581037947681227
-  %136 = xor i64 %.val11.i, 2410270004345854594
-  %137 = zext i64 %135 to i128
-  %138 = zext i64 %136 to i128
-  %139 = mul nuw i128 %138, %137
-  %140 = lshr i128 %139, 64
-  %141 = xor i128 %140, %139
-  %142 = trunc i128 %141 to i64
-  %143 = add i64 %.1.i.i, %142
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 %0
-  %145 = getelementptr inbounds i8, ptr %144, i64 -32
-  %.val16.i = load i64, ptr %145, align 1, !tbaa !80
-  %146 = getelementptr inbounds i8, ptr %144, i64 -24
-  %.val15.i = load i64, ptr %146, align 1, !tbaa !80
-  %147 = xor i64 %.val16.i, -8204357891075471176
-  %148 = xor i64 %.val15.i, 5487137525590930912
-  %149 = zext i64 %147 to i128
-  %150 = zext i64 %148 to i128
-  %151 = mul nuw i128 %150, %149
-  %152 = lshr i128 %151, 64
-  %153 = xor i128 %152, %151
-  %154 = trunc i128 %153 to i64
-  %155 = add i64 %143, %154
+129:                                              ; preds = %105, %77
+  %.1.i.i = phi i64 [ %128, %105 ], [ %75, %77 ]
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val12.i = load i64, ptr %130, align 1, !tbaa !80
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val11.i = load i64, ptr %131, align 1, !tbaa !80
+  %132 = xor i64 %.val12.i, 8711581037947681227
+  %133 = xor i64 %.val11.i, 2410270004345854594
+  %134 = zext i64 %132 to i128
+  %135 = zext i64 %133 to i128
+  %136 = mul nuw i128 %135, %134
+  %137 = lshr i128 %136, 64
+  %138 = xor i128 %137, %136
+  %139 = trunc i128 %138 to i64
+  %140 = add i64 %.1.i.i, %139
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 %0
+  %142 = getelementptr inbounds i8, ptr %141, i64 -32
+  %.val16.i = load i64, ptr %142, align 1, !tbaa !80
+  %143 = getelementptr inbounds i8, ptr %141, i64 -24
+  %.val15.i = load i64, ptr %143, align 1, !tbaa !80
+  %144 = xor i64 %.val16.i, -8204357891075471176
+  %145 = xor i64 %.val15.i, 5487137525590930912
+  %146 = zext i64 %144 to i128
+  %147 = zext i64 %145 to i128
+  %148 = mul nuw i128 %147, %146
+  %149 = lshr i128 %148, 64
+  %150 = xor i128 %149, %148
+  %151 = trunc i128 %150 to i64
+  %152 = add i64 %140, %151
   br label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i
 
-_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i:        ; preds = %132, %77
-  %.0.i2.i = phi i64 [ %155, %132 ], [ %78, %77 ]
+_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i:        ; preds = %129, %74
+  %.0.i2.i = phi i64 [ %152, %129 ], [ %75, %74 ]
   %.val4.i = load i64, ptr %1, align 1, !tbaa !80
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val3.i = load i64, ptr %156, align 1, !tbaa !80
-  %157 = xor i64 %.val4.i, -4734510112055689544
-  %158 = xor i64 %.val3.i, 2066345149520216444
-  %159 = zext i64 %157 to i128
-  %160 = zext i64 %158 to i128
-  %161 = mul nuw i128 %160, %159
-  %162 = lshr i128 %161, 64
-  %163 = xor i128 %162, %161
-  %164 = trunc i128 %163 to i64
-  %165 = add i64 %.0.i2.i, %164
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 %0
-  %167 = getelementptr inbounds i8, ptr %166, i64 -16
-  %.val8.i = load i64, ptr %167, align 1, !tbaa !80
-  %168 = getelementptr inbounds i8, ptr %166, i64 -8
-  %.val7.i = load i64, ptr %168, align 1, !tbaa !80
-  %169 = xor i64 %.val8.i, -2623469361688619810
-  %170 = xor i64 %.val7.i, 2262974939099578482
-  %171 = zext i64 %169 to i128
-  %172 = zext i64 %170 to i128
-  %173 = mul nuw i128 %172, %171
-  %174 = lshr i128 %173, 64
-  %175 = xor i128 %174, %173
-  %176 = trunc i128 %175 to i64
-  %177 = add i64 %165, %176
-  %178 = lshr i64 %177, 37
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val3.i = load i64, ptr %153, align 1, !tbaa !80
+  %154 = xor i64 %.val4.i, -4734510112055689544
+  %155 = xor i64 %.val3.i, 2066345149520216444
+  %156 = zext i64 %154 to i128
+  %157 = zext i64 %155 to i128
+  %158 = mul nuw i128 %157, %156
+  %159 = lshr i128 %158, 64
+  %160 = xor i128 %159, %158
+  %161 = trunc i128 %160 to i64
+  %162 = add i64 %.0.i2.i, %161
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 %0
+  %164 = getelementptr inbounds i8, ptr %163, i64 -16
+  %.val8.i = load i64, ptr %164, align 1, !tbaa !80
+  %165 = getelementptr inbounds i8, ptr %163, i64 -8
+  %.val7.i = load i64, ptr %165, align 1, !tbaa !80
+  %166 = xor i64 %.val8.i, -2623469361688619810
+  %167 = xor i64 %.val7.i, 2262974939099578482
+  %168 = zext i64 %166 to i128
+  %169 = zext i64 %167 to i128
+  %170 = mul nuw i128 %169, %168
+  %171 = lshr i128 %170, 64
+  %172 = xor i128 %171, %170
+  %173 = trunc i128 %172 to i64
+  %174 = add i64 %162, %173
+  %175 = lshr i64 %174, 37
+  %176 = xor i64 %175, %174
+  %177 = mul i64 %176, 1609587791953885689
+  %178 = lshr i64 %177, 32
   %179 = xor i64 %178, %177
-  %180 = mul i64 %179, 1609587791953885689
-  %181 = lshr i64 %180, 32
-  %182 = xor i64 %181, %180
   br label %_ZL22XXH_INLINE_XXH3_64bitsPKvm.exit
 
-183:                                              ; preds = %75
-  %184 = icmp ult i64 %0, 241
-  br i1 %184, label %185, label %187
+180:                                              ; preds = %72
+  %181 = icmp ult i64 %0, 241
+  br i1 %181, label %182, label %184
 
-185:                                              ; preds = %183
-  %186 = tail call fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noundef readonly %1, i64 noundef %0) #30
+182:                                              ; preds = %180
+  %183 = tail call fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noundef readonly %1, i64 noundef %0) #30
   br label %_ZL22XXH_INLINE_XXH3_64bitsPKvm.exit
 
-187:                                              ; preds = %183
-  %188 = tail call fastcc noundef i64 @_ZL25XXH3_hashLong_64b_defaultPKvmmPKhm(ptr noundef readonly %1, i64 noundef %0)
+184:                                              ; preds = %180
+  %185 = tail call fastcc noundef i64 @_ZL25XXH3_hashLong_64b_defaultPKvmmPKhm(ptr noundef readonly %1, i64 noundef %0)
   br label %_ZL22XXH_INLINE_XXH3_64bitsPKvm.exit
 
-_ZL22XXH_INLINE_XXH3_64bitsPKvm.exit:             ; preds = %6, %29, %49, %50, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i, %185, %187
-  %.0.i.i = phi i64 [ %188, %187 ], [ %182, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i ], [ %186, %185 ], [ %26, %6 ], [ %48, %29 ], [ %74, %50 ], [ 3244421341483603138, %49 ]
+_ZL22XXH_INLINE_XXH3_64bitsPKvm.exit:             ; preds = %6, %28, %47, %48, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i, %182, %184
+  %.0.i.i = phi i64 [ %185, %184 ], [ %179, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i ], [ %183, %182 ], [ %25, %6 ], [ %46, %28 ], [ %71, %48 ], [ 3244421341483603138, %47 ]
   ret i64 %.0.i.i
 }
 

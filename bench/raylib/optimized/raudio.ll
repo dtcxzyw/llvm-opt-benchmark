@@ -120906,8 +120906,7 @@ define internal fastcc void @jar_xm_trigger_note(ptr noundef readonly captures(n
   br i1 %.not38, label %11, label %._crit_edge
 
 11:                                               ; preds = %7
-  %.not39 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %.not39)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %13 = load float, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 52

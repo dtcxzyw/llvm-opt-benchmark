@@ -20942,10 +20942,11 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %205, %214, %217
 
 218:                                              ; preds = %201
   %219 = icmp eq i8 %203, 6
-  call void @llvm.assume(i1 %219)
+  %spec.select.i.i302 = select i1 %219, ptr %190, ptr null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i302) ]
   %220 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %.sroa.0.0.copyload.i303 = load i32, ptr %220, align 8, !tbaa !679
-  %221 = ptrtoint ptr %190 to i64
+  %221 = ptrtoint ptr %spec.select.i.i302 to i64
   %222 = load ptr, ptr %134, align 8, !tbaa !3
   %.sroa.086.0.copyload = load i32, ptr %16, align 4, !tbaa !679
   %223 = call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %222, i64 %221, i32 %.sroa.086.0.copyload) #27
@@ -23642,8 +23643,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit.i.i.backedge: ; preds = 
   %141 = getelementptr inbounds nuw i8, ptr %106, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !791
   %143 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %142) #27
-  %.not.i.i.i.i.i = icmp ne ptr %143, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %143) ]
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 48
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %144, align 8, !tbaa !682
   %145 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16

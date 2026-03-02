@@ -649,8 +649,7 @@ _ZL13next_class_idv.exit5:                        ; preds = %.preheader, %_ZL13n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN10JfrTraceId14in_visible_setEP7_jclass(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %.not.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 3
   switch i64 %3, label %12 [
@@ -703,8 +702,7 @@ _ZN10JfrTraceId14in_visible_setEPK5Klass.exit:    ; preds = %19, %23
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN10JfrTraceId26in_jdk_jfr_event_hierarchyEP7_jclass(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %.not.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 3
   switch i64 %3, label %12 [
@@ -758,8 +756,7 @@ _ZN10JfrTraceId26in_jdk_jfr_event_hierarchyEPK5Klass.exit: ; preds = %_ZN10JNIHa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN10JfrTraceId20is_jdk_jfr_event_subEP7_jclass(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %.not.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 3
   switch i64 %3, label %12 [
@@ -796,8 +793,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %4, %8, %12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN10JfrTraceId16is_jdk_jfr_eventEP7_jclass(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %.not.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 3
   switch i64 %3, label %12 [
@@ -834,8 +830,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %4, %8, %12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN10JfrTraceId13is_event_hostEP7_jclass(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %.not.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 3
   switch i64 %3, label %12 [
@@ -872,8 +867,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %4, %8, %12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10JfrTraceId24tag_as_jdk_jfr_event_subEP7_jclass(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %.not.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 3
   switch i64 %3, label %12 [
@@ -920,8 +914,7 @@ _ZN10JfrTraceId24tag_as_jdk_jfr_event_subEPK5Klass.exit: ; preds = %_ZN10JNIHand
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10JfrTraceId17tag_as_event_hostEP7_jclass(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %.not.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 3
   switch i64 %3, label %12 [

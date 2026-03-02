@@ -82,13 +82,12 @@ define void @_ZN5serde2de7Visitor12visit_string17hc59581150a8e9f19E(ptr writeonl
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @_ZN5serde2de7Visitor18visit_borrowed_str17h6196db6536501b5eE(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) initializes((0, 9)) %0, ptr align 1 %1, i64 %2) unnamed_addr #3 {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2bd1603ea2287f5E"(ptr nonnull align 1 %1, i64 %2, ptr nonnull align 1 @anon.d1a174d3a1607914d9c22c4b77ffe78d.3, i64 18)
-  %not..i = xor i1 %5, true
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %4 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2bd1603ea2287f5E"(ptr nonnull align 1 %1, i64 %2, ptr nonnull align 1 @anon.d1a174d3a1607914d9c22c4b77ffe78d.3, i64 18)
+  %not..i = xor i1 %4, true
   %spec.select.i = zext i1 %not..i to i8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %spec.select.i, ptr %6, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %spec.select.i, ptr %5, align 8
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -170,10 +169,9 @@ define hidden zeroext i1 @"_ZN20migrations_internals29valid_sql_migration_direct
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN20migrations_internals29valid_sql_migration_directory28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he7380b2c075757d0E"(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = tail call zeroext i1 @"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h6d9702e093644527E"(ptr nonnull align 8 %1, ptr nonnull align 1 @anon.d1a174d3a1607914d9c22c4b77ffe78d.1, i64 6)
-  ret i1 %4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %3 = tail call zeroext i1 @"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h6d9702e093644527E"(ptr nonnull align 8 %1, ptr nonnull align 1 @anon.d1a174d3a1607914d9c22c4b77ffe78d.1, i64 6)
+  ret i1 %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -319,13 +317,12 @@ define hidden void @"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN179_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$migrations_internals..TomlMetadata$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h89d98ffda4f188dbE"(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) initializes((0, 9)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2bd1603ea2287f5E"(ptr nonnull align 1 %1, i64 %2, ptr nonnull align 1 @anon.d1a174d3a1607914d9c22c4b77ffe78d.3, i64 18)
-  %not. = xor i1 %5, true
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %4 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2bd1603ea2287f5E"(ptr nonnull align 1 %1, i64 %2, ptr nonnull align 1 @anon.d1a174d3a1607914d9c22c4b77ffe78d.3, i64 18)
+  %not. = xor i1 %4, true
   %spec.select = zext i1 %not. to i8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %spec.select, ptr %6, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %spec.select, ptr %5, align 8
   store i64 2, ptr %0, align 8
   ret void
 }

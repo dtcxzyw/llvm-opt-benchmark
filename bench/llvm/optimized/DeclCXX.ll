@@ -9482,23 +9482,24 @@ _ZNK5clang4Decl15getOwningModuleEv.exit:          ; preds = %19, %20, %22, %23
   %29 = inttoptr i64 %28 to ptr
   %.not.not7.i.i = icmp eq i64 %28, 0
   %.not.not.i.i = or i1 %.not.i.i.i.i.i, %.not.not7.i.i
-  br i1 %.not.not.i.i, label %.lr.ph.preheader, label %30
+  br i1 %.not.not.i.i, label %_ZNK5clang23DeclContextLookupResult5frontEv.exit, label %30
 
 30:                                               ; preds = %_ZNK5clang4Decl15getOwningModuleEv.exit
   %31 = load ptr, ptr %29, align 8, !tbaa !500
-  br label %.lr.ph.preheader
+  br label %_ZNK5clang23DeclContextLookupResult5frontEv.exit
 
-.lr.ph.preheader:                                 ; preds = %_ZNK5clang4Decl15getOwningModuleEv.exit, %30
-  %.sroa.0.037.ph = phi ptr [ %29, %_ZNK5clang4Decl15getOwningModuleEv.exit ], [ %31, %30 ]
-  br label %.lr.ph
+_ZNK5clang23DeclContextLookupResult5frontEv.exit: ; preds = %_ZNK5clang4Decl15getOwningModuleEv.exit, %30
+  %.1.i.i = phi ptr [ %31, %30 ], [ %29, %_ZNK5clang4Decl15getOwningModuleEv.exit ]
+  %.not3738 = icmp eq ptr %.1.i.i, null
+  br i1 %.not3738, label %select.unfold._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold
-  %.sroa.0.037 = phi ptr [ %48, %select.unfold ], [ %.sroa.0.037.ph, %.lr.ph.preheader ]
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 28
+.lr.ph:                                           ; preds = %_ZNK5clang23DeclContextLookupResult5frontEv.exit, %select.unfold
+  %.sroa.0.039 = phi ptr [ %48, %select.unfold ], [ %.1.i.i, %_ZNK5clang23DeclContextLookupResult5frontEv.exit ]
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.039, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 32768
   %.not.i28 = icmp eq i32 %34, 0
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.039, i64 8
   %.0.copyload.i.i.i.i.i.i3.i29 = load i64, ptr %35, align 8
   %36 = and i64 %.0.copyload.i.i.i.i.i.i3.i29, 7
   %.not2.i4.i30 = icmp eq i64 %36, 0
@@ -9508,31 +9509,39 @@ _ZNK5clang4Decl15getOwningModuleEv.exit:          ; preds = %19, %20, %22, %23
   br i1 %.not2.i4.i30, label %_ZNK5clang4Decl15getOwningModuleEv.exit31, label %38
 
 38:                                               ; preds = %37
-  %39 = tail call noundef ptr @_ZNK5clang4Decl19getOwningModuleSlowEv(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.0.037) #28
+  %39 = tail call noundef ptr @_ZNK5clang4Decl19getOwningModuleSlowEv(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.0.039) #28
   br label %_ZNK5clang4Decl15getOwningModuleEv.exit31
 
 40:                                               ; preds = %.lr.ph
   br i1 %.not2.i4.i30, label %_ZNK5clang4Decl15getOwningModuleEv.exit31, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 -8
+  %42 = getelementptr inbounds i8, ptr %.sroa.0.039, i64 -8
   %43 = load ptr, ptr %42, align 8, !tbaa !562
   br label %_ZNK5clang4Decl15getOwningModuleEv.exit31
 
 _ZNK5clang4Decl15getOwningModuleEv.exit31:        ; preds = %37, %38, %40, %41
   %44 = phi ptr [ null, %37 ], [ %39, %38 ], [ %43, %41 ], [ null, %40 ]
   %.not = icmp eq ptr %44, %26
-  br i1 %.not, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, label %select.unfold
+  br i1 %.not, label %select.unfold._crit_edge, label %select.unfold
 
 select.unfold:                                    ; preds = %_ZNK5clang4Decl15getOwningModuleEv.exit31
-  %45 = load ptr, ptr %.sroa.0.037, align 8, !tbaa !3
+  %45 = load ptr, ptr %.sroa.0.039, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.0.037) #28
-  br label %.lr.ph
+  %48 = tail call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.0.039) #28
+  %.not.i32 = icmp eq ptr %48, %.1.i.i
+  %.not3742 = icmp eq ptr %48, null
+  %.not37 = or i1 %.not.i32, %.not3742
+  br i1 %.not37, label %select.unfold._crit_edge, label %.lr.ph
 
-_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread: ; preds = %_ZNK5clang4Decl15getOwningModuleEv.exit31, %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit
-  %.0 = phi ptr [ null, %1 ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit ], [ %.sroa.0.037, %_ZNK5clang4Decl15getOwningModuleEv.exit31 ]
+select.unfold._crit_edge:                         ; preds = %_ZNK5clang4Decl15getOwningModuleEv.exit31, %select.unfold, %_ZNK5clang23DeclContextLookupResult5frontEv.exit
+  %.sroa.0.0.lcssa = phi ptr [ null, %_ZNK5clang23DeclContextLookupResult5frontEv.exit ], [ null, %select.unfold ], [ %.sroa.0.039, %_ZNK5clang4Decl15getOwningModuleEv.exit31 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.lcssa) ]
+  br label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread
+
+_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread: ; preds = %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit, %select.unfold._crit_edge
+  %.0 = phi ptr [ %.sroa.0.0.lcssa, %select.unfold._crit_edge ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -9562,45 +9571,44 @@ define dso_local noundef ptr @_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK5clang13CXXRecordDecl22getLambdaStaticInvokerEv(ptr noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call fastcc noundef ptr @_ZL27getLambdaCallOperatorHelperRKN5clang13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(144) %0)
-  %3 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %5 = load i32, ptr %4, align 4
-  %6 = and i32 %5, 127
-  %.not.i = icmp eq i32 %6, 69
-  br i1 %.not.i, label %7, label %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %4 = load i32, ptr %3, align 4
+  %5 = and i32 %4, 127
+  %.not.i = icmp eq i32 %5, 69
+  br i1 %.not.i, label %6, label %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !522
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %8 = load ptr, ptr %7, align 8, !tbaa !522
   br label %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit
 
-_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit: ; preds = %1, %7
-  %.0.i = phi ptr [ %9, %7 ], [ %2, %1 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  %.sroa.0.0.copyload.i = load i64, ptr %10, align 8, !tbaa !34
-  %11 = and i64 %.sroa.0.0.copyload.i, -16
-  %12 = inttoptr i64 %11 to ptr
-  %13 = load ptr, ptr %12, align 16, !tbaa !464
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load i8, ptr %14, align 16
-  %16 = add i8 %15, -27
-  %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i8 %16, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %17, label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
+_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit: ; preds = %1, %6
+  %.0.i = phi ptr [ %8, %6 ], [ %2, %1 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
+  %.sroa.0.0.copyload.i = load i64, ptr %9, align 8, !tbaa !34
+  %10 = and i64 %.sroa.0.0.copyload.i, -16
+  %11 = inttoptr i64 %10 to ptr
+  %12 = load ptr, ptr %11, align 16, !tbaa !464
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load i8, ptr %13, align 16
+  %15 = add i8 %14, -27
+  %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i8 %15, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %16, label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
-17:                                               ; preds = %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit
-  %18 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %13) #28
+16:                                               ; preds = %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit
+  %17 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %12) #28
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
-_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit, %17
-  %.1.i = phi ptr [ %18, %17 ], [ %13, %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit ]
-  %19 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
-  %20 = load i64, ptr %19, align 16
-  %21 = trunc i64 %20 to i32
-  %22 = lshr i32 %21, 19
-  %23 = and i32 %22, 31
-  %24 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl22getLambdaStaticInvokerENS_11CallingConvE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %23)
-  ret ptr %24
+_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit, %16
+  %.1.i = phi ptr [ %17, %16 ], [ %12, %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit ]
+  %18 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
+  %19 = load i64, ptr %18, align 16
+  %20 = trunc i64 %19 to i32
+  %21 = lshr i32 %20, 19
+  %22 = and i32 %21, 31
+  %23 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl22getLambdaStaticInvokerENS_11CallingConvE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %22)
+  ret ptr %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10032,32 +10040,31 @@ _ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit: ; preds = %_ZNK5clang13CXXRec
 
 10:                                               ; preds = %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit
   %11 = tail call fastcc noundef ptr @_ZL27getLambdaCallOperatorHelperRKN5clang13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(144) %0)
-  %12 = icmp ne ptr %11, null
-  tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %14 = load i32, ptr %13, align 4
-  %15 = and i32 %14, 127
-  %.not.i7 = icmp eq i32 %15, 69
-  br i1 %.not.i7, label %16, label %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  %13 = load i32, ptr %12, align 4
+  %14 = and i32 %13, 127
+  %.not.i7 = icmp eq i32 %14, 69
+  br i1 %.not.i7, label %15, label %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !522
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %17 = load ptr, ptr %16, align 8, !tbaa !522
   br label %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit
 
-_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit: ; preds = %10, %16
-  %.0.i8 = phi ptr [ %18, %16 ], [ %11, %10 ]
-  %19 = tail call noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168) %.0.i8) #28
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit.thread, label %20
+_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit: ; preds = %10, %15
+  %.0.i8 = phi ptr [ %17, %15 ], [ %11, %10 ]
+  %18 = tail call noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168) %.0.i8) #28
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit.thread, label %19
 
-20:                                               ; preds = %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %22 = load ptr, ptr %21, align 8, !tbaa !581
+19:                                               ; preds = %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %21 = load ptr, ptr %20, align 8, !tbaa !581
   br label %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit.thread
 
-_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit.thread: ; preds = %20, %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit, %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i, %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit
-  %.05 = phi ptr [ null, %1 ], [ null, %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ %22, %20 ], [ null, %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit ]
+_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit.thread: ; preds = %19, %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit, %1, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i, %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit
+  %.05 = phi ptr [ null, %1 ], [ null, %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i ], [ %21, %19 ], [ null, %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit ]
   ret ptr %.05
 }
 
@@ -10086,72 +10093,71 @@ _ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit.i: ; preds = %_ZNK5clang13CXXR
 
 10:                                               ; preds = %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit.i
   %11 = tail call fastcc noundef ptr @_ZL27getLambdaCallOperatorHelperRKN5clang13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(144) %0)
-  %12 = icmp ne ptr %11, null
-  tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %14 = load i32, ptr %13, align 4
-  %15 = and i32 %14, 127
-  %.not.i7.i = icmp eq i32 %15, 69
-  br i1 %.not.i7.i, label %16, label %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  %13 = load i32, ptr %12, align 4
+  %14 = and i32 %13, 127
+  %.not.i7.i = icmp eq i32 %14, 69
+  br i1 %.not.i7.i, label %15, label %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit.i
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !522
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %17 = load ptr, ptr %16, align 8, !tbaa !522
   br label %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit.i
 
-_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit.i: ; preds = %16, %10
-  %.0.i8.i = phi ptr [ %18, %16 ], [ %11, %10 ]
-  %19 = tail call noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168) %.0.i8.i) #28
-  %.not.i = icmp eq ptr %19, null
+_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit.i: ; preds = %15, %10
+  %.0.i8.i = phi ptr [ %17, %15 ], [ %11, %10 ]
+  %18 = tail call noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168) %.0.i8.i) #28
+  %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit.thread, label %_ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit
 
 _ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit: ; preds = %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit.i
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %21 = load ptr, ptr %20, align 8, !tbaa !581
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %_ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit.thread, label %22
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %20 = load ptr, ptr %19, align 8, !tbaa !581
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %_ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit.thread, label %21
 
-22:                                               ; preds = %_ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 20
-  %25 = load i32, ptr %24, align 4
-  %26 = and i32 %25, 536870911
-  %.not.i5 = icmp eq i32 %26, 0
+21:                                               ; preds = %_ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  %24 = load i32, ptr %23, align 4
+  %25 = and i32 %24, 536870911
+  %.not.i5 = icmp eq i32 %25, 0
   br i1 %.not.i5, label %"_ZN4llvm15partition_pointIRN5clang21TemplateParameterListEZNKS1_13CXXRecordDecl35getLambdaExplicitTemplateParametersEvE3$_0RPNS1_9NamedDeclEEEDaOT_T0_.exit", label %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.preheader.i
 
-_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.preheader.i: ; preds = %22
-  %27 = zext nneg i32 %26 to i64
+_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.preheader.i: ; preds = %21
+  %26 = zext nneg i32 %25 to i64
   br label %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i, %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.preheader.i
-  %.016.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i ], [ %23, %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.preheader.i ]
-  %.01015.i.i = phi i64 [ %.111.i.i, %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i ], [ %27, %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.preheader.i ]
-  %28 = lshr i64 %.01015.i.i, 1
-  %29 = getelementptr inbounds nuw ptr, ptr %.016.i.i, i64 %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !582
-  %31 = getelementptr i8, ptr %30, i64 28
-  %.val.i.i = load i32, ptr %31, align 4
-  %32 = and i32 %.val.i.i, 512
-  %.not.i.i.i6 = icmp eq i32 %32, 0
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %34 = xor i64 %28, -1
-  %35 = add nsw i64 %.01015.i.i, %34
-  %.111.i.i = select i1 %.not.i.i.i6, i64 %35, i64 %28
-  %.1.i.i = select i1 %.not.i.i.i6, ptr %33, ptr %.016.i.i
-  %36 = icmp sgt i64 %.111.i.i, 0
-  br i1 %36, label %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRN5clang21TemplateParameterListEZNKS1_13CXXRecordDecl35getLambdaExplicitTemplateParametersEvE3$_0RPNS1_9NamedDeclEEEDaOT_T0_.exit", !llvm.loop !583
+  %.016.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i ], [ %22, %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.preheader.i ]
+  %.01015.i.i = phi i64 [ %.111.i.i, %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i ], [ %26, %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.preheader.i ]
+  %27 = lshr i64 %.01015.i.i, 1
+  %28 = getelementptr inbounds nuw ptr, ptr %.016.i.i, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !582
+  %30 = getelementptr i8, ptr %29, i64 28
+  %.val.i.i = load i32, ptr %30, align 4
+  %31 = and i32 %.val.i.i, 512
+  %.not.i.i.i6 = icmp eq i32 %31, 0
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %33 = xor i64 %27, -1
+  %34 = add nsw i64 %.01015.i.i, %33
+  %.111.i.i = select i1 %.not.i.i.i6, i64 %34, i64 %27
+  %.1.i.i = select i1 %.not.i.i.i6, ptr %32, ptr %.016.i.i
+  %35 = icmp sgt i64 %.111.i.i, 0
+  br i1 %35, label %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRN5clang21TemplateParameterListEZNKS1_13CXXRecordDecl35getLambdaExplicitTemplateParametersEvE3$_0RPNS1_9NamedDeclEEEDaOT_T0_.exit", !llvm.loop !583
 
-"_ZN4llvm15partition_pointIRN5clang21TemplateParameterListEZNKS1_13CXXRecordDecl35getLambdaExplicitTemplateParametersEvE3$_0RPNS1_9NamedDeclEEEDaOT_T0_.exit": ; preds = %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i, %22
-  %.0.lcssa.i.i = phi ptr [ %23, %22 ], [ %.1.i.i, %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i ]
-  %37 = ptrtoint ptr %.0.lcssa.i.i to i64
-  %38 = ptrtoint ptr %23 to i64
-  %39 = sub i64 %37, %38
-  %40 = ashr exact i64 %39, 3
+"_ZN4llvm15partition_pointIRN5clang21TemplateParameterListEZNKS1_13CXXRecordDecl35getLambdaExplicitTemplateParametersEvE3$_0RPNS1_9NamedDeclEEEDaOT_T0_.exit": ; preds = %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i, %21
+  %.0.lcssa.i.i = phi ptr [ %22, %21 ], [ %.1.i.i, %_ZSt7advanceIPPN5clang9NamedDeclElEvRT_T0_.exit.i.i ]
+  %36 = ptrtoint ptr %.0.lcssa.i.i to i64
+  %37 = ptrtoint ptr %22 to i64
+  %38 = sub i64 %36, %37
+  %39 = ashr exact i64 %38, 3
   br label %_ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit.thread
 
 _ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit.thread: ; preds = %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i, %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit.i, %1, %_ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit, %"_ZN4llvm15partition_pointIRN5clang21TemplateParameterListEZNKS1_13CXXRecordDecl35getLambdaExplicitTemplateParametersEvE3$_0RPNS1_9NamedDeclEEEDaOT_T0_.exit"
-  %.sroa.0.0 = phi ptr [ %23, %"_ZN4llvm15partition_pointIRN5clang21TemplateParameterListEZNKS1_13CXXRecordDecl35getLambdaExplicitTemplateParametersEvE3$_0RPNS1_9NamedDeclEEEDaOT_T0_.exit" ], [ null, %_ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit ], [ null, %1 ], [ null, %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ null, %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit.i ]
-  %.sroa.4.0 = phi i64 [ %40, %"_ZN4llvm15partition_pointIRN5clang21TemplateParameterListEZNKS1_13CXXRecordDecl35getLambdaExplicitTemplateParametersEvE3$_0RPNS1_9NamedDeclEEEDaOT_T0_.exit" ], [ 0, %_ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit ], [ 0, %1 ], [ 0, %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit.i ], [ 0, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ 0, %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit.i ]
+  %.sroa.0.0 = phi ptr [ %22, %"_ZN4llvm15partition_pointIRN5clang21TemplateParameterListEZNKS1_13CXXRecordDecl35getLambdaExplicitTemplateParametersEvE3$_0RPNS1_9NamedDeclEEEDaOT_T0_.exit" ], [ null, %_ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit ], [ null, %1 ], [ null, %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit.i ], [ null, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ null, %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit.i ]
+  %.sroa.4.0 = phi i64 [ %39, %"_ZN4llvm15partition_pointIRN5clang21TemplateParameterListEZNKS1_13CXXRecordDecl35getLambdaExplicitTemplateParametersEvE3$_0RPNS1_9NamedDeclEEEDaOT_T0_.exit" ], [ 0, %_ZNK5clang13CXXRecordDecl37getGenericLambdaTemplateParameterListEv.exit ], [ 0, %1 ], [ 0, %_ZNK5clang13CXXRecordDecl15isGenericLambdaEv.exit.i ], [ 0, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i ], [ 0, %_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv.exit.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert

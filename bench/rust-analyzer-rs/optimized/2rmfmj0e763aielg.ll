@@ -396,8 +396,8 @@ _ZN10line_index28analyze_source_file_dispatch17hc6f80359e4f7f36bE.exit.i: ; pred
   invoke void @"_ZN4core3ptr193drop_in_place$LT$std..collections..hash..map..HashMap$LT$u32$C$alloc..vec..Vec$LT$line_index..WideChar$GT$$C$core..hash..BuildHasherDefault$LT$nohash_hasher..NoHashHasher$LT$u32$GT$$GT$$GT$$GT$17h7cd0bedc83609110E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #16
           to label %97 unwind label %95, !noalias !16
 
-common.resume:                                    ; preds = %109, %.body.i, %97
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %97 ], [ %eh.lpad-body.i, %.body.i ], [ %110, %109 ]
+common.resume:                                    ; preds = %108, %.body.i, %97
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %97 ], [ %eh.lpad-body.i, %.body.i ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 97:                                               ; preds = %.loopexit.split-lp.i
@@ -416,35 +416,34 @@ _ZN10line_index19analyze_source_file17h4c5fba17f6465c7bE.exit: ; preds = %86
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %98, i64 32, i1 false)
   %99 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hcfcc58cb8efb3aa4E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10)
-          to label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbcabd7c28bf04cadE.exit" unwind label %109
+          to label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbcabd7c28bf04cadE.exit" unwind label %108
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbcabd7c28bf04cadE.exit": ; preds = %_ZN10line_index19analyze_source_file17h4c5fba17f6465c7bE.exit
   %100 = extractvalue { ptr, i64 } %99, 0
   %101 = extractvalue { ptr, i64 } %99, 1
   %102 = trunc nuw i64 %2 to i32
-  %103 = icmp ne ptr %100, null
-  call void @llvm.assume(i1 %103)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %100) ]
   store ptr %100, ptr %0, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %101, ptr %104, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %102, ptr %106, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %101, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %102, ptr %105, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
-107:                                              ; preds = %109
-  %108 = landingpad { ptr, i32 }
+106:                                              ; preds = %108
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #17
   unreachable
 
-109:                                              ; preds = %_ZN10line_index19analyze_source_file17h4c5fba17f6465c7bE.exit
-  %110 = landingpad { ptr, i32 }
+108:                                              ; preds = %_ZN10line_index19analyze_source_file17h4c5fba17f6465c7bE.exit
+  %109 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr205drop_in_place$LT$std..collections..hash..map..HashMap$LT$u32$C$alloc..boxed..Box$LT$$u5b$line_index..WideChar$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$nohash_hasher..NoHashHasher$LT$u32$GT$$GT$$GT$$GT$17h2cc10f4fc1063e04E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #16
-          to label %common.resume unwind label %107
+          to label %common.resume unwind label %106
 }
 
 ; Function Attrs: nonlazybind uwtable

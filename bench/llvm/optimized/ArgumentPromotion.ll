@@ -5920,7 +5920,8 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i:       ; preds = %1310, %1306
 .critedge:                                        ; preds = %.lr.ph876
   %1313 = icmp eq i8 %1222, 62
   %spec.select.i.i525 = select i1 %1313, ptr %1220, ptr null
-  br i1 %1313, label %1314, label %_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit
+  %.not237.not = icmp eq ptr %spec.select.i.i525, null
+  br i1 %.not237.not, label %_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit, label %1314
 
 1314:                                             ; preds = %.critedge
   %1315 = getelementptr inbounds i8, ptr %1220, i64 -32
@@ -6070,7 +6071,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i546:    ; preds = %1382, %1378
   br label %_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit
 
 _ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit: ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i546, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i543, %.critedge
-  call void @llvm.assume(i1 %1313)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i525) ]
   br label %_ZN4llvm16UnaryInstruction10setOperandEjPNS_5ValueE.exit
 
 _ZN4llvm16UnaryInstruction10setOperandEjPNS_5ValueE.exit: ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i, %_ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit

@@ -701,6 +701,7 @@ _ZN4llvm8DebugLocD2Ev.exit127.i.i.i:              ; preds = %231, %_ZN4llvm10MIM
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %232 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i128.pre.i.i.i, -8
   %233 = inttoptr i64 %232 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %233) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %233, align 8
   %234 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i129.i.i.i = icmp eq i64 %234, 0

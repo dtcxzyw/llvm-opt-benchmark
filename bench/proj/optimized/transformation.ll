@@ -12496,8 +12496,7 @@ define hidden void @_ZNK5osgeo4proj9operation21InverseTransformation12_exportToW
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   %12 = load ptr, ptr %11, align 8, !tbaa !48, !noalias !165, !nonnull !109, !noundef !109
   %13 = tail call ptr @__dynamic_cast(ptr nonnull %12, ptr nonnull @_ZTIN5osgeo4proj9operation19CoordinateOperationE, ptr nonnull @_ZTIN5osgeo4proj9operation14TransformationE, i64 -1) #26, !noalias !165
-  %.not.i = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   store ptr %13, ptr %10, align 8, !tbaa !29, !alias.scope !165
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -13301,8 +13300,7 @@ define hidden void @_ZNK5osgeo4proj9operation21InverseTransformation13_shallowCl
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !48, !noalias !180, !nonnull !109, !noundef !109
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN5osgeo4proj9operation19CoordinateOperationE, ptr nonnull @_ZTIN5osgeo4proj9operation14TransformationE, i64 -1) #26, !noalias !180
-  %.not.i.i = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !13, !noalias !180
   %.not.i.i.i.i.i = icmp eq ptr %11, null

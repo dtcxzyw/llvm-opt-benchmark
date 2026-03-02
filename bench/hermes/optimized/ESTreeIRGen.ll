@@ -279,10 +279,10 @@ sw.bb5:                                           ; preds = %entry
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 8
   %cmp.i.i.i.i.i.i.i.not.i = icmp eq i8 %9, 124
+  %Builder.i6 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %cmp.i.i.i.i.i.i.i.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb5
-  %Builder.i6 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %currentIRScope_.i = getelementptr inbounds nuw i8, ptr %6, i64 168
   %10 = load ptr, ptr %currentIRScope_.i, align 8
   %call2.i = tail call noundef ptr @_ZN6hermes9IRBuilder19createLoadFrameInstEPNS_8VariableEPNS_17ScopeCreationInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i6, ptr noundef nonnull %8, ptr noundef %10) #15
@@ -299,23 +299,20 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %_ZN6hermes5irgen11ESTreeIRGen8emitLoadEPNS_5ValueEb.exit
 
 if.else.i:                                        ; preds = %sw.bb5
-  %cmp.i.i.i.i.i.i.i6.i = icmp eq i8 %9, 123
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i6.i)
-  %Builder10.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %declared_.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 56
   %13 = load i8, ptr %declared_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %call1.i.i = tail call noundef ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder10.i) #15
+  %call1.i.i = tail call noundef ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i6) #15
   %name_.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 48
   %14 = load ptr, ptr %name_.i.i.i, align 8
-  %call3.i.i = tail call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder10.i, ptr noundef %call1.i.i, ptr noundef %14) #15
+  %call3.i.i = tail call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i6, ptr noundef %call1.i.i, ptr noundef %14) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen8emitLoadEPNS_5ValueEb.exit
 
 if.end.i.i:                                       ; preds = %if.else.i
-  %call4.i.i = tail call noundef ptr @_ZN6hermes9IRBuilder31createTryLoadGlobalPropertyInstEPNS_20GlobalObjectPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %Builder10.i, ptr noundef nonnull %8) #15
+  %call4.i.i = tail call noundef ptr @_ZN6hermes9IRBuilder31createTryLoadGlobalPropertyInstEPNS_20GlobalObjectPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i6, ptr noundef nonnull %8) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen8emitLoadEPNS_5ValueEb.exit
 
 _ZN6hermes5irgen11ESTreeIRGen8emitLoadEPNS_5ValueEb.exit: ; preds = %if.then.i, %if.then4.i, %if.then.i.i, %if.end.i.i
@@ -352,10 +349,10 @@ define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen8emitLoadEPNS_5ValueEb(p
 entry:
   %0 = load i8, ptr %from, align 8
   %cmp.i.i.i.i.i.i.i.not = icmp eq i8 %0, 124
+  %Builder = getelementptr inbounds nuw i8, ptr %this, i64 8
   br i1 %cmp.i.i.i.i.i.i.i.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %Builder = getelementptr inbounds nuw i8, ptr %this, i64 8
   %currentIRScope_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %1 = load ptr, ptr %currentIRScope_, align 8
   %call2 = tail call noundef ptr @_ZN6hermes9IRBuilder19createLoadFrameInstEPNS_8VariableEPNS_17ScopeCreationInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef nonnull %from, ptr noundef %1) #15
@@ -372,9 +369,6 @@ if.then4:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp.i.i.i.i.i.i.i6 = icmp eq i8 %0, 123
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i6)
-  %Builder10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %declared_.i.i = getelementptr inbounds nuw i8, ptr %from, i64 56
   %4 = load i8, ptr %declared_.i.i, align 8
   %tobool.i.i = trunc i8 %4 to i1
@@ -382,14 +376,14 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else
-  %call1.i = tail call noundef ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder10) #15
+  %call1.i = tail call noundef ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder) #15
   %name_.i.i = getelementptr inbounds nuw i8, ptr %from, i64 48
   %5 = load ptr, ptr %name_.i.i, align 8
-  %call3.i = tail call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder10, ptr noundef %call1.i, ptr noundef %5) #15
+  %call3.i = tail call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call1.i, ptr noundef %5) #15
   br label %return
 
 if.end.i:                                         ; preds = %if.else
-  %call4.i = tail call noundef ptr @_ZN6hermes9IRBuilder31createTryLoadGlobalPropertyInstEPNS_20GlobalObjectPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %Builder10, ptr noundef nonnull %from) #15
+  %call4.i = tail call noundef ptr @_ZN6hermes9IRBuilder31createTryLoadGlobalPropertyInstEPNS_20GlobalObjectPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef nonnull %from) #15
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.then, %if.then4
@@ -584,8 +578,6 @@ if.end31:                                         ; preds = %if.then4, %if.end, 
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp.i.i.i.i.i.i.i18 = icmp eq i8 %0, 123
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i18)
   %declared_.i = getelementptr inbounds nuw i8, ptr %ptr, i64 56
   %17 = load i8, ptr %declared_.i, align 8
   %tobool.i20 = trunc i8 %17 to i1

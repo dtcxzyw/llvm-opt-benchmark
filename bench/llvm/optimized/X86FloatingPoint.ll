@@ -575,6 +575,7 @@ _ZN4llvm12LiveRegUnitsC2ERKNS_18TargetRegisterInfoE.exit.i.i: ; preds = %100, %_
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %108, align 8
   %109 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %110 = inttoptr i64 %109 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %110) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %110, align 8
   %111 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %111, 0
@@ -838,6 +839,7 @@ _ZNK4llvm12LiveRegUnits9availableEt.exit48.i.i:   ; preds = %215, %.critedge.i.i
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.07.027.i.i, align 8
   %232 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %233 = inttoptr i64 %232 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %233) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %233, align 8
   %234 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %234, 0
@@ -3782,6 +3784,7 @@ _ZN4llvm8DebugLocD2Ev.exit212.i:                  ; preds = %1111, %_ZN4llvm10MI
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1089, align 8
   %1113 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %1114 = inttoptr i64 %1113 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1114) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1114, align 8
   %1115 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i213.i = icmp eq i64 %1115, 0
@@ -4401,6 +4404,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_13FPS14adjustLiveRegsEjN4llvm26Mach
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %2, align 8
   %56 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %57 = inttoptr i64 %56 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %57) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i = load i64, ptr %57, align 8
   %58 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i, 4
   %.not.i.i.i9.i.i.i = icmp eq i64 %58, 0

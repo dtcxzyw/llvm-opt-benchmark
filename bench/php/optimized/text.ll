@@ -387,7 +387,7 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %34, %41, %php_dom_f
   %63 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %51, ptr noundef %1, ptr noundef nonnull %11) #10
   br label %64
 
-64:                                               ; preds = %2, %php_dom_follow_spec_doc_ref.exit.thread, %55, %62, %24, %14
+64:                                               ; preds = %php_dom_follow_spec_doc_ref.exit.thread, %55, %62, %2, %24, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -453,7 +453,7 @@ define hidden void @zim_DOMText_isWhitespaceInElementContent(ptr noundef readonl
   store i32 2, ptr %20, align 8, !tbaa !9
   br label %23
 
-23:                                               ; preds = %22, %21, %11, %5
+23:                                               ; preds = %5, %22, %21, %11
   ret void
 }
 

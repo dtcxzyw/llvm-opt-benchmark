@@ -862,7 +862,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %19 = getelementptr inbounds i64, ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -8
   %21 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8b8df4d57d44b01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20), !noalias !105
-  br i1 %21, label %.loopexit, label %22, !prof !18
+  br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h2d5973d733696780E.exit", label %22, !prof !18
 
 ._crit_edge.i.i:                                  ; preds = %22, %9
   %.not11.i.i = icmp eq i64 %.sroa.01.0.i.i, 1
@@ -943,9 +943,9 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %68 = getelementptr inbounds i64, ptr %51, i64 %67
   %69 = getelementptr inbounds i8, ptr %68, i64 -8
   store i64 %50, ptr %69, align 8, !noalias !106
-  br label %.loopexit
+  br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h2d5973d733696780E.exit"
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %49
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h2d5973d733696780E.exit": ; preds = %.lr.ph.i.i, %49
   %.sroa.0.0 = phi i1 [ false, %49 ], [ true, %.lr.ph.i.i ]
   ret i1 %.sroa.0.0
 }

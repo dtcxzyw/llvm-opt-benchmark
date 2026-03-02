@@ -352,7 +352,7 @@ define hidden void @_ZN10wasmi_core6memory6Memory8new_impl17h0536419399492f46E(p
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 6, ptr %21, align 8
   store i64 2, ptr %0, align 8
-  br label %77
+  br label %76
 
 22:                                               ; preds = %3
   %23 = shl i128 %11, %17
@@ -370,7 +370,7 @@ define hidden void @_ZN10wasmi_core6memory6Memory8new_impl17h0536419399492f46E(p
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 6, ptr %29, align 8
   store i64 2, ptr %0, align 8
-  br label %77
+  br label %76
 
 30:                                               ; preds = %25
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -392,7 +392,7 @@ define hidden void @_ZN10wasmi_core6memory6Memory8new_impl17h0536419399492f46E(p
   %41 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   %42 = extractvalue { ptr, ptr } %41, 0
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %54, label %47
+  br i1 %.not, label %53, label %47
 
 43:                                               ; preds = %30
   %44 = shl i128 %31, %37
@@ -404,100 +404,98 @@ define hidden void @_ZN10wasmi_core6memory6Memory8new_impl17h0536419399492f46E(p
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 7, ptr %46, align 8
   store i64 2, ptr %0, align 8
-  br label %77
+  br label %76
 
 47:                                               ; preds = %40
   %48 = extractvalue { ptr, ptr } %41, 1
-  %49 = icmp ne ptr %48, null
-  call void @llvm.assume(i1 %49)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %48) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %51 = load ptr, ptr %50, align 8, !invariant.load !6, !nonnull !6
-  call void %51(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %8, ptr noundef nonnull align 1 %42, i64 noundef 0, i64 noundef %26, i64 noundef %.sroa.08.0, i64 %.sroa.3.0)
-  %52 = load i64, ptr %8, align 8, !range !78, !noundef !6
-  %.not22 = icmp eq i64 %52, 4
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br i1 %.not22, label %64, label %58
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %50 = load ptr, ptr %49, align 8, !invariant.load !6, !nonnull !6
+  call void %50(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %8, ptr noundef nonnull align 1 %42, i64 noundef 0, i64 noundef %26, i64 noundef %.sroa.08.0, i64 %.sroa.3.0)
+  %51 = load i64, ptr %8, align 8, !range !78, !noundef !6
+  %.not22 = icmp eq i64 %51, 4
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br i1 %.not22, label %63, label %57
 
-54:                                               ; preds = %64, %40
+53:                                               ; preds = %63, %40
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN10wasmi_core6memory6buffer10ByteBuffer3new17hbe69476042b4f0ffE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7, i64 noundef %26)
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %56 = load i8, ptr %55, align 8, !range !79, !noundef !6
-  %57 = icmp eq i8 %56, 2
-  br i1 %57, label %69, label %75
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %55 = load i8, ptr %54, align 8, !range !79, !noundef !6
+  %56 = icmp eq i8 %55, 2
+  br i1 %56, label %68, label %74
 
-58:                                               ; preds = %47
-  %59 = load i64, ptr %53, align 8
+57:                                               ; preds = %47
+  %58 = load i64, ptr %52, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %60 = call { i64, i64 } @"_ZN119_$LT$wasmi_core..memory..error..MemoryError$u20$as$u20$core..convert..From$LT$wasmi_core..limiter..LimiterError$GT$$GT$4from17ha122ed68272ae48cE"(i64 noundef %52, i64 %59)
-  %61 = extractvalue { i64, i64 } %60, 0
-  %62 = extractvalue { i64, i64 } %60, 1
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %61, ptr %63, align 8
-  br label %67
+  %59 = call { i64, i64 } @"_ZN119_$LT$wasmi_core..memory..error..MemoryError$u20$as$u20$core..convert..From$LT$wasmi_core..limiter..LimiterError$GT$$GT$4from17ha122ed68272ae48cE"(i64 noundef %51, i64 %58)
+  %60 = extractvalue { i64, i64 } %59, 0
+  %61 = extractvalue { i64, i64 } %59, 1
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %60, ptr %62, align 8
+  br label %66
 
-64:                                               ; preds = %47
-  %65 = load i8, ptr %53, align 8, !range !43, !noundef !6
-  %66 = trunc nuw i8 %65 to i1
+63:                                               ; preds = %47
+  %64 = load i8, ptr %52, align 8, !range !43, !noundef !6
+  %65 = trunc nuw i8 %64 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %66, label %54, label %67
+  br i1 %65, label %53, label %66
 
-67:                                               ; preds = %64, %58
-  %.sink37 = phi i64 [ 16, %58 ], [ 8, %64 ]
-  %.sink = phi i64 [ %62, %58 ], [ 5, %64 ]
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink37
-  store i64 %.sink, ptr %68, align 8
+66:                                               ; preds = %63, %57
+  %.sink37 = phi i64 [ 16, %57 ], [ 8, %63 ]
+  %.sink = phi i64 [ %61, %57 ], [ 5, %63 ]
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink37
+  store i64 %.sink, ptr %67, align 8
   store i64 2, ptr %0, align 8
-  br label %77
+  br label %76
 
-69:                                               ; preds = %54
-  %70 = load i64, ptr %7, align 8, !range !80, !noundef !6
-  %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %72 = load i64, ptr %71, align 8
-  %73 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-  %74 = extractvalue { ptr, ptr } %73, 0
-  %.not23 = icmp eq ptr %74, null
-  br i1 %.not23, label %87, label %78
+68:                                               ; preds = %53
+  %69 = load i64, ptr %7, align 8, !range !80, !noundef !6
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %71 = load i64, ptr %70, align 8
+  %72 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  %73 = extractvalue { ptr, ptr } %72, 0
+  %.not23 = icmp eq ptr %73, null
+  br i1 %.not23, label %85, label %77
 
-75:                                               ; preds = %54
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 32
+74:                                               ; preds = %53
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %77
+  br label %76
 
-77:                                               ; preds = %28, %45, %67, %87, %20, %75
+76:                                               ; preds = %28, %45, %66, %85, %20, %74
   ret void
 
-78:                                               ; preds = %69
-  %79 = extractvalue { ptr, ptr } %73, 1
-  %80 = icmp ne ptr %79, null
-  call void @llvm.assume(i1 %80)
+77:                                               ; preds = %68
+  %78 = extractvalue { ptr, ptr } %72, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %78) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %81 = call { i64, i64 } @"_ZN119_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..memory..error..MemoryError$GT$$GT$4from17hd5018d1817876793E"(i64 noundef %70, i64 %72)
-  %82 = extractvalue { i64, i64 } %81, 0
-  %83 = extractvalue { i64, i64 } %81, 1
-  store i64 %82, ptr %6, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %83, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  %86 = load ptr, ptr %85, align 8, !invariant.load !6, !nonnull !6
-  call void %86(ptr noundef nonnull align 1 %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  %79 = call { i64, i64 } @"_ZN119_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..memory..error..MemoryError$GT$$GT$4from17hd5018d1817876793E"(i64 noundef %69, i64 %71)
+  %80 = extractvalue { i64, i64 } %79, 0
+  %81 = extractvalue { i64, i64 } %79, 1
+  store i64 %80, ptr %6, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %81, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 40
+  %84 = load ptr, ptr %83, align 8, !invariant.load !6, !nonnull !6
+  call void %84(ptr noundef nonnull align 1 %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %87
+  br label %85
 
-87:                                               ; preds = %78, %69
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %70, ptr %88, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %72, ptr %89, align 8
+85:                                               ; preds = %77, %68
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %69, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %71, ptr %87, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %77
+  br label %76
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -527,7 +525,7 @@ define hidden void @_ZN10wasmi_core6memory6Memory8new_impl17h9c169fd3f32a6b89E(p
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 6, ptr %23, align 8
   store i64 2, ptr %0, align 8
-  br label %79
+  br label %78
 
 24:                                               ; preds = %5
   %25 = shl i128 %13, %19
@@ -545,7 +543,7 @@ define hidden void @_ZN10wasmi_core6memory6Memory8new_impl17h9c169fd3f32a6b89E(p
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 6, ptr %31, align 8
   store i64 2, ptr %0, align 8
-  br label %79
+  br label %78
 
 32:                                               ; preds = %27
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -567,7 +565,7 @@ define hidden void @_ZN10wasmi_core6memory6Memory8new_impl17h9c169fd3f32a6b89E(p
   %43 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   %44 = extractvalue { ptr, ptr } %43, 0
   %.not = icmp eq ptr %44, null
-  br i1 %.not, label %56, label %49
+  br i1 %.not, label %55, label %49
 
 45:                                               ; preds = %32
   %46 = shl i128 %33, %39
@@ -579,100 +577,98 @@ define hidden void @_ZN10wasmi_core6memory6Memory8new_impl17h9c169fd3f32a6b89E(p
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 7, ptr %48, align 8
   store i64 2, ptr %0, align 8
-  br label %79
+  br label %78
 
 49:                                               ; preds = %42
   %50 = extractvalue { ptr, ptr } %43, 1
-  %51 = icmp ne ptr %50, null
-  call void @llvm.assume(i1 %51)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %53 = load ptr, ptr %52, align 8, !invariant.load !6, !nonnull !6
-  call void %53(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noundef nonnull align 1 %44, i64 noundef 0, i64 noundef %28, i64 noundef %.sroa.08.0, i64 %.sroa.3.0)
-  %54 = load i64, ptr %10, align 8, !range !78, !noundef !6
-  %.not22 = icmp eq i64 %54, 4
-  %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  br i1 %.not22, label %66, label %60
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %52 = load ptr, ptr %51, align 8, !invariant.load !6, !nonnull !6
+  call void %52(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noundef nonnull align 1 %44, i64 noundef 0, i64 noundef %28, i64 noundef %.sroa.08.0, i64 %.sroa.3.0)
+  %53 = load i64, ptr %10, align 8, !range !78, !noundef !6
+  %.not22 = icmp eq i64 %53, 4
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  br i1 %.not22, label %65, label %59
 
-56:                                               ; preds = %66, %42
+55:                                               ; preds = %65, %42
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN10wasmi_core6memory6buffer10ByteBuffer10new_static17h4e74de2eea2f88e5E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 1 %3, i64 noundef %4, i64 noundef %28)
-  %57 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %58 = load i8, ptr %57, align 8, !range !79, !noundef !6
-  %59 = icmp eq i8 %58, 2
-  br i1 %59, label %71, label %77
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %57 = load i8, ptr %56, align 8, !range !79, !noundef !6
+  %58 = icmp eq i8 %57, 2
+  br i1 %58, label %70, label %76
 
-60:                                               ; preds = %49
-  %61 = load i64, ptr %55, align 8
+59:                                               ; preds = %49
+  %60 = load i64, ptr %54, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %62 = call { i64, i64 } @"_ZN119_$LT$wasmi_core..memory..error..MemoryError$u20$as$u20$core..convert..From$LT$wasmi_core..limiter..LimiterError$GT$$GT$4from17ha122ed68272ae48cE"(i64 noundef %54, i64 %61)
-  %63 = extractvalue { i64, i64 } %62, 0
-  %64 = extractvalue { i64, i64 } %62, 1
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %63, ptr %65, align 8
-  br label %69
+  %61 = call { i64, i64 } @"_ZN119_$LT$wasmi_core..memory..error..MemoryError$u20$as$u20$core..convert..From$LT$wasmi_core..limiter..LimiterError$GT$$GT$4from17ha122ed68272ae48cE"(i64 noundef %53, i64 %60)
+  %62 = extractvalue { i64, i64 } %61, 0
+  %63 = extractvalue { i64, i64 } %61, 1
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %62, ptr %64, align 8
+  br label %68
 
-66:                                               ; preds = %49
-  %67 = load i8, ptr %55, align 8, !range !43, !noundef !6
-  %68 = trunc nuw i8 %67 to i1
+65:                                               ; preds = %49
+  %66 = load i8, ptr %54, align 8, !range !43, !noundef !6
+  %67 = trunc nuw i8 %66 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %68, label %56, label %69
+  br i1 %67, label %55, label %68
 
-69:                                               ; preds = %66, %60
-  %.sink37 = phi i64 [ 16, %60 ], [ 8, %66 ]
-  %.sink = phi i64 [ %64, %60 ], [ 5, %66 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink37
-  store i64 %.sink, ptr %70, align 8
+68:                                               ; preds = %65, %59
+  %.sink37 = phi i64 [ 16, %59 ], [ 8, %65 ]
+  %.sink = phi i64 [ %63, %59 ], [ 5, %65 ]
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink37
+  store i64 %.sink, ptr %69, align 8
   store i64 2, ptr %0, align 8
-  br label %79
+  br label %78
 
-71:                                               ; preds = %56
-  %72 = load i64, ptr %9, align 8, !range !80, !noundef !6
-  %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %74 = load i64, ptr %73, align 8
-  %75 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-  %76 = extractvalue { ptr, ptr } %75, 0
-  %.not23 = icmp eq ptr %76, null
-  br i1 %.not23, label %89, label %80
+70:                                               ; preds = %55
+  %71 = load i64, ptr %9, align 8, !range !80, !noundef !6
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %73 = load i64, ptr %72, align 8
+  %74 = call { ptr, ptr } @_ZN10wasmi_core7limiter18ResourceLimiterRef19as_resource_limiter17h262773706bf657b1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  %75 = extractvalue { ptr, ptr } %74, 0
+  %.not23 = icmp eq ptr %75, null
+  br i1 %.not23, label %87, label %79
 
-77:                                               ; preds = %56
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 32
+76:                                               ; preds = %55
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %79
+  br label %78
 
-79:                                               ; preds = %30, %47, %69, %89, %22, %77
+78:                                               ; preds = %30, %47, %68, %87, %22, %76
   ret void
 
-80:                                               ; preds = %71
-  %81 = extractvalue { ptr, ptr } %75, 1
-  %82 = icmp ne ptr %81, null
-  call void @llvm.assume(i1 %82)
+79:                                               ; preds = %70
+  %80 = extractvalue { ptr, ptr } %74, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %80) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %83 = call { i64, i64 } @"_ZN119_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..memory..error..MemoryError$GT$$GT$4from17hd5018d1817876793E"(i64 noundef %72, i64 %74)
-  %84 = extractvalue { i64, i64 } %83, 0
-  %85 = extractvalue { i64, i64 } %83, 1
-  store i64 %84, ptr %8, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %85, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  %88 = load ptr, ptr %87, align 8, !invariant.load !6, !nonnull !6
-  call void %88(ptr noundef nonnull align 1 %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
+  %81 = call { i64, i64 } @"_ZN119_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$core..convert..From$LT$wasmi_core..memory..error..MemoryError$GT$$GT$4from17hd5018d1817876793E"(i64 noundef %71, i64 %73)
+  %82 = extractvalue { i64, i64 } %81, 0
+  %83 = extractvalue { i64, i64 } %81, 1
+  store i64 %82, ptr %8, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %83, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 40
+  %86 = load ptr, ptr %85, align 8, !invariant.load !6, !nonnull !6
+  call void %86(ptr noundef nonnull align 1 %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %89
+  br label %87
 
-89:                                               ; preds = %80, %71
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %72, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %74, ptr %91, align 8
+87:                                               ; preds = %79, %70
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %71, ptr %88, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %73, ptr %89, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %79
+  br label %78
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

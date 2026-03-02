@@ -356,6 +356,7 @@ _ZN4llvm9BitVector5resetEv.exit:                  ; preds = %._crit_edge, %.lr.p
   br i1 %27, label %_ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit, label %28
 
 28:                                               ; preds = %_ZN4llvm9BitVector5resetEv.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %26, align 8
   %29 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp ne i64 %29, 0
@@ -2068,6 +2069,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %._crit_edge201, %69
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0143.0195, align 8
   %78 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %79 = inttoptr i64 %78 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %79, align 8
   %80 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i109 = icmp eq i64 %80, 0

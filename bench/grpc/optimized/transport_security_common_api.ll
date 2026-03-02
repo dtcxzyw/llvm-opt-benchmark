@@ -244,8 +244,7 @@ define void @_Z47grpc_gcp_RpcProtocolVersions_assign_from_structP28grpc_gcp_RpcP
 upb_Arena_Malloc.exit.i.i:                        ; preds = %22, %20
   %.pre-phi = phi i64 [ %17, %22 ], [ %.pre, %20 ]
   %.0.i.i.i = phi ptr [ %15, %22 ], [ %21, %20 ]
-  %.not.i.i = icmp ne ptr %.0.i.i.i, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i) ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i, i8 0, i64 %10, i1 false)
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__RpcProtocolVersions__Version_msg_init) #15, !srcloc !22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -298,8 +297,7 @@ grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit: ; preds = %3, %upb_Ar
 upb_Arena_Malloc.exit.i.i13:                      ; preds = %50, %48
   %.pre-phi17 = phi i64 [ %45, %50 ], [ %.pre16, %48 ]
   %.0.i.i.i14 = phi ptr [ %43, %50 ], [ %49, %48 ]
-  %.not.i.i15 = icmp ne ptr %.0.i.i.i14, null
-  tail call void @llvm.assume(i1 %.not.i.i15)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i14) ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i14, i8 0, i64 %38, i1 false)
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__gcp__RpcProtocolVersions__Version_msg_init) #15, !srcloc !22
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8

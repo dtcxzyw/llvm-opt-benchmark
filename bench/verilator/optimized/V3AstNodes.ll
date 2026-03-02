@@ -131215,8 +131215,7 @@ define dso_local noundef ptr @_ZN14AstMemberDType15getChildStructpEv(ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(176) %.051518)
-  %.not.i = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %9, align 8, !tbaa !20
   %10 = and i16 %.sroa.0.0.copyload.i.i.i, -2

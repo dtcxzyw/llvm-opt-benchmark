@@ -2648,8 +2648,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_17Lut3DOp11combineWi
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val15 = load ptr, ptr %18, align 8
   %19 = tail call ptr @__dynamic_cast(ptr nonnull %.val14, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev2OpE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev12_GLOBAL__N_17Lut3DOpE, i64 0) #23, !noalias !129
-  %.not.not.i.i = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   %.not.i.i.i.i.i = icmp eq ptr %.val15, null
   br i1 %.not.i.i.i.i.i, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17Lut3DOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit, label %20
 

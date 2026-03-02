@@ -30146,7 +30146,9 @@ _ZN4llvm12RegsForValueD2Ev.exit:                  ; preds = %_ZN4llvm11SmallVect
 
 .critedge433:                                     ; preds = %.critedge431
   %592 = icmp eq i8 %53, 23
-  br i1 %592, label %593, label %604
+  %spec.select.i.i527 = select i1 %592, ptr %1, ptr null
+  %.not405.not = icmp eq ptr %spec.select.i.i527, null
+  br i1 %.not405.not, label %604, label %593
 
 593:                                              ; preds = %.critedge433
   %594 = getelementptr inbounds nuw i8, ptr %0, i64 920
@@ -30164,9 +30166,9 @@ _ZN4llvm12RegsForValueD2Ev.exit:                  ; preds = %_ZN4llvm11SmallVect
   br label %604
 
 604:                                              ; preds = %.critedge433, %593
-  %.sroa.26.5 = phi i32 [ %.fca.1.extract, %593 ], [ undef, %.critedge433 ]
-  %.sroa.0589.5 = phi ptr [ %.fca.0.extract, %593 ], [ undef, %.critedge433 ]
-  tail call void @llvm.assume(i1 %592)
+  %.sroa.26.5 = phi i32 [ undef, %.critedge433 ], [ %.fca.1.extract, %593 ]
+  %.sroa.0589.5 = phi ptr [ undef, %.critedge433 ], [ %.fca.0.extract, %593 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i527) ]
   %605 = insertvalue { ptr, i32 } poison, ptr %.sroa.0589.5, 0
   %606 = insertvalue { ptr, i32 } %605, i32 %.sroa.26.5, 1
   br label %607
@@ -62645,50 +62647,49 @@ declare { ptr, i32 } @_ZN4llvm12SelectionDAG16getAtomicMemmoveENS_7SDValueERKNS_
 declare { ptr, i32 } @_ZN4llvm12SelectionDAG15getAtomicMemsetENS_7SDValueERKNS_5SDLocES1_S1_S1_PNS_4TypeEjbNS_18MachinePointerInfoE(ptr noundef nonnull align 8 dereferenceable(952), ptr, i32, ptr noundef nonnull align 8 dereferenceable(12), ptr, i32, ptr noundef byval(%"class.llvm::SDValue") align 8, ptr noundef byval(%"class.llvm::SDValue") align 8, ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef byval(%"struct.llvm::MachinePointerInfo") align 8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc noundef ptr @_ZL20FindPreallocatedCallPKN4llvm5ValueE(ptr readonly captures(address_is_null) %.16.val) unnamed_addr #13 {
-  %1 = icmp ne ptr %.16.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = getelementptr inbounds nuw i8, ptr %.16.val, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !1450
-  %4 = getelementptr inbounds i8, ptr %3, i64 -32
-  %5 = load ptr, ptr %4, align 8, !tbaa !520
-  %.not.i.i.i8 = icmp eq ptr %5, null
+define internal fastcc noundef ptr @_ZL20FindPreallocatedCallPKN4llvm5ValueE(ptr readonly captures(none) %.16.val) unnamed_addr #13 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.16.val) ]
+  %1 = getelementptr inbounds nuw i8, ptr %.16.val, i64 24
+  %2 = load ptr, ptr %1, align 8, !tbaa !1450
+  %3 = getelementptr inbounds i8, ptr %2, i64 -32
+  %4 = load ptr, ptr %3, align 8, !tbaa !520
+  %.not.i.i.i8 = icmp eq ptr %4, null
   br i1 %.not.i.i.i8, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %0, %18
-  %6 = phi ptr [ %24, %18 ], [ %5, %0 ]
-  %7 = phi ptr [ %22, %18 ], [ %3, %0 ]
-  %.sroa.01.09 = phi ptr [ %20, %18 ], [ %.16.val, %0 ]
-  %8 = load i8, ptr %6, align 8, !tbaa !518
-  %9 = icmp eq i8 %8, 0
-  br i1 %9, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, label %.thread
+.lr.ph:                                           ; preds = %0, %17
+  %5 = phi ptr [ %23, %17 ], [ %4, %0 ]
+  %6 = phi ptr [ %21, %17 ], [ %2, %0 ]
+  %.sroa.01.09 = phi ptr [ %19, %17 ], [ %.16.val, %0 ]
+  %7 = load i8, ptr %5, align 8, !tbaa !518
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, label %.thread
 
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !898
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %13 = load ptr, ptr %12, align 8, !tbaa !899
-  %14 = icmp eq ptr %11, %13
-  br i1 %14, label %15, label %.thread
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %10 = load ptr, ptr %9, align 8, !tbaa !898
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %12 = load ptr, ptr %11, align 8, !tbaa !899
+  %13 = icmp eq ptr %10, %12
+  br i1 %13, label %14, label %.thread
 
-15:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  %17 = load i32, ptr %16, align 4, !tbaa !903
-  %.not13 = icmp eq i32 %17, 16
-  br i1 %.not13, label %18, label %.thread
+14:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %16 = load i32, ptr %15, align 4, !tbaa !903
+  %.not13 = icmp eq i32 %16, 16
+  br i1 %.not13, label %17, label %.thread
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.01.09, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !1113, !nonnull !49, !noundef !49
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !1450
-  %23 = getelementptr inbounds i8, ptr %22, i64 -32
-  %24 = load ptr, ptr %23, align 8, !tbaa !520
-  %.not.i.i.i = icmp eq ptr %24, null
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.01.09, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !1113, !nonnull !49, !noundef !49
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !1450
+  %22 = getelementptr inbounds i8, ptr %21, i64 -32
+  %23 = load ptr, ptr %22, align 8, !tbaa !520
+  %.not.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %15, %.lr.ph, %18, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %0
-  %.lcssa = phi ptr [ %3, %0 ], [ %7, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ %22, %18 ], [ %7, %.lr.ph ], [ %7, %15 ]
+.thread:                                          ; preds = %14, %.lr.ph, %17, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %0
+  %.lcssa = phi ptr [ %2, %0 ], [ %6, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ %21, %17 ], [ %6, %.lr.ph ], [ %6, %14 ]
   ret ptr %.lcssa
 }
 

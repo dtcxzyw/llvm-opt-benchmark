@@ -512,7 +512,7 @@ define hidden void @_ZN4util21log_error_with_caller17h47eb1f11507c8133E(ptr noal
 10:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr39drop_in_place$LT$ureq..error..Error$GT$17hdccfba29a1e6db79E"(ptr noalias noundef align 8 dereferenceable(272) %1) #17
-          to label %47 unwind label %45
+          to label %45 unwind label %43
 
 .noexc:                                           ; preds = %.critedge
   %11 = extractvalue { ptr, i64 } %9, 0
@@ -610,41 +610,39 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h99983868967527ebE.exit: ; p
   store ptr @anon.f468ef92a6946f48d516bf466695e1ce.18, ptr %34, align 8, !alias.scope !58, !noalias !55
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr @anon.f468ef92a6946f48d516bf466695e1ce.19, ptr %35, align 8, !alias.scope !58, !noalias !55
-  %36 = icmp ne ptr %.sroa.0.1155165, null
-  call void @llvm.assume(i1 %36)
-  %37 = icmp ne ptr %.sroa.3.1154166, null
-  call void @llvm.assume(i1 %37)
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.3.1154166, i64 32
-  %39 = load ptr, ptr %38, align 8, !invariant.load !4, !nonnull !4
-  invoke void %39(ptr noundef nonnull align 1 %.sroa.0.1155165, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %4)
-          to label %40 unwind label %.loopexit.split-lp
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.1155165) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.3.1154166) ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.3.1154166, i64 32
+  %37 = load ptr, ptr %36, align 8, !invariant.load !4, !nonnull !4
+  invoke void %37(ptr noundef nonnull align 1 %.sroa.0.1155165, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %4)
+          to label %38 unwind label %.loopexit.split-lp
 
-40:                                               ; preds = %27
+38:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %41 = load i64, ptr %1, align 8, !range !26, !alias.scope !61, !noundef !4
-  %.not.i = icmp eq i64 %41, -9223372036854775808
-  br i1 %.not.i, label %43, label %42
+  %39 = load i64, ptr %1, align 8, !range !26, !alias.scope !61, !noundef !4
+  %.not.i = icmp eq i64 %39, -9223372036854775808
+  br i1 %.not.i, label %41, label %40
 
-42:                                               ; preds = %40
+40:                                               ; preds = %38
   call void @"_ZN4core3ptr45drop_in_place$LT$ureq..response..Response$GT$17h70141a7c79796b0dE"(ptr noalias noundef nonnull align 8 dereferenceable(272) %1)
   br label %"_ZN4core3ptr39drop_in_place$LT$ureq..error..Error$GT$17hdccfba29a1e6db79E.exit"
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @"_ZN4core3ptr43drop_in_place$LT$ureq..error..Transport$GT$17h486dfca473560554E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %44)
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @"_ZN4core3ptr43drop_in_place$LT$ureq..error..Transport$GT$17h486dfca473560554E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %42)
   br label %"_ZN4core3ptr39drop_in_place$LT$ureq..error..Error$GT$17hdccfba29a1e6db79E.exit"
 
-"_ZN4core3ptr39drop_in_place$LT$ureq..error..Error$GT$17hdccfba29a1e6db79E.exit": ; preds = %42, %43
+"_ZN4core3ptr39drop_in_place$LT$ureq..error..Error$GT$17hdccfba29a1e6db79E.exit": ; preds = %40, %41
   ret void
 
-45:                                               ; preds = %10
-  %46 = landingpad { ptr, i32 }
+43:                                               ; preds = %10
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #18
   unreachable
 
-47:                                               ; preds = %10
+45:                                               ; preds = %10
   resume { ptr, i32 } %lpad.phi
 }
 

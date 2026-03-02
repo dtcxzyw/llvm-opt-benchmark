@@ -18489,8 +18489,8 @@ _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %44,
 _ZN12_GLOBAL__N_113DFSanFunction23collapseAggregateShadowIN4llvm9ArrayTypeEEEPNS2_5ValueEPT_S5_RNS2_9IRBuilderINS2_14ConstantFolderENS2_24IRBuilderDefaultInserterEEE.exit: ; preds = %23
   %71 = icmp eq i32 %20, 15
   %spec.select.i.i19 = select i1 %71, ptr %17, ptr null
-  %.not18 = icmp ne ptr %spec.select.i.i19, null
-  br i1 %.not18, label %72, label %_ZN12_GLOBAL__N_113DFSanFunction23collapseAggregateShadowIN4llvm10StructTypeEEEPNS2_5ValueEPT_S5_RNS2_9IRBuilderINS2_14ConstantFolderENS2_24IRBuilderDefaultInserterEEE.exit
+  %.not18.not = icmp eq ptr %spec.select.i.i19, null
+  br i1 %.not18.not, label %_ZN12_GLOBAL__N_113DFSanFunction23collapseAggregateShadowIN4llvm10StructTypeEEEPNS2_5ValueEPT_S5_RNS2_9IRBuilderINS2_14ConstantFolderENS2_24IRBuilderDefaultInserterEEE.exit, label %72
 
 72:                                               ; preds = %_ZN12_GLOBAL__N_113DFSanFunction23collapseAggregateShadowIN4llvm9ArrayTypeEEEPNS2_5ValueEPT_S5_RNS2_9IRBuilderINS2_14ConstantFolderENS2_24IRBuilderDefaultInserterEEE.exit
   %73 = getelementptr inbounds nuw i8, ptr %spec.select.i.i19, i64 12
@@ -18598,7 +18598,7 @@ _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit38: ; preds = %9
 
 _ZN12_GLOBAL__N_113DFSanFunction23collapseAggregateShadowIN4llvm10StructTypeEEEPNS2_5ValueEPT_S5_RNS2_9IRBuilderINS2_14ConstantFolderENS2_24IRBuilderDefaultInserterEEE.exit: ; preds = %._crit_edge57, %75, %_ZN12_GLOBAL__N_113DFSanFunction23collapseAggregateShadowIN4llvm9ArrayTypeEEEPNS2_5ValueEPT_S5_RNS2_9IRBuilderINS2_14ConstantFolderENS2_24IRBuilderDefaultInserterEEE.exit
   %.2 = phi ptr [ undef, %_ZN12_GLOBAL__N_113DFSanFunction23collapseAggregateShadowIN4llvm9ArrayTypeEEEPNS2_5ValueEPT_S5_RNS2_9IRBuilderINS2_14ConstantFolderENS2_24IRBuilderDefaultInserterEEE.exit ], [ %.016.i22.lcssa, %._crit_edge57 ], [ %78, %75 ]
-  call void @llvm.assume(i1 %.not18)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i19) ]
   br label %_ZN12_GLOBAL__N_113DFSanFunction23collapseAggregateShadowIN4llvm9ArrayTypeEEEPNS2_5ValueEPT_S5_RNS2_9IRBuilderINS2_14ConstantFolderENS2_24IRBuilderDefaultInserterEEE.exit.thread
 
 _ZN12_GLOBAL__N_113DFSanFunction23collapseAggregateShadowIN4llvm9ArrayTypeEEEPNS2_5ValueEPT_S5_RNS2_9IRBuilderINS2_14ConstantFolderENS2_24IRBuilderDefaultInserterEEE.exit.thread: ; preds = %3, %27, %._crit_edge, %_ZN12_GLOBAL__N_113DFSanFunction23collapseAggregateShadowIN4llvm10StructTypeEEEPNS2_5ValueEPT_S5_RNS2_9IRBuilderINS2_14ConstantFolderENS2_24IRBuilderDefaultInserterEEE.exit
@@ -27094,6 +27094,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %26, %29
 
 .thread:                                          ; preds = %19
   %46 = icmp eq i32 %9, 15
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @llvm.assume(i1 %46)
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %48 = load i32, ptr %47, align 4, !tbaa !439

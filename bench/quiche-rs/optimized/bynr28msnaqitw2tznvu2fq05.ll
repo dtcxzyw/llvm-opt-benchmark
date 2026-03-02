@@ -4049,126 +4049,125 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h33ab8dc47dffbe5bE.exit: ; preds = 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.06.0.i, i64 %11, i1 false), !noalias !356
   %39 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17h5d35f6374709d40cE"(i64 noundef %34, ptr noundef nonnull %38, i64 noundef %11), !noalias !379
   %40 = extractvalue { ptr, i64 } %39, 0
-  %41 = icmp ne ptr %40, null
-  tail call void @llvm.assume(i1 %41), !noalias !356
-  %42 = extractvalue { ptr, i64 } %39, 1
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %40, ptr %43, align 8, !alias.scope !351, !noalias !354
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %42, ptr %44, align 8, !alias.scope !351, !noalias !354
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %40) ], !noalias !356
+  %41 = extractvalue { ptr, i64 } %39, 1
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %40, ptr %42, align 8, !alias.scope !351, !noalias !354
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 %41, ptr %43, align 8, !alias.scope !351, !noalias !354
   store i64 0, ptr %7, align 8, !alias.scope !351, !noalias !354
   br label %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit"
 
 "_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h33ab8dc47dffbe5bE.exit, %"_ZN101_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..boxed..convert..BoxFromSlice$LT$T$GT$$GT$10from_slice17hf3ed393dd3288df5E.exit"
-  %45 = invoke { i64, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h07ca91a5771fc743E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
-          to label %55 unwind label %53
+  %44 = invoke { i64, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h07ca91a5771fc743E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
+          to label %54 unwind label %52
 
-"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit3": ; preds = %63, %67, %53
-  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %64, %67 ], [ %64, %63 ]
+"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit3": ; preds = %62, %66, %52
+  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %63, %66 ], [ %63, %62 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !382)
-  %46 = load i64, ptr %7, align 8, !range !45, !alias.scope !382, !noundef !8
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit"
+  %45 = load i64, ptr %7, align 8, !range !45, !alias.scope !382, !noundef !8
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %47, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit"
 
-48:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit3"
-  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.val1.i = load i64, ptr %49, align 8, !alias.scope !382, !noundef !8
-  %50 = icmp eq i64 %.val1.i, 0
-  br i1 %50, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit", label %51
+47:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit3"
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.val1.i = load i64, ptr %48, align 8, !alias.scope !382, !noundef !8
+  %49 = icmp eq i64 %.val1.i, 0
+  br i1 %49, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit", label %50
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.val.i = load ptr, ptr %52, align 8, !alias.scope !382, !nonnull !8, !noundef !8
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.val.i = load ptr, ptr %51, align 8, !alias.scope !382, !nonnull !8, !noundef !8
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, 0) %.val1.i, i64 noundef 1) #22, !noalias !382
   br label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit"
 
-53:                                               ; preds = %62, %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit"
-  %54 = landingpad { ptr, i32 }
+52:                                               ; preds = %61, %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit"
+  %53 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit3"
 
-55:                                               ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit"
-  %56 = extractvalue { i64, ptr } %45, 0
-  %57 = extractvalue { i64, ptr } %45, 1
-  store i64 %56, ptr %8, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %57, ptr %58, align 8
-  %.not = icmp eq ptr %57, null
-  br i1 %.not, label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit", label %59
+54:                                               ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit"
+  %55 = extractvalue { i64, ptr } %44, 0
+  %56 = extractvalue { i64, ptr } %44, 1
+  store i64 %55, ptr %8, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %56, ptr %57, align 8
+  %.not = icmp eq ptr %56, null
+  br i1 %.not, label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit", label %58
 
-59:                                               ; preds = %55
+58:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 %56, ptr %6, align 8
+  store i64 %55, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %60 = invoke noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17hccc257680e803e7fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
-          to label %68 unwind label %63
+  %59 = invoke noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17hccc257680e803e7fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
+          to label %67 unwind label %62
 
-.noexc4:                                          ; preds = %70
-  %.pr.pre = load ptr, ptr %58, align 8, !alias.scope !385
-  %61 = icmp eq ptr %.pr.pre, null
+.noexc4:                                          ; preds = %69
+  %.pr.pre = load ptr, ptr %57, align 8, !alias.scope !385
+  %60 = icmp eq ptr %.pr.pre, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %61, label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit", label %62
+  br i1 %60, label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit", label %61
 
-62:                                               ; preds = %.noexc4.thread, %.noexc4
-  invoke void @"_ZN4core3ptr103drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$GT$17h2ac00cded9922340E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %58)
-          to label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit" unwind label %53
+61:                                               ; preds = %.noexc4.thread, %.noexc4
+  invoke void @"_ZN4core3ptr103drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$GT$17h2ac00cded9922340E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %57)
+          to label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit" unwind label %52
 
-63:                                               ; preds = %70, %59
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %69, %58
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %65 = load ptr, ptr %58, align 8, !alias.scope !388, !noundef !8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit3", label %67
+  %64 = load ptr, ptr %57, align 8, !alias.scope !388, !noundef !8
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit3", label %66
 
-67:                                               ; preds = %63
-  invoke void @"_ZN4core3ptr103drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$GT$17h2ac00cded9922340E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %58)
-          to label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit3" unwind label %71
+66:                                               ; preds = %62
+  invoke void @"_ZN4core3ptr103drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$GT$17h2ac00cded9922340E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %57)
+          to label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit3" unwind label %70
 
-68:                                               ; preds = %59
-  store ptr %60, ptr %5, align 8
-  %69 = icmp eq ptr %60, null
-  br i1 %69, label %.noexc4.thread, label %70
+67:                                               ; preds = %58
+  store ptr %59, ptr %5, align 8
+  %68 = icmp eq ptr %59, null
+  br i1 %68, label %.noexc4.thread, label %69
 
-.noexc4.thread:                                   ; preds = %68
+.noexc4.thread:                                   ; preds = %67
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %62
+  br label %61
 
-70:                                               ; preds = %68
+69:                                               ; preds = %67
   invoke void @"_ZN4core3ptr103drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$GT$17h2ac00cded9922340E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.noexc4 unwind label %63
+          to label %.noexc4 unwind label %62
 
-71:                                               ; preds = %67
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %66
+  %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24
   unreachable
 
-"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit": ; preds = %55, %.noexc4, %62
+"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit": ; preds = %54, %.noexc4, %61
   call void @llvm.experimental.noalias.scope.decl(metadata !391)
-  %73 = load i64, ptr %7, align 8, !range !45, !alias.scope !391, !noundef !8
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %75, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit7"
+  %72 = load i64, ptr %7, align 8, !range !45, !alias.scope !391, !noundef !8
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %74, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit7"
 
-75:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit"
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.val1.i5 = load i64, ptr %76, align 8, !alias.scope !391, !noundef !8
-  %77 = icmp eq i64 %.val1.i5, 0
-  br i1 %77, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit7", label %78
+74:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit"
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.val1.i5 = load i64, ptr %75, align 8, !alias.scope !391, !noundef !8
+  %76 = icmp eq i64 %.val1.i5, 0
+  br i1 %76, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit7", label %77
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.val.i6 = load ptr, ptr %79, align 8, !alias.scope !391, !nonnull !8, !noundef !8
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.val.i6 = load ptr, ptr %78, align 8, !alias.scope !391, !nonnull !8, !noundef !8
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i6, i64 noundef range(i64 1, 0) %.val1.i5, i64 noundef 1) #22, !noalias !391
   br label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit7"
 
-"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit7": ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit", %75, %78
+"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit7": ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit", %74, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
-"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit": ; preds = %51, %48, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit3"
+"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit": ; preds = %50, %47, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit3"
   resume { ptr, i32 } %.pn
 }
 
@@ -4278,83 +4277,82 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h33ab8dc47dffbe5bE.exit: ; preds = 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.06.0.i, i64 %9, i1 false), !noalias !399
   %37 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17h5d35f6374709d40cE"(i64 noundef %32, ptr noundef nonnull %36, i64 noundef %9), !noalias !422
   %38 = extractvalue { ptr, i64 } %37, 0
-  %39 = icmp ne ptr %38, null
-  tail call void @llvm.assume(i1 %39), !noalias !399
-  %40 = extractvalue { ptr, i64 } %37, 1
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %38, ptr %41, align 8, !alias.scope !394, !noalias !397
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %40, ptr %42, align 8, !alias.scope !394, !noalias !397
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ], !noalias !399
+  %39 = extractvalue { ptr, i64 } %37, 1
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %38, ptr %40, align 8, !alias.scope !394, !noalias !397
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %39, ptr %41, align 8, !alias.scope !394, !noalias !397
   store i64 0, ptr %5, align 8, !alias.scope !394, !noalias !397
   br label %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit"
 
 "_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h33ab8dc47dffbe5bE.exit, %"_ZN101_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..boxed..convert..BoxFromSlice$LT$T$GT$$GT$10from_slice17hf3ed393dd3288df5E.exit"
-  %43 = phi i64 [ 1, %_ZN4core4iter6traits8iterator8Iterator4fold17h33ab8dc47dffbe5bE.exit ], [ 0, %"_ZN101_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..boxed..convert..BoxFromSlice$LT$T$GT$$GT$10from_slice17hf3ed393dd3288df5E.exit" ]
-  %44 = invoke { i64, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h07ca91a5771fc743E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
-          to label %54 unwind label %45
+  %42 = phi i64 [ 1, %_ZN4core4iter6traits8iterator8Iterator4fold17h33ab8dc47dffbe5bE.exit ], [ 0, %"_ZN101_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..boxed..convert..BoxFromSlice$LT$T$GT$$GT$10from_slice17hf3ed393dd3288df5E.exit" ]
+  %43 = invoke { i64, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h07ca91a5771fc743E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
+          to label %53 unwind label %44
 
-45:                                               ; preds = %59, %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit"
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %58, %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit"
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !425)
-  %47 = load i64, ptr %5, align 8, !range !45, !alias.scope !425, !noundef !8
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit"
+  %46 = load i64, ptr %5, align 8, !range !45, !alias.scope !425, !noundef !8
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %48, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit"
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val1.i = load i64, ptr %50, align 8, !alias.scope !425, !noundef !8
-  %51 = icmp eq i64 %.val1.i, 0
-  br i1 %51, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit", label %52
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.val1.i = load i64, ptr %49, align 8, !alias.scope !425, !noundef !8
+  %50 = icmp eq i64 %.val1.i, 0
+  br i1 %50, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit", label %51
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.val.i = load ptr, ptr %53, align 8, !alias.scope !425, !nonnull !8, !noundef !8
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.val.i = load ptr, ptr %52, align 8, !alias.scope !425, !nonnull !8, !noundef !8
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, 0) %.val1.i, i64 noundef 1) #22, !noalias !425
   br label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit"
 
-54:                                               ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit"
-  %55 = extractvalue { i64, ptr } %44, 0
-  %56 = extractvalue { i64, ptr } %44, 1
-  store i64 %55, ptr %6, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %56, ptr %57, align 8
-  %58 = icmp eq ptr %56, null
-  br i1 %58, label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit", label %59
+53:                                               ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit"
+  %54 = extractvalue { i64, ptr } %43, 0
+  %55 = extractvalue { i64, ptr } %43, 1
+  store i64 %54, ptr %6, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %55, ptr %56, align 8
+  %57 = icmp eq ptr %55, null
+  br i1 %57, label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit", label %58
 
-59:                                               ; preds = %54
-  invoke void @"_ZN4core3ptr103drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$GT$17h2ac00cded9922340E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %57)
-          to label %"._ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit_crit_edge" unwind label %45
+58:                                               ; preds = %53
+  invoke void @"_ZN4core3ptr103drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$GT$17h2ac00cded9922340E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %56)
+          to label %"._ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit_crit_edge" unwind label %44
 
-"._ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit_crit_edge": ; preds = %59
+"._ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit_crit_edge": ; preds = %58
   %.pre5 = load i64, ptr %5, align 8, !range !45, !alias.scope !428
   br label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit"
 
-"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit": ; preds = %"._ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit_crit_edge", %54
-  %60 = phi i64 [ %.pre5, %"._ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit_crit_edge" ], [ %43, %54 ]
+"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit": ; preds = %"._ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit_crit_edge", %53
+  %59 = phi i64 [ %.pre5, %"._ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit_crit_edge" ], [ %42, %53 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !428)
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %62, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit3"
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %61, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit3"
 
-62:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit"
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val1.i1 = load i64, ptr %63, align 8, !alias.scope !428, !noundef !8
-  %64 = icmp eq i64 %.val1.i1, 0
-  br i1 %64, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit3", label %65
+61:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit"
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.val1.i1 = load i64, ptr %62, align 8, !alias.scope !428, !noundef !8
+  %63 = icmp eq i64 %.val1.i1, 0
+  br i1 %63, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit3", label %64
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.val.i2 = load ptr, ptr %66, align 8, !alias.scope !428, !nonnull !8, !noundef !8
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.val.i2 = load ptr, ptr %65, align 8, !alias.scope !428, !nonnull !8, !noundef !8
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i2, i64 noundef range(i64 1, 0) %.val1.i1, i64 noundef 1) #22, !noalias !428
   br label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit3"
 
-"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit3": ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit", %62, %65
+"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit3": ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$u64$C$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..quic..connection..Incoming$GT$$RP$$GT$$GT$17h2efc20f9531b68c3E.exit", %61, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit": ; preds = %52, %49, %45
-  resume { ptr, i32 } %46
+"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit": ; preds = %51, %48, %44
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4468,19 +4466,18 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h33ab8dc47dffbe5bE.exit: ; preds = 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %.sroa.06.0.i16, i64 %.sroa.2.0, i1 false), !noalias !436
   %38 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17h5d35f6374709d40cE"(i64 noundef %33, ptr noundef nonnull %37, i64 noundef %.sroa.2.0), !noalias !459
   %39 = extractvalue { ptr, i64 } %38, 0
-  %40 = icmp ne ptr %39, null
-  tail call void @llvm.assume(i1 %40), !noalias !436
-  %41 = extractvalue { ptr, i64 } %38, 1
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %39, ptr %42, align 8, !alias.scope !431, !noalias !434
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %41, ptr %43, align 8, !alias.scope !431, !noalias !434
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %39) ], !noalias !436
+  %40 = extractvalue { ptr, i64 } %38, 1
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %39, ptr %41, align 8, !alias.scope !431, !noalias !434
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %40, ptr %42, align 8, !alias.scope !431, !noalias !434
   store i64 0, ptr %6, align 8, !alias.scope !431, !noalias !434
   br label %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit19"
 
 "_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit19": ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h33ab8dc47dffbe5bE.exit, %"_ZN101_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..boxed..convert..BoxFromSlice$LT$T$GT$$GT$10from_slice17hf3ed393dd3288df5E.exit"
-  %44 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf92ba43053955ad2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
-          to label %67 unwind label %60
+  %43 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf92ba43053955ad2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
+          to label %66 unwind label %59
 
 .lr.ph.i22.preheader:                             ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4494,109 +4491,109 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h33ab8dc47dffbe5bE.exit: ; preds = 
   br label %.lr.ph.i22
 
 .lr.ph.i22:                                       ; preds = %.lr.ph.i22.preheader, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i31"
-  %.sroa.2.012.i24 = phi i64 [ %53, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i31" ], [ 0, %.lr.ph.i22.preheader ]
-  %45 = phi i64 [ %48, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i31" ], [ 20, %.lr.ph.i22.preheader ]
-  %46 = phi ptr [ %47, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i31" ], [ %.sroa.07.0.i, %.lr.ph.i22.preheader ]
-  %.sroa.0.0.sroa.speculated.i.i.i25 = tail call noundef i64 @llvm.umin.i64(i64 %45, i64 8)
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.sroa.0.0.sroa.speculated.i.i.i25
-  %48 = sub nuw i64 %45, %.sroa.0.0.sroa.speculated.i.i.i25
+  %.sroa.2.012.i24 = phi i64 [ %52, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i31" ], [ 0, %.lr.ph.i22.preheader ]
+  %44 = phi i64 [ %47, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i31" ], [ 20, %.lr.ph.i22.preheader ]
+  %45 = phi ptr [ %46, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i31" ], [ %.sroa.07.0.i, %.lr.ph.i22.preheader ]
+  %.sroa.0.0.sroa.speculated.i.i.i25 = tail call noundef i64 @llvm.umin.i64(i64 %44, i64 8)
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %.sroa.0.0.sroa.speculated.i.i.i25
+  %47 = sub nuw i64 %44, %.sroa.0.0.sroa.speculated.i.i.i25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !471), !noalias !467
   tail call void @llvm.experimental.noalias.scope.decl(metadata !474), !noalias !467
-  %49 = icmp ugt i64 %45, 7
-  br i1 %49, label %50, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h278110a56a632ddfE.exit.i.i.i26"
+  %48 = icmp ugt i64 %44, 7
+  br i1 %48, label %49, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h278110a56a632ddfE.exit.i.i.i26"
 
-50:                                               ; preds = %.lr.ph.i22
-  %.sroa.05.0.copyload.i.i.i33 = load i64, ptr %46, align 1, !alias.scope !477, !noalias !478
+49:                                               ; preds = %.lr.ph.i22
+  %.sroa.05.0.copyload.i.i.i33 = load i64, ptr %45, align 1, !alias.scope !477, !noalias !478
   br label %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17haa812b009a8b167bE.exit.i.i28"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h278110a56a632ddfE.exit.i.i.i26": ; preds = %.lr.ph.i22
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i20)
   store i64 0, ptr %.sroa.0.i.i.i20, align 8, !noalias !481
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.0.i.i.i20, ptr noundef nonnull readonly align 1 dereferenceable(1) %46, i64 range(i64 9, 8) %.sroa.0.0.sroa.speculated.i.i.i25, i1 false), !alias.scope !482, !noalias !478
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.0.i.i.i20, ptr noundef nonnull readonly align 1 dereferenceable(1) %45, i64 range(i64 9, 8) %.sroa.0.0.sroa.speculated.i.i.i25, i1 false), !alias.scope !482, !noalias !478
   %.sroa.0.i.i.i20.0..sroa.0.i.i.i20.0..sroa.0.i.i.i20.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.04.0.copyload.i.i.i27 = load i64, ptr %.sroa.0.i.i.i20, align 8, !noalias !481
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i20)
   br label %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17haa812b009a8b167bE.exit.i.i28"
 
-"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17haa812b009a8b167bE.exit.i.i28": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h278110a56a632ddfE.exit.i.i.i26", %50
-  %.sroa.0.0.i.i.i29 = phi i64 [ %.sroa.05.0.copyload.i.i.i33, %50 ], [ %.sroa.0.i.i.i20.0..sroa.0.i.i.i20.0..sroa.0.i.i.i20.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.04.0.copyload.i.i.i27, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h278110a56a632ddfE.exit.i.i.i26" ]
+"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17haa812b009a8b167bE.exit.i.i28": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h278110a56a632ddfE.exit.i.i.i26", %49
+  %.sroa.0.0.i.i.i29 = phi i64 [ %.sroa.05.0.copyload.i.i.i33, %49 ], [ %.sroa.0.i.i.i20.0..sroa.0.i.i.i20.0..sroa.0.i.i.i20.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.04.0.copyload.i.i.i27, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h278110a56a632ddfE.exit.i.i.i26" ]
   %exitcond.not.i30 = icmp eq i64 %.sroa.2.012.i24, 3
-  br i1 %exitcond.not.i30, label %51, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i31"
+  br i1 %exitcond.not.i30, label %50, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i31"
 
-51:                                               ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17haa812b009a8b167bE.exit.i.i28"
+50:                                               ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17haa812b009a8b167bE.exit.i.i28"
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef 3, i64 noundef 3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18713408902420a565912fd74e212ff2.96) #23, !noalias !486
   unreachable
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i31": ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17haa812b009a8b167bE.exit.i.i28"
-  %52 = getelementptr inbounds nuw i64, ptr %5, i64 %.sroa.2.012.i24
-  store i64 %.sroa.0.0.i.i.i29, ptr %52, align 8, !alias.scope !468, !noalias !489
-  %53 = add nuw nsw i64 %.sroa.2.012.i24, 1
-  %54 = icmp eq i64 %48, 0
-  br i1 %54, label %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit", label %.lr.ph.i22
+  %51 = getelementptr inbounds nuw i64, ptr %5, i64 %.sroa.2.012.i24
+  store i64 %.sroa.0.0.i.i.i29, ptr %51, align 8, !alias.scope !468, !noalias !489
+  %52 = add nuw nsw i64 %.sroa.2.012.i24, 1
+  %53 = icmp eq i64 %47, 0
+  br i1 %53, label %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit", label %.lr.ph.i22
 
 "_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i31"
   %.phi.trans.insert48 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre49 = load i64, ptr %.phi.trans.insert48, align 8, !noalias !467
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %56 = or i64 %.pre49, 1441151880758558720
-  store i64 %56, ptr %55, align 8, !noalias !467
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !465
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %55 = or i64 %.pre49, 1441151880758558720
+  store i64 %55, ptr %54, align 8, !noalias !467
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !465
   store i64 1, ptr %7, align 8, !alias.scope !462, !noalias !465
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !467
-  %58 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf92ba43053955ad2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
-  %.not8 = icmp eq ptr %58, null
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %.sroa.0.2 = select i1 %.not8, ptr null, ptr %59
+  %57 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf92ba43053955ad2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
+  %.not8 = icmp eq ptr %57, null
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %.sroa.0.2 = select i1 %.not8, ptr null, ptr %58
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %74
+  br label %73
 
-60:                                               ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit19"
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit19"
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !490)
-  br i1 %11, label %62, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit"
+  br i1 %11, label %61, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit"
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val1.i = load i64, ptr %63, align 8, !alias.scope !490, !noundef !8
-  %64 = icmp eq i64 %.val1.i, 0
-  br i1 %64, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit", label %65
+61:                                               ; preds = %59
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.val1.i = load i64, ptr %62, align 8, !alias.scope !490, !noundef !8
+  %63 = icmp eq i64 %.val1.i, 0
+  br i1 %63, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit", label %64
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.val.i = load ptr, ptr %66, align 8, !alias.scope !490, !nonnull !8, !noundef !8
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.val.i = load ptr, ptr %65, align 8, !alias.scope !490, !nonnull !8, !noundef !8
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, 0) %.val1.i, i64 noundef 1) #22, !noalias !490
   br label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit"
 
-67:                                               ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit19"
-  %.not = icmp eq ptr %44, null
-  %68 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %.sroa.0.0 = select i1 %.not, ptr null, ptr %68
+66:                                               ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit19"
+  %.not = icmp eq ptr %43, null
+  %67 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %.sroa.0.0 = select i1 %.not, ptr null, ptr %67
   call void @llvm.experimental.noalias.scope.decl(metadata !493)
-  br i1 %11, label %69, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit38"
+  br i1 %11, label %68, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit38"
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val1.i36 = load i64, ptr %70, align 8, !alias.scope !493, !noundef !8
-  %71 = icmp eq i64 %.val1.i36, 0
-  br i1 %71, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit38", label %72
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.val1.i36 = load i64, ptr %69, align 8, !alias.scope !493, !noundef !8
+  %70 = icmp eq i64 %.val1.i36, 0
+  br i1 %70, label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit38", label %71
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.val.i37 = load ptr, ptr %73, align 8, !alias.scope !493, !nonnull !8, !noundef !8
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.val.i37 = load ptr, ptr %72, align 8, !alias.scope !493, !nonnull !8, !noundef !8
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i37, i64 noundef range(i64 1, 0) %.val1.i36, i64 noundef 1) #22, !noalias !493
   br label %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit38"
 
-"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit38": ; preds = %67, %69, %72
+"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit38": ; preds = %66, %68, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %74
+  br label %73
 
-74:                                               ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit", %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit38"
+73:                                               ; preds = %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit", %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit38"
   %.sroa.0.1 = phi ptr [ %.sroa.0.2, %"_ZN125_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..convert..From$LT$$RF$quiche..packet..ConnectionId$GT$$GT$4from17h7c5339a5d09d5680E.exit" ], [ %.sroa.0.0, %"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit38" ]
   ret ptr %.sroa.0.1
 
-"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit": ; preds = %65, %62, %60
-  resume { ptr, i32 } %61
+"_ZN4core3ptr66drop_in_place$LT$tokio_quiche..quic..connection..map..CidOwned$GT$17h584c44d99bda09dbE.exit": ; preds = %64, %61, %59
+  resume { ptr, i32 } %60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -5044,53 +5041,51 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 17:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit"
   %18 = getelementptr i8, ptr %.val.i.i, i64 -1
-  %19 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
-  %21 = getelementptr i8, ptr %.val.i.i, i64 7
-  %22 = load ptr, ptr %21, align 8, !nonnull !8, !align !9, !noundef !8
-  %23 = getelementptr i8, ptr %22, i64 56
-  %.val = load ptr, ptr %23, align 8
-  %24 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %20)
-  %25 = extractvalue { i64, i64 } %24, 0
-  %26 = icmp eq i64 %25, -1603434527661885140
-  %27 = extractvalue { i64, i64 } %24, 1
-  %28 = icmp eq i64 %27, -4100064447034176871
-  %.sroa.0.0.i = select i1 %26, i1 %28, i1 false
-  br i1 %.sroa.0.0.i, label %29, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
+  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
+  %20 = getelementptr i8, ptr %.val.i.i, i64 7
+  %21 = load ptr, ptr %20, align 8, !nonnull !8, !align !9, !noundef !8
+  %22 = getelementptr i8, ptr %21, i64 56
+  %.val = load ptr, ptr %22, align 8
+  %23 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %19)
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = icmp eq i64 %24, -1603434527661885140
+  %26 = extractvalue { i64, i64 } %23, 1
+  %27 = icmp eq i64 %26, -4100064447034176871
+  %.sroa.0.0.i = select i1 %25, i1 %27, i1 false
+  br i1 %.sroa.0.0.i, label %28, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-29:                                               ; preds = %17
-  %.val.i = load i8, ptr %20, align 1, !range !515, !alias.scope !516, !noundef !8
-  %30 = add nsw i8 %.val.i, -6
-  %31 = icmp ult i8 %30, 5
-  %32 = icmp ne i8 %30, 2
-  tail call void @llvm.assume(i1 %32)
-  %narrow.i.i.i = select i1 %31, i8 %30, i8 2
-  switch i8 %narrow.i.i.i, label %33 [
+28:                                               ; preds = %17
+  %.val.i = load i8, ptr %19, align 1, !range !515, !alias.scope !516, !noundef !8
+  %29 = add nsw i8 %.val.i, -6
+  %30 = icmp ult i8 %29, 5
+  %31 = icmp ne i8 %29, 2
+  tail call void @llvm.assume(i1 %31)
+  %narrow.i.i.i = select i1 %30, i8 %29, i8 2
+  switch i8 %narrow.i.i.i, label %32 [
     i8 0, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
-    i8 1, label %34
-    i8 2, label %35
-    i8 3, label %36
-    i8 4, label %37
+    i8 1, label %33
+    i8 2, label %34
+    i8 3, label %35
+    i8 4, label %36
   ]
 
-33:                                               ; preds = %29
+32:                                               ; preds = %28
   unreachable
 
-34:                                               ; preds = %29
+33:                                               ; preds = %28
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-35:                                               ; preds = %29
+34:                                               ; preds = %28
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-36:                                               ; preds = %29
+35:                                               ; preds = %28
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-37:                                               ; preds = %29
+36:                                               ; preds = %28
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit": ; preds = %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i", %1, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %15, %17, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %29, %34, %35, %36, %37
-  %.sroa.02.0.i = phi i8 [ 6, %29 ], [ 10, %37 ], [ 7, %34 ], [ %.val.i, %35 ], [ 9, %36 ], [ 10, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit" ], [ 10, %17 ], [ 10, %15 ], [ 10, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit" ], [ 10, %1 ], [ 10, %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i" ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit": ; preds = %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i", %1, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %15, %17, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %28, %33, %34, %35, %36
+  %.sroa.02.0.i = phi i8 [ 6, %28 ], [ 10, %36 ], [ 7, %33 ], [ %.val.i, %34 ], [ 9, %35 ], [ 10, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit" ], [ 10, %17 ], [ 10, %15 ], [ 10, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit" ], [ 10, %1 ], [ 10, %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i" ]
   ret i8 %.sroa.02.0.i
 }
 

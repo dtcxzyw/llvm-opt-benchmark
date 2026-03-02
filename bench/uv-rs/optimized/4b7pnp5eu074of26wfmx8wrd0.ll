@@ -2741,7 +2741,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit100: ; preds = %"_ZN91_
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %137
 
-_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit105: ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6421d5db9f27fe7cE.exit106", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hbfd6b965ad2541ceE.exit.thread"
+_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit105: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hbfd6b965ad2541ceE.exit.thread", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6421d5db9f27fe7cE.exit106"
   %114 = getelementptr inbounds nuw i8, ptr %.val61, i64 24
   %115 = load ptr, ptr %114, align 8, !invariant.load !3, !noalias !584, !nonnull !3
   %116 = call noundef zeroext i1 %115(ptr noundef nonnull align 1 %.val60, ptr noalias noundef nonnull readonly align 1 @anon.ee2d0fd4581b4f4a09d9effe8f2211b8.121, i64 noundef 1), !noalias !584

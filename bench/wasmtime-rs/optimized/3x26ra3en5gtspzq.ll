@@ -1226,10 +1226,11 @@ define internal fastcc { ptr, i64 } @_ZN14cranelift_wasm15code_translator24canon
   br label %27
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h516a102f7795f837E.exit": ; preds = %"_ZN14cranelift_wasm15code_translator24canonicalise_v128_values28_$u7b$$u7b$closure$u7d$$u7d$17hce08418d7284c56aE.exit.i", %._crit_edge
-  %.sink5.i.i.pn = phi ptr [ %.sink5.i.i, %._crit_edge ], [ %2, %"_ZN14cranelift_wasm15code_translator24canonicalise_v128_values28_$u7b$$u7b$closure$u7d$$u7d$17hce08418d7284c56aE.exit.i" ]
+  %.sroa.0.0 = phi ptr [ %.sink5.i.i, %._crit_edge ], [ %2, %"_ZN14cranelift_wasm15code_translator24canonicalise_v128_values28_$u7b$$u7b$closure$u7d$$u7d$17hce08418d7284c56aE.exit.i" ]
   %.sink4.i.i.pn = phi i64 [ %.sink4.i.i, %._crit_edge ], [ %3, %"_ZN14cranelift_wasm15code_translator24canonicalise_v128_values28_$u7b$$u7b$closure$u7d$$u7d$17hce08418d7284c56aE.exit.i" ]
-  %.pn = insertvalue { ptr, i64 } poison, ptr %.sink5.i.i.pn, 0
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.merged = insertvalue { ptr, i64 } %.pn, i64 %.sink4.i.i.pn, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0) ]
   ret { ptr, i64 } %.merged
 
 ._crit_edge:                                      ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h0cd6c7733b7331b2E.exit", %14

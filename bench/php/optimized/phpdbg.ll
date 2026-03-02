@@ -359,7 +359,7 @@ define hidden void @zif_phpdbg_break_next(ptr noundef readonly captures(none) %0
   tail call void @phpdbg_set_breakpoint_opline_ex(ptr noundef nonnull %12) #27
   br label %.critedge13
 
-.critedge13:                                      ; preds = %.critedge12, %.critedge12.preheader, %.critedge, %5
+.critedge13:                                      ; preds = %.critedge12, %.critedge12.preheader, %5, %.critedge
   ret void
 }
 
@@ -478,7 +478,7 @@ define hidden void @zif_phpdbg_clear(ptr noundef readonly captures(none) %0, ptr
   tail call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 280)) #27
   br label %6
 
-6:                                                ; preds = %.critedge, %5
+6:                                                ; preds = %5, %.critedge
   ret void
 }
 
@@ -514,7 +514,7 @@ define hidden void @zif_phpdbg_color(ptr noundef readonly captures(none) %0, ptr
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.7) #27
   br label %17
 
-17:                                               ; preds = %2, %12, %16
+17:                                               ; preds = %12, %16, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -589,7 +589,7 @@ define hidden void @zif_phpdbg_start_oplog(ptr noundef readonly captures(none) %
   store ptr null, ptr %15, align 8, !tbaa !70
   br label %16
 
-16:                                               ; preds = %13, %5
+16:                                               ; preds = %5, %13
   ret void
 }
 
@@ -1164,7 +1164,7 @@ zend_hash_find_ptr.exit.thread:                   ; preds = %249, %phpdbg_add_em
   call void @zend_hash_destroy(ptr noundef nonnull %.0115) #27
   br label %269
 
-269:                                              ; preds = %2, %._crit_edge207, %268
+269:                                              ; preds = %._crit_edge207, %268, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
@@ -1442,7 +1442,7 @@ define hidden void @zif_phpdbg_end_oplog(ptr noundef readonly captures(none) %0,
   %.058 = phi ptr [ inttoptr (i64 -1 to ptr), %.thread ], [ %.159, %phpdbg_is_ignored_opcode.exit.thread ]
   %.056 = phi ptr [ null, %.thread ], [ %.157, %phpdbg_is_ignored_opcode.exit.thread ]
   %.055 = phi ptr [ null, %.thread ], [ %.2, %phpdbg_is_ignored_opcode.exit.thread ]
-  %.053 = phi ptr [ %16, %.thread ], [ %117, %phpdbg_is_ignored_opcode.exit.thread ]
+  %.053 = phi ptr [ %16, %.thread ], [ %115, %phpdbg_is_ignored_opcode.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !4
   store i32 4, ptr %31, align 8, !tbaa !4
@@ -1625,48 +1625,46 @@ phpdbg_is_ignored_opcode.exit:                    ; preds = %102
 
 108:                                              ; preds = %phpdbg_is_ignored_opcode.exit, %95
   %.054 = phi i64 [ %101, %95 ], [ %107, %phpdbg_is_ignored_opcode.exit ]
-  %109 = icmp ne ptr %.2, null
-  call void @llvm.assume(i1 %109)
-  %110 = icmp ne ptr %.161, null
-  call void @llvm.assume(i1 %110)
-  %111 = call ptr @zend_hash_index_find(ptr noundef nonnull %.2, i64 noundef %.054) #27
-  %.not83 = icmp eq ptr %111, null
-  br i1 %.not83, label %112, label %114
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.2) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.161) ]
+  %109 = call ptr @zend_hash_index_find(ptr noundef nonnull %.2, i64 noundef %.054) #27
+  %.not83 = icmp eq ptr %109, null
+  br i1 %.not83, label %110, label %112
 
-112:                                              ; preds = %108
-  %113 = call ptr @zend_hash_index_add_new(ptr noundef nonnull %.2, i64 noundef %.054, ptr noundef nonnull %6) #27
-  br label %114
+110:                                              ; preds = %108
+  %111 = call ptr @zend_hash_index_add_new(ptr noundef nonnull %.2, i64 noundef %.054, ptr noundef nonnull %6) #27
+  br label %112
 
-114:                                              ; preds = %112, %108
-  %.0 = phi ptr [ %111, %108 ], [ %113, %112 ]
-  %115 = load i64, ptr %.0, align 8, !tbaa !4
-  %116 = add nsw i64 %115, 1
-  store i64 %116, ptr %.0, align 8, !tbaa !4
+112:                                              ; preds = %110, %108
+  %.0 = phi ptr [ %109, %108 ], [ %111, %110 ]
+  %113 = load i64, ptr %.0, align 8, !tbaa !4
+  %114 = add nsw i64 %113, 1
+  store i64 %114, ptr %.0, align 8, !tbaa !4
   br label %phpdbg_is_ignored_opcode.exit.thread
 
-phpdbg_is_ignored_opcode.exit.thread:             ; preds = %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %114
+phpdbg_is_ignored_opcode.exit.thread:             ; preds = %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %102, %112
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %117 = load ptr, ptr %.053, align 8, !tbaa !70
-  %.not84 = icmp eq ptr %117, null
-  br i1 %.not84, label %118, label %34
+  %115 = load ptr, ptr %.053, align 8, !tbaa !70
+  %.not84 = icmp eq ptr %115, null
+  br i1 %.not84, label %116, label %34
 
-118:                                              ; preds = %phpdbg_is_ignored_opcode.exit.thread
+116:                                              ; preds = %phpdbg_is_ignored_opcode.exit.thread
   %.not85 = icmp eq ptr %17, null
-  br i1 %.not85, label %119, label %zend_arena_destroy.exit
+  br i1 %.not85, label %117, label %zend_arena_destroy.exit
 
-119:                                              ; preds = %118
-  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1480), align 8, !tbaa !64
-  br label %121
+117:                                              ; preds = %116
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1480), align 8, !tbaa !64
+  br label %119
 
-121:                                              ; preds = %121, %119
-  %.0.i = phi ptr [ %120, %119 ], [ %123, %121 ]
-  %122 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %123 = load ptr, ptr %122, align 8, !tbaa !63
+119:                                              ; preds = %119, %117
+  %.0.i = phi ptr [ %118, %117 ], [ %121, %119 ]
+  %120 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %121 = load ptr, ptr %120, align 8, !tbaa !63
   call void @_efree(ptr noundef %.0.i) #27
-  %.not.i87 = icmp eq ptr %123, null
-  br i1 %.not.i87, label %zend_arena_destroy.exit, label %121
+  %.not.i87 = icmp eq ptr %121, null
+  br i1 %.not.i87, label %zend_arena_destroy.exit, label %119
 
-zend_arena_destroy.exit:                          ; preds = %121, %2, %118, %13
+zend_arena_destroy.exit:                          ; preds = %119, %116, %2, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

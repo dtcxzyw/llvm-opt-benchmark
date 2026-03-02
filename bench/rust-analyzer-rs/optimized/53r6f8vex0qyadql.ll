@@ -728,45 +728,44 @@ define hidden void @"_ZN72_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..de
 
 ; Function Attrs: inlinehint nofree nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3edab1daee849156E.llvm.8124655140016113745"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #12 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %0, %1
-  br i1 %5, label %.loopexit, label %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %4 = icmp eq ptr %0, %1
+  br i1 %4, label %.loopexit, label %5
 
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub nuw i64 %7, %8
-  %10 = udiv exact i64 %9, 72
-  br label %11
+5:                                                ; preds = %3
+  %6 = ptrtoint ptr %1 to i64
+  %7 = ptrtoint ptr %0 to i64
+  %8 = sub nuw i64 %6, %7
+  %9 = udiv exact i64 %8, 72
+  br label %10
 
-11:                                               ; preds = %"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit", %6
-  %.017 = phi i64 [ %2, %6 ], [ %22, %"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit" ]
-  %.016 = phi i64 [ 0, %6 ], [ %23, %"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit" ]
-  %12 = getelementptr inbounds { i64, [8 x i64] }, ptr %0, i64 %.016
+10:                                               ; preds = %"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit", %5
+  %.017 = phi i64 [ %2, %5 ], [ %21, %"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit" ]
+  %.016 = phi i64 [ 0, %5 ], [ %22, %"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit" ]
+  %11 = getelementptr inbounds { i64, [8 x i64] }, ptr %0, i64 %.016
   tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
-  %13 = load i64, ptr %12, align 8, !range !204, !alias.scope !201, !noundef !4
-  %14 = icmp eq i64 %13, 4
-  br i1 %14, label %15, label %"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit"
+  %12 = load i64, ptr %11, align 8, !range !204, !alias.scope !201, !noundef !4
+  %13 = icmp eq i64 %12, 4
+  br i1 %13, label %14, label %"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit"
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %17 = load ptr, ptr %16, align 8, !alias.scope !201, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %19 = load i64, ptr %18, align 8, !alias.scope !201, !noundef !4
-  %20 = getelementptr inbounds { i64, [8 x i64] }, ptr %17, i64 %19
-  %21 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3edab1daee849156E.llvm.8124655140016113745"(ptr noundef nonnull %17, ptr noundef nonnull %20, i64 noundef 0), !noalias !201
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %16 = load ptr, ptr %15, align 8, !alias.scope !201, !nonnull !4, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %18 = load i64, ptr %17, align 8, !alias.scope !201, !noundef !4
+  %19 = getelementptr inbounds { i64, [8 x i64] }, ptr %16, i64 %18
+  %20 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3edab1daee849156E.llvm.8124655140016113745"(ptr noundef nonnull %16, ptr noundef nonnull %19, i64 noundef 0), !noalias !201
   br label %"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit"
 
-"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit": ; preds = %11, %15
-  %.0.i = phi i64 [ 1, %11 ], [ %21, %15 ]
-  %22 = add i64 %.0.i, %.017
-  %23 = add nuw i64 %.016, 1
-  %24 = icmp eq i64 %23, %10
-  br i1 %24, label %.loopexit, label %11
+"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit": ; preds = %10, %14
+  %.0.i = phi i64 [ 1, %10 ], [ %20, %14 ]
+  %21 = add i64 %.0.i, %.017
+  %22 = add nuw i64 %.016, 1
+  %23 = icmp eq i64 %22, %9
+  br i1 %23, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit", %3
-  %.0 = phi i64 [ %2, %3 ], [ %22, %"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit" ]
+  %.0 = phi i64 [ %2, %3 ], [ %21, %"_ZN3mbe8expander7matcher6match_5count28_$u7b$$u7b$closure$u7d$$u7d$17h5ab79a7a8fe812d7E.exit" ]
   ret i64 %.0
 }
 

@@ -1436,7 +1436,7 @@ common.resume:                                    ; preds = %.body, %.body.i
   %.sroa.2177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %80, ptr %.sroa.2177.0..sroa_idx, align 1
   store i64 3, ptr %0, align 8
-  br label %429
+  br label %428
 
 .loopexit:                                        ; preds = %56, %.noexc.i, %.preheader.i.i.i.i, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !55
@@ -1485,7 +1485,7 @@ common.resume:                                    ; preds = %.body, %.body.i
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   store i64 2, ptr %0, align 8
-  br label %429
+  br label %428
 
 129:                                              ; preds = %405, %134, %121, %_ZN19ruff_python_literal6format10parse_zero17hd5ab19d632a1583cE.exit
   %130 = landingpad { ptr, i32 }
@@ -1495,7 +1495,7 @@ common.resume:                                    ; preds = %.body, %.body.i
 .body:                                            ; preds = %141, %129
   %eh.lpad-body = phi { ptr, i32 } [ %130, %129 ], [ %142, %141 ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_literal..format..FormatPart$GT$$GT$17hfec11c24045b577cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #13
-          to label %common.resume unwind label %431
+          to label %common.resume unwind label %430
 
 .noexc:                                           ; preds = %121
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !102
@@ -1864,7 +1864,7 @@ _ZN19ruff_python_literal6format10parse_zero17hd5ab19d632a1583cE.exit: ; preds = 
   store ptr %.sroa.557.0.copyload, ptr %.sroa.260.0..sroa_idx, align 8
   %.sroa.361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.658.0.copyload, ptr %.sroa.361.0..sroa_idx, align 8
-  br label %430
+  br label %429
 
 319:                                              ; preds = %313
   %320 = getelementptr inbounds nuw i8, ptr %.sroa.557.0.copyload, i64 %.sroa.658.0.copyload
@@ -2050,13 +2050,12 @@ _ZN19ruff_python_literal6format15parse_precision17h053078140ef2fa50E.exit: ; pre
   store ptr %.sroa.11154.0, ptr %.sroa.273.0..sroa_idx, align 8
   %.sroa.374.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.15.0, ptr %.sroa.374.0..sroa_idx, align 8
-  br label %430
+  br label %429
 
 414:                                              ; preds = %411
-  %415 = icmp ne ptr %.sroa.522.0.copyload.i, null
-  call void @llvm.assume(i1 %415)
-  %416 = icmp eq i64 %.sroa.623.0.copyload.i, 0
-  br i1 %416, label %.thread244, label %.thread254
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.522.0.copyload.i) ]
+  %415 = icmp eq i64 %.sroa.623.0.copyload.i, 0
+  br i1 %415, label %.thread244, label %.thread254
 
 .thread254:                                       ; preds = %.noexc122, %402, %414
   %.sroa.15.1.ph264 = phi i64 [ %.sroa.623.0.copyload.i, %414 ], [ %.sink.i110233, %402 ], [ %.sink.i110233, %.noexc122 ]
@@ -2065,27 +2064,27 @@ _ZN19ruff_python_literal6format15parse_precision17h053078140ef2fa50E.exit: ; pre
   %.sroa.0151.0.ph261 = phi i64 [ 1, %414 ], [ 0, %402 ], [ %409, %.noexc122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @"_ZN100_$LT$ruff_python_literal..format..FormatType$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h087ae27fd165fb11E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %.sroa.11154.1.ph263, i64 noundef %.sroa.15.1.ph264)
-  %417 = load i8, ptr %14, align 8, !range !156, !noundef !4
-  %418 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %419 = load i8, ptr %418, align 1
-  %420 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %421 = load i64, ptr %420, align 8, !noundef !4
+  %416 = load i8, ptr %14, align 8, !range !156, !noundef !4
+  %417 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %418 = load i8, ptr %417, align 1
+  %419 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %420 = load i64, ptr %419, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %.not = icmp eq i8 %417, 11
-  br i1 %.not, label %425, label %423
+  %.not = icmp eq i8 %416, 11
+  br i1 %.not, label %424, label %422
 
-.thread244:                                       ; preds = %319, %"_ZN104_$LT$ruff_python_literal..format..FormatGrouping$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h3f92e33801ac9c85E.exit", %414, %423
-  %.sroa.6152.1.ph252 = phi i64 [ %.sroa.6152.1.ph262, %423 ], [ %.sroa.021.0.copyload.i, %414 ], [ undef, %"_ZN104_$LT$ruff_python_literal..format..FormatGrouping$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h3f92e33801ac9c85E.exit" ], [ undef, %319 ]
-  %.sroa.0151.0.ph251 = phi i64 [ %.sroa.0151.0.ph261, %423 ], [ 1, %414 ], [ 0, %"_ZN104_$LT$ruff_python_literal..format..FormatGrouping$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h3f92e33801ac9c85E.exit" ], [ 0, %319 ]
-  %.sink16.i225.ph250 = phi i8 [ %.sink16.i231, %423 ], [ %.sink16.i231, %414 ], [ %.sink16.i, %"_ZN104_$LT$ruff_python_literal..format..FormatGrouping$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h3f92e33801ac9c85E.exit" ], [ 2, %319 ]
-  %.sroa.075.0 = phi i8 [ %417, %423 ], [ 11, %414 ], [ 11, %"_ZN104_$LT$ruff_python_literal..format..FormatGrouping$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h3f92e33801ac9c85E.exit" ], [ 11, %319 ]
-  %.sroa.477.0 = phi i8 [ %419, %423 ], [ undef, %414 ], [ undef, %"_ZN104_$LT$ruff_python_literal..format..FormatGrouping$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h3f92e33801ac9c85E.exit" ], [ undef, %319 ]
+.thread244:                                       ; preds = %319, %"_ZN104_$LT$ruff_python_literal..format..FormatGrouping$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h3f92e33801ac9c85E.exit", %414, %422
+  %.sroa.6152.1.ph252 = phi i64 [ %.sroa.6152.1.ph262, %422 ], [ %.sroa.021.0.copyload.i, %414 ], [ undef, %"_ZN104_$LT$ruff_python_literal..format..FormatGrouping$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h3f92e33801ac9c85E.exit" ], [ undef, %319 ]
+  %.sroa.0151.0.ph251 = phi i64 [ %.sroa.0151.0.ph261, %422 ], [ 1, %414 ], [ 0, %"_ZN104_$LT$ruff_python_literal..format..FormatGrouping$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h3f92e33801ac9c85E.exit" ], [ 0, %319 ]
+  %.sink16.i225.ph250 = phi i8 [ %.sink16.i231, %422 ], [ %.sink16.i231, %414 ], [ %.sink16.i, %"_ZN104_$LT$ruff_python_literal..format..FormatGrouping$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h3f92e33801ac9c85E.exit" ], [ 2, %319 ]
+  %.sroa.075.0 = phi i8 [ %416, %422 ], [ 11, %414 ], [ 11, %"_ZN104_$LT$ruff_python_literal..format..FormatGrouping$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h3f92e33801ac9c85E.exit" ], [ 11, %319 ]
+  %.sroa.477.0 = phi i8 [ %418, %422 ], [ undef, %414 ], [ undef, %"_ZN104_$LT$ruff_python_literal..format..FormatGrouping$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h3f92e33801ac9c85E.exit" ], [ undef, %319 ]
   %.not85 = icmp eq i32 %.sink23.i, 1114112
   %or.cond = and i1 %.not85, %.sink13.i101
   %.not86 = icmp eq i8 %.sink21.i, 4
   %.sroa.045.0 = select i1 %or.cond, i32 48, i32 %.sink23.i
-  %422 = and i1 %.not86, %or.cond
-  %.sroa.047.0 = select i1 %422, i8 2, i8 %.sink21.i
+  %421 = and i1 %.not86, %or.cond
+  %.sroa.047.0 = select i1 %421, i8 2, i8 %.sink21.i
   store i64 %314, ptr %0, align 8
   %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.056.0.copyload, ptr %.sroa.433.0..sroa_idx, align 8
@@ -2110,33 +2109,33 @@ _ZN19ruff_python_literal6format15parse_precision17h053078140ef2fa50E.exit: ; pre
   %.sroa.1443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 %.sroa.047.0, ptr %.sroa.1443.0..sroa_idx, align 2
   call void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_literal..format..FormatPart$GT$$GT$17hfec11c24045b577cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  br label %428
+
+422:                                              ; preds = %.thread254
+  %423 = icmp eq i64 %420, 0
+  br i1 %423, label %.thread244, label %426
+
+424:                                              ; preds = %.thread254
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 3, ptr %425, align 8
   br label %429
 
-423:                                              ; preds = %.thread254
-  %424 = icmp eq i64 %421, 0
-  br i1 %424, label %.thread244, label %427
+426:                                              ; preds = %422
+  %427 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 2, ptr %427, align 8
+  br label %429
 
-425:                                              ; preds = %.thread254
-  %426 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 3, ptr %426, align 8
-  br label %430
-
-427:                                              ; preds = %423
-  %428 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 2, ptr %428, align 8
-  br label %430
-
-429:                                              ; preds = %115, %128, %430, %.thread244
+428:                                              ; preds = %115, %128, %429, %.thread244
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void
 
-430:                                              ; preds = %317, %_ZN19ruff_python_literal6format15parse_precision17h053078140ef2fa50E.exit, %427, %425
+429:                                              ; preds = %317, %_ZN19ruff_python_literal6format15parse_precision17h053078140ef2fa50E.exit, %426, %424
   store i64 3, ptr %0, align 8
   call void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_literal..format..FormatPart$GT$$GT$17hfec11c24045b577cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
-  br label %429
+  br label %428
 
-431:                                              ; preds = %.body
-  %432 = landingpad { ptr, i32 }
+430:                                              ; preds = %.body
+  %431 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #14
   unreachable

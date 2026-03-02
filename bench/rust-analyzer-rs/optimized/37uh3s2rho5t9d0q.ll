@@ -149,6 +149,7 @@ common.resume:                                    ; preds = %36, %19, %10
 10:                                               ; preds = %8
   %11 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ], !noalias !50
   tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef 48, i64 noundef 8) #18, !noalias !50
   br label %common.resume
 

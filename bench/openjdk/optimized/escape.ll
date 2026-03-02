@@ -518,62 +518,61 @@ define hidden void @_ZN15ConnectionGraph11do_analysisEP7CompileP12PhaseIterGVN(p
   %.0 = phi i32 [ %23, %20 ], [ 0, %2 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %26 = call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 232, ptr noundef nonnull %25) #12
-  %27 = icmp ne ptr %26, null
-  call void @llvm.assume(i1 %27)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   call void @_ZN15ConnectionGraphC2EP7CompileP12PhaseIterGVNi(ptr noundef nonnull align 8 dereferenceable(232) %26, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.0)
-  %28 = call noundef zeroext i1 @_ZN15ConnectionGraph14compute_escapeEv(ptr noundef nonnull align 8 dereferenceable(232) %26)
-  br i1 %28, label %29, label %30
+  %27 = call noundef zeroext i1 @_ZN15ConnectionGraph14compute_escapeEv(ptr noundef nonnull align 8 dereferenceable(232) %26)
+  br i1 %27, label %28, label %29
 
-29:                                               ; preds = %24
+28:                                               ; preds = %24
   store ptr %26, ptr %18, align 8
-  br label %30
+  br label %29
 
-30:                                               ; preds = %29, %24
-  %31 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %38
+29:                                               ; preds = %28, %24
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %37
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %36 = load ptr, ptr %35, align 8
-  %37 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull %16) #12
-  br label %38
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %35 = load ptr, ptr %34, align 8
+  %36 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull %16) #12
+  br label %37
 
-38:                                               ; preds = %34, %30
-  %39 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %46
+37:                                               ; preds = %33, %29
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %45
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull %17) #12
-  br label %46
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %44 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull %17) #12
+  br label %45
 
-46:                                               ; preds = %42, %38
-  %47 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i, label %49, label %48
+45:                                               ; preds = %41, %37
+  %46 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i.i.i, label %48, label %47
 
-48:                                               ; preds = %46
+47:                                               ; preds = %45
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #12
-  br label %49
+  br label %48
 
-49:                                               ; preds = %48, %46
-  %50 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %50, %11
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %51
+48:                                               ; preds = %47, %45
+  %49 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %49, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %50
 
-51:                                               ; preds = %49
+50:                                               ; preds = %48
   store ptr %9, ptr %8, align 8
   store ptr %11, ptr %10, align 8
   store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %49, %51
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %50
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %3) #12
   ret void
 }

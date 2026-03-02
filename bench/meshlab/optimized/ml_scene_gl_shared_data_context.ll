@@ -15676,8 +15676,7 @@ _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit9: ;
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %_ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit9
-  %.not = icmp ne ptr %.pre34, null
-  tail call void @llvm.assume(i1 %.not)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre34) ]
   %29 = load ptr, ptr @__glewBindBuffer, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.pre34, i64 24
   %31 = load i32, ptr %30, align 8

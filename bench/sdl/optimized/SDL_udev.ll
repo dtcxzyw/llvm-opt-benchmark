@@ -198,8 +198,7 @@ define hidden zeroext i1 @SDL_UDEV_LoadLibrary() local_unnamed_addr #0 {
   br i1 %15, label %SDL_UDEV_UnloadLibrary.exit, label %16
 
 16:                                               ; preds = %14
-  %.not.i = icmp ne ptr %.pre, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre) ]
   %17 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not2.i = icmp eq ptr %18, null

@@ -2466,69 +2466,68 @@ define hidden noundef nonnull ptr @_ZN14MethodLiveness10BasicBlock5splitEi(ptr n
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 176, ptr noundef %9) #13
-  %11 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %11)
-  %12 = load ptr, ptr %0, align 8
-  tail call void @_ZN14MethodLiveness10BasicBlockC2EPS_ii(ptr noundef nonnull align 8 dereferenceable(169) %10, ptr noundef %12, i32 noundef %4, i32 noundef %1)
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %5, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
+  %11 = load ptr, ptr %0, align 8
+  tail call void @_ZN14MethodLiveness10BasicBlockC2EPS_ii(ptr noundef nonnull align 8 dereferenceable(169) %10, ptr noundef %11, i32 noundef %4, i32 noundef %1)
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %5, align 8
   store i32 %1, ptr %3, align 8
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph.i.i.i, label %.loopexit.i.i
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.lr.ph.i.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %wide.trip.count.i.i.i = zext nneg i32 %15 to i64
-  br label %20
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %wide.trip.count.i.i.i = zext nneg i32 %14 to i64
+  br label %19
 
-19:                                               ; preds = %20
+18:                                               ; preds = %19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %20, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %19, !llvm.loop !11
 
-20:                                               ; preds = %19, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %19 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i.i.i
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, %10
-  br i1 %23, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %19
+19:                                               ; preds = %18, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %18 ]
+  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i.i.i
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, %10
+  br i1 %22, label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit, label %18
 
-.loopexit.i.i:                                    ; preds = %19, %2
-  %24 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %15, %25
-  br i1 %26, label %27, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i
+.loopexit.i.i:                                    ; preds = %18, %2
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp eq i32 %14, %24
+  br i1 %25, label %26, label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i
 
-27:                                               ; preds = %.loopexit.i.i
-  %28 = add nsw i32 %15, 1
-  %29 = icmp sgt i32 %15, -1
-  %30 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %28)
-  %31 = icmp samesign ult i32 %30, 2
-  %or.cond.i.i.i.i.i.i = select i1 %29, i1 %31, i1 false
-  %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 true)
-  %33 = sub nuw nsw i32 32, %32
-  %34 = shl nuw i32 1, %33
-  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %28, i32 %34
-  tail call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %.0.i.i.i.i.i.i)
-  %.pre.i.i.i = load i32, ptr %14, align 8
+26:                                               ; preds = %.loopexit.i.i
+  %27 = add nsw i32 %14, 1
+  %28 = icmp sgt i32 %14, -1
+  %29 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
+  %30 = icmp samesign ult i32 %29, 2
+  %or.cond.i.i.i.i.i.i = select i1 %28, i1 %30, i1 false
+  %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
+  %32 = sub nuw nsw i32 32, %31
+  %33 = shl nuw i32 1, %32
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %27, i32 %33
+  tail call void @_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %.0.i.i.i.i.i.i)
+  %.pre.i.i.i = load i32, ptr %13, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i
 
-_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i: ; preds = %27, %.loopexit.i.i
-  %35 = phi i32 [ %.pre.i.i.i, %27 ], [ %15, %.loopexit.i.i ]
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %14, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = sext i32 %35 to i64
-  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
-  store ptr %10, ptr %40, align 8
+_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i: ; preds = %26, %.loopexit.i.i
+  %34 = phi i32 [ %.pre.i.i.i, %26 ], [ %14, %.loopexit.i.i ]
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %13, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = sext i32 %34 to i64
+  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  store ptr %10, ptr %39, align 8
   br label %_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit
 
-_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit: ; preds = %20, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i
-  store ptr %6, ptr %13, align 8
+_ZN14MethodLiveness10BasicBlock22add_normal_predecessorEPS0_.exit: ; preds = %19, %_ZN26GrowableArrayWithAllocatorIPN14MethodLiveness10BasicBlockE13GrowableArrayIS2_EE6appendERKS2_.exit.i.i
+  store ptr %6, ptr %12, align 8
   ret ptr %10
 }
 

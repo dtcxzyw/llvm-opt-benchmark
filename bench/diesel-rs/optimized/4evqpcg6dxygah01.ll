@@ -2478,28 +2478,26 @@ define void @_ZN17all_about_updates15hide_everything17hfd47f7c16837509cE(ptr noa
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 @anon.7677ef7fe63393c0d74a2170710465ed.0, i64 noundef 10)
   %5 = extractvalue { ptr, i64 } %4, 0
-  %6 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = extractvalue { ptr, i64 } %4, 1
-  %8 = tail call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 @anon.7677ef7fe63393c0d74a2170710465ed.1, i64 noundef 29)
-  %9 = extractvalue { ptr, i64 } %8, 0
-  %10 = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = extractvalue { ptr, i64 } %8, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
+  %6 = extractvalue { ptr, i64 } %4, 1
+  %7 = tail call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 @anon.7677ef7fe63393c0d74a2170710465ed.1, i64 noundef 29)
+  %8 = extractvalue { ptr, i64 } %7, 0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
+  %9 = extractvalue { ptr, i64 } %7, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !406)
-  %12 = tail call { ptr, i64 } @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h7b04bb07f3008016E"(ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7), !noalias !409
-  %13 = tail call { ptr, i64 } @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h0275eab74fdbdf97E"(ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %11), !noalias !409
-  %14 = extractvalue { ptr, i64 } %12, 1
-  %15 = extractvalue { ptr, i64 } %12, 0
-  %16 = extractvalue { ptr, i64 } %13, 0
-  %17 = extractvalue { ptr, i64 } %13, 1
-  store ptr %15, ptr %3, align 8, !alias.scope !406, !noalias !414
+  %10 = tail call { ptr, i64 } @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h7b04bb07f3008016E"(ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6), !noalias !409
+  %11 = tail call { ptr, i64 } @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h0275eab74fdbdf97E"(ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %9), !noalias !409
+  %12 = extractvalue { ptr, i64 } %10, 1
+  %13 = extractvalue { ptr, i64 } %10, 0
+  %14 = extractvalue { ptr, i64 } %11, 0
+  %15 = extractvalue { ptr, i64 } %11, 1
+  store ptr %13, ptr %3, align 8, !alias.scope !406, !noalias !414
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %14, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !406, !noalias !414
+  store i64 %12, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !406, !noalias !414
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %16, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !406, !noalias !414
+  store ptr %14, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !406, !noalias !414
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %17, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !406, !noalias !414
+  store i64 %15, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !406, !noalias !414
   call void @"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count17he9dc1118094c3c37E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(128) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -2747,71 +2745,69 @@ define void @"_ZN17all_about_updates1_121_$LT$impl$u20$diesel..query_builder..up
 define void @"_ZN17all_about_updates18update_with_option1_141_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$all_about_updates..update_with_option..PostForm$GT$12as_changeset17h1ef7a5fe6bd57aafE"(ptr noalias noundef writeonly sret({ { ptr, i64 }, { ptr, i64 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %1, align 8, !align !168, !noundef !9
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %12, label %5
+  br i1 %4, label %11, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %7)
   %9 = extractvalue { ptr, i64 } %8, 0
-  %10 = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = extractvalue { ptr, i64 } %8, 1
-  br label %12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
+  %10 = extractvalue { ptr, i64 } %8, 1
+  br label %11
 
-12:                                               ; preds = %2, %5
-  %.sroa.5.0 = phi i64 [ %11, %5 ], [ undef, %2 ]
+11:                                               ; preds = %2, %5
+  %.sroa.5.0 = phi i64 [ %10, %5 ], [ undef, %2 ]
   %.sroa.0.0 = phi ptr [ %9, %5 ], [ null, %2 ]
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8, !align !168, !noundef !9
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %23, label %16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = load ptr, ptr %12, align 8, !align !168, !noundef !9
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %21, label %15
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load i64, ptr %17, align 8
-  %19 = tail call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %18)
-  %20 = extractvalue { ptr, i64 } %19, 0
-  %21 = icmp ne ptr %20, null
-  tail call void @llvm.assume(i1 %21)
-  %22 = extractvalue { ptr, i64 } %19, 1
-  br label %23
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %17 = load i64, ptr %16, align 8
+  %18 = tail call { ptr, i64 } @"_ZN6diesel10type_impls10primitives13foreign_impls1_101_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Text$GT$$u20$for$u20$$RF$str$GT$13as_expression17hc574a1644fe75e0cE"(ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %17)
+  %19 = extractvalue { ptr, i64 } %18, 0
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
+  %20 = extractvalue { ptr, i64 } %18, 1
+  br label %21
 
-23:                                               ; preds = %12, %16
-  %.sroa.04.0 = phi ptr [ %20, %16 ], [ null, %12 ]
-  %.sroa.55.0 = phi i64 [ %22, %16 ], [ undef, %12 ]
+21:                                               ; preds = %11, %15
+  %.sroa.04.0 = phi ptr [ %19, %15 ], [ null, %11 ]
+  %.sroa.55.0 = phi i64 [ %20, %15 ], [ undef, %11 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !440)
-  %24 = icmp eq ptr %.sroa.0.0, null
-  br i1 %24, label %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i", label %25
+  %22 = icmp eq ptr %.sroa.0.0, null
+  br i1 %22, label %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i", label %23
 
-25:                                               ; preds = %23
-  %26 = tail call { ptr, i64 } @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h7b04bb07f3008016E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.5.0), !noalias !443
-  %27 = extractvalue { ptr, i64 } %26, 0
-  %28 = extractvalue { ptr, i64 } %26, 1
+23:                                               ; preds = %21
+  %24 = tail call { ptr, i64 } @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h7b04bb07f3008016E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.5.0), !noalias !443
+  %25 = extractvalue { ptr, i64 } %24, 0
+  %26 = extractvalue { ptr, i64 } %24, 1
   br label %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i"
 
-"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i": ; preds = %25, %23
-  %.sroa.02.0.i.i = phi ptr [ %27, %25 ], [ null, %23 ]
-  %.sroa.33.0.i.i = phi i64 [ %28, %25 ], [ undef, %23 ]
-  %29 = icmp eq ptr %.sroa.04.0, null
-  br i1 %29, label %"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE.exit", label %30
+"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i": ; preds = %23, %21
+  %.sroa.02.0.i.i = phi ptr [ %25, %23 ], [ null, %21 ]
+  %.sroa.33.0.i.i = phi i64 [ %26, %23 ], [ undef, %21 ]
+  %27 = icmp eq ptr %.sroa.04.0, null
+  br i1 %27, label %"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE.exit", label %28
 
-30:                                               ; preds = %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i"
-  %31 = tail call { ptr, i64 } @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h0275eab74fdbdf97E"(ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.55.0), !noalias !443
-  %32 = extractvalue { ptr, i64 } %31, 0
-  %33 = extractvalue { ptr, i64 } %31, 1
+28:                                               ; preds = %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i"
+  %29 = tail call { ptr, i64 } @"_ZN137_$LT$diesel..expression..operators..Eq$LT$Left$C$Right$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h0275eab74fdbdf97E"(ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.55.0), !noalias !443
+  %30 = extractvalue { ptr, i64 } %29, 0
+  %31 = extractvalue { ptr, i64 } %29, 1
   br label %"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE.exit"
 
-"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE.exit": ; preds = %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i", %30
-  %.sroa.02.0.i2.i = phi ptr [ %32, %30 ], [ null, %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i" ]
-  %.sroa.33.0.i3.i = phi i64 [ %33, %30 ], [ undef, %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i" ]
+"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$$LP$T0$C$T1$RP$$GT$12as_changeset17h0b9e71c3760be6ceE.exit": ; preds = %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i", %28
+  %.sroa.02.0.i2.i = phi ptr [ %30, %28 ], [ null, %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i" ]
+  %.sroa.33.0.i3.i = phi i64 [ %31, %28 ], [ undef, %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i" ]
   store ptr %.sroa.02.0.i.i, ptr %0, align 8, !alias.scope !440, !noalias !445
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.33.0.i.i, ptr %34, align 8, !alias.scope !440, !noalias !445
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.02.0.i2.i, ptr %35, align 8, !alias.scope !440, !noalias !445
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.33.0.i3.i, ptr %36, align 8, !alias.scope !440, !noalias !445
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.33.0.i.i, ptr %32, align 8, !alias.scope !440, !noalias !445
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.02.0.i2.i, ptr %33, align 8, !alias.scope !440, !noalias !445
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.33.0.i3.i, ptr %34, align 8, !alias.scope !440, !noalias !445
   ret void
 }
 

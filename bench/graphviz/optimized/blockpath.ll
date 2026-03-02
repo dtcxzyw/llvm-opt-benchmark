@@ -1253,8 +1253,7 @@ measure_distance.exit.i:                          ; preds = %tailrecurse.i.i, %5
 
 ._crit_edge92.i:                                  ; preds = %measure_distance.exit.i, %495
   %558 = call ptr @agfstnode(ptr noundef %443) #22, !noalias !81
-  %.not4993.i = icmp ne ptr %558, null
-  call void @llvm.assume(i1 %.not4993.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %558) ]
   br label %.lr.ph98.i
 
 .lr.ph98.i:                                       ; preds = %.lr.ph98.i, %._crit_edge92.i

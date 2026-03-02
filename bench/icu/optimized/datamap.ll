@@ -161,37 +161,36 @@ define void @_ZN9RBDataMapC2Ev(ptr noundef nonnull writeonly align 8 captures(no
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !21
   %3 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 88) #16
-  %4 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   store ptr null, ptr %3, align 8, !tbaa !14
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = invoke ptr @uhash_init_77(ptr noundef nonnull %5, ptr noundef nonnull @uhash_hashCaselessUnicodeString_77, ptr noundef nonnull @uhash_compareCaselessUnicodeString_77, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.noexc unwind label %14
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = invoke ptr @uhash_init_77(ptr noundef nonnull %4, ptr noundef nonnull @uhash_hashCaselessUnicodeString_77, ptr noundef nonnull @uhash_compareCaselessUnicodeString_77, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %2)
+          to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %1
-  %7 = load i32, ptr %2, align 4, !tbaa !21
-  %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit, label %9
+  %6 = load i32, ptr %2, align 4, !tbaa !21
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit, label %8
 
-9:                                                ; preds = %.noexc
-  store ptr %5, ptr %3, align 8, !tbaa !14
-  %10 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %5, ptr noundef nonnull @uprv_deleteUObject_77)
-          to label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit unwind label %14
+8:                                                ; preds = %.noexc
+  store ptr %4, ptr %3, align 8, !tbaa !14
+  %9 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %4, ptr noundef nonnull @uprv_deleteUObject_77)
+          to label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit unwind label %13
 
-_ZN6icu_779HashtableC2EaR10UErrorCode.exit:       ; preds = %.noexc, %9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %11, align 8, !tbaa !9
-  %12 = load ptr, ptr %3, align 8, !tbaa !14
-  %13 = call noundef ptr @uhash_setValueDeleter_77(ptr noundef %12, ptr noundef nonnull @deleteResBund)
+_ZN6icu_779HashtableC2EaR10UErrorCode.exit:       ; preds = %.noexc, %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %3, ptr %10, align 8, !tbaa !9
+  %11 = load ptr, ptr %3, align 8, !tbaa !14
+  %12 = call noundef ptr @uhash_setValueDeleter_77(ptr noundef %11, ptr noundef nonnull @deleteResBund)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-14:                                               ; preds = %9, %1
-  %15 = landingpad { ptr, i32 }
+13:                                               ; preds = %8, %1
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: nounwind
@@ -203,41 +202,40 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN9RBDataMapC2EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV9RBDataMap, i64 16), ptr %0, align 8, !tbaa !3
   %4 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 88) #16
-  %5 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %5)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   store ptr null, ptr %4, align 8, !tbaa !14
-  %6 = load i32, ptr %2, align 4, !tbaa !21
-  %7 = icmp slt i32 %6, 1
-  br i1 %7, label %8, label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit
+  %5 = load i32, ptr %2, align 4, !tbaa !21
+  %6 = icmp slt i32 %5, 1
+  br i1 %6, label %7, label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = invoke ptr @uhash_init_77(ptr noundef nonnull %9, ptr noundef nonnull @uhash_hashCaselessUnicodeString_77, ptr noundef nonnull @uhash_compareCaselessUnicodeString_77, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.noexc unwind label %18
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = invoke ptr @uhash_init_77(ptr noundef nonnull %8, ptr noundef nonnull @uhash_hashCaselessUnicodeString_77, ptr noundef nonnull @uhash_compareCaselessUnicodeString_77, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %2)
+          to label %.noexc unwind label %17
 
-.noexc:                                           ; preds = %8
-  %11 = load i32, ptr %2, align 4, !tbaa !21
-  %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit, label %13
+.noexc:                                           ; preds = %7
+  %10 = load i32, ptr %2, align 4, !tbaa !21
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit, label %12
 
-13:                                               ; preds = %.noexc
-  store ptr %9, ptr %4, align 8, !tbaa !14
-  %14 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %9, ptr noundef nonnull @uprv_deleteUObject_77)
-          to label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit unwind label %18
+12:                                               ; preds = %.noexc
+  store ptr %8, ptr %4, align 8, !tbaa !14
+  %13 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %8, ptr noundef nonnull @uprv_deleteUObject_77)
+          to label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit unwind label %17
 
-_ZN6icu_779HashtableC2EaR10UErrorCode.exit:       ; preds = %.noexc, %3, %13
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %4, ptr %15, align 8, !tbaa !9
-  %16 = load ptr, ptr %4, align 8, !tbaa !14
-  %17 = tail call noundef ptr @uhash_setValueDeleter_77(ptr noundef %16, ptr noundef nonnull @deleteResBund)
+_ZN6icu_779HashtableC2EaR10UErrorCode.exit:       ; preds = %.noexc, %3, %12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %4, ptr %14, align 8, !tbaa !9
+  %15 = load ptr, ptr %4, align 8, !tbaa !14
+  %16 = tail call noundef ptr @uhash_setValueDeleter_77(ptr noundef %15, ptr noundef nonnull @deleteResBund)
   tail call void @_ZN9RBDataMap4initEP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   ret void
 
-18:                                               ; preds = %13, %8
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %12, %7
+  %18 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %4) #16
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -322,41 +320,40 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %2
 define void @_ZN9RBDataMapC2EP15UResourceBundleS1_R10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV9RBDataMap, i64 16), ptr %0, align 8, !tbaa !3
   %5 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 88) #16
-  %6 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   store ptr null, ptr %5, align 8, !tbaa !14
-  %7 = load i32, ptr %3, align 4, !tbaa !21
-  %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit
+  %6 = load i32, ptr %3, align 4, !tbaa !21
+  %7 = icmp slt i32 %6, 1
+  br i1 %7, label %8, label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = invoke ptr @uhash_init_77(ptr noundef nonnull %10, ptr noundef nonnull @uhash_hashCaselessUnicodeString_77, ptr noundef nonnull @uhash_compareCaselessUnicodeString_77, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %.noexc unwind label %19
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = invoke ptr @uhash_init_77(ptr noundef nonnull %9, ptr noundef nonnull @uhash_hashCaselessUnicodeString_77, ptr noundef nonnull @uhash_compareCaselessUnicodeString_77, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %.noexc unwind label %18
 
-.noexc:                                           ; preds = %9
-  %12 = load i32, ptr %3, align 4, !tbaa !21
-  %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit, label %14
+.noexc:                                           ; preds = %8
+  %11 = load i32, ptr %3, align 4, !tbaa !21
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit, label %13
 
-14:                                               ; preds = %.noexc
-  store ptr %10, ptr %5, align 8, !tbaa !14
-  %15 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %10, ptr noundef nonnull @uprv_deleteUObject_77)
-          to label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit unwind label %19
+13:                                               ; preds = %.noexc
+  store ptr %9, ptr %5, align 8, !tbaa !14
+  %14 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %9, ptr noundef nonnull @uprv_deleteUObject_77)
+          to label %_ZN6icu_779HashtableC2EaR10UErrorCode.exit unwind label %18
 
-_ZN6icu_779HashtableC2EaR10UErrorCode.exit:       ; preds = %.noexc, %4, %14
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %16, align 8, !tbaa !9
-  %17 = load ptr, ptr %5, align 8, !tbaa !14
-  %18 = tail call noundef ptr @uhash_setValueDeleter_77(ptr noundef %17, ptr noundef nonnull @deleteResBund)
+_ZN6icu_779HashtableC2EaR10UErrorCode.exit:       ; preds = %.noexc, %4, %13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %5, ptr %15, align 8, !tbaa !9
+  %16 = load ptr, ptr %5, align 8, !tbaa !14
+  %17 = tail call noundef ptr @uhash_setValueDeleter_77(ptr noundef %16, ptr noundef nonnull @deleteResBund)
   tail call void @_ZN9RBDataMap4initEP15UResourceBundleS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   ret void
 
-19:                                               ; preds = %14, %9
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %13, %8
+  %19 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %5) #16
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable

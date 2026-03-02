@@ -45,13 +45,13 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr noundef nonnull
   %7 = call ptr @jpeg_std_error(ptr noundef nonnull %6)
   store ptr %7, ptr %4, align 8, !tbaa !6
   store ptr @_ZN8rawspeed12_GLOBAL__N_114my_error_throwEP18jpeg_common_struct, ptr %6, align 8, !tbaa !36
-  %8 = load ptr, ptr %0, align 8, !tbaa !40, !nonnull !42, !noundef !42
+  %8 = load ptr, ptr %0, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !43
+  %10 = load i32, ptr %9, align 8, !tbaa !42
   %11 = icmp sgt i32 %10, -1
   call void @llvm.assume(i1 %11)
   %12 = zext nneg i32 %10 to i64
-  invoke void @jpeg_mem_src(ptr noundef nonnull %4, ptr noundef nonnull %8, i64 noundef %12)
+  invoke void @jpeg_mem_src(ptr noundef nonnull %4, ptr noundef %8, i64 noundef %12)
           to label %13 unwind label %16
 
 13:                                               ; preds = %3
@@ -65,7 +65,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr noundef nonnull
 16:                                               ; preds = %.invoke, %18, %13, %3
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
+  br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit45
 
 18:                                               ; preds = %15
   %19 = invoke i32 @jpeg_start_decompress(ptr noundef nonnull %4)
@@ -73,11 +73,11 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr noundef nonnull
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 148
-  %22 = load i32, ptr %21, align 4, !tbaa !44
+  %22 = load i32, ptr %21, align 4, !tbaa !43
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !45
+  %24 = load ptr, ptr %23, align 8, !tbaa !44
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 584
-  %26 = load i32, ptr %25, align 8, !tbaa !50
+  %26 = load i32, ptr %25, align 8, !tbaa !49
   %.not24 = icmp eq i32 %22, %26
   br i1 %.not24, label %28, label %.invoke
 
@@ -91,237 +91,246 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr noundef nonnull
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %30 = load i32, ptr %29, align 8, !tbaa !113
+  %30 = load i32, ptr %29, align 8, !tbaa !112
   %31 = mul i32 %30, %22
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 140
-  %33 = load i32, ptr %32, align 4, !tbaa !114
+  %33 = load i32, ptr %32, align 4, !tbaa !113
   %34 = mul i32 %33, %31
   %35 = zext i32 %34 to i64
-  %.not146 = icmp ne i32 %34, 0
-  br i1 %.not146, label %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit.i.i, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit
+  %.not122 = icmp ne i32 %34, 0
+  br i1 %.not122, label %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit.i.i, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit
 
 _ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit.i.i: ; preds = %28
   %36 = invoke noalias noundef nonnull align 16 ptr @_ZnwmSt11align_val_t(i64 noundef %35, i64 noundef 16) #19
-          to label %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i unwind label %.thread141
+          to label %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i unwind label %.thread
 
 _ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i: ; preds = %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %36, i8 0, i64 %35, i1 false), !tbaa !115
-  %.pre = load i32, ptr %21, align 4, !tbaa !44
-  %.pre158 = load i32, ptr %29, align 8, !tbaa !113
-  %.pre159 = load i32, ptr %32, align 4, !tbaa !114
-  %.pre160 = mul i32 %.pre158, %.pre
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %36, i8 0, i64 %35, i1 false), !tbaa !114
+  %.pre = load i32, ptr %21, align 4, !tbaa !43
+  %.pre135 = load i32, ptr %29, align 8, !tbaa !112
+  %.pre136 = load i32, ptr %32, align 4, !tbaa !113
+  %.pre137 = mul i32 %.pre135, %.pre
   br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit
 
 _ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit: ; preds = %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i, %28
-  %.pre-phi = phi i32 [ %.pre160, %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i ], [ %31, %28 ]
-  %37 = phi i32 [ %.pre159, %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i ], [ %33, %28 ]
-  %.sroa.0103.1 = phi ptr [ %36, %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i ], [ null, %28 ]
-  %38 = icmp ne ptr %.sroa.0103.1, null
+  %.pre-phi = phi i32 [ %.pre137, %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i ], [ %31, %28 ]
+  %37 = phi i32 [ %.pre136, %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i ], [ %33, %28 ]
+  %.sroa.093.1 = phi ptr [ %36, %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit.i.i ], [ null, %28 ]
+  %38 = icmp sgt i32 %37, -1
   call void @llvm.assume(i1 %38)
-  %39 = icmp sgt i32 %37, -1
+  %39 = icmp ne i32 %31, 0
   call void @llvm.assume(i1 %39)
-  %40 = icmp ne i32 %31, 0
+  %40 = icmp sgt i32 %31, -1
   call void @llvm.assume(i1 %40)
-  %41 = icmp sgt i32 %31, -1
+  %41 = icmp samesign uge i32 %31, %.pre-phi
   call void @llvm.assume(i1 %41)
-  %42 = icmp samesign uge i32 %31, %.pre-phi
-  call void @llvm.assume(i1 %42)
-  %43 = icmp ne i32 %37, 0
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %45 = load i32, ptr %44, align 8, !tbaa !116
-  %46 = icmp ult i32 %45, %37
-  br i1 %46, label %.lr.ph, label %._crit_edge
+  %42 = icmp ne i32 %37, 0
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %44 = load i32, ptr %43, align 8, !tbaa !115
+  %45 = icmp ult i32 %44, %37
+  br i1 %45, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit
-  call void @llvm.assume(i1 %43)
-  br label %47
+  call void @llvm.assume(i1 %42)
+  br label %46
 
-47:                                               ; preds = %.lr.ph, %62
-  %48 = phi i32 [ %45, %.lr.ph ], [ %63, %62 ]
+46:                                               ; preds = %.lr.ph, %61
+  %47 = phi i32 [ %44, %.lr.ph ], [ %62, %61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %49 = icmp samesign ult i32 %48, %37
-  call void @llvm.assume(i1 %49)
-  %50 = mul nuw nsw i32 %48, %31
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0103.1, i64 %51
-  store ptr %52, ptr %5, align 8, !tbaa !117
-  %53 = invoke i32 @jpeg_read_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
-          to label %54 unwind label %.loopexit
+  %48 = icmp samesign ult i32 %47, %37
+  call void @llvm.assume(i1 %48)
+  %49 = mul nuw nsw i32 %47, %31
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.093.1, i64 %50
+  store ptr %51, ptr %5, align 8, !tbaa !116
+  %52 = invoke i32 @jpeg_read_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
+          to label %53 unwind label %.loopexit
 
-54:                                               ; preds = %47
-  %55 = icmp eq i32 %53, 0
-  br i1 %55, label %56, label %62
+53:                                               ; preds = %46
+  %54 = icmp eq i32 %52, 0
+  br i1 %54, label %55, label %61
 
-56:                                               ; preds = %54
+55:                                               ; preds = %53
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed16JpegDecompressor6decodeEjj) #13
-          to label %57 unwind label %.loopexit.split-lp
+          to label %56 unwind label %.loopexit.split-lp
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   unreachable
 
-.thread141:                                       ; preds = %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit.i.i
-  %58 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit.i.i
+  %57 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
+  br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit45
 
-59:                                               ; preds = %._crit_edge
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %._crit_edge
+  %59 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread
+  br label %124
 
-.loopexit:                                        ; preds = %47
+.loopexit:                                        ; preds = %46
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %61
+  br label %60
 
-.loopexit.split-lp:                               ; preds = %56
+.loopexit.split-lp:                               ; preds = %55
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %61
+  br label %60
 
-61:                                               ; preds = %.loopexit.split-lp, %.loopexit
+60:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread
+  br label %124
 
-62:                                               ; preds = %54
+61:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %63 = load i32, ptr %44, align 8, !tbaa !116
-  %64 = load i32, ptr %32, align 4, !tbaa !114
-  %65 = icmp ult i32 %63, %64
-  br i1 %65, label %47, label %._crit_edge, !llvm.loop !118
+  %62 = load i32, ptr %43, align 8, !tbaa !115
+  %63 = load i32, ptr %32, align 4, !tbaa !113
+  %64 = icmp ult i32 %62, %63
+  br i1 %64, label %46, label %._crit_edge, !llvm.loop !117
 
-._crit_edge:                                      ; preds = %62, %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit
-  %66 = invoke i32 @jpeg_finish_decompress(ptr noundef nonnull %4)
-          to label %67 unwind label %59
+._crit_edge:                                      ; preds = %61, %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit
+  %65 = invoke i32 @jpeg_finish_decompress(ptr noundef nonnull %4)
+          to label %66 unwind label %58
 
-67:                                               ; preds = %._crit_edge
-  %68 = load ptr, ptr %23, align 8, !tbaa !45
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %70 = load i32, ptr %69, align 8, !tbaa !120
-  %71 = load i32, ptr %29, align 8, !tbaa !121
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 44
-  %73 = load i32, ptr %72, align 4, !tbaa !122
-  %74 = sub i32 %73, %2
-  %75 = load i32, ptr %32, align 4, !tbaa !121
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %75, i32 %74)
-  %76 = getelementptr inbounds nuw i8, ptr %68, i64 560
-  %77 = load ptr, ptr %76, align 8, !tbaa !123, !noalias !124, !nonnull !42, !noundef !42
-  %78 = getelementptr inbounds nuw i8, ptr %68, i64 584
-  %79 = load i32, ptr %78, align 8, !tbaa !50, !noalias !124
-  %80 = getelementptr inbounds nuw i8, ptr %68, i64 600
-  %81 = load i32, ptr %80, align 8, !tbaa !127, !noalias !124
-  %82 = mul nsw i32 %81, %79
-  %83 = getelementptr inbounds nuw i8, ptr %68, i64 604
-  %84 = load i32, ptr %83, align 4, !tbaa !128, !noalias !124
-  %85 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  %86 = load i32, ptr %85, align 8, !tbaa !129, !noalias !124
-  %87 = ashr i32 %86, 1
-  %88 = icmp ne i32 %87, 0
+66:                                               ; preds = %._crit_edge
+  %67 = load ptr, ptr %23, align 8, !tbaa !44
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
+  %69 = load i32, ptr %68, align 8, !tbaa !119
+  %70 = load i32, ptr %29, align 8, !tbaa !120
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 44
+  %72 = load i32, ptr %71, align 4, !tbaa !121
+  %73 = sub i32 %72, %2
+  %74 = load i32, ptr %32, align 4, !tbaa !120
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %74, i32 %73)
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 560
+  %76 = load ptr, ptr %75, align 8, !tbaa !122, !noalias !123
+  %77 = getelementptr inbounds nuw i8, ptr %67, i64 584
+  %78 = load i32, ptr %77, align 8, !tbaa !49, !noalias !123
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 600
+  %80 = load i32, ptr %79, align 8, !tbaa !126, !noalias !123
+  %81 = mul nsw i32 %80, %78
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 604
+  %83 = load i32, ptr %82, align 4, !tbaa !127, !noalias !123
+  %84 = getelementptr inbounds nuw i8, ptr %67, i64 48
+  %85 = load i32, ptr %84, align 8, !tbaa !128, !noalias !123
+  %86 = ashr i32 %85, 1
+  %87 = icmp ne i32 %86, 0
+  call void @llvm.assume(i1 %87)
+  %88 = icmp sgt i32 %86, -1
   call void @llvm.assume(i1 %88)
-  %89 = icmp sgt i32 %87, -1
+  %89 = icmp samesign uge i32 %86, %81
   call void @llvm.assume(i1 %89)
-  %90 = icmp samesign uge i32 %87, %82
-  call void @llvm.assume(i1 %90)
-  %91 = icmp sgt i32 %.sroa.speculated, 0
-  br i1 %91, label %.preheader.lr.ph, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
+  %90 = icmp sgt i32 %.sroa.speculated, 0
+  br i1 %90, label %.preheader.lr.ph, label %._crit_edge127
 
-.preheader.lr.ph:                                 ; preds = %67
-  %92 = sub i32 %70, %1
-  %.sroa.speculated63 = call i32 @llvm.umin.i32(i32 %71, i32 %92)
-  %93 = load i32, ptr %21, align 4, !tbaa !44
-  %94 = mul nsw i32 %93, %.sroa.speculated63
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.preheader.us.preheader, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
+.preheader.lr.ph:                                 ; preds = %66
+  %91 = sub i32 %69, %1
+  %.sroa.speculated61 = call i32 @llvm.umin.i32(i32 %70, i32 %91)
+  %92 = load i32, ptr %21, align 4, !tbaa !43
+  %93 = mul nsw i32 %92, %.sroa.speculated61
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %.preheader.us.preheader, label %._crit_edge127
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %96 = mul i32 %93, %1
-  %97 = zext nneg i32 %.pre-phi to i64
-  %98 = zext i32 %96 to i64
-  %99 = zext nneg i32 %82 to i64
-  %100 = zext nneg i32 %37 to i64
-  %101 = zext nneg i32 %31 to i64
-  %wide.trip.count156 = zext nneg i32 %.sroa.speculated to i64
-  %wide.trip.count = zext nneg i32 %94 to i64
+  %95 = mul i32 %92, %1
+  %96 = zext nneg i32 %.pre-phi to i64
+  %97 = zext i32 %95 to i64
+  %98 = zext nneg i32 %81 to i64
+  %99 = zext nneg i32 %37 to i64
+  %100 = zext nneg i32 %31 to i64
+  %wide.trip.count133 = zext nneg i32 %.sroa.speculated to i64
+  %wide.trip.count = zext nneg i32 %93 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge149.us
-  %indvars.iv153 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next154, %._crit_edge149.us ]
-  %102 = icmp samesign ult i64 %indvars.iv153, %100
-  call void @llvm.assume(i1 %102)
-  %103 = mul nuw nsw i64 %indvars.iv153, %101
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0103.1, i64 %103
-  %105 = trunc nuw nsw i64 %indvars.iv153 to i32
-  %106 = add i32 %2, %105
-  %107 = icmp sgt i32 %106, -1
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge125.us
+  %indvars.iv130 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next131, %._crit_edge125.us ]
+  %101 = icmp samesign ult i64 %indvars.iv130, %99
+  call void @llvm.assume(i1 %101)
+  %102 = mul nuw nsw i64 %indvars.iv130, %100
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.093.1, i64 %102
+  %104 = trunc nuw nsw i64 %indvars.iv130 to i32
+  %105 = add i32 %2, %104
+  %106 = icmp sgt i32 %105, -1
+  call void @llvm.assume(i1 %106)
+  %107 = icmp samesign ult i32 %105, %83
   call void @llvm.assume(i1 %107)
-  %108 = icmp samesign ult i32 %106, %84
-  call void @llvm.assume(i1 %108)
-  %109 = mul nuw nsw i32 %106, %87
-  %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw i16, ptr %77, i64 %110
-  br label %112
+  %108 = mul nuw nsw i32 %105, %86
+  %109 = zext nneg i32 %108 to i64
+  %110 = getelementptr inbounds nuw i16, ptr %76, i64 %109
+  br label %111
 
-112:                                              ; preds = %.preheader.us, %112
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %112 ]
-  %113 = icmp samesign ult i64 %indvars.iv, %97
-  call void @llvm.assume(i1 %113)
-  %114 = getelementptr inbounds nuw i8, ptr %104, i64 %indvars.iv
-  %115 = load i8, ptr %114, align 1, !tbaa !115
-  %116 = add nuw nsw i64 %indvars.iv, %98
-  %117 = and i64 %116, 2147483648
-  %118 = icmp eq i64 %117, 0
+111:                                              ; preds = %.preheader.us, %111
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %111 ]
+  %112 = icmp samesign ult i64 %indvars.iv, %96
+  call void @llvm.assume(i1 %112)
+  %113 = getelementptr inbounds nuw i8, ptr %103, i64 %indvars.iv
+  %114 = load i8, ptr %113, align 1, !tbaa !114
+  %115 = add nuw nsw i64 %indvars.iv, %97
+  %116 = and i64 %115, 2147483648
+  %117 = icmp eq i64 %116, 0
+  call void @llvm.assume(i1 %117)
+  %118 = icmp samesign ult i64 %115, %98
   call void @llvm.assume(i1 %118)
-  %119 = icmp samesign ult i64 %116, %99
-  call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds nuw i16, ptr %111, i64 %116
-  %121 = zext i8 %115 to i16
-  store i16 %121, ptr %120, align 2, !tbaa !130
+  %119 = getelementptr inbounds nuw i16, ptr %110, i64 %115
+  %120 = zext i8 %114 to i16
+  store i16 %120, ptr %119, align 2, !tbaa !129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge149.us, label %112, !llvm.loop !131
+  br i1 %exitcond.not, label %._crit_edge125.us, label %111, !llvm.loop !130
 
-._crit_edge149.us:                                ; preds = %112
-  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
-  br i1 %exitcond157.not, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit, label %.preheader.us, !llvm.loop !132
+._crit_edge125.us:                                ; preds = %111
+  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
+  %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
+  br i1 %exitcond134.not, label %._crit_edge127.thread, label %.preheader.us, !llvm.loop !131
 
-_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit: ; preds = %._crit_edge149.us, %.preheader.lr.ph, %67
-  call void @llvm.assume(i1 %.not146)
-  call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %.sroa.0103.1, i64 noundef 16) #20
+._crit_edge127:                                   ; preds = %.preheader.lr.ph, %66
+  %.not.i.i.i = icmp eq ptr %.sroa.093.1, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit, label %._crit_edge127.thread
+
+._crit_edge127.thread:                            ; preds = %._crit_edge125.us, %._crit_edge127
+  call void @llvm.assume(i1 %.not122)
+  call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %.sroa.093.1, i64 noundef 16) #20
+  br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
+
+_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit: ; preds = %._crit_edge127, %._crit_edge127.thread
   invoke void @jpeg_destroy_decompress(ptr noundef nonnull align 8 dereferenceable(824) %4)
-          to label %_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit unwind label %122
+          to label %_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit unwind label %121
 
-122:                                              ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
-  %123 = landingpad { ptr, i32 }
+121:                                              ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
+  %122 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #21
+  %123 = extractvalue { ptr, i32 } %122, 0
+  call void @__clang_call_terminate(ptr %123) #21
   unreachable
 
 _ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit: ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-.thread:                                          ; preds = %59, %61
-  %.pn.pn139 = phi { ptr, i32 } [ %lpad.phi, %61 ], [ %60, %59 ]
-  call void @llvm.assume(i1 %.not146)
-  call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %.sroa.0103.1, i64 noundef 16) #20
-  br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
+124:                                              ; preds = %58, %60
+  %.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %lpad.phi, %60 ]
+  %.not.i.i.i44 = icmp eq ptr %.sroa.093.1, null
+  br i1 %.not.i.i.i44, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit45, label %125
 
-_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43: ; preds = %.thread, %.thread141, %16
-  %.pn27 = phi { ptr, i32 } [ %17, %16 ], [ %58, %.thread141 ], [ %.pn.pn139, %.thread ]
+125:                                              ; preds = %124
+  call void @llvm.assume(i1 %.not122)
+  call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %.sroa.093.1, i64 noundef 16) #20
+  br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit45
+
+_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit45: ; preds = %125, %124, %.thread, %16
+  %.pn27 = phi { ptr, i32 } [ %17, %16 ], [ %57, %.thread ], [ %.pn.pn, %124 ], [ %.pn.pn, %125 ]
   invoke void @jpeg_destroy_decompress(ptr noundef nonnull align 8 dereferenceable(824) %4)
-          to label %_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit44 unwind label %125
+          to label %_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit46 unwind label %126
 
-125:                                              ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
-  %126 = landingpad { ptr, i32 }
+126:                                              ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit45
+  %127 = landingpad { ptr, i32 }
           catch ptr null
-  %127 = extractvalue { ptr, i32 } %126, 0
-  call void @__clang_call_terminate(ptr %127) #21
+  %128 = extractvalue { ptr, i32 } %127, 0
+  call void @__clang_call_terminate(ptr %128) #21
   unreachable
 
-_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit44: ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
+_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit46: ; preds = %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit45
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn27
 }
@@ -372,9 +381,9 @@ define internal void @_ZN8rawspeed12_GLOBAL__N_114my_error_throwEP18jpeg_common_
   %2 = alloca %"struct.std::array.48", align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(200) %2, i8 0, i64 200, i1 false)
-  %3 = load ptr, ptr %0, align 8, !tbaa !133
+  %3 = load ptr, ptr %0, align 8, !tbaa !132
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !135
+  %5 = load ptr, ptr %4, align 8, !tbaa !134
   call void %5(ptr noundef nonnull %0, ptr noundef nonnull %2)
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed12_GLOBAL__N_114my_error_throwEP18jpeg_common_struct, ptr noundef nonnull %2) #13
   unreachable
@@ -420,7 +429,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: cold mustprogress noinline optsize uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !135
   invoke void @_ZN8rawspeed17RawspeedException3logEPKc(ptr noundef %1) #23
           to label %3 unwind label %4
 
@@ -455,7 +464,7 @@ declare void @jpeg_destroy_decompress(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed19RawDecoderExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #15 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #23
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed19RawDecoderExceptionE, i64 16), ptr %0, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed19RawDecoderExceptionE, i64 16), ptr %0, align 8, !tbaa !135
   ret void
 }
 
@@ -541,99 +550,98 @@ attributes #23 = { cold }
 !39 = !{!"long", !10, i64 0}
 !40 = !{!41, !24, i64 0}
 !41 = !{!"_ZTSN8rawspeed6BufferE", !24, i64 0, !14, i64 8}
-!42 = !{}
-!43 = !{!41, !14, i64 8}
-!44 = !{!7, !14, i64 148}
-!45 = !{!46, !47, i64 0}
-!46 = !{!"_ZTSSt12__shared_ptrIN8rawspeed12RawImageDataELN9__gnu_cxx12_Lock_policyE2EE", !47, i64 0, !48, i64 8}
-!47 = !{!"p1 _ZTSN8rawspeed12RawImageDataE", !9, i64 0}
-!48 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !49, i64 0}
-!49 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0}
-!50 = !{!51, !14, i64 584}
-!51 = !{!"_ZTSN8rawspeed12RawImageDataE", !52, i64 8, !59, i64 40, !14, i64 48, !14, i64 52, !60, i64 56, !61, i64 64, !14, i64 96, !66, i64 100, !67, i64 120, !72, i64 160, !77, i64 168, !82, i64 192, !86, i64 216, !14, i64 240, !60, i64 244, !90, i64 248, !53, i64 544, !99, i64 545, !100, i64 552, !14, i64 584, !14, i64 588, !59, i64 592, !59, i64 600, !106, i64 608}
-!52 = !{!"_ZTSN8rawspeed8ErrorLogE", !53, i64 0, !54, i64 8}
-!53 = !{!"_ZTSN8rawspeed5MutexE"}
-!54 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !55, i64 0}
-!55 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !56, i64 0}
-!56 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !57, i64 0}
-!57 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !58, i64 0, !58, i64 8, !58, i64 16}
-!58 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !9, i64 0}
-!59 = !{!"_ZTSN8rawspeed8iPoint2DE", !14, i64 0, !14, i64 4}
-!60 = !{!"bool", !10, i64 0}
-!61 = !{!"_ZTSN8rawspeed16ColorFilterArrayE", !62, i64 0, !59, i64 24}
-!62 = !{!"_ZTSSt6vectorIN8rawspeed8CFAColorESaIS1_EE", !63, i64 0}
-!63 = !{!"_ZTSSt12_Vector_baseIN8rawspeed8CFAColorESaIS1_EE", !64, i64 0}
-!64 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed8CFAColorESaIS1_EE12_Vector_implE", !65, i64 0}
-!65 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed8CFAColorESaIS1_EE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
-!66 = !{!"_ZTSSt5arrayIiLm4EE", !10, i64 0}
-!67 = !{!"_ZTSN8rawspeed8OptionalINS_10Array2DRefIiEEEE", !68, i64 0}
-!68 = !{!"_ZTSSt8optionalIN8rawspeed10Array2DRefIiEEE", !69, i64 0}
-!69 = !{!"_ZTSSt14_Optional_baseIN8rawspeed10Array2DRefIiEELb1ELb1EE", !70, i64 0}
-!70 = !{!"_ZTSSt17_Optional_payloadIN8rawspeed10Array2DRefIiEELb1ELb1ELb1EE", !71, i64 0}
-!71 = !{!"_ZTSSt22_Optional_payload_baseIN8rawspeed10Array2DRefIiEEE", !10, i64 0, !60, i64 32}
-!72 = !{!"_ZTSN8rawspeed8OptionalIiEE", !73, i64 0}
-!73 = !{!"_ZTSSt8optionalIiE", !74, i64 0}
-!74 = !{!"_ZTSSt14_Optional_baseIiLb1ELb1EE", !75, i64 0}
-!75 = !{!"_ZTSSt17_Optional_payloadIiLb1ELb1ELb1EE", !76, i64 0}
-!76 = !{!"_ZTSSt22_Optional_payload_baseIiE", !10, i64 0, !60, i64 4}
-!77 = !{!"_ZTSSt6vectorIN8rawspeed9BlackAreaESaIS1_EE", !78, i64 0}
-!78 = !{!"_ZTSSt12_Vector_baseIN8rawspeed9BlackAreaESaIS1_EE", !79, i64 0}
-!79 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed9BlackAreaESaIS1_EE12_Vector_implE", !80, i64 0}
-!80 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed9BlackAreaESaIS1_EE17_Vector_impl_dataE", !81, i64 0, !81, i64 8, !81, i64 16}
-!81 = !{!"p1 _ZTSN8rawspeed9BlackAreaE", !9, i64 0}
-!82 = !{!"_ZTSSt6vectorIjSaIjEE", !83, i64 0}
-!83 = !{!"_ZTSSt12_Vector_baseIjSaIjEE", !84, i64 0}
-!84 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE12_Vector_implE", !85, i64 0}
-!85 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !21, i64 0, !21, i64 8, !21, i64 16}
-!86 = !{!"_ZTSSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE", !87, i64 0}
-!87 = !{!"_ZTSSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE", !88, i64 0}
-!88 = !{!"_ZTSNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_Vector_implE", !89, i64 0}
-!89 = !{!"_ZTSNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
-!90 = !{!"_ZTSN8rawspeed13ImageMetaDataE", !17, i64 0, !91, i64 8, !92, i64 24, !14, i64 48, !59, i64 52, !97, i64 64, !97, i64 96, !97, i64 128, !97, i64 160, !97, i64 192, !97, i64 224, !97, i64 256, !14, i64 288}
-!91 = !{!"_ZTSSt5arrayIfLm4EE", !10, i64 0}
-!92 = !{!"_ZTSSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EE", !93, i64 0}
-!93 = !{!"_ZTSSt12_Vector_baseIN8rawspeed12NotARationalIiEESaIS2_EE", !94, i64 0}
-!94 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed12NotARationalIiEESaIS2_EE12_Vector_implE", !95, i64 0}
-!95 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed12NotARationalIiEESaIS2_EE17_Vector_impl_dataE", !96, i64 0, !96, i64 8, !96, i64 16}
-!96 = !{!"p1 _ZTSN8rawspeed12NotARationalIiEE", !9, i64 0}
-!97 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !98, i64 0, !39, i64 8, !10, i64 16}
-!98 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !24, i64 0}
-!99 = !{!"_ZTSN8rawspeed12RawImageTypeE", !10, i64 0}
-!100 = !{!"_ZTSSt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS0_16AlignedAllocatorIhLi16EEEEEE", !101, i64 0}
-!101 = !{!"_ZTSSt12_Vector_baseIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS0_16AlignedAllocatorIhLi16EEEEEE", !102, i64 0}
-!102 = !{!"_ZTSNSt12_Vector_baseIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS0_16AlignedAllocatorIhLi16EEEEEE12_Vector_implE", !103, i64 0, !105, i64 8}
-!103 = !{!"_ZTSN8rawspeed27DefaultInitAllocatorAdaptorIhNS_16AlignedAllocatorIhLi16EEEEE", !104, i64 0}
-!104 = !{!"_ZTSN8rawspeed16AlignedAllocatorIhLi16EEE"}
-!105 = !{!"_ZTSNSt12_Vector_baseIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS0_16AlignedAllocatorIhLi16EEEEEE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
-!106 = !{!"_ZTSSt10unique_ptrIN8rawspeed11TableLookUpESt14default_deleteIS1_EE", !107, i64 0}
-!107 = !{!"_ZTSSt15__uniq_ptr_dataIN8rawspeed11TableLookUpESt14default_deleteIS1_ELb1ELb1EE", !108, i64 0}
-!108 = !{!"_ZTSSt15__uniq_ptr_implIN8rawspeed11TableLookUpESt14default_deleteIS1_EE", !109, i64 0}
-!109 = !{!"_ZTSSt5tupleIJPN8rawspeed11TableLookUpESt14default_deleteIS1_EEE", !110, i64 0}
-!110 = !{!"_ZTSSt11_Tuple_implILm0EJPN8rawspeed11TableLookUpESt14default_deleteIS1_EEE", !111, i64 0}
-!111 = !{!"_ZTSSt10_Head_baseILm0EPN8rawspeed11TableLookUpELb0EE", !112, i64 0}
-!112 = !{!"p1 _ZTSN8rawspeed11TableLookUpE", !9, i64 0}
-!113 = !{!7, !14, i64 136}
-!114 = !{!7, !14, i64 140}
-!115 = !{!10, !10, i64 0}
-!116 = !{!7, !14, i64 168}
-!117 = !{!24, !24, i64 0}
-!118 = distinct !{!118, !119}
-!119 = !{!"llvm.loop.mustprogress"}
-!120 = !{!51, !14, i64 40}
-!121 = !{!14, !14, i64 0}
-!122 = !{!51, !14, i64 44}
-!123 = !{!105, !24, i64 0}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
-!126 = distinct !{!126, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
-!127 = !{!51, !14, i64 600}
-!128 = !{!51, !14, i64 604}
-!129 = !{!51, !14, i64 48}
-!130 = !{!22, !22, i64 0}
-!131 = distinct !{!131, !119}
-!132 = distinct !{!132, !119}
-!133 = !{!134, !8, i64 0}
-!134 = !{!"_ZTS18jpeg_common_struct", !8, i64 0, !12, i64 8, !13, i64 16, !9, i64 24, !14, i64 32, !14, i64 36}
-!135 = !{!38, !9, i64 24}
-!136 = !{!137, !137, i64 0}
-!137 = !{!"vtable pointer", !11, i64 0}
+!42 = !{!41, !14, i64 8}
+!43 = !{!7, !14, i64 148}
+!44 = !{!45, !46, i64 0}
+!45 = !{!"_ZTSSt12__shared_ptrIN8rawspeed12RawImageDataELN9__gnu_cxx12_Lock_policyE2EE", !46, i64 0, !47, i64 8}
+!46 = !{!"p1 _ZTSN8rawspeed12RawImageDataE", !9, i64 0}
+!47 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !48, i64 0}
+!48 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0}
+!49 = !{!50, !14, i64 584}
+!50 = !{!"_ZTSN8rawspeed12RawImageDataE", !51, i64 8, !58, i64 40, !14, i64 48, !14, i64 52, !59, i64 56, !60, i64 64, !14, i64 96, !65, i64 100, !66, i64 120, !71, i64 160, !76, i64 168, !81, i64 192, !85, i64 216, !14, i64 240, !59, i64 244, !89, i64 248, !52, i64 544, !98, i64 545, !99, i64 552, !14, i64 584, !14, i64 588, !58, i64 592, !58, i64 600, !105, i64 608}
+!51 = !{!"_ZTSN8rawspeed8ErrorLogE", !52, i64 0, !53, i64 8}
+!52 = !{!"_ZTSN8rawspeed5MutexE"}
+!53 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !54, i64 0}
+!54 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !55, i64 0}
+!55 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !56, i64 0}
+!56 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !57, i64 0, !57, i64 8, !57, i64 16}
+!57 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !9, i64 0}
+!58 = !{!"_ZTSN8rawspeed8iPoint2DE", !14, i64 0, !14, i64 4}
+!59 = !{!"bool", !10, i64 0}
+!60 = !{!"_ZTSN8rawspeed16ColorFilterArrayE", !61, i64 0, !58, i64 24}
+!61 = !{!"_ZTSSt6vectorIN8rawspeed8CFAColorESaIS1_EE", !62, i64 0}
+!62 = !{!"_ZTSSt12_Vector_baseIN8rawspeed8CFAColorESaIS1_EE", !63, i64 0}
+!63 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed8CFAColorESaIS1_EE12_Vector_implE", !64, i64 0}
+!64 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed8CFAColorESaIS1_EE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
+!65 = !{!"_ZTSSt5arrayIiLm4EE", !10, i64 0}
+!66 = !{!"_ZTSN8rawspeed8OptionalINS_10Array2DRefIiEEEE", !67, i64 0}
+!67 = !{!"_ZTSSt8optionalIN8rawspeed10Array2DRefIiEEE", !68, i64 0}
+!68 = !{!"_ZTSSt14_Optional_baseIN8rawspeed10Array2DRefIiEELb1ELb1EE", !69, i64 0}
+!69 = !{!"_ZTSSt17_Optional_payloadIN8rawspeed10Array2DRefIiEELb1ELb1ELb1EE", !70, i64 0}
+!70 = !{!"_ZTSSt22_Optional_payload_baseIN8rawspeed10Array2DRefIiEEE", !10, i64 0, !59, i64 32}
+!71 = !{!"_ZTSN8rawspeed8OptionalIiEE", !72, i64 0}
+!72 = !{!"_ZTSSt8optionalIiE", !73, i64 0}
+!73 = !{!"_ZTSSt14_Optional_baseIiLb1ELb1EE", !74, i64 0}
+!74 = !{!"_ZTSSt17_Optional_payloadIiLb1ELb1ELb1EE", !75, i64 0}
+!75 = !{!"_ZTSSt22_Optional_payload_baseIiE", !10, i64 0, !59, i64 4}
+!76 = !{!"_ZTSSt6vectorIN8rawspeed9BlackAreaESaIS1_EE", !77, i64 0}
+!77 = !{!"_ZTSSt12_Vector_baseIN8rawspeed9BlackAreaESaIS1_EE", !78, i64 0}
+!78 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed9BlackAreaESaIS1_EE12_Vector_implE", !79, i64 0}
+!79 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed9BlackAreaESaIS1_EE17_Vector_impl_dataE", !80, i64 0, !80, i64 8, !80, i64 16}
+!80 = !{!"p1 _ZTSN8rawspeed9BlackAreaE", !9, i64 0}
+!81 = !{!"_ZTSSt6vectorIjSaIjEE", !82, i64 0}
+!82 = !{!"_ZTSSt12_Vector_baseIjSaIjEE", !83, i64 0}
+!83 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE12_Vector_implE", !84, i64 0}
+!84 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !21, i64 0, !21, i64 8, !21, i64 16}
+!85 = !{!"_ZTSSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE", !86, i64 0}
+!86 = !{!"_ZTSSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE", !87, i64 0}
+!87 = !{!"_ZTSNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_Vector_implE", !88, i64 0}
+!88 = !{!"_ZTSNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
+!89 = !{!"_ZTSN8rawspeed13ImageMetaDataE", !17, i64 0, !90, i64 8, !91, i64 24, !14, i64 48, !58, i64 52, !96, i64 64, !96, i64 96, !96, i64 128, !96, i64 160, !96, i64 192, !96, i64 224, !96, i64 256, !14, i64 288}
+!90 = !{!"_ZTSSt5arrayIfLm4EE", !10, i64 0}
+!91 = !{!"_ZTSSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EE", !92, i64 0}
+!92 = !{!"_ZTSSt12_Vector_baseIN8rawspeed12NotARationalIiEESaIS2_EE", !93, i64 0}
+!93 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed12NotARationalIiEESaIS2_EE12_Vector_implE", !94, i64 0}
+!94 = !{!"_ZTSNSt12_Vector_baseIN8rawspeed12NotARationalIiEESaIS2_EE17_Vector_impl_dataE", !95, i64 0, !95, i64 8, !95, i64 16}
+!95 = !{!"p1 _ZTSN8rawspeed12NotARationalIiEE", !9, i64 0}
+!96 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !97, i64 0, !39, i64 8, !10, i64 16}
+!97 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !24, i64 0}
+!98 = !{!"_ZTSN8rawspeed12RawImageTypeE", !10, i64 0}
+!99 = !{!"_ZTSSt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS0_16AlignedAllocatorIhLi16EEEEEE", !100, i64 0}
+!100 = !{!"_ZTSSt12_Vector_baseIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS0_16AlignedAllocatorIhLi16EEEEEE", !101, i64 0}
+!101 = !{!"_ZTSNSt12_Vector_baseIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS0_16AlignedAllocatorIhLi16EEEEEE12_Vector_implE", !102, i64 0, !104, i64 8}
+!102 = !{!"_ZTSN8rawspeed27DefaultInitAllocatorAdaptorIhNS_16AlignedAllocatorIhLi16EEEEE", !103, i64 0}
+!103 = !{!"_ZTSN8rawspeed16AlignedAllocatorIhLi16EEE"}
+!104 = !{!"_ZTSNSt12_Vector_baseIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS0_16AlignedAllocatorIhLi16EEEEEE17_Vector_impl_dataE", !24, i64 0, !24, i64 8, !24, i64 16}
+!105 = !{!"_ZTSSt10unique_ptrIN8rawspeed11TableLookUpESt14default_deleteIS1_EE", !106, i64 0}
+!106 = !{!"_ZTSSt15__uniq_ptr_dataIN8rawspeed11TableLookUpESt14default_deleteIS1_ELb1ELb1EE", !107, i64 0}
+!107 = !{!"_ZTSSt15__uniq_ptr_implIN8rawspeed11TableLookUpESt14default_deleteIS1_EE", !108, i64 0}
+!108 = !{!"_ZTSSt5tupleIJPN8rawspeed11TableLookUpESt14default_deleteIS1_EEE", !109, i64 0}
+!109 = !{!"_ZTSSt11_Tuple_implILm0EJPN8rawspeed11TableLookUpESt14default_deleteIS1_EEE", !110, i64 0}
+!110 = !{!"_ZTSSt10_Head_baseILm0EPN8rawspeed11TableLookUpELb0EE", !111, i64 0}
+!111 = !{!"p1 _ZTSN8rawspeed11TableLookUpE", !9, i64 0}
+!112 = !{!7, !14, i64 136}
+!113 = !{!7, !14, i64 140}
+!114 = !{!10, !10, i64 0}
+!115 = !{!7, !14, i64 168}
+!116 = !{!24, !24, i64 0}
+!117 = distinct !{!117, !118}
+!118 = !{!"llvm.loop.mustprogress"}
+!119 = !{!50, !14, i64 40}
+!120 = !{!14, !14, i64 0}
+!121 = !{!50, !14, i64 44}
+!122 = !{!104, !24, i64 0}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
+!125 = distinct !{!125, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
+!126 = !{!50, !14, i64 600}
+!127 = !{!50, !14, i64 604}
+!128 = !{!50, !14, i64 48}
+!129 = !{!22, !22, i64 0}
+!130 = distinct !{!130, !118}
+!131 = distinct !{!131, !118}
+!132 = !{!133, !8, i64 0}
+!133 = !{!"_ZTS18jpeg_common_struct", !8, i64 0, !12, i64 8, !13, i64 16, !9, i64 24, !14, i64 32, !14, i64 36}
+!134 = !{!38, !9, i64 24}
+!135 = !{!136, !136, i64 0}
+!136 = !{!"vtable pointer", !11, i64 0}

@@ -1589,6 +1589,7 @@ switch.lookup502:                                 ; preds = %412
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.022.0.i, align 8
   %438 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %439 = inttoptr i64 %438 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %439) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i.i.i = load i64, ptr %439, align 8
   %440 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i.i.i, 4
   %.not.i.i.i9.i.i.i.i.i = icmp eq i64 %440, 0
@@ -1634,6 +1635,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit.i.i.i.i.i:
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.03.08.i.i.i, align 8
   %451 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %452 = inttoptr i64 %451 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %452) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i60 = load i64, ptr %452, align 8
   %453 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i60, 4
   %.not.i.i.i.i.i.i61 = icmp eq i64 %453, 0

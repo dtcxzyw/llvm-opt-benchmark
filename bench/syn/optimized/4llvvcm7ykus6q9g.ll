@@ -19021,7 +19021,7 @@ define void @"_ZN65_$LT$syn..parse..ParseBuffer$u20$as$u20$core..ops..drop..Drop
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit"
 
-"_ZN4core3ptr88drop_in_place$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$17h28831762582b8443E.exit": ; preds = %35, %29, %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit", %1
+"_ZN4core3ptr88drop_in_place$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$17h28831762582b8443E.exit": ; preds = %34, %28, %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit", %1
   ret void
 
 12:                                               ; preds = %8
@@ -19036,46 +19036,45 @@ define void @"_ZN65_$LT$syn..parse..ParseBuffer$u20$as$u20$core..ops..drop..Drop
   br i1 %switch.i, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit", label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ne ptr %.sroa.47.0.copyload, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = load i64, ptr %.sroa.47.0.copyload, align 8, !noalias !7699, !noundef !4
-  %17 = add i64 %16, -1
-  store i64 %17, ptr %.sroa.47.0.copyload, align 8, !noalias !7699
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit"
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.47.0.copyload) ]
+  %15 = load i64, ptr %.sroa.47.0.copyload, align 8, !noalias !7699, !noundef !4
+  %16 = add i64 %15, -1
+  store i64 %16, ptr %.sroa.47.0.copyload, align 8, !noalias !7699
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %18, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit"
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.47.0.copyload, i64 16
-  tail call void @"_ZN4core3ptr67drop_in_place$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$17haf2750eab111b2d0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20), !noalias !7699
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.47.0.copyload, i64 8
-  %22 = load i64, ptr %21, align 8, !noalias !7699, !noundef !4
-  %23 = add i64 %22, -1
-  store i64 %23, ptr %21, align 8, !noalias !7699
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit"
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.47.0.copyload, i64 16
+  tail call void @"_ZN4core3ptr67drop_in_place$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$17haf2750eab111b2d0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %19), !noalias !7699
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.47.0.copyload, i64 8
+  %21 = load i64, ptr %20, align 8, !noalias !7699, !noundef !4
+  %22 = add i64 %21, -1
+  store i64 %22, ptr %20, align 8, !noalias !7699
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %24, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit"
 
-25:                                               ; preds = %19
+24:                                               ; preds = %18
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.47.0.copyload, i64 noundef 32, i64 noundef 8) #17, !noalias !7706
   br label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit"
 
-"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit": ; preds = %12, %14, %19, %25, %8
-  %26 = load i64, ptr %9, align 8, !noalias !7707, !noundef !4
-  %27 = add i64 %26, -1
-  store i64 %27, ptr %9, align 8, !noalias !7707
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %"_ZN4core3ptr88drop_in_place$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$17h28831762582b8443E.exit"
+"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit": ; preds = %12, %14, %18, %24, %8
+  %25 = load i64, ptr %9, align 8, !noalias !7707, !noundef !4
+  %26 = add i64 %25, -1
+  store i64 %26, ptr %9, align 8, !noalias !7707
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %"_ZN4core3ptr88drop_in_place$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$17h28831762582b8443E.exit"
 
-29:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit"
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  tail call void @"_ZN4core3ptr67drop_in_place$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$17haf2750eab111b2d0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30), !noalias !7707
-  %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !7707, !noundef !4
-  %33 = add i64 %32, -1
-  store i64 %33, ptr %31, align 8, !noalias !7707
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %"_ZN4core3ptr88drop_in_place$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$17h28831762582b8443E.exit"
+28:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.8351105841907204142.exit"
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  tail call void @"_ZN4core3ptr67drop_in_place$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$17haf2750eab111b2d0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29), !noalias !7707
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %31 = load i64, ptr %30, align 8, !noalias !7707, !noundef !4
+  %32 = add i64 %31, -1
+  store i64 %32, ptr %30, align 8, !noalias !7707
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %34, label %"_ZN4core3ptr88drop_in_place$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$17h28831762582b8443E.exit"
 
-35:                                               ; preds = %29
+34:                                               ; preds = %28
   tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef 32, i64 noundef 8) #17, !noalias !7712
   br label %"_ZN4core3ptr88drop_in_place$LT$alloc..rc..Rc$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$$GT$17h28831762582b8443E.exit"
 }

@@ -1560,7 +1560,7 @@ _ZNK6HandleclEv.exit1.i.i:                        ; preds = %16
 
 _ZN10Dictionary26is_in_package_access_cacheEP10JavaThreadP6Symbol6Handle.exit: ; preds = %30, %25
   %33 = tail call noundef zeroext i1 @_ZN16java_lang_System20has_security_managerEv() #15
-  br i1 %33, label %34, label %87
+  br i1 %33, label %34, label %86
 
 34:                                               ; preds = %_ZN10Dictionary26is_in_package_access_cacheEP10JavaThreadP6Symbol6Handle.exit
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -1635,71 +1635,70 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZN6HandleC2EP6Thre
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %7, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.9) #15
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.10) #15
-  %72 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %72)
-  %73 = load ptr, ptr %2, align 8
-  call void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull %7) #15
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %72 = load ptr, ptr %2, align 8
+  call void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull %7) #15
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.6) #15
-  %74 = load ptr, ptr %3, align 8
-  call void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull %7) #15
+  %73 = load ptr, ptr %3, align 8
+  call void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull %7) #15
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.11) #15
-  %75 = load ptr, ptr %1, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 88
-  %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %7) #15
-  %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %.not28 = icmp eq ptr %79, null
+  %74 = load ptr, ptr %1, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 88
+  %76 = load ptr, ptr %75, align 8
+  call void %76(ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %7) #15
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %.not28 = icmp eq ptr %78, null
   %.str.13..str.12 = select i1 %.not28, ptr @.str.13, ptr @.str.12
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull %.str.13..str.12) #15
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #15
-  %80 = load ptr, ptr %63, align 8
-  %.not.i.i.i.i19 = icmp eq ptr %80, null
-  br i1 %.not.i.i.i.i19, label %82, label %81
+  %79 = load ptr, ptr %63, align 8
+  %.not.i.i.i.i19 = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i19, label %81, label %80
 
-81:                                               ; preds = %_ZNK6HandleclEv.exit
+80:                                               ; preds = %_ZNK6HandleclEv.exit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %61, i64 noundef %69) #15
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %63) #15
-  br label %82
+  br label %81
 
-82:                                               ; preds = %81, %_ZNK6HandleclEv.exit
-  %83 = load ptr, ptr %64, align 8
-  %.not8.i.i.i.i = icmp eq ptr %83, %65
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %84
+81:                                               ; preds = %80, %_ZNK6HandleclEv.exit
+  %82 = load ptr, ptr %64, align 8
+  %.not8.i.i.i.i = icmp eq ptr %82, %65
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %83
 
-84:                                               ; preds = %82
+83:                                               ; preds = %81
   store ptr %63, ptr %62, align 8
   store ptr %65, ptr %64, align 8
   store ptr %67, ptr %66, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %84, %82, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
-  %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %.not29 = icmp eq ptr %86, null
-  br i1 %.not29, label %87, label %_ZN11MutexLockerD2Ev.exit
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %83, %81, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %.not29 = icmp eq ptr %85, null
+  br i1 %.not29, label %86, label %_ZN11MutexLockerD2Ev.exit
 
-87:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %_ZN10Dictionary26is_in_package_access_cacheEP10JavaThreadP6Symbol6Handle.exit
-  %88 = load ptr, ptr @SystemDictionary_lock, align 8
-  %.not.i.i = icmp eq ptr %88, null
+86:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %_ZN10Dictionary26is_in_package_access_cacheEP10JavaThreadP6Symbol6Handle.exit
+  %87 = load ptr, ptr @SystemDictionary_lock, align 8
+  %.not.i.i = icmp eq ptr %87, null
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit.critedge, label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
 
-_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %87
-  call void @_ZN5Mutex4lockEP6Thread(ptr noundef nonnull align 8 dereferenceable(104) %88, ptr noundef %4) #15
-  %89 = load ptr, ptr %10, align 8
-  %90 = call noundef ptr @_ZN10Dictionary9get_entryEP6ThreadP6Symbol(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %4, ptr noundef %89)
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %92 = load ptr, ptr %91, align 8
-  call void @_ZN15DictionaryEntry27add_to_package_access_cacheEP15ClassLoaderData6Handle(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef %92, ptr nonnull %3)
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %88) #15
+_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %86
+  call void @_ZN5Mutex4lockEP6Thread(ptr noundef nonnull align 8 dereferenceable(104) %87, ptr noundef %4) #15
+  %88 = load ptr, ptr %10, align 8
+  %89 = call noundef ptr @_ZN10Dictionary9get_entryEP6ThreadP6Symbol(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %4, ptr noundef %88)
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %91 = load ptr, ptr %90, align 8
+  call void @_ZN15DictionaryEntry27add_to_package_access_cacheEP15ClassLoaderData6Handle(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef %91, ptr nonnull %3)
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %87) #15
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit.critedge:               ; preds = %87
-  %93 = load ptr, ptr %10, align 8
-  %94 = call noundef ptr @_ZN10Dictionary9get_entryEP6ThreadP6Symbol(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %4, ptr noundef %93)
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %96 = load ptr, ptr %95, align 8
-  call void @_ZN15DictionaryEntry27add_to_package_access_cacheEP15ClassLoaderData6Handle(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef %96, ptr nonnull %3)
+_ZN11MutexLockerD2Ev.exit.critedge:               ; preds = %86
+  %92 = load ptr, ptr %10, align 8
+  %93 = call noundef ptr @_ZN10Dictionary9get_entryEP6ThreadP6Symbol(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %4, ptr noundef %92)
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %95 = load ptr, ptr %94, align 8
+  call void @_ZN15DictionaryEntry27add_to_package_access_cacheEP15ClassLoaderData6Handle(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef %95, ptr nonnull %3)
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %.lr.ph.i.i.i, %_ZN11MutexLockerD2Ev.exit.critedge, %_ZNK6HandleclEv.exit1.i.i, %_ZNK6HandleclEv.exit.i.i, %16, %9, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, %_ZN12ResourceMarkD2Ev.exit, %5

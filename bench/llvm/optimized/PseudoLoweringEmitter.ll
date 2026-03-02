@@ -2412,14 +2412,14 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_121PseudoLoweringEmitter20ad
   %22 = zext i32 %19 to i64
   br label %23
 
-._crit_edge27:                                    ; preds = %122, %5
-  %.076.lcssa = phi i32 [ 0, %5 ], [ %.177, %122 ]
+._crit_edge27:                                    ; preds = %119, %5
+  %.076.lcssa = phi i32 [ 0, %5 ], [ %.177, %119 ]
   ret i32 %.076.lcssa
 
-23:                                               ; preds = %.lr.ph26, %122
-  %indvars.iv30 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next31, %122 ]
-  %.024 = phi i32 [ %4, %.lr.ph26 ], [ %.1, %122 ]
-  %.07623 = phi i32 [ 0, %.lr.ph26 ], [ %.177, %122 ]
+23:                                               ; preds = %.lr.ph26, %119
+  %indvars.iv30 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next31, %119 ]
+  %.024 = phi i32 [ %4, %.lr.ph26 ], [ %.1, %119 ]
+  %.07623 = phi i32 [ 0, %.lr.ph26 ], [ %.177, %119 ]
   %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv30
   %25 = load ptr, ptr %24, align 8, !tbaa !255
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -2460,7 +2460,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %.pre, ptr %41, align 8, !tbaa !14
   %42 = add i32 %.07623, 1
-  br label %122
+  br label %119
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread11:       ; preds = %33, %_ZN4llvmeqENS_9StringRefES0_.exit
   %43 = trunc nuw i64 %indvars.iv30 to i32
@@ -2583,7 +2583,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11:       ; preds = %33, %_ZN4llvmeqENS_
 
 ._crit_edge:                                      ; preds = %86, %80
   %85 = add i32 %83, %.07623
-  br label %122
+  br label %119
 
 86:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
@@ -2613,18 +2613,18 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11:       ; preds = %33, %_ZN4llvmeqENS_
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 %99, ptr %100, align 8, !tbaa !14
   %101 = add i32 %.07623, 1
-  br label %122
+  br label %119
 
 102:                                              ; preds = %91
   %103 = icmp ne i8 %27, 3
   %.not88 = or i1 %.not8613, %103
-  br i1 %.not88, label %114, label %104
+  %104 = trunc nuw i64 %indvars.iv30 to i32
+  %105 = add i32 %.024, %104
+  br i1 %.not88, label %114, label %106
 
-104:                                              ; preds = %102
-  %105 = trunc nuw i64 %indvars.iv30 to i32
-  %106 = add i32 %.024, %105
+106:                                              ; preds = %102
   %.val95 = load ptr, ptr %3, align 8, !tbaa !8
-  %107 = zext i32 %106 to i64
+  %107 = zext i32 %105 to i64
   %108 = getelementptr inbounds nuw %"struct.(anonymous namespace)::PseudoLoweringEmitter::OpData", ptr %.val95, i64 %107
   store i32 1, ptr %108, align 8, !tbaa !173
   %109 = tail call { i64, i8 } @_ZNK4llvm8BitsInit23convertInitializerToIntEv(ptr noundef nonnull align 8 dereferenceable(40) %25) #15
@@ -2634,22 +2634,18 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11:       ; preds = %33, %_ZN4llvmeqENS_
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i64 %110, ptr %112, align 8, !tbaa !14
   %113 = add i32 %.07623, 1
-  br label %122
+  br label %119
 
 114:                                              ; preds = %102
-  %115 = icmp eq i8 %27, 4
-  tail call void @llvm.assume(i1 %115)
-  %116 = trunc nuw i64 %indvars.iv30 to i32
-  %117 = add i32 %.024, %116
-  %118 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_121PseudoLoweringEmitter20addDagOperandMappingEPKN4llvm6RecordEPKNS1_7DagInitERKNS1_18CodeGenInstructionERNS1_10IndexedMapINS0_6OpDataENS1_8identityIjEEEEj(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(236) %2, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %117)
-  %119 = add i32 %118, %.07623
-  %120 = add i32 %.024, -1
-  %121 = add i32 %120, %118
-  br label %122
+  %115 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_121PseudoLoweringEmitter20addDagOperandMappingEPKN4llvm6RecordEPKNS1_7DagInitERKNS1_18CodeGenInstructionERNS1_10IndexedMapINS0_6OpDataENS1_8identityIjEEEEj(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(236) %2, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %105)
+  %116 = add i32 %115, %.07623
+  %117 = add i32 %.024, -1
+  %118 = add i32 %117, %115
+  br label %119
 
-122:                                              ; preds = %._crit_edge, %104, %114, %93, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %.177 = phi i32 [ %42, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %85, %._crit_edge ], [ %101, %93 ], [ %113, %104 ], [ %119, %114 ]
-  %.1 = phi i32 [ %.024, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.024, %._crit_edge ], [ %.024, %93 ], [ %.024, %104 ], [ %121, %114 ]
+119:                                              ; preds = %._crit_edge, %106, %114, %93, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+  %.177 = phi i32 [ %42, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %85, %._crit_edge ], [ %101, %93 ], [ %113, %106 ], [ %116, %114 ]
+  %.1 = phi i32 [ %.024, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.024, %._crit_edge ], [ %.024, %93 ], [ %.024, %106 ], [ %118, %114 ]
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %.not = icmp eq i64 %indvars.iv.next31, %22
   br i1 %.not, label %._crit_edge27, label %23, !llvm.loop !263

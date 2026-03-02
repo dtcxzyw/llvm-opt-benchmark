@@ -12253,32 +12253,31 @@ define linkonce_odr dso_local void @_ZN5V3TSP12TspStateBaseD2Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK12TspTestState4costEPKN5V3TSP12TspStateBaseE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
-  %3 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !221
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !221
-  %8 = icmp ugt i32 %5, %7
-  %9 = sub nuw i32 %5, %7
-  %10 = sub nuw i32 %7, %5
-  %.0.i.i = select i1 %8, i32 %9, i32 %10
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !224
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !224
-  %15 = icmp ugt i32 %12, %14
-  %16 = sub nuw i32 %12, %14
-  %17 = sub nuw i32 %14, %12
-  %.0.i6.i = select i1 %15, i32 %16, i32 %17
-  %18 = mul i32 %.0.i.i, %.0.i.i
-  %19 = mul i32 %.0.i6.i, %.0.i6.i
-  %20 = add i32 %19, %18
-  %21 = uitofp i32 %20 to double
-  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %21)
-  %22 = tail call i64 @lround(double noundef %sqrt.i.i) #28, !tbaa !39
-  %23 = trunc i64 %22 to i32
-  ret i32 %23
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = load i32, ptr %3, align 8, !tbaa !221
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i32, ptr %5, align 8, !tbaa !221
+  %7 = icmp ugt i32 %4, %6
+  %8 = sub nuw i32 %4, %6
+  %9 = sub nuw i32 %6, %4
+  %.0.i.i = select i1 %7, i32 %8, i32 %9
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %11 = load i32, ptr %10, align 4, !tbaa !224
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %13 = load i32, ptr %12, align 4, !tbaa !224
+  %14 = icmp ugt i32 %11, %13
+  %15 = sub nuw i32 %11, %13
+  %16 = sub nuw i32 %13, %11
+  %.0.i6.i = select i1 %14, i32 %15, i32 %16
+  %17 = mul i32 %.0.i.i, %.0.i.i
+  %18 = mul i32 %.0.i6.i, %.0.i6.i
+  %19 = add i32 %18, %17
+  %20 = uitofp i32 %19 to double
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %20)
+  %21 = tail call i64 @lround(double noundef %sqrt.i.i) #28, !tbaa !39
+  %22 = trunc i64 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress uwtable

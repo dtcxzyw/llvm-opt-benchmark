@@ -1029,12 +1029,12 @@ if.then119:                                       ; preds = %if.else95
 if.else130:                                       ; preds = %if.else95
   %53 = add i8 %25, 123
   %54 = icmp ult i8 %53, -6
+  %os140 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %55 = load ptr, ptr %os140, align 8
   br i1 %54, label %if.else136, label %if.then133
 
 if.then133:                                       ; preds = %if.else130
   %sub.ptr.i.i.i = getelementptr inbounds i8, ptr %V, i64 -16
-  %os134 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %55 = load ptr, ptr %os134, align 8
   %call135 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %55, ptr noundef nonnull @.str.14)
   tail call void @_ZN6hermes9IRPrinter17printFunctionNameEPNS_8FunctionENS0_19PrintFunctionParamsE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull %sub.ptr.i.i.i, i32 noundef 0)
   br label %if.end183
@@ -1044,46 +1044,40 @@ if.else136:                                       ; preds = %if.else130
   br i1 %cmp.i.i.i.i.i.i.i164.not, label %if.then139, label %if.else142
 
 if.then139:                                       ; preds = %if.else136
-  %os140 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %56 = load ptr, ptr %os140, align 8
-  %call141 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %56, ptr noundef nonnull @.str.14)
+  %call141 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %55, ptr noundef nonnull @.str.14)
   tail call void @_ZN6hermes9IRPrinter15printScopeLabelEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull %V)
   br label %if.end183
 
 if.else142:                                       ; preds = %if.else136
-  %cmp.i.i.i.i.i.i.i166 = icmp eq i8 %25, 124
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i166)
-  %os146 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %57 = load ptr, ptr %os146, align 8
-  %call147 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %57, ptr noundef nonnull @.str.5)
+  %call147 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %55, ptr noundef nonnull @.str.5)
   tail call void @_ZN6hermes9IRPrinter17printVariableNameEPNS_8VariableE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull %V)
   %Parent.i = getelementptr inbounds nuw i8, ptr %I, i64 56
-  %58 = load ptr, ptr %Parent.i, align 8
-  %Parent.i168 = getelementptr inbounds nuw i8, ptr %58, i64 72
-  %59 = load ptr, ptr %Parent.i168, align 8
+  %56 = load ptr, ptr %Parent.i, align 8
+  %Parent.i168 = getelementptr inbounds nuw i8, ptr %56, i64 72
+  %57 = load ptr, ptr %Parent.i168, align 8
   %parent.i = getelementptr inbounds nuw i8, ptr %V, i64 56
-  %60 = load ptr, ptr %parent.i, align 8
-  %function_.i = getelementptr inbounds nuw i8, ptr %60, i64 144
-  %61 = load ptr, ptr %function_.i, align 8
-  %cmp152.not = icmp eq ptr %59, %61
+  %58 = load ptr, ptr %parent.i, align 8
+  %function_.i = getelementptr inbounds nuw i8, ptr %58, i64 144
+  %59 = load ptr, ptr %function_.i, align 8
+  %cmp152.not = icmp eq ptr %57, %59
   br i1 %cmp152.not, label %if.end162, label %if.then153
 
 if.then153:                                       ; preds = %if.else142
-  %internalName_.i = getelementptr inbounds nuw i8, ptr %61, i64 216
-  %62 = load ptr, ptr %internalName_.i, align 8
-  %retval.sroa.0.0.copyload.i171 = load ptr, ptr %62, align 8
-  %retval.sroa.2.0.call.sroa_idx.i172 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %internalName_.i = getelementptr inbounds nuw i8, ptr %59, i64 216
+  %60 = load ptr, ptr %internalName_.i, align 8
+  %retval.sroa.0.0.copyload.i171 = load ptr, ptr %60, align 8
+  %retval.sroa.2.0.call.sroa_idx.i172 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %retval.sroa.2.0.copyload.i173 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i172, align 8
-  %63 = load ptr, ptr %os146, align 8
-  %call158 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %63, ptr noundef nonnull @.str.17)
+  %61 = load ptr, ptr %os140, align 8
+  %call158 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %61, ptr noundef nonnull @.str.17)
   call void @_ZN6hermes9IRPrinter8quoteStrB5cxx11EN4llvh9StringRefE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp159, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr %retval.sroa.0.0.copyload.i171, i64 %retval.sroa.2.0.copyload.i173)
   %call161 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(36) %call158, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp159)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp159) #13
   br label %if.end162
 
 if.end162:                                        ; preds = %if.then153, %if.else142
-  %64 = load ptr, ptr %os146, align 8
-  %call164 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %64, ptr noundef nonnull @.str.6)
+  %62 = load ptr, ptr %os140, align 8
+  %call164 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %62, ptr noundef nonnull @.str.6)
   br label %if.end183
 
 if.end183:                                        ; preds = %if.then4.i.i129, %if.then.i.i132, %if.then4.i, %if.end.i, %if.then.i, %if.then4.i.i102, %if.then.i.i105, %if.then4.i.i44, %if.then.i.i47, %if.then31, %if.else57, %if.then54, %if.then70, %if.then80, %if.then90, %if.then105, %if.then133, %if.end162, %if.then139, %if.then119, %if.then97, %if.then85, %if.then75, %if.then65
@@ -1091,8 +1085,8 @@ if.end183:                                        ; preds = %if.then4.i.i129, %i
   %retval.sroa.0.0.copyload.i176 = load i32, ptr %valueType.i, align 2
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
-  %65 = load ptr, ptr %vfn, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 %retval.sroa.0.0.copyload.i176) #13
+  %63 = load ptr, ptr %vfn, align 8
+  call void %63(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 %retval.sroa.0.0.copyload.i176) #13
   ret void
 }
 

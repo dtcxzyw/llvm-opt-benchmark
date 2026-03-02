@@ -3442,8 +3442,7 @@ _ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit: ; preds = %32
   %40 = tail call noundef ptr @_ZN4Luau9freshTypeENS_7NotNullINS_9TypeArenaEEENS0_INS_12BuiltinTypesEEEPNS_5ScopeE(ptr %36, ptr %.sroa.03.0.copyload, ptr noundef %39)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %42 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %40)
-  %.not.i.i = icmp ne ptr %42, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %42) ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %44 = load i64, ptr %41, align 8
   store i64 %44, ptr %43, align 4

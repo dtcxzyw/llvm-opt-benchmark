@@ -686,8 +686,7 @@ cond.false.i.i.i:                                 ; preds = %if.else.i.i.i
 
 for.body33.lr.ph:                                 ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi ptr [ %15, %cond.true.i.i.i ], [ %19, %cond.false.i.i.i ]
-  %cmp16.i.i.i = icmp ne ptr %cond.i.i.i, null
-  tail call void @llvm.assume(i1 %cmp16.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i) ]
   %table_.i.i.i27 = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body33
 
@@ -823,8 +822,7 @@ cond.false.i.i.i:                                 ; preds = %if.else.i.i.i
 
 for.body.lr.ph:                                   ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi ptr [ %6, %cond.true.i.i.i ], [ %10, %cond.false.i.i.i ]
-  %cmp16.i.i.i = icmp ne ptr %cond.i.i.i, null
-  tail call void @llvm.assume(i1 %cmp16.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i) ]
   %table_.i.i.i6 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %11 = load ptr, ptr %table_.i.i.i6, align 8
   %wide.trip.count.i.i.i = zext i32 %3 to i64
@@ -1097,8 +1095,7 @@ cond.false.i.i.i:                                 ; preds = %if.else.i.i.i
 
 for.body.lr.ph:                                   ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi ptr [ %7, %cond.true.i.i.i ], [ %11, %cond.false.i.i.i ]
-  %cmp16.i.i.i = icmp ne ptr %cond.i.i.i, null
-  tail call void @llvm.assume(i1 %cmp16.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i) ]
   %table_.i.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body
 
@@ -3648,8 +3645,7 @@ cond.false.i.i.i:                                 ; preds = %if.else.i.i.i
 
 for.body.lr.ph:                                   ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi ptr [ %4, %cond.true.i.i.i ], [ %8, %cond.false.i.i.i ]
-  %cmp16.i.i.i = icmp ne ptr %cond.i.i.i, null
-  tail call void @llvm.assume(i1 %cmp16.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i) ]
   %table_.i.i.i7 = getelementptr inbounds nuw i8, ptr %src, i64 16
   br label %for.body
 
@@ -5254,8 +5250,7 @@ cond.false.i.i.i:                                 ; preds = %if.else.i.i.i
 
 for.body.lr.ph.i:                                 ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi ptr [ %5, %cond.true.i.i.i ], [ %9, %cond.false.i.i.i ]
-  %cmp16.i.i.i = icmp ne ptr %cond.i.i.i, null
-  tail call void @llvm.assume(i1 %cmp16.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   %second.i.i.i5 = getelementptr inbounds nuw i8, ptr %tmp.i, i64 24
   br label %for.body.i
@@ -5392,8 +5387,7 @@ cond.false.i.i.i:                                 ; preds = %if.else.i.i.i
 
 for.body.lr.ph.i:                                 ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi ptr [ %4, %cond.true.i.i.i ], [ %8, %cond.false.i.i.i ]
-  %cmp16.i.i.i = icmp ne ptr %cond.i.i.i, null
-  tail call void @llvm.assume(i1 %cmp16.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   %second.i.i.i5 = getelementptr inbounds nuw i8, ptr %tmp.i, i64 24
   br label %for.body.i
@@ -5519,8 +5513,7 @@ cond.false.i.i.i.i:                               ; preds = %if.else.i.i.i.i
 
 for.body.lr.ph.i:                                 ; preds = %cond.false.i.i.i.i, %cond.true.i.i.i.i
   %cond.i.i.i.i = phi ptr [ %5, %cond.true.i.i.i.i ], [ %9, %cond.false.i.i.i.i ]
-  %cmp16.i.i.i.i = icmp ne ptr %cond.i.i.i.i, null
-  tail call void @llvm.assume(i1 %cmp16.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %cond.i.i.i.i) ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE14const_iteratorppEv.exit.i, %for.body.lr.ph.i

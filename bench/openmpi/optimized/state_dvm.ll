@@ -3029,17 +3029,17 @@ pmix_obj_update.exit347:                          ; preds = %._crit_edge487
 
 682:                                              ; preds = %pmix_obj_update.exit347
   call fastcc void @pmix_obj_run_destructors(ptr noundef nonnull %533)
-  %683 = getelementptr inbounds nuw i8, ptr %533, i64 96
-  %684 = load ptr, ptr %683, align 8, !tbaa !38, !nonnull !88, !noundef !88
-  %685 = getelementptr inbounds nuw i8, ptr %533, i64 56
-  call void %684(ptr noundef nonnull %685, ptr noundef nonnull %533) #16
+  %683 = getelementptr inbounds nuw i8, ptr %533, i64 56
+  %684 = getelementptr inbounds nuw i8, ptr %533, i64 96
+  %685 = load ptr, ptr %684, align 8, !tbaa !169
+  call void %685(ptr noundef nonnull %683, ptr noundef nonnull %533) #16
   unreachable
 
 686:                                              ; preds = %pmix_obj_update.exit347
   %687 = getelementptr inbounds nuw i8, ptr %533, i64 248
-  %688 = load i8, ptr %687, align 8, !tbaa !169
+  %688 = load i8, ptr %687, align 8, !tbaa !170
   %689 = and i8 %688, -9
-  store i8 %689, ptr %687, align 8, !tbaa !169
+  store i8 %689, ptr %687, align 8, !tbaa !170
   %.pre506 = load ptr, ptr %522, align 8, !tbaa !139
   br label %690
 
@@ -3050,7 +3050,7 @@ pmix_obj_update.exit347:                          ; preds = %._crit_edge487
   %693 = load i32, ptr %692, align 8, !tbaa !70
   %694 = sext i32 %693 to i64
   %695 = icmp slt i64 %indvars.iv.next, %694
-  br i1 %695, label %pmix_pointer_array_get_item.exit410, label %._crit_edge489, !llvm.loop !170
+  br i1 %695, label %pmix_pointer_array_get_item.exit410, label %._crit_edge489, !llvm.loop !171
 
 ._crit_edge489:                                   ; preds = %690, %520
   call void @hwloc_bitmap_free(ptr noundef %521) #16
@@ -3112,7 +3112,7 @@ pmix_obj_run_destructors.exit429:                 ; preds = %.lr.ph.i426, %705
   br label %720
 
 720:                                              ; preds = %719, %.loopexit466
-  %721 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 5), align 1, !tbaa !171, !range !87, !noundef !88
+  %721 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 5), align 1, !tbaa !172, !range !87, !noundef !88
   %722 = trunc nuw i8 %721 to i1
   br i1 %722, label %723, label %724
 
@@ -3167,7 +3167,7 @@ pmix_obj_run_constructors.exit435:                ; preds = %.lr.ph.i432, %731
 
 .lr.ph493:                                        ; preds = %pmix_obj_run_constructors.exit435, %pmix_obj_new_tma.exit
   %.0247492 = phi ptr [ %.0247, %pmix_obj_new_tma.exit ], [ %.0247490, %pmix_obj_run_constructors.exit435 ]
-  %743 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_proc_t_class, i64 56), align 8, !tbaa !172
+  %743 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_proc_t_class, i64 56), align 8, !tbaa !173
   %744 = call noalias noundef ptr @malloc(i64 noundef %743) #21
   %745 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !3
   %746 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_proc_t_class, i64 32), align 8, !tbaa !7
@@ -3214,10 +3214,10 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %748, %
   %763 = getelementptr inbounds nuw i8, ptr %.0247492, i64 120
   %.0247 = load ptr, ptr %763, align 8, !tbaa !35
   %.not325 = icmp eq ptr %.0247, %741
-  br i1 %.not325, label %._crit_edge494, label %.lr.ph493, !llvm.loop !173
+  br i1 %.not325, label %._crit_edge494, label %.lr.ph493, !llvm.loop !174
 
 ._crit_edge494:                                   ; preds = %pmix_obj_new_tma.exit, %pmix_obj_run_constructors.exit435
-  %764 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_plm, i64 48), align 8, !tbaa !174
+  %764 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_plm, i64 48), align 8, !tbaa !175
   %765 = call i32 %764(ptr noundef nonnull %8) #16
   %766 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store i32 0, ptr %4, align 4, !tbaa !3
@@ -3302,7 +3302,7 @@ pmix_pointer_array_get_item.exit440.thread:       ; preds = %770, %pmix_obj_upda
   store i32 %801, ptr %4, align 4, !tbaa !3
   %802 = load i32, ptr %766, align 8, !tbaa !70
   %803 = icmp slt i32 %801, %802
-  br i1 %803, label %770, label %._crit_edge498, !llvm.loop !175
+  br i1 %803, label %770, label %._crit_edge498, !llvm.loop !176
 
 ._crit_edge498:                                   ; preds = %pmix_pointer_array_get_item.exit440.thread, %._crit_edge494
   %804 = load ptr, ptr %732, align 8, !tbaa !13
@@ -3468,7 +3468,7 @@ define internal void @dvm_notify(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %18 = load ptr, ptr %17, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !176
+  store ptr null, ptr %4, align 8, !tbaa !177
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3582,13 +3582,13 @@ define internal void @dvm_notify(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %66 = call i32 @PMIx_Info_load(ptr noundef nonnull %65, ptr noundef nonnull @.str.27, ptr noundef nonnull %5, i16 noundef zeroext 20) #16
   %67 = getelementptr inbounds nuw i8, ptr %18, i64 168
   call void @PMIx_Load_nspace(ptr noundef nonnull %12, ptr noundef nonnull %67) #16
-  %68 = load ptr, ptr %4, align 8, !tbaa !176
+  %68 = load ptr, ptr %4, align 8, !tbaa !177
   %.not147 = icmp eq ptr %68, null
   br i1 %.not147, label %72, label %69
 
 69:                                               ; preds = %61
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 400
-  %71 = load i32, ptr %70, align 8, !tbaa !177
+  %71 = load i32, ptr %70, align 8, !tbaa !178
   br label %72
 
 72:                                               ; preds = %61, %69
@@ -5073,12 +5073,13 @@ attributes #21 = { nounwind allocsize(0) }
 !166 = !{!162, !147, i64 56}
 !167 = distinct !{!167, !20}
 !168 = distinct !{!168, !20}
-!169 = !{!141, !5, i64 248}
-!170 = distinct !{!170, !20}
-!171 = !{!85, !59, i64 5}
-!172 = !{!8, !12, i64 56}
-!173 = distinct !{!173, !20}
-!174 = !{!42, !10, i64 48}
-!175 = distinct !{!175, !20}
-!176 = !{!142, !142, i64 0}
-!177 = !{!146, !4, i64 400}
+!169 = !{!15, !10, i64 40}
+!170 = !{!141, !5, i64 248}
+!171 = distinct !{!171, !20}
+!172 = !{!85, !59, i64 5}
+!173 = !{!8, !12, i64 56}
+!174 = distinct !{!174, !20}
+!175 = !{!42, !10, i64 48}
+!176 = distinct !{!176, !20}
+!177 = !{!142, !142, i64 0}
+!178 = !{!146, !4, i64 400}

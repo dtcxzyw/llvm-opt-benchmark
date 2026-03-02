@@ -4069,8 +4069,7 @@ _ZL14stbi_write_jpgPKciiiPKvi.exit:               ; preds = %210, %_ZL19stbi_wri
 
 496:                                              ; preds = %._crit_edge.i.i
   %malloc.i.i.i = call dereferenceable_or_null(10) ptr @malloc(i64 10)
-  %.not18.i.i.i.i = icmp ne ptr %malloc.i.i.i, null
-  call void @llvm.assume(i1 %.not18.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %malloc.i.i.i) ]
   %497 = getelementptr inbounds nuw i8, ptr %malloc.i.i.i, i64 4
   %498 = getelementptr inbounds nuw i8, ptr %malloc.i.i.i, i64 8
   store i32 2, ptr %malloc.i.i.i, align 4

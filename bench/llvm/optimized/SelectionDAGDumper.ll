@@ -2540,8 +2540,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   %713 = getelementptr inbounds nuw i8, ptr %712, i64 64
   %714 = load ptr, ptr %713, align 8
   %715 = tail call noundef ptr %714(ptr noundef nonnull align 8 dereferenceable(1264) %711) #19
-  %.not27 = icmp ne ptr %715, null
-  br i1 %.not27, label %716, label %720
+  %.not27.not = icmp eq ptr %715, null
+  br i1 %.not27.not, label %720, label %716
 
 716:                                              ; preds = %710
   %717 = load ptr, ptr %715, align 8, !tbaa !3
@@ -2551,7 +2551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   br label %720
 
 720:                                              ; preds = %710, %716
-  tail call void @llvm.assume(i1 %.not27)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %715) ]
   br label %1177
 
 721:                                              ; preds = %3

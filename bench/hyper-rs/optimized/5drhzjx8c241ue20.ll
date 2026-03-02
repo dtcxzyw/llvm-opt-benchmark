@@ -33,6 +33,7 @@ define internal void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !6, !invariant.load !4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -212,29 +213,28 @@ define noundef zeroext i1 @_ZN5hyper5error5Error10is_timeout17h1bdf15bba89e103aE
   %6 = load ptr, ptr %5, align 8, !noalias !15, !nonnull !4, !align !5, !noundef !4
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %11, %.lr.ph.preheader.i
-  %.sroa.0.014.i = phi ptr [ %.sroa.0.0.i, %11 ], [ %3, %.lr.ph.preheader.i ]
-  %.sroa.4.013.i = phi ptr [ %.sroa.4.0.i, %11 ], [ %6, %.lr.ph.preheader.i ]
-  %7 = icmp ne ptr %.sroa.4.013.i, null
-  tail call void @llvm.assume(i1 %7)
+.lr.ph.i:                                         ; preds = %10, %.lr.ph.preheader.i
+  %.sroa.0.014.i = phi ptr [ %.sroa.0.0.i, %10 ], [ %3, %.lr.ph.preheader.i ]
+  %.sroa.4.013.i = phi ptr [ %.sroa.4.0.i, %10 ], [ %6, %.lr.ph.preheader.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.013.i) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.4.013.i, i64 56
-  %9 = load ptr, ptr %8, align 8, !invariant.load !4, !alias.scope !16, !noalias !9, !nonnull !4
-  %10 = tail call noundef i128 %9(ptr noundef nonnull align 1 %.sroa.0.014.i), !noalias !19
-  %.not11.i = icmp eq i128 %10, -3455604291313433198194752821752098272
-  br i1 %.not11.i, label %_ZN5hyper5error5Error11find_source17ha0785acde139003fE.exit, label %11
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.4.013.i, i64 56
+  %8 = load ptr, ptr %7, align 8, !invariant.load !4, !alias.scope !16, !noalias !9, !nonnull !4
+  %9 = tail call noundef i128 %8(ptr noundef nonnull align 1 %.sroa.0.014.i), !noalias !19
+  %.not11.i = icmp eq i128 %9, -3455604291313433198194752821752098272
+  br i1 %.not11.i, label %_ZN5hyper5error5Error11find_source17ha0785acde139003fE.exit, label %10
 
-11:                                               ; preds = %.lr.ph.i
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.4.013.i, i64 48
-  %13 = load ptr, ptr %12, align 8, !invariant.load !4, !noalias !9, !nonnull !4
-  %14 = tail call { ptr, ptr } %13(ptr noundef nonnull align 1 %.sroa.0.014.i), !noalias !9
-  %.sroa.4.0.i = extractvalue { ptr, ptr } %14, 1
-  %.sroa.0.0.i = extractvalue { ptr, ptr } %14, 0
+10:                                               ; preds = %.lr.ph.i
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.4.013.i, i64 48
+  %12 = load ptr, ptr %11, align 8, !invariant.load !4, !noalias !9, !nonnull !4
+  %13 = tail call { ptr, ptr } %12(ptr noundef nonnull align 1 %.sroa.0.014.i), !noalias !9
+  %.sroa.4.0.i = extractvalue { ptr, ptr } %13, 1
+  %.sroa.0.0.i = extractvalue { ptr, ptr } %13, 0
   %.not.i = icmp eq ptr %.sroa.0.0.i, null
   br i1 %.not.i, label %_ZN5hyper5error5Error11find_source17ha0785acde139003fE.exit, label %.lr.ph.i
 
-_ZN5hyper5error5Error11find_source17ha0785acde139003fE.exit: ; preds = %.lr.ph.i, %11, %1
-  %.0.i = phi i1 [ false, %1 ], [ %.not11.i, %11 ], [ %.not11.i, %.lr.ph.i ]
+_ZN5hyper5error5Error11find_source17ha0785acde139003fE.exit: ; preds = %.lr.ph.i, %10, %1
+  %.0.i = phi i1 [ false, %1 ], [ %.not11.i, %10 ], [ %.not11.i, %.lr.ph.i ]
   ret i1 %.0.i
 }
 

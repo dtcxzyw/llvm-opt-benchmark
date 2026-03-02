@@ -197,23 +197,22 @@ define hidden i64 @_ZN14cranelift_isle9serialize16respect_priority17h48727fe3094
   store ptr %12, ptr %6, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %15, ptr %16, align 8
-  %17 = icmp ne ptr %0, null
-  call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %0, ptr %18, align 8
-  %19 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6reduce17h1d38586deea40691E(ptr nonnull align 8 %6)
-  %20 = extractvalue { i64, i64 } %19, 0
-  %21 = icmp eq i64 %20, 1
-  br i1 %21, label %22, label %25
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %0, ptr %17, align 8
+  %18 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6reduce17h1d38586deea40691E(ptr nonnull align 8 %6)
+  %19 = extractvalue { i64, i64 } %18, 0
+  %20 = icmp eq i64 %19, 1
+  br i1 %20, label %21, label %24
 
-22:                                               ; preds = %4
-  %23 = extractvalue { i64, i64 } %19, 1
-  store i64 %23, ptr %5, align 8
-  %24 = call i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc981b5f4E(ptr nonnull align 8 %8, i64 %10, ptr nonnull align 8 %0, ptr nonnull align 8 %5)
-  br label %25
+21:                                               ; preds = %4
+  %22 = extractvalue { i64, i64 } %18, 1
+  store i64 %22, ptr %5, align 8
+  %23 = call i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc981b5f4E(ptr nonnull align 8 %8, i64 %10, ptr nonnull align 8 %0, ptr nonnull align 8 %5)
+  br label %24
 
-25:                                               ; preds = %4, %22
-  %.0 = phi i64 [ %24, %22 ], [ %3, %4 ]
+24:                                               ; preds = %4, %21
+  %.0 = phi i64 [ %23, %21 ], [ %3, %4 ]
   ret i64 %.0
 }
 
@@ -224,46 +223,45 @@ define hidden { i64, i1 } @_ZN14cranelift_isle9serialize14HasControlFlow9partiti
   %7 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %8 = alloca { i16, [2 x i16] }, align 8
   store i48 %0, ptr %8, align 8
-  %9 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = call i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr align 8 %2, i64 %3, ptr nonnull align 8 %1, ptr nonnull align 2 %8)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %9 = call i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr align 8 %2, i64 %3, ptr nonnull align 8 %1, ptr nonnull align 2 %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48ab597b2cf5fee6E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr align 8 %2, i64 %3, i64 %10, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.6)
-  %11 = load ptr, ptr %7, align 8, !nonnull !3, !align !11, !noundef !3
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %13 = load i64, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %15 = load ptr, ptr %14, align 8, !nonnull !3, !align !11, !noundef !3
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %17 = load i64, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds i64, ptr %15, i64 %17
-  store ptr %15, ptr %6, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %1, ptr %20, align 8
-  %21 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6reduce17h1d38586deea40691E(ptr nonnull align 8 %6)
-  %22 = extractvalue { i64, i64 } %21, 0
-  %23 = icmp eq i64 %22, 1
-  br i1 %23, label %24, label %_ZN14cranelift_isle9serialize16respect_priority17h48727fe3094c7d24E.exit
+  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48ab597b2cf5fee6E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr align 8 %2, i64 %3, i64 %9, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.6)
+  %10 = load ptr, ptr %7, align 8, !nonnull !3, !align !11, !noundef !3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = load i64, ptr %11, align 8, !noundef !3
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !11, !noundef !3
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %16 = load i64, ptr %15, align 8, !noundef !3
+  %17 = getelementptr inbounds i64, ptr %14, i64 %16
+  store ptr %14, ptr %6, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %17, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %1, ptr %19, align 8
+  %20 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6reduce17h1d38586deea40691E(ptr nonnull align 8 %6)
+  %21 = extractvalue { i64, i64 } %20, 0
+  %22 = icmp eq i64 %21, 1
+  br i1 %22, label %23, label %_ZN14cranelift_isle9serialize16respect_priority17h48727fe3094c7d24E.exit
 
-24:                                               ; preds = %4
-  %25 = extractvalue { i64, i64 } %21, 1
-  store i64 %25, ptr %5, align 8
-  %26 = call i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc981b5f4E(ptr nonnull align 8 %11, i64 %13, ptr nonnull align 8 %1, ptr nonnull align 8 %5)
+23:                                               ; preds = %4
+  %24 = extractvalue { i64, i64 } %20, 1
+  store i64 %24, ptr %5, align 8
+  %25 = call i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc981b5f4E(ptr nonnull align 8 %10, i64 %12, ptr nonnull align 8 %1, ptr nonnull align 8 %5)
   br label %_ZN14cranelift_isle9serialize16respect_priority17h48727fe3094c7d24E.exit
 
-_ZN14cranelift_isle9serialize16respect_priority17h48727fe3094c7d24E.exit: ; preds = %4, %24
-  %.0.i = phi i64 [ %26, %24 ], [ %10, %4 ]
-  %27 = icmp ne i64 %10, 0
+_ZN14cranelift_isle9serialize16respect_priority17h48727fe3094c7d24E.exit: ; preds = %4, %23
+  %.0.i = phi i64 [ %25, %23 ], [ %9, %4 ]
+  %26 = icmp ne i64 %9, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %28 = insertvalue { i64, i1 } poison, i64 %.0.i, 0
-  %29 = insertvalue { i64, i1 } %28, i1 %27, 1
-  ret { i64, i1 } %29
+  %27 = insertvalue { i64, i1 } poison, i64 %.0.i, 0
+  %28 = insertvalue { i64, i1 } %27, i1 %26, 1
+  ret { i64, i1 } %28
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -451,33 +449,32 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_b
   %50 = extractvalue { ptr, i64 } %49, 0
   %51 = extractvalue { ptr, i64 } %49, 1
   %52 = getelementptr inbounds i16, ptr %50, i64 %51
-  %53 = icmp ne ptr %50, null
-  call void @llvm.assume(i1 %53)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   store ptr %50, ptr %5, align 8
   store ptr %52, ptr %19, align 8
-  %54 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0511092d1674e6b8E"(ptr nonnull align 8 %5, ptr nonnull align 8 %0)
-  br i1 %54, label %55, label %.backedge
+  %53 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0511092d1674e6b8E"(ptr nonnull align 8 %5, ptr nonnull align 8 %0)
+  br i1 %53, label %54, label %.backedge
 
-55:                                               ; preds = %48
+54:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %56 = call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %33)
-  %57 = load i64, ptr %17, align 8, !noundef !3
-  %58 = icmp ult i64 %56, %57
-  br i1 %58, label %59, label %64, !prof !16
+  %55 = call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %33)
+  %56 = load i64, ptr %17, align 8, !noundef !3
+  %57 = icmp ult i64 %55, %56
+  br i1 %57, label %58, label %63, !prof !16
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %18, align 8, !nonnull !3, !noundef !3
-  %61 = getelementptr inbounds i8, ptr %60, i64 %56
-  %62 = load i8, ptr %61, align 1, !range !17, !noundef !3
-  %63 = icmp eq i8 %62, 0
-  br i1 %63, label %65, label %_ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %18, align 8, !nonnull !3, !noundef !3
+  %60 = getelementptr inbounds i8, ptr %59, i64 %55
+  %61 = load i8, ptr %60, align 1, !range !17, !noundef !3
+  %62 = icmp eq i8 %61, 0
+  br i1 %62, label %64, label %_ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit
 
-64:                                               ; preds = %55
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %56, i64 %57, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.17) #14
+63:                                               ; preds = %54
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %55, i64 %56, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.17) #14
   unreachable
 
-65:                                               ; preds = %59
+64:                                               ; preds = %58
   %.sroa.2.0.insert.ext.i = zext i16 %33 to i48
   %.sroa.2.0.insert.shift.i = shl nuw nsw i48 %.sroa.2.0.insert.ext.i, 16
   %.sroa.01.0.insert.insert.i = or disjoint i48 %.sroa.2.0.insert.shift.i, 2
@@ -496,8 +493,8 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_b
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a7b6ff7e915937bE"(ptr nonnull align 8 %23, ptr nonnull align 8 %4)
   br label %_ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit
 
-_ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit: ; preds = %59, %65
-  store i8 1, ptr %61, align 1
+_ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit: ; preds = %58, %64
+  store i8 1, ptr %60, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.backedge
@@ -1856,7 +1853,7 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_ex
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %6, i64 %8, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.11) #14
   unreachable
 
-.critedge:                                        ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %.critedge23, %58, %10
+.critedge:                                        ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %.critedge23, %57, %10
   ret void
 
 17:                                               ; preds = %10
@@ -1918,7 +1915,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit:
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %38 = load i64, ptr %37, align 8, !noundef !3
   %39 = icmp ult i64 %36, %38
-  br i1 %39, label %40, label %52, !prof !16
+  br i1 %39, label %40, label %51, !prof !16
 
 40:                                               ; preds = %_ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 32
@@ -1928,46 +1925,45 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit:
   %45 = extractvalue { ptr, i64 } %44, 0
   %46 = extractvalue { ptr, i64 } %44, 1
   %47 = getelementptr inbounds i16, ptr %45, i64 %46
-  %48 = icmp ne ptr %45, null
-  call void @llvm.assume(i1 %48)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %45) ]
   store ptr %45, ptr %5, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %47, ptr %49, align 8
-  %50 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %5)
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %._crit_edge, label %.lr.ph
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %47, ptr %48, align 8
+  %49 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %5)
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %._crit_edge, label %.lr.ph
 
-52:                                               ; preds = %_ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit
+51:                                               ; preds = %_ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %36, i64 %38, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.12) #14
   unreachable
 
 ._crit_edge:                                      ; preds = %.lr.ph, %40
-  %53 = load i8, ptr %43, align 16, !range !15, !noundef !3
-  switch i8 %53, label %.critedge23 [
+  %52 = load i8, ptr %43, align 16, !range !15, !noundef !3
+  switch i8 %52, label %.critedge23 [
     i8 0, label %.critedge
     i8 1, label %.critedge
     i8 2, label %.critedge
-    i8 6, label %58
+    i8 6, label %57
     i8 9, label %.critedge
   ]
 
 .lr.ph:                                           ; preds = %40, %.lr.ph
-  %54 = phi ptr [ %56, %.lr.ph ], [ %50, %40 ]
-  %55 = load i16, ptr %54, align 2, !noundef !3
-  call fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr align 8 %0, i16 %55)
-  %56 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %5)
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %._crit_edge, label %.lr.ph
+  %53 = phi ptr [ %55, %.lr.ph ], [ %49, %40 ]
+  %54 = load i16, ptr %53, align 2, !noundef !3
+  call fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr align 8 %0, i16 %54)
+  %55 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %5)
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %._crit_edge, label %.lr.ph
 
-58:                                               ; preds = %._crit_edge
-  %59 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %60 = load i64, ptr %59, align 8, !noundef !3
-  %.not = icmp eq i64 %60, 0
+57:                                               ; preds = %._crit_edge
+  %58 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %59 = load i64, ptr %58, align 8, !noundef !3
+  %.not = icmp eq i64 %59, 0
   br i1 %.not, label %.critedge, label %.critedge23
 
-.critedge23:                                      ; preds = %._crit_edge, %58
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha9aa1590659c393cE"(ptr nonnull align 8 %61, i16 %1)
+.critedge23:                                      ; preds = %._crit_edge, %57
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha9aa1590659c393cE"(ptr nonnull align 8 %60, i16 %1)
   br label %.critedge
 }
 

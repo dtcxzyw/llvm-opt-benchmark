@@ -10349,103 +10349,102 @@ _ZN4llvm16DwarfCompileUnit25getExistingAbstractEntityEPKNS_6DINodeE.exit: ; pred
 68:                                               ; preds = %63
   %69 = icmp eq i32 %66, 1
   %spec.select.i.i30 = select i1 %69, ptr %1, ptr null
-  %70 = icmp ne ptr %spec.select.i.i30, null
-  tail call void @llvm.assume(i1 %70)
-  %71 = getelementptr inbounds nuw i8, ptr %spec.select.i.i30, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !791
-  %73 = getelementptr inbounds i8, ptr %72, i64 -16
-  %74 = load i64, ptr %73, align 8
-  %75 = and i64 %74, 2
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %75, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %79, label %76
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i30) ]
+  %70 = getelementptr inbounds nuw i8, ptr %spec.select.i.i30, i64 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !791
+  %72 = getelementptr inbounds i8, ptr %71, i64 -16
+  %73 = load i64, ptr %72, align 8
+  %74 = and i64 %73, 2
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %74, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %78, label %75
 
-76:                                               ; preds = %68
-  %77 = getelementptr inbounds i8, ptr %72, i64 -32
-  %78 = load ptr, ptr %77, align 8, !tbaa !25
+75:                                               ; preds = %68
+  %76 = getelementptr inbounds i8, ptr %71, i64 -32
+  %77 = load ptr, ptr %76, align 8, !tbaa !25
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i
 
-79:                                               ; preds = %68
-  %80 = lshr i64 %74, 2
-  %81 = and i64 %80, 15
-  %82 = sub nsw i64 0, %81
-  %83 = getelementptr inbounds %"class.llvm::MDOperand", ptr %73, i64 %82
+78:                                               ; preds = %68
+  %79 = lshr i64 %73, 2
+  %80 = and i64 %79, 15
+  %81 = sub nsw i64 0, %80
+  %82 = getelementptr inbounds %"class.llvm::MDOperand", ptr %72, i64 %81
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i
 
-_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i: ; preds = %79, %76
-  %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %83, %79 ], [ %78, %76 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i.i, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !508
-  %.not.not.i.i.i.i = icmp eq ptr %85, null
+_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i: ; preds = %78, %75
+  %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %82, %78 ], [ %77, %75 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i.i, i64 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !508
+  %.not.not.i.i.i.i = icmp eq ptr %84, null
   br i1 %.not.not.i.i.i.i, label %_ZN4llvm16DwarfCompileUnit20applyLabelAttributesERKNS_8DbgLabelERNS_3DIEE.exit, label %_ZNK4llvm8DbgLabel7getNameEv.exit.i
 
 _ZNK4llvm8DbgLabel7getNameEv.exit.i:              ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i
-  %86 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #26
-  %87 = extractvalue { ptr, i64 } %86, 1
-  %88 = icmp eq i64 %87, 0
-  br i1 %88, label %_ZN4llvm16DwarfCompileUnit20applyLabelAttributesERKNS_8DbgLabelERNS_3DIEE.exit, label %89
+  %85 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %84) #26
+  %86 = extractvalue { ptr, i64 } %85, 1
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %_ZN4llvm16DwarfCompileUnit20applyLabelAttributesERKNS_8DbgLabelERNS_3DIEE.exit, label %88
 
-89:                                               ; preds = %_ZNK4llvm8DbgLabel7getNameEv.exit.i
-  %90 = extractvalue { ptr, i64 } %86, 0
-  tail call void @_ZN4llvm9DwarfUnit9addStringERNS_3DIEENS_5dwarf9AttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(48) %64, i16 noundef zeroext 3, ptr %90, i64 %87) #26
+88:                                               ; preds = %_ZNK4llvm8DbgLabel7getNameEv.exit.i
+  %89 = extractvalue { ptr, i64 } %85, 0
+  tail call void @_ZN4llvm9DwarfUnit9addStringERNS_3DIEENS_5dwarf9AttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(48) %64, i16 noundef zeroext 3, ptr %89, i64 %86) #26
   br label %_ZN4llvm16DwarfCompileUnit20applyLabelAttributesERKNS_8DbgLabelERNS_3DIEE.exit
 
-_ZN4llvm16DwarfCompileUnit20applyLabelAttributesERKNS_8DbgLabelERNS_3DIEE.exit: ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i, %_ZNK4llvm8DbgLabel7getNameEv.exit.i, %89
-  %91 = load ptr, ptr %71, align 8, !tbaa !791
-  tail call void @_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_7DILabelE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef %91) #26
+_ZN4llvm16DwarfCompileUnit20applyLabelAttributesERKNS_8DbgLabelERNS_3DIEE.exit: ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i, %_ZNK4llvm8DbgLabel7getNameEv.exit.i, %88
+  %90 = load ptr, ptr %70, align 8, !tbaa !791
+  tail call void @_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_7DILabelE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef %90) #26
   br label %select.unfold
 
 select.unfold:                                    ; preds = %59, %_ZN4llvm16DwarfCompileUnit20applyLabelAttributesERKNS_8DbgLabelERNS_3DIEE.exit
-  %92 = phi ptr [ %64, %_ZN4llvm16DwarfCompileUnit20applyLabelAttributesERKNS_8DbgLabelERNS_3DIEE.exit ], [ %55, %59 ]
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %94 = load ptr, ptr %93, align 8, !tbaa !997
-  %.not28 = icmp eq ptr %94, null
-  br i1 %.not28, label %.thread, label %95
+  %91 = phi ptr [ %64, %_ZN4llvm16DwarfCompileUnit20applyLabelAttributesERKNS_8DbgLabelERNS_3DIEE.exit ], [ %55, %59 ]
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %93 = load ptr, ptr %92, align 8, !tbaa !997
+  %.not28 = icmp eq ptr %93, null
+  br i1 %.not28, label %.thread, label %94
 
-95:                                               ; preds = %select.unfold
-  tail call void @_ZN4llvm16DwarfCompileUnit15addLabelAddressERNS_3DIEENS_5dwarf9AttributeEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(48) %92, i16 noundef zeroext 17, ptr noundef nonnull %94)
-  %96 = load ptr, ptr %3, align 8, !tbaa !791
-  %97 = getelementptr inbounds i8, ptr %96, i64 -16
-  %98 = load i64, ptr %97, align 8
-  %99 = and i64 %98, 2
-  %.not.i.i.i.i.i.i = icmp eq i64 %99, 0
-  br i1 %.not.i.i.i.i.i.i, label %103, label %100
+94:                                               ; preds = %select.unfold
+  tail call void @_ZN4llvm16DwarfCompileUnit15addLabelAddressERNS_3DIEENS_5dwarf9AttributeEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(48) %91, i16 noundef zeroext 17, ptr noundef nonnull %93)
+  %95 = load ptr, ptr %3, align 8, !tbaa !791
+  %96 = getelementptr inbounds i8, ptr %95, i64 -16
+  %97 = load i64, ptr %96, align 8
+  %98 = and i64 %97, 2
+  %.not.i.i.i.i.i.i = icmp eq i64 %98, 0
+  br i1 %.not.i.i.i.i.i.i, label %102, label %99
 
-100:                                              ; preds = %95
-  %101 = getelementptr inbounds i8, ptr %96, i64 -32
-  %102 = load ptr, ptr %101, align 8, !tbaa !25
+99:                                               ; preds = %94
+  %100 = getelementptr inbounds i8, ptr %95, i64 -32
+  %101 = load ptr, ptr %100, align 8, !tbaa !25
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i
 
-103:                                              ; preds = %95
-  %104 = lshr i64 %98, 2
-  %105 = and i64 %104, 15
-  %106 = sub nsw i64 0, %105
-  %107 = getelementptr inbounds %"class.llvm::MDOperand", ptr %97, i64 %106
+102:                                              ; preds = %94
+  %103 = lshr i64 %97, 2
+  %104 = and i64 %103, 15
+  %105 = sub nsw i64 0, %104
+  %106 = getelementptr inbounds %"class.llvm::MDOperand", ptr %96, i64 %105
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i
 
-_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i: ; preds = %103, %100
-  %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %107, %103 ], [ %102, %100 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 8
-  %109 = load ptr, ptr %108, align 8, !tbaa !508
-  %.not.not.i.i.i = icmp eq ptr %109, null
+_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i: ; preds = %102, %99
+  %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %106, %102 ], [ %101, %99 ]
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 8
+  %108 = load ptr, ptr %107, align 8, !tbaa !508
+  %.not.not.i.i.i = icmp eq ptr %108, null
   br i1 %.not.not.i.i.i, label %.thread, label %_ZNK4llvm8DbgLabel7getNameEv.exit
 
 _ZNK4llvm8DbgLabel7getNameEv.exit:                ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i
-  %110 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %109) #26
-  %111 = extractvalue { ptr, i64 } %110, 1
-  %112 = icmp eq i64 %111, 0
-  br i1 %112, label %.thread, label %113
+  %109 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %108) #26
+  %110 = extractvalue { ptr, i64 } %109, 1
+  %111 = icmp eq i64 %110, 0
+  br i1 %111, label %.thread, label %112
 
-113:                                              ; preds = %_ZNK4llvm8DbgLabel7getNameEv.exit
-  %114 = extractvalue { ptr, i64 } %110, 0
-  %115 = load ptr, ptr %5, align 8, !tbaa !151
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %117 = load ptr, ptr %116, align 8, !tbaa !545
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 36
-  %119 = load i32, ptr %118, align 4, !tbaa !546
-  tail call void @_ZN4llvm10DwarfDebug12addAccelNameERKNS_9DwarfUnitENS_13DICompileUnit18DebugNameTableKindENS_9StringRefERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(5876) %115, ptr noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %119, ptr %114, i64 %111, ptr noundef nonnull align 8 dereferenceable(48) %92) #26
+112:                                              ; preds = %_ZNK4llvm8DbgLabel7getNameEv.exit
+  %113 = extractvalue { ptr, i64 } %109, 0
+  %114 = load ptr, ptr %5, align 8, !tbaa !151
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %116 = load ptr, ptr %115, align 8, !tbaa !545
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 36
+  %118 = load i32, ptr %117, align 4, !tbaa !546
+  tail call void @_ZN4llvm10DwarfDebug12addAccelNameERKNS_9DwarfUnitENS_13DICompileUnit18DebugNameTableKindENS_9StringRefERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(5876) %114, ptr noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %118, ptr %113, i64 %110, ptr noundef nonnull align 8 dereferenceable(48) %91) #26
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i, %67, %59, %_ZNK4llvm8DbgLabel7getNameEv.exit, %113, %select.unfold
+.thread:                                          ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i, %67, %59, %_ZNK4llvm8DbgLabel7getNameEv.exit, %112, %select.unfold
   ret void
 }
 

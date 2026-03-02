@@ -7084,10 +7084,9 @@ Zyx_ManPrintSolutionFile.exit:                    ; preds = %Abc_TtNot.exit66.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Zyx_TestGetTruthTablePars(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Zyx_TestGetTruthTablePars(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 {
 Abc_UtilStrsav.exit:
-  %.not.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #30
   %6 = add i64 %5, 1
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #26

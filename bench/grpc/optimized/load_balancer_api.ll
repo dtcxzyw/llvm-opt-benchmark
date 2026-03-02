@@ -174,8 +174,7 @@ grpc_lb_v1_LoadBalanceRequest_initial_request.exit.thread.i: ; preds = %grpc_lb_
 upb_Arena_Malloc.exit.i.i6:                       ; preds = %41, %39
   %.pre-phi = phi i64 [ %36, %41 ], [ %.pre, %39 ]
   %.0.i.i.i7 = phi ptr [ %34, %41 ], [ %40, %39 ]
-  %.not.i.i8 = icmp ne ptr %.0.i.i.i7, null
-  tail call void @llvm.assume(i1 %.not.i.i8)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i7) ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i7, i8 0, i64 %30, i1 false)
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__lb__v1__InitialLoadBalanceRequest_msg_init) #19, !srcloc !23
   store i32 1, ptr %23, align 4, !tbaa !24

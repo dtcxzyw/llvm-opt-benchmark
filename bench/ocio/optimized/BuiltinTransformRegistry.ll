@@ -171,8 +171,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev28BuiltinTransformRegistryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread.thread: ; preds = %7
   %13 = tail call ptr @__dynamic_cast(ptr nonnull %10, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev24BuiltinTransformRegistryE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev28BuiltinTransformRegistryImplE, i64 0) #24, !noalias !22
-  %.not.not.i.i21 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %.not.not.i.i21)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   br label %36
 
 14:                                               ; preds = %7
@@ -223,8 +222,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev28BuiltinTransformRegistryImplELN9__gn
   %.pr = load ptr, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114globalRegistryE, align 8, !tbaa !3, !noalias !22, !nonnull !30, !noundef !30
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114globalRegistryE, i64 8), align 8, !tbaa !21, !noalias !22
   %35 = tail call ptr @__dynamic_cast(ptr nonnull %.pr, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev24BuiltinTransformRegistryE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev28BuiltinTransformRegistryImplE, i64 0) #24, !noalias !22
-  %.not.not.i.i = icmp ne ptr %35, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %35) ]
   %.not.i.i.i.i.i3 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i.i3, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_28BuiltinTransformRegistryImplENS_24BuiltinTransformRegistryEEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread, label %36
 

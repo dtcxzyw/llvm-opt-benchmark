@@ -253,8 +253,7 @@ Vec_IntFreeP.exit.i:                              ; preds = %15, %6
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %23, ptr %24, align 8, !tbaa !8
   store i32 %.val.i, ptr %20, align 4, !tbaa !31
-  %.not.i3.i = icmp ne ptr %23, null
-  tail call void @llvm.assume(i1 %.not.i3.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
   %25 = sext i32 %.val.i to i64
   %26 = shl nsw i64 %25, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %23, i8 -1, i64 %26, i1 false)

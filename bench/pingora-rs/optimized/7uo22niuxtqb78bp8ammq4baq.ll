@@ -3615,7 +3615,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hd15a8e6b26db46c
   br i1 %.not11.i, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8e18453d7183ab37E.exit", label %.lr.ph.i1
 
 .lr.ph.i1:                                        ; preds = %.loopexit, %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h2c94cf107ea8f3cfE.exit.i"
-  %21 = phi ptr [ %48, %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h2c94cf107ea8f3cfE.exit.i" ], [ %20, %.loopexit ]
+  %21 = phi ptr [ %47, %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h2c94cf107ea8f3cfE.exit.i" ], [ %20, %.loopexit ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 6672
   %23 = load atomic i64, ptr %22 acquire, align 8, !noalias !405
   %24 = and i64 %23, 4294967296
@@ -3646,35 +3646,34 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hd15a8e6b26db46c
   %37 = load atomic ptr, ptr %2 acquire, align 8, !noalias !405
   br label %38
 
-38:                                               ; preds = %46, %35
-  %.sroa.09.014.i.i = phi i32 [ 0, %35 ], [ %47, %46 ]
-  %.sroa.08.013.i.i = phi ptr [ %37, %35 ], [ %.sroa.01.0.i.i.i.i, %46 ]
-  %39 = icmp ne ptr %.sroa.08.013.i.i, null
-  tail call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i, i64 6656
-  %41 = load i64, ptr %40, align 8, !noalias !405, !noundef !35
-  %42 = add i64 %41, 32
-  store i64 %42, ptr %36, align 8, !noalias !405
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i, i64 6664
-  %44 = cmpxchg ptr %43, ptr null, ptr %21 acq_rel acquire, align 8, !noalias !405
-  %.not.i.i = extractvalue { ptr, i1 } %44, 1
-  br i1 %.not.i.i, label %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h2c94cf107ea8f3cfE.exit.i", label %46
+38:                                               ; preds = %45, %35
+  %.sroa.09.014.i.i = phi i32 [ 0, %35 ], [ %46, %45 ]
+  %.sroa.08.013.i.i = phi ptr [ %37, %35 ], [ %.sroa.01.0.i.i.i.i, %45 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.08.013.i.i) ]
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i, i64 6656
+  %40 = load i64, ptr %39, align 8, !noalias !405, !noundef !35
+  %41 = add i64 %40, 32
+  store i64 %41, ptr %36, align 8, !noalias !405
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i, i64 6664
+  %43 = cmpxchg ptr %42, ptr null, ptr %21 acq_rel acquire, align 8, !noalias !405
+  %.not.i.i = extractvalue { ptr, i1 } %43, 1
+  br i1 %.not.i.i, label %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h2c94cf107ea8f3cfE.exit.i", label %45
 
-45:                                               ; preds = %46
+44:                                               ; preds = %45
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %21, i64 noundef 6688, i64 noundef 8) #14, !noalias !405
   br label %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h2c94cf107ea8f3cfE.exit.i"
 
-46:                                               ; preds = %38
-  %.sroa.01.0.i.i.i.i = extractvalue { ptr, i1 } %44, 0
-  %47 = add nuw nsw i32 %.sroa.09.014.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %47, 3
-  br i1 %exitcond.not.i.i, label %45, label %38
+45:                                               ; preds = %38
+  %.sroa.01.0.i.i.i.i = extractvalue { ptr, i1 } %43, 0
+  %46 = add nuw nsw i32 %.sroa.09.014.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %46, 3
+  br i1 %exitcond.not.i.i, label %44, label %38
 
-"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h2c94cf107ea8f3cfE.exit.i": ; preds = %38, %45
+"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h2c94cf107ea8f3cfE.exit.i": ; preds = %38, %44
   tail call void @llvm.x86.sse2.pause() #14, !noalias !405
-  %48 = load ptr, ptr %19, align 8, !alias.scope !405, !nonnull !35, !noundef !35
-  %49 = load ptr, ptr %1, align 8, !alias.scope !405, !nonnull !35, !noundef !35
-  %.not.i2 = icmp eq ptr %48, %49
+  %47 = load ptr, ptr %19, align 8, !alias.scope !405, !nonnull !35, !noundef !35
+  %48 = load ptr, ptr %1, align 8, !alias.scope !405, !nonnull !35, !noundef !35
+  %.not.i2 = icmp eq ptr %47, %48
   br i1 %.not.i2, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8e18453d7183ab37E.exit.loopexit", label %.lr.ph.i1
 
 "_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8e18453d7183ab37E.exit.loopexit": ; preds = %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h2c94cf107ea8f3cfE.exit.i", %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$22observed_tail_position17h9c54dadd8e884f72E.exit.i", %.lr.ph.i1
@@ -3682,44 +3681,44 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hd15a8e6b26db46c
   br label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8e18453d7183ab37E.exit"
 
 "_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8e18453d7183ab37E.exit": ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8e18453d7183ab37E.exit.loopexit", %.loopexit
-  %50 = phi ptr [ %.pre, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8e18453d7183ab37E.exit.loopexit" ], [ %18, %.loopexit ]
-  %51 = load i64, ptr %4, align 8, !noundef !35
+  %49 = phi ptr [ %.pre, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8e18453d7183ab37E.exit.loopexit" ], [ %18, %.loopexit ]
+  %50 = load i64, ptr %4, align 8, !noundef !35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
-  %52 = and i64 %51, 31
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 6672
-  %54 = load atomic i64, ptr %53 acquire, align 8, !noalias !408
-  %55 = shl nuw nsw i64 1, %52
-  %56 = and i64 %54, %55
-  %.not.i3 = icmp eq i64 %56, 0
-  br i1 %.not.i3, label %57, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit"
+  %51 = and i64 %50, 31
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 6672
+  %53 = load atomic i64, ptr %52 acquire, align 8, !noalias !408
+  %54 = shl nuw nsw i64 1, %51
+  %55 = and i64 %53, %54
+  %.not.i3 = icmp eq i64 %55, 0
+  br i1 %.not.i3, label %56, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit"
 
-57:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8e18453d7183ab37E.exit"
-  %58 = and i64 %54, 8589934592
-  %.not1.i = icmp eq i64 %58, 0
-  br i1 %.not1.i, label %59, label %60
+56:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8e18453d7183ab37E.exit"
+  %57 = and i64 %53, 8589934592
+  %.not1.i = icmp eq i64 %57, 0
+  br i1 %.not1.i, label %58, label %59
 
-59:                                               ; preds = %57
+58:                                               ; preds = %56
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !408
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit.thread"
 
-60:                                               ; preds = %57
+59:                                               ; preds = %56
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !408
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit.thread"
 
 "_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit": ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8e18453d7183ab37E.exit"
-  %61 = getelementptr inbounds nuw { { { [26 x i64] } } }, ptr %50, i64 %52
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull readonly align 8 dereferenceable(208) %61, i64 208, i1 false)
+  %60 = getelementptr inbounds nuw { { { [26 x i64] } } }, ptr %49, i64 %51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull readonly align 8 dereferenceable(208) %60, i64 208, i1 false)
   %.pre5 = load i64, ptr %0, align 8, !range !411
-  %62 = icmp slt i64 %.pre5, -9223372036854775806
-  br i1 %62, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit.thread", label %63
+  %61 = icmp slt i64 %.pre5, -9223372036854775806
+  br i1 %61, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit.thread", label %62
 
-"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit.thread": ; preds = %60, %59, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit", %63, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17hf5e2c3600a087aa1E.exit"
+"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit.thread": ; preds = %59, %58, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit", %62, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17hf5e2c3600a087aa1E.exit"
   ret void
 
-63:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit"
-  %64 = load i64, ptr %4, align 8, !noundef !35
-  %65 = add i64 %64, 1
-  store i64 %65, ptr %4, align 8
+62:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit"
+  %63 = load i64, ptr %4, align 8, !noundef !35
+  %64 = add i64 %63, 1
+  store i64 %64, ptr %4, align 8
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha2694fd661470701E.exit.thread"
 }
 

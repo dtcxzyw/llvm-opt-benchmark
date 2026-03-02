@@ -122008,96 +122008,58 @@ _ZN5prost8encoding7message11encoded_len17h6a6d412ecb02d769E.llvm.125826319924286
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6b8e063332d3830eE.llvm.12582631992428692812"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #9 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %0, %1
-  br i1 %5, label %.loopexit, label %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %4 = icmp eq ptr %0, %1
+  br i1 %4, label %.loopexit, label %5
 
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub nuw i64 %7, %8
-  %10 = udiv exact i64 %9, 24
-  br label %11
+5:                                                ; preds = %3
+  %6 = ptrtoint ptr %1 to i64
+  %7 = ptrtoint ptr %0 to i64
+  %8 = sub nuw i64 %6, %7
+  %9 = udiv exact i64 %8, 24
+  br label %10
 
-11:                                               ; preds = %11, %6
-  %.sroa.07.0 = phi i64 [ %2, %6 ], [ %21, %11 ]
-  %.sroa.09.0 = phi i64 [ 0, %6 ], [ %22, %11 ]
-  %12 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %0, i64 %.sroa.09.0
-  %13 = getelementptr i8, ptr %12, i64 16
-  %.val = load i64, ptr %13, align 8, !alias.scope !30749, !noundef !8
-  %14 = or i64 %.val, 1
-  %15 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %14, i1 true)
-  %16 = xor i64 %15, 63
-  %17 = mul nuw nsw i64 %16, 9
-  %18 = add nuw nsw i64 %17, 73
-  %19 = lshr i64 %18, 6
-  %20 = add i64 %.val, %.sroa.07.0
-  %21 = add i64 %20, %19
-  %22 = add nuw i64 %.sroa.09.0, 1
-  %23 = icmp eq i64 %22, %10
-  br i1 %23, label %.loopexit, label %11
+10:                                               ; preds = %10, %5
+  %.sroa.07.0 = phi i64 [ %2, %5 ], [ %20, %10 ]
+  %.sroa.09.0 = phi i64 [ 0, %5 ], [ %21, %10 ]
+  %11 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %0, i64 %.sroa.09.0
+  %12 = getelementptr i8, ptr %11, i64 16
+  %.val = load i64, ptr %12, align 8, !alias.scope !30749, !noundef !8
+  %13 = or i64 %.val, 1
+  %14 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %13, i1 true)
+  %15 = xor i64 %14, 63
+  %16 = mul nuw nsw i64 %15, 9
+  %17 = add nuw nsw i64 %16, 73
+  %18 = lshr i64 %17, 6
+  %19 = add i64 %.val, %.sroa.07.0
+  %20 = add i64 %19, %18
+  %21 = add nuw i64 %.sroa.09.0, 1
+  %22 = icmp eq i64 %21, %9
+  br i1 %22, label %.loopexit, label %10
 
-.loopexit:                                        ; preds = %11, %3
-  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %21, %11 ]
+.loopexit:                                        ; preds = %10, %3
+  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %20, %10 ]
   ret i64 %.sroa.04.0
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc1a49d6dfc8fb921E.llvm.12582631992428692812"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #9 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %0, %1
-  br i1 %5, label %.loopexit, label %6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %4 = icmp eq ptr %0, %1
+  br i1 %4, label %.loopexit, label %5
 
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub nuw i64 %7, %8
-  %10 = udiv exact i64 %9, 24
-  br label %11
+5:                                                ; preds = %3
+  %6 = ptrtoint ptr %1 to i64
+  %7 = ptrtoint ptr %0 to i64
+  %8 = sub nuw i64 %6, %7
+  %9 = udiv exact i64 %8, 24
+  br label %10
 
-11:                                               ; preds = %11, %6
-  %.sroa.07.0 = phi i64 [ %2, %6 ], [ %21, %11 ]
-  %.sroa.09.0 = phi i64 [ 0, %6 ], [ %22, %11 ]
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.sroa.09.0
-  %13 = getelementptr i8, ptr %12, i64 16
-  %.val = load i64, ptr %13, align 8, !noundef !8
-  %14 = or i64 %.val, 1
-  %15 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %14, i1 true)
-  %16 = xor i64 %15, 63
-  %17 = mul nuw nsw i64 %16, 9
-  %18 = add nuw nsw i64 %17, 73
-  %19 = lshr i64 %18, 6
-  %20 = add i64 %.val, %.sroa.07.0
-  %21 = add i64 %20, %19
-  %22 = add nuw i64 %.sroa.09.0, 1
-  %23 = icmp eq i64 %22, %10
-  br i1 %23, label %.loopexit, label %11
-
-.loopexit:                                        ; preds = %11, %3
-  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %21, %11 ]
-  ret i64 %.sroa.04.0
-}
-
-; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.llvm.12582631992428692812"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #9 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %0, %1
-  br i1 %5, label %.loopexit, label %6
-
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub nuw i64 %7, %8
-  %10 = lshr exact i64 %9, 3
-  br label %11
-
-11:                                               ; preds = %11, %6
-  %.sroa.07.0 = phi i64 [ %2, %6 ], [ %19, %11 ]
-  %.sroa.09.0 = phi i64 [ 0, %6 ], [ %20, %11 ]
-  %12 = getelementptr inbounds i64, ptr %0, i64 %.sroa.09.0
+10:                                               ; preds = %10, %5
+  %.sroa.07.0 = phi i64 [ %2, %5 ], [ %20, %10 ]
+  %.sroa.09.0 = phi i64 [ 0, %5 ], [ %21, %10 ]
+  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.sroa.09.0
+  %12 = getelementptr i8, ptr %11, i64 16
   %.val = load i64, ptr %12, align 8, !noundef !8
   %13 = or i64 %.val, 1
   %14 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %13, i1 true)
@@ -122105,13 +122067,48 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %16 = mul nuw nsw i64 %15, 9
   %17 = add nuw nsw i64 %16, 73
   %18 = lshr i64 %17, 6
-  %19 = add i64 %18, %.sroa.07.0
-  %20 = add nuw i64 %.sroa.09.0, 1
-  %21 = icmp eq i64 %20, %10
-  br i1 %21, label %.loopexit, label %11
+  %19 = add i64 %.val, %.sroa.07.0
+  %20 = add i64 %19, %18
+  %21 = add nuw i64 %.sroa.09.0, 1
+  %22 = icmp eq i64 %21, %9
+  br i1 %22, label %.loopexit, label %10
 
-.loopexit:                                        ; preds = %11, %3
-  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %19, %11 ]
+.loopexit:                                        ; preds = %10, %3
+  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %20, %10 ]
+  ret i64 %.sroa.04.0
+}
+
+; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
+define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he43ef9a35c4547fcE.llvm.12582631992428692812"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #9 personality ptr @rust_eh_personality {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %4 = icmp eq ptr %0, %1
+  br i1 %4, label %.loopexit, label %5
+
+5:                                                ; preds = %3
+  %6 = ptrtoint ptr %1 to i64
+  %7 = ptrtoint ptr %0 to i64
+  %8 = sub nuw i64 %6, %7
+  %9 = lshr exact i64 %8, 3
+  br label %10
+
+10:                                               ; preds = %10, %5
+  %.sroa.07.0 = phi i64 [ %2, %5 ], [ %18, %10 ]
+  %.sroa.09.0 = phi i64 [ 0, %5 ], [ %19, %10 ]
+  %11 = getelementptr inbounds i64, ptr %0, i64 %.sroa.09.0
+  %.val = load i64, ptr %11, align 8, !noundef !8
+  %12 = or i64 %.val, 1
+  %13 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %12, i1 true)
+  %14 = xor i64 %13, 63
+  %15 = mul nuw nsw i64 %14, 9
+  %16 = add nuw nsw i64 %15, 73
+  %17 = lshr i64 %16, 6
+  %18 = add i64 %17, %.sroa.07.0
+  %19 = add nuw i64 %.sroa.09.0, 1
+  %20 = icmp eq i64 %19, %9
+  br i1 %20, label %.loopexit, label %10
+
+.loopexit:                                        ; preds = %10, %3
+  %.sroa.04.0 = phi i64 [ %2, %3 ], [ %18, %10 ]
   ret i64 %.sroa.04.0
 }
 

@@ -121,10 +121,9 @@ builtin_lookup.exit:                              ; preds = %bin4feature.exit11.
 27:                                               ; preds = %22
   store ptr %1, ptr %24, align 8, !tbaa !22
   %28 = tail call ptr @rb_iseq_ibf_load_bytes(ptr noundef nonnull %.09.lcssa.i, i64 noundef %.0) #8
-  %29 = icmp ne ptr %28, null
-  tail call void @llvm.assume(i1 %29)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %28) ]
   store ptr null, ptr %24, align 8, !tbaa !22
-  %30 = tail call i64 @rb_iseq_eval(ptr noundef nonnull %28) #8
+  %29 = tail call i64 @rb_iseq_eval(ptr noundef nonnull %28) #8
   ret void
 }
 

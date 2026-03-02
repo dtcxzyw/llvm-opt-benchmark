@@ -753,8 +753,9 @@ _ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit.i: ; preds = %175, %_ZN12_GLO
 
 180:                                              ; preds = %176
   %181 = icmp eq i8 %178, 2
-  call void @llvm.assume(i1 %181)
-  %182 = getelementptr inbounds i8, ptr %.sroa.6.0.copyload.i, i64 -32
+  %spec.select.i.i22.i = select i1 %181, ptr %.sroa.6.0.copyload.i, ptr null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i22.i) ]
+  %182 = getelementptr inbounds i8, ptr %spec.select.i.i22.i, i64 -32
   %183 = load ptr, ptr %182, align 8, !tbaa !76
   %.not.i.i.i = icmp eq ptr %183, null
   br i1 %.not.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i, label %184
@@ -781,7 +782,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i.i.i:        ; preds = %189, %184, %180
 191:                                              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i
   %192 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %193 = load ptr, ptr %192, align 8, !tbaa !89
-  %194 = getelementptr inbounds i8, ptr %.sroa.6.0.copyload.i, i64 -24
+  %194 = getelementptr inbounds i8, ptr %spec.select.i.i22.i, i64 -24
   store ptr %193, ptr %194, align 8, !tbaa !87
   %.not.i.i.i.i.i = icmp eq ptr %193, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i, label %195

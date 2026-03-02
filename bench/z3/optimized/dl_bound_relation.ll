@@ -7850,14 +7850,13 @@ _ZNK7datalog14bound_relation10get_pluginEv.exit3: ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %22)
-  %27 = icmp ne ptr %26, null
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call ptr @__dynamic_cast(ptr nonnull readonly %26, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14bound_relationE, i64 0) #24
-  tail call void @_ZN7datalog15vector_relationINS_9uint_set2ENS_21bound_relation_helperEE4copyERKS3_(ptr noundef nonnull align 8 dereferenceable(128) %28, ptr noundef nonnull align 8 dereferenceable(128) %0)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
+  %27 = tail call ptr @__dynamic_cast(ptr nonnull readonly %26, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14bound_relationE, i64 0) #24
+  tail call void @_ZN7datalog15vector_relationINS_9uint_set2ENS_21bound_relation_helperEE4copyERKS3_(ptr noundef nonnull align 8 dereferenceable(128) %27, ptr noundef nonnull align 8 dereferenceable(128) %0)
   br label %_ZN7datalog21bound_relation_plugin3getEPNS_13relation_baseE.exit
 
 _ZN7datalog21bound_relation_plugin3getEPNS_13relation_baseE.exit: ; preds = %18, %_ZNK7datalog14bound_relation10get_pluginEv.exit, %_ZNK7datalog14bound_relation10get_pluginEv.exit3
-  %.0 = phi ptr [ %28, %_ZNK7datalog14bound_relation10get_pluginEv.exit3 ], [ %19, %18 ], [ null, %_ZNK7datalog14bound_relation10get_pluginEv.exit ]
+  %.0 = phi ptr [ %27, %_ZNK7datalog14bound_relation10get_pluginEv.exit3 ], [ %19, %18 ], [ null, %_ZNK7datalog14bound_relation10get_pluginEv.exit ]
   ret ptr %.0
 }
 

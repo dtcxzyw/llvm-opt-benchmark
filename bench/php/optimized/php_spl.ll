@@ -232,7 +232,7 @@ define hidden void @zif_class_parents(ptr noundef readonly captures(none) %0, pt
   %.not14 = icmp eq ptr %.0, null
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %2, %27, %21, %13
+.loopexit:                                        ; preds = %.lr.ph, %27, %2, %21, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -569,7 +569,7 @@ define hidden void @zif_spl_classes(ptr noundef readonly captures(none) %0, ptr 
   tail call void @spl_add_classes(ptr noundef %62, ptr noundef nonnull %1, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #10
   br label %63
 
-63:                                               ; preds = %.critedge, %5
+63:                                               ; preds = %5, %.critedge
   ret void
 }
 
@@ -870,7 +870,7 @@ select.unfold:                                    ; preds = %spl_autoload.exit.t
   call void @_efree(ptr noundef nonnull %24) #10
   br label %zend_string_release.exit
 
-zend_string_release.exit:                         ; preds = %2, %126, %125, %118, %.critedge
+zend_string_release.exit:                         ; preds = %126, %125, %118, %.critedge, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -1034,7 +1034,7 @@ define hidden void @zif_spl_autoload_call(ptr noundef readonly captures(none) %0
   call void @_efree(ptr noundef nonnull %10) #10
   br label %zend_string_release.exit
 
-zend_string_release.exit:                         ; preds = %2, %24, %23, %16, %8
+zend_string_release.exit:                         ; preds = %24, %23, %16, %8, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2068,7 +2068,7 @@ zend_string_copy.exit:                            ; preds = %67, %73
   %.not36 = icmp eq ptr %78, %16
   br i1 %.not36, label %.loopexit, label %18
 
-.loopexit:                                        ; preds = %77, %10, %.critedge, %6
+.loopexit:                                        ; preds = %77, %10, %6, %.critedge
   ret void
 }
 

@@ -987,45 +987,44 @@ declare i64 @ossl_ht_count(ptr noundef) local_unnamed_addr #1
 declare void @ossl_ht_foreach_until(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
-define internal noundef i32 @int_foreach(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1) #7 {
+define internal noundef i32 @int_foreach(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 {
 ossl_ht_test_int_from_value.exit:
-  %2 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !33
-  %.not.i = icmp eq ptr %4, @test_int_id
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %.not.i = icmp eq ptr %3, @test_int_id
   tail call void @llvm.assume(i1 %.not.i)
-  %5 = load ptr, ptr %0, align 8, !tbaa !30
-  %6 = load i32, ptr %5, align 4, !tbaa !6
-  br label %7
+  %4 = load ptr, ptr %0, align 8, !tbaa !30
+  %5 = load i32, ptr %4, align 4, !tbaa !6
+  br label %6
 
-7:                                                ; preds = %11, %ossl_ht_test_int_from_value.exit
-  %indvars.iv.i = phi i64 [ 0, %ossl_ht_test_int_from_value.exit ], [ %indvars.iv.next.i, %11 ]
-  %8 = getelementptr inbounds nuw i32, ptr @int_tests, i64 %indvars.iv.i
-  %9 = load i32, ptr %8, align 4, !tbaa !6
-  %10 = icmp eq i32 %9, %6
-  br i1 %10, label %int_find.exit, label %11
+6:                                                ; preds = %10, %ossl_ht_test_int_from_value.exit
+  %indvars.iv.i = phi i64 [ 0, %ossl_ht_test_int_from_value.exit ], [ %indvars.iv.next.i, %10 ]
+  %7 = getelementptr inbounds nuw i32, ptr @int_tests, i64 %indvars.iv.i
+  %8 = load i32, ptr %7, align 4, !tbaa !6
+  %9 = icmp eq i32 %8, %5
+  br i1 %9, label %int_find.exit, label %10
 
-11:                                               ; preds = %7
+10:                                               ; preds = %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 21
-  br i1 %exitcond.not.i, label %int_find.exit.thread, label %7, !llvm.loop !56
+  br i1 %exitcond.not.i, label %int_find.exit.thread, label %6, !llvm.loop !56
 
-int_find.exit.thread:                             ; preds = %11
-  %12 = load i16, ptr @int_not_found, align 2, !tbaa !12
-  %13 = add i16 %12, 1
-  store i16 %13, ptr @int_not_found, align 2, !tbaa !12
-  br label %18
+int_find.exit.thread:                             ; preds = %10
+  %11 = load i16, ptr @int_not_found, align 2, !tbaa !12
+  %12 = add i16 %11, 1
+  store i16 %12, ptr @int_not_found, align 2, !tbaa !12
+  br label %17
 
-int_find.exit:                                    ; preds = %7
-  %14 = and i64 %indvars.iv.i, 4294967295
-  %15 = getelementptr inbounds nuw i16, ptr @int_found, i64 %14
-  %16 = load i16, ptr %15, align 2, !tbaa !12
-  %17 = add i16 %16, 1
-  store i16 %17, ptr %15, align 2, !tbaa !12
-  br label %18
+int_find.exit:                                    ; preds = %6
+  %13 = and i64 %indvars.iv.i, 4294967295
+  %14 = getelementptr inbounds nuw i16, ptr @int_found, i64 %13
+  %15 = load i16, ptr %14, align 2, !tbaa !12
+  %16 = add i16 %15, 1
+  store i16 %16, ptr %14, align 2, !tbaa !12
+  br label %17
 
-18:                                               ; preds = %int_find.exit, %int_find.exit.thread
+17:                                               ; preds = %int_find.exit, %int_find.exit.thread
   ret i32 1
 }
 
@@ -1066,41 +1065,40 @@ declare ptr @ossl_ht_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @ossl_rcu_uptr_deref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @hashtable_mt_free(ptr noundef readonly captures(address_is_null) %0) #0 {
+define internal void @hashtable_mt_free(ptr noundef readonly captures(none) %0) #0 {
 ossl_ht_mt_TEST_MT_ENTRY_from_value.exit:
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
-  %3 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !33
-  %.not.i = icmp eq ptr %5, @mt_TEST_MT_ENTRY_id
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
+  %.not.i = icmp eq ptr %4, @mt_TEST_MT_ENTRY_id
   tail call void @llvm.assume(i1 %.not.i)
-  %6 = load ptr, ptr %0, align 8, !tbaa !30
+  %5 = load ptr, ptr %0, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %8 = load ptr, ptr @worker_lock, align 8, !tbaa !50
-  %9 = call i32 @CRYPTO_atomic_load_int(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %8) #13
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %7 = load ptr, ptr @worker_lock, align 8, !tbaa !50
+  %8 = call i32 @CRYPTO_atomic_load_int(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef %7) #13
   %.b = load i1, ptr @shutting_down, align 4
-  br i1 %.b, label %17, label %10
+  br i1 %.b, label %16, label %9
 
-10:                                               ; preds = %ossl_ht_mt_TEST_MT_ENTRY_from_value.exit
-  %11 = load i32, ptr %1, align 4, !tbaa !6
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %14
+9:                                                ; preds = %ossl_ht_mt_TEST_MT_ENTRY_from_value.exit
+  %10 = load i32, ptr %1, align 4, !tbaa !6
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %13
 
-13:                                               ; preds = %10
+12:                                               ; preds = %9
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 525, ptr noundef nonnull @.str.65) #13
   store i1 true, ptr @free_failure, align 4
-  br label %17
+  br label %16
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr @worker_lock, align 8, !tbaa !50
-  %16 = call i32 @CRYPTO_atomic_add(ptr noundef nonnull %7, i32 noundef -1, ptr noundef nonnull %2, ptr noundef %15) #13
-  br label %17
+13:                                               ; preds = %9
+  %14 = load ptr, ptr @worker_lock, align 8, !tbaa !50
+  %15 = call i32 @CRYPTO_atomic_add(ptr noundef nonnull %6, i32 noundef -1, ptr noundef nonnull %2, ptr noundef %14) #13
+  br label %16
 
-17:                                               ; preds = %13, %14, %ossl_ht_mt_TEST_MT_ENTRY_from_value.exit
+16:                                               ; preds = %12, %13, %ossl_ht_mt_TEST_MT_ENTRY_from_value.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void

@@ -749,7 +749,7 @@ _ZNK5clang4ento9MemRegion14getMemorySpaceEv.exit.i: ; preds = %select.unfold.i.i
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %23 = load ptr, ptr %22, align 8, !tbaa !124
   %24 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %15) #23
-  br label %41
+  br label %40
 
 25:                                               ; preds = %_ZNK5clang4ento9MemRegion14getMemorySpaceEv.exit.i
   %26 = and i32 %17, 127
@@ -760,7 +760,7 @@ _ZNK5clang4ento9MemRegion14getMemorySpaceEv.exit.i: ; preds = %select.unfold.i.i
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %30 = load ptr, ptr %29, align 8, !tbaa !155
-  br label %41
+  br label %40
 
 31:                                               ; preds = %25
   %32 = icmp ne i32 %26, 16
@@ -770,23 +770,21 @@ _ZNK5clang4ento9MemRegion14getMemorySpaceEv.exit.i: ; preds = %select.unfold.i.i
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %35 = load ptr, ptr %34, align 8, !tbaa !160
-  br label %41
+  br label %40
 
 36:                                               ; preds = %31
-  %37 = icmp eq i32 %26, 36
-  tail call void @llvm.assume(i1 %37)
-  %38 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  %39 = load ptr, ptr %38, align 8, !tbaa !124
-  %40 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %15) #23
-  br label %41
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 120
+  %38 = load ptr, ptr %37, align 8, !tbaa !124
+  %39 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %15) #23
+  br label %40
 
-41:                                               ; preds = %28, %36, %33, %21
-  %.sink = phi ptr [ %30, %28 ], [ %39, %36 ], [ %35, %33 ], [ %23, %21 ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %43 = load i32, ptr %42, align 8, !tbaa !164
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %.sink, i64 %44
-  %.0 = load ptr, ptr %45, align 8, !tbaa !168
+40:                                               ; preds = %28, %36, %33, %21
+  %.sink = phi ptr [ %30, %28 ], [ %38, %36 ], [ %35, %33 ], [ %23, %21 ]
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %42 = load i32, ptr %41, align 8, !tbaa !164
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw ptr, ptr %.sink, i64 %43
+  %.0 = load ptr, ptr %44, align 8, !tbaa !168
   ret ptr %.0
 }
 

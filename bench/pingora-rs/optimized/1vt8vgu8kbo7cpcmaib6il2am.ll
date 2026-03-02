@@ -1043,7 +1043,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$17try_with_capacity1
   store i64 0, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i16 0, ptr %.sroa.8.0..sroa_idx, align 8
-  br label %71
+  br label %69
 
 12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1088,7 +1088,7 @@ _ZN4http6header3map15to_raw_capacity17hdded51987db301a1E.exit: ; preds = %12
 
 29:                                               ; preds = %_ZN4http6header3map15to_raw_capacity17hdded51987db301a1E.exit
   store i64 3, ptr %0, align 8
-  br label %71
+  br label %69
 
 30:                                               ; preds = %27
   %31 = add nuw nsw i64 %.sroa.021.0, 1
@@ -1156,7 +1156,7 @@ common.resume:                                    ; preds = %60, %63, %43
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %55 = load i64, ptr %54, align 8, !range !65, !noalias !111, !noundef !4
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br i1 %53, label %57, label %66, !prof !56
+  br i1 %53, label %57, label %65, !prof !56
 
 57:                                               ; preds = %.noexc
   %58 = load i64, ptr %56, align 8, !noalias !111
@@ -1168,7 +1168,7 @@ common.resume:                                    ; preds = %60, %63, %43
 
 59:                                               ; preds = %27
   store i64 3, ptr %0, align 8
-  br label %71
+  br label %69
 
 60:                                               ; preds = %57, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h664504e6bd37082aE.exit"
   %61 = landingpad { ptr, i32 }
@@ -1178,24 +1178,22 @@ common.resume:                                    ; preds = %60, %63, %43
 
 63:                                               ; preds = %60
   %64 = shl nuw nsw i64 %49, 2
-  %65 = icmp ne ptr %48, null
-  call void @llvm.assume(i1 %65)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %48) ]
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %48, i64 noundef range(i64 1, -9223372036854775808) %64, i64 noundef 2) #20
   br label %common.resume
 
-66:                                               ; preds = %.noexc
-  %67 = load ptr, ptr %56, align 8, !noalias !111, !nonnull !4, !noundef !4
-  %68 = icmp ule i64 %51, %55
-  call void @llvm.assume(i1 %68)
+65:                                               ; preds = %.noexc
+  %66 = load ptr, ptr %56, align 8, !noalias !111, !nonnull !4, !noundef !4
+  %67 = icmp ule i64 %51, %55
+  call void @llvm.assume(i1 %67)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !111
-  %69 = trunc nuw nsw i64 %.sroa.021.0 to i16
-  %70 = icmp ne ptr %48, null
-  call void @llvm.assume(i1 %70)
+  %68 = trunc nuw nsw i64 %.sroa.021.0 to i16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %48) ]
   store i64 0, ptr %0, align 8
   %.sroa.08.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %55, ptr %.sroa.08.sroa.4.0..sroa_idx, align 8
   %.sroa.08.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %67, ptr %.sroa.08.sroa.5.0..sroa_idx, align 8
+  store ptr %66, ptr %.sroa.08.sroa.5.0..sroa_idx, align 8
   %.sroa.08.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.08.sroa.7.sroa.4.0..sroa.08.sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.sroa.6.0..sroa_idx, i8 0, i64 16, i1 false)
@@ -1207,10 +1205,10 @@ common.resume:                                    ; preds = %60, %63, %43
   %.sroa.710.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %49, ptr %.sroa.710.0..sroa_idx, align 8
   %.sroa.811.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i16 %69, ptr %.sroa.811.0..sroa_idx, align 8
-  br label %71
+  store i16 %68, ptr %.sroa.811.0..sroa_idx, align 8
+  br label %69
 
-71:                                               ; preds = %29, %59, %11, %66
+69:                                               ; preds = %29, %59, %11, %65
   ret void
 }
 

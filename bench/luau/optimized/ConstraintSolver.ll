@@ -13623,8 +13623,7 @@ _ZNK4Luau16ConstraintSolver17errorRecoveryTypeEv.exit350: ; preds = %593
           to label %.noexc353 unwind label %661
 
 .noexc353:                                        ; preds = %648
-  %.not.i.i352 = icmp ne ptr %649, null
-  call void @llvm.assume(i1 %.not.i.i352)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %649) ]
   %650 = getelementptr inbounds nuw i8, ptr %649, i64 8
   %651 = load ptr, ptr %650, align 8, !tbaa !596
   %652 = invoke noundef ptr @_ZN4Luau12Substitution5cloneEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(472) %23, ptr noundef %651)
@@ -22370,8 +22369,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit:
   %7 = alloca %"struct.Luau::TypePackIterator", align 8
   %8 = alloca %"class.std::vector.88", align 8
   %9 = alloca %"class.std::vector.88", align 8
-  %.not.i.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %11 = load ptr, ptr %10, align 8, !tbaa !797
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -22721,8 +22719,7 @@ _ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %21
 _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %34
   call void @_ZN4Luau9TableTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %7) #35
   %38 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %37)
-  %.not.i.i162 = icmp ne ptr %38, null
-  call void @llvm.assume(i1 %.not.i.i162)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   %39 = load i32, ptr %38, align 8, !tbaa !459
   %40 = icmp eq i32 %39, 9
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -30168,8 +30165,7 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEE7advanceEv.exit.i: ; preds = %_ZN4
           to label %.noexc301 unwind label %345
 
 .noexc301:                                        ; preds = %338
-  %.not.i.i300 = icmp ne ptr %339, null
-  call void @llvm.assume(i1 %.not.i.i300)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %339) ]
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 8
   invoke void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %340, ptr noundef %2)
           to label %341 unwind label %345
@@ -30760,8 +30756,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEE7advanceEv.exit.i: ; preds = %_ZN4Luau8Vec
           to label %.noexc341 unwind label %586
 
 .noexc341:                                        ; preds = %579
-  %.not.i.i340 = icmp ne ptr %580, null
-  call void @llvm.assume(i1 %.not.i.i340)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %580) ]
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 8
   invoke void @_ZN4Luau11BlockedType8setOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %581, ptr noundef %2)
           to label %582 unwind label %586
@@ -33265,8 +33260,7 @@ _ZN4Luau10getMutableINS_11BlockedTypeEEEPT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau
   %.sroa.012.025 = phi ptr [ %48, %_ZN4Luau10getMutableINS_11BlockedTypeEEEPT_PKNS_4TypeE.exit ], [ %34, %_ZN4Luau16UnpackConstraintD2Ev.exit ]
   %45 = load ptr, ptr %.sroa.012.025, align 8, !tbaa !37
   %46 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %45)
-  %.not.i.i = icmp ne ptr %46, null
-  call void @llvm.assume(i1 %.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %46) ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN4Luau11BlockedType12replaceOwnerEPKNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull %25)
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.012.025, i64 8

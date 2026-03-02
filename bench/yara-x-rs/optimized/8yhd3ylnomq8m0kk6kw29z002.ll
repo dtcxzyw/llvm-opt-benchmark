@@ -229,8 +229,8 @@ default.unreachable141:                           ; preds = %.backedge
   tail call void @"_ZN74_$LT$yara_x_parser..tokenizer..HexPatternToken$u20$as$u20$logos..Logos$GT$3lex17hd17f7f3ebb69ebe4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
   %24 = load i8, ptr %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !range !6, !noundef !5
   switch i8 %24, label %switch.lookup [
-    i8 13, label %258
-    i8 12, label %259
+    i8 13, label %251
+    i8 12, label %252
   ]
 
 25:                                               ; preds = %.backedge
@@ -240,14 +240,14 @@ default.unreachable141:                           ; preds = %.backedge
   %.sroa.017.0.copyload = load i64, ptr %13, align 8
   %.sroa.619.sroa.0.0.copyload = load ptr, ptr %.sroa.619.0..sroa_idx, align 8
   %.sroa.619.sroa.5.0.copyload = load i64, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8
-  switch i64 %.sroa.017.0.copyload, label %288 [
-    i64 7, label %284
-    i64 6, label %285
+  switch i64 %.sroa.017.0.copyload, label %281 [
+    i64 7, label %277
+    i64 6, label %278
   ]
 
 27:                                               ; preds = %20
   store i8 82, ptr %0, align 4
-  br label %257
+  br label %250
 
 28:                                               ; preds = %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -450,7 +450,7 @@ _ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E.exi
   store i32 %132, ptr %.sroa.469.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %133, ptr %.sroa.5.0..sroa_idx, align 4
-  br label %257
+  br label %250
 
 134:                                              ; preds = %20
   %135 = load i64, ptr %15, align 8, !noundef !5
@@ -531,21 +531,21 @@ _ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E.exi
     i64 65, label %208
     i64 66, label %209
     i64 67, label %210
-    i64 68, label %214
-    i64 69, label %218
-    i64 70, label %222
-    i64 71, label %226
-    i64 72, label %230
-    i64 73, label %234
-    i64 74, label %238
-    i64 75, label %238
-    i64 76, label %239
-    i64 77, label %240
-    i64 78, label %240
-    i64 79, label %241
-    i64 80, label %242
-    i64 81, label %242
-    i64 82, label %242
+    i64 68, label %213
+    i64 69, label %216
+    i64 70, label %219
+    i64 71, label %222
+    i64 72, label %225
+    i64 73, label %228
+    i64 74, label %231
+    i64 75, label %231
+    i64 76, label %232
+    i64 77, label %233
+    i64 78, label %233
+    i64 79, label %234
+    i64 80, label %235
+    i64 81, label %235
+    i64 82, label %235
   ]
 
 default.unreachable1.i:                           ; preds = %134
@@ -750,301 +750,293 @@ default.unreachable1.i:                           ; preds = %134
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
 210:                                              ; preds = %134
-  %211 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %211)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6.sroa.0.0.copyload) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %212 = load i64, ptr %9, align 8, !range !37, !noalias !32, !noundef !5
-  %213 = trunc nuw i64 %212 to i1
-  br i1 %213, label %243, label %244, !prof !12
+  %211 = load i64, ptr %9, align 8, !range !37, !noalias !32, !noundef !5
+  %212 = trunc nuw i64 %211 to i1
+  br i1 %212, label %236, label %237, !prof !12
 
-214:                                              ; preds = %134
-  %215 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %215)
+213:                                              ; preds = %134
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6.sroa.0.0.copyload) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %216 = load i64, ptr %8, align 8, !range !37, !noalias !32, !noundef !5
-  %217 = trunc nuw i64 %216 to i1
-  br i1 %217, label %245, label %246, !prof !12
+  %214 = load i64, ptr %8, align 8, !range !37, !noalias !32, !noundef !5
+  %215 = trunc nuw i64 %214 to i1
+  br i1 %215, label %238, label %239, !prof !12
 
-218:                                              ; preds = %134
-  %219 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %219)
+216:                                              ; preds = %134
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6.sroa.0.0.copyload) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %220 = load i64, ptr %7, align 8, !range !37, !noalias !32, !noundef !5
-  %221 = trunc nuw i64 %220 to i1
-  br i1 %221, label %247, label %248, !prof !12
+  %217 = load i64, ptr %7, align 8, !range !37, !noalias !32, !noundef !5
+  %218 = trunc nuw i64 %217 to i1
+  br i1 %218, label %240, label %241, !prof !12
 
-222:                                              ; preds = %134
-  %223 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %223)
+219:                                              ; preds = %134
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6.sroa.0.0.copyload) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %224 = load i64, ptr %6, align 8, !range !37, !noalias !32, !noundef !5
-  %225 = trunc nuw i64 %224 to i1
-  br i1 %225, label %249, label %250, !prof !12
+  %220 = load i64, ptr %6, align 8, !range !37, !noalias !32, !noundef !5
+  %221 = trunc nuw i64 %220 to i1
+  br i1 %221, label %242, label %243, !prof !12
 
-226:                                              ; preds = %134
-  %227 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %227)
+222:                                              ; preds = %134
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6.sroa.0.0.copyload) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %228 = load i64, ptr %10, align 8, !range !37, !noalias !32, !noundef !5
-  %229 = trunc nuw i64 %228 to i1
-  br i1 %229, label %251, label %252, !prof !12
+  %223 = load i64, ptr %10, align 8, !range !37, !noalias !32, !noundef !5
+  %224 = trunc nuw i64 %223 to i1
+  br i1 %224, label %244, label %245, !prof !12
 
-230:                                              ; preds = %134
-  %231 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %231)
+225:                                              ; preds = %134
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6.sroa.0.0.copyload) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %232 = load i64, ptr %5, align 8, !range !37, !noalias !32, !noundef !5
-  %233 = trunc nuw i64 %232 to i1
-  br i1 %233, label %253, label %254, !prof !12
+  %226 = load i64, ptr %5, align 8, !range !37, !noalias !32, !noundef !5
+  %227 = trunc nuw i64 %226 to i1
+  br i1 %227, label %246, label %247, !prof !12
 
-234:                                              ; preds = %134
-  %235 = icmp ne ptr %.sroa.6.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %235)
+228:                                              ; preds = %134
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6.sroa.0.0.copyload) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !32
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %.sroa.6.sroa.0.0.copyload, i64 noundef %.sroa.6.sroa.5.0.copyload), !noalias !36
-  %236 = load i64, ptr %4, align 8, !range !37, !noalias !32, !noundef !5
-  %237 = trunc nuw i64 %236 to i1
-  br i1 %237, label %255, label %256, !prof !12
+  %229 = load i64, ptr %4, align 8, !range !37, !noalias !32, !noundef !5
+  %230 = trunc nuw i64 %229 to i1
+  br i1 %230, label %248, label %249, !prof !12
 
-238:                                              ; preds = %134, %134
+231:                                              ; preds = %134, %134
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-239:                                              ; preds = %134
+232:                                              ; preds = %134
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-240:                                              ; preds = %134, %134
+233:                                              ; preds = %134, %134
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-241:                                              ; preds = %134
+234:                                              ; preds = %134
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-242:                                              ; preds = %134, %134, %134
+235:                                              ; preds = %134, %134, %134
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-243:                                              ; preds = %210
+236:                                              ; preds = %210
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.37) #13, !noalias !36
   unreachable
 
-244:                                              ; preds = %210
+237:                                              ; preds = %210
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-245:                                              ; preds = %214
+238:                                              ; preds = %213
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.38) #13, !noalias !36
   unreachable
 
-246:                                              ; preds = %214
+239:                                              ; preds = %213
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-247:                                              ; preds = %218
+240:                                              ; preds = %216
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.39) #13, !noalias !36
   unreachable
 
-248:                                              ; preds = %218
+241:                                              ; preds = %216
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-249:                                              ; preds = %222
+242:                                              ; preds = %219
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.40) #13, !noalias !36
   unreachable
 
-250:                                              ; preds = %222
+243:                                              ; preds = %219
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-251:                                              ; preds = %226
+244:                                              ; preds = %222
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.41) #13, !noalias !36
   unreachable
 
-252:                                              ; preds = %226
+245:                                              ; preds = %222
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-253:                                              ; preds = %230
+246:                                              ; preds = %225
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.42) #13, !noalias !36
   unreachable
 
-254:                                              ; preds = %230
+247:                                              ; preds = %225
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-255:                                              ; preds = %234
+248:                                              ; preds = %228
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.43) #13, !noalias !36
   unreachable
 
-256:                                              ; preds = %234
+249:                                              ; preds = %228
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !32
   br label %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit
 
-_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit: ; preds = %134, %144, %145, %146, %147, %148, %149, %150, %151, %152, %153, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %168, %169, %170, %171, %172, %173, %174, %175, %176, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %188, %189, %190, %191, %192, %193, %194, %195, %196, %197, %198, %199, %200, %201, %202, %203, %204, %205, %206, %207, %208, %209, %238, %239, %240, %241, %242, %244, %246, %248, %250, %252, %254, %256
-  %.sroa.066.0 = phi i8 [ 78, %242 ], [ 1, %144 ], [ 2, %145 ], [ 3, %146 ], [ 4, %147 ], [ 5, %148 ], [ 6, %149 ], [ 7, %150 ], [ 8, %151 ], [ 9, %152 ], [ 10, %153 ], [ 11, %154 ], [ 12, %155 ], [ 13, %156 ], [ 14, %157 ], [ 15, %158 ], [ 16, %159 ], [ 17, %160 ], [ 18, %161 ], [ 19, %162 ], [ 20, %163 ], [ 21, %164 ], [ 22, %165 ], [ 23, %166 ], [ 24, %167 ], [ 25, %168 ], [ 26, %169 ], [ 27, %170 ], [ 28, %171 ], [ 29, %172 ], [ 30, %173 ], [ 31, %174 ], [ 32, %175 ], [ 33, %176 ], [ 34, %177 ], [ 35, %178 ], [ 36, %179 ], [ 37, %180 ], [ 38, %181 ], [ 39, %182 ], [ 40, %183 ], [ 41, %184 ], [ 42, %185 ], [ 43, %186 ], [ 45, %187 ], [ 47, %188 ], [ 44, %189 ], [ 46, %190 ], [ 57, %191 ], [ 58, %192 ], [ 59, %193 ], [ 61, %194 ], [ 62, %195 ], [ 63, %196 ], [ 64, %197 ], [ 68, %198 ], [ 65, %199 ], [ 66, %200 ], [ 67, %201 ], [ 60, %202 ], [ 69, %203 ], [ 70, %204 ], [ 71, %205 ], [ 74, %206 ], [ 75, %207 ], [ 72, %208 ], [ 73, %209 ], [ 53, %244 ], [ 54, %246 ], [ 55, %248 ], [ 56, %250 ], [ 52, %252 ], [ 48, %254 ], [ 49, %256 ], [ 50, %238 ], [ 51, %239 ], [ 77, %240 ], [ 79, %241 ], [ 0, %134 ]
+_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit: ; preds = %134, %144, %145, %146, %147, %148, %149, %150, %151, %152, %153, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %168, %169, %170, %171, %172, %173, %174, %175, %176, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %188, %189, %190, %191, %192, %193, %194, %195, %196, %197, %198, %199, %200, %201, %202, %203, %204, %205, %206, %207, %208, %209, %231, %232, %233, %234, %235, %237, %239, %241, %243, %245, %247, %249
+  %.sroa.066.0 = phi i8 [ 78, %235 ], [ 1, %144 ], [ 2, %145 ], [ 3, %146 ], [ 4, %147 ], [ 5, %148 ], [ 6, %149 ], [ 7, %150 ], [ 8, %151 ], [ 9, %152 ], [ 10, %153 ], [ 11, %154 ], [ 12, %155 ], [ 13, %156 ], [ 14, %157 ], [ 15, %158 ], [ 16, %159 ], [ 17, %160 ], [ 18, %161 ], [ 19, %162 ], [ 20, %163 ], [ 21, %164 ], [ 22, %165 ], [ 23, %166 ], [ 24, %167 ], [ 25, %168 ], [ 26, %169 ], [ 27, %170 ], [ 28, %171 ], [ 29, %172 ], [ 30, %173 ], [ 31, %174 ], [ 32, %175 ], [ 33, %176 ], [ 34, %177 ], [ 35, %178 ], [ 36, %179 ], [ 37, %180 ], [ 38, %181 ], [ 39, %182 ], [ 40, %183 ], [ 41, %184 ], [ 42, %185 ], [ 43, %186 ], [ 45, %187 ], [ 47, %188 ], [ 44, %189 ], [ 46, %190 ], [ 57, %191 ], [ 58, %192 ], [ 59, %193 ], [ 61, %194 ], [ 62, %195 ], [ 63, %196 ], [ 64, %197 ], [ 68, %198 ], [ 65, %199 ], [ 66, %200 ], [ 67, %201 ], [ 60, %202 ], [ 69, %203 ], [ 70, %204 ], [ 71, %205 ], [ 74, %206 ], [ 75, %207 ], [ 72, %208 ], [ 73, %209 ], [ 53, %237 ], [ 54, %239 ], [ 55, %241 ], [ 56, %243 ], [ 52, %245 ], [ 48, %247 ], [ 49, %249 ], [ 50, %231 ], [ 51, %232 ], [ 77, %233 ], [ 79, %234 ], [ 0, %134 ]
   store i8 %.sroa.066.0, ptr %0, align 4
   %.sroa.8267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %142, ptr %.sroa.8267.0..sroa_idx, align 4
   %.sroa.161.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %143, ptr %.sroa.161.0..sroa_idx, align 4
-  br label %257
+  br label %250
 
-257:                                              ; preds = %284, %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit, %27, %_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E.exit, %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit, %258, %switch.lookup
+250:                                              ; preds = %277, %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit, %27, %_ZN13yara_x_parser9tokenizer9Tokenizer16unexpected_token17hb5c2a79d79c08234E.exit, %_ZN13yara_x_parser9tokenizer20convert_normal_token17h9210f611ede85f95E.exit, %251, %switch.lookup
   ret void
 
-258:                                              ; preds = %22
+251:                                              ; preds = %22
   store i8 82, ptr %0, align 4
-  br label %257
+  br label %250
 
-259:                                              ; preds = %22
-  %260 = load i64, ptr %1, align 8, !range !4, !noundef !5
-  %261 = icmp eq i64 %260, 1
-  br i1 %261, label %272, label %278, !prof !3
+252:                                              ; preds = %22
+  %253 = load i64, ptr %1, align 8, !range !4, !noundef !5
+  %254 = icmp eq i64 %253, 1
+  br i1 %254, label %265, label %271, !prof !3
 
 switch.lookup:                                    ; preds = %22
-  %262 = load i64, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8, !noundef !5
-  %263 = load i64, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !noundef !5
-  %264 = tail call { i32, i32 } @"_ZN103_$LT$yara_x_parser..Span$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$4from17h0408945d603b99a4E"(i64 noundef %262, i64 noundef %263)
-  %265 = extractvalue { i32, i32 } %264, 0
-  %266 = extractvalue { i32, i32 } %264, 1
-  %267 = load i64, ptr %16, align 8, !noundef !5
-  %268 = tail call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %265, i32 noundef %266, i64 noundef %267)
-  %269 = extractvalue { i32, i32 } %268, 0
-  %270 = extractvalue { i32, i32 } %268, 1
-  %271 = zext nneg i8 %24 to i64
-  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN13yara_x_parser9tokenizer9Tokenizer10next_token17he544f075cb6758cfE, i64 %271
+  %255 = load i64, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8, !noundef !5
+  %256 = load i64, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 8, !noundef !5
+  %257 = tail call { i32, i32 } @"_ZN103_$LT$yara_x_parser..Span$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$4from17h0408945d603b99a4E"(i64 noundef %255, i64 noundef %256)
+  %258 = extractvalue { i32, i32 } %257, 0
+  %259 = extractvalue { i32, i32 } %257, 1
+  %260 = load i64, ptr %16, align 8, !noundef !5
+  %261 = tail call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %258, i32 noundef %259, i64 noundef %260)
+  %262 = extractvalue { i32, i32 } %261, 0
+  %263 = extractvalue { i32, i32 } %261, 1
+  %264 = zext nneg i8 %24 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN13yara_x_parser9tokenizer9Tokenizer10next_token17he544f075cb6758cfE, i64 %264
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 %switch.load, ptr %0, align 4
   %.sroa.472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %269, ptr %.sroa.472.0..sroa_idx, align 4
+  store i32 %262, ptr %.sroa.472.0..sroa_idx, align 4
   %.sroa.573.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %270, ptr %.sroa.573.0..sroa_idx, align 4
-  br label %257
+  store i32 %263, ptr %.sroa.573.0..sroa_idx, align 4
+  br label %250
 
-272:                                              ; preds = %259
-  %273 = load i64, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8, !noundef !5
-  %274 = load i64, ptr %16, align 8, !noundef !5
-  %275 = add i64 %274, %273
-  store i64 %275, ptr %16, align 8
-  %276 = load i64, ptr %17, align 8, !noundef !5
-  %277 = icmp ugt i64 %275, %276
-  br i1 %277, label %283, label %279, !prof !12
+265:                                              ; preds = %252
+  %266 = load i64, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8, !noundef !5
+  %267 = load i64, ptr %16, align 8, !noundef !5
+  %268 = add i64 %267, %266
+  store i64 %268, ptr %16, align 8
+  %269 = load i64, ptr %17, align 8, !noundef !5
+  %270 = icmp ugt i64 %268, %269
+  br i1 %270, label %276, label %272, !prof !12
 
-278:                                              ; preds = %259
+271:                                              ; preds = %252
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.22) #13
   unreachable
 
-279:                                              ; preds = %272
-  %280 = load ptr, ptr %18, align 8, !nonnull !5, !align !14, !noundef !5
-  %281 = sub nuw i64 %276, %275
-  %282 = getelementptr inbounds nuw i8, ptr %280, i64 %275
+272:                                              ; preds = %265
+  %273 = load ptr, ptr %18, align 8, !nonnull !5, !align !14, !noundef !5
+  %274 = sub nuw i64 %269, %268
+  %275 = getelementptr inbounds nuw i8, ptr %273, i64 %268
   store i64 0, ptr %1, align 8
   store i64 84, ptr %13, align 8
-  store ptr %282, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 8
-  store i64 %281, ptr %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx, align 8
+  store ptr %275, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 8
+  store i64 %274, ptr %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %279, %313
-  %.be = phi i64 [ 0, %279 ], [ 1, %313 ]
+.backedge.backedge:                               ; preds = %272, %305
+  %.be = phi i64 [ 0, %272 ], [ 1, %305 ]
   br label %.backedge
 
-283:                                              ; preds = %272
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h1f1e39c09f57820bE(i64 noundef %275, i64 noundef %276, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.20) #13
+276:                                              ; preds = %265
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h1f1e39c09f57820bE(i64 noundef %268, i64 noundef %269, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.20) #13
   unreachable
 
-284:                                              ; preds = %25
+277:                                              ; preds = %25
   store i8 82, ptr %0, align 4
-  br label %257
+  br label %250
 
-285:                                              ; preds = %25
-  %286 = load i64, ptr %1, align 8, !range !4, !noundef !5
-  %287 = icmp eq i64 %286, 2
-  br i1 %287, label %306, label %312, !prof !3
+278:                                              ; preds = %25
+  %279 = load i64, ptr %1, align 8, !range !4, !noundef !5
+  %280 = icmp eq i64 %279, 2
+  br i1 %280, label %298, label %304, !prof !3
 
-288:                                              ; preds = %25
-  %289 = load i64, ptr %15, align 8, !noundef !5
-  %290 = load i64, ptr %14, align 8, !noundef !5
-  %291 = tail call { i32, i32 } @"_ZN103_$LT$yara_x_parser..Span$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$4from17h0408945d603b99a4E"(i64 noundef %289, i64 noundef %290)
-  %292 = extractvalue { i32, i32 } %291, 0
-  %293 = extractvalue { i32, i32 } %291, 1
-  %294 = load i64, ptr %16, align 8, !noundef !5
-  %295 = tail call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %292, i32 noundef %293, i64 noundef %294)
-  %296 = extractvalue { i32, i32 } %295, 0
-  %297 = extractvalue { i32, i32 } %295, 1
+281:                                              ; preds = %25
+  %282 = load i64, ptr %15, align 8, !noundef !5
+  %283 = load i64, ptr %14, align 8, !noundef !5
+  %284 = tail call { i32, i32 } @"_ZN103_$LT$yara_x_parser..Span$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$4from17h0408945d603b99a4E"(i64 noundef %282, i64 noundef %283)
+  %285 = extractvalue { i32, i32 } %284, 0
+  %286 = extractvalue { i32, i32 } %284, 1
+  %287 = load i64, ptr %16, align 8, !noundef !5
+  %288 = tail call { i32, i32 } @_ZN13yara_x_parser4Span6offset17hfb12ebc28a093485E(i32 noundef %285, i32 noundef %286, i64 noundef %287)
+  %289 = extractvalue { i32, i32 } %288, 0
+  %290 = extractvalue { i32, i32 } %288, 1
   switch i64 %.sroa.017.0.copyload, label %default.unreachable1.i53 [
     i64 0, label %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit
-    i64 1, label %298
-    i64 2, label %302
-    i64 3, label %303
-    i64 4, label %303
-    i64 5, label %303
+    i64 1, label %291
+    i64 2, label %294
+    i64 3, label %295
+    i64 4, label %295
+    i64 5, label %295
   ]
 
-default.unreachable1.i53:                         ; preds = %288
+default.unreachable1.i53:                         ; preds = %281
   unreachable
 
-298:                                              ; preds = %288
-  %299 = icmp ne ptr %.sroa.619.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %299)
+291:                                              ; preds = %281
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.619.sroa.0.0.copyload) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !38
   call void @_ZN4core3str8converts9from_utf817h6773281adc79a5aeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %.sroa.619.sroa.0.0.copyload, i64 noundef %.sroa.619.sroa.5.0.copyload), !noalias !38
-  %300 = load i64, ptr %3, align 8, !range !37, !noalias !38, !noundef !5
-  %301 = trunc nuw i64 %300 to i1
-  br i1 %301, label %304, label %305, !prof !12
+  %292 = load i64, ptr %3, align 8, !range !37, !noalias !38, !noundef !5
+  %293 = trunc nuw i64 %292 to i1
+  br i1 %293, label %296, label %297, !prof !12
 
-302:                                              ; preds = %288
+294:                                              ; preds = %281
   br label %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit
 
-303:                                              ; preds = %288, %288, %288
+295:                                              ; preds = %281, %281, %281
   br label %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit
 
-304:                                              ; preds = %298
+296:                                              ; preds = %291
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.44) #13, !noalias !38
   unreachable
 
-305:                                              ; preds = %298
+297:                                              ; preds = %291
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !38
   br label %_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit
 
-_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit: ; preds = %288, %302, %303, %305
-  %.sroa.077.0 = phi i8 [ 78, %303 ], [ 49, %305 ], [ 79, %302 ], [ 65, %288 ]
+_ZN13yara_x_parser9tokenizer22convert_hex_jump_token17hab14de0ad35dd9a4E.exit: ; preds = %281, %294, %295, %297
+  %.sroa.077.0 = phi i8 [ 78, %295 ], [ 49, %297 ], [ 79, %294 ], [ 65, %281 ]
   store i8 %.sroa.077.0, ptr %0, align 4
   %.sroa.778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %296, ptr %.sroa.778.0..sroa_idx, align 4
+  store i32 %289, ptr %.sroa.778.0..sroa_idx, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %297, ptr %.sroa.11.0..sroa_idx, align 4
-  br label %257
+  store i32 %290, ptr %.sroa.11.0..sroa_idx, align 4
+  br label %250
 
-306:                                              ; preds = %285
-  %307 = load i64, ptr %15, align 8, !noundef !5
-  %308 = load i64, ptr %16, align 8, !noundef !5
-  %309 = add i64 %308, %307
-  store i64 %309, ptr %16, align 8
-  %310 = load i64, ptr %17, align 8, !noundef !5
-  %311 = icmp ugt i64 %309, %310
-  br i1 %311, label %317, label %313, !prof !12
+298:                                              ; preds = %278
+  %299 = load i64, ptr %15, align 8, !noundef !5
+  %300 = load i64, ptr %16, align 8, !noundef !5
+  %301 = add i64 %300, %299
+  store i64 %301, ptr %16, align 8
+  %302 = load i64, ptr %17, align 8, !noundef !5
+  %303 = icmp ugt i64 %301, %302
+  br i1 %303, label %309, label %305, !prof !12
 
-312:                                              ; preds = %285
+304:                                              ; preds = %278
   tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.ce7b099076f5f0a3137313ced7301b35.21, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.24) #13
   unreachable
 
-313:                                              ; preds = %306
-  %314 = load ptr, ptr %18, align 8, !nonnull !5, !align !14, !noundef !5
-  %315 = sub nuw i64 %310, %309
-  %316 = getelementptr inbounds nuw i8, ptr %314, i64 %309
+305:                                              ; preds = %298
+  %306 = load ptr, ptr %18, align 8, !nonnull !5, !align !14, !noundef !5
+  %307 = sub nuw i64 %302, %301
+  %308 = getelementptr inbounds nuw i8, ptr %306, i64 %301
   store i64 1, ptr %1, align 8
-  store ptr %316, ptr %13, align 8
-  store i64 %315, ptr %.sroa.619.0..sroa_idx, align 8
+  store ptr %308, ptr %13, align 8
+  store i64 %307, ptr %.sroa.619.0..sroa_idx, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   store i8 13, ptr %.sroa.428.sroa.7.0..sroa.428.0..sroa_idx.sroa_idx, align 8
   br label %.backedge.backedge
 
-317:                                              ; preds = %306
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h1f1e39c09f57820bE(i64 noundef %309, i64 noundef %310, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.23) #13
+309:                                              ; preds = %298
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h1f1e39c09f57820bE(i64 noundef %301, i64 noundef %302, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce7b099076f5f0a3137313ced7301b35.23) #13
   unreachable
 }
 

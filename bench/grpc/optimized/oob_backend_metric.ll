@@ -2414,8 +2414,7 @@ xds_service_orca_v3_OrcaLoadReportRequest_new.exit: ; preds = %21, %upb_Arena_Ma
 upb_Arena_Malloc.exit.i.i13:                      ; preds = %.upb_Arena_Malloc.exit.i.i13_crit_edge, %43
   %.pre-phi = phi i64 [ %.pre, %.upb_Arena_Malloc.exit.i.i13_crit_edge ], [ %38, %43 ]
   %.0.i.i.i14 = phi ptr [ %42, %.upb_Arena_Malloc.exit.i.i13_crit_edge ], [ %36, %43 ]
-  %.not.i.i15 = icmp ne ptr %.0.i.i.i14, null
-  tail call void @llvm.assume(i1 %.not.i.i15)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i.i14) ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i14, i8 0, i64 %32, i1 false)
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @google__protobuf__Duration_msg_init) #27, !srcloc !224
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8

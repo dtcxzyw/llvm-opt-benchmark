@@ -13423,140 +13423,139 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14DependenceInfo7testSIVEPKNS_4SCE
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load i16, ptr %11, align 8, !tbaa !183
   %13 = icmp eq i16 %12, 8
+  %spec.select.i.i90 = select i1 %13, ptr %2, ptr null
   %14 = icmp ne ptr %1, null
   %15 = and i1 %14, %10
-  %16 = icmp ne ptr %2, null
-  %17 = and i1 %16, %13
-  %or.cond = and i1 %15, %17
-  br i1 %or.cond, label %18, label %50
+  %16 = icmp ne ptr %spec.select.i.i90, null
+  %or.cond = and i1 %15, %16
+  br i1 %or.cond, label %17, label %49
 
-18:                                               ; preds = %7
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !245
-  %21 = load ptr, ptr %20, align 8, !tbaa !181
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !245
-  %24 = load ptr, ptr %23, align 8, !tbaa !181
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !75
-  %27 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(1344) %26)
-  %28 = load ptr, ptr %25, align 8, !tbaa !75
-  %29 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(1344) %28)
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !240
-  br label %32
+17:                                               ; preds = %7
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %19 = load ptr, ptr %18, align 8, !tbaa !245
+  %20 = load ptr, ptr %19, align 8, !tbaa !181
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %22 = load ptr, ptr %21, align 8, !tbaa !245
+  %23 = load ptr, ptr %22, align 8, !tbaa !181
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !75
+  %26 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(1344) %25)
+  %27 = load ptr, ptr %24, align 8, !tbaa !75
+  %28 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(1344) %27)
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %30 = load ptr, ptr %29, align 8, !tbaa !240
+  br label %31
 
-32:                                               ; preds = %32, %18
-  %.04.i.i = phi i32 [ 1, %18 ], [ %33, %32 ]
-  %.0.in.i.i = phi ptr [ %31, %18 ], [ %.0.i.i, %32 ]
+31:                                               ; preds = %31, %17
+  %.04.i.i = phi i32 [ 1, %17 ], [ %32, %31 ]
+  %.0.in.i.i = phi ptr [ %30, %17 ], [ %.0.i.i, %31 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !211
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  %33 = add i32 %.04.i.i, 1
-  br i1 %.not.i.i, label %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit, label %32, !llvm.loop !225
+  %32 = add i32 %.04.i.i, 1
+  br i1 %.not.i.i, label %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit, label %31, !llvm.loop !225
 
-_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit: ; preds = %32
+_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit: ; preds = %31
   store i32 %.04.i.i, ptr %3, align 4, !tbaa !66
-  %34 = icmp eq ptr %27, %29
-  br i1 %34, label %35, label %37
+  %33 = icmp eq ptr %26, %28
+  br i1 %33, label %34, label %36
 
-35:                                               ; preds = %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit
-  %36 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo13strongSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %27, ptr noundef %21, ptr noundef %24, ptr noundef %31, i32 noundef %.04.i.i, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
-  br i1 %36, label %86, label %46
+34:                                               ; preds = %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit
+  %35 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo13strongSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %26, ptr noundef %20, ptr noundef %23, ptr noundef %30, i32 noundef %.04.i.i, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  br i1 %35, label %85, label %45
 
-37:                                               ; preds = %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit
-  %38 = load ptr, ptr %25, align 8, !tbaa !75
-  %39 = tail call noundef ptr @_ZN4llvm15ScalarEvolution15getNegativeSCEVEPKNS_4SCEVENS1_11NoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(1344) %38, ptr noundef %29, i32 noundef 0) #27
-  %40 = icmp eq ptr %27, %39
-  %41 = load i32, ptr %3, align 4, !tbaa !66
-  br i1 %40, label %44, label %42
+36:                                               ; preds = %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit
+  %37 = load ptr, ptr %24, align 8, !tbaa !75
+  %38 = tail call noundef ptr @_ZN4llvm15ScalarEvolution15getNegativeSCEVEPKNS_4SCEVENS1_11NoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(1344) %37, ptr noundef %28, i32 noundef 0) #27
+  %39 = icmp eq ptr %26, %38
+  %40 = load i32, ptr %3, align 4, !tbaa !66
+  br i1 %39, label %43, label %41
 
-42:                                               ; preds = %37
-  %43 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo12exactSIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %27, ptr noundef %29, ptr noundef %21, ptr noundef %24, ptr noundef %31, i32 noundef %41, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
-  br i1 %43, label %86, label %46
+41:                                               ; preds = %36
+  %42 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo12exactSIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %26, ptr noundef %28, ptr noundef %20, ptr noundef %23, ptr noundef %30, i32 noundef %40, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  br i1 %42, label %85, label %45
 
-44:                                               ; preds = %37
-  %45 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo19weakCrossingSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintERS3_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %27, ptr noundef %21, ptr noundef %24, ptr noundef %31, i32 noundef %41, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  br i1 %45, label %86, label %46
+43:                                               ; preds = %36
+  %44 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo19weakCrossingSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintERS3_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %26, ptr noundef %20, ptr noundef %23, ptr noundef %30, i32 noundef %40, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  br i1 %44, label %85, label %45
 
-46:                                               ; preds = %42, %35, %44
-  %47 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo10gcdMIVtestEPKNS_4SCEVES3_RNS_14FullDependenceE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(56) %4)
-  br i1 %47, label %86, label %48
+45:                                               ; preds = %41, %34, %43
+  %46 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo10gcdMIVtestEPKNS_4SCEVES3_RNS_14FullDependenceE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(56) %4)
+  br i1 %46, label %85, label %47
 
-48:                                               ; preds = %46
-  %49 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo16symbolicRDIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopES6_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %27, ptr noundef %29, ptr noundef %21, ptr noundef %24, ptr noundef %31, ptr noundef %31)
-  br label %86
+47:                                               ; preds = %45
+  %48 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo16symbolicRDIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopES6_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %26, ptr noundef %28, ptr noundef %20, ptr noundef %23, ptr noundef %30, ptr noundef %30)
+  br label %85
 
-50:                                               ; preds = %7
-  br i1 %15, label %51, label %65
+49:                                               ; preds = %7
+  br i1 %15, label %50, label %64
 
-51:                                               ; preds = %50
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !245
-  %54 = load ptr, ptr %53, align 8, !tbaa !181
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !75
-  %57 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(1344) %56)
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %59 = load ptr, ptr %58, align 8, !tbaa !240
-  br label %60
+50:                                               ; preds = %49
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %52 = load ptr, ptr %51, align 8, !tbaa !245
+  %53 = load ptr, ptr %52, align 8, !tbaa !181
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !75
+  %56 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(1344) %55)
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %58 = load ptr, ptr %57, align 8, !tbaa !240
+  br label %59
 
-60:                                               ; preds = %60, %51
-  %.04.i.i91 = phi i32 [ 1, %51 ], [ %61, %60 ]
-  %.0.in.i.i92 = phi ptr [ %59, %51 ], [ %.0.i.i93, %60 ]
+59:                                               ; preds = %59, %50
+  %.04.i.i91 = phi i32 [ 1, %50 ], [ %60, %59 ]
+  %.0.in.i.i92 = phi ptr [ %58, %50 ], [ %.0.i.i93, %59 ]
   %.0.i.i93 = load ptr, ptr %.0.in.i.i92, align 8, !tbaa !211
   %.not.i.i94 = icmp eq ptr %.0.i.i93, null
-  %61 = add i32 %.04.i.i91, 1
-  br i1 %.not.i.i94, label %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit95, label %60, !llvm.loop !225
+  %60 = add i32 %.04.i.i91, 1
+  br i1 %.not.i.i94, label %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit95, label %59, !llvm.loop !225
 
-_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit95: ; preds = %60
+_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit95: ; preds = %59
   store i32 %.04.i.i91, ptr %3, align 4, !tbaa !66
-  %62 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo18weakZeroDstSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %57, ptr noundef %54, ptr noundef nonnull %2, ptr noundef %59, i32 noundef %.04.i.i91, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
-  br i1 %62, label %86, label %63
+  %61 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo18weakZeroDstSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %56, ptr noundef %53, ptr noundef nonnull %2, ptr noundef %58, i32 noundef %.04.i.i91, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  br i1 %61, label %85, label %62
 
-63:                                               ; preds = %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit95
-  %64 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo10gcdMIVtestEPKNS_4SCEVES3_RNS_14FullDependenceE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(56) %4)
-  br label %86
+62:                                               ; preds = %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit95
+  %63 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo10gcdMIVtestEPKNS_4SCEVES3_RNS_14FullDependenceE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(56) %4)
+  br label %85
 
-65:                                               ; preds = %50
-  tail call void @llvm.assume(i1 %13)
-  tail call void @llvm.assume(i1 %16)
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %67 = load ptr, ptr %66, align 8, !tbaa !245
-  %68 = load ptr, ptr %67, align 8, !tbaa !181
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !75
-  %71 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(1344) %70)
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %73 = load ptr, ptr %72, align 8, !tbaa !240
-  br label %74
+64:                                               ; preds = %49
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i90) ]
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %66 = load ptr, ptr %65, align 8, !tbaa !245
+  %67 = load ptr, ptr %66, align 8, !tbaa !181
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !75
+  %70 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(1344) %69)
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %72 = load ptr, ptr %71, align 8, !tbaa !240
+  br label %73
 
-74:                                               ; preds = %74, %65
-  %.04.i.i96 = phi i32 [ 1, %65 ], [ %75, %74 ]
-  %.0.in.i.i97 = phi ptr [ %73, %65 ], [ %.0.i.i98, %74 ]
+73:                                               ; preds = %73, %64
+  %.04.i.i96 = phi i32 [ 1, %64 ], [ %74, %73 ]
+  %.0.in.i.i97 = phi ptr [ %72, %64 ], [ %.0.i.i98, %73 ]
   %.0.i.i98 = load ptr, ptr %.0.in.i.i97, align 8, !tbaa !211
   %.not.i.i99 = icmp eq ptr %.0.i.i98, null
-  %75 = add i32 %.04.i.i96, 1
-  br i1 %.not.i.i99, label %_ZNK4llvm14DependenceInfo10mapDstLoopEPKNS_4LoopE.exit, label %74, !llvm.loop !225
+  %74 = add i32 %.04.i.i96, 1
+  br i1 %.not.i.i99, label %_ZNK4llvm14DependenceInfo10mapDstLoopEPKNS_4LoopE.exit, label %73, !llvm.loop !225
 
-_ZNK4llvm14DependenceInfo10mapDstLoopEPKNS_4LoopE.exit: ; preds = %74
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %77 = load i32, ptr %76, align 8, !tbaa !229
-  %78 = icmp ugt i32 %.04.i.i96, %77
-  %79 = sub i32 %.04.i.i96, %77
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %81 = load i32, ptr %80, align 4
-  %82 = add i32 %79, %81
-  %.0.i = select i1 %78, i32 %82, i32 %.04.i.i96
+_ZNK4llvm14DependenceInfo10mapDstLoopEPKNS_4LoopE.exit: ; preds = %73
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %76 = load i32, ptr %75, align 8, !tbaa !229
+  %77 = icmp ugt i32 %.04.i.i96, %76
+  %78 = sub i32 %.04.i.i96, %76
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %80 = load i32, ptr %79, align 4
+  %81 = add i32 %78, %80
+  %.0.i = select i1 %77, i32 %81, i32 %.04.i.i96
   store i32 %.0.i, ptr %3, align 4, !tbaa !66
-  %83 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo18weakZeroSrcSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %71, ptr noundef nonnull %1, ptr noundef %68, ptr noundef %73, i32 noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
-  br i1 %83, label %86, label %84
+  %82 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo18weakZeroSrcSIVtestEPKNS_4SCEVES3_S3_PKNS_4LoopEjRNS_14FullDependenceERNS0_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %70, ptr noundef nonnull %1, ptr noundef %67, ptr noundef %72, i32 noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  br i1 %82, label %85, label %83
 
-84:                                               ; preds = %_ZNK4llvm14DependenceInfo10mapDstLoopEPKNS_4LoopE.exit
-  %85 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo10gcdMIVtestEPKNS_4SCEVES3_RNS_14FullDependenceE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(56) %4)
-  br label %86
+83:                                               ; preds = %_ZNK4llvm14DependenceInfo10mapDstLoopEPKNS_4LoopE.exit
+  %84 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo10gcdMIVtestEPKNS_4SCEVES3_RNS_14FullDependenceE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(56) %4)
+  br label %85
 
-86:                                               ; preds = %42, %35, %_ZNK4llvm14DependenceInfo10mapDstLoopEPKNS_4LoopE.exit, %84, %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit95, %63, %44, %46, %48
-  %.0 = phi i1 [ %64, %63 ], [ %49, %48 ], [ true, %46 ], [ true, %44 ], [ true, %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit95 ], [ true, %_ZNK4llvm14DependenceInfo10mapDstLoopEPKNS_4LoopE.exit ], [ %85, %84 ], [ true, %35 ], [ true, %42 ]
+85:                                               ; preds = %41, %34, %_ZNK4llvm14DependenceInfo10mapDstLoopEPKNS_4LoopE.exit, %83, %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit95, %62, %43, %45, %47
+  %.0 = phi i1 [ %63, %62 ], [ %48, %47 ], [ true, %45 ], [ true, %43 ], [ true, %_ZNK4llvm14DependenceInfo10mapSrcLoopEPKNS_4LoopE.exit95 ], [ true, %_ZNK4llvm14DependenceInfo10mapDstLoopEPKNS_4LoopE.exit ], [ %84, %83 ], [ true, %34 ], [ true, %41 ]
   ret i1 %.0
 }
 
@@ -14936,95 +14935,94 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14DependenceInfo8testRDIVEPKNS_4SC
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i16, ptr %8, align 8, !tbaa !183
   %10 = icmp eq i16 %9, 8
+  %spec.select.i.i53 = select i1 %10, ptr %2, ptr null
   %11 = icmp ne ptr %1, null
   %12 = and i1 %11, %7
-  %13 = icmp ne ptr %2, null
-  %14 = and i1 %13, %10
-  %or.cond = and i1 %12, %14
-  br i1 %or.cond, label %15, label %31
+  %13 = icmp ne ptr %spec.select.i.i53, null
+  %or.cond = and i1 %12, %13
+  br i1 %or.cond, label %14, label %30
 
-15:                                               ; preds = %4
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !245
-  %18 = load ptr, ptr %17, align 8, !tbaa !181
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !75
-  %21 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(1344) %20)
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %23 = load ptr, ptr %22, align 8, !tbaa !240
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !245
-  %26 = load ptr, ptr %25, align 8, !tbaa !181
-  %27 = load ptr, ptr %19, align 8, !tbaa !75
-  %28 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(1344) %27)
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !240
-  br label %66
+14:                                               ; preds = %4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !245
+  %17 = load ptr, ptr %16, align 8, !tbaa !181
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !75
+  %20 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(1344) %19)
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %22 = load ptr, ptr %21, align 8, !tbaa !240
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %24 = load ptr, ptr %23, align 8, !tbaa !245
+  %25 = load ptr, ptr %24, align 8, !tbaa !181
+  %26 = load ptr, ptr %18, align 8, !tbaa !75
+  %27 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(1344) %26)
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %29 = load ptr, ptr %28, align 8, !tbaa !240
+  br label %65
 
-31:                                               ; preds = %4
-  br i1 %12, label %32, label %49
+30:                                               ; preds = %4
+  br i1 %12, label %31, label %48
 
-32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !245
-  %35 = load ptr, ptr %34, align 8, !tbaa !181, !nonnull !49, !noundef !49
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !245
-  %38 = load ptr, ptr %37, align 8, !tbaa !181
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !75
-  %41 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(1344) %40)
-  %42 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !240
-  %44 = load ptr, ptr %39, align 8, !tbaa !75
-  %45 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(1344) %44)
-  %46 = tail call noundef ptr @_ZN4llvm15ScalarEvolution15getNegativeSCEVEPKNS_4SCEVENS1_11NoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(1344) %44, ptr noundef %45, i32 noundef 0) #27
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %48 = load ptr, ptr %47, align 8, !tbaa !240
-  br label %66
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %33 = load ptr, ptr %32, align 8, !tbaa !245
+  %34 = load ptr, ptr %33, align 8, !tbaa !181
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %36 = load ptr, ptr %35, align 8, !tbaa !245
+  %37 = load ptr, ptr %36, align 8, !tbaa !181
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !75
+  %40 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(1344) %39)
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  %42 = load ptr, ptr %41, align 8, !tbaa !240
+  %43 = load ptr, ptr %38, align 8, !tbaa !75
+  %44 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(1344) %43)
+  %45 = tail call noundef ptr @_ZN4llvm15ScalarEvolution15getNegativeSCEVEPKNS_4SCEVENS1_11NoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(1344) %43, ptr noundef %44, i32 noundef 0) #27
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %47 = load ptr, ptr %46, align 8, !tbaa !240
+  br label %65
 
-49:                                               ; preds = %31
-  tail call void @llvm.assume(i1 %10)
-  tail call void @llvm.assume(i1 %13)
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %51 = load ptr, ptr %50, align 8, !tbaa !245
-  %52 = load ptr, ptr %51, align 8, !tbaa !181, !nonnull !49, !noundef !49
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %54 = load ptr, ptr %53, align 8, !tbaa !245
-  %55 = load ptr, ptr %54, align 8, !tbaa !181
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !75
-  %58 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr noundef nonnull align 8 dereferenceable(1344) %57)
-  %59 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  %60 = load ptr, ptr %59, align 8, !tbaa !240
-  %61 = load ptr, ptr %56, align 8, !tbaa !75
-  %62 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(1344) %61)
-  %63 = tail call noundef ptr @_ZN4llvm15ScalarEvolution15getNegativeSCEVEPKNS_4SCEVENS1_11NoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(1344) %61, ptr noundef %62, i32 noundef 0) #27
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %65 = load ptr, ptr %64, align 8, !tbaa !240
-  br label %66
+48:                                               ; preds = %30
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i53) ]
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %50 = load ptr, ptr %49, align 8, !tbaa !245
+  %51 = load ptr, ptr %50, align 8, !tbaa !181
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %53 = load ptr, ptr %52, align 8, !tbaa !245
+  %54 = load ptr, ptr %53, align 8, !tbaa !181
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !75
+  %57 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %51, ptr noundef nonnull align 8 dereferenceable(1344) %56)
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  %59 = load ptr, ptr %58, align 8, !tbaa !240
+  %60 = load ptr, ptr %55, align 8, !tbaa !75
+  %61 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(1344) %60)
+  %62 = tail call noundef ptr @_ZN4llvm15ScalarEvolution15getNegativeSCEVEPKNS_4SCEVENS1_11NoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(1344) %60, ptr noundef %61, i32 noundef 0) #27
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %64 = load ptr, ptr %63, align 8, !tbaa !240
+  br label %65
 
-66:                                               ; preds = %32, %49, %15
-  %.050 = phi ptr [ %23, %15 ], [ %43, %32 ], [ %65, %49 ]
-  %.049 = phi ptr [ %30, %15 ], [ %48, %32 ], [ %60, %49 ]
-  %.048 = phi ptr [ %28, %15 ], [ %46, %32 ], [ %58, %49 ]
-  %.047 = phi ptr [ %21, %15 ], [ %41, %32 ], [ %63, %49 ]
-  %.046 = phi ptr [ %26, %15 ], [ %2, %32 ], [ %55, %49 ]
-  %.0 = phi ptr [ %18, %15 ], [ %38, %32 ], [ %1, %49 ]
-  %67 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo13exactRDIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopES6_RNS_14FullDependenceE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %.047, ptr noundef %.048, ptr noundef %.0, ptr noundef %.046, ptr noundef %.050, ptr noundef %.049, ptr noundef nonnull align 8 dereferenceable(56) %3)
-  br i1 %67, label %72, label %68
+65:                                               ; preds = %31, %48, %14
+  %.050 = phi ptr [ %22, %14 ], [ %42, %31 ], [ %64, %48 ]
+  %.049 = phi ptr [ %29, %14 ], [ %47, %31 ], [ %59, %48 ]
+  %.048 = phi ptr [ %27, %14 ], [ %45, %31 ], [ %57, %48 ]
+  %.047 = phi ptr [ %20, %14 ], [ %40, %31 ], [ %62, %48 ]
+  %.046 = phi ptr [ %25, %14 ], [ %2, %31 ], [ %54, %48 ]
+  %.0 = phi ptr [ %17, %14 ], [ %37, %31 ], [ %1, %48 ]
+  %66 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo13exactRDIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopES6_RNS_14FullDependenceE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %.047, ptr noundef %.048, ptr noundef %.0, ptr noundef %.046, ptr noundef %.050, ptr noundef %.049, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  br i1 %66, label %71, label %67
 
-68:                                               ; preds = %66
-  %69 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo10gcdMIVtestEPKNS_4SCEVES3_RNS_14FullDependenceE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
-  br i1 %69, label %72, label %70
+67:                                               ; preds = %65
+  %68 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo10gcdMIVtestEPKNS_4SCEVES3_RNS_14FullDependenceE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  br i1 %68, label %71, label %69
 
-70:                                               ; preds = %68
-  %71 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo16symbolicRDIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopES6_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %.047, ptr noundef %.048, ptr noundef %.0, ptr noundef %.046, ptr noundef %.050, ptr noundef %.049)
-  br label %72
+69:                                               ; preds = %67
+  %70 = tail call noundef zeroext i1 @_ZNK4llvm14DependenceInfo16symbolicRDIVtestEPKNS_4SCEVES3_S3_S3_PKNS_4LoopES6_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %.047, ptr noundef %.048, ptr noundef %.0, ptr noundef %.046, ptr noundef %.050, ptr noundef %.049)
+  br label %71
 
-72:                                               ; preds = %70, %68, %66
-  %73 = phi i1 [ true, %68 ], [ true, %66 ], [ %71, %70 ]
-  ret i1 %73
+71:                                               ; preds = %69, %67, %65
+  %72 = phi i1 [ true, %67 ], [ true, %65 ], [ %70, %69 ]
+  ret i1 %72
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1078,215 +1078,213 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   %17 = alloca { i64, [2 x i64] }, align 8
   %18 = alloca { { i64, i64 }, { i64, i64 }, { i64, [22 x i64] }, {} }, align 8
   %19 = alloca { i64, [2 x i64] }, align 8
-  %20 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %20)
-  %21 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %21)
-  %22 = invoke zeroext i1 @_ZN13serde_spanned7spanned10is_spanned17he585e2019034a503E(ptr nonnull align 1 %2, i64 %3, ptr nonnull align 8 %4, i64 %5)
-          to label %23 unwind label %.thread50
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  %20 = invoke zeroext i1 @_ZN13serde_spanned7spanned10is_spanned17he585e2019034a503E(ptr nonnull align 1 %2, i64 %3, ptr nonnull align 8 %4, i64 %5)
+          to label %21 unwind label %.thread50
 
-23:                                               ; preds = %6
-  br i1 %22, label %26, label %24
+21:                                               ; preds = %6
+  br i1 %20, label %24, label %22
 
-24:                                               ; preds = %27, %23
-  %25 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2bd1603ea2287f5E"(ptr nonnull align 1 %2, i64 %3, ptr nonnull align 1 @anon.3a0a07a790098cfbdba7987e085c3adc.0, i64 24)
-          to label %38 unwind label %.thread50
+22:                                               ; preds = %25, %21
+  %23 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2bd1603ea2287f5E"(ptr nonnull align 1 %2, i64 %3, ptr nonnull align 1 @anon.3a0a07a790098cfbdba7987e085c3adc.0, i64 24)
+          to label %36 unwind label %.thread50
 
-26:                                               ; preds = %23
+24:                                               ; preds = %21
   invoke void @_ZN9toml_edit4item4Item4span17hfe5bfac86034a06cE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %19, ptr align 8 %1)
-          to label %27 unwind label %.thread50
+          to label %25 unwind label %.thread50
 
-27:                                               ; preds = %26
-  %28 = load i64, ptr %19, align 8, !range !5, !noundef !4
-  %.not = icmp eq i64 %28, 0
-  br i1 %.not, label %24, label %29
+25:                                               ; preds = %24
+  %26 = load i64, ptr %19, align 8, !range !5, !noundef !4
+  %.not = icmp eq i64 %26, 0
+  br i1 %.not, label %22, label %27
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %19, i64 8
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %29 = load i64, ptr %28, align 8, !noundef !4
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !4
-  %32 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %33 = load i64, ptr %32, align 8, !noundef !4
-  %34 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %34, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 184, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %32, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 184, i1 false)
   store i64 1, ptr %18, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 %29, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i64 1, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 %31, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 1, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i64 %33, ptr %37, align 8
   call void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$migrations_internals..TomlMetadata$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h7e18615496797f8fE"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nonnull align 8 %18)
   br label %.critedge
 
-38:                                               ; preds = %24
-  br i1 %25, label %43, label %39
+36:                                               ; preds = %22
+  br i1 %23, label %41, label %37
 
-39:                                               ; preds = %47, %45, %38
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %41 = load i8, ptr %40, align 8, !range !6, !noundef !4
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %55, label %.thread
+37:                                               ; preds = %45, %43, %36
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %39 = load i8, ptr %38, align 8, !range !6, !noundef !4
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %53, label %.thread
 
-43:                                               ; preds = %38
-  %44 = invoke zeroext i1 @"_ZN4core5array8equality92_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$A$u3b$$u20$N$u5d$$GT$$u20$for$u20$$u5b$B$u5d$$GT$2eq17ha97f94bde24db66cE"(ptr nonnull align 8 %4, i64 %5, ptr nonnull align 8 @anon.3a0a07a790098cfbdba7987e085c3adc.3)
+41:                                               ; preds = %36
+  %42 = invoke zeroext i1 @"_ZN4core5array8equality92_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$A$u3b$$u20$N$u5d$$GT$$u20$for$u20$$u5b$B$u5d$$GT$2eq17ha97f94bde24db66cE"(ptr nonnull align 8 %4, i64 %5, ptr nonnull align 8 @anon.3a0a07a790098cfbdba7987e085c3adc.3)
+          to label %43 unwind label %.thread50
+
+43:                                               ; preds = %41
+  br i1 %42, label %44, label %37
+
+44:                                               ; preds = %43
+  invoke void @_ZN9toml_edit4item4Item4span17hfe5bfac86034a06cE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %17, ptr align 8 %1)
           to label %45 unwind label %.thread50
 
-45:                                               ; preds = %43
-  br i1 %44, label %46, label %39
+45:                                               ; preds = %44
+  %46 = load i64, ptr %1, align 8, !range !3, !noundef !4
+  %47 = icmp eq i64 %46, 6
+  br i1 %47, label %48, label %37
 
-46:                                               ; preds = %45
-  invoke void @_ZN9toml_edit4item4Item4span17hfe5bfac86034a06cE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %17, ptr align 8 %1)
-          to label %47 unwind label %.thread50
-
-47:                                               ; preds = %46
-  %48 = load i64, ptr %1, align 8, !range !3, !noundef !4
-  %49 = icmp eq i64 %48, 6
-  br i1 %49, label %50, label %39
-
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(96) %51, i64 96, i1 false)
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(96) %49, i64 96, i1 false)
   invoke void @"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17hee8931e99b4e14efE"(ptr nonnull sret({ { i32, [2 x i32] }, { i16, i16 }, { i16, [2 x i16] }, [1 x i16] }) align 4 %13, ptr nonnull align 8 %16)
-          to label %53 unwind label %.thread43
+          to label %51 unwind label %.thread43
 
-.thread43:                                        ; preds = %50, %53
-  %52 = landingpad { ptr, i32 }
+.thread43:                                        ; preds = %48, %51
+  %50 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %82
 
-53:                                               ; preds = %50
+51:                                               ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %14, ptr noundef nonnull align 4 dereferenceable(24) %13, i64 24, i1 false)
   invoke void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$migrations_internals..TomlMetadata$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17haeee7cdf3a693597E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %15, ptr nonnull align 4 %14)
-          to label %54 unwind label %.thread43
+          to label %52 unwind label %.thread43
 
-54:                                               ; preds = %53
+52:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hda0aa1203faf5b6cE"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nonnull align 8 %15, ptr nonnull align 8 %12)
-          to label %70 unwind label %.thread50
+          to label %68 unwind label %.thread50
 
-.thread:                                          ; preds = %66, %39
+.thread:                                          ; preds = %64, %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %7, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 184, i1 false)
   call void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h801c738722fabdceE"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nonnull align 8 %7)
   br label %.critedge
 
-55:                                               ; preds = %39
+53:                                               ; preds = %37
   invoke void @_ZN9toml_edit4item4Item4span17hfe5bfac86034a06cE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %11, ptr nonnull align 8 %1)
-          to label %56 unwind label %.thread50
+          to label %54 unwind label %.thread50
 
-56:                                               ; preds = %55
-  %57 = load i64, ptr %1, align 8, !range !3, !noundef !4
-  %58 = add nsw i64 %57, -8
-  %59 = icmp ult i64 %58, 4
-  %60 = select i1 %59, i64 %58, i64 1
-  switch i64 %60, label %61 [
-    i64 1, label %62
+54:                                               ; preds = %53
+  %55 = load i64, ptr %1, align 8, !range !3, !noundef !4
+  %56 = add nsw i64 %55, -8
+  %57 = icmp ult i64 %56, 4
+  %58 = select i1 %57, i64 %56, i64 1
+  switch i64 %58, label %59 [
+    i64 1, label %60
     i64 2, label %.invoke
   ]
 
-61:                                               ; preds = %62, %56
+59:                                               ; preds = %60, %54
   store i64 2, ptr %9, align 8
-  br label %65
+  br label %63
 
-62:                                               ; preds = %56
-  %63 = icmp ult i64 %58, -6
-  br i1 %63, label %.invoke, label %61
+60:                                               ; preds = %54
+  %61 = icmp ult i64 %56, -6
+  br i1 %61, label %.invoke, label %59
 
-.invoke:                                          ; preds = %62, %56
-  %.sink = phi i64 [ 48, %56 ], [ 24, %62 ]
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
-  invoke void @_ZN9toml_edit2de20validate_struct_keys17ha38e2557e33d241aE(ptr nonnull sret({ i64, [11 x i64] }) align 8 %9, ptr nonnull align 8 %64, ptr nonnull align 8 %4, i64 %5)
-          to label %65 unwind label %.thread50
+.invoke:                                          ; preds = %60, %54
+  %.sink = phi i64 [ 48, %54 ], [ 24, %60 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
+  invoke void @_ZN9toml_edit2de20validate_struct_keys17ha38e2557e33d241aE(ptr nonnull sret({ i64, [11 x i64] }) align 8 %9, ptr nonnull align 8 %62, ptr nonnull align 8 %4, i64 %5)
+          to label %63 unwind label %.thread50
 
-65:                                               ; preds = %.invoke, %61
+63:                                               ; preds = %.invoke, %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3c7229df02c2b14fE"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %10, ptr nonnull align 8 %9, ptr nonnull align 8 %8)
-          to label %66 unwind label %.thread50
+          to label %64 unwind label %.thread50
 
-66:                                               ; preds = %65
-  %67 = load i64, ptr %10, align 8, !range !7, !noundef !4
-  %68 = icmp eq i64 %67, 2
-  br i1 %68, label %.thread, label %69
+64:                                               ; preds = %63
+  %65 = load i64, ptr %10, align 8, !range !7, !noundef !4
+  %66 = icmp eq i64 %65, 2
+  br i1 %66, label %.thread, label %67
 
-69:                                               ; preds = %66
+67:                                               ; preds = %64
   %.sroa.027.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %67, ptr %0, align 8
+  store i64 %65, ptr %0, align 8
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.231.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.027.sroa.2.0..sroa_idx, i64 88, i1 false)
-  br label %70
+  br label %68
 
-.critedge:                                        ; preds = %.thread, %29, %81, %80, %79, %76
+.critedge:                                        ; preds = %.thread, %27, %79, %78, %77, %74
   ret void
 
-70:                                               ; preds = %54, %69
-  %.2 = phi i1 [ true, %69 ], [ false, %54 ]
-  %71 = load i64, ptr %1, align 8, !range !3, !noundef !4
-  %72 = add nsw i64 %71, -8
-  %73 = icmp ugt i64 %72, 3
-  %74 = icmp eq i64 %72, 1
-  %75 = or i1 %73, %74
-  br i1 %75, label %77, label %76
+68:                                               ; preds = %52, %67
+  %.2 = phi i1 [ true, %67 ], [ false, %52 ]
+  %69 = load i64, ptr %1, align 8, !range !3, !noundef !4
+  %70 = add nsw i64 %69, -8
+  %71 = icmp ugt i64 %70, 3
+  %72 = icmp eq i64 %70, 1
+  %73 = or i1 %71, %72
+  br i1 %73, label %75, label %74
 
-76:                                               ; preds = %70
+74:                                               ; preds = %68
   call void @"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17ha13b9df110443261E"(ptr nonnull align 8 %1)
   br label %.critedge
 
-77:                                               ; preds = %70
-  %78 = icmp eq i64 %71, 6
-  br i1 %78, label %79, label %80
+75:                                               ; preds = %68
+  %76 = icmp eq i64 %69, 6
+  br i1 %76, label %77, label %78
 
-79:                                               ; preds = %77
-  br i1 %.2, label %81, label %.critedge
+77:                                               ; preds = %75
+  br i1 %.2, label %79, label %.critedge
 
-80:                                               ; preds = %77
+78:                                               ; preds = %75
   call void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17h1c8d1d4c864c20a8E"(ptr nonnull align 8 %1)
   br label %.critedge
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17h40a266f0288926a8E"(ptr nonnull align 8 %82)
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17h40a266f0288926a8E"(ptr nonnull align 8 %80)
   br label %.critedge
 
-.thread50:                                        ; preds = %.invoke, %54, %65, %55, %46, %43, %24, %26, %6
-  %.0.ph = phi i1 [ true, %6 ], [ true, %26 ], [ true, %24 ], [ true, %43 ], [ true, %46 ], [ true, %55 ], [ false, %54 ], [ true, %.invoke ], [ true, %65 ]
+.thread50:                                        ; preds = %.invoke, %52, %63, %53, %44, %41, %22, %24, %6
+  %.0.ph = phi i1 [ true, %6 ], [ true, %24 ], [ true, %22 ], [ true, %41 ], [ true, %44 ], [ true, %53 ], [ false, %52 ], [ true, %.invoke ], [ true, %63 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %82
 
-83:                                               ; preds = %95, %94, %93, %90
+81:                                               ; preds = %93, %92, %91, %88
   resume { ptr, i32 } %.pn49
 
-84:                                               ; preds = %.thread50, %.thread43
-  %.pn49 = phi { ptr, i32 } [ %52, %.thread43 ], [ %lpad.thr_comm, %.thread50 ]
+82:                                               ; preds = %.thread50, %.thread43
+  %.pn49 = phi { ptr, i32 } [ %50, %.thread43 ], [ %lpad.thr_comm, %.thread50 ]
   %.147 = phi i1 [ false, %.thread43 ], [ %.0.ph, %.thread50 ]
-  %85 = load i64, ptr %1, align 8, !range !3, !noundef !4
-  %86 = add nsw i64 %85, -8
-  %87 = icmp ugt i64 %86, 3
-  %88 = icmp eq i64 %86, 1
-  %89 = or i1 %87, %88
-  br i1 %89, label %91, label %90
+  %83 = load i64, ptr %1, align 8, !range !3, !noundef !4
+  %84 = add nsw i64 %83, -8
+  %85 = icmp ugt i64 %84, 3
+  %86 = icmp eq i64 %84, 1
+  %87 = or i1 %85, %86
+  br i1 %87, label %89, label %88
 
-90:                                               ; preds = %84
+88:                                               ; preds = %82
   invoke void @"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17ha13b9df110443261E"(ptr nonnull align 8 %1) #7
-          to label %83 unwind label %97
+          to label %81 unwind label %95
 
-91:                                               ; preds = %84
-  %92 = icmp eq i64 %85, 6
-  br i1 %92, label %93, label %94
+89:                                               ; preds = %82
+  %90 = icmp eq i64 %83, 6
+  br i1 %90, label %91, label %92
+
+91:                                               ; preds = %89
+  br i1 %.147, label %93, label %81
+
+92:                                               ; preds = %89
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17h1c8d1d4c864c20a8E"(ptr nonnull align 8 %1) #7
+          to label %81 unwind label %95
 
 93:                                               ; preds = %91
-  br i1 %.147, label %95, label %83
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void @"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17h40a266f0288926a8E"(ptr nonnull align 8 %94) #7
+          to label %81 unwind label %95
 
-94:                                               ; preds = %91
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17h1c8d1d4c864c20a8E"(ptr nonnull align 8 %1) #7
-          to label %83 unwind label %97
-
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr88drop_in_place$LT$toml_edit..repr..Formatted$LT$toml_datetime..datetime..Datetime$GT$$GT$17h40a266f0288926a8E"(ptr nonnull align 8 %96) #7
-          to label %83 unwind label %97
-
-97:                                               ; preds = %95, %94, %90
-  %98 = landingpad { ptr, i32 }
+95:                                               ; preds = %93, %92, %88
+  %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #8
   unreachable

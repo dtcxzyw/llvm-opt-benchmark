@@ -231,8 +231,7 @@ php_libxml_initialize.exit:                       ; preds = %2, %16
   tail call void @zend_register_long_constant(ptr noundef nonnull @.str.73, i64 noundef 16, i64 noundef 3, i32 noundef 1, i32 noundef %1) #18
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !10
   %21 = tail call ptr @zend_hash_str_find(ptr noundef %20, ptr noundef nonnull @.str.11, i64 noundef 28) #18
-  %.not.i57.i = icmp ne ptr %21, null
-  tail call void @llvm.assume(i1 %.not.i57.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %21) ]
   %22 = load ptr, ptr %21, align 8, !tbaa !33, !nonnull !34, !noundef !34
   %23 = load ptr, ptr @zend_known_strings, align 8, !tbaa !35
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 600
@@ -3107,40 +3106,39 @@ declare noalias ptr @_emalloc_24() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @php_libxml_decrement_node_ptr_ref(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !121
-  %5 = add i32 %4, -1
-  store i32 %5, ptr %3, align 8, !tbaa !121
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %15
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load i32, ptr %2, align 8, !tbaa !121
+  %4 = add i32 %3, -1
+  store i32 %4, ptr %2, align 8, !tbaa !121
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %6, label %14
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %0, align 8, !tbaa !122
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %10, label %9
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %0, align 8, !tbaa !122
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %9, label %8
 
-9:                                                ; preds = %7
-  store ptr null, ptr %8, align 8, !tbaa !95
-  br label %10
+8:                                                ; preds = %6
+  store ptr null, ptr %7, align 8, !tbaa !95
+  br label %9
 
-10:                                               ; preds = %9, %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !101
-  %.not10 = icmp eq ptr %12, null
-  br i1 %.not10, label %14, label %13
+9:                                                ; preds = %8, %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !101
+  %.not10 = icmp eq ptr %11, null
+  br i1 %.not10, label %13, label %12
 
-13:                                               ; preds = %10
-  store ptr null, ptr %12, align 8, !tbaa !120
+12:                                               ; preds = %9
+  store ptr null, ptr %11, align 8, !tbaa !120
+  br label %13
+
+13:                                               ; preds = %12, %9
+  tail call void @_efree(ptr noundef nonnull %0) #18
   br label %14
 
-14:                                               ; preds = %13, %10
-  tail call void @_efree(ptr noundef nonnull %0) #18
-  br label %15
-
-15:                                               ; preds = %14, %1
-  ret i32 %5
+14:                                               ; preds = %13, %1
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable

@@ -24644,7 +24644,9 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit
 
 .critedge55:                                      ; preds = %.critedge53
   %175 = icmp eq i32 %20, 63
-  br i1 %175, label %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit, label %_ZN5clang13ASTDeclMerger21mergeRedeclarableImplINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_NS_12GlobalDeclIDE.exit
+  %spec.select.i.i62 = select i1 %175, ptr %10, ptr null
+  %.not51.not = icmp eq ptr %spec.select.i.i62, null
+  br i1 %.not51.not, label %_ZN5clang13ASTDeclMerger21mergeRedeclarableImplINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_NS_12GlobalDeclIDE.exit, label %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit
 
 _ZN5clang13ASTDeclMerger17mergeRedeclarableINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit: ; preds = %.critedge55
   %spec.select79 = select i1 %3, i64 %17, i64 0
@@ -24666,53 +24668,54 @@ _ZN5clang13ASTDeclMerger17mergeRedeclarableINS_15TypedefNameDeclEEEvPNS_12Redecl
   store i64 %187, ptr %185, align 8
   %188 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %179, ptr %188, align 8, !tbaa !1141
-  %189 = load i32, ptr %18, align 4
-  %190 = getelementptr inbounds nuw i8, ptr %179, i64 28
-  %191 = load i32, ptr %190, align 4
-  %192 = and i32 %189, 1024
-  %193 = or i32 %192, %191
-  store i32 %193, ptr %190, align 4
-  %194 = load i32, ptr %18, align 4
-  %195 = and i32 %194, -1025
-  store i32 %195, ptr %18, align 4
+  %189 = getelementptr inbounds nuw i8, ptr %spec.select.i.i62, i64 28
+  %190 = load i32, ptr %189, align 4
+  %191 = getelementptr inbounds nuw i8, ptr %179, i64 28
+  %192 = load i32, ptr %191, align 4
+  %193 = and i32 %190, 1024
+  %194 = or i32 %193, %192
+  store i32 %194, ptr %191, align 4
+  %195 = load i32, ptr %189, align 4
+  %196 = and i32 %195, -1025
+  store i32 %196, ptr %189, align 4
   %.not23.i = icmp eq i64 %spec.select79, 0
-  br i1 %.not23.i, label %_ZN5clang13ASTDeclMerger21mergeRedeclarableImplINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_NS_12GlobalDeclIDE.exit, label %196
+  br i1 %.not23.i, label %_ZN5clang13ASTDeclMerger21mergeRedeclarableImplINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_NS_12GlobalDeclIDE.exit, label %197
 
-196:                                              ; preds = %184
-  %197 = load ptr, ptr %0, align 8, !tbaa !1150
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 12968
+197:                                              ; preds = %184
+  %198 = load ptr, ptr %0, align 8, !tbaa !1150
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 12968
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %179, ptr %8, align 8, !tbaa !882
-  %199 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS_11SmallVectorINS2_12GlobalDeclIDELj2EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %198, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %201 = load i32, ptr %200, align 8, !tbaa !896
-  %202 = getelementptr inbounds nuw i8, ptr %199, i64 12
-  %203 = load i32, ptr %202, align 4, !tbaa !897
-  %.not.i.i.not.i.i = icmp ult i32 %201, %203
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit.i, label %204, !prof !898
+  %200 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS_11SmallVectorINS2_12GlobalDeclIDELj2EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %199, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  %202 = load i32, ptr %201, align 8, !tbaa !896
+  %203 = getelementptr inbounds nuw i8, ptr %200, i64 12
+  %204 = load i32, ptr %203, align 4, !tbaa !897
+  %.not.i.i.not.i.i = icmp ult i32 %202, %204
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit.i, label %205, !prof !898
 
-204:                                              ; preds = %196
-  %205 = zext i32 %201 to i64
-  %206 = add nuw nsw i64 %205, 1
-  %207 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull %207, i64 noundef %206, i64 noundef 8) #27
-  %.pre.i.i = load i32, ptr %200, align 8, !tbaa !896
+205:                                              ; preds = %197
+  %206 = zext i32 %202 to i64
+  %207 = add nuw nsw i64 %206, 1
+  %208 = getelementptr inbounds nuw i8, ptr %200, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %200, ptr noundef nonnull %208, i64 noundef %207, i64 noundef 8) #27
+  %.pre.i.i = load i32, ptr %201, align 8, !tbaa !896
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit.i: ; preds = %204, %196
-  %208 = phi i32 [ %201, %196 ], [ %.pre.i.i, %204 ]
-  %209 = load ptr, ptr %199, align 8, !tbaa !111
-  %210 = zext i32 %208 to i64
-  %211 = getelementptr inbounds nuw %"class.clang::GlobalDeclID", ptr %209, i64 %210
-  store i64 %spec.select79, ptr %211, align 1
-  %212 = load i32, ptr %200, align 8, !tbaa !896
-  %213 = add i32 %212, 1
-  store i32 %213, ptr %200, align 8, !tbaa !896
+_ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit.i: ; preds = %205, %197
+  %209 = phi i32 [ %202, %197 ], [ %.pre.i.i, %205 ]
+  %210 = load ptr, ptr %200, align 8, !tbaa !111
+  %211 = zext i32 %209 to i64
+  %212 = getelementptr inbounds nuw %"class.clang::GlobalDeclID", ptr %210, i64 %211
+  store i64 %spec.select79, ptr %212, align 1
+  %213 = load i32, ptr %201, align 8, !tbaa !896
+  %214 = add i32 %213, 1
+  store i32 %214, ptr %201, align 8, !tbaa !896
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN5clang13ASTDeclMerger21mergeRedeclarableImplINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_NS_12GlobalDeclIDE.exit
 
 _ZN5clang13ASTDeclMerger21mergeRedeclarableImplINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_NS_12GlobalDeclIDE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit.i, %184, %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit, %.critedge55
-  call void @llvm.assume(i1 %175)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i62) ]
   br label %_ZN5clang13ASTDeclMerger21mergeRedeclarableImplINS_7VarDeclEEEvPNS_12RedeclarableIT_EEPS4_NS_12GlobalDeclIDE.exit
 
 _ZN5clang13ASTDeclMerger21mergeRedeclarableImplINS_7VarDeclEEEvPNS_12RedeclarableIT_EEPS4_NS_12GlobalDeclIDE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit.i121, %64, %_ZN4llvm15SmallPtrSetImplIPN5clang4DeclEE6insertES3_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit.i106, %105, %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_12FunctionDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12GlobalDeclIDELb1EE9push_backES2_.exit.i94, %145, %_ZN5clang13ASTDeclMerger17mergeRedeclarableINS_7VarDeclEEEvPNS_12RedeclarableIT_EEPS4_RN12_GLOBAL__N_118RedeclarableResultE.exit, %_ZN5clang13ASTDeclMerger21mergeRedeclarableImplINS_15TypedefNameDeclEEEvPNS_12RedeclarableIT_EEPS4_NS_12GlobalDeclIDE.exit

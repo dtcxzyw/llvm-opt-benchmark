@@ -341,7 +341,7 @@ _ZN8rawspeed18RawImageCurveGuardC2EPKNS_8RawImageERKSt6vectorItSaItEEb.exit: ; p
 
 50:                                               ; preds = %_ZN8rawspeed18RawImageCurveGuardC2EPKNS_8RawImageERKSt6vectorItSaItEEb.exit
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !86, !nonnull !75, !noundef !75
+  %52 = load ptr, ptr %51, align 8, !tbaa !86
   %53 = icmp sgt i32 %47, -1
   call void @llvm.assume(i1 %53)
   %54 = add nuw nsw i32 %42, %40

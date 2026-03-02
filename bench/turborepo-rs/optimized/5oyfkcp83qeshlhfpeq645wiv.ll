@@ -1137,8 +1137,7 @@ define void @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB5_6Cloned
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtBb_4iter6traits8iterator8Iterator4folduQNCINvNtNtB1T_8adapters3map8map_foldRBQ_BQ_uNvYBQ_NtNtBb_5clone5Clone5cloneNCINvNvXs_NtB2G_9enumerateINtB3V_9EnumeratepEB1N_4fold9enumerateBQ_uNCINvNvB1N_8for_each4callTjBQ_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5v_8VecDequeBQ_E10write_iterINtNtB2G_6cloned6ClonedINtNtB5v_4iter4IterBQ_EEE0E0E0E0EBW_.llvm.4870895441494037529(ptr noundef nonnull %.sroa.07.0.copyload, ptr noundef %.sroa.48.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(32) %3), !noalias !230
-  %4 = icmp ne ptr %.sroa.59.0.copyload, null
-  call void @llvm.assume(i1 %4)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.59.0.copyload) ]
   call void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtBb_4iter6traits8iterator8Iterator4folduQNCINvNtNtB1T_8adapters3map8map_foldRBQ_BQ_uNvYBQ_NtNtBb_5clone5Clone5cloneNCINvNvXs_NtB2G_9enumerateINtB3V_9EnumeratepEB1N_4fold9enumerateBQ_uNCINvNvB1N_8for_each4callTjBQ_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5v_8VecDequeBQ_E10write_iterINtNtB2G_6cloned6ClonedINtNtB5v_4iter4IterBQ_EEE0E0E0E0EBW_.llvm.4870895441494037529(ptr noundef nonnull %.sroa.59.0.copyload, ptr noundef %.sroa.610.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(32) %3), !noalias !230
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1244,7 +1243,7 @@ define void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6
 32:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !259
   %33 = icmp eq i64 %20, 0
-  br i1 %33, label %55, label %57
+  br i1 %33, label %53, label %55
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1254,86 +1253,82 @@ define void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6
   %.sroa.45.sroa.4.0..sroa.45.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %2, ptr %.sroa.45.sroa.4.0..sroa.45.0..sroa_idx.sroa_idx, align 8
   store ptr null, ptr %0, align 8
-  br label %54
+  br label %52
 
 36:                                               ; preds = %30
   %37 = call { ptr, i64 } @_RNvXs24_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %7), !noalias !269
   %38 = extractvalue { ptr, i64 } %37, 0
   %39 = extractvalue { ptr, i64 } %37, 1
-  %40 = icmp ne ptr %38, null
-  call void @llvm.assume(i1 %40)
-  %41 = ptrtoint ptr %38 to i64
-  %42 = ptrtoint ptr %5 to i64
-  %43 = sub i64 %41, %42
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %45 = load i64, ptr %44, align 8, !alias.scope !274, !noalias !269, !noundef !4
-  %46 = add i64 %43, %45
-  %47 = call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %7), !noalias !277
-  %48 = extractvalue { ptr, i64 } %47, 0
-  %49 = extractvalue { ptr, i64 } %47, 1
-  %50 = icmp ne ptr %48, null
-  call void @llvm.assume(i1 %50)
-  %51 = ptrtoint ptr %48 to i64
-  %52 = sub i64 %45, %42
-  %53 = add i64 %52, %51
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
+  %40 = ptrtoint ptr %38 to i64
+  %41 = ptrtoint ptr %5 to i64
+  %42 = sub i64 %40, %41
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %44 = load i64, ptr %43, align 8, !alias.scope !274, !noalias !269, !noundef !4
+  %45 = add i64 %42, %44
+  %46 = call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %7), !noalias !277
+  %47 = extractvalue { ptr, i64 } %46, 0
+  %48 = extractvalue { ptr, i64 } %46, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %47) ]
+  %49 = ptrtoint ptr %47 to i64
+  %50 = sub i64 %44, %41
+  %51 = add i64 %50, %49
   store ptr %38, ptr %0, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %39, ptr %.sroa.417.0..sroa_idx, align 8
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %46, ptr %.sroa.518.0..sroa_idx, align 8
+  store i64 %45, ptr %.sroa.518.0..sroa_idx, align 8
   %.sroa.619.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %48, ptr %.sroa.619.0..sroa_idx, align 8
+  store ptr %47, ptr %.sroa.619.0..sroa_idx, align 8
   %.sroa.720.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %49, ptr %.sroa.720.0..sroa_idx, align 8
+  store i64 %48, ptr %.sroa.720.0..sroa_idx, align 8
   %.sroa.821.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %53, ptr %.sroa.821.0..sroa_idx, align 8
-  br label %54
+  store i64 %51, ptr %.sroa.821.0..sroa_idx, align 8
+  br label %52
 
-54:                                               ; preds = %34, %36, %57, %55
+52:                                               ; preds = %34, %36, %55, %53
   ret void
 
-55:                                               ; preds = %32
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %56, align 8
+53:                                               ; preds = %32
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %54, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.43.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %2, ptr %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx, align 8
   store ptr null, ptr %0, align 8
-  br label %54
+  br label %52
 
-57:                                               ; preds = %32
-  %58 = call { ptr, i64 } @_RNvXs24_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %20), !noalias !280
-  %59 = extractvalue { ptr, i64 } %58, 0
-  %60 = extractvalue { ptr, i64 } %58, 1
-  %61 = icmp ne ptr %59, null
-  call void @llvm.assume(i1 %61)
-  %62 = ptrtoint ptr %59 to i64
-  %63 = ptrtoint ptr %5 to i64
-  %64 = sub i64 %62, %63
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %66 = load i64, ptr %65, align 8, !alias.scope !285, !noalias !280, !noundef !4
-  %67 = add i64 %64, %66
-  %68 = call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %20), !noalias !288
-  %69 = extractvalue { ptr, i64 } %68, 0
-  %70 = extractvalue { ptr, i64 } %68, 1
-  %71 = icmp ne ptr %69, null
-  call void @llvm.assume(i1 %71)
-  %72 = ptrtoint ptr %69 to i64
-  %73 = sub i64 %66, %63
-  %74 = add i64 %73, %72
-  store ptr %59, ptr %0, align 8
+55:                                               ; preds = %32
+  %56 = call { ptr, i64 } @_RNvXs24_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %20), !noalias !280
+  %57 = extractvalue { ptr, i64 } %56, 0
+  %58 = extractvalue { ptr, i64 } %56, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %57) ]
+  %59 = ptrtoint ptr %57 to i64
+  %60 = ptrtoint ptr %5 to i64
+  %61 = sub i64 %59, %60
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %63 = load i64, ptr %62, align 8, !alias.scope !285, !noalias !280, !noundef !4
+  %64 = add i64 %61, %63
+  %65 = call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %20), !noalias !288
+  %66 = extractvalue { ptr, i64 } %65, 0
+  %67 = extractvalue { ptr, i64 } %65, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %66) ]
+  %68 = ptrtoint ptr %66 to i64
+  %69 = sub i64 %63, %60
+  %70 = add i64 %69, %68
+  store ptr %57, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %60, ptr %.sroa.411.0..sroa_idx, align 8
+  store i64 %58, ptr %.sroa.411.0..sroa_idx, align 8
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %67, ptr %.sroa.512.0..sroa_idx, align 8
+  store i64 %64, ptr %.sroa.512.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %69, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %66, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %70, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %67, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %74, ptr %.sroa.8.0..sroa_idx, align 8
-  br label %54
+  store i64 %70, ptr %.sroa.8.0..sroa_idx, align 8
+  br label %52
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1387,7 +1382,7 @@ define void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6
 33:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !296
   %34 = icmp eq i64 %21, 0
-  br i1 %34, label %56, label %58
+  br i1 %34, label %54, label %56
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1397,86 +1392,82 @@ define void @_RINvXsc_Cs4DJqE8qduBp_4poriINtB6_7LocatedeENtNtCsaPKTPzkFU9s_3nom6
   %.sroa.45.sroa.4.0..sroa.45.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %3, ptr %.sroa.45.sroa.4.0..sroa.45.0..sroa_idx.sroa_idx, align 8
   store ptr null, ptr %0, align 8
-  br label %55
+  br label %53
 
 37:                                               ; preds = %31
   %38 = call { ptr, i64 } @_RNvXs24_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %8), !noalias !309
   %39 = extractvalue { ptr, i64 } %38, 0
   %40 = extractvalue { ptr, i64 } %38, 1
-  %41 = icmp ne ptr %39, null
-  call void @llvm.assume(i1 %41)
-  %42 = ptrtoint ptr %39 to i64
-  %43 = ptrtoint ptr %6 to i64
-  %44 = sub i64 %42, %43
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %46 = load i64, ptr %45, align 8, !alias.scope !314, !noalias !309, !noundef !4
-  %47 = add i64 %44, %46
-  %48 = call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %8), !noalias !317
-  %49 = extractvalue { ptr, i64 } %48, 0
-  %50 = extractvalue { ptr, i64 } %48, 1
-  %51 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %51)
-  %52 = ptrtoint ptr %49 to i64
-  %53 = sub i64 %46, %43
-  %54 = add i64 %53, %52
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %39) ]
+  %41 = ptrtoint ptr %39 to i64
+  %42 = ptrtoint ptr %6 to i64
+  %43 = sub i64 %41, %42
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %45 = load i64, ptr %44, align 8, !alias.scope !314, !noalias !309, !noundef !4
+  %46 = add i64 %43, %45
+  %47 = call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %8), !noalias !317
+  %48 = extractvalue { ptr, i64 } %47, 0
+  %49 = extractvalue { ptr, i64 } %47, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %48) ]
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %45, %42
+  %52 = add i64 %51, %50
   store ptr %39, ptr %0, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %40, ptr %.sroa.417.0..sroa_idx, align 8
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %47, ptr %.sroa.518.0..sroa_idx, align 8
+  store i64 %46, ptr %.sroa.518.0..sroa_idx, align 8
   %.sroa.619.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %49, ptr %.sroa.619.0..sroa_idx, align 8
+  store ptr %48, ptr %.sroa.619.0..sroa_idx, align 8
   %.sroa.720.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %50, ptr %.sroa.720.0..sroa_idx, align 8
+  store i64 %49, ptr %.sroa.720.0..sroa_idx, align 8
   %.sroa.821.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %54, ptr %.sroa.821.0..sroa_idx, align 8
-  br label %55
+  store i64 %52, ptr %.sroa.821.0..sroa_idx, align 8
+  br label %53
 
-55:                                               ; preds = %35, %37, %58, %56
+53:                                               ; preds = %35, %37, %56, %54
   ret void
 
-56:                                               ; preds = %33
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %57, align 8
+54:                                               ; preds = %33
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %55, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.43.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %3, ptr %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx, align 8
   store ptr null, ptr %0, align 8
-  br label %55
+  br label %53
 
-58:                                               ; preds = %33
-  %59 = call { ptr, i64 } @_RNvXs24_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %21), !noalias !320
-  %60 = extractvalue { ptr, i64 } %59, 0
-  %61 = extractvalue { ptr, i64 } %59, 1
-  %62 = icmp ne ptr %60, null
-  call void @llvm.assume(i1 %62)
-  %63 = ptrtoint ptr %60 to i64
-  %64 = ptrtoint ptr %6 to i64
-  %65 = sub i64 %63, %64
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %67 = load i64, ptr %66, align 8, !alias.scope !325, !noalias !320, !noundef !4
-  %68 = add i64 %65, %67
-  %69 = call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %21), !noalias !328
-  %70 = extractvalue { ptr, i64 } %69, 0
-  %71 = extractvalue { ptr, i64 } %69, 1
-  %72 = icmp ne ptr %70, null
-  call void @llvm.assume(i1 %72)
-  %73 = ptrtoint ptr %70 to i64
-  %74 = sub i64 %67, %64
-  %75 = add i64 %74, %73
-  store ptr %60, ptr %0, align 8
+56:                                               ; preds = %33
+  %57 = call { ptr, i64 } @_RNvXs24_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range9RangeFromjEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %21), !noalias !320
+  %58 = extractvalue { ptr, i64 } %57, 0
+  %59 = extractvalue { ptr, i64 } %57, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %58) ]
+  %60 = ptrtoint ptr %58 to i64
+  %61 = ptrtoint ptr %6 to i64
+  %62 = sub i64 %60, %61
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %64 = load i64, ptr %63, align 8, !alias.scope !325, !noalias !320, !noundef !4
+  %65 = add i64 %62, %64
+  %66 = call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %21), !noalias !328
+  %67 = extractvalue { ptr, i64 } %66, 0
+  %68 = extractvalue { ptr, i64 } %66, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %67) ]
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %64, %61
+  %71 = add i64 %70, %69
+  store ptr %58, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %61, ptr %.sroa.411.0..sroa_idx, align 8
+  store i64 %59, ptr %.sroa.411.0..sroa_idx, align 8
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %68, ptr %.sroa.512.0..sroa_idx, align 8
+  store i64 %65, ptr %.sroa.512.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %70, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %67, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %71, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %68, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %75, ptr %.sroa.8.0..sroa_idx, align 8
-  br label %55
+  store i64 %71, ptr %.sroa.8.0..sroa_idx, align 8
+  br label %53
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3587,33 +3578,31 @@ define void @_RNvXsb_Cs4DJqE8qduBp_4poriINtB5_7LocatedeENtNtCsaPKTPzkFU9s_3nom6t
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
   %7 = load ptr, ptr %1, align 8, !alias.scope !855, !noalias !859, !nonnull !4, !align !262, !noundef !4
-  %8 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = ptrtoint ptr %5 to i64
-  %10 = ptrtoint ptr %7 to i64
-  %11 = sub i64 %9, %10
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !alias.scope !861, !noalias !852, !noundef !4
-  %14 = add i64 %11, %13
-  %15 = tail call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2), !noalias !862
-  %16 = extractvalue { ptr, i64 } %15, 0
-  %17 = extractvalue { ptr, i64 } %15, 1
-  %18 = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = ptrtoint ptr %16 to i64
-  %20 = sub i64 %13, %10
-  %21 = add i64 %20, %19
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
+  %8 = ptrtoint ptr %5 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load i64, ptr %11, align 8, !alias.scope !861, !noalias !852, !noundef !4
+  %13 = add i64 %10, %12
+  %14 = tail call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2), !noalias !862
+  %15 = extractvalue { ptr, i64 } %14, 0
+  %16 = extractvalue { ptr, i64 } %14, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
+  %17 = ptrtoint ptr %15 to i64
+  %18 = sub i64 %12, %9
+  %19 = add i64 %18, %17
   store ptr %5, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %14, ptr %.sroa.5.0..sroa_idx, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %16, ptr %22, align 8
+  store i64 %13, ptr %.sroa.5.0..sroa_idx, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %15, ptr %20, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %17, ptr %.sroa.42.0..sroa_idx, align 8
+  store i64 %16, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %21, ptr %.sroa.53.0..sroa_idx, align 8
+  store i64 %19, ptr %.sroa.53.0..sroa_idx, align 8
   ret void
 }
 
@@ -3640,19 +3629,18 @@ define void @_RNvXsf_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCsaPKTPzkFU9s_3nom6
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
   %7 = load ptr, ptr %1, align 8, !alias.scope !865, !noalias !868, !nonnull !4, !align !262, !noundef !4
-  %8 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = ptrtoint ptr %5 to i64
-  %10 = ptrtoint ptr %7 to i64
-  %11 = sub i64 %9, %10
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = add i64 %11, %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
+  %8 = ptrtoint ptr %5 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load i64, ptr %11, align 8, !noundef !4
+  %13 = add i64 %10, %12
   store ptr %5, ptr %0, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %6, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %14, ptr %16, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %6, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %13, ptr %15, align 8
   ret void
 }
 
@@ -3662,19 +3650,18 @@ define void @_RNvXsf_Cs4DJqE8qduBp_4poriINtB5_7LocatedeEINtNtCsaPKTPzkFU9s_3nom6
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
   %7 = load ptr, ptr %1, align 8, !alias.scope !870, !noalias !873, !nonnull !4, !align !262, !noundef !4
-  %8 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = ptrtoint ptr %5 to i64
-  %10 = ptrtoint ptr %7 to i64
-  %11 = sub i64 %9, %10
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = add i64 %11, %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
+  %8 = ptrtoint ptr %5 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load i64, ptr %11, align 8, !noundef !4
+  %13 = add i64 %10, %12
   store ptr %5, ptr %0, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %6, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %14, ptr %16, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %6, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %13, ptr %15, align 8
   ret void
 }
 
@@ -3917,45 +3904,43 @@ define void @_RNvXsp_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCse
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
   %7 = load ptr, ptr %1, align 8, !alias.scope !967, !noalias !972, !nonnull !4, !align !262, !noundef !4
-  %8 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = ptrtoint ptr %5 to i64
-  %10 = ptrtoint ptr %7 to i64
-  %11 = sub i64 %9, %10
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !alias.scope !974, !noalias !962, !noundef !4
-  %14 = add i64 %11, %13
-  %15 = tail call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2), !noalias !975
-  %16 = extractvalue { ptr, i64 } %15, 0
-  %17 = extractvalue { ptr, i64 } %15, 1
-  %18 = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = ptrtoint ptr %16 to i64
-  %20 = sub i64 %13, %10
-  %21 = add i64 %20, %19
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load i64, ptr %22, align 8, !alias.scope !978, !noundef !4
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %25 = load i8, ptr %24, align 8, !range !13, !alias.scope !978, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
+  %8 = ptrtoint ptr %5 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load i64, ptr %11, align 8, !alias.scope !974, !noalias !962, !noundef !4
+  %13 = add i64 %10, %12
+  %14 = tail call { ptr, i64 } @_RNvXs23_NtCsaPKTPzkFU9s_3nom6traitsReINtB6_5SliceINtNtNtCs1LoaDTb72WA_4core3ops5range7RangeTojEE5slice(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2), !noalias !975
+  %15 = extractvalue { ptr, i64 } %14, 0
+  %16 = extractvalue { ptr, i64 } %14, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
+  %17 = ptrtoint ptr %15 to i64
+  %18 = sub i64 %12, %9
+  %19 = add i64 %18, %17
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %21 = load i64, ptr %20, align 8, !alias.scope !978, !noundef !4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %23 = load i8, ptr %22, align 8, !range !13, !alias.scope !978, !noundef !4
   store ptr %5, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %14, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
+  store i64 %13, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %23, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %21, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %25, ptr %.sroa.5.0..sroa_idx, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %16, ptr %26, align 8
+  store i8 %23, ptr %.sroa.5.0..sroa_idx, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %15, ptr %24, align 8
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %17, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
+  store i64 %16, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %21, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
+  store i64 %19, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %23, ptr %.sroa.42.0..sroa_idx, align 8
+  store i64 %21, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 %25, ptr %.sroa.53.0..sroa_idx, align 8
+  store i8 %23, ptr %.sroa.53.0..sroa_idx, align 8
   ret void
 }
 
@@ -3989,27 +3974,26 @@ define void @_RNvXst_Cs4DJqE8qduBp_4poriINtB5_8StatefulINtB5_7LocatedeENtNtNtCse
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
   %7 = load ptr, ptr %1, align 8, !alias.scope !992, !noalias !996, !nonnull !4, !align !262, !noundef !4
-  %8 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = ptrtoint ptr %5 to i64
-  %10 = ptrtoint ptr %7 to i64
-  %11 = sub i64 %9, %10
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !alias.scope !998, !noalias !989, !noundef !4
-  %14 = add i64 %11, %13
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load i64, ptr %15, align 8, !alias.scope !999, !noundef !4
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load i8, ptr %17, align 8, !range !13, !alias.scope !999, !noundef !4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
+  %8 = ptrtoint ptr %5 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load i64, ptr %11, align 8, !alias.scope !998, !noalias !989, !noundef !4
+  %13 = add i64 %10, %12
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = load i64, ptr %14, align 8, !alias.scope !999, !noundef !4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %17 = load i8, ptr %16, align 8, !range !13, !alias.scope !999, !noundef !4
   store ptr %5, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %14, ptr %.sroa.53.0..sroa_idx, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %16, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %18, ptr %20, align 8
+  store i64 %13, ptr %.sroa.53.0..sroa_idx, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %15, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %17, ptr %19, align 8
   ret void
 }
 

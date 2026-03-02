@@ -2609,8 +2609,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_17Lut1DOp11combineWi
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val15 = load ptr, ptr %18, align 8
   %19 = tail call ptr @__dynamic_cast(ptr nonnull %.val14, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev2OpE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev12_GLOBAL__N_17Lut1DOpE, i64 0) #24, !noalias !133
-  %.not.not.i.i = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   %.not.i.i.i.i.i = icmp eq ptr %.val15, null
   br i1 %.not.i.i.i.i.i, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12_GLOBAL__N_17Lut1DOpEKNS_2OpEEESt10shared_ptrIT_ERKS6_IT0_E.exit, label %20
 
@@ -3187,8 +3186,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_17Lut1DOp8finalizeEv(
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
   %5 = tail call ptr @__dynamic_cast(ptr nonnull %.val, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut1DOpDataE, i64 0) #24, !noalias !155
-  %.not.not.i.i.i = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %.not.not.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   store ptr %5, ptr %2, align 8, !tbaa !3, !alias.scope !155
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.val2, ptr %6, align 8, !tbaa !11, !alias.scope !155

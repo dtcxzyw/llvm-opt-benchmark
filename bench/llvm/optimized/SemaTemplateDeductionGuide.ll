@@ -69499,35 +69499,29 @@ _ZNK5clang20TemplateTypeParmDecl18getDefaultArgumentEv.exit.i: ; preds = %68, %5
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 11344
   %79 = load ptr, ptr %78, align 8, !tbaa !912
   call void @_ZN5clang23LocalInstantiationScope17InstantiatedLocalEPKNS_4DeclEPS1_(ptr noundef nonnull align 8 dereferenceable(140) %79, ptr noundef nonnull %2, ptr noundef %40) #23
-  br label %95
+  br label %90
 
 80:                                               ; preds = %7
   %81 = icmp ne i32 %12, 66
   %.not32.not = or i1 %.not.not42, %81
-  br i1 %.not32.not, label %88, label %82
+  %82 = tail call noundef ptr @_ZN5clang4Sema9SubstDeclEPNS_4DeclEPNS_11DeclContextERKNS_30MultiLevelTemplateArgumentListE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(117) %3) #23
+  %83 = shl i32 %4, 20
+  %84 = and i32 %5, 1048575
+  %85 = or disjoint i32 %84, %83
+  br i1 %.not32.not, label %88, label %86
 
-82:                                               ; preds = %80
-  %83 = tail call noundef ptr @_ZN5clang4Sema9SubstDeclEPNS_4DeclEPNS_11DeclContextERKNS_30MultiLevelTemplateArgumentListE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(117) %3) #23
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 64
-  %85 = shl i32 %4, 20
-  %86 = and i32 %5, 1048575
-  %87 = or disjoint i32 %86, %85
-  store i32 %87, ptr %84, align 4
-  br label %95
+86:                                               ; preds = %80
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 64
+  store i32 %85, ptr %87, align 4
+  br label %90
 
 88:                                               ; preds = %80
-  %89 = icmp eq i32 %12, 45
-  tail call void @llvm.assume(i1 %89)
-  %90 = tail call noundef ptr @_ZN5clang4Sema9SubstDeclEPNS_4DeclEPNS_11DeclContextERKNS_30MultiLevelTemplateArgumentListE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(117) %3) #23
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 68
-  %92 = shl i32 %4, 20
-  %93 = and i32 %5, 1048575
-  %94 = or disjoint i32 %93, %92
-  store i32 %94, ptr %91, align 4
-  br label %95
+  %89 = getelementptr inbounds nuw i8, ptr %82, i64 68
+  store i32 %85, ptr %89, align 4
+  br label %90
 
-95:                                               ; preds = %82, %77, %88
-  %.1 = phi ptr [ %40, %77 ], [ %83, %82 ], [ %90, %88 ]
+90:                                               ; preds = %86, %77, %88
+  %.1 = phi ptr [ %40, %77 ], [ %82, %86 ], [ %82, %88 ]
   ret ptr %.1
 }
 

@@ -31,10 +31,10 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 6:                                                ; preds = %.noexc.i.i, %.lr.ph.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  br label %31
+  br label %29
 
 .lr.ph.i.i:                                       ; preds = %2, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fc085ace36dc156E.exit.i.i"
-  %.val6.i.i = phi i64 [ %30, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fc085ace36dc156E.exit.i.i" ], [ %.sroa.42.0.copyload, %2 ]
+  %.val6.i.i = phi i64 [ %28, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fc085ace36dc156E.exit.i.i" ], [ %.sroa.42.0.copyload, %2 ]
   %.sroa.0.012.i.i = phi i64 [ %8, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fc085ace36dc156E.exit.i.i" ], [ %.sroa.4.0.copyload, %2 ]
   %8 = add i64 %.sroa.0.012.i.i, 1
   %9 = load i64, ptr %.sroa.0.0.copyload, align 8, !noalias !4, !noundef !3
@@ -76,43 +76,39 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = icmp eq i64 %12, 0
-  br i1 %24, label %31, label %25
+  br i1 %24, label %29, label %25
 
 25:                                               ; preds = %22
   %26 = shl nuw nsw i64 %12, 3
-  %27 = icmp ne ptr %11, null
-  tail call void @llvm.assume(i1 %27)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %11, i64 noundef range(i64 1, -9223372036854775808) %26, i64 noundef 8) #8, !noalias !19
-  br label %31
+  br label %29
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fc085ace36dc156E.exit.i.i": ; preds = %.noexc3.i.i.i.i.i
-  %28 = icmp ne ptr %11, null
-  tail call void @llvm.assume(i1 %28)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.54.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !14
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !19
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !14
-  %29 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i64, i64, i64, i64 } }, ptr %.sroa.53.0.copyload, i64 %.val6.i.i
-  store ptr %11, ptr %29, align 8, !noalias !27
-  %.sroa.43.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %27 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i64, i64, i64, i64 } }, ptr %.sroa.53.0.copyload, i64 %.val6.i.i
+  store ptr %11, ptr %27, align 8, !noalias !27
+  %.sroa.43.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %12, ptr %.sroa.43.0..sroa_idx.i.i.i.i, align 8, !noalias !27
-  %.sroa.54.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %.sroa.54.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.54.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.54.i.i.i.i, i64 32, i1 false), !noalias !27
-  %30 = add i64 %.val6.i.i, 1
+  %28 = add i64 %.val6.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.54.i.i.i.i)
   %exitcond.not.i.i = icmp eq i64 %8, %.sroa.5.0.copyload
   br i1 %exitcond.not.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4a93fc4bb0264be3E.exit", label %.lr.ph.i.i
 
-31:                                               ; preds = %25, %22, %6
+29:                                               ; preds = %25, %22, %6
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %7, %6 ], [ %23, %25 ], [ %23, %22 ]
-  %32 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %32)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.01.0.copyload) ]
   store i64 %.val6.i.i, ptr %.sroa.01.0.copyload, align 8, !noalias !18
   resume { ptr, i32 } %eh.lpad-body.i.i
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4a93fc4bb0264be3E.exit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fc085ace36dc156E.exit.i.i", %2
-  %.val4.i.i = phi i64 [ %.sroa.42.0.copyload, %2 ], [ %30, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fc085ace36dc156E.exit.i.i" ]
-  %33 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %33)
+  %.val4.i.i = phi i64 [ %.sroa.42.0.copyload, %2 ], [ %28, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fc085ace36dc156E.exit.i.i" ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.01.0.copyload) ]
   store i64 %.val4.i.i, ptr %.sroa.01.0.copyload, align 8, !noalias !18
   ret void
 }
@@ -138,8 +134,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 _ZN4core4iter6traits8iterator8Iterator4fold17ha26ccf82a506fd79E.exit: ; preds = %3, %.lr.ph.i
   %.val4.i = phi i64 [ %8, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
-  %9 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %9)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload) ]
   store i64 %.val4.i, ptr %.sroa.0.0.copyload, align 8, !noalias !41
   ret void
 }

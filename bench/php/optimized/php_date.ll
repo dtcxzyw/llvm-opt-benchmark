@@ -2974,8 +2974,7 @@ date_register_classes.exit:                       ; preds = %zend_string_release
   call void @zend_register_long_constant(ptr noundef nonnull @.str.254, i64 noundef 19, i64 noundef 2, i32 noundef 5, i32 noundef %1) #27
   %999 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !56
   %1000 = call ptr @zend_hash_str_find(ptr noundef %999, ptr noundef nonnull @.str.97, i64 noundef 8) #27
-  %.not.i151.i = icmp ne ptr %1000, null
-  call void @llvm.assume(i1 %.not.i151.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1000) ]
   %1001 = load ptr, ptr %1000, align 8, !tbaa !33, !nonnull !72, !noundef !72
   %1002 = load ptr, ptr @zend_known_strings, align 8, !tbaa !73
   %1003 = getelementptr inbounds nuw i8, ptr %1002, i64 600
@@ -3029,8 +3028,7 @@ date_register_classes.exit:                       ; preds = %zend_string_release
   store ptr %1032, ptr %1027, align 8, !tbaa !76
   %1033 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !56
   %1034 = call ptr @zend_hash_str_find(ptr noundef %1033, ptr noundef nonnull @.str.98, i64 noundef 10) #27
-  %.not.i152.i = icmp ne ptr %1034, null
-  call void @llvm.assume(i1 %.not.i152.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1034) ]
   %1035 = load ptr, ptr %1034, align 8, !tbaa !33, !nonnull !72, !noundef !72
   %1036 = load ptr, ptr @zend_known_strings, align 8, !tbaa !73
   %1037 = getelementptr inbounds nuw i8, ptr %1036, i64 600
@@ -3084,8 +3082,7 @@ date_register_classes.exit:                       ; preds = %zend_string_release
   store ptr %1066, ptr %1061, align 8, !tbaa !76
   %1067 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !56
   %1068 = call ptr @zend_hash_str_find(ptr noundef %1067, ptr noundef nonnull @.str.134, i64 noundef 12) #27
-  %.not.i155.i = icmp ne ptr %1068, null
-  call void @llvm.assume(i1 %.not.i155.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1068) ]
   %1069 = load ptr, ptr %1068, align 8, !tbaa !33, !nonnull !72, !noundef !72
   %1070 = load ptr, ptr @zend_known_strings, align 8, !tbaa !73
   %1071 = getelementptr inbounds nuw i8, ptr %1070, i64 600
@@ -3139,8 +3136,7 @@ date_register_classes.exit:                       ; preds = %zend_string_release
   store ptr %1100, ptr %1095, align 8, !tbaa !76
   %1101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !56
   %1102 = call ptr @zend_hash_str_find(ptr noundef %1101, ptr noundef nonnull @.str.135, i64 noundef 11) #27
-  %.not.i158.i = icmp ne ptr %1102, null
-  call void @llvm.assume(i1 %.not.i158.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1102) ]
   %1103 = load ptr, ptr %1102, align 8, !tbaa !33, !nonnull !72, !noundef !72
   %1104 = load ptr, ptr @zend_known_strings, align 8, !tbaa !73
   %1105 = getelementptr inbounds nuw i8, ptr %1104, i64 600
@@ -6276,7 +6272,7 @@ php_time.exit:                                    ; preds = %26, %28
   call void @timelib_time_dtor(ptr noundef nonnull %33) #27
   br label %95
 
-95:                                               ; preds = %30, %.thread127, %94
+95:                                               ; preds = %.thread127, %30, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -6422,7 +6418,7 @@ php_date_full_day_name.exit:                      ; preds = %23, %54
   call void @timelib_time_dtor(ptr noundef nonnull %24) #27
   br label %62
 
-62:                                               ; preds = %.critedge.thread109, %16, %php_date_full_day_name.exit
+62:                                               ; preds = %16, %.critedge.thread109, %php_date_full_day_name.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -10632,7 +10628,7 @@ define hidden void @zif_date_timezone_get(ptr noundef %0, ptr noundef %1) #0 {
   store i32 2, ptr %66, align 8, !tbaa !33
   br label %set_timezone_from_timelib_time.exit
 
-set_timezone_from_timelib_time.exit:              ; preds = %2, %53, %48, %44, %40, %65, %19
+set_timezone_from_timelib_time.exit:              ; preds = %53, %48, %44, %40, %2, %65, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -10926,7 +10922,7 @@ define hidden void @zif_date_offset_get(ptr noundef %0, ptr noundef writeonly ca
   store i32 4, ptr %52, align 8, !tbaa !33
   br label %53
 
-53:                                               ; preds = %2, %25, %28, %37, %42, %51, %19
+53:                                               ; preds = %25, %28, %37, %42, %2, %51, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -13120,7 +13116,7 @@ define hidden void @zif_timezone_offset_get(ptr noundef %0, ptr noundef writeonl
   store i32 4, ptr %57, align 8, !tbaa !33
   br label %58
 
-58:                                               ; preds = %2, %33, %36, %49, %45, %30, %22
+58:                                               ; preds = %33, %36, %2, %49, %45, %30, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -13713,7 +13709,7 @@ define hidden void @zif_timezone_transitions_get(ptr noundef %0, ptr noundef cap
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit178
 
-.loopexit178:                                     ; preds = %255, %2, %.loopexit, %.critedge167, %325, %34, %28
+.loopexit178:                                     ; preds = %255, %.loopexit, %.critedge167, %325, %2, %34, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -13931,7 +13927,7 @@ date_interval_initialize.exit:                    ; preds = %33, %28, %32, %40, 
   store i32 2, ptr %55, align 8, !tbaa !201
   br label %56
 
-56:                                               ; preds = %date_interval_initialize.exit, %19, %51
+56:                                               ; preds = %19, %date_interval_initialize.exit, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -15765,7 +15761,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %22
   %.05485 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %10 ], [ 4, %zend_parse_arg_string.exit ]
   %.05584 = phi ptr [ %23, %zend_parse_arg_long_ex.exit ], [ null, %10 ], [ %12, %zend_parse_arg_string.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.05287, i32 noundef %.05386, ptr noundef null, i32 noundef %.05485, ptr noundef %.05584) #27
-  br label %42
+  br label %41
 
 .critedge:                                        ; preds = %zend_parse_arg_long_ex.exit, %.thread88, %zend_parse_arg_str_ex.exit.thread
   %29 = load ptr, ptr %6, align 8, !tbaa !33
@@ -15779,15 +15775,15 @@ zend_parse_arg_long_ex.exit:                      ; preds = %22
   store ptr null, ptr %35, align 8, !tbaa !244
   %36 = load ptr, ptr @date_ce_immutable, align 8, !tbaa !10
   %37 = call fastcc zeroext i1 @date_period_init_iso8601_string(ptr noundef nonnull %34, ptr noundef %36, ptr noundef nonnull %18, i64 noundef %20, ptr noundef %4)
-  br i1 %37, label %38, label %42
+  br i1 %37, label %38, label %41
 
 38:                                               ; preds = %.critedge
   %39 = load i64, ptr %5, align 8, !tbaa !139
   %40 = load i64, ptr %4, align 8, !tbaa !139
-  %41 = call fastcc zeroext i1 @date_period_init_finish(ptr noundef nonnull %34, i64 noundef %39, i64 noundef %40)
-  br label %42
+  call fastcc void @date_period_init_finish(ptr noundef nonnull %34, i64 noundef %39, i64 noundef %40)
+  br label %41
 
-42:                                               ; preds = %38, %.critedge, %.thread
+41:                                               ; preds = %.thread, %38, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -15969,7 +15965,7 @@ zend_string_release.exit:                         ; preds = %73, %72, %65, %57, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @date_period_init_finish(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @date_period_init_finish(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !248
   %6 = icmp eq ptr %5, null
@@ -16070,8 +16066,7 @@ define internal fastcc noundef zeroext i1 @date_period_init_finish(ptr noundef c
   br label %zend_string_release.exit
 
 zend_string_release.exit:                         ; preds = %53, %52, %45, %37, %24, %23, %16, %8, %54
-  %.0 = phi i1 [ true, %54 ], [ false, %24 ], [ false, %8 ], [ false, %16 ], [ false, %23 ], [ false, %37 ], [ false, %45 ], [ false, %52 ], [ false, %53 ]
-  ret i1 %.0
+  ret void
 }
 
 ; Function Attrs: nounwind uwtable
@@ -16120,7 +16115,7 @@ define hidden void @zim_DatePeriod___construct(ptr noundef readonly captures(non
 
 27:                                               ; preds = %23
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.74) #27
-  br label %.sink.split
+  br label %98
 
 .thread:                                          ; preds = %17, %2
   %28 = load ptr, ptr %10, align 8, !tbaa !33
@@ -16142,14 +16137,14 @@ define hidden void @zim_DatePeriod___construct(ptr noundef readonly captures(non
   call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.75) #27
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !254
   %.not32 = icmp eq ptr %37, null
-  br i1 %.not32, label %38, label %.sink.split, !prof !4
+  br i1 %.not32, label %38, label %98, !prof !4
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr @date_ce_date, align 8, !tbaa !10
   %40 = load ptr, ptr %8, align 8, !tbaa !116
   %41 = load i64, ptr %9, align 8, !tbaa !139
   %42 = call fastcc zeroext i1 @date_period_init_iso8601_string(ptr noundef nonnull %34, ptr noundef %39, ptr noundef %40, i64 noundef %41, ptr noundef %6)
-  br i1 %42, label %94, label %.sink.split
+  br i1 %42, label %94, label %98
 
 43:                                               ; preds = %.thread, %31
   %44 = phi ptr [ %29, %.thread ], [ %34, %31 ]
@@ -16164,7 +16159,7 @@ define hidden void @zim_DatePeriod___construct(ptr noundef readonly captures(non
 50:                                               ; preds = %43
   %51 = load ptr, ptr @date_ce_interface, align 8, !tbaa !10
   call fastcc void @date_throw_uninitialized_error(ptr noundef %51)
-  br label %.sink.split
+  br label %98
 
 52:                                               ; preds = %43
   %53 = load ptr, ptr %4, align 8, !tbaa !176
@@ -16181,7 +16176,7 @@ define hidden void @zim_DatePeriod___construct(ptr noundef readonly captures(non
 58:                                               ; preds = %54
   %59 = load ptr, ptr @date_ce_interface, align 8, !tbaa !10
   call fastcc void @date_throw_uninitialized_error(ptr noundef %59)
-  br label %.sink.split
+  br label %98
 
 60:                                               ; preds = %54, %52
   %61 = load ptr, ptr %5, align 8, !tbaa !176
@@ -16244,10 +16239,10 @@ define hidden void @zim_DatePeriod___construct(ptr noundef readonly captures(non
   %95 = phi ptr [ %44, %78 ], [ %44, %88 ], [ %34, %38 ]
   %96 = load i64, ptr %7, align 8, !tbaa !139
   %97 = load i64, ptr %6, align 8, !tbaa !139
-  %98 = call fastcc zeroext i1 @date_period_init_finish(ptr noundef nonnull %95, i64 noundef %96, i64 noundef %97)
-  br label %.sink.split
+  call fastcc void @date_period_init_finish(ptr noundef nonnull %95, i64 noundef %96, i64 noundef %97)
+  br label %98
 
-.sink.split:                                      ; preds = %94, %58, %50, %27, %38, %36
+98:                                               ; preds = %94, %38, %36, %58, %50, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -17470,7 +17465,7 @@ zend_parse_arg_double.exit167:                    ; preds = %63
   store i32 5, ptr %150, align 8, !tbaa !33
   br label %151
 
-151:                                              ; preds = %97, %.thread216, %140, %149, %141, %138, %117, %112, %95, %84
+151:                                              ; preds = %.thread216, %140, %97, %149, %141, %138, %117, %112, %95, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -17743,7 +17738,7 @@ zend_parse_arg_double.exit132:                    ; preds = %28
   call void @timelib_time_dtor(ptr noundef nonnull %51) #27
   br label %102
 
-102:                                              ; preds = %44, %.thread146, %101, %43, %38
+102:                                              ; preds = %.thread146, %44, %101, %43, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

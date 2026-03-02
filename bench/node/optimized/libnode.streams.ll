@@ -2514,8 +2514,7 @@ if.end24:                                         ; preds = %do.end
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %23 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %23) #26
-  %cmp.i.i.i.i8 = icmp ne ptr %call1.i, null
-  call void @llvm.assume(i1 %cmp.i.i.i.i8)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %call1.i) ]
   %call5.i.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #26
   %24 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %24, 47

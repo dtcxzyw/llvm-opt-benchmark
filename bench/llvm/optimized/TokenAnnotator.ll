@@ -255,8 +255,7 @@ define dso_local void @_ZNK5clang6format14TokenAnnotator20setCommentLineLevelsER
   br i1 %14, label %15, label %_ZNK5clang6format13AnnotatedLine9isCommentEv.exit.thread
 
 15:                                               ; preds = %10
-  %.not.i = icmp ne ptr %.pre31, null
-  tail call void @llvm.assume(i1 %.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.pre31) ]
   %16 = getelementptr inbounds nuw i8, ptr %.pre31, i64 16
   %17 = load i16, ptr %16, align 8, !tbaa !61
   %18 = icmp eq i16 %17, 4

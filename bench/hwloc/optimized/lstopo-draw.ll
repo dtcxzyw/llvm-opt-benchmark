@@ -5630,8 +5630,7 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   %.050.i = phi float [ 8.000000e+00, %90 ], [ %..i, %92 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %96 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef %8)
-  %.not128.i.i = icmp ne ptr %96, null
-  tail call void @llvm.assume(i1 %.not128.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %96) ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %95

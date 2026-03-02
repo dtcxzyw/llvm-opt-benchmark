@@ -84,25 +84,24 @@ declare void @_ZN6icu_7717RuleBasedCollatorD1Ev(ptr noundef nonnull align 8 dere
 define noundef i32 @ucol_cloneBinary_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4, !tbaa !3
   %6 = icmp slt i32 %5, 1
-  br i1 %6, label %7, label %12
+  br i1 %6, label %7, label %11
 
 7:                                                ; preds = %4
-  %8 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = load ptr, ptr %0, align 8, !tbaa !7
-  %10 = icmp eq ptr %9, getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTVN6icu_7717RuleBasedCollatorE, i64 16)
-  br i1 %10, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %8 = load ptr, ptr %0, align 8, !tbaa !7
+  %9 = icmp eq ptr %8, getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTVN6icu_7717RuleBasedCollatorE, i64 16)
+  br i1 %9, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
 
 _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit: ; preds = %7
   store i32 16, ptr %3, align 4, !tbaa !3
-  br label %12
+  br label %11
 
 _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11: ; preds = %7
-  %11 = tail call noundef i32 @_ZNK6icu_7717RuleBasedCollator11cloneBinaryEPhiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br label %12
+  %10 = tail call noundef i32 @_ZNK6icu_7717RuleBasedCollator11cloneBinaryEPhiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %11
 
-12:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit ], [ %11, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11 ]
+11:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit ], [ %10, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11 ]
   ret i32 %.0
 }
 
@@ -876,48 +875,47 @@ define void @ucol_getUCAVersion_77(ptr noundef %0, ptr noundef writeonly capture
 
 ; Function Attrs: mustprogress uwtable
 define ptr @ucol_getRules_77(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
-  %3 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = load ptr, ptr %0, align 8, !tbaa !7
-  %5 = icmp eq ptr %4, getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTVN6icu_7717RuleBasedCollatorE, i64 16)
-  br i1 %5, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %3 = load ptr, ptr %0, align 8, !tbaa !7
+  %4 = icmp eq ptr %3, getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTVN6icu_7717RuleBasedCollatorE, i64 16)
+  br i1 %4, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
 
 _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit: ; preds = %2
   store i32 0, ptr %1, align 4, !tbaa !9
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11: ; preds = %2
-  %6 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717RuleBasedCollator8getRulesEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i16, ptr %7, align 8, !tbaa !11
-  %9 = icmp slt i16 %8, 0
-  %10 = ashr i16 %8, 5
-  %11 = sext i16 %10 to i32
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %13 = load i32, ptr %12, align 4
-  %14 = select i1 %9, i32 %13, i32 %11
-  store i32 %14, ptr %1, align 4, !tbaa !9
-  %15 = load i16, ptr %7, align 8, !tbaa !11
-  %16 = and i16 %15, 17
-  %.not.i = icmp eq i16 %16, 0
-  br i1 %.not.i, label %17, label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
+  %5 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717RuleBasedCollator8getRulesEv(ptr noundef nonnull align 8 dereferenceable(272) %0)
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i16, ptr %6, align 8, !tbaa !11
+  %8 = icmp slt i16 %7, 0
+  %9 = ashr i16 %7, 5
+  %10 = sext i16 %9 to i32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %12 = load i32, ptr %11, align 4
+  %13 = select i1 %8, i32 %12, i32 %10
+  store i32 %13, ptr %1, align 4, !tbaa !9
+  %14 = load i16, ptr %6, align 8, !tbaa !11
+  %15 = and i16 %14, 17
+  %.not.i = icmp eq i16 %15, 0
+  br i1 %.not.i, label %16, label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
-17:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11
-  %18 = and i16 %15, 2
-  %.not2.i = icmp eq i16 %18, 0
-  br i1 %.not2.i, label %21, label %19
+16:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11
+  %17 = and i16 %14, 2
+  %.not2.i = icmp eq i16 %17, 0
+  br i1 %.not2.i, label %20, label %18
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 10
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 10
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !11
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %22 = load ptr, ptr %21, align 8, !tbaa !11
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
-_ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %21, %19, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
-  %.0 = phi ptr [ @_ZZ16ucol_getRules_77E4_NUL, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit ], [ %23, %21 ], [ %20, %19 ], [ null, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11 ]
+_ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %20, %18, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
+  %.0 = phi ptr [ @_ZZ16ucol_getRules_77E4_NUL, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit ], [ %22, %20 ], [ %19, %18 ], [ null, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11 ]
   ret ptr %.0
 }
 
@@ -932,66 +930,65 @@ define i32 @ucol_getRulesEx_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %8, align 8, !tbaa !11
-  %9 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = load ptr, ptr %0, align 8, !tbaa !7
-  %11 = icmp eq ptr %10, getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTVN6icu_7717RuleBasedCollatorE, i64 16)
-  br i1 %11, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread20, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %9 = load ptr, ptr %0, align 8, !tbaa !7
+  %10 = icmp eq ptr %9, getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTVN6icu_7717RuleBasedCollatorE, i64 16)
+  br i1 %10, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread20, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
 
 _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread20: ; preds = %4
   invoke void @_ZNK6icu_7717RuleBasedCollator8getRulesE14UColRuleOptionRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %5)
-          to label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit unwind label %12
+          to label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit unwind label %11
 
-12:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread20
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread20
+  %12 = landingpad { ptr, i32 }
           cleanup
-  br label %32
+  br label %31
 
 _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit: ; preds = %4, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread20
-  %14 = icmp ne ptr %2, null
-  %15 = icmp sgt i32 %3, 0
-  %or.cond3 = and i1 %14, %15
-  br i1 %or.cond3, label %16, label %23
+  %13 = icmp ne ptr %2, null
+  %14 = icmp sgt i32 %3, 0
+  %or.cond3 = and i1 %13, %14
+  br i1 %or.cond3, label %15, label %22
 
-16:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
+15:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !3
   store ptr %2, ptr %7, align 8, !tbaa !17
-  %17 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %7, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %18 unwind label %20
+  %16 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %7, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %6)
+          to label %17 unwind label %19
 
-18:                                               ; preds = %16
-  %19 = load ptr, ptr %7, align 8, !tbaa !17
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19) #10, !srcloc !21
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %7, align 8, !tbaa !17
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %18) #10, !srcloc !21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %31
+  br label %30
 
-20:                                               ; preds = %16
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %15
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %7, align 8, !tbaa !17
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22) #10, !srcloc !21
+  %21 = load ptr, ptr %7, align 8, !tbaa !17
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %21) #10, !srcloc !21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %32
-
-23:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
-  %24 = load i16, ptr %8, align 8, !tbaa !11
-  %25 = icmp slt i16 %24, 0
-  %26 = ashr i16 %24, 5
-  %27 = sext i16 %26 to i32
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %29 = load i32, ptr %28, align 4
-  %30 = select i1 %25, i32 %29, i32 %27
   br label %31
 
-31:                                               ; preds = %23, %18
-  %.015 = phi i32 [ %17, %18 ], [ %30, %23 ]
+22:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
+  %23 = load i16, ptr %8, align 8, !tbaa !11
+  %24 = icmp slt i16 %23, 0
+  %25 = ashr i16 %23, 5
+  %26 = sext i16 %25 to i32
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %28 = load i32, ptr %27, align 4
+  %29 = select i1 %24, i32 %28, i32 %26
+  br label %30
+
+30:                                               ; preds = %22, %17
+  %.015 = phi i32 [ %16, %17 ], [ %29, %22 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.015
 
-32:                                               ; preds = %20, %12
-  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %13, %12 ]
+31:                                               ; preds = %19, %11
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %12, %11 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
@@ -1011,22 +1008,21 @@ define noundef ptr @ucol_getLocale_77(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %5, label %6, label %ucol_getLocaleByType_77.exit
 
 6:                                                ; preds = %3
-  %7 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %7)
-  %8 = load ptr, ptr %0, align 8, !tbaa !7
-  %9 = icmp eq ptr %8, getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTVN6icu_7717RuleBasedCollatorE, i64 16)
-  br i1 %9, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12.i, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %7 = load ptr, ptr %0, align 8, !tbaa !7
+  %8 = icmp eq ptr %7, getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTVN6icu_7717RuleBasedCollatorE, i64 16)
+  br i1 %8, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12.i, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.i
 
 _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.i: ; preds = %6
   store i32 16, ptr %2, align 4, !tbaa !3
   br label %ucol_getLocaleByType_77.exit
 
 _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12.i: ; preds = %6
-  %10 = tail call noundef ptr @_ZNK6icu_7717RuleBasedCollator19internalGetLocaleIDE18ULocDataLocaleTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %9 = tail call noundef ptr @_ZNK6icu_7717RuleBasedCollator19internalGetLocaleIDE18ULocDataLocaleTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %ucol_getLocaleByType_77.exit
 
 ucol_getLocaleByType_77.exit:                     ; preds = %3, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.i, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12.i
-  %.0.i = phi ptr [ null, %3 ], [ null, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.i ], [ %10, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12.i ]
+  %.0.i = phi ptr [ null, %3 ], [ null, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.i ], [ %9, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12.i ]
   ret ptr %.0.i
 }
 
@@ -1034,25 +1030,24 @@ ucol_getLocaleByType_77.exit:                     ; preds = %3, %_ZN6icu_7717Rul
 define noundef ptr @ucol_getLocaleByType_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4, !tbaa !3
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  %7 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %7)
-  %8 = load ptr, ptr %0, align 8, !tbaa !7
-  %9 = icmp eq ptr %8, getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTVN6icu_7717RuleBasedCollatorE, i64 16)
-  br i1 %9, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %7 = load ptr, ptr %0, align 8, !tbaa !7
+  %8 = icmp eq ptr %7, getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTVN6icu_7717RuleBasedCollatorE, i64 16)
+  br i1 %8, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
 
 _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit: ; preds = %6
   store i32 16, ptr %2, align 4, !tbaa !3
-  br label %11
+  br label %10
 
 _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12: ; preds = %6
-  %10 = tail call noundef ptr @_ZNK6icu_7717RuleBasedCollator19internalGetLocaleIDE18ULocDataLocaleTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  br label %11
+  %9 = tail call noundef ptr @_ZNK6icu_7717RuleBasedCollator19internalGetLocaleIDE18ULocDataLocaleTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  br label %10
 
-11:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit ], [ %10, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12 ]
+10:                                               ; preds = %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit ], [ %9, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread12 ]
   ret ptr %.0
 }
 

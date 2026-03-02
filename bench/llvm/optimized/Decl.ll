@@ -20136,45 +20136,43 @@ define dso_local void @_ZN5clang12FunctionDecl29setTemplateSpecializationKindENS
   br i1 %.not24, label %.critedge, label %.critedge.sink.split
 
 24:                                               ; preds = %3
-  %25 = icmp eq i64 %5, 2
-  %.0.i.i27 = select i1 %25, ptr %8, ptr null
-  %26 = icmp ne ptr %.0.i.i27, null
-  tail call void @llvm.assume(i1 %26)
-  %27 = add nsw i32 %1, -1
+  %25 = add nsw i32 %1, -1
   %.0.copyload.i.i.i.i28 = load i64, ptr %8, align 8
-  %28 = zext i32 %27 to i64
-  %29 = and i64 %.0.copyload.i.i.i.i28, -7
-  %30 = shl nuw nsw i64 %28, 1
-  %31 = or i64 %29, %30
-  store i64 %31, ptr %8, align 8
+  %26 = zext i32 %25 to i64
+  %27 = and i64 %.0.copyload.i.i.i.i28, -7
+  %28 = shl nuw nsw i64 %26, 1
+  %29 = or i64 %27, %28
+  store i64 %29, ptr %8, align 8
   %.not21 = icmp ne i32 %1, 2
-  %32 = icmp ne i32 %2, 0
-  %or.cond35 = select i1 %.not21, i1 %32, i1 false
-  br i1 %or.cond35, label %33, label %.critedge
+  %30 = icmp ne i32 %2, 0
+  %or.cond35 = select i1 %.not21, i1 %30, i1 false
+  br i1 %or.cond35, label %31, label %.critedge
 
-33:                                               ; preds = %24
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i27, i64 8
-  %.sroa.0.0.copyload.i29 = load i32, ptr %34, align 8, !tbaa !18
-  %35 = icmp eq i32 %.sroa.0.0.copyload.i29, 0
-  br i1 %35, label %36, label %.critedge
+31:                                               ; preds = %24
+  %32 = icmp eq i64 %5, 2
+  %.0.i.i27 = select i1 %32, ptr %8, ptr null
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i27, i64 8
+  %.sroa.0.0.copyload.i29 = load i32, ptr %33, align 8, !tbaa !18
+  %34 = icmp eq i32 %.sroa.0.0.copyload.i29, 0
+  br i1 %34, label %35, label %.critedge
 
-36:                                               ; preds = %33
-  store i32 %2, ptr %34, align 8, !tbaa !18
-  %37 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #30
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 18208
-  %39 = load ptr, ptr %38, align 8, !tbaa !842
-  %.not22 = icmp eq ptr %39, null
+35:                                               ; preds = %31
+  store i32 %2, ptr %33, align 8, !tbaa !18
+  %36 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #30
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 18208
+  %38 = load ptr, ptr %37, align 8, !tbaa !842
+  %.not22 = icmp eq ptr %38, null
   br i1 %.not22, label %.critedge, label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %36, %20
-  %.sink42 = phi ptr [ %23, %20 ], [ %39, %36 ]
-  %40 = load ptr, ptr %.sink42, align 8, !tbaa !388
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
-  %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(8) %.sink42, ptr noundef nonnull %0) #31
+.critedge.sink.split:                             ; preds = %35, %20
+  %.sink42 = phi ptr [ %23, %20 ], [ %38, %35 ]
+  %39 = load ptr, ptr %.sink42, align 8, !tbaa !388
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(8) %.sink42, ptr noundef nonnull %0) #31
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %24, %9, %33, %36, %20, %17
+.critedge:                                        ; preds = %.critedge.sink.split, %24, %9, %31, %35, %20, %17
   ret void
 }
 

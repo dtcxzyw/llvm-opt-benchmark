@@ -1290,25 +1290,24 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
 .critedge:                                        ; preds = %8, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit, %11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = call noundef ptr @_ZNK9grpc_core11ChannelArgs14GetVoidPointerESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 26, ptr nonnull @.str.28)
-  %25 = icmp ne ptr %24, null
-  call void @llvm.assume(i1 %25)
-  %26 = load ptr, ptr %24, align 8, !tbaa !116
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %24) ]
+  %25 = load ptr, ptr %24, align 8, !tbaa !116
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 520
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !16
-  %27 = load ptr, ptr %26, align 8, !tbaa !3
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
-  %29 = load ptr, ptr %28, align 8
-  %30 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
-  %31 = load i8, ptr %5, align 8, !tbaa !92, !range !105, !noundef !106
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %33, label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit
+  %26 = load ptr, ptr %25, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
+  %28 = load ptr, ptr %27, align 8
+  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  %30 = load i8, ptr %5, align 8, !tbaa !92, !range !105, !noundef !106
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %32, label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit
 
-33:                                               ; preds = %.critedge
+32:                                               ; preds = %.critedge
   store i8 0, ptr %5, align 8, !tbaa !92
   br label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit
 
-_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit: ; preds = %33, %.critedge, %1
+_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit: ; preds = %32, %.critedge, %1
   ret void
 }
 

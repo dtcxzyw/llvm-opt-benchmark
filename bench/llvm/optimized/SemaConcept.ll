@@ -3053,17 +3053,17 @@ _ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread5.i.i.i: ;
   br label %_ZNK5clang13CXXRecordDecl8capturesEv.exit
 
 _ZNK5clang13CXXRecordDecl8capturesEv.exit:        ; preds = %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread5.i.i.i, %30, %32
-  %.0.i.ph.ph.i70 = phi ptr [ %.0.i.ph.ph.i.ph.ph, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread5.i.i.i ], [ null, %30 ], [ %.0.i.ph.ph.i.ph.ph, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i ], [ %.pre7.i.i, %32 ]
+  %.0.i.ph.ph.i68 = phi ptr [ %.0.i.ph.ph.i.ph.ph, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread5.i.i.i ], [ null, %30 ], [ %.0.i.ph.ph.i.ph.ph, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i ], [ %.pre7.i.i, %32 ]
   %.0.i.i.i36 = phi ptr [ %41, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.thread5.i.i.i ], [ null, %30 ], [ null, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i ], [ %.pre7.i.i, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %43 = load i64, ptr %42, align 8
   %44 = lshr i64 %43, 5
   %45 = and i64 %44, 32767
   %46 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i36, i64 %45
-  %.not75 = icmp eq ptr %.0.i.ph.ph.i70, %46
-  br i1 %.not75, label %._crit_edge, label %.lr.ph78
+  %.not73 = icmp eq ptr %.0.i.ph.ph.i68, %46
+  br i1 %.not73, label %._crit_edge, label %.lr.ph76
 
-.lr.ph78:                                         ; preds = %_ZNK5clang13CXXRecordDecl8capturesEv.exit
+.lr.ph76:                                         ; preds = %_ZNK5clang13CXXRecordDecl8capturesEv.exit
   %47 = getelementptr i8, ptr %.0.i.i.i, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3073,10 +3073,10 @@ _ZNK5clang13CXXRecordDecl8capturesEv.exit:        ; preds = %_ZNK4llvm13TinyPtrV
 ._crit_edge:                                      ; preds = %97, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i, %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %_ZNK5clang13CXXRecordDecl8capturesEv.exit
   ret i1 false
 
-51:                                               ; preds = %.lr.ph78, %97
-  %.02977 = phi i32 [ 0, %.lr.ph78 ], [ %.1, %97 ]
-  %.03076 = phi ptr [ %.0.i.ph.ph.i70, %.lr.ph78 ], [ %98, %97 ]
-  %.0.copyload.i.i.i.i = load i64, ptr %.03076, align 8
+51:                                               ; preds = %.lr.ph76, %97
+  %.02975 = phi i32 [ 0, %.lr.ph76 ], [ %.1, %97 ]
+  %.03074 = phi ptr [ %.0.i.ph.ph.i68, %.lr.ph76 ], [ %98, %97 ]
+  %.0.copyload.i.i.i.i = load i64, ptr %.03074, align 8
   %52 = and i64 %.0.copyload.i.i.i.i, -8
   %.not.i.i.i37 = icmp eq i64 %52, 0
   br i1 %.not.i.i.i37, label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread, label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit
@@ -3091,7 +3091,7 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit: ; preds = %51
   br i1 %58, label %60, label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread
 
 _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread: ; preds = %51, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit
-  %59 = add i32 %.02977, 1
+  %59 = add i32 %.02975, 1
   br label %97
 
 60:                                               ; preds = %_ZNK5clang13LambdaCapture16capturesVariableEv.exit
@@ -3099,7 +3099,7 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread: ; preds = %51, %_ZNK5
   br i1 %61, label %64, label %62
 
 62:                                               ; preds = %60
-  %63 = add i32 %.02977, 1
+  %63 = add i32 %.02975, 1
   br label %97
 
 64:                                               ; preds = %60
@@ -3107,27 +3107,27 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread: ; preds = %51, %_ZNK5
   br i1 %65, label %76, label %66
 
 66:                                               ; preds = %64
-  %67 = add i32 %.02977, 1
+  %67 = add i32 %.02975, 1
   %.val.val.val = load ptr, ptr %47, align 8, !tbaa !819, !nonnull !700, !noundef !700
   %68 = getelementptr inbounds nuw i8, ptr %.val.val.val, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i43 = load i64, ptr %68, align 8
-  %.not.i.i.i.i.i44 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i43, 7
-  call void @llvm.assume(i1 %.not.i.i.i.i.i44)
-  %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i43, 4
-  %.not.i.i.i.not.i.i.i.i45 = icmp eq i64 %69, 0
-  %.pre.i.i.i46 = and i64 %.0.copyload.i.i.i.i.i.i.i.i43, -8
-  %.pre7.i.i.i47 = inttoptr i64 %.pre.i.i.i46 to ptr
-  br i1 %.not.i.i.i.not.i.i.i.i45, label %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit", label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i48
+  %.0.copyload.i.i.i.i.i.i.i.i42 = load i64, ptr %68, align 8
+  %.not.i.i.i.i.i43 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i42, 7
+  call void @llvm.assume(i1 %.not.i.i.i.i.i43)
+  %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i42, 4
+  %.not.i.i.i.not.i.i.i.i44 = icmp eq i64 %69, 0
+  %.pre.i.i.i45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i42, -8
+  %.pre7.i.i.i46 = inttoptr i64 %.pre.i.i.i45 to ptr
+  br i1 %.not.i.i.i.not.i.i.i.i44, label %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit", label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i47
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i48: ; preds = %66
-  %70 = load ptr, ptr %.pre7.i.i.i47, align 8, !tbaa !30
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i47: ; preds = %66
+  %70 = load ptr, ptr %.pre7.i.i.i46, align 8, !tbaa !30
   %71 = load ptr, ptr %70, align 8, !tbaa !856
   br label %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit"
 
-"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit": ; preds = %66, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i48
-  %.0.i.i.i50 = phi ptr [ %.pre7.i.i.i47, %66 ], [ %71, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i48 ]
-  %72 = zext i32 %.02977 to i64
-  %73 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i50, i64 %72
+"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit": ; preds = %66, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i47
+  %.0.i.i.i49 = phi ptr [ %.pre7.i.i.i46, %66 ], [ %71, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i47 ]
+  %72 = zext i32 %.02975 to i64
+  %73 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i49, i64 %72
   %.0.copyload.i.i.i.i.i = load i64, ptr %73, align 8
   %74 = and i64 %.0.copyload.i.i.i.i.i, -8
   %75 = inttoptr i64 %74 to ptr
@@ -3146,49 +3146,49 @@ _ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i48: ; preds
   %79 = load i32, ptr %49, align 8, !tbaa !28
   %80 = zext i32 %79 to i64
   %81 = call i64 @_ZN5clang4Sema40getNumArgumentsInExpansionFromUnexpandedEN4llvm8ArrayRefISt4pairINS1_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEEEERKNS_30MultiLevelTemplateArgumentListE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr %78, i64 %80, ptr noundef nonnull align 8 dereferenceable(117) %4) #27
-  %.sroa.064.0.extract.trunc = trunc i64 %81 to i32
+  %.sroa.062.0.extract.trunc = trunc i64 %81 to i32
   %82 = and i64 %81, 4294967296
-  %.not72 = icmp ne i64 %82, 0
-  %83 = icmp ne i32 %.sroa.064.0.extract.trunc, 0
-  %or.cond = and i1 %.not72, %83
+  %.not70 = icmp ne i64 %82, 0
+  %83 = icmp ne i32 %.sroa.062.0.extract.trunc, 0
+  %or.cond = and i1 %.not70, %83
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %76
-  %84 = add i32 %.02977, %.sroa.064.0.extract.trunc
+  %84 = add i32 %.02975, %.sroa.062.0.extract.trunc
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit63"
-  %.573 = phi i32 [ %85, %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit63" ], [ %.02977, %.lr.ph.preheader ]
-  %85 = add i32 %.573, 1
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit61"
+  %.571 = phi i32 [ %85, %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit61" ], [ %.02975, %.lr.ph.preheader ]
+  %85 = add i32 %.571, 1
   %.val34.val.val = load ptr, ptr %47, align 8, !tbaa !819, !nonnull !700, !noundef !700
   %86 = getelementptr inbounds nuw i8, ptr %.val34.val.val, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i54 = load i64, ptr %86, align 8
-  %.not.i.i.i.i.i55 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i54, 7
-  call void @llvm.assume(i1 %.not.i.i.i.i.i55)
-  %87 = and i64 %.0.copyload.i.i.i.i.i.i.i.i54, 4
-  %.not.i.i.i.not.i.i.i.i56 = icmp eq i64 %87, 0
-  %.pre.i.i.i57 = and i64 %.0.copyload.i.i.i.i.i.i.i.i54, -8
-  %.pre7.i.i.i58 = inttoptr i64 %.pre.i.i.i57 to ptr
-  br i1 %.not.i.i.i.not.i.i.i.i56, label %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit63", label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i59
+  %.0.copyload.i.i.i.i.i.i.i.i52 = load i64, ptr %86, align 8
+  %.not.i.i.i.i.i53 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i52, 7
+  call void @llvm.assume(i1 %.not.i.i.i.i.i53)
+  %87 = and i64 %.0.copyload.i.i.i.i.i.i.i.i52, 4
+  %.not.i.i.i.not.i.i.i.i54 = icmp eq i64 %87, 0
+  %.pre.i.i.i55 = and i64 %.0.copyload.i.i.i.i.i.i.i.i52, -8
+  %.pre7.i.i.i56 = inttoptr i64 %.pre.i.i.i55 to ptr
+  br i1 %.not.i.i.i.not.i.i.i.i54, label %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit61", label %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i57
 
-_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i59: ; preds = %.lr.ph
-  %88 = load ptr, ptr %.pre7.i.i.i58, align 8, !tbaa !30
+_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i57: ; preds = %.lr.ph
+  %88 = load ptr, ptr %.pre7.i.i.i56, align 8, !tbaa !30
   %89 = load ptr, ptr %88, align 8, !tbaa !856
-  br label %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit63"
+  br label %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit61"
 
-"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit63": ; preds = %.lr.ph, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i59
-  %.0.i.i.i61 = phi ptr [ %.pre7.i.i.i58, %.lr.ph ], [ %89, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i59 ]
-  %90 = zext i32 %.573 to i64
-  %91 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i61, i64 %90
-  %.0.copyload.i.i.i.i.i62 = load i64, ptr %91, align 8
-  %92 = and i64 %.0.copyload.i.i.i.i.i62, -8
+"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit61": ; preds = %.lr.ph, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i57
+  %.0.i.i.i59 = phi ptr [ %.pre7.i.i.i56, %.lr.ph ], [ %89, %_ZNK4llvm13TinyPtrVectorIPN5clang13LambdaCaptureEE5emptyEv.exit.i.i.i57 ]
+  %90 = zext i32 %.571 to i64
+  %91 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %.0.i.i.i59, i64 %90
+  %.0.copyload.i.i.i.i.i60 = load i64, ptr %91, align 8
+  %92 = and i64 %.0.copyload.i.i.i.i.i60, -8
   %93 = inttoptr i64 %92 to ptr
   call void @_ZN5clang23LocalInstantiationScope17InstantiatedLocalEPKNS_4DeclEPS1_(ptr noundef nonnull align 8 dereferenceable(140) %3, ptr noundef nonnull %53, ptr noundef %93) #27
   %exitcond.not = icmp eq i32 %85, %84
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !858
 
-.loopexit:                                        ; preds = %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit63", %76
-  %.4 = phi i32 [ %.02977, %76 ], [ %84, %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit63" ]
+.loopexit:                                        ; preds = %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit61", %76
+  %.4 = phi i32 [ %.02975, %76 ], [ %84, %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit61" ]
   %94 = load ptr, ptr %6, align 8, !tbaa !30
   %95 = icmp eq ptr %94, %48
   br i1 %95, label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit, label %96
@@ -3203,7 +3203,7 @@ _ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmType
 
 97:                                               ; preds = %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit, %62, %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit", %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread
   %.1 = phi i32 [ %59, %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread ], [ %63, %62 ], [ %67, %"_ZZN5clang4Sema30addInstantiatedCapturesToScopeEPNS_12FunctionDeclEPKS1_RNS_23LocalInstantiationScopeERKNS_30MultiLevelTemplateArgumentListEENK3$_0clEPKNS_9ValueDeclEj.exit" ], [ %.4, %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEPNS3_26ResolvedUnexpandedPackExprEEEENS3_14SourceLocationEELj2EED2Ev.exit ]
-  %98 = getelementptr inbounds nuw i8, ptr %.03076, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.03074, i64 16
   %.not = icmp eq ptr %98, %46
   br i1 %.not, label %._crit_edge, label %51
 }

@@ -6888,7 +6888,7 @@ define hidden void @_ZN5ciEnv17dump_compile_dataEP12outputStream(ptr noundef non
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %27, label %5
+  br i1 %.not, label %26, label %5
 
 5:                                                ; preds = %2
   %6 = load i8, ptr @ReplayReduce, align 1
@@ -6913,29 +6913,28 @@ _ZN5ciEnv12get_metadataEP8Metadata.exit.i:        ; preds = %11, %8, %5
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %17 = load i32, ptr %16, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.39) #20
-  %18 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %20, ptr noundef nonnull %13) #20
-  tail call void @_ZN8ciMethod18dump_name_as_asciiEP12outputStream(ptr noundef nonnull align 8 dereferenceable(160) %21, ptr noundef nonnull %1) #20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %19, ptr noundef nonnull %13) #20
+  tail call void @_ZN8ciMethod18dump_name_as_asciiEP12outputStream(ptr noundef nonnull align 8 dereferenceable(160) %20, ptr noundef nonnull %1) #20
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.40, i32 noundef %15, i32 noundef %17) #20
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %23 = load ptr, ptr %22, align 8
-  %.not17 = icmp ne ptr %23, null
-  %24 = icmp eq i32 %17, 4
-  %or.cond = select i1 %.not17, i1 %24, i1 false
-  br i1 %or.cond, label %25, label %26
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %22 = load ptr, ptr %21, align 8
+  %.not17 = icmp ne ptr %22, null
+  %23 = icmp eq i32 %17, 4
+  %or.cond = select i1 %.not17, i1 %23, i1 false
+  br i1 %or.cond, label %24, label %25
 
-25:                                               ; preds = %_ZN5ciEnv12get_metadataEP8Metadata.exit.i
-  tail call void @_ZN7Compile16dump_inline_dataEP12outputStream(ptr noundef nonnull align 8 dereferenceable(2316) %23, ptr noundef nonnull %1) #20
+24:                                               ; preds = %_ZN5ciEnv12get_metadataEP8Metadata.exit.i
+  tail call void @_ZN7Compile16dump_inline_dataEP12outputStream(ptr noundef nonnull align 8 dereferenceable(2316) %22, ptr noundef nonnull %1) #20
+  br label %25
+
+25:                                               ; preds = %24, %_ZN5ciEnv12get_metadataEP8Metadata.exit.i
+  tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
   br label %26
 
-26:                                               ; preds = %25, %_ZN5ciEnv12get_metadataEP8Metadata.exit.i
-  tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
-  br label %27
-
-27:                                               ; preds = %26, %2
+26:                                               ; preds = %25, %2
   ret void
 }
 

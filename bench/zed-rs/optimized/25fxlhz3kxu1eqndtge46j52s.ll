@@ -2051,31 +2051,30 @@ _ZN10serde_json3ser9Formatter10end_object17hf935ece23a2e3815E.exit.i: ; preds = 
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h186ec93188dd8b8aE.llvm.2247408780336021447"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noalias noundef nonnull readnone align 1 captures(none) %3) unnamed_addr #14 personality ptr @rust_eh_personality {
-  %5 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp eq ptr %0, %1
-  br i1 %6, label %.loopexit, label %7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %5 = icmp eq ptr %0, %1
+  br i1 %5, label %.loopexit, label %6
 
-7:                                                ; preds = %4
-  %8 = ptrtoint ptr %1 to i64
-  %9 = ptrtoint ptr %0 to i64
-  %10 = sub nuw i64 %8, %9
-  %11 = lshr exact i64 %10, 5
-  br label %12
+6:                                                ; preds = %4
+  %7 = ptrtoint ptr %1 to i64
+  %8 = ptrtoint ptr %0 to i64
+  %9 = sub nuw i64 %7, %8
+  %10 = lshr exact i64 %9, 5
+  br label %11
 
-12:                                               ; preds = %12, %7
-  %.sroa.07.0 = phi i64 [ %2, %7 ], [ %16, %12 ]
-  %.sroa.09.0 = phi i64 [ 0, %7 ], [ %17, %12 ]
-  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %0, i64 %.sroa.09.0
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = add i64 %15, %.sroa.07.0
-  %17 = add nuw i64 %.sroa.09.0, 1
-  %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %12
+11:                                               ; preds = %11, %6
+  %.sroa.07.0 = phi i64 [ %2, %6 ], [ %15, %11 ]
+  %.sroa.09.0 = phi i64 [ 0, %6 ], [ %16, %11 ]
+  %12 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %0, i64 %.sroa.09.0
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load i64, ptr %13, align 8, !noundef !4
+  %15 = add i64 %14, %.sroa.07.0
+  %16 = add nuw i64 %.sroa.09.0, 1
+  %17 = icmp eq i64 %16, %10
+  br i1 %17, label %.loopexit, label %11
 
-.loopexit:                                        ; preds = %12, %4
-  %.sroa.04.0 = phi i64 [ %2, %4 ], [ %16, %12 ]
+.loopexit:                                        ; preds = %11, %4
+  %.sroa.04.0 = phi i64 [ %2, %4 ], [ %15, %11 ]
   ret i64 %.sroa.04.0
 }
 

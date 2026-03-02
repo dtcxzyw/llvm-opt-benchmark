@@ -10099,8 +10099,7 @@ _ZN5clangL18getOpenCLArgAccessEPKNS_4DeclE.exit:  ; preds = %177, %.lr.ph.i.i.i.
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !773
   %196 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %195) #17
-  %.not.i.i.i28 = icmp ne ptr %196, null
-  tail call void @llvm.assume(i1 %.not.i.i.i28)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %196) ]
   %197 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getBuiltinIDEb(ptr noundef nonnull align 8 dereferenceable(168) %196, i1 noundef zeroext false) #17
   switch i32 %197, label %_ZNK5clang16OpenCLAccessAttr10isReadOnlyEv.exit.thread [
     i32 1036, label %198
@@ -13344,8 +13343,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit32.thread: ; preds = %_ZNK5clang8Qual
   %238 = getelementptr inbounds nuw i8, ptr %2, i64 %237
   %239 = load ptr, ptr %238, align 8, !tbaa !773
   %240 = call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %239) #17
-  %.not.i.i.i33 = icmp ne ptr %240, null
-  call void @llvm.assume(i1 %.not.i.i.i33)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %240) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !810)
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 40
   %.sroa.0.0.copyload.i.i37 = load i64, ptr %241, align 8, !tbaa !52, !noalias !810

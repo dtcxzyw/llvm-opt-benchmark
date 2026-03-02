@@ -94,55 +94,54 @@ define hidden range(i32 -1, 1) i32 @dom_attr_name_read(ptr noundef %0, ptr nound
 
 5:                                                ; preds = %2
   tail call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #9
-  br label %29
+  br label %28
 
 6:                                                ; preds = %2
-  %7 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !11
-  %.not.i = icmp eq ptr %9, null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !11
+  %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %php_dom_follow_spec_doc_ref.exit.thread, label %php_dom_follow_spec_doc_ref.exit
 
 php_dom_follow_spec_doc_ref.exit:                 ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  %11 = load i16, ptr %10, align 4
-  %12 = and i16 %11, 255
-  %13 = icmp eq i16 %12, 2
-  br i1 %13, label %14, label %php_dom_follow_spec_doc_ref.exit.thread
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %10 = load i16, ptr %9, align 4
+  %11 = and i16 %10, 255
+  %12 = icmp eq i16 %11, 2
+  br i1 %12, label %13, label %php_dom_follow_spec_doc_ref.exit.thread
 
-14:                                               ; preds = %php_dom_follow_spec_doc_ref.exit
-  %15 = tail call ptr @dom_node_get_node_name_attribute_or_element(ptr noundef nonnull %3, i1 noundef zeroext false) #9
-  store ptr %15, ptr %1, align 8, !tbaa !9
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 262, ptr %16, align 8, !tbaa !9
-  br label %29
+13:                                               ; preds = %php_dom_follow_spec_doc_ref.exit
+  %14 = tail call ptr @dom_node_get_node_name_attribute_or_element(ptr noundef nonnull %3, i1 noundef zeroext false) #9
+  store ptr %14, ptr %1, align 8, !tbaa !9
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 262, ptr %15, align 8, !tbaa !9
+  br label %28
 
 php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %6, %php_dom_follow_spec_doc_ref.exit
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !20
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #10
-  %20 = and i64 %19, -8
-  %21 = add i64 %20, 32
-  %22 = tail call noalias ptr @_emalloc(i64 noundef %21) #11
-  store i32 1, ptr %22, align 4, !tbaa !26
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 22, ptr %23, align 4, !tbaa !9
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 0, ptr %24, align 8, !tbaa !27
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i64 %19, ptr %25, align 8, !tbaa !30
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %18, i64 %19, i1 false)
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %19
-  store i8 0, ptr %27, align 1, !tbaa !9
-  store ptr %22, ptr %1, align 8, !tbaa !9
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 262, ptr %28, align 8, !tbaa !9
-  br label %29
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !20
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #10
+  %19 = and i64 %18, -8
+  %20 = add i64 %19, 32
+  %21 = tail call noalias ptr @_emalloc(i64 noundef %20) #11
+  store i32 1, ptr %21, align 4, !tbaa !26
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i32 22, ptr %22, align 4, !tbaa !9
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 0, ptr %23, align 8, !tbaa !27
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i64 %18, ptr %24, align 8, !tbaa !30
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 1 %17, i64 %18, i1 false)
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %18
+  store i8 0, ptr %26, align 1, !tbaa !9
+  store ptr %21, ptr %1, align 8, !tbaa !9
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 262, ptr %27, align 8, !tbaa !9
+  br label %28
 
-29:                                               ; preds = %14, %php_dom_follow_spec_doc_ref.exit.thread, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %php_dom_follow_spec_doc_ref.exit.thread ], [ 0, %14 ]
+28:                                               ; preds = %13, %php_dom_follow_spec_doc_ref.exit.thread, %5
+  %.0 = phi i32 [ -1, %5 ], [ 0, %php_dom_follow_spec_doc_ref.exit.thread ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -261,6 +260,7 @@ define hidden range(i32 -1, 1) i32 @dom_attr_value_write(ptr noundef %0, ptr nou
 dom_attr_value_will_change.exit:                  ; preds = %14, %17
   %25 = load ptr, ptr %1, align 8, !tbaa !9
   tail call void @dom_remove_all_children(ptr noundef nonnull %3) #9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %26 = load ptr, ptr %15, align 8, !tbaa !11
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %php_dom_follow_spec_doc_ref.exit.thread, label %php_dom_follow_spec_doc_ref.exit

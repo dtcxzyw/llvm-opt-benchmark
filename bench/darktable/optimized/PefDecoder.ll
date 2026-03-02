@@ -364,7 +364,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit.thread: ; preds = %_ZNKSt8_Rb_t
 
 _ZNK8rawspeed6Buffer10getSubViewEjj.exit:         ; preds = %60
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !110, !nonnull !100, !noundef !100
+  %71 = load ptr, ptr %70, align 8, !tbaa !110
   %72 = icmp sgt i32 %67, -1
   tail call void @llvm.assume(i1 %72)
   %73 = add nuw nsw i32 %62, %61
@@ -953,8 +953,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = load ptr, ptr %8, align 8, !tbaa !16
   %37 = call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %36, i16 noundef zeroext 512) #23
-  %.not50 = icmp eq ptr %37, null
-  br i1 %.not50, label %.loopexit, label %38
+  %.not48 = icmp eq ptr %37, null
+  br i1 %.not48, label %.loopexit, label %38
 
 38:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 44
@@ -969,13 +969,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 152
   %47 = load i8, ptr %46, align 8, !tbaa !135, !range !99, !noundef !100
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %_ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit, label %49
+  br i1 %48, label %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit, label %49
 
 49:                                               ; preds = %42
   store i8 1, ptr %46, align 8, !tbaa !135
-  br label %_ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit
+  br label %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit
 
-_ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit: ; preds = %42, %49
+_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit: ; preds = %42, %49
   store ptr %44, ptr %45, align 8, !tbaa !136
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 128
   store i32 4, ptr %50, align 8, !tbaa !24
@@ -1008,8 +1008,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %.bo
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %eh.lpad-body
 
-60:                                               ; preds = %_ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit, %60
-  %indvars.iv = phi i64 [ 0, %_ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit ], [ %indvars.iv.next, %60 ]
+60:                                               ; preds = %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit, %60
+  %indvars.iv = phi i64 [ 0, %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit ], [ %indvars.iv.next, %60 ]
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(48) %37, i32 noundef %61)
   %63 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
@@ -1019,14 +1019,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %.bo
   br i1 %exitcond.not, label %.loopexit.loopexit, label %60, !llvm.loop !137
 
 .loopexit.loopexit:                               ; preds = %60
-  %.pre54 = load ptr, ptr %8, align 8, !tbaa !16
+  %.pre52 = load ptr, ptr %8, align 8, !tbaa !16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %64 = phi ptr [ %.pre54, %.loopexit.loopexit ], [ %36, %38 ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %64 = phi ptr [ %.pre52, %.loopexit.loopexit ], [ %36, %38 ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %65 = call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %64, i16 noundef zeroext 513) #23
-  %.not51 = icmp eq ptr %65, null
-  br i1 %.not51, label %83, label %66
+  %.not49 = icmp eq ptr %65, null
+  br i1 %.not49, label %83, label %66
 
 66:                                               ; preds = %.loopexit
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 44

@@ -3594,8 +3594,8 @@ _ZNK5Ipopt27LowRankUpdateSymMatrixSpace18LowRankVectorSpaceEv.exit: ; preds = %1
   %183 = load ptr, ptr %182, align 8, !tbaa !72
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 248
   %185 = load ptr, ptr %184, align 8, !tbaa !43, !noalias !97
-  %.not.i.i.i.i326 = icmp ne ptr %185, null
-  br i1 %.not.i.i.i.i326, label %186, label %_ZNK5Ipopt13RestoIpoptNLP4DR_xEv.exit.thread
+  %.not.i.i.i.i326.not = icmp eq ptr %185, null
+  br i1 %.not.i.i.i.i326.not, label %_ZNK5Ipopt13RestoIpoptNLP4DR_xEv.exit.thread, label %186
 
 186:                                              ; preds = %181
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 8
@@ -3627,7 +3627,7 @@ _ZNK5Ipopt13RestoIpoptNLP4DR_xEv.exit.thread:     ; preds = %181, %186
 
 201:                                              ; preds = %197, %192, %_ZNK5Ipopt13RestoIpoptNLP4DR_xEv.exit.thread
   store ptr %185, ptr %190, align 8, !tbaa !43
-  call void @llvm.assume(i1 %.not.i.i.i.i326)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %185) ]
   %202 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %203 = load i32, ptr %202, align 8, !tbaa !3
   %204 = add nsw i32 %203, -1

@@ -1542,7 +1542,7 @@ i_get_exception_base.exit:                        ; preds = %2, %instanceof_func
   call void @zend_update_property_ex(ptr noundef %15, ptr noundef %44, ptr noundef %47, ptr noundef nonnull %42) #15
   br label %48
 
-48:                                               ; preds = %i_get_exception_base.exit, %41, %43
+48:                                               ; preds = %41, %43, %i_get_exception_base.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1862,7 +1862,7 @@ define hidden void @zim_ErrorException___construct(ptr noundef readonly captures
   call void @zend_update_property_ex(ptr noundef %78, ptr noundef %79, ptr noundef %82, ptr noundef nonnull %9) #15
   br label %83
 
-83:                                               ; preds = %.sink.split, %2, %76
+83:                                               ; preds = %.sink.split, %76, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5246,8 +5246,8 @@ zval_get_string.exit:
   call void @llvm.va_start.p0(ptr nonnull %1)
   %3 = call ptr @zend_vstrpprintf(i64 noundef 0, ptr noundef %0, ptr noundef nonnull %1) #15
   call void @llvm.va_end.p0(ptr nonnull %1)
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !52, !nonnull !64, !noundef !64
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !52
   %5 = load i32, ptr %4, align 4, !tbaa !15
   %6 = add i32 %5, 1
   store i32 %6, ptr %4, align 4, !tbaa !15

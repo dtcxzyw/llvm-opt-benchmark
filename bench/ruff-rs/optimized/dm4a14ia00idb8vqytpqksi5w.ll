@@ -15162,18 +15162,17 @@ define hidden void @_ZN9ty_server6server3api23local_notification_task17h10ba6a95
   %19 = load ptr, ptr %18, align 8, !noalias !714
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %21 = load i32, ptr %20, align 8, !noalias !714
-  br i1 %17, label %22, label %25
+  br i1 %17, label %22, label %24
 
 22:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !714
-  %23 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %23)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   store ptr %19, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %21, ptr %24, align 8
-  br label %36
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %21, ptr %23, align 8
+  br label %35
 
-25:                                               ; preds = %15
+24:                                               ; preds = %15
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   %.sroa.213.sroa.3.0..sroa.213.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -15184,48 +15183,48 @@ define hidden void @_ZN9ty_server6server3api23local_notification_task17h10ba6a95
   store ptr %19, ptr %.sroa.213.0..sroa_idx, align 8
   %.sroa.213.sroa.2.0..sroa.213.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %21, ptr %.sroa.213.sroa.2.0..sroa.213.0..sroa_idx.sroa_idx, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 200
-  store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.93, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 208
-  store i32 24, ptr %27, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 200
+  store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.93, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 208
+  store i32 24, ptr %26, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 212
   store i32 0, ptr %.sroa_idx, align 4
-  %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !719
-  %29 = tail call noalias noundef align 8 dereferenceable_or_null(216) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 537) 216, i64 noundef range(i64 1, 9) 8) #18, !noalias !719
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb017dc70d4d7a589E.exit", !prof !21
+  %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !719
+  %28 = tail call noalias noundef align 8 dereferenceable_or_null(216) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 537) 216, i64 noundef range(i64 1, 9) 8) #18, !noalias !719
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb017dc70d4d7a589E.exit", !prof !21
 
-31:                                               ; preds = %25
+30:                                               ; preds = %24
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef 8, i64 noundef 216) #17
-          to label %.noexc unwind label %32
+          to label %.noexc unwind label %31
 
-.noexc:                                           ; preds = %31
+.noexc:                                           ; preds = %30
   unreachable
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %30
+  %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr92drop_in_place$LT$lsp_types..notebook..notification_params..DidOpenNotebookDocumentParams$GT$17ha4793e6fa73e429aE"(ptr noalias noundef nonnull align 8 dereferenceable(216) %7)
-          to label %"_ZN4core3ptr185drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_open_notebook..DidOpenNotebookHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h21f7cf0badbbccc7E.exit" unwind label %34
+          to label %"_ZN4core3ptr185drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_open_notebook..DidOpenNotebookHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h21f7cf0badbbccc7E.exit" unwind label %33
 
-34:                                               ; preds = %32
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #16
   unreachable
 
-"_ZN4core3ptr185drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_open_notebook..DidOpenNotebookHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h21f7cf0badbbccc7E.exit": ; preds = %32
-  resume { ptr, i32 } %33
+"_ZN4core3ptr185drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_open_notebook..DidOpenNotebookHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h21f7cf0badbbccc7E.exit": ; preds = %31
+  resume { ptr, i32 } %32
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb017dc70d4d7a589E.exit": ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %29, ptr noundef nonnull align 8 dereferenceable(216) %7, i64 216, i1 false)
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb017dc70d4d7a589E.exit": ; preds = %24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %28, ptr noundef nonnull align 8 dereferenceable(216) %7, i64 216, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store ptr %29, ptr %0, align 8
+  store ptr %28, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.72, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %36
+  br label %35
 
-36:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb017dc70d4d7a589E.exit", %22
+35:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb017dc70d4d7a589E.exit", %22
   %.sink = phi i8 [ 3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb017dc70d4d7a589E.exit" ], [ 4, %22 ]
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %.sroa.5.0..sroa_idx, align 8
@@ -15272,18 +15271,17 @@ define hidden void @_ZN9ty_server6server3api23local_notification_task17h3f350356
   %19 = load ptr, ptr %18, align 8, !noalias !722
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %21 = load i32, ptr %20, align 8, !noalias !722
-  br i1 %17, label %22, label %25
+  br i1 %17, label %22, label %24
 
 22:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !722
-  %23 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %23)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   store ptr %19, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %21, ptr %24, align 8
-  br label %36
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %21, ptr %23, align 8
+  br label %35
 
-25:                                               ; preds = %15
+24:                                               ; preds = %15
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   %.sroa.213.sroa.3.0..sroa.213.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -15294,48 +15292,48 @@ define hidden void @_ZN9ty_server6server3api23local_notification_task17h3f350356
   store ptr %19, ptr %.sroa.213.0..sroa_idx, align 8
   %.sroa.213.sroa.2.0..sroa.213.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %21, ptr %.sroa.213.sroa.2.0..sroa.213.0..sroa_idx.sroa_idx, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.80, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store i32 21, ptr %27, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.80, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  store i32 21, ptr %26, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 100
   store i32 0, ptr %.sroa_idx, align 4
-  %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !727
-  %29 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 537) 104, i64 noundef range(i64 1, 9) 8) #18, !noalias !727
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h00d30e2a30339a53E.exit", !prof !21
+  %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !727
+  %28 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 537) 104, i64 noundef range(i64 1, 9) 8) #18, !noalias !727
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h00d30e2a30339a53E.exit", !prof !21
 
-31:                                               ; preds = %25
+30:                                               ; preds = %24
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef 8, i64 noundef 104) #17
-          to label %.noexc unwind label %32
+          to label %.noexc unwind label %31
 
-.noexc:                                           ; preds = %31
+.noexc:                                           ; preds = %30
   unreachable
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %30
+  %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$lsp_types..DidCloseTextDocumentParams$GT$17h532685b33c66f4faE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %7)
-          to label %"_ZN4core3ptr182drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_close..DidCloseTextDocumentHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b6b0a03c2e76407E.exit" unwind label %34
+          to label %"_ZN4core3ptr182drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_close..DidCloseTextDocumentHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b6b0a03c2e76407E.exit" unwind label %33
 
-34:                                               ; preds = %32
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #16
   unreachable
 
-"_ZN4core3ptr182drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_close..DidCloseTextDocumentHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b6b0a03c2e76407E.exit": ; preds = %32
-  resume { ptr, i32 } %33
+"_ZN4core3ptr182drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_close..DidCloseTextDocumentHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b6b0a03c2e76407E.exit": ; preds = %31
+  resume { ptr, i32 } %32
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17h00d30e2a30339a53E.exit": ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %29, ptr noundef nonnull align 8 dereferenceable(104) %7, i64 104, i1 false)
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17h00d30e2a30339a53E.exit": ; preds = %24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %28, ptr noundef nonnull align 8 dereferenceable(104) %7, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store ptr %29, ptr %0, align 8
+  store ptr %28, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.73, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %36
+  br label %35
 
-36:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h00d30e2a30339a53E.exit", %22
+35:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h00d30e2a30339a53E.exit", %22
   %.sink = phi i8 [ 3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h00d30e2a30339a53E.exit" ], [ 4, %22 ]
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %.sroa.5.0..sroa_idx, align 8
@@ -15382,18 +15380,17 @@ define hidden void @_ZN9ty_server6server3api23local_notification_task17h420225b3
   %19 = load ptr, ptr %18, align 8, !noalias !730
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %21 = load i32, ptr %20, align 8, !noalias !730
-  br i1 %17, label %22, label %25
+  br i1 %17, label %22, label %24
 
 22:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !730
-  %23 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %23)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   store ptr %19, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %21, ptr %24, align 8
-  br label %36
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %21, ptr %23, align 8
+  br label %35
 
-25:                                               ; preds = %15
+24:                                               ; preds = %15
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   %.sroa.213.sroa.3.0..sroa.213.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -15404,48 +15401,48 @@ define hidden void @_ZN9ty_server6server3api23local_notification_task17h420225b3
   store ptr %19, ptr %.sroa.213.0..sroa_idx, align 8
   %.sroa.213.sroa.2.0..sroa.213.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %21, ptr %.sroa.213.sroa.2.0..sroa.213.0..sroa_idx.sroa_idx, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.97, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 152
-  store i32 20, ptr %27, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.97, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  store i32 20, ptr %26, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 156
   store i32 0, ptr %.sroa_idx, align 4
-  %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !735
-  %29 = tail call noalias noundef align 8 dereferenceable_or_null(160) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 537) 160, i64 noundef range(i64 1, 9) 8) #18, !noalias !735
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0d4904ebf8ab6482E.exit", !prof !21
+  %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !735
+  %28 = tail call noalias noundef align 8 dereferenceable_or_null(160) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 537) 160, i64 noundef range(i64 1, 9) 8) #18, !noalias !735
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0d4904ebf8ab6482E.exit", !prof !21
 
-31:                                               ; preds = %25
+30:                                               ; preds = %24
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef 8, i64 noundef 160) #17
-          to label %.noexc unwind label %32
+          to label %.noexc unwind label %31
 
-.noexc:                                           ; preds = %31
+.noexc:                                           ; preds = %30
   unreachable
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %30
+  %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$lsp_types..DidOpenTextDocumentParams$GT$17hf272527ac877be35E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %7)
-          to label %"_ZN4core3ptr180drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_open..DidOpenTextDocumentHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h389f51dfe0038f93E.exit" unwind label %34
+          to label %"_ZN4core3ptr180drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_open..DidOpenTextDocumentHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h389f51dfe0038f93E.exit" unwind label %33
 
-34:                                               ; preds = %32
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #16
   unreachable
 
-"_ZN4core3ptr180drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_open..DidOpenTextDocumentHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h389f51dfe0038f93E.exit": ; preds = %32
-  resume { ptr, i32 } %33
+"_ZN4core3ptr180drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_open..DidOpenTextDocumentHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h389f51dfe0038f93E.exit": ; preds = %31
+  resume { ptr, i32 } %32
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0d4904ebf8ab6482E.exit": ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %29, ptr noundef nonnull align 8 dereferenceable(160) %7, i64 160, i1 false)
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0d4904ebf8ab6482E.exit": ; preds = %24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %28, ptr noundef nonnull align 8 dereferenceable(160) %7, i64 160, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store ptr %29, ptr %0, align 8
+  store ptr %28, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.74, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %36
+  br label %35
 
-36:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0d4904ebf8ab6482E.exit", %22
+35:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0d4904ebf8ab6482E.exit", %22
   %.sink = phi i8 [ 3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0d4904ebf8ab6482E.exit" ], [ 4, %22 ]
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %.sroa.5.0..sroa_idx, align 8
@@ -15492,18 +15489,17 @@ define hidden void @_ZN9ty_server6server3api23local_notification_task17h5cff04ca
   %19 = load ptr, ptr %18, align 8, !noalias !738
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %21 = load i32, ptr %20, align 8, !noalias !738
-  br i1 %17, label %22, label %25
+  br i1 %17, label %22, label %24
 
 22:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !738
-  %23 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %23)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   store ptr %19, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %21, ptr %24, align 8
-  br label %36
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %21, ptr %23, align 8
+  br label %35
 
-25:                                               ; preds = %15
+24:                                               ; preds = %15
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   %.sroa.213.sroa.3.0..sroa.213.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -15514,48 +15510,48 @@ define hidden void @_ZN9ty_server6server3api23local_notification_task17h5cff04ca
   store ptr %19, ptr %.sroa.213.0..sroa_idx, align 8
   %.sroa.213.sroa.2.0..sroa.213.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %21, ptr %.sroa.213.sroa.2.0..sroa.213.0..sroa_idx.sroa_idx, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.95, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store i32 25, ptr %27, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.95, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  store i32 25, ptr %26, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 124
   store i32 0, ptr %.sroa_idx, align 4
-  %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !743
-  %29 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 537) 128, i64 noundef range(i64 1, 9) 8) #18, !noalias !743
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7dbee3507e6f102E.exit", !prof !21
+  %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !743
+  %28 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 537) 128, i64 noundef range(i64 1, 9) 8) #18, !noalias !743
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7dbee3507e6f102E.exit", !prof !21
 
-31:                                               ; preds = %25
+30:                                               ; preds = %24
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef 8, i64 noundef 128) #17
-          to label %.noexc unwind label %32
+          to label %.noexc unwind label %31
 
-.noexc:                                           ; preds = %31
+.noexc:                                           ; preds = %30
   unreachable
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %30
+  %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr93drop_in_place$LT$lsp_types..notebook..notification_params..DidCloseNotebookDocumentParams$GT$17h4455a584a9ee8d60E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %7)
-          to label %"_ZN4core3ptr187drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_close_notebook..DidCloseNotebookHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h59a555bd9d167f1fE.exit" unwind label %34
+          to label %"_ZN4core3ptr187drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_close_notebook..DidCloseNotebookHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h59a555bd9d167f1fE.exit" unwind label %33
 
-34:                                               ; preds = %32
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #16
   unreachable
 
-"_ZN4core3ptr187drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_close_notebook..DidCloseNotebookHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h59a555bd9d167f1fE.exit": ; preds = %32
-  resume { ptr, i32 } %33
+"_ZN4core3ptr187drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_close_notebook..DidCloseNotebookHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h59a555bd9d167f1fE.exit": ; preds = %31
+  resume { ptr, i32 } %32
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7dbee3507e6f102E.exit": ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %29, ptr noundef nonnull align 8 dereferenceable(128) %7, i64 128, i1 false)
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7dbee3507e6f102E.exit": ; preds = %24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, ptr noundef nonnull align 8 dereferenceable(128) %7, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store ptr %29, ptr %0, align 8
+  store ptr %28, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.75, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %36
+  br label %35
 
-36:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7dbee3507e6f102E.exit", %22
+35:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7dbee3507e6f102E.exit", %22
   %.sink = phi i8 [ 3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd7dbee3507e6f102E.exit" ], [ 4, %22 ]
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %.sroa.5.0..sroa_idx, align 8
@@ -15602,18 +15598,17 @@ define hidden void @_ZN9ty_server6server3api23local_notification_task17h6e386d3f
   %18 = load ptr, ptr %17, align 8, !noalias !746
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %20 = load i32, ptr %19, align 8, !noalias !746
-  br i1 %16, label %21, label %24
+  br i1 %16, label %21, label %23
 
 21:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !746
-  %22 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %22)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
   store ptr %18, ptr %0, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %20, ptr %23, align 8
-  br label %35
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %20, ptr %22, align 8
+  br label %34
 
-24:                                               ; preds = %14
+23:                                               ; preds = %14
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !noalias !746
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !746
@@ -15625,46 +15620,46 @@ define hidden void @_ZN9ty_server6server3api23local_notification_task17h6e386d3f
   store i32 %20, ptr %.sroa.213.sroa.2.0..sroa.213.0..sroa_idx.sroa_idx, align 8
   %.sroa.213.sroa.3.0..sroa.213.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %.sroa.7.0.copyload.i, ptr %.sroa.213.sroa.3.0..sroa.213.0..sroa_idx.sroa_idx, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.91, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i64 31, ptr %26, align 8
-  %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !751
-  %28 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 537) 40, i64 noundef range(i64 1, 9) 8) #18, !noalias !751
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb1e38994efbddaf6E.exit", !prof !21
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.91, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i64 31, ptr %25, align 8
+  %26 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !751
+  %27 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 537) 40, i64 noundef range(i64 1, 9) 8) #18, !noalias !751
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb1e38994efbddaf6E.exit", !prof !21
 
-30:                                               ; preds = %24
+29:                                               ; preds = %23
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef 8, i64 noundef 40) #17
-          to label %.noexc unwind label %31
+          to label %.noexc unwind label %30
 
-.noexc:                                           ; preds = %30
+.noexc:                                           ; preds = %29
   unreachable
 
-31:                                               ; preds = %30
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %29
+  %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr59drop_in_place$LT$lsp_types..DidChangeWatchedFilesParams$GT$17h45ec7e40c74699baE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
-          to label %"_ZN4core3ptr191drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_change_watched_files..DidChangeWatchedFiles$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h95c086a8f70db869E.exit" unwind label %33
+          to label %"_ZN4core3ptr191drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_change_watched_files..DidChangeWatchedFiles$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h95c086a8f70db869E.exit" unwind label %32
 
-33:                                               ; preds = %31
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %30
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #16
   unreachable
 
-"_ZN4core3ptr191drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_change_watched_files..DidChangeWatchedFiles$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h95c086a8f70db869E.exit": ; preds = %31
-  resume { ptr, i32 } %32
+"_ZN4core3ptr191drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_change_watched_files..DidChangeWatchedFiles$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h95c086a8f70db869E.exit": ; preds = %30
+  resume { ptr, i32 } %31
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb1e38994efbddaf6E.exit": ; preds = %24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb1e38994efbddaf6E.exit": ; preds = %23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store ptr %28, ptr %0, align 8
+  store ptr %27, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.76, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %35
+  br label %34
 
-35:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb1e38994efbddaf6E.exit", %21
+34:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb1e38994efbddaf6E.exit", %21
   %.sink = phi i8 [ 3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb1e38994efbddaf6E.exit" ], [ 4, %21 ]
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %.sroa.5.0..sroa_idx, align 8
@@ -15711,18 +15706,17 @@ define hidden void @_ZN9ty_server6server3api23local_notification_task17hfd3c051c
   %19 = load ptr, ptr %18, align 8, !noalias !754
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %21 = load i32, ptr %20, align 8, !noalias !754
-  br i1 %17, label %22, label %25
+  br i1 %17, label %22, label %24
 
 22:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !754
-  %23 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %23)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   store ptr %19, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %21, ptr %24, align 8
-  br label %36
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %21, ptr %23, align 8
+  br label %35
 
-25:                                               ; preds = %15
+24:                                               ; preds = %15
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   %.sroa.213.sroa.3.0..sroa.213.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -15733,48 +15727,48 @@ define hidden void @_ZN9ty_server6server3api23local_notification_task17hfd3c051c
   store ptr %19, ptr %.sroa.213.0..sroa_idx, align 8
   %.sroa.213.sroa.2.0..sroa.213.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %21, ptr %.sroa.213.sroa.2.0..sroa.213.0..sroa_idx.sroa_idx, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.89, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store i32 22, ptr %27, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.89, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  store i32 22, ptr %26, align 8
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 132
   store i32 0, ptr %.sroa_idx, align 4
-  %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !759
-  %29 = tail call noalias noundef align 8 dereferenceable_or_null(136) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 537) 136, i64 noundef range(i64 1, 9) 8) #18, !noalias !759
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9091f4fa53b837baE.exit", !prof !21
+  %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !759
+  %28 = tail call noalias noundef align 8 dereferenceable_or_null(136) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 537) 136, i64 noundef range(i64 1, 9) 8) #18, !noalias !759
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9091f4fa53b837baE.exit", !prof !21
 
-31:                                               ; preds = %25
+30:                                               ; preds = %24
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef 8, i64 noundef 136) #17
-          to label %.noexc unwind label %32
+          to label %.noexc unwind label %31
 
-.noexc:                                           ; preds = %31
+.noexc:                                           ; preds = %30
   unreachable
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %30
+  %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr59drop_in_place$LT$lsp_types..DidChangeTextDocumentParams$GT$17h21071ea88a2c77beE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %7)
-          to label %"_ZN4core3ptr184drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_change..DidChangeTextDocumentHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9cac81378104c09E.exit" unwind label %34
+          to label %"_ZN4core3ptr184drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_change..DidChangeTextDocumentHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9cac81378104c09E.exit" unwind label %33
 
-34:                                               ; preds = %32
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #16
   unreachable
 
-"_ZN4core3ptr184drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_change..DidChangeTextDocumentHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9cac81378104c09E.exit": ; preds = %32
-  resume { ptr, i32 } %33
+"_ZN4core3ptr184drop_in_place$LT$ty_server..server..api..local_notification_task$LT$ty_server..server..api..notifications..did_change..DidChangeTextDocumentHandler$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9cac81378104c09E.exit": ; preds = %31
+  resume { ptr, i32 } %32
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9091f4fa53b837baE.exit": ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %29, ptr noundef nonnull align 8 dereferenceable(136) %7, i64 136, i1 false)
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9091f4fa53b837baE.exit": ; preds = %24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %28, ptr noundef nonnull align 8 dereferenceable(136) %7, i64 136, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store ptr %29, ptr %0, align 8
+  store ptr %28, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.c387e6b3552c0ac415b63629a6dc032c.77, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %36
+  br label %35
 
-36:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9091f4fa53b837baE.exit", %22
+35:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9091f4fa53b837baE.exit", %22
   %.sink = phi i8 [ 3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9091f4fa53b837baE.exit" ], [ 4, %22 ]
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %.sroa.5.0..sroa_idx, align 8

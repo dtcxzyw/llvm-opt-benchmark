@@ -11037,8 +11037,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit427:       ; preds = %.thread1298, %_ZSt8
   call void @llvm.experimental.noalias.scope.decl(metadata !450)
   %730 = load ptr, ptr %729, align 8, !tbaa !426, !noalias !453, !nonnull !102, !noundef !102
   %731 = call ptr @__dynamic_cast(ptr nonnull %730, ptr nonnull @_ZTIN2cv4usac7SamplerE, ptr nonnull @_ZTIN2cv4usac13ProsacSamplerE, i64 0) #28, !noalias !453
-  %.not.not.i.i = icmp ne ptr %731, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %731) ]
   %732 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %733 = load ptr, ptr %732, align 8, !tbaa !43, !noalias !453
   %.not.i.i.i.i.i428 = icmp eq ptr %733, null
@@ -12654,8 +12653,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit600:          ; preds = %_ZNSt6vectorIfSaIfE
   call void @llvm.experimental.noalias.scope.decl(metadata !495)
   %1297 = load ptr, ptr %1296, align 8, !tbaa !428, !noalias !498, !nonnull !102, !noundef !102
   %1298 = call ptr @__dynamic_cast(ptr nonnull %1297, ptr nonnull @_ZTIN2cv4usac10DegeneracyE, ptr nonnull @_ZTIN2cv4usac21FundamentalDegeneracyE, i64 0) #28, !noalias !498
-  %.not.not.i.i601 = icmp ne ptr %1298, null
-  call void @llvm.assume(i1 %.not.not.i.i601)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1298) ]
   %1299 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1300 = load ptr, ptr %1299, align 8, !tbaa !43, !noalias !498
   %.not.i.i.i.i.i602 = icmp eq ptr %1300, null
@@ -22931,8 +22929,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit880: ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !642)
   %3374 = load ptr, ptr %3373, align 8, !tbaa !645, !noalias !646, !nonnull !102, !noundef !102
   %3375 = call ptr @__dynamic_cast(ptr nonnull %3374, ptr nonnull @_ZTIN2cv4usac11TerminationE, ptr nonnull @_ZTIN2cv4usac25ProsacTerminationCriteriaE, i64 0) #28, !noalias !646
-  %.not.not.i.i = icmp ne ptr %3375, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3375) ]
   %3376 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3377 = load ptr, ptr %3376, align 8, !tbaa !43, !noalias !646
   %.not.i.i.i.i.i881 = icmp eq ptr %3377, null
@@ -32843,8 +32840,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE12emplace_backIJRS1_EEEvDpOT_.exit: ; preds = %11
   call void @llvm.experimental.noalias.scope.decl(metadata !841)
   %161 = load ptr, ptr %160, align 8, !tbaa !645, !noalias !844, !nonnull !102, !noundef !102
   %162 = call ptr @__dynamic_cast(ptr nonnull %161, ptr nonnull @_ZTIN2cv4usac11TerminationE, ptr nonnull @_ZTIN2cv4usac25ProsacTerminationCriteriaE, i64 0) #28, !noalias !844
-  %.not.not.i.i = icmp ne ptr %162, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %162) ]
   %163 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !43, !noalias !844
   %.not.i.i.i.i.i = icmp eq ptr %164, null

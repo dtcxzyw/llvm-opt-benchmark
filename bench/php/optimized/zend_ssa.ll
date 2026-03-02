@@ -5208,22 +5208,21 @@ zend_ssa_remove_uses_of_phi_sources.exit:         ; preds = %zend_ssa_remove_use
   br i1 %.not1.i, label %zend_ssa_remove_phi_from_block.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %zend_ssa_remove_uses_of_phi_sources.exit, %.lr.ph.i
-  %106 = phi ptr [ %108, %.lr.ph.i ], [ %105, %zend_ssa_remove_uses_of_phi_sources.exit ]
-  %107 = icmp ne ptr %106, null
-  tail call void @llvm.assume(i1 %107)
-  %108 = load ptr, ptr %106, align 8, !tbaa !103
-  %.not.i = icmp eq ptr %108, %1
+  %106 = phi ptr [ %107, %.lr.ph.i ], [ %105, %zend_ssa_remove_uses_of_phi_sources.exit ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %106) ]
+  %107 = load ptr, ptr %106, align 8, !tbaa !103
+  %.not.i = icmp eq ptr %107, %1
   br i1 %.not.i, label %zend_ssa_remove_phi_from_block.exit, label %.lr.ph.i
 
 zend_ssa_remove_phi_from_block.exit:              ; preds = %.lr.ph.i, %zend_ssa_remove_uses_of_phi_sources.exit
   %.0.lcssa.i = phi ptr [ %104, %zend_ssa_remove_uses_of_phi_sources.exit ], [ %106, %.lr.ph.i ]
-  %.lcssa.i = phi ptr [ %105, %zend_ssa_remove_uses_of_phi_sources.exit ], [ %108, %.lr.ph.i ]
-  %109 = zext nneg i32 %4 to i64
-  %110 = getelementptr inbounds nuw %struct._zend_ssa_var, ptr %7, i64 %109
-  %111 = load ptr, ptr %.lcssa.i, align 8, !tbaa !104
-  store ptr %111, ptr %.0.lcssa.i, align 8, !tbaa !103
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  store ptr null, ptr %112, align 8, !tbaa !125
+  %.lcssa.i = phi ptr [ %105, %zend_ssa_remove_uses_of_phi_sources.exit ], [ %107, %.lr.ph.i ]
+  %108 = zext nneg i32 %4 to i64
+  %109 = getelementptr inbounds nuw %struct._zend_ssa_var, ptr %7, i64 %108
+  %110 = load ptr, ptr %.lcssa.i, align 8, !tbaa !104
+  store ptr %110, ptr %.0.lcssa.i, align 8, !tbaa !103
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  store ptr null, ptr %111, align 8, !tbaa !125
   store i32 -1, ptr %3, align 4, !tbaa !102
   ret void
 }

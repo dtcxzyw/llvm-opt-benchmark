@@ -25,13 +25,13 @@ define hidden void @"_ZN103_$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny
           to label %6 unwind label %7
 
 6:                                                ; preds = %4
-  tail call void @Py_DecRef(ptr noundef nonnull %5) #19
+  tail call void @Py_DecRef(ptr noundef nonnull %5) #20
   ret void
 
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @Py_DecRef(ptr noundef nonnull %5) #19
+  tail call void @Py_DecRef(ptr noundef nonnull %5) #20
   resume { ptr, i32 } %8
 }
 
@@ -55,12 +55,12 @@ define hidden void @_ZN10rayon_core5spawn8spawn_in17h537d245ab18159c0E(ptr noali
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   store ptr %.val, ptr %4, align 8, !noalias !4
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !7
-  %11 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 329) 32, i64 noundef 8) #19, !noalias !7
+  %11 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 329) 32, i64 noundef 8) #20, !noalias !7
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %25, !prof !10
 
 13:                                               ; preds = %9
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 32) #20
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 32) #21
           to label %.noexc.i unwind label %14, !noalias !4
 
 .noexc.i:                                         ; preds = %13
@@ -69,13 +69,13 @@ define hidden void @_ZN10rayon_core5spawn8spawn_in17h537d245ab18159c0E(ptr noali
 14:                                               ; preds = %13
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr227drop_in_place$LT$rayon_core..job..HeapJob$LT$rayon_core..spawn..spawn_job$LT$$LT$polars_utils..mmap..MMapSemaphore$u20$as$u20$core..ops..drop..Drop$GT$..drop..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4d7fbd2c3771bef7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #21
+  invoke void @"_ZN4core3ptr227drop_in_place$LT$rayon_core..job..HeapJob$LT$rayon_core..spawn..spawn_job$LT$$LT$polars_utils..mmap..MMapSemaphore$u20$as$u20$core..ops..drop..Drop$GT$..drop..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4d7fbd2c3771bef7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #22
           to label %.body unwind label %16, !noalias !4
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #22, !noalias !4
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #23, !noalias !4
   unreachable
 
 18:                                               ; preds = %6
@@ -91,7 +91,7 @@ define hidden void @_ZN10rayon_core5spawn8spawn_in17h537d245ab18159c0E(ptr noali
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #22
+  tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #23
   unreachable
 
 23:                                               ; preds = %25
@@ -101,7 +101,7 @@ define hidden void @_ZN10rayon_core5spawn8spawn_in17h537d245ab18159c0E(ptr noali
 
 .body:                                            ; preds = %14, %19, %23
   %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %15, %14 ], [ %20, %19 ]
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$rayon_core..unwind..AbortIfPanic$GT$17hd715c736b6d94381E"(ptr noalias noundef nonnull align 1 %3) #21
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$rayon_core..unwind..AbortIfPanic$GT$17hd715c736b6d94381E"(ptr noalias noundef nonnull align 1 %3) #22
           to label %29 unwind label %27
 
 25:                                               ; preds = %9
@@ -116,7 +116,7 @@ define hidden void @_ZN10rayon_core5spawn8spawn_in17h537d245ab18159c0E(ptr noali
 27:                                               ; preds = %.body
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #22
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #23
   unreachable
 
 29:                                               ; preds = %.body
@@ -145,7 +145,7 @@ define hidden void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$G
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.sroa.0.08.i.i
   %10 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %9, align 8, !alias.scope !17, !nonnull !3, !noundef !3
-  tail call void @Py_DecRef(ptr noundef nonnull %.val7.i.i) #19, !noalias !17
+  tail call void @Py_DecRef(ptr noundef nonnull %.val7.i.i) #20, !noalias !17
   %11 = icmp eq i64 %10, %6
   br i1 %11, label %"_ZN118_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u5d$$u20$as$u20$core..array..iter..iter_inner..PartialDrop$GT$12partial_drop17he66452796971c285E.exit", label %8
 
@@ -171,11 +171,12 @@ define hidden void @_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17h112b7313
 12:                                               ; preds = %6
   %13 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %14 = shl nuw nsw i64 %10, 4
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %13, i64 noundef range(i64 1, -9223372036854775808) %14, i64 noundef 8) #19
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %13, i64 noundef range(i64 1, -9223372036854775808) %14, i64 noundef 8) #20
   br label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17he82d048c2aa49d47E.exit"
 
 "_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17he82d048c2aa49d47E.exit": ; preds = %6, %12
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %8, i64 noundef 16, i64 noundef 8) #19
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %8, i64 noundef 16, i64 noundef 8) #20
   br label %17
 
 15:                                               ; preds = %2
@@ -204,11 +205,12 @@ define internal void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17he952e332
 8:                                                ; preds = %1
   %9 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %10 = shl nuw nsw i64 %6, 4
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %9, i64 noundef range(i64 1, -9223372036854775808) %10, i64 noundef 8) #19
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %9, i64 noundef range(i64 1, -9223372036854775808) %10, i64 noundef 8) #20
   br label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h8bd9e920d1468955E.exit"
 
 "_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h8bd9e920d1468955E.exit": ; preds = %1, %8
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %4, i64 noundef 16, i64 noundef 8) #19
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %4, i64 noundef 16, i64 noundef 8) #20
   ret void
 }
 
@@ -248,7 +250,7 @@ define internal { ptr, ptr } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   %5 = load i64, ptr %4, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !26
   %6 = load ptr, ptr @PyExc_SystemError, align 8, !noalias !26, !nonnull !3, !noundef !3
-  tail call void @Py_IncRef(ptr noundef nonnull %6) #19, !noalias !26
+  tail call void @Py_IncRef(ptr noundef nonnull %6) #20, !noalias !26
   store ptr %6, ptr %2, align 8, !noalias !26
   %7 = invoke noundef nonnull ptr @_ZN4pyo35types6string8PyString3new17hcabe3706c42d4c87E(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %5)
           to label %"_ZN4pyo33err5PyErr3new28_$u7b$$u7b$closure$u7d$$u7d$17h8acef31b9457512eE.exit" unwind label %8
@@ -256,13 +258,13 @@ define internal { ptr, ptr } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$pyo3..instance..Py$LT$pyo3..types..any..PyAny$GT$$GT$17h3ed37430e8f53e75E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #21
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$pyo3..instance..Py$LT$pyo3..types..any..PyAny$GT$$GT$17h3ed37430e8f53e75E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #22
           to label %12 unwind label %10
 
 10:                                               ; preds = %8
   %11 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #22
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #23
   unreachable
 
 12:                                               ; preds = %8
@@ -277,19 +279,19 @@ define internal { ptr, ptr } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define internal noundef i64 @_ZN4core3ops8function6FnOnce9call_once17h7f1a6182768f782dE() unnamed_addr #5 personality ptr @rust_eh_personality {
-  %1 = tail call noundef i64 @sysconf(i32 noundef 30) #19
+  %1 = tail call noundef i64 @sysconf(i32 noundef 30) #20
   ret i64 %1
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4pyo35types5tuple66_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$$RP$$GT$15call_positional17h550ec191e2659058E"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
-  %5 = tail call noundef ptr @PyTuple_New(i64 noundef 1) #19, !noalias !29
+  %5 = tail call noundef ptr @PyTuple_New(i64 noundef 1) #20, !noalias !29
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  invoke void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d22922fc05dca76d9bddf025ba76af04.19) #20
+  invoke void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d22922fc05dca76d9bddf025ba76af04.19) #21
           to label %8 unwind label %15, !noalias !29
 
 8:                                                ; preds = %7
@@ -303,7 +305,7 @@ define hidden void @"_ZN4pyo35types5tuple66_$LT$impl$u20$pyo3..call..PyCallArgs$
   %.sroa.02.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %10, ptr %.sroa.02.sroa.3.0..sroa_idx.i.i, align 8, !noalias !29
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %11 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull %1) #19, !noalias !29
+  %11 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull %1) #20, !noalias !29
   store i64 1, ptr %4, align 8, !noalias !29
   store i64 1, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !29
   invoke void @"_ZN4core3ptr168drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..array..iter..IntoIter$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$C$1_usize$GT$$GT$$GT$17h38768b4f63f03f55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
@@ -312,7 +314,7 @@ define hidden void @"_ZN4pyo35types5tuple66_$LT$impl$u20$pyo3..call..PyCallArgs$
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @Py_DecRef(ptr noundef nonnull %5) #19, !noalias !29
+  call void @Py_DecRef(ptr noundef nonnull %5) #20, !noalias !29
   br label %14
 
 14:                                               ; preds = %15, %12
@@ -322,7 +324,7 @@ define hidden void @"_ZN4pyo35types5tuple66_$LT$impl$u20$pyo3..call..PyCallArgs$
 15:                                               ; preds = %7
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @Py_DecRef(ptr noundef nonnull %1) #19, !noalias !29
+  tail call void @Py_DecRef(ptr noundef nonnull %1) #20, !noalias !29
   br label %14
 
 17:                                               ; preds = %9
@@ -334,12 +336,12 @@ define hidden void @"_ZN4pyo35types5tuple66_$LT$impl$u20$pyo3..call..PyCallArgs$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4pyo35types5tuple66_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$$RP$$GT$15call_positional17h8dc0bf38f5d1b251E"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
-  %5 = tail call noundef ptr @PyTuple_New(i64 noundef 1) #19, !noalias !32
+  %5 = tail call noundef ptr @PyTuple_New(i64 noundef 1) #20, !noalias !32
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  invoke void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d22922fc05dca76d9bddf025ba76af04.19) #20
+  invoke void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d22922fc05dca76d9bddf025ba76af04.19) #21
           to label %8 unwind label %15, !noalias !32
 
 8:                                                ; preds = %7
@@ -353,7 +355,7 @@ define hidden void @"_ZN4pyo35types5tuple66_$LT$impl$u20$pyo3..call..PyCallArgs$
   %.sroa.02.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %10, ptr %.sroa.02.sroa.3.0..sroa_idx.i.i, align 8, !noalias !32
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %11 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull %1) #19, !noalias !32
+  %11 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull %1) #20, !noalias !32
   store i64 1, ptr %4, align 8, !noalias !32
   store i64 1, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !32
   invoke void @"_ZN4core3ptr168drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..array..iter..IntoIter$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$C$1_usize$GT$$GT$$GT$17h38768b4f63f03f55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
@@ -362,7 +364,7 @@ define hidden void @"_ZN4pyo35types5tuple66_$LT$impl$u20$pyo3..call..PyCallArgs$
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @Py_DecRef(ptr noundef nonnull %5) #19, !noalias !32
+  call void @Py_DecRef(ptr noundef nonnull %5) #20, !noalias !32
   br label %14
 
 14:                                               ; preds = %15, %12
@@ -372,7 +374,7 @@ define hidden void @"_ZN4pyo35types5tuple66_$LT$impl$u20$pyo3..call..PyCallArgs$
 15:                                               ; preds = %7
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @Py_DecRef(ptr noundef nonnull %1) #19, !noalias !32
+  tail call void @Py_DecRef(ptr noundef nonnull %1) #20, !noalias !32
   br label %14
 
 17:                                               ; preds = %9
@@ -386,7 +388,7 @@ define hidden void @_ZN4pyo35types6module8PyModule6import17h80e615802954a01cE(pt
   %4 = alloca [64 x i8], align 8
   %.sroa.923 = alloca [20 x i8], align 8
   %5 = tail call noundef nonnull ptr @_ZN4pyo35types6string8PyString3new17hcabe3706c42d4c87E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %6 = tail call noundef ptr @PyImport_Import(ptr noundef nonnull %5) #19
+  %6 = tail call noundef ptr @PyImport_Import(ptr noundef nonnull %5) #20
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %19
 
@@ -417,12 +419,12 @@ define hidden void @_ZN4pyo35types6module8PyModule6import17h80e615802954a01cE(pt
 
 13:                                               ; preds = %.noexc
   %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !35
-  %15 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 329) 16, i64 noundef 8) #19, !noalias !35
+  %15 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 329) 16, i64 noundef 8) #20, !noalias !35
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i, !prof !10
 
 17:                                               ; preds = %13
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 16) #20
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 16) #21
           to label %.noexc20 unwind label %25
 
 .noexc20:                                         ; preds = %17
@@ -465,13 +467,13 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %13
 24:                                               ; preds = %21, %19
   %storemerge = phi i64 [ 0, %19 ], [ 1, %21 ]
   store i64 %storemerge, ptr %0, align 8
-  tail call void @Py_DecRef(ptr noundef nonnull %5) #19
+  tail call void @Py_DecRef(ptr noundef nonnull %5) #20
   ret void
 
 25:                                               ; preds = %8, %17
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @Py_DecRef(ptr noundef nonnull %5) #19
+  tail call void @Py_DecRef(ptr noundef nonnull %5) #20
   resume { ptr, i32 } %26
 }
 
@@ -480,12 +482,12 @@ define hidden void @"_ZN4pyo38instance11Py$LT$T$GT$5call117hdbd1c87aecbd0752E"(p
   %4 = alloca [64 x i8], align 8
   %.sroa.9.i.i = alloca [20 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  %6 = tail call noundef ptr @PyTuple_New(i64 noundef 1) #19, !noalias !39
+  %6 = tail call noundef ptr @PyTuple_New(i64 noundef 1) #20, !noalias !39
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
-  invoke void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d22922fc05dca76d9bddf025ba76af04.19) #20
+  invoke void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d22922fc05dca76d9bddf025ba76af04.19) #21
           to label %9 unwind label %15, !noalias !39
 
 9:                                                ; preds = %8
@@ -499,7 +501,7 @@ define hidden void @"_ZN4pyo38instance11Py$LT$T$GT$5call117hdbd1c87aecbd0752E"(p
   %.sroa.02.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %11, ptr %.sroa.02.sroa.3.0..sroa_idx.i.i, align 8, !noalias !39
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %12 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull %2) #19, !noalias !39
+  %12 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull %2) #20, !noalias !39
   store i64 1, ptr %5, align 8, !noalias !39
   store i64 1, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !39
   invoke void @"_ZN4core3ptr168drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..array..iter..IntoIter$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$C$1_usize$GT$$GT$$GT$17h38768b4f63f03f55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
@@ -508,7 +510,7 @@ define hidden void @"_ZN4pyo38instance11Py$LT$T$GT$5call117hdbd1c87aecbd0752E"(p
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @Py_DecRef(ptr noundef nonnull %6) #19, !noalias !39
+  call void @Py_DecRef(ptr noundef nonnull %6) #20, !noalias !39
   br label %common.resume
 
 common.resume:                                    ; preds = %13, %15, %32
@@ -518,13 +520,13 @@ common.resume:                                    ; preds = %13, %15, %32
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @Py_DecRef(ptr noundef nonnull %2) #19, !noalias !39
+  tail call void @Py_DecRef(ptr noundef nonnull %2) #20, !noalias !39
   br label %common.resume
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !39
   %18 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %19 = call noundef ptr @PyObject_Call(ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef null) #19, !noalias !42
+  %19 = call noundef ptr @PyObject_Call(ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef null) #20, !noalias !42
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %37
 
@@ -555,12 +557,12 @@ common.resume:                                    ; preds = %13, %15, %32
 
 26:                                               ; preds = %.noexc.i
   %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !47
-  %28 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 329) 16, i64 noundef 8) #19, !noalias !47
+  %28 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 329) 16, i64 noundef 8) #20, !noalias !47
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i, !prof !10
 
 30:                                               ; preds = %26
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 16) #20
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 16) #21
           to label %.noexc2.i unwind label %32, !noalias !50
 
 .noexc2.i:                                        ; preds = %30
@@ -576,7 +578,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %26
 32:                                               ; preds = %30, %21
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @Py_DecRef(ptr noundef nonnull %6) #19, !noalias !50
+  call void @Py_DecRef(ptr noundef nonnull %6) #20, !noalias !50
   br label %common.resume
 
 34:                                               ; preds = %24, %_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i
@@ -587,7 +589,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %26
   %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %24 ], [ 1, %_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !47
   %35 = inttoptr i64 %.sroa.0.0.i.i to ptr
-  call void @Py_DecRef(ptr noundef nonnull %6) #19, !noalias !50
+  call void @Py_DecRef(ptr noundef nonnull %6) #20, !noalias !50
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %35, ptr %36, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -603,7 +605,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %26
   br label %39
 
 37:                                               ; preds = %17
-  call void @Py_DecRef(ptr noundef nonnull %6) #19, !noalias !50
+  call void @Py_DecRef(ptr noundef nonnull %6) #20, !noalias !50
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %38, align 8
   br label %39
@@ -617,12 +619,12 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %26
 ; Function Attrs: nonlazybind uwtable
 define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h246e3721a1944929E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %2 = tail call noalias noundef align 8 dereferenceable_or_null(328) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 329) 328, i64 noundef 8) #19
+  %2 = tail call noalias noundef align 8 dereferenceable_or_null(328) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 329) 328, i64 noundef 8) #20
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5, !prof !10
 
 4:                                                ; preds = %0
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 328) #20
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 328) #21
   unreachable
 
 5:                                                ; preds = %0
@@ -632,12 +634,12 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$
 ; Function Attrs: nonlazybind uwtable
 define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h95a05e18c3b96461E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %2 = tail call noalias noundef align 8 dereferenceable_or_null(232) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 329) 232, i64 noundef 8) #19
+  %2 = tail call noalias noundef align 8 dereferenceable_or_null(232) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 329) 232, i64 noundef 8) #20
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5, !prof !10
 
 4:                                                ; preds = %0
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 232) #20
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 232) #21
   unreachable
 
 5:                                                ; preds = %0
@@ -684,7 +686,7 @@ define internal fastcc void @"_ZN99_$LT$pyo3..instance..Bound$LT$pyo3..types..tu
   %.sroa.9.i = alloca [20 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9.i)
-  %5 = tail call noundef ptr @PyObject_Call(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #19, !noalias !51
+  %5 = tail call noundef ptr @PyObject_Call(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef null) #20, !noalias !51
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %20
 
@@ -715,12 +717,12 @@ define internal fastcc void @"_ZN99_$LT$pyo3..instance..Bound$LT$pyo3..types..tu
 
 12:                                               ; preds = %.noexc
   %13 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !54
-  %14 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 329) 16, i64 noundef 8) #19, !noalias !54
+  %14 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 329) 16, i64 noundef 8) #20, !noalias !54
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i, !prof !10
 
 16:                                               ; preds = %12
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 16) #20
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 16) #21
           to label %.noexc2 unwind label %23
 
 .noexc2:                                          ; preds = %16
@@ -764,13 +766,13 @@ _ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E.exit.i: ; preds = %_ZN5alloc5alloc1
   %storemerge.i = phi i64 [ 0, %20 ], [ 1, %_ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E.exit.i ]
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !51
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i)
-  tail call void @Py_DecRef(ptr noundef nonnull %1) #19
+  tail call void @Py_DecRef(ptr noundef nonnull %1) #20
   ret void
 
 23:                                               ; preds = %7, %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @Py_DecRef(ptr noundef nonnull %1) #19
+  tail call void @Py_DecRef(ptr noundef nonnull %1) #20
   resume { ptr, i32 } %24
 }
 
@@ -786,12 +788,12 @@ define noundef range(i32 0, -1) i32 @"_ZN93_$LT$polars_utils..file..ClosableFile
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define noalias noundef ptr @_ZN12polars_utils4file12ClosableFile5close17h52047576c8d6dfdfE(i32 noundef range(i32 0, -1) %0) unnamed_addr #2 {
-  %2 = tail call noundef i32 @close(i32 noundef %0) #19
+  %2 = tail call noundef i32 @close(i32 noundef %0) #20
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %11, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call noundef ptr @__errno_location() #19
+  %5 = tail call noundef ptr @__errno_location() #20
   %6 = load i32, ptr %5, align 4, !noundef !3
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 32
@@ -840,12 +842,12 @@ define noalias noundef ptr @"_ZN67_$LT$polars_utils..file..ClosableFile$u20$as$u
 ; Function Attrs: nounwind nonlazybind uwtable
 define noalias noundef ptr @"_ZN83_$LT$polars_utils..file..ClosableFile$u20$as$u20$polars_utils..file..WriteClose$GT$5close17h67096e32bf330f0bE"(ptr noalias noundef nonnull align 4 %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 4, !range !57, !noundef !3
-  %3 = tail call noundef i32 @close(i32 noundef range(i32 0, -1) %2) #19
+  %3 = tail call noundef i32 @close(i32 noundef range(i32 0, -1) %2) #20
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %_ZN12polars_utils4file12ClosableFile5close17h52047576c8d6dfdfE.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @__errno_location() #19
+  %6 = tail call noundef ptr @__errno_location() #20
   %7 = load i32, ptr %6, align 4, !noundef !3
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 32
@@ -855,7 +857,7 @@ define noalias noundef ptr @"_ZN83_$LT$polars_utils..file..ClosableFile$u20$as$u
 
 _ZN12polars_utils4file12ClosableFile5close17h52047576c8d6dfdfE.exit: ; preds = %5, %1
   %.sroa.0.0.i = phi ptr [ %11, %5 ], [ null, %1 ]
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %0, i64 noundef 4, i64 noundef 4) #19
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %0, i64 noundef 4, i64 noundef 4) #20
   ret ptr %.sroa.0.0.i
 }
 
@@ -871,11 +873,14 @@ define noundef zeroext i1 @"_ZN179_$LT$polars_utils..arena.._..$LT$impl$u20$serd
   ret i1 %3
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
 ; Function Attrs: nounwind nonlazybind uwtable
 declare noundef ptr @PyObject_Call(ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind nonlazybind uwtable
 declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #2
@@ -884,7 +889,7 @@ declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 nound
 declare void @"_ZN103_$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u20$as$u20$pyo3..types..any..PyAnyMethods$GT$7getattr5inner17heccbffc53e5c67abE"(ptr dead_on_unwind noalias noundef writable sret([64 x i8]) align 8 captures(none) dereferenceable(64), ptr noalias noundef readonly align 8 dereferenceable(8), ptr noundef nonnull) unnamed_addr #0
 
 ; Function Attrs: cold minsize noreturn nounwind nonlazybind optsize uwtable
-declare void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() unnamed_addr #8
+declare void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() unnamed_addr #9
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN10rayon_core8registry8Registry14inject_or_push17h9077a9bc4e7024c3E(ptr noundef nonnull align 128, ptr noundef nonnull, ptr noundef) unnamed_addr #0
@@ -899,13 +904,13 @@ declare void @_ZN10rayon_core8registry8Registry25increment_terminate_count17h2bb
 declare hidden void @"_ZN77_$LT$rayon_core..job..HeapJob$LT$BODY$GT$$u20$as$u20$rayon_core..job..Job$GT$7execute17h8118b11394716b3bE"(ptr noundef) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #9
+declare void @llvm.trap() #10
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN15crossbeam_epoch8internal5Local5defer17h8550d991494751daE(ptr noundef nonnull align 128, ptr noalias noundef align 8 captures(none) dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: nounwind nonlazybind allockind("free") uwtable
-declare void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #10
+declare void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #11
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h28b3d4121fb32d27E"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
@@ -926,7 +931,7 @@ declare void @_ZN4pyo33err5PyErr4take17hc0d60d7d0bd15e0eE(ptr dead_on_unwind noa
 declare noundef ptr @PyTuple_New(i64 noundef) unnamed_addr #2
 
 ; Function Attrs: noreturn nonlazybind uwtable
-declare void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #11
+declare void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #12
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr168drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..array..iter..IntoIter$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$C$1_usize$GT$$GT$$GT$17h38768b4f63f03f55E"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
@@ -938,10 +943,10 @@ declare noundef i32 @PyTuple_SetItem(ptr noundef, i64 noundef, ptr noundef) unna
 declare noundef ptr @PyImport_Import(ptr noundef) unnamed_addr #2
 
 ; Function Attrs: cold minsize noreturn nonlazybind optsize uwtable
-declare void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef range(i64 1, -9223372036854775807), i64 noundef) unnamed_addr #12
+declare void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef range(i64 1, -9223372036854775807), i64 noundef) unnamed_addr #13
 
 ; Function Attrs: nounwind nonlazybind allockind("alloc,uninitialized,aligned") allocsize(0) uwtable
-declare noalias noundef ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef, i64 allocalign noundef) unnamed_addr #13
+declare noalias noundef ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef, i64 allocalign noundef) unnamed_addr #14
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr227drop_in_place$LT$rayon_core..job..HeapJob$LT$rayon_core..spawn..spawn_job$LT$$LT$polars_utils..mmap..MMapSemaphore$u20$as$u20$core..ops..drop..Drop$GT$..drop..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4d7fbd2c3771bef7E"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
@@ -965,7 +970,7 @@ declare noundef i64 @sysconf(i32 noundef) unnamed_addr #2
 declare noundef i32 @close(i32 noundef) unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(none) uwtable
-declare noundef ptr @__errno_location() unnamed_addr #14
+declare noundef ptr @__errno_location() unnamed_addr #15
 
 ; Function Attrs: nonlazybind uwtable
 declare { i64, ptr } @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Seek$GT$4seek17h4915f90b60f29326E"(ptr noalias noundef align 4 dereferenceable(4), i64 noundef range(i64 0, 3), i64 noundef) unnamed_addr #0
@@ -980,19 +985,19 @@ declare { i64, ptr } @"_ZN48_$LT$std..fs..File$u20$as$u20$std..io..Write$GT$5wri
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -1001,22 +1006,23 @@ attributes #3 = { nofree norecurse nosync nounwind nonlazybind memory(readwrite,
 attributes #4 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #11 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #12 = { cold minsize noreturn nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #13 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned") allocsize(0) uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #14 = { nofree nosync nounwind nonlazybind memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn }
-attributes #21 = { cold }
-attributes #22 = { cold noreturn nounwind }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #11 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #12 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #13 = { cold minsize noreturn nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #14 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned") allocsize(0) uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #15 = { nofree nosync nounwind nonlazybind memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn }
+attributes #22 = { cold }
+attributes #23 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

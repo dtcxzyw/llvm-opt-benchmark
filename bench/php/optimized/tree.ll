@@ -281,10 +281,9 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_rep
   br i1 %or.cond, label %15, label %.critedge.sink.split
 
 ._crit_edge:                                      ; preds = %15, %.thread25
-  %20 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call zeroext i1 @php_dom_has_sibling_following_node(ptr noundef nonnull %2, i32 noundef 14) #6
-  br i1 %21, label %.critedge.sink.split, label %.critedge
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
+  %20 = tail call zeroext i1 @php_dom_has_sibling_following_node(ptr noundef nonnull %2, i32 noundef 14) #6
+  br i1 %20, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %7, %.lr.ph.i, %.lr.ph.i, %.lr.ph, %._crit_edge
   %.str.2.sink.i.sink = phi ptr [ @.str.1, %._crit_edge ], [ @.str, %.lr.ph ], [ @.str.2, %.lr.ph.i ], [ @.str.2, %.lr.ph.i ], [ @.str, %7 ]
@@ -555,187 +554,186 @@ declare ptr @xmlNewDocFragment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @dom_is_pre_insert_valid_without_step_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(address) %4) unnamed_addr #0 {
-  %6 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !10
-  %9 = add i32 %8, -1
-  %10 = tail call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 31)
-  switch i32 %10, label %11 [
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i32, ptr %6, align 8, !tbaa !10
+  %8 = add i32 %7, -1
+  %9 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 31)
+  switch i32 %9, label %10 [
     i32 4, label %php_dom_pre_insert_is_parent_invalid.exit
     i32 6, label %php_dom_pre_insert_is_parent_invalid.exit
     i32 0, label %php_dom_pre_insert_is_parent_invalid.exit
     i32 5, label %php_dom_pre_insert_is_parent_invalid.exit
   ]
 
-11:                                               ; preds = %5
-  %12 = tail call zeroext i1 @dom_get_strict_error(ptr noundef %0) #6
-  tail call void @php_dom_throw_error(i32 noundef 3, i1 noundef zeroext %12) #6
-  br label %70
+10:                                               ; preds = %5
+  %11 = tail call zeroext i1 @dom_get_strict_error(ptr noundef %0) #6
+  tail call void @php_dom_throw_error(i32 noundef 3, i1 noundef zeroext %11) #6
+  br label %69
 
 php_dom_pre_insert_is_parent_invalid.exit:        ; preds = %5, %5, %5, %5
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !21
-  %.not = icmp eq ptr %14, %4
-  br i1 %.not, label %17, label %15
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %13 = load ptr, ptr %12, align 8, !tbaa !21
+  %.not = icmp eq ptr %13, %4
+  br i1 %.not, label %16, label %14
 
-15:                                               ; preds = %php_dom_pre_insert_is_parent_invalid.exit
-  %16 = tail call zeroext i1 @dom_get_strict_error(ptr noundef %0) #6
-  tail call void @php_dom_throw_error(i32 noundef 4, i1 noundef zeroext %16) #6
-  br label %70
+14:                                               ; preds = %php_dom_pre_insert_is_parent_invalid.exit
+  %15 = tail call zeroext i1 @dom_get_strict_error(ptr noundef %0) #6
+  tail call void @php_dom_throw_error(i32 noundef 4, i1 noundef zeroext %15) #6
+  br label %69
 
-17:                                               ; preds = %php_dom_pre_insert_is_parent_invalid.exit
+16:                                               ; preds = %php_dom_pre_insert_is_parent_invalid.exit
   %.not51 = icmp eq ptr %3, null
-  br i1 %.not51, label %23, label %18
+  br i1 %.not51, label %22, label %17
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !26
-  %.not52 = icmp eq ptr %20, %1
-  br i1 %.not52, label %23, label %21
+17:                                               ; preds = %16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %19 = load ptr, ptr %18, align 8, !tbaa !26
+  %.not52 = icmp eq ptr %19, %1
+  br i1 %.not52, label %22, label %20
 
-21:                                               ; preds = %18
-  %22 = tail call zeroext i1 @dom_get_strict_error(ptr noundef %0) #6
-  tail call void @php_dom_throw_error(i32 noundef 8, i1 noundef zeroext %22) #6
-  br label %70
+20:                                               ; preds = %17
+  %21 = tail call zeroext i1 @dom_get_strict_error(ptr noundef %0) #6
+  tail call void @php_dom_throw_error(i32 noundef 8, i1 noundef zeroext %21) #6
+  br label %69
 
-23:                                               ; preds = %18, %17
-  %24 = tail call i32 @dom_hierarchy(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
-  %.not53 = icmp eq i32 %24, 0
-  br i1 %.not53, label %25, label %37
+22:                                               ; preds = %17, %16
+  %23 = tail call i32 @dom_hierarchy(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
+  %.not53 = icmp eq i32 %23, 0
+  br i1 %.not53, label %24, label %36
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !10
-  %28 = icmp eq i32 %27, 2
-  br i1 %28, label %37, label %29
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %26 = load i32, ptr %25, align 8, !tbaa !10
+  %27 = icmp eq i32 %26, 2
+  br i1 %27, label %36, label %28
 
-29:                                               ; preds = %25
+28:                                               ; preds = %24
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %php_dom_follow_spec_doc_ref.exit55.thread, label %php_dom_follow_spec_doc_ref.exit
 
-php_dom_follow_spec_doc_ref.exit:                 ; preds = %29
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %31 = load i16, ptr %30, align 4
-  %32 = and i16 %31, 255
-  %33 = icmp eq i16 %32, 2
-  br i1 %33, label %34, label %php_dom_follow_spec_doc_ref.exit55.thread
+php_dom_follow_spec_doc_ref.exit:                 ; preds = %28
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %30 = load i16, ptr %29, align 4
+  %31 = and i16 %30, 255
+  %32 = icmp eq i16 %31, 2
+  br i1 %32, label %33, label %php_dom_follow_spec_doc_ref.exit55.thread
 
-34:                                               ; preds = %php_dom_follow_spec_doc_ref.exit
-  switch i32 %27, label %35 [
-    i32 5, label %37
-    i32 6, label %37
-    i32 12, label %37
-    i32 9, label %37
-    i32 13, label %37
+33:                                               ; preds = %php_dom_follow_spec_doc_ref.exit
+  switch i32 %26, label %34 [
+    i32 5, label %36
+    i32 6, label %36
+    i32 12, label %36
+    i32 9, label %36
+    i32 13, label %36
   ]
 
-35:                                               ; preds = %34
-  %36 = icmp ugt i32 %27, 14
-  br i1 %36, label %37, label %39
+34:                                               ; preds = %33
+  %35 = icmp ugt i32 %26, 14
+  br i1 %35, label %36, label %38
 
-37:                                               ; preds = %34, %34, %34, %34, %34, %35, %25, %23
-  %38 = tail call zeroext i1 @dom_get_strict_error(ptr noundef %0) #6
-  tail call void @php_dom_throw_error(i32 noundef 3, i1 noundef zeroext %38) #6
-  br label %70
+36:                                               ; preds = %33, %33, %33, %33, %33, %34, %24, %22
+  %37 = tail call zeroext i1 @dom_get_strict_error(ptr noundef %0) #6
+  tail call void @php_dom_throw_error(i32 noundef 3, i1 noundef zeroext %37) #6
+  br label %69
 
-39:                                               ; preds = %35
-  switch i32 %8, label %43 [
-    i32 13, label %40
-    i32 9, label %40
+38:                                               ; preds = %34
+  switch i32 %7, label %42 [
+    i32 13, label %39
+    i32 9, label %39
   ]
 
-40:                                               ; preds = %39, %39
-  %.off = add nsw i32 %27, -3
+39:                                               ; preds = %38, %38
+  %.off = add nsw i32 %26, -3
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %41, label %42
+  br i1 %switch, label %40, label %41
 
-41:                                               ; preds = %40
+40:                                               ; preds = %39
   tail call void @php_dom_throw_error_with_message(i32 noundef 3, ptr noundef nonnull @.str.2, i1 noundef zeroext true) #6
-  br label %70
+  br label %69
 
-42:                                               ; preds = %40
-  switch i32 %8, label %43 [
-    i32 13, label %47
-    i32 9, label %47
+41:                                               ; preds = %39
+  switch i32 %7, label %42 [
+    i32 13, label %46
+    i32 9, label %46
   ]
 
-43:                                               ; preds = %42, %39
-  %44 = icmp eq i32 %27, 14
-  br i1 %44, label %45, label %46
+42:                                               ; preds = %41, %38
+  %43 = icmp eq i32 %26, 14
+  br i1 %43, label %44, label %45
 
-45:                                               ; preds = %43
+44:                                               ; preds = %42
   tail call void @php_dom_throw_error_with_message(i32 noundef 3, ptr noundef nonnull @.str.4, i1 noundef zeroext true) #6
-  br label %70
+  br label %69
 
-46:                                               ; preds = %43
-  %cond = icmp eq i32 %8, 13
-  br i1 %cond, label %47, label %php_dom_follow_spec_doc_ref.exit55.thread
+45:                                               ; preds = %42
+  %cond = icmp eq i32 %7, 13
+  br i1 %cond, label %46, label %php_dom_follow_spec_doc_ref.exit55.thread
 
-47:                                               ; preds = %46, %42, %42
-  switch i32 %27, label %php_dom_follow_spec_doc_ref.exit55.thread [
-    i32 11, label %48
-    i32 1, label %50
-    i32 14, label %61
+46:                                               ; preds = %45, %41, %41
+  switch i32 %26, label %php_dom_follow_spec_doc_ref.exit55.thread [
+    i32 11, label %47
+    i32 1, label %49
+    i32 14, label %60
   ]
 
-48:                                               ; preds = %47
-  %49 = tail call zeroext i1 @php_dom_fragment_insertion_hierarchy_check_pre_insertion(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
-  br i1 %49, label %php_dom_follow_spec_doc_ref.exit55.thread, label %70
+47:                                               ; preds = %46
+  %48 = tail call zeroext i1 @php_dom_fragment_insertion_hierarchy_check_pre_insertion(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  br i1 %48, label %php_dom_follow_spec_doc_ref.exit55.thread, label %69
 
-50:                                               ; preds = %47
-  %51 = tail call zeroext i1 @php_dom_has_child_of_type(ptr noundef nonnull %1, i32 noundef 1) #6
-  br i1 %51, label %52, label %53
+49:                                               ; preds = %46
+  %50 = tail call zeroext i1 @php_dom_has_child_of_type(ptr noundef nonnull %1, i32 noundef 1) #6
+  br i1 %50, label %51, label %52
 
-52:                                               ; preds = %50
+51:                                               ; preds = %49
   tail call void @php_dom_throw_error_with_message(i32 noundef 3, ptr noundef nonnull @.str, i1 noundef zeroext true) #6
-  br label %70
+  br label %69
 
-53:                                               ; preds = %50
-  br i1 %.not51, label %php_dom_follow_spec_doc_ref.exit55.thread, label %54
+52:                                               ; preds = %49
+  br i1 %.not51, label %php_dom_follow_spec_doc_ref.exit55.thread, label %53
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !10
-  %57 = icmp eq i32 %56, 14
-  br i1 %57, label %60, label %58
+53:                                               ; preds = %52
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %55 = load i32, ptr %54, align 8, !tbaa !10
+  %56 = icmp eq i32 %55, 14
+  br i1 %56, label %59, label %57
 
-58:                                               ; preds = %54
-  %59 = tail call zeroext i1 @php_dom_has_sibling_following_node(ptr noundef nonnull %3, i32 noundef 14) #6
-  br i1 %59, label %60, label %php_dom_follow_spec_doc_ref.exit55.thread
+57:                                               ; preds = %53
+  %58 = tail call zeroext i1 @php_dom_has_sibling_following_node(ptr noundef nonnull %3, i32 noundef 14) #6
+  br i1 %58, label %59, label %php_dom_follow_spec_doc_ref.exit55.thread
 
-60:                                               ; preds = %58, %54
+59:                                               ; preds = %57, %53
   tail call void @php_dom_throw_error_with_message(i32 noundef 3, ptr noundef nonnull @.str.1, i1 noundef zeroext true) #6
-  br label %70
+  br label %69
 
-61:                                               ; preds = %47
-  %62 = tail call zeroext i1 @php_dom_has_child_of_type(ptr noundef nonnull %1, i32 noundef 14) #6
-  br i1 %62, label %63, label %64
+60:                                               ; preds = %46
+  %61 = tail call zeroext i1 @php_dom_has_child_of_type(ptr noundef nonnull %1, i32 noundef 14) #6
+  br i1 %61, label %62, label %63
 
-63:                                               ; preds = %61
+62:                                               ; preds = %60
   tail call void @php_dom_throw_error_with_message(i32 noundef 3, ptr noundef nonnull @.str.5, i1 noundef zeroext true) #6
-  br label %70
+  br label %69
 
-64:                                               ; preds = %61
-  br i1 %.not51, label %67, label %65
+63:                                               ; preds = %60
+  br i1 %.not51, label %66, label %64
 
-65:                                               ; preds = %64
-  %66 = tail call zeroext i1 @php_dom_has_sibling_preceding_node(ptr noundef nonnull %3, i32 noundef 1) #6
-  br i1 %66, label %69, label %php_dom_follow_spec_doc_ref.exit55.thread
+64:                                               ; preds = %63
+  %65 = tail call zeroext i1 @php_dom_has_sibling_preceding_node(ptr noundef nonnull %3, i32 noundef 1) #6
+  br i1 %65, label %68, label %php_dom_follow_spec_doc_ref.exit55.thread
 
-67:                                               ; preds = %64
-  %68 = tail call zeroext i1 @php_dom_has_child_of_type(ptr noundef nonnull %1, i32 noundef 1) #6
-  br i1 %68, label %69, label %php_dom_follow_spec_doc_ref.exit55.thread
+66:                                               ; preds = %63
+  %67 = tail call zeroext i1 @php_dom_has_child_of_type(ptr noundef nonnull %1, i32 noundef 1) #6
+  br i1 %67, label %68, label %php_dom_follow_spec_doc_ref.exit55.thread
 
-69:                                               ; preds = %67, %65
+68:                                               ; preds = %66, %64
   tail call void @php_dom_throw_error_with_message(i32 noundef 3, ptr noundef nonnull @.str.1, i1 noundef zeroext true) #6
-  br label %70
+  br label %69
 
-php_dom_follow_spec_doc_ref.exit55.thread:        ; preds = %php_dom_follow_spec_doc_ref.exit, %46, %29, %65, %47, %58, %53, %67, %48
-  br label %70
+php_dom_follow_spec_doc_ref.exit55.thread:        ; preds = %php_dom_follow_spec_doc_ref.exit, %45, %28, %64, %46, %57, %52, %66, %47
+  br label %69
 
-70:                                               ; preds = %37, %41, %45, %52, %60, %63, %69, %php_dom_follow_spec_doc_ref.exit55.thread, %48, %21, %15, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %15 ], [ false, %21 ], [ false, %37 ], [ false, %41 ], [ true, %php_dom_follow_spec_doc_ref.exit55.thread ], [ false, %45 ], [ false, %52 ], [ false, %60 ], [ false, %63 ], [ false, %69 ], [ false, %48 ]
+69:                                               ; preds = %36, %40, %44, %51, %59, %62, %68, %php_dom_follow_spec_doc_ref.exit55.thread, %47, %20, %14, %10
+  %.0 = phi i1 [ false, %10 ], [ false, %14 ], [ false, %20 ], [ false, %36 ], [ false, %40 ], [ true, %php_dom_follow_spec_doc_ref.exit55.thread ], [ false, %44 ], [ false, %51 ], [ false, %59 ], [ false, %62 ], [ false, %68 ], [ false, %47 ]
   ret i1 %.0
 }
 

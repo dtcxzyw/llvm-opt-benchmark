@@ -922,7 +922,7 @@ _ZNSt16allocator_traitsISaIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecode
 
 244:                                              ; preds = %.loopexit
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %246 = load ptr, ptr %245, align 8, !tbaa !172, !nonnull !132, !noundef !132
+  %246 = load ptr, ptr %245, align 8, !tbaa !172
   %247 = icmp sgt i32 %238, -1
   call void @llvm.assume(i1 %247)
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 %239

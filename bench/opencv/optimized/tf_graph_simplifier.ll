@@ -21274,8 +21274,7 @@ _ZSt6fill_nIPPN17opencv_tensorflow7NodeDefEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !393)
   %26 = load ptr, ptr %1, align 8, !tbaa !220, !noalias !396, !nonnull !257, !noundef !257
   %27 = tail call ptr @__dynamic_cast(ptr nonnull %26, ptr nonnull @_ZTIN2cv3dnn18ImportGraphWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122314TFGraphWrapperE, i64 0) #26, !noalias !396
-  %.not.not.i.i = icmp ne ptr %27, null
-  tail call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !20, !noalias !396
   %.not.i.i.i.i.i = icmp eq ptr %29, null
@@ -21307,8 +21306,7 @@ _ZNK2cv3PtrINS_3dnn18ImportGraphWrapperEE11dynamicCastINS1_14dnn4_v2024122314TFG
   tail call void @llvm.experimental.noalias.scope.decl(metadata !404)
   %41 = load ptr, ptr %2, align 8, !tbaa !407, !noalias !410, !nonnull !257, !noundef !257
   %42 = tail call ptr @__dynamic_cast(ptr nonnull %41, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122313TFNodeWrapperE, i64 0) #26, !noalias !410
-  %.not.not.i.i16 = icmp ne ptr %42, null
-  tail call void @llvm.assume(i1 %.not.not.i.i16)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %42) ]
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !20, !noalias !410
   %.not.i.i.i.i.i17 = icmp eq ptr %44, null
@@ -21348,8 +21346,7 @@ _ZNK2cv3PtrINS_3dnn17ImportNodeWrapperEE11dynamicCastINS1_14dnn4_v2024122313TFNo
   %60 = getelementptr inbounds nuw %"struct.cv::Ptr.66", ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !407, !noalias !419, !nonnull !257, !noundef !257
   %62 = tail call ptr @__dynamic_cast(ptr nonnull %61, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122313TFNodeWrapperE, i64 0) #26, !noalias !419
-  %.not.not.i.i21 = icmp ne ptr %62, null
-  tail call void @llvm.assume(i1 %.not.not.i.i21)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %62) ]
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !20, !noalias !419
   %.not.i.i.i.i.i22 = icmp eq ptr %64, null
@@ -24231,8 +24228,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn14dnn4_v2024122318ReLU6
   call void %20(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.66") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %17)
   %21 = load ptr, ptr %6, align 8, !tbaa !407, !noalias !540, !nonnull !257, !noundef !257
   %22 = call ptr @__dynamic_cast(ptr nonnull %21, ptr nonnull @_ZTIN2cv3dnn17ImportNodeWrapperE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122313TFNodeWrapperE, i64 0) #26, !noalias !540
-  %.not.not.i.i = icmp ne ptr %22, null
-  call void @llvm.assume(i1 %.not.not.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !20
   %.not.i.i.i.i.i = icmp eq ptr %24, null

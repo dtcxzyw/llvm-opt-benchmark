@@ -805,8 +805,7 @@ define internal void @dataDeviceHandleEnter(ptr readnone captures(none) %0, ptr 
   br i1 %21, label %22, label %17
 
 22:                                               ; preds = %18
-  %.not23 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %.not23)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137504), align 8, !tbaa !180
   %24 = tail call ptr %23(ptr noundef nonnull %3) #20
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137488), align 8, !tbaa !181

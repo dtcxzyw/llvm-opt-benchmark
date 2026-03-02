@@ -4114,7 +4114,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPNS_4UserELj8EEELb0EE9push_ba
 
 231:                                              ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorIPNS_4UserELj8EEEE12pop_back_valEv.exit.i.i
   %232 = icmp ugt i8 %177, 28
-  call void @llvm.assume(i1 %232)
+  %spec.select.i.i.i.i = select i1 %232, ptr %176, ptr null
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %spec.select.i.i.i.i) ]
   %233 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 80, i32 1) #23
   %234 = load ptr, ptr %55, align 8, !tbaa !1144
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -4126,7 +4127,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPNS_4UserELj8EEELb0EE9push_ba
   %237 = trunc i32 %236 to i8
   %.neg.i.i = or i8 %237, -64
   %238 = add nsw i8 %.neg.i.i, 63
-  %239 = getelementptr inbounds nuw i8, ptr %176, i64 24
+  %239 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 24
   store ptr %239, ptr %20, align 8
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @_ZN4llvm8LoadInstC1EPNS_4TypeEPNS_5ValueERKNS_5TwineEbNS_5AlignENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(73) %233, ptr noundef %234, ptr noundef nonnull %51, ptr noundef nonnull align 8 dereferenceable(34) %19, i1 noundef zeroext false, i8 %238, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %20) #23

@@ -9839,8 +9839,7 @@ _ZN8AstCCall8addArgspEP11AstNodeExpr.exit.i:      ; preds = %136, %131, %_ZN16VS
 
 155:                                              ; preds = %_ZN8AstCCall8addArgspEP11AstNodeExpr.exit.i, %_ZN8AstCCall8addArgspEP11AstNodeExpr.exit.thread.i
   %156 = phi ptr [ %44, %_ZN8AstCCall8addArgspEP11AstNodeExpr.exit.thread.i ], [ %154, %_ZN8AstCCall8addArgspEP11AstNodeExpr.exit.i ]
-  %.not.i55.i = icmp ne ptr %156, null
-  call void @llvm.assume(i1 %.not.i55.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %156) ]
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 64
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %157, align 8, !tbaa !109
   %.not6.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 50

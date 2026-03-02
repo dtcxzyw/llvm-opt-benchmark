@@ -13617,38 +13617,37 @@ define hidden void @_ZN17C2_MacroAssembler10convertF2IE9BasicTypeS0_8Register11X
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 296
   %40 = call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 136, ptr noundef nonnull %39) #12
-  %41 = icmp ne ptr %40, null
-  call void @llvm.assume(i1 %41)
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i32 -1, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 28
-  store i32 0, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  store i32 -1, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 68
-  store i32 0, ptr %47, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %40, i64 72
-  store ptr null, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %40, i64 80
-  store i8 0, ptr %49, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %40) ]
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store i32 -1, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 28
+  store i32 0, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  store ptr null, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  store i8 0, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 48
+  store i32 -1, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 68
+  store i32 0, ptr %46, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 72
+  store ptr null, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 80
+  store i8 0, ptr %48, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13C2GeneralStubIJ8Register11XMMRegisterPhEE, i64 16), ptr %40, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %40, i64 88
-  store i32 %3, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %40, i64 96
-  store i32 %4, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %40, i64 104
-  store ptr %.0, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %40, i64 120
-  store i32 23, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %40, i64 128
-  store ptr @_ZL19convertF2I_slowpathR17C2_MacroAssemblerR13C2GeneralStubIJ8Register11XMMRegisterPhEE, ptr %54, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 88
+  store i32 %3, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 96
+  store i32 %4, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 104
+  store ptr %.0, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 120
+  store i32 23, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 128
+  store ptr @_ZL19convertF2I_slowpathR17C2_MacroAssemblerR13C2GeneralStubIJ8Register11XMMRegisterPhEE, ptr %53, align 8
   call void @_ZN10C2CodeStub16add_to_stub_listEv(ptr noundef nonnull align 8 dereferenceable(88) %40) #12
-  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %42, i1 noundef zeroext true) #12
-  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %46) #12
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %41, i1 noundef zeroext true) #12
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %45) #12
   ret void
 }
 
