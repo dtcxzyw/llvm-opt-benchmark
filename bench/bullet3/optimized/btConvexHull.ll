@@ -4110,7 +4110,7 @@ define dso_local noundef zeroext i1 @_ZN11HullLibrary11ComputeHullEjPK9btVector3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = call noundef i32 @_ZN11HullLibrary8calchullEP9btVector3iR20btAlignedObjectArrayIjERii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %4)
-  %.not = icmp ne i32 %8, 0
+  %.not = trunc nuw i32 %8 to i1
   br i1 %.not, label %9, label %15
 
 9:                                                ; preds = %5
@@ -4271,8 +4271,8 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN11HullLibrary16CreateConvexHull
           to label %.noexc87 unwind label %52
 
 .noexc87:                                         ; preds = %._crit_edge
-  %.not.i.not = icmp eq i32 %49, 0
-  br i1 %.not.i.not, label %66, label %67
+  %.not.i = trunc nuw i32 %49 to i1
+  br i1 %.not.i, label %67, label %66
 
 50:                                               ; preds = %24
   %51 = landingpad { ptr, i32 }

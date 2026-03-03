@@ -68189,33 +68189,32 @@ define dso_local void @_ZN5Catch13MultiReporter11addReporterEONS_6Detail10unique
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 1
-  %19 = and i8 %18, 1
-  %20 = xor i8 %19, 1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load i8, ptr %21, align 8
+  %19 = xor i8 %18, -1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %21 = load i8, ptr %20, align 8
+  %22 = or i8 %21, %19
   %23 = and i8 %22, 1
-  %24 = or i8 %23, %20
-  store i8 %24, ptr %21, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8
-  %.not.i.i = icmp eq ptr %27, %29
-  br i1 %.not.i.i, label %34, label %30
+  store i8 %23, ptr %20, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %28 = load ptr, ptr %27, align 8
+  %.not.i.i = icmp eq ptr %26, %28
+  br i1 %.not.i.i, label %33, label %29
 
 30:                                               ; preds = %2
   %31 = load ptr, ptr %1, align 8
-  store ptr %31, ptr %27, align 8
+  store ptr %31, ptr %26, align 8
   store ptr null, ptr %1, align 8
-  %32 = load ptr, ptr %26, align 8
+  %32 = load ptr, ptr %25, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %33, ptr %26, align 8
+  store ptr %33, ptr %25, align 8
   br label %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE9push_backEOS4_.exit
 
 34:                                               ; preds = %2
-  %35 = load ptr, ptr %25, align 8
-  %36 = ptrtoint ptr %27 to i64
+  %35 = load ptr, ptr %24, align 8
+  %36 = ptrtoint ptr %26 to i64
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = icmp eq i64 %38, 9223372036854775800
@@ -68240,7 +68239,7 @@ _ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_che
   %49 = load ptr, ptr %1, align 8
   store ptr %49, ptr %48, align 8
   store ptr null, ptr %1, align 8
-  %.not10.i.i.i.i.i.i = icmp eq ptr %35, %27
+  %.not10.i.i.i.i.i.i = icmp eq ptr %35, %26
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
@@ -68253,7 +68252,7 @@ _ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_che
   store ptr null, ptr %.0911.i.i.i.i.i.i, align 8, !alias.scope !1069, !noalias !1066
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %51, %27
+  %.not.i.i.i.i.i.i = icmp eq ptr %51, %26
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1071
 
 _ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -68267,10 +68266,10 @@ _ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE11_S_relo
   br label %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %54, %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
-  store ptr %47, ptr %25, align 8
-  store ptr %53, ptr %26, align 8
+  store ptr %47, ptr %24, align 8
+  store ptr %53, ptr %25, align 8
   %55 = getelementptr inbounds nuw %"class.Catch::Detail::unique_ptr.78", ptr %47, i64 %45
-  store ptr %55, ptr %28, align 8
+  store ptr %55, ptr %27, align 8
   br label %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE9push_backEOS4_.exit
 
 _ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE9push_backEOS4_.exit: ; preds = %30, %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i

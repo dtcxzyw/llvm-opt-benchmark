@@ -58,7 +58,7 @@ define dso_local zeroext i1 @trace_event_dyn_try_get_ref(ptr noundef %0) local_u
   tail call void @down_read(ptr noundef nonnull @trace_event_sem) #9
   %8 = load ptr, ptr @ftrace_events, align 8
   %9 = icmp eq ptr %8, @ftrace_events
-  br i1 %9, label %23, label %10
+  br i1 %9, label %21, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -66,7 +66,7 @@ define dso_local zeroext i1 @trace_event_dyn_try_get_ref(ptr noundef %0) local_u
 
 12:                                               ; preds = %17, %10
   %13 = phi ptr [ %8, %10 ], [ %19, %17 ]
-  %14 = phi i8 [ 0, %10 ], [ %18, %17 ]
+  %14 = phi i1 [ false, %10 ], [ %18, %17 ]
   %15 = icmp eq ptr %13, %0
   br i1 %15, label %16, label %17
 
@@ -75,22 +75,18 @@ define dso_local zeroext i1 @trace_event_dyn_try_get_ref(ptr noundef %0) local_u
   br label %17
 
 17:                                               ; preds = %16, %12
-  %18 = phi i8 [ 1, %16 ], [ %14, %12 ]
+  %18 = phi i1 [ true, %16 ], [ %14, %12 ]
   %19 = load ptr, ptr %13, align 8
   %20 = icmp eq ptr %19, @ftrace_events
   br i1 %20, label %21, label %12, !llvm.loop !10
 
-21:                                               ; preds = %17
-  %22 = icmp ne i8 %18, 0
-  br label %23
-
-23:                                               ; preds = %21, %7
-  %24 = phi i1 [ false, %7 ], [ %22, %21 ]
+21:                                               ; preds = %17, %7
+  %21 = phi i1 [ false, %7 ], [ %18, %17 ]
   tail call void @up_read(ptr noundef nonnull @trace_event_sem) #9
   br label %25
 
-25:                                               ; preds = %23, %6
-  %26 = phi i1 [ %24, %23 ], [ false, %6 ]
+25:                                               ; preds = %21, %6
+  %26 = phi i1 [ %21, %.loopexit ], [ false, %6 ]
   ret i1 %26
 }
 

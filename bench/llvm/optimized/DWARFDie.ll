@@ -15113,7 +15113,7 @@ _ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.
   %175 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %176 = load ptr, ptr %175, align 8, !tbaa !10
   %.not.i.i75 = icmp eq ptr %176, null
-  br i1 %.not.i.i75, label %_ZNK4llvm8DWARFDie6getTagEv.exit.thread.i76, label %177
+  br i1 %.not.i.i75, label %_ZNK4llvm8DWARFDie6getTagEv.exit61.thread, label %177
 
 177:                                              ; preds = %174
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 4
@@ -15121,17 +15121,12 @@ _ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.
   %180 = icmp eq i16 %179, 38
   %181 = or i1 %.3213302, %180
   %182 = icmp eq i16 %179, 53
-  br label %_ZNK4llvm8DWARFDie6getTagEv.exit.thread.i76
-
-_ZNK4llvm8DWARFDie6getTagEv.exit.thread.i76:      ; preds = %177, %174
-  %.5 = phi i1 [ %.3213302, %174 ], [ %181, %177 ]
-  %.0.i4.i77 = phi i1 [ false, %174 ], [ %182, %177 ]
-  %183 = or i1 %.0.i4.i303, %.0.i4.i77
+  %183 = or i1 %.0.i4.i303, %182
   br label %_ZNK4llvm8DWARFDie6getTagEv.exit61.thread
 
-_ZNK4llvm8DWARFDie6getTagEv.exit61.thread:        ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit.thread.i76, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i67, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i, %133, %_ZNK4llvm8DWARFDie6getTagEv.exit61, %_ZN4llvm11raw_ostreamlsEc.exit56
-  %.0210 = phi i1 [ %6, %_ZN4llvm11raw_ostreamlsEc.exit56 ], [ %6, %133 ], [ %6, %_ZNK4llvm8DWARFDie6getTagEv.exit61 ], [ %6, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i ], [ %.5, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread.i76 ], [ %.3213302, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i67 ]
-  %.0208 = phi i1 [ %7, %_ZN4llvm11raw_ostreamlsEc.exit56 ], [ %7, %133 ], [ %7, %_ZNK4llvm8DWARFDie6getTagEv.exit61 ], [ %7, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i ], [ %183, %_ZNK4llvm8DWARFDie6getTagEv.exit.thread.i76 ], [ %.0.i4.i303, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i67 ]
+_ZNK4llvm8DWARFDie6getTagEv.exit61.thread:        ; preds = %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i67, %177, %174, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i, %133, %_ZNK4llvm8DWARFDie6getTagEv.exit61, %_ZN4llvm11raw_ostreamlsEc.exit56
+  %.0210 = phi i1 [ %6, %_ZN4llvm11raw_ostreamlsEc.exit56 ], [ %6, %133 ], [ %6, %_ZNK4llvm8DWARFDie6getTagEv.exit61 ], [ %6, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i ], [ %.3213302, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i67 ], [ %.3213302, %174 ], [ %181, %177 ]
+  %.0208 = phi i1 [ %7, %_ZN4llvm11raw_ostreamlsEc.exit56 ], [ %7, %133 ], [ %7, %_ZNK4llvm8DWARFDie6getTagEv.exit61 ], [ %7, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i ], [ %.0.i4.i303, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i67 ], [ %.0.i4.i303, %174 ], [ %183, %177 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !700)
   br i1 %36, label %186, label %184

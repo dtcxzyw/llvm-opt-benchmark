@@ -8480,8 +8480,8 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr noundef nonn
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %16 = and i32 %7, 2
-  %17 = icmp ne i32 %8, 0
-  %18 = and i32 %7, -3
+  %17 = and i32 %7, -3
+  %18 = trunc nuw i32 %8 to i1
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   br label %.loopexit229
 
@@ -8754,7 +8754,7 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr noundef nonn
 118:                                              ; preds = %38
   %119 = call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull %12, i64 noundef 1) #29
   %120 = icmp eq i32 %.1146384, 0
-  %or.cond3 = and i1 %17, %120
+  %or.cond3 = select i1 %120, i1 %18, i1 false
   br i1 %or.cond3, label %121, label %.critedge
 
 121:                                              ; preds = %118
@@ -8896,7 +8896,7 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr noundef nonn
 
 171:                                              ; preds = %169
   %masksel = select i1 %168, i32 2, i32 0
-  %.0137 = or disjoint i32 %masksel, %18
+  %.0137 = or disjoint i32 %masksel, %17
   %172 = call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull %12, i64 noundef 1) #29
   %173 = call fastcc i32 @unescape_nonascii0(ptr noundef %11, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %.0137, i32 noundef 1)
   %174 = icmp slt i32 %173, 0
@@ -8914,9 +8914,8 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr noundef nonn
   br i1 %exitcond.not, label %.thread215, label %.lr.ph, !llvm.loop !260
 
 178:                                              ; preds = %129, %126, %125
-  %or.cond9 = and i1 %17, %.not192
-  %179 = zext i1 %or.cond9 to i32
-  %spec.select210 = add i32 %.1151383, %179
+  %or.cond9 = phi i32 [ %8, %129 ], [ %8, %126 ], [ 0, %125 ]
+  %spec.select210 = add i32 %or.cond9, %.1151383
   br label %.thread215
 
 .thread215:                                       ; preds = %.lr.ph, %177, %164, %167, %175, %162, %178, %38
@@ -8948,7 +8947,7 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr noundef nonn
   br label %.thread220
 
 .thread220:                                       ; preds = %171, %61, %77, %69, %87, %124, %.loopexit228, %86, %73, %42, %37, %.loopexit229._crit_edge, %184
-  %.8 = phi i32 [ -1, %42 ], [ 0, %184 ], [ 0, %.loopexit229._crit_edge ], [ -1, %73 ], [ 0, %124 ], [ -1, %.loopexit228 ], [ -1, %37 ], [ -1, %86 ], [ -1, %61 ], [ -1, %87 ], [ -1, %69 ], [ -1, %77 ], [ -1, %171 ]
+  %.8 = phi i32 [ -1, %42 ], [ 0, %183 ], [ 0, %.loopexit229._crit_edge ], [ -1, %73 ], [ 0, %124 ], [ -1, %.loopexit228 ], [ -1, %37 ], [ -1, %86 ], [ -1, %61 ], [ -1, %87 ], [ -1, %69 ], [ -1, %77 ], [ -1, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

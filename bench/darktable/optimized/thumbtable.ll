@@ -3074,20 +3074,19 @@ define internal void @_dt_collection_changed_callback(ptr readnone captures(none
 
 ._crit_edge238:                                   ; preds = %.lr.ph237
   %166 = icmp eq i32 %spec.select, 0
-  %167 = icmp ne i32 %.1135, 0
-  %168 = select i1 %166, i1 %167, i1 false
-  br i1 %168, label %174, label %._crit_edge238.thread
+  %167 = select i1 %166, i1 %.1135, i1 false
+  br i1 %167, label %173, label %._crit_edge238.thread
 
 .lr.ph237:                                        ; preds = %164, %.lr.ph237
   %.0133235 = phi ptr [ %.0133, %.lr.ph237 ], [ %.0133231, %164 ]
-  %.0134234 = phi i32 [ %.1135, %.lr.ph237 ], [ 0, %164 ]
+  %.0134234 = phi i1 [ %.1135, %.lr.ph237 ], [ false, %164 ]
   %.1137233 = phi i32 [ %spec.select, %.lr.ph237 ], [ 0, %164 ]
   %169 = load ptr, ptr %.0133235, align 8, !tbaa !23
   %170 = load i32, ptr %169, align 8, !tbaa !41
   %171 = icmp eq i32 %170, %11
   %spec.select = select i1 %171, i32 1, i32 %.1137233
   %172 = icmp eq i32 %170, %4
-  %.1135 = select i1 %172, i32 1, i32 %.0134234
+  %.1135 = select i1 %172, i1 true, i1 %.0134234
   %173 = getelementptr inbounds nuw i8, ptr %.0133235, i64 8
   %.0133 = load ptr, ptr %173, align 8, !tbaa !21
   %.not189 = icmp eq ptr %.0133, null
@@ -3111,7 +3110,7 @@ define internal void @_dt_collection_changed_callback(ptr readnone captures(none
   br label %180
 
 180:                                              ; preds = %175, %178
-  %181 = phi i32 [ %179, %178 ], [ 1, %175 ]
+  %181 = phi i32 [ %179, %177 ], [ 1, %174 ]
   %182 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %181, ptr %182, align 8, !tbaa !45
   %183 = tail call fastcc i32 @_thumb_get_imgid(i32 noundef %181)

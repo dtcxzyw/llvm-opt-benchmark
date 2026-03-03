@@ -27446,19 +27446,18 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test9framework5sta
   br i1 %18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
-  %.243 = phi i8 [ %23, %.lr.ph ], [ 0, %13 ]
-  %.sroa.037.042 = phi ptr [ %24, %.lr.ph ], [ %15, %13 ]
+  %.243 = phi i1 [ %22, %.lr.ph ], [ false, %13 ]
+  %.sroa.037.042 = phi ptr [ %23, %.lr.ph ], [ %15, %13 ]
   %19 = load i64, ptr %.sroa.037.042, align 8, !tbaa !93
   %20 = load i32, ptr %5, align 8, !tbaa !189
   %21 = tail call noundef zeroext i1 @_ZN5boost9unit_test9framework5state27finalize_default_run_statusEmNS0_9test_unit10run_statusE(ptr noundef nonnull align 8 dereferenceable(360) %0, i64 noundef %19, i32 noundef %20)
-  %22 = zext i1 %21 to i8
-  %23 = or i8 %.243, %22
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.037.042, i64 8
-  %25 = icmp eq ptr %24, %17
-  br i1 %25, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !663
+  %22 = or i1 %.243, %21
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.037.042, i64 8
+  %24 = icmp eq ptr %23, %18
+  br i1 %24, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !663
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %26 = zext nneg i8 %23 to i32
+  %26 = zext i1 %22 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
@@ -81409,18 +81408,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test9framework5sta
   br i1 %11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.238 = phi i8 [ %15, %.lr.ph ], [ 0, %6 ]
-  %.sroa.033.037 = phi ptr [ %16, %.lr.ph ], [ %8, %6 ]
+  %.238 = phi i1 [ %14, %.lr.ph ], [ false, %6 ]
+  %.sroa.033.037 = phi ptr [ %15, %.lr.ph ], [ %8, %6 ]
   %12 = load i64, ptr %.sroa.033.037, align 8, !tbaa !93
   %13 = tail call noundef zeroext i1 @_ZN5boost9unit_test9framework5state19finalize_run_statusEm(ptr noundef nonnull align 8 dereferenceable(360) %0, i64 noundef %12)
-  %14 = zext i1 %13 to i8
-  %15 = or i8 %.238, %14
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.033.037, i64 8
-  %17 = icmp eq ptr %16, %10
-  br i1 %17, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !1620
+  %14 = or i1 %.238, %13
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.033.037, i64 8
+  %16 = icmp eq ptr %15, %10
+  br i1 %16, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !1620
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %18 = zext nneg i8 %15 to i32
+  %18 = zext i1 %14 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6

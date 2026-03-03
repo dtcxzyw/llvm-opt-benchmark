@@ -43034,7 +43034,6 @@ _ZN17cranelift_codegen8verifier8Verifier28typecheck_function_signature17hc973dd1
   %1331 = getelementptr inbounds nuw i8, ptr %.0.i.i.i117, i64 12
   %1332 = load i32, ptr %1331, align 4, !noalias !5244, !noundef !4
   %1333 = icmp ne i32 %1332, -1
-  %.sroa.0.0.i3.i = zext i1 %1333 to i32
   br label %1342
 
 1334:                                             ; preds = %1303
@@ -43063,11 +43062,10 @@ _ZN17cranelift_codegen8verifier8Verifier28typecheck_function_signature17hc973dd1
   br label %.loopexit335
 
 1342:                                             ; preds = %1330, %.backedge
-  %.sroa.10.02051 = phi i32 [ %.sroa.0.0.i3.i, %1330 ], [ %.sroa.10.1.ph, %.backedge ]
+  %.sroa.10.02051 = phi i1 [ %1333, %1330 ], [ %.sroa.10.1.ph, %.backedge ]
   %.sroa.7.02048 = phi i32 [ %1311, %1330 ], [ %.sroa.7.1.ph, %.backedge ]
-  %.not4.i = icmp ne i32 %.sroa.10.02051, 0
   %1343 = icmp eq i32 %.sroa.7.02048, %1332
-  %.0.i122 = and i1 %.not4.i, %1343
+  %.0.i122 = and i1 %.sroa.10.02051, %1343
   br i1 %.0.i122, label %._crit_edge3745, label %1344
 
 ._crit_edge3745:                                  ; preds = %1342
@@ -43095,7 +43093,7 @@ _ZN17cranelift_codegen8verifier8Verifier28typecheck_function_signature17hc973dd1
   %.pre-phi = phi i64 [ %.pre3746, %._crit_edge3745 ], [ %1347, %1344 ]
   %.sroa.0258.1.ph = phi i1 [ true, %._crit_edge3745 ], [ %.not2055, %1344 ]
   %.sroa.7.1.ph = phi i32 [ %1332, %._crit_edge3745 ], [ %1350, %1344 ]
-  %.sroa.10.1.ph = phi i32 [ 0, %._crit_edge3745 ], [ %.sroa.10.02051, %1344 ]
+  %.sroa.10.1.ph = phi i1 [ false, %._crit_edge3745 ], [ %.sroa.10.02051, %1344 ]
   %1355 = load i32, ptr %324, align 4, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !5259)
   call void @llvm.lifetime.start.p0(ptr nonnull %245)
@@ -44583,7 +44581,7 @@ _ZN17cranelift_codegen8verifier14VerifierErrors5fatal17hcda19d0a08e84a14E.exit75
 
 1768:                                             ; preds = %1650
   %1769 = load i32, ptr %700, align 8, !range !538, !alias.scope !5711, !noalias !5535, !noundef !4
-  %.not.i80.i.i.i = icmp ne i32 %1769, 0
+  %.not.i80.i.i.i = trunc nuw i32 %1769 to i1
   %1770 = load i32, ptr %702, align 4, !alias.scope !5711, !noalias !5535
   %1771 = icmp eq i32 %1651, %1770
   %.02.i.i.i.i = select i1 %.not.i80.i.i.i, i1 %1771, i1 false

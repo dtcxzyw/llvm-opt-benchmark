@@ -612,8 +612,8 @@ define internal fastcc ptr @d2i_PUBKEY_int(ptr noundef captures(address_is_null)
   %10 = icmp ne ptr %3, null
   %11 = icmp ne ptr %4, null
   %or.cond = or i1 %10, %11
-  %12 = icmp ne i32 %5, 0
-  %or.cond3 = or i1 %or.cond, %12
+  %12 = trunc nuw i32 %5 to i1
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %12
   br i1 %or.cond3, label %13, label %28
 
 13:                                               ; preds = %6
@@ -693,37 +693,8 @@ define ptr @d2i_PUBKEY_ex(ptr noundef captures(address_is_null) %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define ptr @d2i_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = load ptr, ptr %1, align 8, !tbaa !46
-  store ptr %5, ptr %4, align 8, !tbaa !46
-  %6 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %4, i64 noundef %2, ptr noundef nonnull @X509_PUBKEY_it.local_it) #9
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %d2i_PUBKEY_int.exit, label %8
-
-8:                                                ; preds = %3
-  %9 = call ptr @X509_PUBKEY_get(ptr noundef nonnull %6)
-  call void @ASN1_item_free(ptr noundef nonnull %6, ptr noundef nonnull @X509_PUBKEY_it.local_it) #9
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %d2i_PUBKEY_int.exit, label %11
-
-11:                                               ; preds = %8
-  %12 = load ptr, ptr %4, align 8, !tbaa !46
-  store ptr %12, ptr %1, align 8, !tbaa !46
-  %.not29.i = icmp eq ptr %0, null
-  br i1 %.not29.i, label %d2i_PUBKEY_int.exit, label %13
-
-13:                                               ; preds = %11
-  %14 = load ptr, ptr %0, align 8, !tbaa !43
-  call void @EVP_PKEY_free(ptr noundef %14) #9
-  store ptr %9, ptr %0, align 8, !tbaa !43
-  br label %d2i_PUBKEY_int.exit
-
-d2i_PUBKEY_int.exit:                              ; preds = %3, %8, %11, %13
-  %.0.i = phi ptr [ null, %3 ], [ null, %8 ], [ %9, %13 ], [ %9, %11 ]
-  call void @ASN1_item_free(ptr noundef null, ptr noundef nonnull @X509_PUBKEY_it.local_it) #9
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %.0.i
+  %4 = tail call fastcc ptr @d2i_PUBKEY_int(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef null, i32 noundef 0)
+  ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable

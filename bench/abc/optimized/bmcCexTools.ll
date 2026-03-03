@@ -3863,7 +3863,7 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr noundef readonly captures(none) %
 .lr.ph183.split:                                  ; preds = %.lr.ph183, %221
   %.val144199 = phi i32 [ %.val144, %221 ], [ %.val142, %.lr.ph183 ]
   %.0112181 = phi i32 [ %.1113, %221 ], [ %38, %.lr.ph183 ]
-  %.0114180 = phi i32 [ %.1115, %221 ], [ 0, %.lr.ph183 ]
+  %.0114180 = phi i1 [ %.1115, %221 ], [ false, %.lr.ph183 ]
   %.3120179 = phi i32 [ %222, %221 ], [ 0, %.lr.ph183 ]
   %.val148.val = load i32, ptr %178, align 4, !tbaa !36
   %190 = sub i32 %.3120179, %.val144199
@@ -3873,7 +3873,7 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr noundef readonly captures(none) %
   %194 = load i32, ptr %193, align 4, !tbaa !10
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val150, i64 %195
-  %197 = icmp ne i32 %.0112181, 0
+  %197 = trunc nuw i32 %.0112181 to i1
   %or.cond9 = and i1 %37, %197
   %.pre = load i64, ptr %196, align 4
   br i1 %or.cond9, label %198, label %210
@@ -3914,15 +3914,14 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr noundef readonly captures(none) %
 
 221:                                              ; preds = %210, %212
   %.val144 = phi i32 [ %.val144199, %210 ], [ %.val144.pre, %212 ]
-  %.1115 = phi i32 [ %.0114180, %210 ], [ 1, %212 ]
+  %.1115 = phi i1 [ %.0114180, %210 ], [ true, %212 ]
   %222 = add nuw nsw i32 %.3120179, 1
   %223 = icmp slt i32 %222, %.val144
   br i1 %223, label %.lr.ph183.split, label %.critedge7, !llvm.loop !98
 
 .critedge7:                                       ; preds = %221
-  %224 = icmp ne i32 %.1115, 0
-  %225 = icmp eq i32 %.1113, 0
-  %or.cond11.not = select i1 %224, i1 %225, i1 false
+  %224 = icmp eq i32 %.1113, 0
+  %or.cond11.not = select i1 %.1115, i1 %224, i1 false
   br i1 %or.cond11.not, label %.critedge140, label %.critedge7.thread
 
 .critedge7.thread:                                ; preds = %181, %.lr.ph183, %.critedge7
@@ -3943,7 +3942,7 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr noundef readonly captures(none) %
   br i1 %228, label %.preheader, label %.loopexit, !llvm.loop !99
 
 .loopexit:                                        ; preds = %.critedge5, %.critedge140, %7, %227
-  %.2 = phi ptr [ null, %227 ], [ %13, %7 ], [ %13, %.critedge140 ], [ %13, %.critedge5 ]
+  %.2 = phi ptr [ null, %226 ], [ %13, %7 ], [ %13, %.critedge140 ], [ %13, %.critedge5 ]
   ret ptr %.2
 }
 

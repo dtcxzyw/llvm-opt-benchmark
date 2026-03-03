@@ -172,10 +172,11 @@ define hidden void @"_ZN10wasmparser7readers4core5types103_$LT$impl$u20$wasmpars
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %51 = load i8, ptr %50, align 8, !range !20, !noundef !5
   %52 = trunc nuw i8 %51 to i1
+  %.not = xor i1 %52, true
   %53 = load i32, ptr %8, align 8, !range !21
-  %54 = icmp eq i32 %53, 0
-  %or.cond.not = select i1 %52, i1 %54, i1 false
-  br i1 %or.cond.not, label %61, label %55
+  %54 = trunc nuw i32 %53 to i1
+  %or.cond.not = select i1 %.not, i1 true, i1 %54
+  br i1 %or.cond.not, label %55, label %61
 
 55:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

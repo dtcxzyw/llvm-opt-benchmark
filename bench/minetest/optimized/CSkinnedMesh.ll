@@ -2882,12 +2882,11 @@ for.body10:                                       ; preds = %if.end, %for.body10
   %add.ptr.i.i46 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %14 = load ptr, ptr %add.ptr.i.i46, align 8, !tbaa !48
   %15 = load i8, ptr %_M_engaged.i.i.i, align 8, !tbaa !67, !range !69, !noundef !70
-  %tobool.i.i.i = icmp ne i8 %15, 0
   %_M_engaged.i.i10.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i8, ptr %_M_engaged.i.i10.i, align 8, !tbaa !67, !range !69, !noundef !70
-  %tobool.i.i11.i = icmp ne i8 %16, 0
-  %17 = and i1 %tobool.i.i.i, %tobool.i.i11.i
-  br i1 %17, label %lor.rhs.i, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ERKSG_ISA_E.exit
+  %17 = and i8 %16, %15
+  %.not = icmp eq i8 %17, 0
+  br i1 %.not, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ERKSG_ISA_E.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %for.body10
   %18 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !157
@@ -2908,8 +2907,8 @@ if.end.i.i.i:                                     ; preds = %land.rhs.i.i
   br i1 %22, label %if.then18, label %if.end
 
 _ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ERKSG_ISA_E.exit: ; preds = %for.body10
-  %23 = xor i1 %tobool.i.i.i, %tobool.i.i11.i
-  br i1 %23, label %if.end, label %if.then18
+  %.not1 = icmp eq i8 %15, %16
+  br i1 %.not1, label %if.then18, label %if.end
 
 if.then18:                                        ; preds = %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ERKSG_ISA_E.exit, %if.end.i.i.i, %land.rhs.i.i
   store ptr %14, ptr %UseAnimationFrom, align 8, !tbaa !84
@@ -2920,7 +2919,7 @@ if.end:                                           ; preds = %if.then18, %_ZSteqI
   %vtable = load ptr, ptr %mesh, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 224
   %24 = load ptr, ptr %vfn, align 8
-  %call6 = tail call noundef nonnull align 8 dereferenceable(25) ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %mesh) #31
+  %call6 = tail call noundef nonnull align 8 dereferenceable(25) ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %mesh) #31
   %_M_finish.i.i39 = getelementptr inbounds nuw i8, ptr %call6, i64 8
   %25 = load ptr, ptr %_M_finish.i.i39, align 8, !tbaa !44
   %26 = load ptr, ptr %call6, align 8, !tbaa !45

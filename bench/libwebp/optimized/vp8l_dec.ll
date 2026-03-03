@@ -1517,10 +1517,10 @@ define hidden range(i32 0, 2) i32 @VP8LDecodeAlphaImageStream(ptr noundef readon
   br label %59
 
 59:                                               ; preds = %333, %.lr.ph234.i
-  %.0106232.i = phi i32 [ %19, %.lr.ph234.i ], [ %.1107.i, %333 ]
-  %.0111230.i = phi i32 [ %20, %.lr.ph234.i ], [ %.1112.i, %333 ]
-  %.0116229.i = phi i32 [ %18, %.lr.ph234.i ], [ %.1117.i, %333 ]
-  %.0121228.i = phi ptr [ %50, %.lr.ph234.i ], [ %.2123.i, %333 ]
+  %.0106232.i = phi i32 [ %19, %.lr.ph235.i ], [ %.1107.i, %333 ]
+  %.0111230.i = phi i32 [ %20, %.lr.ph235.i ], [ %.1112.i, %333 ]
+  %.0116229.i = phi i32 [ %18, %.lr.ph235.i ], [ %.1117.i, %333 ]
+  %.0121228.i = phi ptr [ %50, %.lr.ph235.i ], [ %.2123.i, %333 ]
   %60 = and i32 %.0111230.i, %25
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %78
@@ -2075,9 +2075,9 @@ GetHtreeGroupForPos.exit180.i:                    ; preds = %311, %308
   br i1 %336, label %59, label %._crit_edge235.i
 
 ._crit_edge235.i:                                 ; preds = %333, %.thread272.i, %45, %.thread270.i
-  %337 = phi ptr [ %46, %45 ], [ %27, %.thread270.i ], [ %46, %.thread272.i ], [ %46, %333 ]
-  %.0116.lcssa.i = phi i32 [ %18, %45 ], [ %18, %.thread270.i ], [ %.1117.i, %.thread272.i ], [ %.1117.i, %333 ]
-  %.0106.lcssa.i = phi i32 [ %19, %45 ], [ %19, %.thread270.i ], [ %.1107.i, %.thread272.i ], [ %.1107.i, %333 ]
+  %337 = phi ptr [ %46, %45 ], [ %27, %.thread271.i ], [ %46, %.thread273.i ], [ %46, %333 ]
+  %.0116.lcssa.i = phi i32 [ %18, %45 ], [ %18, %.thread271.i ], [ %.1117.i, %.thread273.i ], [ %.1117.i, %333 ]
+  %.0106.lcssa.i = phi i32 [ %19, %45 ], [ %19, %.thread271.i ], [ %.1107.i, %.thread273.i ], [ %.1107.i, %333 ]
   %338 = tail call i32 @llvm.smin.i32(i32 %.0106.lcssa.i, i32 %1)
   %339 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %340 = load ptr, ptr %339, align 8, !tbaa !70
@@ -2168,28 +2168,26 @@ ExtractPalettedAlphaRows.exit192.i:               ; preds = %._crit_edge.i.i191.
 VP8LIsEndOfStream.exit194.i:                      ; preds = %383, %377, %.thread203.i
   %388 = phi i32 [ 1, %.thread203.i ], [ 0, %377 ], [ %387, %383 ]
   store i32 %388, ptr %374, align 4, !tbaa !51
-  br i1 %375, label %391, label %389
+  %.not143.i = trunc nuw i32 %388 to i1
+  %389 = icmp slt i32 %.0116223.i, %22
+  %or.cond151.i = select i1 %.not143.i, i1 %389, i1 false
+  %or.cond212.i = select i1 %375, i1 true, i1 %or.cond151.i
+  br i1 %or.cond212.i, label %390, label %394
 
-389:                                              ; preds = %VP8LIsEndOfStream.exit194.i
-  %.not143.i = icmp ne i32 %388, 0
-  %390 = icmp slt i32 %.0116222.i, %22
-  %or.cond151.i = select i1 %.not143.i, i1 %390, i1 false
-  br i1 %or.cond151.i, label %391, label %395
-
-391:                                              ; preds = %389, %VP8LIsEndOfStream.exit194.i
-  %392 = load i32, ptr %4, align 8, !tbaa !13
-  switch i32 %392, label %DecodeAlphaData.exit [
-    i32 0, label %393
-    i32 5, label %393
+390:; preds = %VP8LIsEndOfStream.exit194.i
+  %391 = load i32, ptr %4, align 8, !tbaa !13
+  switch i32 %391, label %DecodeAlphaData.exit [
+    i32 0, label %392
+    i32 5, label %392
   ]
 
-393:                                              ; preds = %391, %391
+393:                                              ; preds = %390, %390
   %.not144.i = icmp eq i32 %388, 0
   %394 = select i1 %.not144.i, i32 3, i32 5
   store i32 %394, ptr %4, align 8, !tbaa !13
   br label %DecodeAlphaData.exit
 
-395:                                              ; preds = %389
+395:                                              ; preds = %VP8LIsEndOfStream.exit194.i
   store i32 %.0116222.i, ptr %17, align 8, !tbaa !91
   br label %DecodeAlphaData.exit
 
@@ -2203,8 +2201,8 @@ VP8LIsEndOfStream.exit194.i:                      ; preds = %383, %377, %.thread
   %403 = tail call fastcc i32 @DecodeImageData(ptr noundef nonnull %4, ptr noundef %398, i32 noundef %400, i32 noundef %402, i32 noundef %1, ptr noundef nonnull @ExtractAlphaRows)
   br label %DecodeAlphaData.exit
 
-DecodeAlphaData.exit:                             ; preds = %395, %393, %391, %396, %2
-  %.0 = phi i32 [ 1, %2 ], [ %403, %396 ], [ 1, %395 ], [ 0, %391 ], [ 0, %393 ]
+DecodeAlphaData.exit:                             ; preds = %395, %393, %390, %396, %2
+  %.0 = phi i32 [ 1, %2 ], [ %403, %395 ], [ 1, %394 ], [ 0, %390 ], [ 0, %392 ]
   ret i32 %.0
 }
 

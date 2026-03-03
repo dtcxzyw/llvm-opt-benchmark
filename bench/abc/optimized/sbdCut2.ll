@@ -186,7 +186,7 @@ define range(i32 0, 2) i32 @Sbd_ManCutIsTopo_rec(ptr noundef %0, ptr noundef %1,
   br i1 %narrow.i.not, label %common.ret35, label %20
 
 common.ret35:                                     ; preds = %16, %3, %10, %20
-  %common.ret35.op = phi i32 [ %33, %20 ], [ 1, %10 ], [ 0, %16 ], [ 1, %3 ]
+  %common.ret35.op = phi i32 [ %31, %20 ], [ 1, %10 ], [ 0, %16 ], [ 1, %3 ]
   ret i32 %common.ret35.op
 
 20:                                               ; preds = %16
@@ -200,10 +200,8 @@ common.ret35:                                     ; preds = %16, %3, %10, %20
   %27 = and i32 %26, 536870911
   %28 = sub nsw i32 %spec.select, %27
   %29 = tail call i32 @Sbd_ManCutIsTopo_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28)
-  %30 = icmp ne i32 %24, 0
-  %31 = icmp ne i32 %29, 0
-  %32 = select i1 %30, i1 %31, i1 false
-  %33 = zext i1 %32 to i32
+  %30 = trunc nuw i32 %24 to i1
+  %31 = select i1 %30, i32 %29, i32 0
   br label %common.ret35
 }
 
@@ -728,7 +726,7 @@ define range(i32 0, 2) i32 @Sbd_ManCutCollect_rec(ptr noundef %0, ptr noundef %1
   %12 = icmp slt i32 %10, 0
   %spec.select = select i1 %12, i32 %2, i32 %11
   %.not = icmp eq i32 %spec.select, 0
-  br i1 %.not, label %76, label %13
+  br i1 %.not, label %common.ret56, label %13
 
 13:                                               ; preds = %6
   %14 = getelementptr i8, ptr %0, i64 176
@@ -739,7 +737,7 @@ define range(i32 0, 2) i32 @Sbd_ManCutCollect_rec(ptr noundef %0, ptr noundef %1
   %17 = getelementptr inbounds i32, ptr %.val45, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !33
   %.not52 = icmp eq i32 %18, %.val44
-  br i1 %.not52, label %76, label %19
+  br i1 %.not52, label %common.ret56, label %19
 
 19:                                               ; preds = %13
   store i32 %.val44, ptr %17, align 4, !tbaa !33
@@ -757,7 +755,7 @@ define range(i32 0, 2) i32 @Sbd_ManCutCollect_rec(ptr noundef %0, ptr noundef %1
   %25 = getelementptr inbounds i32, ptr %.val41, i64 %16
   %26 = load i32, ptr %25, align 4, !tbaa !33
   %.not40 = icmp sgt i32 %26, %3
-  br i1 %.not40, label %63, label %27
+  br i1 %.not40, label %64, label %27
 
 27:                                               ; preds = %23, %19
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -831,28 +829,27 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %60 = getelementptr inbounds i32, ptr %.val, i64 %16
   %61 = load i32, ptr %60, align 4, !tbaa !33
   %62 = icmp sle i32 %61, %3
-  br label %76
+  %63 = zext i1 %62 to i32
+  br label %common.ret56
 
-63:                                               ; preds = %23
-  %64 = trunc i64 %.val49 to i32
-  %65 = and i32 %64, 536870911
-  %66 = sub nsw i32 %spec.select, %65
-  %67 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %66, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5)
+common.ret56:; preds = %6, %13, %Vec_IntPush.exit, %64
+  %common.ret56.op = phi i32 [ %75, %64 ], [ 1, %13 ], [ 1, %6 ], [ %63, %Vec_IntPush.exit ]
+  ret i32 %common.ret56.op
+
+64:                                               ; preds = %23
+  %65 = trunc i64 %.val49 to i32
+  %66 = and i32 %65, 536870911
+  %67 = sub nsw i32 %spec.select, %66
+  %68 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %67, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5)
   %.val51 = load i64, ptr %21, align 4
   %68 = lshr i64 %.val51, 32
   %69 = trunc nuw i64 %68 to i32
   %70 = and i32 %69, 536870911
   %71 = sub nsw i32 %spec.select, %70
   %72 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %71, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5)
-  %73 = icmp ne i32 %67, 0
-  %74 = icmp ne i32 %72, 0
-  %75 = select i1 %73, i1 %74, i1 false
-  br label %76
-
-76:                                               ; preds = %6, %13, %63, %Vec_IntPush.exit
-  %.0.shrunk = phi i1 [ %75, %63 ], [ %62, %Vec_IntPush.exit ], [ true, %13 ], [ true, %6 ]
-  %.0 = zext i1 %.0.shrunk to i32
-  ret i32 %.0
+  %74 = trunc nuw i32 %68 to i1
+  %75 = select i1 %74, i32 %72, i32 0
+  br label %common.ret56
 }
 
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable

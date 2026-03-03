@@ -1730,10 +1730,9 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
   %26 = load i64, ptr %25, align 8, !noalias !379
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !379
   %27 = tail call i64 @llvm.uadd.sat.i64(i64 %12, i64 %22)
-  %28 = icmp ne i64 %14, 0
-  %29 = icmp ne i64 %24, 0
-  %or.cond.i = and i1 %28, %29
-  br i1 %or.cond.i, label %36, label %40
+  %28 = and i64 %24, %14
+  %29 = icmp eq i64 %28, 0
+  br i1 %or.cond.not.i, label %39, label %35
 
 30:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !401)
@@ -1742,7 +1741,7 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
   %33 = load ptr, ptr %32, align 8, !alias.scope !404, !noalias !407, !nonnull !12, !align !53, !noundef !12
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8, !invariant.load !12, !noalias !409, !nonnull !12
-  tail call void %35(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %31), !noalias !410
+  tail call void %34(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %31), !noalias !410
   br label %"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St1$C$St2$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hec73a472024ab318E.exit"
 
 36:                                               ; preds = %7
@@ -1754,8 +1753,8 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
   br label %40
 
 40:                                               ; preds = %36, %7
-  %.sroa.04.0.i = phi i64 [ 0, %7 ], [ %spec.select.i, %36 ]
-  %.sroa.4.0.i = phi i64 [ undef, %7 ], [ %39, %36 ]
+  %.sroa.04.0.i = phi i64 [ 0, %7 ], [ %spec.select.i, %35 ]
+  %.sroa.4.0.i = phi i64 [ undef, %7 ], [ %39, %35 ]
   store i64 %27, ptr %0, align 8, !alias.scope !374, !noalias !377
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.04.0.i, ptr %41, align 8, !alias.scope !374, !noalias !377
@@ -116734,7 +116733,7 @@ split:                                            ; preds = %60, %"_ZN71_$LT$htt
   store i64 %162, ptr %90, align 8, !alias.scope !20069, !noalias !20070
   %.val.i.i.i = load i64, ptr %5, align 8, !range !390, !noalias !20048, !noundef !12
   %.val130.i.i.i = load i64, ptr %92, align 8, !noalias !20048
-  %164 = icmp ne i64 %.val.i.i.i, 0
+  %164 = trunc nuw i64 %.val.i.i.i to i1
   %165 = icmp eq i64 %.val130.i.i.i, %162
   %spec.select.i.i.i.i = select i1 %164, i1 %165, i1 false
   br i1 %spec.select.i.i.i.i, label %166, label %167
@@ -116747,7 +116746,7 @@ split:                                            ; preds = %60, %"_ZN71_$LT$htt
 167:                                              ; preds = %166, %161
   %.val133.i.i.i = load i64, ptr %93, align 8, !range !390, !noalias !20048, !noundef !12
   %.val134.i.i.i = load i64, ptr %94, align 8, !noalias !20048
-  %168 = icmp ne i64 %.val133.i.i.i, 0
+  %168 = trunc nuw i64 %.val133.i.i.i to i1
   %169 = icmp eq i64 %.val134.i.i.i, %162
   %spec.select.i137.i.i.i = select i1 %168, i1 %169, i1 false
   br i1 %spec.select.i137.i.i.i, label %170, label %171
@@ -117313,7 +117312,7 @@ define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$12cont
   %74 = load ptr, ptr %73, align 8, !alias.scope !20241, !noundef !12
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %76 = load i64, ptr %75, align 8, !alias.scope !20241, !noundef !12
-  tail call void %71(ptr noalias noundef nonnull align 8 dereferenceable(8) %72, ptr noundef %74, i64 noundef %76)
+  tail call void %70(ptr noalias noundef nonnull align 8 dereferenceable(8) %72, ptr noundef %74, i64 noundef %76)
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit3"
 
 "_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit3": ; preds = %"_ZN92_$LT$http..header..name..HeaderName$u20$as$u20$http..header..map..as_header_name..Sealed$GT$4find17h4aacca33794b57c0E.llvm.18016462908235130027.exit", %69

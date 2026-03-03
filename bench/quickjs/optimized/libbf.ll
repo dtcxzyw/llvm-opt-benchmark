@@ -943,7 +943,6 @@ scan_bit_nz.exit.i:                               ; preds = %50, %.preheader.i.i
 get_bit.exit.i:                                   ; preds = %59, %scan_bit_nz.exit.i
   %.0.i28.i = phi i64 [ %64, %59 ], [ 0, %scan_bit_nz.exit.i ]
   %65 = or i64 %.0.i28.i, %.0.i113
-  %.not.i = icmp eq i64 %65, 0
   %66 = trunc nuw nsw i64 %65 to i32
   switch i32 %29, label %default.unreachable [
     i32 1, label %get_bit.exit32.i
@@ -1005,8 +1004,8 @@ default.unreachable:                              ; preds = %get_bit.exit.i
 
 get_bit.exit32.i:                                 ; preds = %86, %85, %79, %72, %68, %67, %get_bit.exit.i
   %.024.i = phi i32 [ 0, %get_bit.exit.i ], [ %87, %86 ], [ %spec.select.i, %79 ], [ %.mux.i, %67 ], [ %66, %85 ], [ %78, %72 ], [ 0, %68 ]
-  %89 = or i32 %4, 16
-  %spec.select = select i1 %.not.i, i32 %4, i32 %89
+  %89 = shl nuw nsw i32 %66, 4
+  %spec.select = or i32 %89, %4
   %90 = icmp slt i64 %.089, 1
   %.not112 = icmp eq i32 %.024.i, 0
   br i1 %90, label %91, label %106
@@ -9548,7 +9547,7 @@ ceil_log2.exit:                                   ; preds = %37, %34
   br i1 %47, label %48, label %197
 
 48:                                               ; preds = %ceil_log2.exit
-  %49 = icmp ne i32 %5, 0
+  %49 = trunc nuw i32 %5 to i1
   %50 = icmp ne i32 %.0287, 0
   %or.cond = select i1 %49, i1 true, i1 %50
   br i1 %or.cond, label %51, label %124

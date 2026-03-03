@@ -2878,9 +2878,10 @@ define internal fastcc void @_ZL23maybe_complete_tsi_nextP27alts_grpc_handshaker
   tail call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %7 = load i8, ptr %6, align 8, !tbaa !126, !range !41, !noundef !42
-  %8 = zext i1 %1 to i8
-  %9 = or i8 %7, %8
-  store i8 %9, ptr %6, align 8, !tbaa !126
+  %8 = trunc nuw i8 %7 to i1
+  %9 = or i1 %1, %8
+  %10 = zext i1 %9 to i8
+  store i8 %10, ptr %6, align 8, !tbaa !126
   %.not = icmp eq ptr %2, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 320
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !127
@@ -2909,7 +2910,7 @@ _ZN4absl12lts_2024072212log_internal12Check_EQImplIP19recv_message_resultDnEEPNS
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !35
   invoke void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.1, i32 noundef 159, i64 %18, ptr %16) #27
-          to label %19 unwind label %20
+          to label %20 unwind label %20
 
 19:                                               ; preds = %_ZN4absl12lts_2024072212log_internal12Check_EQImplIP19recv_message_resultDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #28
@@ -2922,7 +2923,7 @@ _ZN4absl12lts_2024072212log_internal12Check_EQImplIP19recv_message_resultDnEEPNS
   br label %22
 
 22:                                               ; preds = %20, %14
-  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %15, %14 ]
+  %.pn = phi { ptr, i32 } [ %21, %21 ], [ %15, %15 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %23
 
@@ -2940,7 +2941,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %22
   br i1 %10, label %.critedge36, label %27
 
 27:                                               ; preds = %.thread, %26
-  %28 = phi ptr [ %2, %.thread ], [ %.pre, %26 ]
+  %28 = phi ptr [ %2, %.thread ], [ %.pre, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !62
@@ -2950,16 +2951,14 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %22
 32:                                               ; preds = %27
   %33 = load i32, ptr %28, align 8, !tbaa !57
   %.not43 = icmp eq i32 %33, 0
-  %34 = trunc nuw i8 %9 to i1
-  %or.cond = select i1 %.not43, i1 true, i1 %34
-  br i1 %or.cond, label %35, label %.critedge36
+  %brmerge = select i1 %.not43, i1 true, i1 %9
+  br i1 %brmerge, label %35, label %.critedge36
 
-.critedge:                                        ; preds = %27
-  %.old = trunc nuw i8 %9 to i1
-  br i1 %.old, label %35, label %.critedge36
+.critedge:                                        ; preds = %28
+  br i1 %9, label %35, label %.critedge36
 
-35:                                               ; preds = %.critedge, %32
-  store ptr null, ptr %29, align 8, !tbaa !128
+35:  ; preds = %33, %.critedge
+  store ptr null, ptr %30, align 8, !tbaa !128
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit37 unwind label %36
 

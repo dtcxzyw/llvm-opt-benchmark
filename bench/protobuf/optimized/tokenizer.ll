@@ -397,9 +397,10 @@ entry:
   store i8 %frombool, ptr %report_newlines_, align 1
   %report_whitespace_ = getelementptr inbounds nuw i8, ptr %this, i64 190
   %0 = load i8, ptr %report_whitespace_, align 2
-  %1 = and i8 %0, 1
-  %or2 = or i8 %1, %frombool
-  store i8 %or2, ptr %report_whitespace_, align 2
+  %1 = trunc i8 %0 to i1
+  %or2 = or i1 %report, %1
+  %frombool7 = zext i1 %or2 to i8
+  store i8 %frombool7, ptr %report_whitespace_, align 2
   ret void
 }
 

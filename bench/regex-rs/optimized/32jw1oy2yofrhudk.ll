@@ -4842,7 +4842,6 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$regex_automata..meta..strategy..Pr
   unreachable
 
 _ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit: ; preds = %26, %18
-  %.sroa.0.0 = phi i64 [ 0, %18 ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !845
   br label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit"
 
@@ -4869,14 +4868,12 @@ _ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit: ; preds = %2
   unreachable
 
 _ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit2: ; preds = %36, %22
-  %.sroa.0.1 = phi i64 [ 0, %22 ], [ 1, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !845
   br label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit"
 
 "_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit": ; preds = %3, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit2
-  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit ], [ %.sroa.0.1, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit2 ], [ 0, %3 ]
-  %46 = icmp ne i64 %.sroa.0.2, 0
-  ret i1 %46
+  %.sroa.0.2 = phi i1 [ %trunc.i, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit ], [ %trunc1.i, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit2 ], [ false, %3 ]
+  ret i1 %.sroa.0.2
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable

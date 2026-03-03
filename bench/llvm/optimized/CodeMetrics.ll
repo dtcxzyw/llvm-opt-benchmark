@@ -1262,9 +1262,10 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit70:    ; preds = %268, %_ZNK4llvm10Ba
   %273 = icmp eq i8 %34, 33
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %275 = load i8, ptr %274, align 2, !tbaa !129, !range !29, !noundef !30
-  %276 = zext i1 %273 to i8
-  %277 = or i8 %275, %276
-  store i8 %277, ptr %274, align 2, !tbaa !129
+  %276 = trunc nuw i8 %275 to i1
+  %277 = or i1 %273, %276
+  %278 = zext i1 %277 to i8
+  store i8 %278, ptr %274, align 2, !tbaa !129
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8, !tbaa !84
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !85
   %278 = icmp eq i32 %.sroa.484.0.copyload, 1

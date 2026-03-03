@@ -6686,6 +6686,7 @@ define internal noundef ptr @_io_TextIOWrapper_reconfigure(ptr noundef %0, ptr n
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %70 = load ptr, ptr %69, align 8, !tbaa !55
   %.not55.not.i = icmp eq ptr %70, null
+  %or.cond3.i = or i1 %.not108, %.not109
   br i1 %.not55.not.i, label %80, label %76
 
 .thread.i:                                        ; preds = %8, %.thread69, %56
@@ -6758,6 +6759,7 @@ validate_newline.exit.i:                          ; preds = %92, %89, %85, %83
   %.0407891102 = phi ptr [ %.0407891103, %.thread.i ], [ %.040, %83 ], [ %.040, %92 ], [ %.040, %89 ], [ %.040, %85 ]
   %.0427792100 = phi ptr [ %.0427792101, %.thread.i ], [ %.042, %83 ], [ %.042, %92 ], [ %.042, %89 ], [ %.042, %85 ]
   %100 = phi i1 [ %73, %.thread.i ], [ %.not109, %83 ], [ %.not109, %92 ], [ %.not109, %89 ], [ %.not109, %85 ]
+  %or.cond37881.i = phi i1 [ %or.cond375.i, %.thread.i ], [ %or.cond3.i, %83 ], [ %or.cond3.i, %92 ], [ %or.cond3.i, %89 ], [ %or.cond3.i, %85 ]
   %.0.i = phi ptr [ null, %.thread.i ], [ %81, %83 ], [ %81, %92 ], [ %81, %89 ], [ %81, %85 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %102 = icmp eq ptr %.0378089104, @_Py_NoneStruct
@@ -6828,8 +6830,7 @@ convert_optional_bool.exit71.thread84.i:          ; preds = %convert_optional_bo
   br i1 %133, label %_io_TextIOWrapper_reconfigure_impl.exit, label %.thread86.i
 
 134:                                              ; preds = %129
-  %or.cond3.i.i = or i1 %99, %100
-  br i1 %or.cond3.i.i, label %.thread86.i, label %textiowrapper_change_encoding.exit.thread89.i
+  br i1 %or.cond37881.i, label %.thread89.i, label %textiowrapper_change_encoding.exit.thread92.i
 
 .thread86.i:                                      ; preds = %134, %131
   br i1 %99, label %146, label %135
@@ -7114,7 +7115,7 @@ textiowrapper_change_encoding.exit.thread89.i:    ; preds = %textiowrapper_chang
   br label %_io_TextIOWrapper_reconfigure_impl.exit
 
 _io_TextIOWrapper_reconfigure_impl.exit:          ; preds = %textiowrapper_change_encoding.exit.thread89.i, %textiowrapper_change_encoding.exit.i, %220, %217, %Py_DECREF.exit70.i.i, %200, %197, %Py_DECREF.exit76.i.i, %186, %183, %Py_DECREF.exit80.i.i, %172, %169, %Py_DECREF.exit84.i.i, %148, %131, %convert_optional_bool.exit71.thread84.i, %122, %109, %validate_newline.exit.i, %80, %76, %63, %51, %41, %11
-  %.046 = phi ptr [ null, %11 ], [ null, %76 ], [ null, %41 ], [ null, %80 ], [ null, %220 ], [ null, %217 ], [ null, %convert_optional_bool.exit71.thread84.i ], [ null, %131 ], [ @_Py_NoneStruct, %textiowrapper_change_encoding.exit.thread89.i ], [ null, %63 ], [ null, %51 ], [ null, %validate_newline.exit.i ], [ null, %textiowrapper_change_encoding.exit.i ], [ null, %122 ], [ null, %109 ], [ null, %148 ], [ null, %172 ], [ null, %186 ], [ null, %200 ], [ null, %Py_DECREF.exit84.i.i ], [ null, %169 ], [ null, %Py_DECREF.exit80.i.i ], [ null, %183 ], [ null, %Py_DECREF.exit76.i.i ], [ null, %197 ], [ null, %Py_DECREF.exit70.i.i ]
+  %.046 = phi ptr [ null, %11 ], [ null, %76 ], [ null, %41 ], [ null, %80 ], [ null, %220 ], [ null, %217 ], [ null, %convert_optional_bool.exit71.thread87.i ], [ null, %131 ], [ @_Py_NoneStruct, %textiowrapper_change_encoding.exit.thread92.i ], [ null, %63 ], [ null, %51 ], [ null, %validate_newline.exit.i ], [ null, %textiowrapper_change_encoding.exit.i ], [ null, %122 ], [ null, %109 ], [ null, %148 ], [ null, %172 ], [ null, %186 ], [ null, %200 ], [ null, %Py_DECREF.exit84.i.i ], [ null, %169 ], [ null, %Py_DECREF.exit80.i.i ], [ null, %183 ], [ null, %Py_DECREF.exit76.i.i ], [ null, %197 ], [ null, %Py_DECREF.exit70.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.046
 }

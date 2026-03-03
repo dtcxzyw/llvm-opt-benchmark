@@ -1205,12 +1205,11 @@ define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef re
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %70 = load i32, ptr %69, align 8
   %71 = lshr i32 %70, 18
-  %72 = and i32 %71, 1
-  %73 = or i32 %72, %68
-  %74 = load i16, ptr %6, align 4
-  %75 = icmp ne i32 %73, 0
-  %76 = tail call fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef %6, i16 noundef zeroext %74, i1 noundef zeroext %75)
-  ret ptr %76
+  %72 = or i32 %71, %68
+  %73 = load i16, ptr %6, align 4
+  %74 = trunc i32 %72 to i1
+  %75 = tail call fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef %6, i16 noundef zeroext %73, i1 noundef zeroext %74)
+  ret ptr %75
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

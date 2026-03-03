@@ -1160,16 +1160,12 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit: ; preds = %
   %.not61 = icmp eq ptr %.0.i.i.i.i.i.i, %72
   br i1 %.not61, label %._crit_edge65, label %.lr.ph64
 
-._crit_edge65.loopexit:                           ; preds = %._crit_edge
-  %88 = trunc nuw i8 %.1.lcssa to i1
-  br label %._crit_edge65
-
-._crit_edge65:                                    ; preds = %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit36, %._crit_edge65.loopexit, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit
-  %.023.lcssa = phi i1 [ true, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit ], [ %88, %._crit_edge65.loopexit ], [ true, %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit36 ]
-  br i1 %3, label %122, label %129
+._crit_edge65.loopexit:                           ; preds = %._crit_edge, %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit36, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit
+  %.023.lcssa = phi i1 [ true, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit ], [ true, %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit36 ], [ %.1.lcssa, %._crit_edge ]
+  br i1 %3, label %119, label %126
 
 .lr.ph64:                                         ; preds = %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit, %._crit_edge
-  %.02363 = phi i8 [ %.1.lcssa, %._crit_edge ], [ 1, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit ]
+  %.02363 = phi i1 [ %.1.lcssa, %._crit_edge ], [ true, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit ]
   %.sroa.038.062 = phi ptr [ %95, %._crit_edge ], [ %.0.i.i.i.i.i.i, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit ]
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.038.062, i64 32
   %90 = load ptr, ptr %89, align 8, !tbaa !74
@@ -1181,16 +1177,16 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit: ; preds = %
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %113, %.lr.ph64
-  %.1.lcssa = phi i8 [ %.02363, %.lr.ph64 ], [ %.2, %113 ]
+  %.1.lcssa = phi i1 [ %.02363, %.lr.ph64 ], [ %.2, %110 ]
   %95 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.038.062) #22
   %.not = icmp eq ptr %95, %72
   br i1 %.not, label %._crit_edge65.loopexit, label %.lr.ph64, !llvm.loop !83
 
 .lr.ph:                                           ; preds = %.lr.ph64, %113
-  %96 = phi ptr [ %114, %113 ], [ %94, %.lr.ph64 ]
-  %97 = phi ptr [ %115, %113 ], [ %93, %.lr.ph64 ]
-  %.02260 = phi i64 [ %116, %113 ], [ 0, %.lr.ph64 ]
-  %.159 = phi i8 [ %.2, %113 ], [ %.02363, %.lr.ph64 ]
+  %96 = phi ptr [ %114, %110 ], [ %94, %.lr.ph64 ]
+  %97 = phi ptr [ %115, %110 ], [ %93, %.lr.ph64 ]
+  %.02260 = phi i64 [ %116, %110 ], [ 0, %.lr.ph64 ]
+  %.159 = phi i1 [ %.2, %110 ], [ %.02363, %.lr.ph64 ]
   %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %.02260
   %99 = load ptr, ptr %98, align 8, !tbaa !41
   %100 = icmp eq ptr %99, %2
@@ -1201,26 +1197,24 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit: ; preds = %
   %103 = load ptr, ptr %0, align 8, !tbaa !3
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 56
   %105 = load ptr, ptr %104, align 8
-  %106 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %90, i32 noundef %102, ptr noundef nonnull %1)
-          to label %107 unwind label %111
+  %106 = invoke noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %90, i32 noundef %102, ptr noundef nonnull %1)
+          to label %106 unwind label %108
 
 107:                                              ; preds = %101
-  %108 = icmp ne i8 %.159, 0
-  %109 = select i1 %106, i1 %108, i1 false
-  %110 = zext i1 %109 to i8
-  %.pre74 = load ptr, ptr %92, align 8, !tbaa !45
-  %.pre75 = load ptr, ptr %91, align 8, !tbaa !38
-  br label %113
+  %107 = select i1 %105, i1 %.159, i1 false
+  %.pre74 = load ptr, ptr %91, align 8, !tbaa !45
+  %.pre75 = load ptr, ptr %90, align 8, !tbaa !38
+  br label %110
 
-111:                                              ; preds = %101
-  %112 = landingpad { ptr, i32 }
+108:; preds = %101
+  %109 = landingpad { ptr, i32 }
           cleanup
   br label %134
 
 113:                                              ; preds = %107, %.lr.ph
-  %114 = phi ptr [ %.pre75, %107 ], [ %96, %.lr.ph ]
-  %115 = phi ptr [ %.pre74, %107 ], [ %97, %.lr.ph ]
-  %.2 = phi i8 [ %110, %107 ], [ %.159, %.lr.ph ]
+  %114 = phi ptr [ %.pre75, %106 ], [ %96, %.lr.ph ]
+  %115 = phi ptr [ %.pre74, %106 ], [ %97, %.lr.ph ]
+  %.2 = phi i1 [ %107, %106 ], [ %.159, %.lr.ph ]
   %116 = add nuw i64 %.02260, 1
   %117 = ptrtoint ptr %115 to i64
   %118 = ptrtoint ptr %114 to i64
@@ -1233,8 +1227,8 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit: ; preds = %
   %123 = load ptr, ptr %0, align 8, !tbaa !3
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 8
-  %126 = invoke noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %2, i1 noundef zeroext false)
-          to label %129 unwind label %127
+  %126 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %2, i1 noundef zeroext false)
+          to label %126 unwind label %127
 
 127:                                              ; preds = %122
   %128 = landingpad { ptr, i32 }
@@ -1257,8 +1251,8 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %129
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread
 
-134:                                              ; preds = %127, %111
-  %.pn = phi { ptr, i32 } [ %112, %111 ], [ %128, %127 ]
+134:                                              ; preds = %127, %108
+  %.pn = phi { ptr, i32 } [ %109, %108 ], [ %128, %124 ]
   call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn

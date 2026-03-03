@@ -20148,17 +20148,18 @@ _ZNK2cv11_InputArray6getMatEi.exit242:            ; preds = %372, %375
   store i32 16842752, ptr %41, align 8, !tbaa !389
   %389 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %29, ptr %389, align 8, !tbaa !375
-  %390 = and i32 %3, 1
-  %391 = icmp eq i32 %390, %.lobit
-  %392 = and i32 %3, 4
-  %.not122 = icmp eq i32 %392, 0
-  %393 = uitofp nneg i32 %287 to double
-  %394 = fdiv double 1.000000e+00, %393
-  %395 = select i1 %.not122, double 1.000000e+00, double %394
-  invoke void @_ZN2cv13mulTransposedERKNS_11_InputArrayERKNS_12_OutputArrayEbS2_di(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %391, ptr noundef nonnull align 8 dereferenceable(24) %41, double noundef %395, i32 noundef %.0)
-          to label %396 unwind label %404
+  %390 = xor i32 %.lobit, %3
+  %391 = trunc i32 %390 to i1
+  %392 = xor i1 %391, true
+  %393 = and i32 %3, 4
+  %.not122 = icmp eq i32 %393, 0
+  %394 = uitofp nneg i32 %287 to double
+  %395 = fdiv double 1.000000e+00, %394
+  %396 = select i1 %.not122, double 1.000000e+00, double %395
+  invoke void @_ZN2cv13mulTransposedERKNS_11_InputArrayERKNS_12_OutputArrayEbS2_di(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %392, ptr noundef nonnull align 8 dereferenceable(24) %41, double noundef %396, i32 noundef %.0)
+          to label %397 unwind label %405
 
-396:                                              ; preds = %383
+397:                                              ; preds = %383
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #27
@@ -20167,7 +20168,7 @@ _ZNK2cv11_InputArray6getMatEi.exit242:            ; preds = %372, %375
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %397
 
-397:                                              ; preds = %396, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
+397:                                              ; preds = %397, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
   %398 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %399 = load i32, ptr %398, align 8, !tbaa !3
   %.not.i = icmp eq i32 %399, 0
@@ -20196,19 +20197,19 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %397, %400
   br label %406
 
 406:                                              ; preds = %323, %329, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229, %363, %382, %404, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213
-  %.pn123.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213 ], [ %.pn106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216 ], [ %405, %404 ], [ %.pn119.pn, %363 ], [ %324, %323 ], [ %.pn114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229 ], [ %.pn110, %382 ], [ %.pn112, %329 ]
+  %.pn123.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213 ], [ %.pn106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216 ], [ %405, %405 ], [ %.pn119.pn, %363 ], [ %324, %323 ], [ %.pn114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229 ], [ %.pn110, %382 ], [ %.pn112, %329 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #27
   br label %407
 
 407:                                              ; preds = %406, %269
-  %.pn123.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn123.pn.pn.pn.pn, %406 ], [ %270, %269 ]
+  %.pn123.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn123.pn.pn.pn.pn, %407 ], [ %270, %269 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %408
 
 408:                                              ; preds = %407, %259, %54
-  %.pn158.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn158.pn.pn.pn.pn.pn.pn.pn, %259 ], [ %.pn123.pn.pn.pn.pn.pn, %407 ], [ %55, %54 ]
+  %.pn158.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn158.pn.pn.pn.pn.pn.pn.pn, %259 ], [ %.pn123.pn.pn.pn.pn.pn, %408 ], [ %55, %54 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %6) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn158.pn.pn.pn.pn.pn.pn.pn.pn

@@ -1146,7 +1146,8 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
 
 range_contains_value.exit.thread.i:               ; preds = %245, %283, %256
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %287 = zext i1 %117 to i8
+  %287 = or i1 %117, %30
+  %288 = zext i1 %287 to i64
   br label %range_add_value.exit
 
 .loopexit.i:                                      ; preds = %276, %269, %256
@@ -1177,10 +1178,8 @@ range_contains_value.exit.thread.i:               ; preds = %245, %283, %256
   br label %range_add_value.exit
 
 range_add_value.exit:                             ; preds = %range_contains_value.exit.thread.i, %.loopexit.i, %305
-  %.0.i = phi i8 [ %287, %range_contains_value.exit.thread.i ], [ 1, %305 ], [ 1, %.loopexit.i ]
-  %306 = or i8 %.0.i, %29
-  %307 = zext nneg i8 %306 to i64
-  ret i64 %307
+  %.0.i = phi i64 [ %288, %range_contains_value.exit.thread.i ], [ 1, %306 ], [ 1, %.loopexit.i ]
+  ret i64 %.0.i
 }
 
 declare ptr @get_fn_opclass_options(ptr noundef) local_unnamed_addr #1

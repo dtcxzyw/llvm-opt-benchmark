@@ -3811,10 +3811,10 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE18visitGetElementPtrE
 
 _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit.i.i317: ; preds = %1619, %1606, %1584
   %.val.i.i318 = phi i32 [ %.val71.i.i, %1584 ], [ %.val.pre.i.i358, %1619 ], [ %.val71.i.i, %1606 ]
+  %.sroa.14.0.i138.i.i = phi i1 [ undef, %1584 ], [ %1620, %1619 ], [ undef, %1606 ]
   %.sroa.12.0.i137.i.i = phi ptr [ undef, %1584 ], [ %.sroa.12.0.i.i.i352, %1619 ], [ undef, %1606 ]
   %.sroa.10.0.i136.i.i = phi i32 [ undef, %1584 ], [ %.sroa.10.0.i.i.i351, %1619 ], [ undef, %1606 ]
   %.sroa.6.0.i135.i.i = phi i32 [ undef, %1584 ], [ %.sroa.6.0.i.i.i350, %1619 ], [ undef, %1606 ]
-  %or.cond142.i.i = phi i1 [ false, %1584 ], [ %1620, %1619 ], [ false, %1606 ]
   %.sink.i.i.i319 = phi i8 [ 0, %1584 ], [ 1, %1619 ], [ 0, %1606 ]
   store i8 %.sink.i.i.i319, ptr %407, align 8, !tbaa !196, !alias.scope !256
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -3887,7 +3887,9 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit87.i.i: ;
   store ptr %.sroa.14.0.i82.i.i, ptr %.sroa.14.0..sroa_idx.i86.i.i, align 8, !tbaa !148, !alias.scope !259
   %1657 = icmp eq ptr %.sroa.14.0.i82.i.i, null
   store i8 1, ptr %408, align 8, !tbaa !196, !alias.scope !259
-  %or.cond144.i.i = select i1 %or.cond142.i.i, i1 %1657, i1 false
+  %or.cond142.i.i = trunc nuw i8 %.sink.i.i.i319 to i1
+  %or.cond143.i.i = select i1 %or.cond142.i.i, i1 %.sroa.14.0.i138.i.i, i1 false
+  %or.cond144.i.i = select i1 %or.cond143.i.i, i1 %1657, i1 false
   br i1 %or.cond144.i.i, label %1658, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE12visitBitCastERNS_11BitCastInstE.exit.thread
 
 1658:                                             ; preds = %_ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit87.i.i

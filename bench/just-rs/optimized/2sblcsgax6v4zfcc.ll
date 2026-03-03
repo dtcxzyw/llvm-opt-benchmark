@@ -10136,7 +10136,6 @@ define hidden noundef zeroext i1 @"_ZN4just6recipe15Recipe$LT$D$GT$7enabled17hd9
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1568
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h224f43fad2b857bfE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull %6, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.7c6f7af04c557118a051d24cf1a7517f.154.llvm.3204583114324502961), !noalias !1572
   %12 = load i64, ptr %3, align 8, !range !155, !noalias !1568, !noundef !21
-  %trunc.i8 = trunc nuw i64 %12 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1568
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1573
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h224f43fad2b857bfE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull %6, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.7c6f7af04c557118a051d24cf1a7517f.155.llvm.3204583114324502961), !noalias !1577
@@ -10148,12 +10147,12 @@ define hidden noundef zeroext i1 @"_ZN4just6recipe15Recipe$LT$D$GT$7enabled17hd9
   %trunc.i22 = trunc nuw i64 %14 to i1
   %.1.i26 = xor i1 %trunc.i22, true
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !1578
-  %15 = and i64 %13, %11
-  %.demorgan.not = icmp ne i64 %15, 0
-  %16 = and i1 %.demorgan.not, %trunc.i8
+  %15 = and i64 %11, %13
+  %16 = and i64 %15, %12
+  %17 = trunc nuw i64 %16 to i1
   %17 = and i64 %14, %12
   %18 = icmp eq i64 %17, 0
-  %19 = or i1 %16, %18
+  %19 = or i1 %19, %17
   %20 = or i1 %19, %.1.i26
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17ha5cdde376751ca9eE.exit28"
 

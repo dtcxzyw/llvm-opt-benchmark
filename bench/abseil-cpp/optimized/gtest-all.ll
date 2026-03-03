@@ -22871,7 +22871,7 @@ define dso_local void @_ZN7testing8internal13PrintStringToERKNSt7__cxx1112basic_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !26
   %6 = tail call fastcc noundef i32 @_ZN7testing8internalL20PrintCharsAsStringToIcEENS0_10CharFormatEPKT_mPSo(ptr noundef %3, i64 noundef %5, ptr noundef %1)
-  %7 = icmp ne i32 %6, 0
+  %7 = trunc nuw i32 %6 to i1
   %8 = load i8, ptr @_ZN7testing22FLAGS_gtest_print_utf8E, align 1, !range !17
   %9 = trunc nuw i8 %8 to i1
   %or.cond = select i1 %7, i1 %9, i1 false

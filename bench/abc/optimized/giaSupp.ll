@@ -1038,11 +1038,11 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManGatherSupp_rec(ptr noundef %0
   %9 = load i32, ptr %8, align 4, !tbaa !47
   %10 = add nsw i32 %.val29, -1
   %.not = icmp eq i32 %9, %10
-  br i1 %.not, label %93, label %11
+  br i1 %.not, label %91, label %11
 
 11:                                               ; preds = %4
   %.not43 = icmp eq i32 %9, %.val29
-  br i1 %.not43, label %93, label %12
+  br i1 %.not43, label %91, label %12
 
 12:                                               ; preds = %11
   store i32 %.val29, ptr %8, align 4, !tbaa !47
@@ -1121,7 +1121,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds i32, ptr %43, i64 %46
   store i32 %1, ptr %47, align 4, !tbaa !47
-  br label %93
+  br label %91
 
 48:                                               ; preds = %12
   %49 = trunc i64 %.val35 to i32
@@ -1200,14 +1200,12 @@ Vec_IntPush.exit42:                               ; preds = %.Vec_IntGrow.exit10
   %87 = sext i32 %85 to i64
   %88 = getelementptr inbounds i32, ptr %84, i64 %87
   store i32 %1, ptr %88, align 4, !tbaa !47
-  %89 = icmp ne i32 %52, 0
-  %90 = icmp ne i32 %57, 0
-  %91 = select i1 %89, i1 true, i1 %90
-  %92 = zext i1 %91 to i32
-  br label %93
+  %89 = trunc nuw i32 %52 to i1
+  %90 = select i1 %89, i32 1, i32 %57
+  br label %91
 
-93:                                               ; preds = %11, %4, %Vec_IntPush.exit42, %Vec_IntPush.exit
-  %.0 = phi i32 [ %92, %Vec_IntPush.exit42 ], [ 1, %4 ], [ 0, %Vec_IntPush.exit ], [ 0, %11 ]
+91:; preds = %11, %4, %Vec_IntPush.exit42, %Vec_IntPush.exit
+  %.0 = phi i32 [ %90, %Vec_IntPush.exit42 ], [ 1, %4 ], [ 0, %Vec_IntPush.exit ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -3721,11 +3719,11 @@ define internal fastcc range(i32 0, 2) i32 @Gia_Min2ManGatherSupp_rec(ptr nounde
   %9 = load i32, ptr %8, align 4, !tbaa !47
   %10 = add nsw i32 %.val29, -1
   %.not = icmp eq i32 %9, %10
-  br i1 %.not, label %93, label %11
+  br i1 %.not, label %91, label %11
 
 11:                                               ; preds = %4
   %.not43 = icmp eq i32 %9, %.val29
-  br i1 %.not43, label %93, label %12
+  br i1 %.not43, label %91, label %12
 
 12:                                               ; preds = %11
   store i32 %.val29, ptr %8, align 4, !tbaa !47
@@ -3804,7 +3802,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds i32, ptr %43, i64 %46
   store i32 %1, ptr %47, align 4, !tbaa !47
-  br label %93
+  br label %91
 
 48:                                               ; preds = %12
   %49 = trunc i64 %.val35 to i32
@@ -3883,14 +3881,12 @@ Vec_IntPush.exit42:                               ; preds = %.Vec_IntGrow.exit10
   %87 = sext i32 %85 to i64
   %88 = getelementptr inbounds i32, ptr %84, i64 %87
   store i32 %1, ptr %88, align 4, !tbaa !47
-  %89 = icmp ne i32 %52, 0
-  %90 = icmp ne i32 %57, 0
-  %91 = select i1 %89, i1 true, i1 %90
-  %92 = zext i1 %91 to i32
-  br label %93
+  %89 = trunc nuw i32 %52 to i1
+  %90 = select i1 %89, i32 1, i32 %57
+  br label %91
 
-93:                                               ; preds = %11, %4, %Vec_IntPush.exit42, %Vec_IntPush.exit
-  %.0 = phi i32 [ %92, %Vec_IntPush.exit42 ], [ 1, %4 ], [ 0, %Vec_IntPush.exit ], [ 0, %11 ]
+91:; preds = %11, %4, %Vec_IntPush.exit42, %Vec_IntPush.exit
+  %.0 = phi i32 [ %90, %Vec_IntPush.exit42 ], [ 1, %4 ], [ 0, %Vec_IntPush.exit ], [ 0, %11 ]
   ret i32 %.0
 }
 

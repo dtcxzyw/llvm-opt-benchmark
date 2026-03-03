@@ -1159,11 +1159,9 @@ _ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeInteriorPointWeightsEiiPfS4_S4
 
 281:                                              ; preds = %225, %_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeInteriorPointWeightsEiiPfS4_S4_.exit, %217
   %282 = load i8, ptr %60, align 2
-  %283 = lshr i8 %282, 5
-  %284 = and i8 %283, 1
-  %285 = zext i1 %.04998 to i8
-  %286 = or i8 %284, %285
-  %287 = icmp ne i8 %286, 0
+  %283 = and i8 %282, 32
+  %284 = icmp ne i8 %283, 0
+  %285 = or i1 %.04998, %284
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %288, label %56, !llvm.loop !12
@@ -6600,7 +6598,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit: ; preds =
 
 56:                                               ; preds = %.preheader, %279
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %279 ]
-  %.04997 = phi i1 [ false, %.preheader ], [ %285, %279 ]
+  %.04997 = phi i1 [ false, %.preheader ], [ %283, %279 ]
   %57 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner", ptr %0, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4
@@ -7033,21 +7031,19 @@ _ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInteriorPointWeightsEiiPdS4_S4
 
 279:                                              ; preds = %225, %_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInteriorPointWeightsEiiPdS4_S4_.exit, %217
   %280 = load i8, ptr %60, align 2
-  %281 = lshr i8 %280, 5
-  %282 = and i8 %281, 1
-  %283 = zext i1 %.04997 to i8
-  %284 = or i8 %282, %283
-  %285 = icmp ne i8 %284, 0
+  %281 = and i8 %280, 32
+  %282 = icmp ne i8 %281, 0
+  %283 = or i1 %.04997, %282
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %286, label %56, !llvm.loop !55
 
 286:                                              ; preds = %279
-  br i1 %285, label %287, label %288
+  br i1 %283, label %287, label %288
 
 287:                                              ; preds = %286
   invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_125_removeValence2DuplicatesIdEEvRNS1_12SparseMatrixIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %1)
-          to label %288 unwind label %.loopexit.split-lp
+          to label %286 unwind label %.loopexit.split-lp
 
 288:                                              ; preds = %287, %286
   %289 = load ptr, ptr %32, align 8

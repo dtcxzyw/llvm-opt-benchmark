@@ -3032,20 +3032,21 @@ define internal fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd
   %12 = load i64, ptr %0, align 8, !tbaa !107
   %13 = icmp eq i64 %12, 0
   %14 = load i8, ptr %4, align 1, !tbaa !263, !range !132, !noundef !133
-  %15 = zext i1 %13 to i8
-  %16 = or i8 %14, %15
-  store i8 %16, ptr %4, align 1, !tbaa !263
-  %17 = and i64 %12, 144115188075855871
-  %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %64, label %18
+  %15 = trunc nuw i8 %14 to i1
+  %16 = or i1 %13, %15
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %4, align 1, !tbaa !263
+  %18 = and i64 %12, 144115188075855871
+  %.not = icmp eq i64 %18, 0
+  br i1 %.not, label %66, label %19
 
-18:                                               ; preds = %5
+19:                                               ; preds = %5
   %.mask.i.i = and i64 %12, -144115188075855872
   %19 = icmp eq i64 %.mask.i.i, 1585267068834414592
-  %20 = inttoptr i64 %17 to ptr
+  %20 = inttoptr i64 %18 to ptr
   br i1 %19, label %21, label %29
 
-21:                                               ; preds = %18
+21:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %8, ptr %9, align 8, !tbaa !264
@@ -3071,22 +3072,23 @@ define internal fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd
   call fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %64
 
-29:                                               ; preds = %18
+29:                                               ; preds = %19
   %switch.selectcmp7.i.i.i.i = icmp eq i64 %.mask.i.i, 1297036692682702848
   %30 = load i8, ptr %3, align 1, !tbaa !263, !range !132, !noundef !133
-  %31 = zext i1 %switch.selectcmp7.i.i.i.i to i8
-  %32 = or i8 %30, %31
-  store i8 %32, ptr %3, align 1, !tbaa !263
-  %33 = lshr i64 %12, 57
-  %34 = trunc nuw nsw i64 %33 to i32
-  %35 = add nsw i32 %34, -1
-  switch i32 %35, label %52 [
-    i32 0, label %36
-    i32 1, label %38
-    i32 2, label %40
-    i32 3, label %42
-    i32 4, label %45
-    i32 5, label %48
+  %32 = trunc nuw i8 %31 to i1
+  %32 = or i1 %switch.selectcmp7.i.i.i.i, %32
+  %34 = zext i1 %32 to i8
+  store i8 %34, ptr %3, align 1, !tbaa !263
+  %35 = lshr i64 %12, 57
+  %36 = trunc nuw nsw i64 %35 to i32
+  %37 = add nsw i32 %36, -1
+  switch i32 %37, label %54 [
+    i32 0, label %38
+    i32 1, label %40
+    i32 2, label %42
+    i32 3, label %44
+    i32 4, label %47
+    i32 5, label %50
     i32 6, label %_ZNK4pbrt8Material15GetDisplacementEv.exit
     i32 7, label %50
   ]
@@ -3122,7 +3124,7 @@ define internal fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
 52:                                               ; preds = %29
-  %53 = and i32 %35, -2
+  %53 = and i32 %37, -2
   %switch.i.i.i.i = icmp eq i32 %53, 8
   br i1 %switch.i.i.i.i, label %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i, label %54
 
@@ -3134,12 +3136,12 @@ _ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatText
   %storemerge.i.i.i.i = load i64, ptr %20, align 8, !tbaa !272, !noalias !315
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-_ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %29, %36, %38, %40, %42, %45, %48, %50, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i
-  %storemerge.i.sink.i.i.i = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %51, %50 ], [ %37, %36 ], [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %40 ], [ %39, %38 ], [ 0, %29 ]
+_ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %29, %38, %40, %42, %44, %47, %50, %52, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i
+  %storemerge.i.sink.i.i.i = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %53, %52 ], [ %39, %38 ], [ %51, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %42 ], [ %41, %40 ], [ 0, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %6, ptr %7, align 8, !tbaa !264
-  %55 = call noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %20, i32 noundef %35)
+  %55 = call noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %20, i32 noundef %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %55, label %56, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit.thread

@@ -1791,11 +1791,12 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   br i1 %exitcond1157.not, label %863, label %845, !llvm.loop !136
 
 863:                                              ; preds = %860
-  %864 = trunc i32 %802 to i8
-  %865 = and i8 %864, 1
-  %866 = xor i8 %865, 1
-  %867 = select i1 %804, i8 %866, i8 0
-  %868 = or i8 %867, %.011271147
+  %864 = and i32 %802, 1
+  %.not1136 = icmp eq i32 %864, 0
+  %865 = select i1 %804, i1 %.not1136, i1 false
+  %866 = trunc nuw i8 %.011271147 to i1
+  %868 = or i1 %865, %866
+  %868 = zext i1 %867 to i8
   %869 = and i32 %802, 97
   %870 = icmp ne i32 %869, 0
   %871 = fcmp contract olt float %810, %..i

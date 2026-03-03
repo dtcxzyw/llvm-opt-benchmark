@@ -17412,7 +17412,7 @@ define noundef i64 @_ZN15rustfmt_nightly5lists15get_comment_end17hd5f69cd5e203b3
   %30 = load i64, ptr %29, align 8, !noalias !2695
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !2695
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2695
-  %31 = icmp ne i64 %28, 0
+  %31 = trunc nuw i64 %28 to i1
   %32 = icmp ult i64 %30, %17
   %or.cond = select i1 %31, i1 %32, i1 false
   br i1 %or.cond, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3b564e2d007c0689E.exit.thread", label %44
@@ -17492,12 +17492,11 @@ define noundef i64 @_ZN15rustfmt_nightly5lists15get_comment_end17hd5f69cd5e203b3
   br i1 %60, label %65, label %67
 
 61:                                               ; preds = %67, %56
-  %62 = icmp ne i64 %39, 0
-  %63 = icmp ugt i64 %.sroa.3.0.i69, %.fca.1.extract19
-  %or.cond6 = select i1 %62, i1 %63, i1 false
-  %64 = add i64 %.sroa.3.0.i69, 1
-  %spec.select65 = select i1 %or.cond6, i64 %64, i64 %1
-  br label %109
+  %62 = icmp ugt i64 %.sroa.3.0.i69, %.fca.1.extract19
+  %or.cond6 = select i1 %trunc.i69, i1 %62, i1 false
+  %63 = add i64 %.sroa.3.0.i69, 1
+  %spec.select65 = select i1 %or.cond6, i64 %63, i64 %1
+  br label %108
 
 65:                                               ; preds = %59
   %66 = icmp ugt i64 %.sroa.3.0.i, %.fca.1.extract19
@@ -17535,7 +17534,7 @@ define noundef i64 @_ZN15rustfmt_nightly5lists15get_comment_end17hd5f69cd5e203b3
   unreachable
 
 81:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71", %72, %69
-  %82 = phi i64 [ %76, %72 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71" ], [ %1, %69 ]
+  %82 = phi i64 [ %76, %71 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71" ], [ %1, %68 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0.i
   %84 = tail call { i64, i64 } @_ZN15rustfmt_nightly7comment16find_comment_end17hc65b4fb3ef7202eaE(ptr noalias noundef nonnull readonly align 1 %83, i64 noundef %82)
   %.fca.0.extract35 = extractvalue { i64, i64 } %84, 0
@@ -17577,7 +17576,7 @@ define noundef i64 @_ZN15rustfmt_nightly5lists15get_comment_end17hd5f69cd5e203b3
   unreachable
 
 100:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74", %93, %90
-  %101 = phi i64 [ %97, %93 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74" ], [ %1, %90 ]
+  %101 = phi i64 [ %97, %92 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74" ], [ %1, %89 ]
   %102 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0.i
   %103 = tail call { i64, i64 } @_ZN15rustfmt_nightly7comment16find_comment_end17hc65b4fb3ef7202eaE(ptr noalias noundef nonnull readonly align 1 %102, i64 noundef %101)
   %.fca.0.extract41 = extractvalue { i64, i64 } %103, 0
@@ -17596,7 +17595,7 @@ define noundef i64 @_ZN15rustfmt_nightly5lists15get_comment_end17hd5f69cd5e203b3
   br label %109
 
 109:                                              ; preds = %61, %57, %106, %87, %78, %18
-  %.2 = phi i64 [ %.3, %18 ], [ %spec.select64, %57 ], [ %spec.select65, %61 ], [ %79, %78 ], [ %.0.sroa.speculated.i, %87 ], [ %.0.sroa.speculated.i77, %106 ]
+  %.2 = phi i64 [ %.3, %18 ], [ %spec.select64, %57 ], [ %spec.select65, %61 ], [ %79, %77 ], [ %.0.sroa.speculated.i, %86 ], [ %.0.sroa.speculated.i77, %105 ]
   ret i64 %.2
 }
 
@@ -22956,7 +22955,7 @@ _ZN15rustfmt_nightly7reorder23contains_macro_use_attr17h311ba1734564f532E.llvm.1
   %124 = icmp ne i64 %119, -9223372036854775803
   %125 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %126 = load i8, ptr %125, align 8, !range !13, !alias.scope !3881, !noalias !3836
-  %127 = icmp ne i8 %126, 0
+  %127 = trunc nuw i8 %126 to i1
   %or.cond.i.not6.i57 = select i1 %124, i1 true, i1 %127
   %128 = getelementptr inbounds nuw i8, ptr %90, i64 9
   %129 = load i8, ptr %128, align 1, !range !13, !alias.scope !3853, !noalias !3836
@@ -23138,7 +23137,7 @@ _ZN15rustfmt_nightly7reorder23contains_macro_use_attr17h311ba1734564f532E.llvm.1
   %181 = icmp ne i64 %176, -9223372036854775803
   %182 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %183 = load i8, ptr %182, align 8, !range !13, !alias.scope !3923, !noalias !3836
-  %184 = icmp ne i8 %183, 0
+  %184 = trunc nuw i8 %183 to i1
   %or.cond.i.not6.i = select i1 %181, i1 true, i1 %184
   %185 = getelementptr inbounds nuw i8, ptr %147, i64 9
   %186 = load i8, ptr %185, align 1, !range !13, !alias.scope !3896, !noalias !3836

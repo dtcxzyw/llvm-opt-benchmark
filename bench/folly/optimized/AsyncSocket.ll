@@ -12875,8 +12875,8 @@ _ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIl
   resume { ptr, i32 } %37
 
 .lr.ph:                                           ; preds = %_ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRS9_EERSA_OT_.exit, %.lr.ph
-  %.02340 = phi i1 [ %47, %.lr.ph ], [ false, %_ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRS9_EERSA_OT_.exit ]
-  %.02439 = phi ptr [ %48, %.lr.ph ], [ %33, %_ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRS9_EERSA_OT_.exit ]
+  %.02340 = phi i1 [ %46, %.lr.ph ], [ false, %_ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRS9_EERSA_OT_.exit ]
+  %.02439 = phi ptr [ %47, %.lr.ph ], [ %33, %_ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRS9_EERSA_OT_.exit ]
   %38 = load ptr, ptr %.02439, align 8, !tbaa !204
   %39 = load ptr, ptr %38, align 8, !tbaa !7
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
@@ -12885,15 +12885,14 @@ _ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIl
   %42 = load ptr, ptr %.02439, align 8, !tbaa !204
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i8, ptr %43, align 8, !tbaa !319, !range !20, !noundef !232
-  %45 = zext i1 %.02340 to i8
-  %46 = or i8 %44, %45
-  %47 = icmp ne i8 %46, 0
-  %48 = getelementptr inbounds nuw i8, ptr %.02439, i64 8
-  %.not27 = icmp eq ptr %48, %35
+  %45 = trunc nuw i8 %44 to i1
+  %46 = or i1 %.02340, %45
+  %47 = getelementptr inbounds nuw i8, ptr %.02439, i64 8
+  %.not27 = icmp eq ptr %47, %35
   br i1 %.not27, label %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i, label %.lr.ph
 
 _ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i: ; preds = %.lr.ph, %_ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRS9_EERSA_OT_.exit
-  %.023.lcssa = phi i1 [ false, %_ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRS9_EERSA_OT_.exit ], [ %47, %.lr.ph ]
+  %.023.lcssa = phi i1 [ false, %_ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRS9_EERSA_OT_.exit ], [ %46, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %50 = load ptr, ptr %49, align 8, !tbaa !206
@@ -12922,7 +12921,7 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
   br i1 %.not.i.i2.i, label %64, label %59
 
 59:                                               ; preds = %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i
-  %60 = call noundef i64 %58(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef null) #48
+  %60 = call noundef i64 %57(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef null) #48
   br label %64
 
 61:                                               ; preds = %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i
@@ -12941,7 +12940,7 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
   %66 = load ptr, ptr %0, align 8, !tbaa !7
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 856
   %68 = load ptr, ptr %67, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(1145) %0)
+  call void %67(ptr noundef nonnull align 8 dereferenceable(1145) %0)
   br label %69
 
 69:                                               ; preds = %65, %64
@@ -12955,7 +12954,7 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
   %73 = load ptr, ptr %71, align 8, !tbaa !7
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(8) %71) #48
+  call void %74(ptr noundef nonnull align 8 dereferenceable(8) %71) #48
   br label %76
 
 76:                                               ; preds = %72, %69

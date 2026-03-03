@@ -7902,8 +7902,9 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h80cf
 define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h84d605f98d61e8c9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef range(i32 0, 10) %1) unnamed_addr #0 {
   %3 = alloca [40 x i8], align 1
   %4 = tail call noundef i8 @"_ZN58_$LT$u32$u20$as$u20$time..ext..digit_count..DigitCount$GT$10num_digits17ha41c77c58a3e2667E"(i32 noundef %1)
-  %5 = icmp eq i8 %4, 0
-  br i1 %5, label %.lr.ph, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit"
+  %5 = tail call i8 @llvm.usub.sat.i8(i8 1, i8 %4)
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %.lr.ph, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit"
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit": ; preds = %.lr.ph, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

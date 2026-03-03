@@ -369,7 +369,7 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
 
 .lr.ph.i44:                                       ; preds = %167, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %167 ]
-  %.01927.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i47, %167 ]
+  %.01927.i = phi i1 [ false, %.lr.ph.preheader.i ], [ %.1.i47, %167 ]
   %.02026.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %157, %167 ]
   %153 = shl i32 %.02026.i, 8
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 %indvars.iv.i
@@ -380,13 +380,12 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
   br i1 %158, label %167, label %159
 
 159:                                              ; preds = %.lr.ph.i44
-  %160 = icmp ne i32 %.01927.i, 0
-  %161 = icmp ne i32 %157, 437
-  %or.cond.i45 = and i1 %160, %161
-  %162 = add i32 %153, -1
-  %163 = icmp ult i32 %162, 511
-  %or.cond5.i46 = and i1 %163, %or.cond.i45
-  br i1 %or.cond5.i46, label %164, label %167
+  %160 = icmp ne i32 %157, 437
+  %161 = add i32 %153, -1
+  %162 = icmp ult i32 %161, 511
+  %163 = and i1 %162, %160
+  %or.cond5.i45 = and i1 %.01927.i, %163
+  br i1 %or.cond5.i45, label %164, label %167
 
 164:                                              ; preds = %159
   %165 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -394,7 +393,7 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
   br label %mpegvideo_split.exit
 
 167:                                              ; preds = %159, %.lr.ph.i44
-  %.1.i47 = phi i32 [ %.01927.i, %159 ], [ 1, %.lr.ph.i44 ]
+  %.1.i47 = phi i1 [ %.01927.i, %159 ], [ true, %.lr.ph.i44 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %mpegvideo_split.exit, label %.lr.ph.i44, !llvm.loop !37
@@ -438,7 +437,7 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
   br label %vc1_split.exit
 
 189:                                              ; preds = %180, %179, %.lr.ph.i48
-  %.1.i51 = phi i32 [ 0, %179 ], [ 1, %180 ], [ 1, %.lr.ph.i48 ]
+  %.1.i51 = phi i32 [ 0, %179 ], [ 1, %180 ], [ 1, %.lr.ph.i47 ]
   %190 = icmp ult ptr %176, %174
   br i1 %190, label %.lr.ph.i48, label %vc1_split.exit, !llvm.loop !38
 

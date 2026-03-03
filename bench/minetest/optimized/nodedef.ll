@@ -13268,7 +13268,7 @@ _Z14isWorldAligned10AlignStyle14WorldAlignMode12NodeDrawType.exit: ; preds = %if
   %layers = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %color, align 4, !tbaa !39
   %86 = load i8, ptr %backface_culling.i, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool323 = icmp ne i8 %86, 0
+  %tobool323 = trunc nuw i8 %86 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layers, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(60) %tdef, i32 %agg.tmp.sroa.0.0.copyload, i8 noundef zeroext %conv319, i32 noundef %call272, i1 noundef zeroext %tobool323, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %invoke.cont326 unwind label %lpad325
 
@@ -13281,7 +13281,7 @@ if.then331:                                       ; preds = %invoke.cont326
   %arrayidx336 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp342.sroa.0.0.copyload = load i32, ptr %color, align 4, !tbaa !39
   %88 = load i8, ptr %backface_culling.i, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool348 = icmp ne i8 %88, 0
+  %tobool348 = trunc nuw i8 %88 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %arrayidx336, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(60) %tdef_overlay, i32 %agg.tmp342.sroa.0.0.copyload, i8 noundef zeroext %conv344, i32 noundef %call293, i1 noundef zeroext %tobool348, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %for.inc352 unwind label %lpad325
 
@@ -13327,7 +13327,7 @@ _Z14isWorldAligned10AlignStyle14WorldAlignMode12NodeDrawType.exit.1: ; preds = %
   %layers.1 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %agg.tmp.sroa.0.0.copyload.1 = load i32, ptr %color, align 4, !tbaa !39
   %93 = load i8, ptr %backface_culling.i.1, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool323.1 = icmp ne i8 %93, 0
+  %tobool323.1 = trunc nuw i8 %93 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layers.1, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx309.1, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur.ptr.1, i32 %agg.tmp.sroa.0.0.copyload.1, i8 noundef zeroext %conv319, i32 noundef %call272, i1 noundef zeroext %tobool323.1, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %invoke.cont326.1 unwind label %lpad325
 
@@ -13340,7 +13340,7 @@ if.then331.1:                                     ; preds = %invoke.cont326.1
   %arrayidx336.1 = getelementptr inbounds nuw i8, ptr %this, i64 184
   %agg.tmp342.sroa.0.0.copyload.1 = load i32, ptr %color, align 4, !tbaa !39
   %95 = load i8, ptr %backface_culling.i.1, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool348.1 = icmp ne i8 %95, 0
+  %tobool348.1 = trunc nuw i8 %95 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %arrayidx336.1, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx309.1, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur30.ptr.1, i32 %agg.tmp342.sroa.0.0.copyload.1, i8 noundef zeroext %conv344, i32 noundef %call293, i1 noundef zeroext %tobool348.1, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %for.inc352.1 unwind label %lpad325
 
@@ -13381,7 +13381,7 @@ _Z14isWorldAligned10AlignStyle14WorldAlignMode12NodeDrawType.exit.2: ; preds = %
   %layers.2 = getelementptr inbounds nuw i8, ptr %this, i64 248
   %agg.tmp.sroa.0.0.copyload.2 = load i32, ptr %color, align 4, !tbaa !39
   %99 = load i8, ptr %backface_culling.i.2, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool323.2 = icmp ne i8 %99, 0
+  %tobool323.2 = trunc nuw i8 %99 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layers.2, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx309.2, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur.ptr.2, i32 %agg.tmp.sroa.0.0.copyload.2, i8 noundef zeroext %conv319, i32 noundef %call272, i1 noundef zeroext %tobool323.2, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %invoke.cont326.2 unwind label %lpad325
 
@@ -13394,7 +13394,7 @@ if.then331.2:                                     ; preds = %invoke.cont326.2
   %arrayidx336.2 = getelementptr inbounds nuw i8, ptr %this, i64 304
   %agg.tmp342.sroa.0.0.copyload.2 = load i32, ptr %color, align 4, !tbaa !39
   %101 = load i8, ptr %backface_culling.i.2, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool348.2 = icmp ne i8 %101, 0
+  %tobool348.2 = trunc nuw i8 %101 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %arrayidx336.2, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx309.2, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur30.ptr.2, i32 %agg.tmp342.sroa.0.0.copyload.2, i8 noundef zeroext %conv344, i32 noundef %call293, i1 noundef zeroext %tobool348.2, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %for.inc352.2 unwind label %lpad325
 
@@ -13435,7 +13435,7 @@ _Z14isWorldAligned10AlignStyle14WorldAlignMode12NodeDrawType.exit.3: ; preds = %
   %layers.3 = getelementptr inbounds nuw i8, ptr %this, i64 368
   %agg.tmp.sroa.0.0.copyload.3 = load i32, ptr %color, align 4, !tbaa !39
   %105 = load i8, ptr %backface_culling.i.3, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool323.3 = icmp ne i8 %105, 0
+  %tobool323.3 = trunc nuw i8 %105 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layers.3, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx309.3, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur.ptr.3, i32 %agg.tmp.sroa.0.0.copyload.3, i8 noundef zeroext %conv319, i32 noundef %call272, i1 noundef zeroext %tobool323.3, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %invoke.cont326.3 unwind label %lpad325
 
@@ -13448,7 +13448,7 @@ if.then331.3:                                     ; preds = %invoke.cont326.3
   %arrayidx336.3 = getelementptr inbounds nuw i8, ptr %this, i64 424
   %agg.tmp342.sroa.0.0.copyload.3 = load i32, ptr %color, align 4, !tbaa !39
   %107 = load i8, ptr %backface_culling.i.3, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool348.3 = icmp ne i8 %107, 0
+  %tobool348.3 = trunc nuw i8 %107 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %arrayidx336.3, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx309.3, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur30.ptr.3, i32 %agg.tmp342.sroa.0.0.copyload.3, i8 noundef zeroext %conv344, i32 noundef %call293, i1 noundef zeroext %tobool348.3, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %for.inc352.3 unwind label %lpad325
 
@@ -13489,7 +13489,7 @@ _Z14isWorldAligned10AlignStyle14WorldAlignMode12NodeDrawType.exit.4: ; preds = %
   %layers.4 = getelementptr inbounds nuw i8, ptr %this, i64 488
   %agg.tmp.sroa.0.0.copyload.4 = load i32, ptr %color, align 4, !tbaa !39
   %111 = load i8, ptr %backface_culling.i.4, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool323.4 = icmp ne i8 %111, 0
+  %tobool323.4 = trunc nuw i8 %111 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layers.4, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx309.4, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur.ptr.4, i32 %agg.tmp.sroa.0.0.copyload.4, i8 noundef zeroext %conv319, i32 noundef %call272, i1 noundef zeroext %tobool323.4, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %invoke.cont326.4 unwind label %lpad325
 
@@ -13502,7 +13502,7 @@ if.then331.4:                                     ; preds = %invoke.cont326.4
   %arrayidx336.4 = getelementptr inbounds nuw i8, ptr %this, i64 544
   %agg.tmp342.sroa.0.0.copyload.4 = load i32, ptr %color, align 4, !tbaa !39
   %113 = load i8, ptr %backface_culling.i.4, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool348.4 = icmp ne i8 %113, 0
+  %tobool348.4 = trunc nuw i8 %113 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %arrayidx336.4, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx309.4, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur30.ptr.4, i32 %agg.tmp342.sroa.0.0.copyload.4, i8 noundef zeroext %conv344, i32 noundef %call293, i1 noundef zeroext %tobool348.4, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %for.inc352.4 unwind label %lpad325
 
@@ -13543,7 +13543,7 @@ _Z14isWorldAligned10AlignStyle14WorldAlignMode12NodeDrawType.exit.5: ; preds = %
   %layers.5 = getelementptr inbounds nuw i8, ptr %this, i64 608
   %agg.tmp.sroa.0.0.copyload.5 = load i32, ptr %color, align 4, !tbaa !39
   %117 = load i8, ptr %backface_culling.i.5, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool323.5 = icmp ne i8 %117, 0
+  %tobool323.5 = trunc nuw i8 %117 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layers.5, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx309.5, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur.ptr.5, i32 %agg.tmp.sroa.0.0.copyload.5, i8 noundef zeroext %conv319, i32 noundef %call272, i1 noundef zeroext %tobool323.5, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %invoke.cont326.5 unwind label %lpad325
 
@@ -13556,7 +13556,7 @@ if.then331.5:                                     ; preds = %invoke.cont326.5
   %arrayidx336.5 = getelementptr inbounds nuw i8, ptr %this, i64 664
   %agg.tmp342.sroa.0.0.copyload.5 = load i32, ptr %color, align 4, !tbaa !39
   %119 = load i8, ptr %backface_culling.i.5, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool348.5 = icmp ne i8 %119, 0
+  %tobool348.5 = trunc nuw i8 %119 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %arrayidx336.5, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx309.5, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur30.ptr.5, i32 %agg.tmp342.sroa.0.0.copyload.5, i8 noundef zeroext %conv344, i32 noundef %call293, i1 noundef zeroext %tobool348.5, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %for.inc352.5 unwind label %lpad325
 
@@ -13611,7 +13611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit929: ; preds = %in
   %layers394 = getelementptr inbounds nuw i8, ptr %this, i64 728
   %agg.tmp401.sroa.0.0.copyload = load i32, ptr %color, align 4, !tbaa !39
   %125 = load i8, ptr %backface_culling.i825, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool407 = icmp ne i8 %125, 0
+  %tobool407 = trunc nuw i8 %125 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layers394, ptr noundef nonnull align 8 dereferenceable(120) %special_tiles, ptr noundef nonnull align 8 dereferenceable(60) %tdef_spec, i32 %agg.tmp401.sroa.0.0.copyload, i8 noundef zeroext %conv403, i32 noundef %call381, i1 noundef zeroext %tobool407, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %for.inc411 unwind label %lpad409
 
@@ -13635,7 +13635,7 @@ for.inc411:                                       ; preds = %_ZNSt7__cxx1112basi
   %layers394.1 = getelementptr inbounds nuw i8, ptr %this, i64 848
   %agg.tmp401.sroa.0.0.copyload.1 = load i32, ptr %color, align 4, !tbaa !39
   %128 = load i8, ptr %backface_culling.i825.1, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool407.1 = icmp ne i8 %128, 0
+  %tobool407.1 = trunc nuw i8 %128 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layers394.1, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx393.1, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur60.ptr.1, i32 %agg.tmp401.sroa.0.0.copyload.1, i8 noundef zeroext %conv403, i32 noundef %call381, i1 noundef zeroext %tobool407.1, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %for.inc411.1 unwind label %lpad409
 
@@ -13644,7 +13644,7 @@ for.inc411.1:                                     ; preds = %for.inc411
   %layers394.2 = getelementptr inbounds nuw i8, ptr %this, i64 968
   %agg.tmp401.sroa.0.0.copyload.2 = load i32, ptr %color, align 4, !tbaa !39
   %129 = load i8, ptr %backface_culling.i825.2, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool407.2 = icmp ne i8 %129, 0
+  %tobool407.2 = trunc nuw i8 %129 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layers394.2, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx393.2, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur60.ptr.2, i32 %agg.tmp401.sroa.0.0.copyload.2, i8 noundef zeroext %conv403, i32 noundef %call381, i1 noundef zeroext %tobool407.2, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %for.inc411.2 unwind label %lpad409
 
@@ -13653,7 +13653,7 @@ for.inc411.2:                                     ; preds = %for.inc411.1
   %layers394.3 = getelementptr inbounds nuw i8, ptr %this, i64 1088
   %agg.tmp401.sroa.0.0.copyload.3 = load i32, ptr %color, align 4, !tbaa !39
   %130 = load i8, ptr %backface_culling.i825.3, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool407.3 = icmp ne i8 %130, 0
+  %tobool407.3 = trunc nuw i8 %130 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layers394.3, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx393.3, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur60.ptr.3, i32 %agg.tmp401.sroa.0.0.copyload.3, i8 noundef zeroext %conv403, i32 noundef %call381, i1 noundef zeroext %tobool407.3, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %for.inc411.3 unwind label %lpad409
 
@@ -13662,7 +13662,7 @@ for.inc411.3:                                     ; preds = %for.inc411.2
   %layers394.4 = getelementptr inbounds nuw i8, ptr %this, i64 1208
   %agg.tmp401.sroa.0.0.copyload.4 = load i32, ptr %color, align 4, !tbaa !39
   %131 = load i8, ptr %backface_culling.i825.4, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool407.4 = icmp ne i8 %131, 0
+  %tobool407.4 = trunc nuw i8 %131 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layers394.4, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx393.4, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur60.ptr.4, i32 %agg.tmp401.sroa.0.0.copyload.4, i8 noundef zeroext %conv403, i32 noundef %call381, i1 noundef zeroext %tobool407.4, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %for.inc411.4 unwind label %lpad409
 
@@ -13671,7 +13671,7 @@ for.inc411.4:                                     ; preds = %for.inc411.3
   %layers394.5 = getelementptr inbounds nuw i8, ptr %this, i64 1328
   %agg.tmp401.sroa.0.0.copyload.5 = load i32, ptr %color, align 4, !tbaa !39
   %132 = load i8, ptr %backface_culling.i825.5, align 16, !tbaa !197, !range !198, !noundef !199
-  %tobool407.5 = icmp ne i8 %132, 0
+  %tobool407.5 = trunc nuw i8 %132 to i1
   invoke fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layers394.5, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx393.5, ptr noundef nonnull align 8 dereferenceable(60) %arrayctor.cur60.ptr.5, i32 %agg.tmp401.sroa.0.0.copyload.5, i8 noundef zeroext %conv403, i32 noundef %call381, i1 noundef zeroext %tobool407.5, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
           to label %for.inc411.5 unwind label %lpad409
 
@@ -24404,8 +24404,7 @@ if.end.i.i.i:                                     ; preds = %_ZSt13__check_facet
 _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.end.i.i.i, %if.then.i4.i.i
   %retval.0.i.i.i = phi i8 [ %10, %if.then.i4.i.i ], [ %call.i.i.i128, %if.end.i.i.i ]
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %.pr, i8 noundef signext %retval.0.i.i.i)
-  %call.i.i127 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %call1.i)
-  br label %cleanup37
+  br label %cleanup37.sink.split
 
 if.end:                                           ; preds = %entry
   %inc = add i32 %0, 1
@@ -24428,7 +24427,7 @@ while.body.lr.ph:                                 ; preds = %if.end
 
 while.body:                                       ; preds = %if.end35, %while.body.lr.ph
   %dec194.in = phi i64 [ %12, %while.body.lr.ph ], [ %dec194, %if.end35 ]
-  %success.0193 = phi i8 [ 1, %while.body.lr.ph ], [ %success.1, %if.end35 ]
+  %success.0193 = phi i1 [ true, %while.body.lr.ph ], [ %success.1, %if.end35 ]
   %dec194 = add i64 %dec194.in, -1
   %14 = load i32, ptr %m_nodenames_idx, align 8, !tbaa !489
   %conv8 = zext i32 %14 to i64
@@ -24501,8 +24500,7 @@ if.end.i.i.i143:                                  ; preds = %_ZSt13__check_facet
 _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit148: ; preds = %if.end.i.i.i143, %if.then.i4.i.i139
   %retval.0.i.i.i141 = phi i8 [ %23, %if.then.i4.i.i139 ], [ %call.i.i.i146, %if.end.i.i.i143 ]
   %call1.i142 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %.pr172, i8 noundef signext %retval.0.i.i.i141)
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %call1.i142)
-  br label %cleanup37
+  br label %cleanup37.sink.split
 
 if.end14:                                         ; preds = %while.body
   %inc17 = add i32 %14, 1
@@ -24734,16 +24732,17 @@ if.else32:                                        ; preds = %_ZNSt11char_traitsI
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else32, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i119, %if.then.i92, %if.else, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i, %if.then.i65
-  %success.1 = phi i8 [ %success.0193, %if.else32 ], [ %success.0193, %if.else ], [ %success.0193, %if.then.i65 ], [ %success.0193, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i ], [ 0, %if.then.i92 ], [ 0, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i119 ]
+  %success.1 = phi i1 [ %success.0193, %if.else32 ], [ %success.0193, %if.else ], [ %success.0193, %if.then.i65 ], [ %success.0193, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i ], [ false, %if.then.i92 ], [ false, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i119 ]
   %tobool.not = icmp eq i64 %dec194, 0
-  br i1 %tobool.not, label %while.end.loopexit, label %while.body, !llvm.loop !506
+  br i1 %tobool.not, label %cleanup37, label %while.body, !llvm.loop !506
 
-while.end.loopexit:                               ; preds = %if.end35
-  %48 = icmp ne i8 %success.1, 0
+while.end.loopexit:                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit148
+  %call1.i142.sink = phi ptr [ %call1.i142, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit148 ], [ %call1.i, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %call1.i142.sink)
   br label %cleanup37
 
-cleanup37:                                        ; preds = %while.end.loopexit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit148, %_ZN9LogStreamlsIRA36_KcEER11StreamProxyOT_.exit, %_ZTW11errorstream.exit48, %if.end, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN9LogStreamlsIRA33_KcEER11StreamProxyOT_.exit, %_ZTW11errorstream.exit
-  %retval.1 = phi i1 [ false, %_ZN9LogStreamlsIRA33_KcEER11StreamProxyOT_.exit ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ], [ false, %_ZN9LogStreamlsIRA36_KcEER11StreamProxyOT_.exit ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit148 ], [ false, %_ZTW11errorstream.exit ], [ false, %_ZTW11errorstream.exit48 ], [ true, %if.end ], [ %48, %while.end.loopexit ]
+cleanup37:                                        ; preds = %if.end35, %while.end.loopexit, %_ZN9LogStreamlsIRA36_KcEER11StreamProxyOT_.exit, %_ZTW11errorstream.exit48, %if.end, %_ZN9LogStreamlsIRA33_KcEER11StreamProxyOT_.exit, %_ZTW11errorstream.exit
+  %retval.1 = phi i1 [ false, %_ZN9LogStreamlsIRA33_KcEER11StreamProxyOT_.exit ], [ true, %if.end ], [ false, %_ZN9LogStreamlsIRA36_KcEER11StreamProxyOT_.exit ], [ false, %cleanup37.sink.split ], [ false, %_ZTW11errorstream.exit ], [ false, %_ZTW11errorstream.exit48 ], [ %success.1, %if.end35 ]
   ret i1 %retval.1
 }
 

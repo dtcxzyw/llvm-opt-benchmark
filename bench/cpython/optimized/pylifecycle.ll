@@ -6146,17 +6146,18 @@ define internal fastcc ptr @create_stdio(i32 %.224.val, ptr noundef nonnull %0, 
   br i1 %.not, label %Py_DECREF.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = icmp ne i32 %.224.val, 0
-  %11 = icmp eq i32 %2, 0
-  %or.cond.not = or i1 %10, %11
-  %. = sext i1 %or.cond.not to i32
-  %.070 = select i1 %11, ptr @.str.188, ptr @.str.187
+  %10 = icmp eq i32 %.224.val, 0
+  %11 = trunc nuw i32 %2 to i1
+  %or.cond = and i1 %10, %11
+  %not.or.cond = xor i1 %or.cond, true
+  %. = sext i1 %not.or.cond to i32
+  %.070 = select i1 %11, ptr @.str.187, ptr @.str.188
   %12 = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 65640), ptr noundef nonnull @.str.189, i32 noundef %1, ptr noundef nonnull %.070, i32 noundef %., ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_NoneStruct, ptr noundef nonnull @_Py_FalseStruct) #23
   %13 = icmp eq ptr %12, null
   br i1 %13, label %Py_XDECREF.exit164, label %14
 
 14:                                               ; preds = %9
-  br i1 %or.cond.not, label %15, label %18
+  br i1 %or.cond, label %18, label %15
 
 15:                                               ; preds = %14
   %16 = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 67656)) #23
@@ -6213,8 +6214,8 @@ Py_DECREF.exit145:                                ; preds = %31, %34, %37
   br i1 %38, label %Py_DECREF.exit139, label %39
 
 39:                                               ; preds = %Py_DECREF.exit145
-  %_Py_TrueStruct._Py_FalseStruct = select i1 %10, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  br i1 %10, label %40, label %45
+  %_Py_TrueStruct._Py_FalseStruct = select i1 %10, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
+  br i1 %10, label %45, label %40
 
 40:                                               ; preds = %39
   %.not123 = icmp eq i32 %32, 0
@@ -6358,7 +6359,7 @@ Py_DECREF.exit129:                                ; preds = %Py_DECREF.exit131, 
   br i1 %94, label %Py_XDECREF.exit164, label %95
 
 95:                                               ; preds = %Py_DECREF.exit129
-  %.str.191..str.192 = select i1 %11, ptr @.str.192, ptr @.str.191
+  %.str.191..str.192 = select i1 %11, ptr @.str.191, ptr @.str.192
   %96 = call ptr @PyUnicode_FromString(ptr noundef nonnull %.str.191..str.192) #23
   %.not125 = icmp eq ptr %96, null
   br i1 %.not125, label %Py_XDECREF.exit, label %97

@@ -699,12 +699,13 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.pre2.i.i.i = load i64, ptr %4, align 8, !noalias !172
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre4.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i, align 8, !noalias !172
-  %9 = icmp eq i64 %.pre.i.i.i, 0
+  %9 = trunc nuw i64 %.pre.i.i.i to i1
   %10 = icmp ne i64 %.pre2.i.i.i, %.pre4.i.i.i
-  %.not33 = select i1 %9, i1 true, i1 %10
+  %not. = xor i1 %9, true
+  %11 = select i1 %not., i1 true, i1 %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !172
   %11 = tail call i64 @llvm.umin.i64(i64 %.pre4.i.i.i, i64 43690)
-  %cond.fr = freeze i1 %.not33
+  %cond.fr = freeze i1 %11
   %spec.select = select i1 %cond.fr, i64 0, i64 %11
   br label %12
 
@@ -765,9 +766,9 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br label %.body
 
 .body:                                            ; preds = %40, %31
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %41, %40 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %32 ], [ %41, %41 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h6a32d8b5c96f84daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #24
-          to label %22 unwind label %53
+          to label %23 unwind label %53
 
 33:                                               ; preds = %.noexc2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !200
@@ -809,7 +810,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 44:                                               ; preds = %._crit_edge.i, %35
-  %45 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %36, %35 ]
+  %45 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %36, %36 ]
   %46 = load ptr, ptr %17, align 8, !alias.scope !210, !noalias !213, !nonnull !16, !noundef !16
   %47 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %46, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
@@ -2589,7 +2590,7 @@ define hidden { i64, i64 } @"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAc
   %.pre2.i.i = load i64, ptr %2, align 8, !noalias !639
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre4.i.i = load i64, ptr %.phi.trans.insert3.i.i, align 8, !noalias !639
-  %6 = icmp ne i64 %.pre.i.i, 0
+  %6 = trunc nuw i64 %.pre.i.i to i1
   %7 = icmp eq i64 %.pre2.i.i, %.pre4.i.i
   %8 = select i1 %6, i1 %7, i1 false
   %9 = zext i1 %8 to i64

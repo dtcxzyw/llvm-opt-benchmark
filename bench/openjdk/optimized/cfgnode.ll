@@ -1352,7 +1352,7 @@ _ZNK10RegionNode7has_phiEv.exit.thread:           ; preds = %.lr.ph.i, %.loopexi
 
 156:                                              ; preds = %.lr.ph389, %311
   %.0190388 = phi i8 [ 1, %.lr.ph389 ], [ %.1, %311 ]
-  %.0191387 = phi i1 [ false, %.lr.ph389 ], [ %.1192, %311 ]
+  %.0191387 = phi i8 [ 0, %.lr.ph389 ], [ %.1192, %311 ]
   %.0195386 = phi i32 [ 0, %.lr.ph389 ], [ %.1196, %311 ]
   %.0197385 = phi i32 [ 0, %.lr.ph389 ], [ %.1198, %311 ]
   %.0202384 = phi i1 [ false, %.lr.ph389 ], [ %.1203, %311 ]
@@ -1661,7 +1661,7 @@ _ZN4Node7set_reqEjPS_.exit270:                    ; preds = %_ZN4Node7del_outEPS
   %.1203 = phi i1 [ %.0202384, %_ZN4Node7set_reqEjPS_.exit262 ], [ %.0202384, %_ZN4Node7set_reqEjPS_.exit270 ], [ true, %282 ], [ %.0202384, %284 ], [ %.0202384, %309 ], [ %.0202384, %286 ]
   %.1198 = phi i32 [ %.0197385, %_ZN4Node7set_reqEjPS_.exit262 ], [ %.0197385, %_ZN4Node7set_reqEjPS_.exit270 ], [ %.0197385, %282 ], [ %.0197385, %284 ], [ %.0204383, %309 ], [ %.0197385, %286 ]
   %.1196 = phi i32 [ %.0195386, %_ZN4Node7set_reqEjPS_.exit262 ], [ %.0195386, %_ZN4Node7set_reqEjPS_.exit270 ], [ %.0195386, %282 ], [ %285, %284 ], [ %.0195386, %309 ], [ %.0195386, %286 ]
-  %.1192 = phi i1 [ true, %_ZN4Node7set_reqEjPS_.exit262 ], [ true, %_ZN4Node7set_reqEjPS_.exit270 ], [ true, %282 ], [ %.0191387, %284 ], [ %.0191387, %309 ], [ %.0191387, %286 ]
+  %.1192 = phi i8 [ 1, %_ZN4Node7set_reqEjPS_.exit262 ], [ 1, %_ZN4Node7set_reqEjPS_.exit270 ], [ 1, %282 ], [ %.0191387, %284 ], [ %.0191387, %309 ], [ %.0191387, %286 ]
   %.1 = phi i8 [ %.0190388, %_ZN4Node7set_reqEjPS_.exit262 ], [ %.0190388, %_ZN4Node7set_reqEjPS_.exit270 ], [ %.0190388, %282 ], [ %.0190388, %284 ], [ 0, %309 ], [ %.0190388, %286 ]
   %312 = add i32 %.1205, 1
   %313 = load i32, ptr %148, align 8
@@ -2803,13 +2803,16 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %784
   %916 = trunc i8 %915 to i1
   %..i320 = select i1 %916, ptr %1, ptr null
   %917 = tail call noundef zeroext i1 @_ZN10RegionNode19optimize_trichotomyEP12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %..i320)
-  %918 = or i1 %.1192, %917
+  %918 = trunc nuw i8 %.1192 to i1
+  %919 = or i1 %917, %918
+  %920 = zext i1 %919 to i8
   br label %.critedge241
 
 .critedge241:                                     ; preds = %599, %.critedge240.thread
-  %.2193 = phi i1 [ %918, %.critedge240.thread ], [ %.1192, %599 ]
-  %. = select i1 %.2193, ptr %0, ptr null
-  br label %919
+  %.2193 = phi i8 [ %920, %.critedge240.thread ], [ %.1192, %599 ]
+  %921 = trunc nuw i8 %.2193 to i1
+  %. = select i1 %921, ptr %0, ptr null
+  br label %922
 
 919:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit297, %_ZL12merge_regionP10RegionNodeP8PhaseGVN.exit, %15, %.critedge241, %905, %._crit_edge401, %_ZN10RegionNode21is_unreachable_regionEPK8PhaseGVN.exit, %321, %_ZN4Node7set_reqEjPS_.exit250
   %.0 = phi ptr [ null, %321 ], [ null, %._crit_edge401 ], [ %.mux, %_ZN4Node7set_reqEjPS_.exit297 ], [ null, %15 ], [ %.243.i, %_ZL12merge_regionP10RegionNodeP8PhaseGVN.exit ], [ %0, %905 ], [ %., %.critedge241 ], [ null, %_ZN10RegionNode21is_unreachable_regionEPK8PhaseGVN.exit ], [ %0, %_ZN4Node7set_reqEjPS_.exit250 ]

@@ -565,11 +565,11 @@ define dso_local range(i32 0, 2) i32 @copy_note_for_rewrite(ptr noundef readonly
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = phi ptr [ %5, %.lr.ph ], [ %15, %7 ]
-  %.0912 = phi i1 [ false, %.lr.ph ], [ %12, %7 ]
+  %.0912 = phi i32 [ 0, %.lr.ph ], [ %12, %7 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !32
   %10 = tail call i32 @copy_note(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %9) #12
-  %11 = icmp ne i32 %10, 0
-  %12 = select i1 %11, i1 true, i1 %.0912
+  %11 = icmp eq i32 %10, 0
+  %12 = select i1 %11, i32 %.0913, i32 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load ptr, ptr %0, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next
@@ -577,12 +577,8 @@ define dso_local range(i32 0, 2) i32 @copy_note_for_rewrite(ptr noundef readonly
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge.loopexit, label %7, !llvm.loop !42
 
-._crit_edge.loopexit:                             ; preds = %7
-  %16 = zext i1 %12 to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.09.lcssa = phi i32 [ 0, %3 ], [ %16, %._crit_edge.loopexit ]
+._crit_edge.loopexit:                             ; preds = %7, %3
+  %.09.lcssa = phi i32 [ 0, %3 ], [ %11, %7 ]
   ret i32 %.09.lcssa
 }
 

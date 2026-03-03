@@ -5761,15 +5761,16 @@ _ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %3
   %9 = tail call noundef zeroext i1 @_ZN4Luau8subsumesEPNS_5ScopeES1_(ptr noundef %6, ptr noundef %8)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %11 = load i8, ptr %10, align 8, !tbaa !147, !range !39, !noundef !40
-  %12 = zext i1 %9 to i8
-  %13 = or i8 %11, %12
-  store i8 %13, ptr %10, align 8, !tbaa !147
+  %12 = trunc nuw i8 %11 to i1
+  %13 = or i1 %9, %12
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %10, align 8, !tbaa !147
   br label %.thread
 
 _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %15 = load i32, ptr %14, align 8, !tbaa !186
-  switch i32 %15, label %18 [
+  switch i32 %15, label %19 [
     i32 2, label %.thread26
     i32 3, label %.thread29
   ]
@@ -5798,7 +5799,7 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %3
   br label %.thread
 
 .thread:                                          ; preds = %3, %.thread29, %18, %19, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit, %2
-  %25 = phi i1 [ false, %2 ], [ false, %3 ], [ false, %.thread29 ], [ false, %18 ], [ %24, %19 ], [ %9, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit ]
+  %25 = phi i1 [ false, %2 ], [ false, %3 ], [ false, %.thread29 ], [ false, %19 ], [ %24, %20 ], [ %9, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit ]
   ret i1 %25
 }
 

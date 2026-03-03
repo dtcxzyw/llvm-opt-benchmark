@@ -16126,7 +16126,7 @@ define linkonce_odr hidden i64 @_ZN3fmt3v106detail21parse_float_type_specIcEENS1
   %11 = or disjoint i32 %7, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 4, !tbaa !106
-  switch i8 %13, label %46 [
+  switch i8 %13, label %44 [
     i8 0, label %50
     i8 14, label %14
     i8 13, label %50
@@ -16151,39 +16151,37 @@ define linkonce_odr hidden i64 @_ZN3fmt3v106detail21parse_float_type_specIcEENS1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !105
   %21 = icmp ne i32 %20, 0
-  %22 = zext i1 %21 to i16
-  %23 = or i16 %.lobit, %22
-  %24 = zext nneg i16 %23 to i32
-  %25 = shl nuw nsw i32 %24, 19
-  %26 = and i32 %.sroa.2.1, -524290
-  %27 = or disjoint i32 %25, %26
-  %28 = or disjoint i32 %27, 1
-  br label %50
+  %22 = trunc i16 %5 to i1
+  %23 = or i1 %21, %22
+  %24 = select i1 %23, i32 524288, i32 0
+  %25 = and i32 %.sroa.2.1, -524290
+  %26 = or disjoint i32 %25, %24
+  %27 = or disjoint i32 %26, 1
+  br label %48
 
 29:                                               ; preds = %1
   %30 = or disjoint i32 %11, 65536
   br label %31
 
 31:                                               ; preds = %29, %1
-  %.sroa.2.2 = phi i32 [ %30, %29 ], [ %11, %1 ]
+  %.sroa.2.2 = phi i32 [ %30, %28 ], [ %11, %1 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !105
   %34 = icmp ne i32 %33, 0
-  %35 = zext i1 %34 to i16
-  %36 = or i16 %.lobit, %35
-  %37 = zext nneg i16 %36 to i32
-  %38 = shl nuw nsw i32 %37, 19
-  %39 = and i32 %.sroa.2.2, -524291
-  %40 = or disjoint i32 %38, %39
-  %41 = or disjoint i32 %40, 2
-  br label %50
+  %34 = trunc i16 %5 to i1
+  %36 = or i1 %33, %34
+  %36 = select i1 %35, i32 524288, i32 0
+  %37 = and i32 %.sroa.2.2, -524291
+  %38 = or disjoint i32 %37, %36
+  %40 = or disjoint i32 %38, 2
+  br label %48
 
 42:                                               ; preds = %1
   %43 = or disjoint i32 %11, 65536
   br label %44
 
 44:                                               ; preds = %42, %1
-  %.sroa.2.3 = phi i32 [ %43, %42 ], [ %11, %1 ]
+  %.sroa.2.3 = phi i32 [ %43, %40 ], [ %11, %1 ]
   %45 = or i32 %.sroa.2.3, 3
   br label %50
 
@@ -16198,7 +16196,7 @@ define linkonce_odr hidden i64 @_ZN3fmt3v106detail21parse_float_type_specIcEENS1
   unreachable
 
 50:                                               ; preds = %1, %14, %1, %44, %31, %18
-  %.sroa.2.4 = phi i32 [ %11, %1 ], [ %45, %44 ], [ %11, %1 ], [ %28, %18 ], [ %41, %31 ], [ %15, %14 ]
+  %.sroa.2.4 = phi i32 [ %11, %1 ], [ %45, %42 ], [ %11, %1 ], [ %27, %18 ], [ %40, %30 ], [ %15, %14 ]
   %.sroa.2.0.insert.ext = zext nneg i32 %.sroa.2.4 to i64
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 32
   ret i64 %.sroa.2.0.insert.shift

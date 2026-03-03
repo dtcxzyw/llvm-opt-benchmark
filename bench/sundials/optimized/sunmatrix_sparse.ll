@@ -920,9 +920,9 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr noundef readon
   ret i32 0
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %80
-  %56 = phi i64 [ %81, %80 ], [ %.pre126, %.lr.ph122.preheader ]
-  %.082.in119 = phi i64 [ %.082120, %80 ], [ %8, %.lr.ph122.preheader ]
-  %.2118 = phi i64 [ %.3, %80 ], [ %.088.lcssa, %.lr.ph122.preheader ]
+  %56 = phi i64 [ %81, %79 ], [ %.pre126, %.lr.ph122.preheader ]
+  %.082.in119 = phi i64 [ %.082120, %79 ], [ %8, %.lr.ph122.preheader ]
+  %.2118 = phi i64 [ %.3, %79 ], [ %.088.lcssa, %.lr.ph122.preheader ]
   %.082120 = add nsw i64 %.082.in119, -1
   %57 = getelementptr inbounds i64, ptr %.083, i64 %.082.in119
   %58 = getelementptr inbounds i64, ptr %.083, i64 %.082120
@@ -930,28 +930,24 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr noundef readon
   %.not.not109 = icmp sgt i64 %56, %59
   br i1 %.not.not109, label %.lr.ph113, label %._crit_edge114
 
-._crit_edge114.loopexit:                          ; preds = %.lr.ph113
-  %60 = icmp ne i32 %spec.select, 0
-  br label %._crit_edge114
-
-._crit_edge114:                                   ; preds = %._crit_edge114.loopexit, %.lr.ph122
-  %61 = phi i64 [ %59, %.lr.ph122 ], [ %72, %._crit_edge114.loopexit ]
-  %.081.lcssa = phi i1 [ false, %.lr.ph122 ], [ %60, %._crit_edge114.loopexit ]
-  %62 = load i64, ptr %57, align 8, !tbaa !43
-  %63 = add nsw i64 %62, %.2118
-  store i64 %63, ptr %57, align 8, !tbaa !43
+._crit_edge114.loopexit:                          ; preds = %.lr.ph113, %.lr.ph122
+  %60 = phi i64 [ %59, %.lr.ph122 ], [ %71, %.lr.ph113 ]
+  %.081.lcssa = phi i1 [ false, %.lr.ph122 ], [ %spec.select, %.lr.ph113 ]
+  %61 = load i64, ptr %57, align 8, !tbaa !43
+  %62 = add nsw i64 %61, %.2118
+  store i64 %62, ptr %57, align 8, !tbaa !43
   %.not95 = icmp sgt i64 %.082.in119, %9
   %or.cond97 = select i1 %.081.lcssa, i1 true, i1 %.not95
   br i1 %or.cond97, label %80, label %73
 
 .lr.ph113:                                        ; preds = %.lr.ph122, %.lr.ph113
   %.0.in111 = phi i64 [ %.0, %.lr.ph113 ], [ %56, %.lr.ph122 ]
-  %.081110 = phi i32 [ %spec.select, %.lr.ph113 ], [ 0, %.lr.ph122 ]
+  %.081110 = phi i1 [ %spec.select, %.lr.ph113 ], [ false, %.lr.ph122 ]
   %.0 = add nsw i64 %.0.in111, -1
   %64 = getelementptr inbounds i64, ptr %.091, i64 %.0
   %65 = load i64, ptr %64, align 8, !tbaa !43
   %66 = icmp eq i64 %65, %.082120
-  %spec.select = select i1 %66, i32 1, i32 %.081110
+  %spec.select = select i1 %66, i1 true, i1 %.081110
   %67 = add nsw i64 %.0, %.2118
   %68 = getelementptr inbounds i64, ptr %.091, i64 %67
   store i64 %65, ptr %68, align 8, !tbaa !43
@@ -965,7 +961,7 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr noundef readon
 
 73:                                               ; preds = %._crit_edge114
   %74 = add nsw i64 %.2118, -1
-  %75 = getelementptr i64, ptr %.091, i64 %61
+  %75 = getelementptr i64, ptr %.091, i64 %60
   %76 = getelementptr i64, ptr %75, i64 %74
   store i64 %.082120, ptr %76, align 8, !tbaa !43
   %77 = load i64, ptr %58, align 8, !tbaa !43
@@ -975,8 +971,8 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr noundef readon
   br label %80
 
 80:                                               ; preds = %73, %._crit_edge114
-  %81 = phi i64 [ %61, %._crit_edge114 ], [ %77, %73 ]
-  %.3 = phi i64 [ %.2118, %._crit_edge114 ], [ %74, %73 ]
+  %81 = phi i64 [ %60, %._crit_edge114 ], [ %77, %72 ]
+  %.3 = phi i64 [ %.2118, %._crit_edge114 ], [ %74, %72 ]
   %82 = icmp sgt i64 %.3, 0
   br i1 %82, label %.lr.ph122, label %._crit_edge123
 }

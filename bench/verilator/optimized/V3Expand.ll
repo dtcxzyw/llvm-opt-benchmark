@@ -1638,16 +1638,18 @@ define linkonce_odr dso_local void @_ZN15ExpandOkVisitor5visitEP7AstNode(ptr nou
 9:                                                ; preds = %2
   %10 = xor i1 %6, true
   %11 = load i8, ptr %7, align 1, !tbaa !17, !range !61, !noundef !62
-  %12 = zext i1 %10 to i8
-  %13 = or i8 %11, %12
-  %.sroa.0.0.insert.ext.i = zext nneg i8 %13 to i64
+  %12 = trunc nuw i8 %11 to i1
+  %13 = or i1 %10, %12
+  %.sroa.0.0.insert.ext.i = zext i1 %13 to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 %.sroa.0.0.insert.ext.i, ptr %14, align 8, !tbaa !14
   %15 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !23
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 %15, ptr %16, align 4, !tbaa !73
-  %17 = or i8 %13, %8
-  store i8 %17, ptr %7, align 1, !tbaa !17
+  %17 = trunc nuw i8 %8 to i1
+  %18 = or i1 %13, %17
+  %19 = zext i1 %18 to i8
+  store i8 %19, ptr %7, align 1, !tbaa !17
   ret void
 
 18:                                               ; preds = %2

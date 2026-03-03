@@ -4936,10 +4936,9 @@ k_integer_p.exit.thread:                          ; preds = %281
   %287 = load i64, ptr %286, align 8, !tbaa !7
   %288 = and i64 %287, 31
   %289 = icmp eq i64 %288, 10
-  %290 = zext i1 %289 to i32
-  %291 = or i32 %3, %290
-  %or.cond.not235 = icmp eq i32 %291, 0
-  br i1 %or.cond.not235, label %309, label %rb_integer_type_p.exit.i.i151
+  %290 = icmp ne i32 %3, 0
+  %291 = or i1 %290, %289
+  br i1 %or.cond236, label %rb_integer_type_p.exit.i.i151, label %308
 
 rb_integer_type_p.exit.i.i151:                    ; preds = %k_integer_p.exit.thread
   %292 = inttoptr i64 %.381 to ptr
@@ -4986,7 +4985,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i161:     ; preds = %k_integer_p.exit.i1
   br label %nurat_int_value.exit163
 
 nurat_int_value.exit163:                          ; preds = %k_integer_p.exit.i158, %279, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i161, %305, %nurat_int_value.exit
-  %.583 = phi i64 [ 3, %nurat_int_value.exit ], [ %.381, %k_integer_p.exit.i158 ], [ %307, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i161 ], [ %306, %305 ], [ %.381, %279 ]
+  %.583 = phi i64 [ 3, %nurat_int_value.exit ], [ %.381, %k_integer_p.exit.i158 ], [ %307, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i161 ], [ %306, %304 ], [ %.381, %279 ]
   %308 = call fastcc i64 @nurat_s_canonicalize_internal(i64 noundef %0, i64 noundef %.0.i148, i64 noundef %.583)
   br label %309
 

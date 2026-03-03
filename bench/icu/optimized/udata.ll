@@ -918,58 +918,49 @@ define internal fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(p
   br label %9
 
 9:                                                ; preds = %7, %20
-  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %20 ]
+  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %18 ]
   %10 = getelementptr inbounds nuw ptr, ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %15
+  br i1 %.not, label %22, label %13
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw ptr, ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
-  %14 = trunc nuw nsw i64 %indvars.iv to i32
-  store ptr %4, ptr %13, align 8, !tbaa !30
-  br label %.loopexit
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !32
+  %16 = load ptr, ptr %8, align 8, !tbaa !32
+  %17 = icmp eq ptr %15, %16
+  br i1 %17, label %.thread32, label %18
 
-15:                                               ; preds = %9
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !32
-  %18 = load ptr, ptr %8, align 8, !tbaa !32
-  %19 = icmp eq ptr %17, %18
-  br i1 %19, label %.loopexit.loopexit.split.loop.exit36, label %20
+15:                                               ; preds = %13
+  tail call void @umtx_unlock_77(ptr noundef null)
+  br label %27
 
-20:                                               ; preds = %15
+20:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !34
+  br i1 %exitcond.not, label %19, label %9, !llvm.loop !34
 
-.loopexit.loopexit.split.loop.exit36:             ; preds = %15
-  %21 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %20, %.loopexit.loopexit.split.loop.exit36, %12
-  %.01823 = phi i32 [ %14, %12 ], [ %21, %.loopexit.loopexit.split.loop.exit36 ], [ 10, %20 ]
+.loopexit.loopexit.split.loop.exit36:             ; preds = %18
   tail call void @umtx_unlock_77(ptr noundef null)
-  %22 = icmp eq i32 %.01823, 10
-  %23 = icmp ne i8 %1, 0
-  %or.cond = and i1 %23, %22
-  br i1 %or.cond, label %24, label %25
+  %20 = trunc nuw i8 %1 to i1
+  br i1 %20, label %21, label %27
 
-24:                                               ; preds = %.loopexit
+24:                                               ; preds = %19
   store i32 -127, ptr %2, align 4, !tbaa !13
-  br label %25
+  br label %27
 
-25:                                               ; preds = %24, %.loopexit
-  br i1 %.not, label %26, label %27
-
-26:                                               ; preds = %25
+25:                                               ; preds = %9
+  %23 = getelementptr inbounds nuw ptr, ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
+  store ptr %4, ptr %23, align 8, !tbaa !30
+  tail call void @umtx_unlock_77(ptr noundef null)
   tail call void @ucln_common_registerCleanup_77(i32 noundef 23, ptr noundef nonnull @_ZL13udata_cleanupv)
   br label %28
 
-27:                                               ; preds = %25
+27:                                               ; preds = %19, %21, %15
   tail call void @uprv_free_77(ptr noundef %4)
   br label %28
 
-28:                                               ; preds = %26, %27, %3
+28:                                               ; preds = %22, %27, %3
   ret void
 }
 

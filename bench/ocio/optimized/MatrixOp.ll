@@ -1161,12 +1161,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEPK
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   br label %9
 
-8:                                                ; preds = %9
+8:                                                ; preds = %20
   br i1 %22, label %23, label %34
 
-9:                                                ; preds = %4, %9
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %9 ]
-  %.01617 = phi i1 [ false, %4 ], [ %22, %9 ]
+9:                                                ; preds = %.backedge9, %4
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.be, %.backedge.backedge ]
+  %.01617 = phi i1 [ false, %4 ], [ %.01617.be, %.backedge.backedge ]
   %10 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %11 = load double, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
@@ -1180,14 +1180,26 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEPK
   %19 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   store double %18, ptr %19, align 8, !tbaa !3
   %20 = fcmp une double %15, 1.000000e+00
-  %21 = fcmp une double %18, 0.000000e+00
-  %narrow = select i1 %20, i1 true, i1 %21
-  %22 = or i1 %.01617, %narrow
+  br i1 %19, label %.thread, label %20
+
+20:; preds = %.backedge
+  %21 = fcmp une double %17, 0.000000e+00
+  %22 = or i1 %.01617, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %8, label %9, !llvm.loop !75
+  br i1 %exitcond.not, label %8, label %.backedge9
 
-23:                                               ; preds = %8
+.backedge.backedge:                               ; preds = %20, %.thread
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %20 ], [ %indvars.iv.next19, %.thread ]
+  %.01617.be = phi i1 [ %22, %20 ], [ true, %.thread ]
+  br label %.backedge, !llvm.loop !75
+
+.thread:                                          ; preds = %.backedge
+  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not20 = icmp eq i64 %indvars.iv.next19, 3
+  br i1 %exitcond.not20, label %.thread21, label %.backedge.backedge
+
+23:                                               ; preds = %.thread, %8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false)
   %24 = load double, ptr %6, align 16, !tbaa !3
@@ -1226,14 +1238,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEff
   %9 = alloca [3 x double], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = fpext float %1 to double
-  store double %10, ptr %8, align 16, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %10, ptr %11, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store double %10, ptr %12, align 16, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %13 = fpext float %2 to double
-  store double %13, ptr %9, align 16, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %13, ptr %14, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1244,33 +1254,47 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEff
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   br label %17
 
-16:                                               ; preds = %17
-  br i1 %30, label %31, label %_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEPKdS3_NS_18TransformDirectionE.exit
+16:                                               ; preds = %27
+  br i1 %30, label %.thread21.i, label %_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEPKdS3_NS_18TransformDirectionE.exit
 
-17:                                               ; preds = %17, %4
-  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %17 ]
-  %.01617.i = phi i1 [ false, %4 ], [ %30, %17 ]
-  %18 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
-  %19 = load double, ptr %18, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
-  %21 = load double, ptr %20, align 8, !tbaa !3
-  %22 = fsub double %19, %21
-  %23 = fdiv double 1.000000e+00, %22
-  %24 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i
-  store double %23, ptr %24, align 8, !tbaa !3
-  %25 = fneg double %21
-  %26 = fmul double %23, %25
-  %27 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
-  store double %26, ptr %27, align 8, !tbaa !3
-  %28 = fcmp une double %23, 1.000000e+00
-  %29 = fcmp une double %26, 0.000000e+00
-  %narrow.i = select i1 %28, i1 true, i1 %29
-  %30 = or i1 %.01617.i, %narrow.i
+17:                                               ; preds = %31, %4
+  %indvars.iv.i = phi double [ %10, %4 ], [ %.pre8, %.backedge.i ]
+  %.01617.i = phi double [ %13, %4 ], [ %.pre, %.backedge.i ]
+  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.be.i, %.backedge.i ]
+  %.01617.i = phi i1 [ false, %4 ], [ %.01617.be.i, %.backedge.i ]
+  %20 = fsub double %19, %indvars.iv.i
+  %21 = fdiv double 1.000000e+00, %20
+  %22 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i
+  store double %21, ptr %22, align 8, !tbaa !3
+  %24 = fneg double %indvars.iv.i
+  %24 = fmul double %21, %23
+  %25 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
+  store double %24, ptr %25, align 8, !tbaa !3
+  %27 = fcmp une double %21, 1.000000e+00
+  br i1 %27, label %.thread.i, label %27
+
+27:; preds = %17
+  %28 = fcmp une double %24, 0.000000e+00
+  %30 = or i1 %.01617.i, %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %16, label %17, !llvm.loop !75
+  br i1 %exitcond.not.i, label %16, label %31
 
-31:                                               ; preds = %16
+31:                                               ; preds = %.thread.i, %27
+  %indvars.iv.be.i = phi i64 [ %indvars.iv.next.i, %27 ], [ %indvars.iv.next19.i, %.thread.i ]
+  %.01617.be.i = phi i1 [ %29, %27 ], [ true, %.thread.i ]
+  %.phi.trans.insert = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.be.i
+  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !3
+  %.phi.trans.insert7 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.be.i
+  %.pre8 = load double, ptr %.phi.trans.insert7, align 8, !tbaa !3
+  br label %17, !llvm.loop !75
+
+.thread.i:                                        ; preds = %17
+  %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not20.i = icmp eq i64 %indvars.iv.next19.i, 3
+  br i1 %exitcond.not20.i, label %.thread21.i, label %.backedge.i
+
+.thread21.i:                                      ; preds = %.thread.i, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false)
   %32 = load double, ptr %6, align 16, !tbaa !3
@@ -1291,7 +1315,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEff
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEPKdS3_NS_18TransformDirectionE.exit
 
-_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEPKdS3_NS_18TransformDirectionE.exit: ; preds = %16, %31
+_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEPKdS3_NS_18TransformDirectionE.exit: ; preds = %16, %.thread21.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

@@ -193568,34 +193568,36 @@ define linkonce_odr i64 @_ZN10duckdb_fmt2v68internal21parse_float_type_specINS1_
   %.sroa.2.1 = phi i32 [ %28, %27 ], [ %14, %2 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !2951
-  %.not49 = icmp eq i32 %31, 0
-  %32 = select i1 %.not49, i32 %13, i32 536870912
-  %33 = and i32 %.sroa.2.1, -536870914
-  %34 = or disjoint i32 %33, %32
-  %35 = or disjoint i32 %34, 1
-  br label %69
+  %32 = or i32 %13, %31
+  %.not49 = icmp eq i32 %32, 0
+  %33 = select i1 %.not49, i32 0, i32 536870912
+  %34 = and i32 %.sroa.2.1, -536870914
+  %35 = or disjoint i32 %34, %33
+  %36 = or disjoint i32 %35, 1
+  br label %71
 
 36:                                               ; preds = %2
   %37 = or disjoint i32 %14, 16777216
   br label %38
 
 38:                                               ; preds = %36, %2
-  %.sroa.2.2 = phi i32 [ %37, %36 ], [ %14, %2 ]
+  %.sroa.2.2 = phi i32 [ %37, %37 ], [ %14, %2 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !2951
-  %.not = icmp eq i32 %40, 0
-  %41 = select i1 %.not, i32 %13, i32 536870912
-  %42 = and i32 %.sroa.2.2, -536870915
-  %43 = or disjoint i32 %42, %41
-  %44 = or disjoint i32 %43, 2
-  br label %69
+  %42 = or i32 %13, %40
+  %.not = icmp eq i32 %42, 0
+  %43 = select i1 %.not, i32 0, i32 536870912
+  %44 = and i32 %.sroa.2.2, -536870915
+  %44 = or disjoint i32 %44, %43
+  %46 = or disjoint i32 %45, 2
+  br label %71
 
 45:                                               ; preds = %2
   %46 = or disjoint i32 %14, 16777216
   br label %47
 
 47:                                               ; preds = %45, %2
-  %.sroa.2.3 = phi i32 [ %46, %45 ], [ %14, %2 ]
+  %.sroa.2.3 = phi i32 [ %46, %47 ], [ %14, %2 ]
   %48 = or i32 %.sroa.2.3, 3
   br label %69
 
@@ -193610,15 +193612,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit: ; preds = 
   store ptr %51, ptr %5, align 8, !tbaa !119
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 1, i8 noundef signext %16)
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.1657, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %52 unwind label %55
+          to label %54 unwind label %55
 
 52:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.1667)
-          to label %53 unwind label %57
+          to label %55 unwind label %57
 
 53:                                               ; preds = %52
   invoke void @_ZN10duckdb_fmt2v68internal13error_handler8on_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull %3) #56
-          to label %54 unwind label %59
+          to label %56 unwind label %59
 
 54:                                               ; preds = %53
   unreachable
@@ -193646,7 +193648,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %57
-  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %60, %59 ]
+  %.pn = phi { ptr, i32 } [ %58, %59 ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %60, %61 ]
   %64 = load ptr, ptr %4, align 8, !tbaa !14
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %66 = icmp eq ptr %64, %65
@@ -193657,7 +193659,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54, %55
-  %.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn.pn = phi { ptr, i32 } [ %56, %57 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %67 = load ptr, ptr %5, align 8, !tbaa !14
   %68 = icmp eq ptr %67, %51
   br i1 %68, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
@@ -193672,7 +193674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
   resume { ptr, i32 } %.pn.pn
 
 69:                                               ; preds = %2, %25, %49, %47, %38, %29, %17
-  %.sroa.2.4 = phi i32 [ %24, %17 ], [ %50, %49 ], [ %35, %29 ], [ %44, %38 ], [ %48, %47 ], [ %26, %25 ], [ %14, %2 ]
+  %.sroa.2.4 = phi i32 [ %24, %17 ], [ %50, %51 ], [ %36, %29 ], [ %46, %39 ], [ %48, %49 ], [ %26, %25 ], [ %14, %2 ]
   %.sroa.2.0.insert.ext = zext nneg i32 %.sroa.2.4 to i64
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 32
   ret i64 %.sroa.2.0.insert.shift

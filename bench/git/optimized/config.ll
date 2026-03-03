@@ -4445,7 +4445,7 @@ get_next_char.exit.thread82.i.i.i:                ; preds = %448, %447, %.thread
   %464 = load i8, ptr %463, align 1, !tbaa !4
   %465 = and i8 %464, 1
   %466 = icmp eq i8 %465, 0
-  %467 = icmp ne i32 %.038.i.i.i, 0
+  %467 = trunc nuw i32 %.038.i.i.i to i1
   %or.cond.i.i.i = select i1 %466, i1 true, i1 %467
   br i1 %or.cond.i.i.i, label %478, label %468
 
@@ -9436,7 +9436,7 @@ strbuf_setlen.exit:                               ; preds = %105, %103, %91
 .preheader72.i:                                   ; preds = %strbuf_setlen.exit, %141
   %.051.i = phi i64 [ %142, %141 ], [ 1, %strbuf_setlen.exit ]
   %.049.i = phi i64 [ %.2.i, %141 ], [ 0, %strbuf_setlen.exit ]
-  %.0.i120 = phi i32 [ %.1.i, %141 ], [ 0, %strbuf_setlen.exit ]
+  %.0.i120 = phi i1 [ %.1.i, %141 ], [ false, %strbuf_setlen.exit ]
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 %.051.i
   %110 = load i8, ptr %109, align 1, !tbaa !4
   switch i8 %110, label %111 [
@@ -9445,8 +9445,7 @@ strbuf_setlen.exit:                               ; preds = %105, %103, %91
   ]
 
 111:                                              ; preds = %.preheader72.i
-  %.not69.i = icmp eq i32 %.0.i120, 0
-  br i1 %.not69.i, label %112, label %128
+  br i1 %.0.i120, label %128, label %112
 
 112:                                              ; preds = %111
   %113 = zext i8 %110 to i64
@@ -9464,7 +9463,7 @@ strbuf_setlen.exit:                               ; preds = %105, %103, %91
   br i1 %.not59.i, label %.preheader71.i, label %.thread140
 
 .preheader71.i:                                   ; preds = %117, %.preheader71.i
-  %.253.in.i = phi i64 [ %.253.i, %.preheader71.i ], [ %.051.i, %117 ]
+  %.253.in.i = phi i64 [ %.253.i, %.preheader70.i ], [ %.051.i, %117 ]
   %.253.i = add i64 %.253.in.i, 1
   %121 = getelementptr inbounds nuw i8, ptr %107, i64 %.253.i
   %122 = load i8, ptr %121, align 1, !tbaa !4
@@ -9492,7 +9491,7 @@ strbuf_setlen.exit:                               ; preds = %105, %103, %91
   br label %.thread67.i
 
 .preheader70.i:                                   ; preds = %128, %.preheader70.i
-  %.5.in.i = phi i64 [ %.5.i, %.preheader70.i ], [ %.051.i, %128 ]
+  %.5.in.i = phi i64 [ %.5.i, %.preheader69.i ], [ %.051.i, %128 ]
   %.5.i = add i64 %.5.in.i, 1
   %131 = getelementptr inbounds nuw i8, ptr %107, i64 %.5.i
   %132 = load i8, ptr %131, align 1, !tbaa !4
@@ -9515,14 +9514,14 @@ strbuf_setlen.exit:                               ; preds = %105, %103, %91
 141:                                              ; preds = %.thread67.i, %127
   %.3.i = phi i64 [ %.4.i, %.thread67.i ], [ %.253.i, %127 ]
   %.2.i = phi i64 [ %138, %.thread67.i ], [ %118, %127 ]
-  %.1.i = phi i32 [ %.0.i120, %.thread67.i ], [ 1, %127 ]
+  %.1.i = phi i1 [ %.0.i120, %.thread67.i ], [ true, %127 ]
   %142 = add i64 %.3.i, 1
   br label %.preheader72.i, !llvm.loop !170
 
 .critedge.i:                                      ; preds = %.thread67.i, %127, %.preheader72.i, %.preheader72.i, %.preheader70.i
-  %143 = phi i8 [ %132, %.preheader70.i ], [ %110, %.preheader72.i ], [ %137, %.thread67.i ], [ %122, %127 ], [ %110, %.preheader72.i ]
-  %.152.i = phi i64 [ %.5.i, %.preheader70.i ], [ %.051.i, %.preheader72.i ], [ %.4.i, %.thread67.i ], [ %.253.i, %127 ], [ %.051.i, %.preheader72.i ]
-  %.150.i = phi i64 [ %.049.i, %.preheader70.i ], [ %.049.i, %.preheader72.i ], [ %138, %.thread67.i ], [ %118, %127 ], [ %.049.i, %.preheader72.i ]
+  %143 = phi i8 [ %132, %.preheader69.i ], [ %110, %.preheader71.i ], [ %137, %.thread67.i ], [ %122, %127 ], [ %110, %.preheader71.i ]
+  %.152.i = phi i64 [ %.5.i, %.preheader69.i ], [ %.051.i, %.preheader71.i ], [ %.4.i, %.thread67.i ], [ %.253.i, %127 ], [ %.051.i, %.preheader71.i ]
+  %.150.i = phi i64 [ %.049.i, %.preheader69.i ], [ %.049.i, %.preheader71.i ], [ %138, %.thread67.i ], [ %118, %127 ], [ %.049.i, %.preheader71.i ]
   %144 = icmp eq i8 %143, 93
   br i1 %144, label %145, label %.thread140
 

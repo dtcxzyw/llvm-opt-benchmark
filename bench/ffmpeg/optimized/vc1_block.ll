@@ -8117,7 +8117,7 @@ get_vlc2.exit732.i:                               ; preds = %3388, %3364
 
 3531:                                             ; preds = %3522
   %3532 = icmp ne i32 %.1576842845.i, 0
-  %3533 = icmp ne i32 %.1.i, 0
+  %3533 = trunc nuw i32 %.1.i to i1
   %or.cond19.i = select i1 %3532, i1 true, i1 %3533
   br i1 %or.cond19.i, label %3534, label %.loopexit886.i
 
@@ -18237,21 +18237,26 @@ define internal fastcc range(i32 -1094995529, 16) i32 @vc1_decode_p_block(ptr no
   br i1 %.not, label %82, label %91
 
 82:                                               ; preds = %79
-  br i1 %18, label %87, label %83
+  br i1 %18, label %._crit_edge424, label %83
+
+._crit_edge424:                                   ; preds = %82
+  %.pre = trunc nuw i32 %5 to i1
+  br label %87
 
 83:                                               ; preds = %82
   %84 = and i32 %4, 8
   %85 = icmp eq i32 %84, 0
-  %86 = icmp ne i32 %5, 0
-  %or.cond3 = or i1 %85, %86
+  %86 = trunc nuw i32 %5 to i1
+  %or.cond3 = select i1 %85, i1 true, i1 %86
   br i1 %or.cond3, label %87, label %91
 
-87:                                               ; preds = %83, %82
+87:                                               ; preds = %._crit_edge424, %83
+  %.pre-phi = phi i1 [ %.pre, %._crit_edge424 ], [ %86, %83 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 6412
   %89 = load i32, ptr %88, align 4, !tbaa !279
-  %90 = or i32 %89, %5
-  %or.cond5.not = icmp eq i32 %90, 0
-  br i1 %or.cond5.not, label %91, label %123
+  %90 = icmp ne i32 %89, 0
+  %or.cond5 = select i1 %90, i1 true, i1 %.pre-phi
+  br i1 %or.cond5, label %123, label %91
 
 91:                                               ; preds = %87, %83, %79
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 4176
@@ -18597,7 +18602,7 @@ thread-pre-split344:                              ; preds = %268, %260
   %.16.v = select i1 %272, i64 5664, i64 5632
   %.16 = getelementptr inbounds nuw i8, ptr %0, i64 %.16.v
   %.sink455 = load ptr, ptr %.16, align 8, !tbaa !282
-  tail call void %.sink455(ptr noundef %274, i64 noundef %239, ptr noundef %275) #11
+  tail call void %.sink456(ptr noundef %274, i64 noundef %239, ptr noundef %275) #11
   br label %._crit_edge390.thread
 
 ._crit_edge390.thread:                            ; preds = %._crit_edge390, %241
@@ -18691,7 +18696,7 @@ thread-pre-split357:                              ; preds = %314, %305
   %.17.v = select i1 %318, i64 5672, i64 5640
   %.17 = getelementptr inbounds nuw i8, ptr %0, i64 %.17.v
   %.sink457 = load ptr, ptr %.17, align 8, !tbaa !282
-  tail call void %.sink457(ptr noundef %319, i64 noundef %285, ptr noundef %320) #11
+  tail call void %.sink458(ptr noundef %319, i64 noundef %285, ptr noundef %320) #11
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %286

@@ -5187,12 +5187,12 @@ define hidden noundef zeroext i1 @SDL_GamepadHasButton_REAL(ptr noundef %0, i32 
 define hidden zeroext i1 @SDL_GetGamepadButton_REAL(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @SDL_LockJoysticks_REAL() #10
   %3 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 5) #10
-  br i1 %3, label %4, label %68
+  br i1 %3, label %4, label %76
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
   %6 = tail call zeroext i1 @SDL_IsJoystickValid(ptr noundef %5) #10
-  br i1 %6, label %.preheader, label %68
+  br i1 %6, label %.preheader, label %76
 
 .preheader:                                       ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5204,28 +5204,28 @@ define hidden zeroext i1 @SDL_GetGamepadButton_REAL(ptr noundef %0, i32 noundef 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %11
 
-11:                                               ; preds = %.lr.ph, %64
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %.14762 = phi i1 [ false, %.lr.ph ], [ %.2, %64 ]
+11:                                               ; preds = %.lr.ph, %72
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
+  %.14762 = phi i8 [ 0, %.lr.ph ], [ %.2, %72 ]
   %12 = load ptr, ptr %10, align 8
   %13 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %64
+  br i1 %16, label %17, label %72
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %1
-  br i1 %20, label %21, label %64
+  br i1 %20, label %21, label %72
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %13, align 4
-  switch i32 %22, label %64 [
+  switch i32 %22, label %72 [
     i32 2, label %23
-    i32 1, label %47
-    i32 3, label %53
+    i32 1, label %51
+    i32 3, label %59
   ]
 
 23:                                               ; preds = %21
@@ -5248,59 +5248,71 @@ define hidden zeroext i1 @SDL_GetGamepadButton_REAL(ptr noundef %0, i32 noundef 
   %.not56 = icmp sle i32 %30, %28
   %38 = icmp sge i32 %32, %28
   %spec.select = and i1 %.not56, %38
-  br i1 %spec.select, label %39, label %64
+  br i1 %spec.select, label %39, label %72
 
 39:                                               ; preds = %37
   %40 = icmp sle i32 %35, %28
-  %41 = or i1 %.14762, %40
-  br label %64
+  %41 = trunc nuw i8 %.14762 to i1
+  %42 = or i1 %40, %41
+  %43 = zext i1 %42 to i8
+  br label %72
 
 42:                                               ; preds = %23
   %.not = icmp sle i32 %32, %28
   %43 = icmp sge i32 %30, %28
   %spec.select57 = and i1 %43, %.not
-  br i1 %spec.select57, label %44, label %64
+  br i1 %spec.select57, label %46, label %72
 
-44:                                               ; preds = %42
-  %45 = icmp sge i32 %35, %28
-  %46 = or i1 %.14762, %45
-  br label %64
+53:                                               ; preds = %42
+  %47 = icmp sge i32 %35, %28
+  %48 = trunc nuw i8 %.14762 to i1
+  %49 = or i1 %47, %48
+  %50 = zext i1 %49 to i8
+  br label %72
 
-47:                                               ; preds = %21
-  %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = tail call zeroext i1 @SDL_GetJoystickButton_REAL(ptr noundef %48, i32 noundef %50) #10
-  %52 = or i1 %.14762, %51
-  br label %64
+51:; preds = %21
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %54 = load i32, ptr %53, align 4
+  %55 = tail call zeroext i1 @SDL_GetJoystickButton_REAL(ptr noundef %52, i32 noundef %54) #10
+  %56 = trunc nuw i8 %.14762 to i1
+  %57 = or i1 %55, %56
+  %58 = zext i1 %57 to i8
+  br label %72
 
-53:                                               ; preds = %21
-  %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %56 = load i32, ptr %55, align 4
-  %57 = tail call zeroext i8 @SDL_GetJoystickHat_REAL(ptr noundef %54, i32 noundef %56) #10
-  %58 = zext i8 %57 to i32
-  %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %60 = load i32, ptr %59, align 4
-  %61 = and i32 %60, %58
-  %62 = icmp ne i32 %61, 0
-  %63 = or i1 %.14762, %62
-  br label %64
+59:                                               ; preds = %21
+  %60 = load ptr, ptr %0, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %62 = load i32, ptr %61, align 4
+  %63 = tail call zeroext i8 @SDL_GetJoystickHat_REAL(ptr noundef %60, i32 noundef %62) #10
+  %64 = zext i8 %63 to i32
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %66 = load i32, ptr %65, align 4
+  %67 = and i32 %66, %64
+  %68 = icmp ne i32 %67, 0
+  %69 = trunc nuw i8 %.14762 to i1
+  %70 = or i1 %68, %69
+  %71 = zext i1 %70 to i8
+  br label %72
 
-64:                                               ; preds = %21, %39, %37, %44, %42, %53, %47, %17, %11
-  %.2 = phi i1 [ %.14762, %11 ], [ %52, %47 ], [ %63, %53 ], [ %.14762, %21 ], [ %.14762, %17 ], [ %41, %39 ], [ %.14762, %37 ], [ %46, %44 ], [ %.14762, %42 ]
+72:                                               ; preds = %21, %39, %37, %46, %44, %59, %51, %17, %11
+  %.2 = phi i8 [ %.14762, %11 ], [ %58, %51 ], [ %71, %59 ], [ %.14762, %21 ], [ %.14762, %17 ], [ %43, %39 ], [ %.14762, %37 ], [ %50, %46 ], [ %.14762, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = load i32, ptr %7, align 8
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %11, label %._crit_edge, !llvm.loop !50
+  br i1 %67, label %11, label %._crit_edge.loopexit, !llvm.loop !50
 
-68:                                               ; preds = %2, %4
-  %69 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #10
+76:                                               ; preds = %2, %4
+  %77 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #10
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %64, %.preheader, %68
-  %.1 = phi i1 [ false, %68 ], [ false, %.preheader ], [ %.2, %64 ]
+68:                                               ; preds = %72
+  %78 = trunc nuw i8 %.2 to i1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.preheader, %68, %76
+  %.1 = phi i1 [ false, %76 ], [ false, %.preheader ], [ %78, %._crit_edge.loopexit ]
   tail call void @SDL_UnlockJoysticks_REAL() #10
   ret i1 %.1
 }

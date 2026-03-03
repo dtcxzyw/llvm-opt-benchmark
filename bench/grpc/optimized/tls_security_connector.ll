@@ -7693,19 +7693,24 @@ define void @_ZN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatc
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 128
   %40 = load i8, ptr %39, align 8, !tbaa !80, !range !113, !noundef !114
   %41 = and i8 %35, %33
-  %or.cond = icmp eq i8 %41, 0
+  %or.cond = trunc nuw i8 %41 to i1
   %42 = and i8 %40, %37
-  %43 = icmp eq i8 %42, 0
-  %or.cond942 = and i1 %43, %38
-  %or.cond34 = or i1 %or.cond, %or.cond942
+  %43 = and i8 %42, %41
+  %or.cond5.not40 = icmp eq i8 %43, 0
+  %or.cond7.not = xor i1 %or.cond, true
+  %or.cond9 = or i1 %38, %or.cond7.not
+  %or.cond34 = and i1 %or.cond9, %or.cond5.not40
+  %or.cond34.not = xor i1 %or.cond34, true
   %44 = trunc nuw i8 %33 to i1
-  %or.cond13.not = or i1 %43, %44
-  %or.cond44 = select i1 %or.cond34, i1 %or.cond13.not, i1 false
-  br i1 %or.cond44, label %57, label %45
+  %.not = xor i1 %44, true
+  %45 = trunc nuw i8 %42 to i1
+  %or.cond13 = and i1 %.not, %45
+  %or.cond42 = select i1 %or.cond34.not, i1 true, i1 %or.cond13
+  br i1 %or.cond42, label %46, label %58
 
 45:                                               ; preds = %28
   %46 = invoke noundef i32 @_ZN9grpc_core26TlsServerSecurityConnector29UpdateHandshakerFactoryLockedEv(ptr noundef nonnull align 8 dereferenceable(192) %29)
-          to label %47 unwind label %50
+          to label %48 unwind label %50
 
 47:                                               ; preds = %45
   %.not31 = icmp eq i32 %46, 0
@@ -7714,7 +7719,7 @@ define void @_ZN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatc
 48:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str, i32 noundef 713) #28
-          to label %49 unwind label %52
+          to label %50 unwind label %52
 
 49:                                               ; preds = %48
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 33, ptr nonnull @.str.11)
@@ -7742,7 +7747,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; pr
   br label %56
 
 56:                                               ; preds = %54, %52
-  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %53, %52 ]
+  %.pn = phi { ptr, i32 } [ %55, %55 ], [ %53, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
@@ -7761,7 +7766,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %57
   ret void
 
 61:                                               ; preds = %56, %50
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %56 ], [ %51, %50 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %57 ], [ %51, %51 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit35 unwind label %62
 

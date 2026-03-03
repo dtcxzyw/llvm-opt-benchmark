@@ -3359,7 +3359,6 @@ define void @validatePhaseFuncTerms(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %11 = icmp eq i32 %.152, 0
-  %12 = icmp ne i32 %.147, 0
   br i1 %11, label %.split, label %.preheader71
 
 .preheader71:                                     ; preds = %._crit_edge
@@ -3372,13 +3371,13 @@ define void @validatePhaseFuncTerms(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.04674 = phi i32 [ 0, %.lr.ph.preheader ], [ %.147, %.lr.ph ]
+  %.04674 = phi i1 [ false, %.lr.ph.preheader ], [ %.147, %.lr.ph ]
   %.05172 = phi i32 [ 0, %.lr.ph.preheader ], [ %.152, %.lr.ph ]
   %14 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   %15 = load double, ptr %14, align 8, !tbaa !9
   %16 = tail call double @llvm.floor.f64(double %15)
   %17 = fcmp une double %16, %15
-  %.147 = select i1 %17, i32 1, i32 %.04674
+  %.147 = select i1 %17, i1 true, i1 %.04674
   %18 = fcmp olt double %15, 0.000000e+00
   %.152 = select i1 %18, i32 1, i32 %.05172
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3395,7 +3394,7 @@ define void @validatePhaseFuncTerms(i32 noundef %0, i32 noundef %1, ptr noundef 
   br label %.split
 
 .lr.ph77:                                         ; preds = %.lr.ph77.preheader, %19
-  %indvars.iv89 = phi i64 [ 0, %.lr.ph77.preheader ], [ %indvars.iv.next90, %19 ]
+  %indvars.iv89 = phi i64 [ 0, %.lr.ph77.preheader ], [ %indvars.iv.next90, %18 ]
   %20 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv89
   %21 = load i64, ptr %20, align 8, !tbaa !38
   %22 = icmp eq i64 %21, 0
@@ -3403,7 +3402,7 @@ define void @validatePhaseFuncTerms(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 .split:                                           ; preds = %.lr.ph77, %.split54, %._crit_edge
   %23 = icmp eq i32 %1, 1
-  %or.cond = and i1 %23, %12
+  %or.cond = and i1 %23, %.147
   br i1 %or.cond, label %24, label %QuESTAssert.exit63
 
 24:                                               ; preds = %.split
@@ -3439,7 +3438,7 @@ QuESTAssert.exit61:                               ; preds = %24, %29
   br label %.lr.ph84
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %39
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next98, %39 ]
+  %indvars.iv97 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next98, %38 ]
   %33 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv97
   %34 = load i64, ptr %33, align 8, !tbaa !38
   %35 = icmp slt i64 %34, 0
@@ -3462,7 +3461,7 @@ QuESTAssert.exit61:                               ; preds = %24, %29
   br i1 %exitcond106.not, label %._crit_edge85, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %40
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next103, %40 ]
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next103, %39 ]
   %41 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv102
   %42 = load i64, ptr %41, align 8, !tbaa !38
   %.not59 = icmp eq i64 %42, 0
@@ -3539,8 +3538,7 @@ QuESTAssert.exit36:                               ; preds = %.lr.ph, %13
 
 ._crit_edge:                                      ; preds = %.lr.ph49
   %18 = icmp eq i32 %.1, 0
-  %19 = icmp ne i32 %.130, 0
-  br i1 %18, label %QuESTAssert.exit38, label %20
+  br i1 %20, label %QuESTAssert.exit38, label %20
 
 20:                                               ; preds = %._crit_edge
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.83, ptr noundef %5)
@@ -3548,18 +3546,18 @@ QuESTAssert.exit36:                               ; preds = %.lr.ph, %13
 
 QuESTAssert.exit38:                               ; preds = %._crit_edge, %20
   %21 = icmp eq i32 %2, 1
-  %or.cond = select i1 %21, i1 %19, i1 false
+  %or.cond = select i1 %21, i1 %.130, i1 false
   br i1 %or.cond, label %27, label %QuESTAssert.exit40
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
   %indvars.iv58 = phi i64 [ 0, %.lr.ph49.preheader ], [ %indvars.iv.next59, %.lr.ph49 ]
   %.02847 = phi i32 [ 0, %.lr.ph49.preheader ], [ %.1, %.lr.ph49 ]
-  %.02946 = phi i32 [ 0, %.lr.ph49.preheader ], [ %.130, %.lr.ph49 ]
+  %.02946 = phi i1 [ false, %.lr.ph49.preheader ], [ %.130, %.lr.ph49 ]
   %22 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv58
   %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = tail call double @llvm.floor.f64(double %23)
   %25 = fcmp une double %24, %23
-  %.130 = select i1 %25, i32 1, i32 %.02946
+  %.130 = select i1 %25, i1 true, i1 %.02946
   %26 = fcmp olt double %23, 0.000000e+00
   %.1 = select i1 %26, i32 1, i32 %.02847
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1

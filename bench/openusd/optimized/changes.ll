@@ -21187,24 +21187,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__10PcpChanges21_GetLayerStackChangesERKNS_9T
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %48 = load i8, ptr %47, align 8
-  %49 = and i8 %48, 1
-  %50 = zext i1 %3 to i8
-  %51 = or i8 %49, %50
+  %49 = trunc i8 %48 to i1
+  %50 = or i1 %3, %49
+  %51 = zext i1 %50 to i8
   store i8 %51, ptr %47, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i, i64 49
   %53 = load i8, ptr %52, align 1
-  %54 = and i8 %53, 1
-  %55 = zext i1 %4 to i8
-  %56 = or i8 %54, %55
+  %54 = trunc i8 %53 to i1
+  %55 = or i1 %4, %54
+  %56 = zext i1 %55 to i8
   store i8 %56, ptr %52, align 1
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i, i64 52
   %58 = load i8, ptr %57, align 4
-  %59 = and i8 %58, 1
-  %60 = zext i1 %5 to i8
-  %61 = or i8 %59, %60
+  %59 = trunc i8 %58 to i1
+  %60 = or i1 %5, %59
+  %61 = zext i1 %60 to i8
   store i8 %61, ptr %57, align 4
-  %62 = trunc nuw i8 %51 to i1
-  br i1 %62, label %63, label %64
+  br i1 %50, label %62, label %63
 
 63:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10PcpChanges21_GetLayerStackChangesERKNS_9TfWeakPtrINS_13PcpLayerStackEEE.exit
   store i8 0, ptr %52, align 1
@@ -21231,8 +21230,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10PcpChanges21_GetLayerStackChangesERKNS_9T
   br i1 %.not10.i.i.i.i.i15, label %.critedge.i.i23, label %.lr.ph.i.i.i.i.i16
 
 .lr.ph.i.i.i.i.i16:                               ; preds = %67, %.lr.ph.i.i.i.i.i16
-  %.012.i.i.i.i.i17 = phi ptr [ %.1.i.i.i.i.i20, %.lr.ph.i.i.i.i.i16 ], [ %70, %67 ]
-  %.0811.i.i.i.i.i18 = phi ptr [ %.19.i.i.i.i.i19, %.lr.ph.i.i.i.i.i16 ], [ %71, %67 ]
+  %.012.i.i.i.i.i17 = phi ptr [ %.1.i.i.i.i.i20, %.lr.ph.i.i.i.i.i16 ], [ %70, %66 ]
+  %.0811.i.i.i.i.i18 = phi ptr [ %.19.i.i.i.i.i19, %.lr.ph.i.i.i.i.i16 ], [ %71, %66 ]
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i17, i64 32
   %73 = load ptr, ptr %72, align 8
   %74 = icmp ult ptr %73, %1
@@ -21254,13 +21253,13 @@ _ZNSt3mapIPN32pxrInternal_v0_24__pxrReserved__8PcpCacheENS0_15PcpCacheChangesESt
   br i1 %79, label %.critedge.i.i23, label %_ZN32pxrInternal_v0_24__pxrReserved__10PcpChanges16_GetCacheChangesEPKNS_8PcpCacheE.exit
 
 .critedge.i.i23:                                  ; preds = %76, %_ZNSt3mapIPN32pxrInternal_v0_24__pxrReserved__8PcpCacheENS0_15PcpCacheChangesESt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_.exit.i.i, %67
-  %.08.lcssa.i.i.i10.i.i24 = phi ptr [ %.19.i.i.i.i.i19, %76 ], [ %.19.i.i.i.i.i19, %_ZNSt3mapIPN32pxrInternal_v0_24__pxrReserved__8PcpCacheENS0_15PcpCacheChangesESt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_.exit.i.i ], [ %71, %67 ]
+  %.08.lcssa.i.i.i10.i.i24 = phi ptr [ %.19.i.i.i.i.i19, %75 ], [ %.19.i.i.i.i.i19, %_ZNSt3mapIPN32pxrInternal_v0_24__pxrReserved__8PcpCacheENS0_15PcpCacheChangesESt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_.exit.i.i ], [ %71, %66 ]
   store ptr %9, ptr %7, align 8, !alias.scope !119
   %80 = call ptr @_ZNSt8_Rb_treeIPN32pxrInternal_v0_24__pxrReserved__8PcpCacheESt4pairIKS2_NS0_15PcpCacheChangesEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS2_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr %.08.lcssa.i.i.i10.i.i24, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10PcpChanges16_GetCacheChangesEPKNS_8PcpCacheE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__10PcpChanges16_GetCacheChangesEPKNS_8PcpCacheE.exit: ; preds = %76, %.critedge.i.i23
-  %.sroa.05.0.i.i22 = phi ptr [ %80, %.critedge.i.i23 ], [ %.19.i.i.i.i.i19, %76 ]
+  %.sroa.05.0.i.i22 = phi ptr [ %80, %.critedge.i.i23 ], [ %.19.i.i.i.i.i19, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

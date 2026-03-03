@@ -103,7 +103,7 @@ define dso_local i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i6
   %73 = sub i64 %62, %72
   %74 = getelementptr inbounds nuw i8, ptr %.0155.ph.i, i64 3
   %gepdiff.i.i = add i64 %73, -3
-  %.not.i.i215.i = icmp ne i32 %.0195.ph.i, 0
+  %.not.i.i215.i = trunc nuw i32 %.0195.ph.i to i1
   %75 = select i1 %.not.i.i215.i, i64 200, i64 0
   %76 = sub nuw nsw i64 1024, %75
   %77 = sub nuw nsw i64 16384, %75
@@ -116,7 +116,7 @@ define dso_local i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i6
 82:                                               ; preds = %.thread255.i, %.outer.i
   %.0190.i = phi i32 [ %.4194.ph.i, %.thread255.i ], [ %.0190.ph.i, %.outer.i ]
   %.0183.i = phi i64 [ %.1184345.i, %.thread255.i ], [ 0, %.outer.i ]
-  %.0176.i = phi i64 [ %104, %.thread255.i ], [ 0, %.outer.i ]
+  %.0176.i = phi i64 [ %.6182.ph.i, %.thread255.i ], [ 0, %.outer.i ]
   br i1 %49, label %.thread.i, label %83
 
 83:                                               ; preds = %82
@@ -152,6 +152,7 @@ define dso_local i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i6
   br label %.thread.i
 
 .thread.i:                                        ; preds = %101, %82
+  %.1177347.i = phi i64 [ %102, %101 ], [ %.0176.i, %82 ]
   %.1184345.i = phi i64 [ %103, %101 ], [ %.0183.i, %82 ]
   %.0189342.i = phi i1 [ %cond.fr.i, %101 ], [ true, %82 ]
   %104 = phi i64 [ %spec.select.i, %101 ], [ %70, %82 ]
@@ -466,7 +467,7 @@ ZSTD_seqDecompressedSize.exit.i:                  ; preds = %ZSTD_getSequenceLen
 
 228:                                              ; preds = %223
   %229 = icmp eq i32 %221, 2
-  %or.cond.i.i.i = and i1 %.not.i.i215.i, %229
+  %or.cond.i.i.i = and i1 %229, %.not.i.i215.i
   br i1 %or.cond.i.i.i, label %230, label %233
 
 230:                                              ; preds = %228
@@ -722,6 +723,7 @@ ZSTD_compressSubBlock.exit.i:                     ; preds = %ZSTD_compressSubBlo
 
 .thread255.i:                                     ; preds = %361, %ZSTD_compressSubBlock_sequences.exit.thread.i.i, %342, %337, %286, %240, %ZSTD_estimateSubBlockSize_symbolType.exit51.i.i.i, %ZSTD_estimateSubBlockSize.exit.i
   %.4194.ph.i = phi i32 [ %.0190.i, %ZSTD_estimateSubBlockSize_symbolType.exit51.i.i.i ], [ %.0190.i, %240 ], [ %.0190.i, %361 ], [ %.0190.i, %ZSTD_estimateSubBlockSize.exit.i ], [ 1, %337 ], [ %.0190.i, %ZSTD_compressSubBlock_sequences.exit.thread.i.i ], [ %.0190.i, %342 ], [ %.0190.i, %286 ]
+  %.6182.ph.i = phi i64 [ %.1177347.i, %ZSTD_estimateSubBlockSize_symbolType.exit51.i.i.i ], [ %104, %240 ], [ %104, %361 ], [ %.1177347.i, %ZSTD_estimateSubBlockSize.exit.i ], [ %104, %337 ], [ %104, %ZSTD_compressSubBlock_sequences.exit.thread.i.i ], [ %104, %342 ], [ %104, %286 ]
   br i1 %.0189342.i, label %.loopexit.i, label %82, !llvm.loop !73
 
 .loopexit.i:                                      ; preds = %363, %.thread255.i

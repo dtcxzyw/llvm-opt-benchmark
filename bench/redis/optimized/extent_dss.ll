@@ -149,11 +149,12 @@ atomic_store_p.exit.i:                            ; preds = %37
   store i64 %56, ptr %35, align 8, !tbaa !72
   %57 = and i32 %.val, -268431361
   %.masked.i = zext i32 %57 to i64
+  %58 = or i64 %53, %.masked.i
   store i64 %51, ptr %36, align 8, !tbaa !73
-  %.not.i82 = icmp eq i8 %43, 0
-  %58 = select i1 %.not.i82, i64 246423552, i64 17592432467968
-  %59 = or disjoint i64 %58, %.masked.i
-  %60 = or i64 %59, %53
+  %59 = zext nneg i8 %43 to i64
+  %60 = shl nuw nsw i64 %59, 44
+  %59 = or disjoint i64 %58, %60
+  %60 = or disjoint i64 %59, 246423552
   store i64 %60, ptr %13, align 8, !tbaa !69
   br label %61
 
@@ -175,18 +176,18 @@ atomic_store_p.exit:                              ; preds = %65
   %70 = inttoptr i64 %47 to ptr
   store atomic i64 %62, ptr @dss_max.0 release, align 8
   store atomic i8 0, ptr @dss_extending release, align 1
-  br i1 %.not, label %73, label %71
-
-71:                                               ; preds = %atomic_store_p.exit
-  %72 = tail call ptr @je_arena_get_ehooks(ptr noundef %1) #6
-  tail call void @je_extent_dalloc_gap(ptr noundef %0, ptr noundef nonnull %33, ptr noundef %72, ptr noundef nonnull %13) #6
-  br label %74
+  br i1 %.not, label %75, label %73
 
 73:                                               ; preds = %atomic_store_p.exit
+  %74 = tail call ptr @je_arena_get_ehooks(ptr noundef %1) #6
+  tail call void @je_extent_dalloc_gap(ptr noundef %0, ptr noundef nonnull %33, ptr noundef %74, ptr noundef nonnull %13) #6
+  br label %76
+
+75:                                               ; preds = %atomic_store_p.exit
   tail call void @je_edata_cache_put(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %13) #6
   br label %74
 
-74:                                               ; preds = %73, %71
+74:                                               ; preds = %75, %73
   %75 = load i8, ptr %6, align 1, !tbaa !11, !range !13, !noundef !14
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %.thread116, label %77
@@ -218,12 +219,12 @@ atomic_store_p.exit:                              ; preds = %65
   store i64 %3, ptr %88, align 8, !tbaa !72
   %89 = and i32 %.val80, -268431361
   %.masked.i83 = zext i32 %89 to i64
-  %90 = select i1 %.not94, i64 0, i64 4096
-  %91 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i64 235, ptr %91, align 8, !tbaa !73
-  %.not.i84 = icmp eq i8 %43, 0
-  %92 = select i1 %.not.i84, i64 8192, i64 17592186052608
-  %93 = or disjoint i64 %92, %90
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i64 235, ptr %92, align 8, !tbaa !73
+  %93 = zext nneg i8 %43 to i64
+  %94 = shl nuw nsw i64 %93, 44
+  %92 = select i1 %.not94, i64 8192, i64 12288
+  %93 = or disjoint i64 %92, %94
   %94 = or disjoint i64 %93, %.masked.i83
   store i64 %94, ptr %9, align 8, !tbaa !69
   %95 = call zeroext i1 @je_extent_purge_forced_wrapper(ptr noundef %0, ptr noundef %86, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %3) #6
@@ -251,7 +252,7 @@ atomic_store_b.exit:                              ; preds = %98
   br label %.thread89
 
 .thread89:                                        ; preds = %77, %.thread116, %97, %11, %7, %.thread
-  %.0 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %.thread ], [ %70, %97 ], [ %70, %.thread116 ], [ %70, %77 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %.thread ], [ %70, %100 ], [ %70, %.thread114 ], [ %70, %79 ]
   ret ptr %.0
 }
 

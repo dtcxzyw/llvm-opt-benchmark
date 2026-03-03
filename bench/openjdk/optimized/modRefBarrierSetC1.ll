@@ -312,16 +312,13 @@ define hidden i64 @_ZN18ModRefBarrierSetC115resolve_addressER9LIRAccessb(ptr nou
   %12 = and i8 %11, -2
   %or.cond.i.i = icmp eq i8 %12, 12
   %narrow = and i1 %9, %or.cond.i.i
-  %spec.select = zext i1 %narrow to i32
+  %spec.select = or i1 %2, %narrow
   br label %13
 
 13:                                               ; preds = %7, %3
-  %14 = phi i32 [ %spec.select, %7 ], [ 0, %3 ]
-  %15 = zext i1 %2 to i32
-  %16 = or i32 %14, %15
-  %17 = icmp ne i32 %16, 0
-  %18 = tail call i64 @_ZN12BarrierSetC115resolve_addressER9LIRAccessb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %17) #5
-  ret i64 %18
+  %14 = phi i1 [ %spec.select, %7 ], [ %2, %3 ]
+  %16 = tail call i64 @_ZN12BarrierSetC115resolve_addressER9LIRAccessb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %15) #5
+  ret i64 %16
 }
 
 declare i64 @_ZN12BarrierSetC115resolve_addressER9LIRAccessb(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(80), i1 noundef zeroext) unnamed_addr #1

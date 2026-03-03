@@ -2022,8 +2022,9 @@ hostrange_prefix_cmp.exit.i.i.i:                  ; preds = %227
   %232 = getelementptr inbounds nuw i8, ptr %215, i64 28
   %233 = load i8, ptr %232, align 4, !range !14, !noundef !15
   %234 = load i8, ptr %216, align 4, !range !14, !noundef !15
-  %235 = or i8 %234, %233
-  %236 = icmp ne i8 %235, 0
+  %.not.i.i.i = icmp ne i8 %233, %234
+  %235 = trunc nuw i8 %233 to i1
+  %236 = select i1 %.not.i.i.i, i1 true, i1 %235
   br label %_is_bracket_needed.exit.i
 
 _is_bracket_needed.exit.i:                        ; preds = %hostrange_prefix_cmp.exit.i.i.i, %227, %hostrange_count.exit.thread.i.i, %hostrange_count.exit.i.i, %._is_bracket_needed.exit_crit_edge.i
@@ -2123,9 +2124,10 @@ hostrange_within_range.exit.i:                    ; preds = %284
   %290 = load i8, ptr %289, align 4, !range !14, !noundef !15
   %291 = getelementptr inbounds nuw i8, ptr %280, i64 28
   %292 = load i8, ptr %291, align 4, !range !14, !noundef !15
-  %293 = or i8 %292, %290
-  %.not55.not.i = icmp eq i8 %293, 0
-  br i1 %.not55.not.i, label %254, label %.critedge.i, !llvm.loop !33
+  %.not.i.i = icmp ne i8 %290, %292
+  %.not5560.i = trunc nuw i8 %290 to i1
+  %.not55.i = select i1 %.not.i.i, i1 true, i1 %.not5560.i
+  br i1 %.not55.i, label %.critedge.i, label %254, !llvm.loop !33
 
 .critedge.i:                                      ; preds = %hostrange_within_range.exit.i, %284, %278, %274
   %294 = trunc nsw i64 %indvars.iv.next.i165 to i32
@@ -2139,15 +2141,15 @@ hostrange_within_range.exit.i:                    ; preds = %284
   br label %298
 
 298:                                              ; preds = %295, %.critedge.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %295 ], [ %271, %.critedge.i ]
-  %.3.i = phi i32 [ %296, %295 ], [ %270, %.critedge.i ]
+  %.pre-phi.i = phi i64 [ %.pre.i, %294 ], [ %271, %.critedge.i ]
+  %.3.i = phi i32 [ %296, %294 ], [ %270, %.critedge.i ]
   %299 = getelementptr inbounds nuw i8, ptr %203, i64 %.pre-phi.i
   store i8 0, ptr %299, align 1
   br label %_get_bracketed_list.exit
 
 _get_bracketed_list.exit:                         ; preds = %244, %272, %298
-  %.1177 = phi i32 [ %.0176220, %272 ], [ %294, %298 ], [ %.0176220, %244 ]
-  %.0.i = phi i32 [ %273, %272 ], [ %.3.i, %298 ], [ %245, %244 ]
+  %.1177 = phi i32 [ %.0176220, %272 ], [ %294, %297 ], [ %.0176220, %244 ]
+  %.0.i = phi i32 [ %273, %272 ], [ %.3.i, %297 ], [ %245, %244 ]
   %300 = add nsw i32 %.0.i, %.10
   %301 = load i32, ptr %188, align 4
   %302 = icmp slt i32 %.1177, %301
@@ -2189,7 +2191,7 @@ _get_bracketed_list.exit:                         ; preds = %244, %272, %298
   br label %317
 
 317:                                              ; preds = %311, %312, %315
-  %318 = phi i64 [ -1, %312 ], [ -1, %311 ], [ %310, %315 ]
+  %318 = phi i64 [ -1, %311 ], [ -1, %310 ], [ %310, %314 ]
   ret i64 %318
 }
 

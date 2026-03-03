@@ -5413,8 +5413,10 @@ if.then323:                                       ; preds = %land.lhs.true319, %
 if.end328:                                        ; preds = %if.then323, %land.lhs.true319, %lor.lhs.false317, %sw.epilog
   %bf.load330 = phi i32 [ %bf.clear326, %if.then323 ], [ %bf.load307, %land.lhs.true319 ], [ %bf.load307, %lor.lhs.false317 ], [ %bf.load307, %sw.epilog ]
   %75 = lshr i32 %bf.load330, 8
-  %76 = or i32 %75, -257
-  %bf.set345 = and i32 %76, %bf.load330
+  %76 = and i32 %bf.load330, 256
+  %bf.set345 = and i32 %76, %75
+  %bf.clear344 = and i32 %bf.load330, -257
+  %bf.set345 = or disjoint i32 %bf.shl343, %bf.clear344
   store i32 %bf.set345, ptr %keepalive_, align 8
   %77 = load i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, align 1
   %cmp.i262 = icmp eq i8 %version.sroa.0.1, %77
@@ -5551,11 +5553,12 @@ lor.end401:                                       ; preds = %land.lhs.true367, %
   %90 = load i8, ptr %hasTransferEncodingChunked, align 1
   %conv404 = zext i8 %90 to i32
   %and41182 = shl nuw nsw i32 %conv404, 8
-  %91 = or i32 %and41182, -257
-  %bf.set416 = and i32 %91, %bf.load406
+  %91 = and i32 %bf.load406, 256
+  %bf.set416 = and i32 %91, %and41182
+  %bf.clear415 = and i32 %bf.load406, -257
+  %bf.set416 = or disjoint i32 %bf.shl414, %bf.clear415
   store i32 %bf.set416, ptr %keepalive_, align 8
-  %92 = and i32 %bf.set416, 256
-  %bf.cast425.not = icmp eq i32 %92, 0
+  %bf.cast425.not = icmp eq i32 %bf.set416, 0
   %or.cond93 = select i1 %89, i1 %bf.cast425.not, i1 false
   br i1 %or.cond93, label %land.lhs.true426, label %if.end450
 
@@ -5594,8 +5597,10 @@ if.end450.critedge:                               ; preds = %lor.rhs385
   %conv404.c = zext i8 %97 to i32
   %bf.load406.c = load i32, ptr %keepalive_, align 8
   %and41182.c = shl nuw nsw i32 %conv404.c, 8
-  %98 = or i32 %and41182.c, -257
-  %bf.set416.c = and i32 %98, %bf.load406.c
+  %97 = and i32 %bf.load406.c, 256
+  %bf.set416.c = and i32 %97, %and41182.c
+  %bf.clear415.c = and i32 %bf.load406.c, -257
+  %bf.set416.c = or disjoint i32 %bf.shl414.c, %bf.clear415.c
   br label %if.end450.sink.split
 
 if.end450.sink.split:                             ; preds = %if.else444, %invoke.cont439, %if.end450.critedge
@@ -5896,7 +5901,7 @@ if.then549:                                       ; preds = %invoke.cont547
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 248
   %135 = load ptr, ptr %vfn, align 8
-  %call551 = invoke noundef i64 %135(ptr noundef nonnull align 8 dereferenceable(428) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %134)
+  %call551 = invoke noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(428) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %134)
           to label %invoke.cont550 unwind label %lpad351
 
 invoke.cont550:                                   ; preds = %if.then549

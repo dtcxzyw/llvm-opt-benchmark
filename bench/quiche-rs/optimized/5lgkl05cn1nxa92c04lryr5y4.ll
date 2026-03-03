@@ -4381,9 +4381,9 @@ define void @_ZN6quiche3cid21ConnectionIdentifiers8new_scid17hadf277cd8592610dE(
 29:                                               ; preds = %22, %43
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %31 = load i64, ptr %30, align 8, !noundef !8
-  %32 = icmp ne i128 %3, 0
+  %32 = trunc nuw i128 %3 to i1
   %33 = icmp eq i64 %31, 0
-  %or.cond = or i1 %32, %33
+  %or.cond = or i1 %33, %32
   br i1 %or.cond, label %47, label %48
 
 34:                                               ; preds = %28
@@ -4451,8 +4451,7 @@ _ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exi
 51:                                               ; preds = %50
   %52 = load i128, ptr %49, align 16, !range !547, !noundef !8
   %53 = trunc nuw i128 %52 to i1
-  %54 = trunc nuw i128 %3 to i1
-  br i1 %53, label %62, label %63
+  br i1 %53, label %61, label %62
 
 55:                                               ; preds = %50
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -4473,27 +4472,27 @@ _ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exi
   %.not32 = icmp eq i64 %61, 20
   br i1 %.not32, label %73, label %72
 
+61:                                               ; preds = %51
+  br i1 %32, label %63, label %70
+
 62:                                               ; preds = %51
-  br i1 %54, label %64, label %71
+  br i1 %32, label %70, label %66
 
-63:                                               ; preds = %51
-  br i1 %54, label %71, label %67
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %65 = load i128, ptr %64, align 16, !noundef !8
+  %.not48 = icmp eq i128 %65, %4
+  br i1 %.not48, label %66, label %70
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %66 = load i128, ptr %65, align 16, !noundef !8
-  %.not48 = icmp eq i128 %66, %4
-  br i1 %.not48, label %67, label %71
+66:; preds = %63, %62
+  %67 = getelementptr inbounds nuw i8, ptr %49, i64 72
+  %68 = load i64, ptr %67, align 8, !noundef !8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %68, ptr %69, align 8
+  br label %70
 
-67:                                               ; preds = %64, %63
-  %68 = getelementptr inbounds nuw i8, ptr %49, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %69, ptr %70, align 8
-  br label %71
-
-71:                                               ; preds = %64, %63, %62, %67
-  %storemerge = phi i64 [ 20, %67 ], [ 5, %62 ], [ 5, %63 ], [ 5, %64 ]
+70:; preds = %63, %62, %61, %66
+  %storemerge = phi i64 [ 20, %66 ], [ 5, %61 ], [ 5, %62 ], [ 5, %63 ]
   store i64 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.critedge
@@ -4550,7 +4549,7 @@ _ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exi
 88:                                               ; preds = %72, %.critedge, %86
   ret void
 
-.critedge:                                        ; preds = %71, %48, %46, %34, %21
+.critedge:                                        ; preds = %70, %48, %46, %34, %21
   call void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17hed15f16148b73689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   br label %88
 
@@ -4561,7 +4560,7 @@ _ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exi
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17hed15f16148b73689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #23
-          to label %89 unwind label %91
+          to label %88 unwind label %91
 
 91:                                               ; preds = %90
   %92 = landingpad { ptr, i32 }

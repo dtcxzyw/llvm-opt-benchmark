@@ -8704,13 +8704,12 @@ ilog.exit:                                        ; preds = %get_bits.exit.threa
 get_bits.exit66:                                  ; preds = %173, %.get_bits.exit66_crit_edge
   %180 = phi i32 [ %.pre93, %.get_bits.exit66_crit_edge ], [ %177, %173 ]
   %181 = phi i32 [ %167, %.get_bits.exit66_crit_edge ], [ %178, %173 ]
-  %182 = and i32 %180, 1
-  %183 = lshr i32 %180, 1
-  store i32 %183, ptr %12, align 4, !tbaa !85
-  %184 = add nsw i32 %181, -1
-  store i32 %184, ptr %11, align 8, !tbaa !80
-  %185 = icmp eq i32 %184, 0
-  br i1 %185, label %.lr.ph.i69, label %.loopexit32.i67
+  %182 = lshr i32 %180, 1
+  store i32 %182, ptr %12, align 4, !tbaa !85
+  %183 = add nsw i32 %181, -1
+  store i32 %183, ptr %11, align 8, !tbaa !80
+  %184 = icmp eq i32 %183, 0
+  br i1 %184, label %.lr.ph.i69, label %.loopexit32.i67
 
 .lr.ph.i69:                                       ; preds = %get_bits.exit66
   store i32 0, ptr %12, align 4, !tbaa !85
@@ -8733,8 +8732,8 @@ get_bits.exit66:                                  ; preds = %173, %.get_bits.exi
   br i1 %194, label %186, label %.loopexit32.i67, !llvm.loop !86
 
 .loopexit32.i67:                                  ; preds = %188, %get_bits.exit66
-  %195 = phi i32 [ %183, %get_bits.exit66 ], [ %192, %188 ]
-  %196 = phi i32 [ %184, %get_bits.exit66 ], [ %193, %188 ]
+  %195 = phi i32 [ %182, %get_bits.exit66 ], [ %192, %187 ]
+  %196 = phi i32 [ %183, %get_bits.exit66 ], [ %193, %187 ]
   %197 = lshr i32 %195, 1
   store i32 %197, ptr %12, align 4, !tbaa !85
   %198 = add nsw i32 %196, -1
@@ -8753,13 +8752,13 @@ get_bits.exit66:                                  ; preds = %173, %.get_bits.exi
   br label %215
 
 203:                                              ; preds = %.critedge.i71, %.loopexit32.i67, %164, %.critedge.i65
-  %common.ret.op.i6278 = phi i32 [ %182, %.critedge.i71 ], [ %182, %.loopexit32.i67 ], [ 0, %.critedge.i65 ], [ 0, %164 ]
+  %common.ret.op.i6278 = phi i32 [ %180, %.critedge.i71 ], [ %180, %.loopexit32.i67 ], [ 0, %.critedge.i65 ], [ 0, %164 ]
   %common.ret.op.i68 = phi i1 [ false, %.critedge.i71 ], [ %199, %.loopexit32.i67 ], [ false, %.critedge.i65 ], [ false, %164 ]
-  %204 = icmp ne i32 %common.ret.op.i6278, 0
+  %203 = trunc i32 %common.ret.op.i6278 to i1
   %.pre94 = load i8, ptr %162, align 2, !tbaa !158
   %205 = icmp eq i8 %.pre94, 0
   %206 = ashr i32 %166, 1
-  %or.cond = select i1 %205, i1 true, i1 %204
+  %or.cond = select i1 %205, i1 true, i1 %203
   br i1 %or.cond, label %215, label %207
 
 207:                                              ; preds = %203
@@ -8774,19 +8773,19 @@ get_bits.exit66:                                  ; preds = %173, %.get_bits.exi
   br label %219
 
 215:                                              ; preds = %.thread, %203
-  %216 = phi i32 [ %202, %.thread ], [ %206, %203 ]
-  %.050114 = phi i1 [ false, %.thread ], [ %common.ret.op.i68, %203 ]
-  %.052112 = phi i32 [ %201, %.thread ], [ %166, %203 ]
-  %217 = phi i1 [ true, %.thread ], [ %205, %203 ]
+  %216 = phi i32 [ %202, %.thread ], [ %206, %202 ]
+  %.050114 = phi i1 [ false, %.thread ], [ %common.ret.op.i68, %202 ]
+  %.052112 = phi i32 [ %201, %.thread ], [ %166, %202 ]
+  %217 = phi i1 [ true, %.thread ], [ %205, %202 ]
   store i32 0, ptr %1, align 4, !tbaa !21
   %218 = select i1 %217, i1 true, i1 %.050114
   br label %219
 
 219:                                              ; preds = %215, %207
-  %220 = phi i32 [ %206, %207 ], [ %216, %215 ]
-  %.052111 = phi i32 [ %166, %207 ], [ %.052112, %215 ]
-  %or.cond3 = phi i1 [ %common.ret.op.i68, %207 ], [ %218, %215 ]
-  %storemerge = phi i32 [ %214, %207 ], [ %216, %215 ]
+  %220 = phi i32 [ %206, %206 ], [ %216, %214 ]
+  %.052111 = phi i32 [ %166, %206 ], [ %.052112, %214 ]
+  %or.cond3 = phi i1 [ %common.ret.op.i68, %206 ], [ %218, %214 ]
+  %storemerge = phi i32 [ %214, %206 ], [ %216, %214 ]
   store i32 %storemerge, ptr %2, align 4, !tbaa !21
   br i1 %or.cond3, label %230, label %221
 
@@ -8807,12 +8806,12 @@ get_bits.exit66:                                  ; preds = %173, %.get_bits.exi
   br label %231
 
 231:                                              ; preds = %230, %221
-  %storemerge58 = phi i32 [ %229, %221 ], [ %.052111, %230 ]
+  %storemerge58 = phi i32 [ %229, %220 ], [ %.052111, %229 ]
   store i32 %storemerge58, ptr %4, align 4, !tbaa !21
   br label %.loopexit79
 
 .loopexit79:                                      ; preds = %.critedge, %27, %6, %157, %ilog.exit, %231, %50
-  %.0 = phi i32 [ 1, %231 ], [ 0, %50 ], [ 0, %157 ], [ 0, %ilog.exit ], [ 0, %6 ], [ 0, %27 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 1, %230 ], [ 0, %50 ], [ 0, %157 ], [ 0, %ilog.exit ], [ 0, %6 ], [ 0, %27 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -11156,7 +11155,7 @@ start_page.exit:                                  ; preds = %1
 
 32:                                               ; preds = %29
   %33 = call i32 @getn(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 6)
-  %34 = icmp ne i32 %33, 0
+  %34 = trunc nuw i32 %33 to i1
   %35 = load i8, ptr %2, align 1
   %36 = icmp eq i8 %35, 102
   %or.cond = select i1 %34, i1 %36, i1 false

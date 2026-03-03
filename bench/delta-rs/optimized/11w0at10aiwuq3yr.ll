@@ -9185,11 +9185,12 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   call void @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i64$GT$8from_str17h4c73c187d2c0e8f5E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 %.pr.i.i, i64 noundef %13)
   %14 = load i8, ptr %3, align 8, !range !802, !noalias !2064, !noundef !22
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2064
-  %15 = icmp eq i8 %14, 0
+  %15 = trunc nuw i8 %14 to i1
+  %16 = xor i1 %15, true
   br label %"_ZN14deltalake_core6kernel8snapshot11log_segment30list_log_files_with_checkpoint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8249af77bdeb31b1E.llvm.5991570310944373761.exit"
 
 "_ZN14deltalake_core6kernel8snapshot11log_segment30list_log_files_with_checkpoint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8249af77bdeb31b1E.llvm.5991570310944373761.exit": ; preds = %2, %8, %11
-  %.sroa.0.0.i.i = phi i1 [ %15, %11 ], [ false, %8 ], [ false, %2 ]
+  %.sroa.0.0.i.i = phi i1 [ %16, %11 ], [ false, %8 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2064
   ret i1 %.sroa.0.0.i.i
 }
@@ -30853,10 +30854,9 @@ define hidden void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..op
 define hidden noundef range(i8 -1, 2) i8 @"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #22 {
   %3 = load i64, ptr %0, align 8, !range !1507, !noundef !22
   %4 = load i64, ptr %1, align 8, !range !1507, !noundef !22
-  %5 = icmp ne i64 %3, 0
-  %6 = icmp ne i64 %4, 0
-  %or.cond = and i1 %5, %6
-  br i1 %or.cond, label %8, label %7
+  %5 = and i64 %4, %3
+  %6 = icmp eq i64 %5, 0
+  br i1 %or.cond.not, label %6, label %7
 
 7:                                                ; preds = %2
   %.05 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
@@ -30873,7 +30873,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN71_$LT$core..option..Option$LT$T$G
   br label %13
 
 13:                                               ; preds = %7, %8
-  %.0 = phi i8 [ %.0.i, %8 ], [ %.05, %7 ]
+  %.0 = phi i8 [ %.0.i, %7 ], [ %.05, %6 ]
   ret i8 %.0
 }
 
@@ -103740,11 +103740,12 @@ define hidden noundef zeroext i1 @"_ZN14deltalake_core6kernel8snapshot11log_segm
   call void @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i64$GT$8from_str17h4c73c187d2c0e8f5E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 %.pr.i, i64 noundef %13)
   %14 = load i8, ptr %3, align 8, !range !802, !noalias !27378, !noundef !22
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !27378
-  %15 = icmp eq i8 %14, 0
+  %15 = trunc nuw i8 %14 to i1
+  %16 = xor i1 %15, true
   br label %_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit
 
 _ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit: ; preds = %2, %8, %11
-  %.sroa.0.0.i = phi i1 [ %15, %11 ], [ false, %8 ], [ false, %2 ]
+  %.sroa.0.0.i = phi i1 [ %16, %11 ], [ false, %8 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !27378
   ret i1 %.sroa.0.0.i
 }
@@ -103767,18 +103768,14 @@ define hidden void @"_ZN14deltalake_core6kernel8snapshot11log_segment30list_log_
   %12 = tail call { ptr, i64 } @_ZN12object_store4path4Path8filename17he15379cddc7ff9b0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %13 = extractvalue { ptr, i64 } %12, 0
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %11
   %16 = extractvalue { ptr, i64 } %12, 1
   call void @"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h2f3a45913fc650d4E.llvm.3801596959246744488"(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %16, i32 noundef 46)
   %.pr.i = load ptr, ptr %9, align 8, !noalias !27381
   %17 = icmp eq ptr %.pr.i, null
-  br i1 %17, label %_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit.thread, label %_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit
-
-_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit.thread: ; preds = %15, %11
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !27381
-  br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit.thread"
+  br i1 %17, label %.critedge, label %_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit
 
 _ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit: ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -103793,6 +103790,10 @@ _ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827c
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !27381
   br i1 %trunc.i, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit.thread", label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit"
 
+.critedge:                                        ; preds = %11, %15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !27381
+  br label %.critedge7
+
 "_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit": ; preds = %_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit
   %23 = load ptr, ptr %1, align 8, !nonnull !22, !align !58, !noundef !22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
@@ -103800,7 +103801,7 @@ _ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827c
   %26 = icmp sgt i64 %22, %25
   br i1 %26, label %27, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit.thread"
 
-"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit.thread": ; preds = %_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit, %_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit.thread, %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit", %3
+"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit.thread": ; preds = %.critedge, %_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit, %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit", %3
   store i64 -9223372036854775808, ptr %0, align 8
   br label %51
 
@@ -103894,7 +103895,7 @@ _ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827c
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05)
   br label %51
 
-51:                                               ; preds = %"_ZN63_$LT$object_store..ObjectMeta$u20$as$u20$core..clone..Clone$GT$5clone17h1ca4d296ca307f16E.llvm.5991570310944373761.exit", %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit.thread"
+51:                                               ; preds = %"_ZN63_$LT$object_store..ObjectMeta$u20$as$u20$core..clone..Clone$GT$5clone17h1ca4d296ca307f16E.llvm.5991570310944373761.exit", %.critedge8
   ret void
 }
 

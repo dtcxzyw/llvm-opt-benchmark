@@ -4938,7 +4938,7 @@ define weak_odr void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
   br label %30
 
 30:                                               ; preds = %.lr.ph56, %30
-  %.sroa.025.055 = phi ptr [ %27, %.lr.ph56 ], [ %41, %30 ]
+  %.sroa.025.055 = phi ptr [ %27, %.lr.ph55 ], [ %41, %30 ]
   %31 = load ptr, ptr %.sroa.025.055, align 8
   %32 = load ptr, ptr %31, align 16
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 240
@@ -4970,19 +4970,18 @@ define weak_odr void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
   br i1 %.not40, label %.loopexit42, label %.lr.ph60
 
 .lr.ph60:                                         ; preds = %.loopexit43, %45
-  %.sroa.021.058 = phi ptr [ %46, %45 ], [ %43, %.loopexit43 ]
+  %.sroa.021.058 = phi ptr [ %46, %45 ], [ %43, %.loopexit42 ]
   %47 = load ptr, ptr %.sroa.021.058, align 8
   %48 = load ptr, ptr %47, align 16
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 336
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 16 dereferenceable(403) %47)
   %52 = load i8, ptr %42, align 8
-  %53 = and i8 %52, 1
-  %54 = zext i1 %51 to i8
-  %55 = or i8 %53, %54
-  %.not16 = icmp eq i8 %55, 0
+  %53 = trunc i8 %52 to i1
+  %54 = or i1 %51, %53
+  %55 = zext i1 %54 to i8
   store i8 %55, ptr %42, align 8
-  br i1 %.not16, label %45, label %56
+  br i1 %54, label %56, label %45
 
 56:                                               ; preds = %.lr.ph60
   call void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE39update_silhouette_sampling_distributionEv(ptr noundef nonnull align 16 dereferenceable(345) %0)
@@ -5002,7 +5001,7 @@ define weak_odr void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
   br i1 %.not41, label %.loopexit, label %.lr.ph64
 
 .lr.ph64:                                         ; preds = %.loopexit42, %61
-  %.sroa.017.062 = phi ptr [ %62, %61 ], [ %58, %.loopexit42 ]
+  %.sroa.017.062 = phi ptr [ %62, %61 ], [ %58, %.loopexit41 ]
   %63 = load ptr, ptr %.sroa.017.062, align 8
   %64 = call noundef zeroext i1 @_ZNK7mitsuba7EmitterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE5dirtyEv(ptr noundef nonnull align 16 dereferenceable(201) %63)
   br i1 %64, label %65, label %61

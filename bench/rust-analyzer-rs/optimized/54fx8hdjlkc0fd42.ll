@@ -11170,11 +11170,11 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h7cf9c9fed8a94db4E"(p
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %6 = load i64, ptr %4, align 8, !range !2515, !noundef !11
-  %7 = icmp eq i64 %6, -9223372036854775807
+  %7 = icmp ne i64 %6, -9223372036854775807
   %8 = load i32, ptr %5, align 8, !range !57
-  %9 = icmp eq i32 %8, 0
-  %or.cond.not = select i1 %7, i1 true, i1 %9
-  br i1 %or.cond.not, label %14, label %.thread
+  %9 = trunc nuw i32 %8 to i1
+  %or.cond.not = select i1 %7, i1 %9, i1 false
+  br i1 %or.cond.not, label %.thread, label %14
 
 .thread:                                          ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 308
@@ -11190,11 +11190,12 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h7cf9c9fed8a94db4E"(p
 
 14:                                               ; preds = %3
   store i64 -9223372036854775807, ptr %0, align 8
-  br i1 %7, label %"_ZN4core3ptr108drop_in_place$LT$ide..navigation_target..UpmappingResult$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h6c72f0290016fdf4E.exit", label %15
+  %15 = icmp eq i64 %6, -9223372036854775807
+  br i1 %15, label %"_ZN4core3ptr108drop_in_place$LT$ide..navigation_target..UpmappingResult$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h6c72f0290016fdf4E.exit", label %16
 
 15:                                               ; preds = %14
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ide..navigation_target..NavigationTarget$GT$17hda59d1c46c64f954E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %4)
-          to label %22 unwind label %16
+          to label %23 unwind label %16
 
 16:                                               ; preds = %15
   %17 = landingpad { ptr, i32 }
