@@ -184,7 +184,7 @@ define noundef zeroext i1 @llamafile_sgemm(ptr noundef %0, i64 noundef %1, i64 n
 54:                                               ; preds = %41
   %55 = trunc i64 %48 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %55)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i: ; preds = %41
@@ -236,7 +236,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi4EEEvllll.exit.i.
 72:                                               ; preds = %59
   %73 = trunc i64 %66 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %73)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i: ; preds = %59
@@ -288,7 +288,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi2EEEvllll.exit.i.
 90:                                               ; preds = %77
   %91 = trunc i64 %84 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %91)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i: ; preds = %77
@@ -378,7 +378,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6matmulEll.exit: ; preds = %24, %49
 124:                                              ; preds = %111
   %125 = trunc i64 %118 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %125)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i: ; preds = %111
@@ -430,7 +430,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi4EE
 142:                                              ; preds = %129
   %143 = trunc i64 %136 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %143)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i: ; preds = %129
@@ -482,7 +482,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi2EE
 160:                                              ; preds = %147
   %161 = trunc i64 %154 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %161)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i: ; preds = %147
@@ -572,7 +572,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6matmulEll.exit: ; pr
 194:                                              ; preds = %181
   %195 = trunc i64 %188 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %195)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i: ; preds = %181
@@ -624,7 +624,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi4EEEvllll.exit.i.
 212:                                              ; preds = %199
   %213 = trunc i64 %206 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %213)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i: ; preds = %199
@@ -676,7 +676,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi2EEEvllll.exit.i.
 230:                                              ; preds = %217
   %231 = trunc i64 %224 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %231)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i: ; preds = %217
@@ -832,7 +832,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -875,7 +875,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -1211,7 +1211,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %192, label %105, label %193
 
 193:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %113, %45
@@ -1234,8 +1234,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <16 x float> @llvm.fma.v16f32(<16 x float>, <16 x float>, <16 x float>) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.vector.reduce.fadd.v16f32(float, <16 x float>) #6
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.vector.reduce.fadd.v16f32(float, <16 x float>) #5
 
 ; Function Attrs: mustprogress noinline uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi5ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -1248,7 +1248,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -1291,7 +1291,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -1627,7 +1627,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %192, label %105, label %193
 
 193:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %113, %45
@@ -1648,7 +1648,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -1691,7 +1691,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -2027,7 +2027,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %191, label %106, label %192
 
 192:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %114, %46
@@ -2048,7 +2048,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -2091,7 +2091,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -2440,7 +2440,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %191, label %104, label %192
 
 192:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge109:                                   ; preds = %112, %44
@@ -2460,7 +2460,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -2503,7 +2503,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -2796,7 +2796,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %172, label %96, label %173
 
 173:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %129, %44
@@ -2814,7 +2814,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -2852,7 +2852,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -3052,7 +3052,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %123, label %55, label %._crit_edge, !llvm.loop !141
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
@@ -3075,7 +3075,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -3118,7 +3118,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -3453,7 +3453,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %191, label %105, label %192
 
 192:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %112, %45
@@ -3474,7 +3474,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -3517,7 +3517,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -3852,7 +3852,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %191, label %105, label %192
 
 192:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %112, %45
@@ -3873,7 +3873,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -3916,7 +3916,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -4251,7 +4251,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %190, label %106, label %191
 
 191:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %113, %46
@@ -4272,7 +4272,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -4315,7 +4315,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -4663,7 +4663,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %190, label %104, label %191
 
 191:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge109:                                   ; preds = %111, %44
@@ -4683,7 +4683,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -4726,7 +4726,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -5018,7 +5018,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %171, label %96, label %172
 
 172:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %128, %44
@@ -5036,7 +5036,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -5074,7 +5074,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -5272,7 +5272,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %121, label %55, label %._crit_edge, !llvm.loop !164
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
@@ -5293,7 +5293,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -5336,7 +5336,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -5660,7 +5660,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %187, label %109, label %188, !llvm.loop !168
 
 188:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge106:                                   ; preds = %109, %45
@@ -5681,7 +5681,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -5724,7 +5724,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -6048,7 +6048,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %187, label %109, label %188, !llvm.loop !172
 
 188:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge106:                                   ; preds = %109, %45
@@ -6069,7 +6069,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -6112,7 +6112,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -6436,7 +6436,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %186, label %110, label %187, !llvm.loop !176
 
 187:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge94:                                    ; preds = %110, %46
@@ -6457,7 +6457,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -6500,7 +6500,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -6837,7 +6837,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %186, label %108, label %187, !llvm.loop !180
 
 187:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge108:                                   ; preds = %108, %44
@@ -6857,7 +6857,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -6900,7 +6900,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -7181,7 +7181,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %167, label %125, label %168, !llvm.loop !184
 
 168:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge94:                                    ; preds = %125, %44
@@ -7199,7 +7199,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -7237,7 +7237,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -7427,7 +7427,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %120, label %55, label %._crit_edge, !llvm.loop !187
 
 .split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split, %._crit_edge.split.us73, %._crit_edge.split.us.us.us
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split.us, %39
@@ -7448,7 +7448,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -7491,7 +7491,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -7837,7 +7837,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   br i1 %202, label %105, label %203
 
 203:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %113, %45
@@ -7858,7 +7858,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -7901,7 +7901,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -8247,7 +8247,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   br i1 %202, label %105, label %203
 
 203:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge105:                                   ; preds = %113, %45
@@ -8268,7 +8268,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -8311,7 +8311,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -8657,7 +8657,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   br i1 %201, label %106, label %202
 
 202:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %114, %46
@@ -8678,7 +8678,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -8721,7 +8721,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -9084,7 +9084,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %205, label %104, label %206
 
 206:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge109:                                   ; preds = %112, %44
@@ -9104,7 +9104,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -9147,7 +9147,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -9455,7 +9455,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
   br i1 %187, label %96, label %188
 
 188:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge92:                                    ; preds = %138, %44
@@ -9473,7 +9473,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -9511,7 +9511,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -9717,7 +9717,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %129, label %55, label %._crit_edge, !llvm.loop !241
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
@@ -9738,7 +9738,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -9781,7 +9781,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -10126,7 +10126,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   br i1 %201, label %105, label %202
 
 202:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %112, %45
@@ -10147,7 +10147,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -10190,7 +10190,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -10535,7 +10535,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   br i1 %201, label %105, label %202
 
 202:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge105:                                   ; preds = %112, %45
@@ -10556,7 +10556,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -10599,7 +10599,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -10944,7 +10944,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   br i1 %200, label %106, label %201
 
 201:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %113, %46
@@ -10965,7 +10965,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -11008,7 +11008,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -11370,7 +11370,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %204, label %104, label %205
 
 205:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge109:                                   ; preds = %111, %44
@@ -11390,7 +11390,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -11433,7 +11433,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -11740,7 +11740,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
   br i1 %186, label %96, label %187
 
 187:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge92:                                    ; preds = %137, %44
@@ -11758,7 +11758,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -11796,7 +11796,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -12000,7 +12000,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %127, label %55, label %._crit_edge, !llvm.loop !264
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
@@ -12021,7 +12021,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -12064,7 +12064,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -12398,7 +12398,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   br i1 %197, label %109, label %198, !llvm.loop !268
 
 198:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge106:                                   ; preds = %109, %45
@@ -12419,7 +12419,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -12462,7 +12462,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -12796,7 +12796,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   br i1 %197, label %109, label %198, !llvm.loop !272
 
 198:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge104:                                   ; preds = %109, %45
@@ -12817,7 +12817,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -12860,7 +12860,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -13194,7 +13194,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   br i1 %196, label %110, label %197, !llvm.loop !276
 
 197:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge94:                                    ; preds = %110, %46
@@ -13215,7 +13215,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -13258,7 +13258,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -13609,7 +13609,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %200, label %108, label %201, !llvm.loop !280
 
 201:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge108:                                   ; preds = %108, %44
@@ -13629,7 +13629,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -13672,7 +13672,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -13968,7 +13968,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
   br i1 %182, label %134, label %183, !llvm.loop !284
 
 183:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge91:                                    ; preds = %134, %44
@@ -13986,7 +13986,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -14024,7 +14024,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -14220,7 +14220,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %126, label %55, label %._crit_edge, !llvm.loop !287
 
 .split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split, %._crit_edge.split.us73, %._crit_edge.split.us.us.us
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split.us, %39
@@ -14241,7 +14241,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -14284,7 +14284,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -14624,7 +14624,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %196, label %105, label %197
 
 197:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %113, %45
@@ -14645,7 +14645,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -14688,7 +14688,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -15028,7 +15028,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %196, label %105, label %197
 
 197:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge105:                                   ; preds = %113, %45
@@ -15049,7 +15049,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -15092,7 +15092,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -15432,7 +15432,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %195, label %106, label %196
 
 196:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %114, %46
@@ -15453,7 +15453,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -15496,7 +15496,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -15850,7 +15850,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %196, label %104, label %197
 
 197:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge109:                                   ; preds = %112, %44
@@ -15870,7 +15870,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -15913,7 +15913,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -16211,7 +16211,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %177, label %96, label %178
 
 178:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %132, %44
@@ -16229,7 +16229,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -16267,7 +16267,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -16469,7 +16469,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %125, label %55, label %._crit_edge, !llvm.loop !341
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
@@ -16490,7 +16490,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -16533,7 +16533,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -16872,7 +16872,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %195, label %105, label %196
 
 196:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %112, %45
@@ -16893,7 +16893,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -16936,7 +16936,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -17275,7 +17275,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %195, label %105, label %196
 
 196:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge105:                                   ; preds = %112, %45
@@ -17296,7 +17296,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -17339,7 +17339,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -17678,7 +17678,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %194, label %106, label %195
 
 195:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %113, %46
@@ -17699,7 +17699,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -17742,7 +17742,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -18095,7 +18095,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %195, label %104, label %196
 
 196:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge109:                                   ; preds = %111, %44
@@ -18115,7 +18115,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -18158,7 +18158,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -18455,7 +18455,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %176, label %96, label %177
 
 177:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %131, %44
@@ -18473,7 +18473,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -18511,7 +18511,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -18711,7 +18711,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %123, label %55, label %._crit_edge, !llvm.loop !364
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
@@ -18732,7 +18732,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -18775,7 +18775,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -19103,7 +19103,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %191, label %109, label %192, !llvm.loop !368
 
 192:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge106:                                   ; preds = %109, %45
@@ -19124,7 +19124,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -19167,7 +19167,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -19495,7 +19495,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %191, label %109, label %192, !llvm.loop !372
 
 192:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge104:                                   ; preds = %109, %45
@@ -19516,7 +19516,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -19559,7 +19559,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -19887,7 +19887,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %190, label %110, label %191, !llvm.loop !376
 
 191:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge94:                                    ; preds = %110, %46
@@ -19908,7 +19908,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -19951,7 +19951,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -20293,7 +20293,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %191, label %108, label %192, !llvm.loop !380
 
 192:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge108:                                   ; preds = %108, %44
@@ -20313,7 +20313,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -20356,7 +20356,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -20642,7 +20642,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %172, label %128, label %173, !llvm.loop !384
 
 173:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge94:                                    ; preds = %128, %44
@@ -20660,7 +20660,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -20698,7 +20698,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -20890,7 +20890,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %122, label %55, label %._crit_edge, !llvm.loop !387
 
 .split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split, %._crit_edge.split.us73, %._crit_edge.split.us.us.us
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split.us, %39
@@ -20901,7 +20901,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #6 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 4)
   %8 = shl i64 %7, 4
@@ -21011,7 +21011,7 @@ tailrecurse:                                      ; preds = %28, %5
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -21258,7 +21258,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -21505,7 +21505,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -21752,7 +21752,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -21958,7 +21958,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -22205,7 +22205,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -22450,7 +22450,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -22656,7 +22656,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -22859,7 +22859,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -23066,7 +23066,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -23269,7 +23269,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -23476,7 +23476,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -23643,7 +23643,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -23813,7 +23813,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -23984,7 +23984,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -24158,7 +24158,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = sub nsw i64 %4, %3
   %8 = mul nsw i64 %7, %6
@@ -24274,10 +24274,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8>, <32 x i8>) #9
+declare <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8>, <32 x i8>) #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #6 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 4)
   %8 = shl i64 %7, 4
@@ -24387,7 +24387,7 @@ tailrecurse:                                      ; preds = %28, %5
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -24666,7 +24666,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -24945,7 +24945,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -25200,7 +25200,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -25414,7 +25414,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -25693,7 +25693,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -25946,7 +25946,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -26160,7 +26160,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -26371,7 +26371,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -26610,7 +26610,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -26821,7 +26821,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -27036,7 +27036,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -27211,7 +27211,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -27389,7 +27389,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -27568,7 +27568,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -27750,7 +27750,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = sub nsw i64 %4, %3
   %8 = mul nsw i64 %7, %6
@@ -27871,7 +27871,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #6 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 4)
   %8 = shl i64 %7, 4
@@ -27981,7 +27981,7 @@ tailrecurse:                                      ; preds = %28, %5
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -28288,7 +28288,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -28595,7 +28595,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -28857,7 +28857,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -29078,7 +29078,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -29385,7 +29385,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -29645,7 +29645,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -29866,7 +29866,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -30084,7 +30084,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -30351,7 +30351,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -30569,7 +30569,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -30791,7 +30791,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -30973,7 +30973,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -31158,7 +31158,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -31344,7 +31344,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -31533,7 +31533,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = sub nsw i64 %4, %3
   %8 = mul nsw i64 %7, %6
@@ -31661,7 +31661,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #6 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 4)
   %8 = shl i64 %7, 4
@@ -31771,7 +31771,7 @@ tailrecurse:                                      ; preds = %28, %5
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -32056,7 +32056,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -32341,7 +32341,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -32599,7 +32599,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -32816,7 +32816,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -33101,7 +33101,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -33357,7 +33357,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -33574,7 +33574,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -33788,7 +33788,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -34033,7 +34033,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -34247,7 +34247,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -34465,7 +34465,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -34643,7 +34643,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -34824,7 +34824,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -35006,7 +35006,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -35191,7 +35191,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = sub nsw i64 %4, %3
   %8 = mul nsw i64 %7, %6
@@ -35315,19 +35315,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #9
+declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32>, <32 x i8>, <32 x i8>) #9
+declare <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32>, <32 x i8>, <32 x i8>) #8
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #11
+declare i64 @llvm.smin.i64(i64, i64) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #1 = { mustprogress noinline uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
@@ -35335,13 +35335,12 @@ attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #8 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { noreturn }
+attributes #6 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #7 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

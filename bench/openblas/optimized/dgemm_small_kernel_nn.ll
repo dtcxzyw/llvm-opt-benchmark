@@ -163,70 +163,70 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %82 = fmul <8 x double> %22, %.02776.lcssa
   %83 = mul nsw i64 %.027493079, %10
   %gep3072 = getelementptr double, ptr %invariant.gep3071, i64 %83
-  %84 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3072, <8 x double> %24, <8 x double> %82) #10, !srcloc !8
+  %84 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3072, <8 x double> %24, <8 x double> %82) #9, !srcloc !8
   store <8 x double> %84, ptr %gep3072, align 1, !tbaa !3
   %85 = fmul <8 x double> %22, %.02779.lcssa
   %86 = getelementptr i8, ptr %gep3072, i64 64
-  %87 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %86, <8 x double> %24, <8 x double> %85) #10, !srcloc !9
+  %87 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %86, <8 x double> %24, <8 x double> %85) #9, !srcloc !9
   store <8 x double> %87, ptr %86, align 1, !tbaa !3
   %88 = fmul <8 x double> %22, %.02780.lcssa
   %89 = getelementptr i8, ptr %gep3072, i64 128
-  %90 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %89, <8 x double> %24, <8 x double> %88) #10, !srcloc !10
+  %90 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %89, <8 x double> %24, <8 x double> %88) #9, !srcloc !10
   store <8 x double> %90, ptr %89, align 1, !tbaa !3
   %91 = fmul <8 x double> %22, %.02781.lcssa
   %92 = getelementptr i8, ptr %gep3072, i64 192
-  %93 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %92, <8 x double> %24, <8 x double> %91) #10, !srcloc !11
+  %93 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %92, <8 x double> %24, <8 x double> %91) #9, !srcloc !11
   store <8 x double> %93, ptr %92, align 1, !tbaa !3
   %94 = fmul <8 x double> %22, %.02782.lcssa
   %95 = mul nsw i64 %.pre-phi3738, %10
   %gep3074 = getelementptr double, ptr %invariant.gep3071, i64 %95
-  %96 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3074, <8 x double> %24, <8 x double> %94) #10, !srcloc !12
+  %96 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3074, <8 x double> %24, <8 x double> %94) #9, !srcloc !12
   store <8 x double> %96, ptr %gep3074, align 1, !tbaa !3
   %97 = fmul <8 x double> %22, %.02783.lcssa
   %98 = getelementptr i8, ptr %gep3074, i64 64
-  %99 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %98, <8 x double> %24, <8 x double> %97) #10, !srcloc !13
+  %99 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %98, <8 x double> %24, <8 x double> %97) #9, !srcloc !13
   store <8 x double> %99, ptr %98, align 1, !tbaa !3
   %100 = fmul <8 x double> %22, %.02784.lcssa
   %101 = getelementptr i8, ptr %gep3074, i64 128
-  %102 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %101, <8 x double> %24, <8 x double> %100) #10, !srcloc !14
+  %102 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %101, <8 x double> %24, <8 x double> %100) #9, !srcloc !14
   store <8 x double> %102, ptr %101, align 1, !tbaa !3
   %103 = fmul <8 x double> %22, %.02785.lcssa
   %104 = getelementptr i8, ptr %gep3074, i64 192
-  %105 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %104, <8 x double> %24, <8 x double> %103) #10, !srcloc !15
+  %105 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %104, <8 x double> %24, <8 x double> %103) #9, !srcloc !15
   store <8 x double> %105, ptr %104, align 1, !tbaa !3
   %106 = fmul <8 x double> %22, %.02790.lcssa
   %107 = mul nsw i64 %.pre-phi3740, %10
   %gep3076 = getelementptr double, ptr %invariant.gep3071, i64 %107
-  %108 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3076, <8 x double> %24, <8 x double> %106) #10, !srcloc !16
+  %108 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3076, <8 x double> %24, <8 x double> %106) #9, !srcloc !16
   store <8 x double> %108, ptr %gep3076, align 1, !tbaa !3
   %109 = fmul <8 x double> %22, %.02791.lcssa
   %110 = getelementptr i8, ptr %gep3076, i64 64
-  %111 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %110, <8 x double> %24, <8 x double> %109) #10, !srcloc !17
+  %111 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %110, <8 x double> %24, <8 x double> %109) #9, !srcloc !17
   store <8 x double> %111, ptr %110, align 1, !tbaa !3
   %112 = fmul <8 x double> %22, %.02792.lcssa
   %113 = getelementptr i8, ptr %gep3076, i64 128
-  %114 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %113, <8 x double> %24, <8 x double> %112) #10, !srcloc !18
+  %114 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %113, <8 x double> %24, <8 x double> %112) #9, !srcloc !18
   store <8 x double> %114, ptr %113, align 1, !tbaa !3
   %115 = fmul <8 x double> %22, %.02793.lcssa
   %116 = getelementptr i8, ptr %gep3076, i64 192
-  %117 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %116, <8 x double> %24, <8 x double> %115) #10, !srcloc !19
+  %117 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %116, <8 x double> %24, <8 x double> %115) #9, !srcloc !19
   store <8 x double> %117, ptr %116, align 1, !tbaa !3
   %118 = fmul <8 x double> %22, %.02794.lcssa
   %119 = mul nsw i64 %.pre-phi3742, %10
   %gep3078 = getelementptr double, ptr %invariant.gep3071, i64 %119
-  %120 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3078, <8 x double> %24, <8 x double> %118) #10, !srcloc !20
+  %120 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3078, <8 x double> %24, <8 x double> %118) #9, !srcloc !20
   store <8 x double> %120, ptr %gep3078, align 1, !tbaa !3
   %121 = fmul <8 x double> %22, %.02795.lcssa
   %122 = getelementptr i8, ptr %gep3078, i64 64
-  %123 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %122, <8 x double> %24, <8 x double> %121) #10, !srcloc !21
+  %123 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %122, <8 x double> %24, <8 x double> %121) #9, !srcloc !21
   store <8 x double> %123, ptr %122, align 1, !tbaa !3
   %124 = fmul <8 x double> %22, %.02796.lcssa
   %125 = getelementptr i8, ptr %gep3078, i64 128
-  %126 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %125, <8 x double> %24, <8 x double> %124) #10, !srcloc !22
+  %126 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %125, <8 x double> %24, <8 x double> %124) #9, !srcloc !22
   store <8 x double> %126, ptr %125, align 1, !tbaa !3
   %127 = fmul <8 x double> %22, %.02797.lcssa
   %128 = getelementptr i8, ptr %gep3078, i64 192
-  %129 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %128, <8 x double> %24, <8 x double> %127) #10, !srcloc !23
+  %129 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %128, <8 x double> %24, <8 x double> %127) #9, !srcloc !23
   store <8 x double> %129, ptr %128, align 1, !tbaa !3
   %130 = add nuw nsw i64 %.027493079, 4
   %131 = icmp slt i64 %130, %19
@@ -308,36 +308,36 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %163 = fmul <8 x double> %22, %.02798.lcssa
   %164 = mul nsw i64 %.127503106, %10
   %gep3103 = getelementptr double, ptr %invariant.gep3071, i64 %164
-  %165 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3103, <8 x double> %24, <8 x double> %163) #10, !srcloc !26
+  %165 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3103, <8 x double> %24, <8 x double> %163) #9, !srcloc !26
   store <8 x double> %165, ptr %gep3103, align 1, !tbaa !3
   %166 = fmul <8 x double> %22, %.02799.lcssa
   %167 = getelementptr i8, ptr %gep3103, i64 64
-  %168 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %167, <8 x double> %24, <8 x double> %166) #10, !srcloc !27
+  %168 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %167, <8 x double> %24, <8 x double> %166) #9, !srcloc !27
   store <8 x double> %168, ptr %167, align 1, !tbaa !3
   %169 = fmul <8 x double> %22, %.02800.lcssa
   %170 = getelementptr i8, ptr %gep3103, i64 128
-  %171 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %170, <8 x double> %24, <8 x double> %169) #10, !srcloc !28
+  %171 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %170, <8 x double> %24, <8 x double> %169) #9, !srcloc !28
   store <8 x double> %171, ptr %170, align 1, !tbaa !3
   %172 = fmul <8 x double> %22, %.02801.lcssa
   %173 = getelementptr i8, ptr %gep3103, i64 192
-  %174 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %173, <8 x double> %24, <8 x double> %172) #10, !srcloc !29
+  %174 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %173, <8 x double> %24, <8 x double> %172) #9, !srcloc !29
   store <8 x double> %174, ptr %173, align 1, !tbaa !3
   %175 = fmul <8 x double> %22, %.02802.lcssa
   %176 = mul nsw i64 %.pre-phi3744, %10
   %gep3105 = getelementptr double, ptr %invariant.gep3071, i64 %176
-  %177 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3105, <8 x double> %24, <8 x double> %175) #10, !srcloc !30
+  %177 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3105, <8 x double> %24, <8 x double> %175) #9, !srcloc !30
   store <8 x double> %177, ptr %gep3105, align 1, !tbaa !3
   %178 = fmul <8 x double> %22, %.02803.lcssa
   %179 = getelementptr i8, ptr %gep3105, i64 64
-  %180 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %179, <8 x double> %24, <8 x double> %178) #10, !srcloc !31
+  %180 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %179, <8 x double> %24, <8 x double> %178) #9, !srcloc !31
   store <8 x double> %180, ptr %179, align 1, !tbaa !3
   %181 = fmul <8 x double> %22, %.02804.lcssa
   %182 = getelementptr i8, ptr %gep3105, i64 128
-  %183 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %182, <8 x double> %24, <8 x double> %181) #10, !srcloc !32
+  %183 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %182, <8 x double> %24, <8 x double> %181) #9, !srcloc !32
   store <8 x double> %183, ptr %182, align 1, !tbaa !3
   %184 = fmul <8 x double> %22, %.02805.lcssa
   %185 = getelementptr i8, ptr %gep3105, i64 192
-  %186 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %185, <8 x double> %24, <8 x double> %184) #10, !srcloc !33
+  %186 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %185, <8 x double> %24, <8 x double> %184) #9, !srcloc !33
   store <8 x double> %186, ptr %185, align 1, !tbaa !3
   %187 = add nuw nsw i64 %.127503106, 2
   %188 = icmp slt i64 %187, %20
@@ -387,19 +387,19 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %207 = fmul <8 x double> %22, %.02806.lcssa
   %208 = mul nsw i64 %.227513125, %10
   %gep3124 = getelementptr double, ptr %invariant.gep3071, i64 %208
-  %209 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3124, <8 x double> %24, <8 x double> %207) #10, !srcloc !36
+  %209 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3124, <8 x double> %24, <8 x double> %207) #9, !srcloc !36
   store <8 x double> %209, ptr %gep3124, align 1, !tbaa !3
   %210 = fmul <8 x double> %22, %.02807.lcssa
   %211 = getelementptr i8, ptr %gep3124, i64 64
-  %212 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %211, <8 x double> %24, <8 x double> %210) #10, !srcloc !37
+  %212 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %211, <8 x double> %24, <8 x double> %210) #9, !srcloc !37
   store <8 x double> %212, ptr %211, align 1, !tbaa !3
   %213 = fmul <8 x double> %22, %.02808.lcssa
   %214 = getelementptr i8, ptr %gep3124, i64 128
-  %215 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %214, <8 x double> %24, <8 x double> %213) #10, !srcloc !38
+  %215 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %214, <8 x double> %24, <8 x double> %213) #9, !srcloc !38
   store <8 x double> %215, ptr %214, align 1, !tbaa !3
   %216 = fmul <8 x double> %22, %.02809.lcssa
   %217 = getelementptr i8, ptr %gep3124, i64 192
-  %218 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %217, <8 x double> %24, <8 x double> %216) #10, !srcloc !39
+  %218 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %217, <8 x double> %24, <8 x double> %216) #9, !srcloc !39
   store <8 x double> %218, ptr %217, align 1, !tbaa !3
   %219 = add i64 %.227513125, 1
   %exitcond3693.not = icmp eq i64 %219, %1
@@ -546,56 +546,56 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %281 = fmul <8 x double> %22, %.02810.lcssa
   %282 = mul nsw i64 %.327523170, %10
   %gep3159 = getelementptr double, ptr %invariant.gep3158, i64 %282
-  %283 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3159, <8 x double> %24, <8 x double> %281) #10, !srcloc !43
+  %283 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3159, <8 x double> %24, <8 x double> %281) #9, !srcloc !43
   store <8 x double> %283, ptr %gep3159, align 1, !tbaa !3
   %284 = fmul <8 x double> %22, %.02819.lcssa
   %285 = getelementptr i8, ptr %gep3159, i64 64
-  %286 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %285, <8 x double> %24, <8 x double> %284) #10, !srcloc !44
+  %286 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %285, <8 x double> %24, <8 x double> %284) #9, !srcloc !44
   store <8 x double> %286, ptr %285, align 1, !tbaa !3
   %287 = fmul <8 x double> %22, %.02820.lcssa
   %288 = mul nsw i64 %.pre-phi3746, %10
   %gep3161 = getelementptr double, ptr %invariant.gep3158, i64 %288
-  %289 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3161, <8 x double> %24, <8 x double> %287) #10, !srcloc !45
+  %289 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3161, <8 x double> %24, <8 x double> %287) #9, !srcloc !45
   store <8 x double> %289, ptr %gep3161, align 1, !tbaa !3
   %290 = fmul <8 x double> %22, %.02821.lcssa
   %291 = getelementptr i8, ptr %gep3161, i64 64
-  %292 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %291, <8 x double> %24, <8 x double> %290) #10, !srcloc !46
+  %292 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %291, <8 x double> %24, <8 x double> %290) #9, !srcloc !46
   store <8 x double> %292, ptr %291, align 1, !tbaa !3
   %293 = fmul <8 x double> %22, %.02822.lcssa
   %294 = mul nsw i64 %.pre-phi3748, %10
   %gep3163 = getelementptr double, ptr %invariant.gep3158, i64 %294
-  %295 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3163, <8 x double> %24, <8 x double> %293) #10, !srcloc !47
+  %295 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3163, <8 x double> %24, <8 x double> %293) #9, !srcloc !47
   store <8 x double> %295, ptr %gep3163, align 1, !tbaa !3
   %296 = fmul <8 x double> %22, %.02823.lcssa
   %297 = getelementptr i8, ptr %gep3163, i64 64
-  %298 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %297, <8 x double> %24, <8 x double> %296) #10, !srcloc !48
+  %298 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %297, <8 x double> %24, <8 x double> %296) #9, !srcloc !48
   store <8 x double> %298, ptr %297, align 1, !tbaa !3
   %299 = fmul <8 x double> %22, %.02824.lcssa
   %300 = mul nsw i64 %.pre-phi3750, %10
   %gep3165 = getelementptr double, ptr %invariant.gep3158, i64 %300
-  %301 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3165, <8 x double> %24, <8 x double> %299) #10, !srcloc !49
+  %301 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3165, <8 x double> %24, <8 x double> %299) #9, !srcloc !49
   store <8 x double> %301, ptr %gep3165, align 1, !tbaa !3
   %302 = fmul <8 x double> %22, %.02825.lcssa
   %303 = getelementptr i8, ptr %gep3165, i64 64
-  %304 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %303, <8 x double> %24, <8 x double> %302) #10, !srcloc !50
+  %304 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %303, <8 x double> %24, <8 x double> %302) #9, !srcloc !50
   store <8 x double> %304, ptr %303, align 1, !tbaa !3
   %305 = fmul <8 x double> %22, %.02830.lcssa
   %306 = mul nsw i64 %.pre-phi3752, %10
   %gep3167 = getelementptr double, ptr %invariant.gep3158, i64 %306
-  %307 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3167, <8 x double> %24, <8 x double> %305) #10, !srcloc !51
+  %307 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3167, <8 x double> %24, <8 x double> %305) #9, !srcloc !51
   store <8 x double> %307, ptr %gep3167, align 1, !tbaa !3
   %308 = fmul <8 x double> %22, %.02831.lcssa
   %309 = getelementptr i8, ptr %gep3167, i64 64
-  %310 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %309, <8 x double> %24, <8 x double> %308) #10, !srcloc !52
+  %310 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %309, <8 x double> %24, <8 x double> %308) #9, !srcloc !52
   store <8 x double> %310, ptr %309, align 1, !tbaa !3
   %311 = fmul <8 x double> %22, %.02832.lcssa
   %312 = mul nsw i64 %.pre-phi3754, %10
   %gep3169 = getelementptr double, ptr %invariant.gep3158, i64 %312
-  %313 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3169, <8 x double> %24, <8 x double> %311) #10, !srcloc !53
+  %313 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3169, <8 x double> %24, <8 x double> %311) #9, !srcloc !53
   store <8 x double> %313, ptr %gep3169, align 1, !tbaa !3
   %314 = fmul <8 x double> %22, %.02833.lcssa
   %315 = getelementptr i8, ptr %gep3169, i64 64
-  %316 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %315, <8 x double> %24, <8 x double> %314) #10, !srcloc !54
+  %316 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %315, <8 x double> %24, <8 x double> %314) #9, !srcloc !54
   store <8 x double> %316, ptr %315, align 1, !tbaa !3
   %317 = add nuw nsw i64 %.327523170, 6
   %318 = icmp slt i64 %317, %18
@@ -661,20 +661,20 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %342 = fmul <8 x double> %22, %.02834.lcssa
   %343 = mul nsw i64 %.427533189, %10
   %gep3186 = getelementptr double, ptr %invariant.gep3158, i64 %343
-  %344 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3186, <8 x double> %24, <8 x double> %342) #10, !srcloc !57
+  %344 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3186, <8 x double> %24, <8 x double> %342) #9, !srcloc !57
   store <8 x double> %344, ptr %gep3186, align 1, !tbaa !3
   %345 = fmul <8 x double> %22, %.02835.lcssa
   %346 = getelementptr i8, ptr %gep3186, i64 64
-  %347 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %346, <8 x double> %24, <8 x double> %345) #10, !srcloc !58
+  %347 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %346, <8 x double> %24, <8 x double> %345) #9, !srcloc !58
   store <8 x double> %347, ptr %346, align 1, !tbaa !3
   %348 = fmul <8 x double> %22, %.02836.lcssa
   %349 = mul nsw i64 %.pre-phi3756, %10
   %gep3188 = getelementptr double, ptr %invariant.gep3158, i64 %349
-  %350 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3188, <8 x double> %24, <8 x double> %348) #10, !srcloc !59
+  %350 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3188, <8 x double> %24, <8 x double> %348) #9, !srcloc !59
   store <8 x double> %350, ptr %gep3188, align 1, !tbaa !3
   %351 = fmul <8 x double> %22, %.02837.lcssa
   %352 = getelementptr i8, ptr %gep3188, i64 64
-  %353 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %352, <8 x double> %24, <8 x double> %351) #10, !srcloc !60
+  %353 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %352, <8 x double> %24, <8 x double> %351) #9, !srcloc !60
   store <8 x double> %353, ptr %352, align 1, !tbaa !3
   %354 = add nuw nsw i64 %.427533189, 2
   %355 = icmp slt i64 %354, %20
@@ -714,11 +714,11 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %368 = fmul <8 x double> %22, %.02838.lcssa
   %369 = mul nsw i64 %.527543204, %10
   %gep3203 = getelementptr double, ptr %invariant.gep3158, i64 %369
-  %370 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3203, <8 x double> %24, <8 x double> %368) #10, !srcloc !63
+  %370 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3203, <8 x double> %24, <8 x double> %368) #9, !srcloc !63
   store <8 x double> %370, ptr %gep3203, align 1, !tbaa !3
   %371 = fmul <8 x double> %22, %.02847.lcssa
   %372 = getelementptr i8, ptr %gep3203, i64 64
-  %373 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %372, <8 x double> %24, <8 x double> %371) #10, !srcloc !64
+  %373 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %372, <8 x double> %24, <8 x double> %371) #9, !srcloc !64
   store <8 x double> %373, ptr %372, align 1, !tbaa !3
   %374 = add i64 %.527543204, 1
   %exitcond3697.not = icmp eq i64 %374, %1
@@ -842,27 +842,27 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %.pre-phi = phi <8 x double> [ %225, %.preheader3021.._crit_edge3218_crit_edge ], [ %.pre, %._crit_edge3218.loopexit ]
   %424 = mul nsw i64 %.63237, %10
   %gep3226 = getelementptr double, ptr %invariant.gep3225, i64 %424
-  %425 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3226, <8 x double> %24, <8 x double> %.pre-phi) #10, !srcloc !68
+  %425 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3226, <8 x double> %24, <8 x double> %.pre-phi) #9, !srcloc !68
   store <8 x double> %425, ptr %gep3226, align 1, !tbaa !3
   %426 = mul nsw i64 %.pre-phi3758, %10
   %gep3228 = getelementptr double, ptr %invariant.gep3225, i64 %426
-  %427 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3228, <8 x double> %24, <8 x double> %.pre-phi3724) #10, !srcloc !69
+  %427 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3228, <8 x double> %24, <8 x double> %.pre-phi3724) #9, !srcloc !69
   store <8 x double> %427, ptr %gep3228, align 1, !tbaa !3
   %428 = mul nsw i64 %.pre-phi3760, %10
   %gep3230 = getelementptr double, ptr %invariant.gep3225, i64 %428
-  %429 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3230, <8 x double> %24, <8 x double> %.pre-phi3726) #10, !srcloc !70
+  %429 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3230, <8 x double> %24, <8 x double> %.pre-phi3726) #9, !srcloc !70
   store <8 x double> %429, ptr %gep3230, align 1, !tbaa !3
   %430 = mul nsw i64 %.pre-phi3762, %10
   %gep3232 = getelementptr double, ptr %invariant.gep3225, i64 %430
-  %431 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3232, <8 x double> %24, <8 x double> %.pre-phi3728) #10, !srcloc !71
+  %431 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3232, <8 x double> %24, <8 x double> %.pre-phi3728) #9, !srcloc !71
   store <8 x double> %431, ptr %gep3232, align 1, !tbaa !3
   %432 = mul nsw i64 %.pre-phi3764, %10
   %gep3234 = getelementptr double, ptr %invariant.gep3225, i64 %432
-  %433 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3234, <8 x double> %24, <8 x double> %.pre-phi3730) #10, !srcloc !72
+  %433 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3234, <8 x double> %24, <8 x double> %.pre-phi3730) #9, !srcloc !72
   store <8 x double> %433, ptr %gep3234, align 1, !tbaa !3
   %434 = mul nsw i64 %.pre-phi3766, %10
   %gep3236 = getelementptr double, ptr %invariant.gep3225, i64 %434
-  %435 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3236, <8 x double> %24, <8 x double> %.pre-phi3732) #10, !srcloc !73
+  %435 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3236, <8 x double> %24, <8 x double> %.pre-phi3732) #9, !srcloc !73
   store <8 x double> %435, ptr %gep3236, align 1, !tbaa !3
   %436 = add nuw nsw i64 %.63237, 6
   %437 = icmp slt i64 %436, %18
@@ -902,7 +902,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %448 = fmul <8 x double> %22, %446
   %449 = mul nsw i64 %.83265.us, %10
   %gep3264.us = getelementptr double, ptr %invariant.gep3225, i64 %449
-  %450 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3264.us, <8 x double> %24, <8 x double> %448) #10, !srcloc !76
+  %450 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3264.us, <8 x double> %24, <8 x double> %448) #9, !srcloc !76
   store <8 x double> %450, ptr %gep3264.us, align 1, !tbaa !3
   %451 = add i64 %.83265.us, 1
   %exitcond3702.not = icmp eq i64 %451, %1
@@ -955,11 +955,11 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %.pre-phi3734 = phi <8 x double> [ %225, %.preheader3020.._crit_edge3245_crit_edge ], [ %.pre3733, %._crit_edge3245.loopexit ]
   %470 = mul nsw i64 %.73252, %10
   %gep3249 = getelementptr double, ptr %invariant.gep3225, i64 %470
-  %471 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3249, <8 x double> %24, <8 x double> %.pre-phi3734) #10, !srcloc !79
+  %471 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3249, <8 x double> %24, <8 x double> %.pre-phi3734) #9, !srcloc !79
   store <8 x double> %471, ptr %gep3249, align 1, !tbaa !3
   %472 = mul nsw i64 %.pre-phi3768, %10
   %gep3251 = getelementptr double, ptr %invariant.gep3225, i64 %472
-  %473 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3251, <8 x double> %24, <8 x double> %.pre-phi3736) #10, !srcloc !80
+  %473 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3251, <8 x double> %24, <8 x double> %.pre-phi3736) #9, !srcloc !80
   store <8 x double> %473, ptr %gep3251, align 1, !tbaa !3
   %474 = add nuw nsw i64 %.73252, 2
   %475 = icmp slt i64 %474, %20
@@ -969,7 +969,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %.83265 = phi i64 [ %478, %.preheader3019 ], [ %.7.lcssa, %.preheader3019.lr.ph ]
   %476 = mul nsw i64 %.83265, %10
   %gep3264 = getelementptr double, ptr %invariant.gep3225, i64 %476
-  %477 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3264, <8 x double> %24, <8 x double> %225) #10, !srcloc !76
+  %477 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3264, <8 x double> %24, <8 x double> %225) #9, !srcloc !76
   store <8 x double> %477, ptr %gep3264, align 1, !tbaa !3
   %478 = add i64 %.83265, 1
   %exitcond3700.not = icmp eq i64 %478, %1
@@ -1106,32 +1106,32 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %542 = fmul <8 x double> %22, %.02857.lcssa
   %543 = mul nsw i64 %.93507, %10
   %gep3496 = getelementptr double, ptr %invariant.gep3495, i64 %543
-  %544 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3496, <8 x double> %24, i8 %489, <8 x double> %542) #10, !srcloc !84
+  %544 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3496, <8 x double> %24, i8 %489, <8 x double> %542) #9, !srcloc !84
   tail call void @llvm.masked.store.v8f64.p0(<8 x double> %544, ptr align 1 %gep3496, <8 x i1> %492)
   %545 = fmul <8 x double> %22, %.02858.lcssa
   %546 = mul nsw i64 %.pre-phi3770, %10
   %gep3498 = getelementptr double, ptr %invariant.gep3495, i64 %546
-  %547 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3498, <8 x double> %24, i8 %489, <8 x double> %545) #10, !srcloc !85
+  %547 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3498, <8 x double> %24, i8 %489, <8 x double> %545) #9, !srcloc !85
   tail call void @llvm.masked.store.v8f64.p0(<8 x double> %547, ptr align 1 %gep3498, <8 x i1> %492)
   %548 = fmul <8 x double> %22, %.02859.lcssa
   %549 = mul nsw i64 %.pre-phi3772, %10
   %gep3500 = getelementptr double, ptr %invariant.gep3495, i64 %549
-  %550 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3500, <8 x double> %24, i8 %489, <8 x double> %548) #10, !srcloc !86
+  %550 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3500, <8 x double> %24, i8 %489, <8 x double> %548) #9, !srcloc !86
   tail call void @llvm.masked.store.v8f64.p0(<8 x double> %550, ptr align 1 %gep3500, <8 x i1> %492)
   %551 = fmul <8 x double> %22, %.02860.lcssa
   %552 = mul nsw i64 %.pre-phi3774, %10
   %gep3502 = getelementptr double, ptr %invariant.gep3495, i64 %552
-  %553 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3502, <8 x double> %24, i8 %489, <8 x double> %551) #10, !srcloc !87
+  %553 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3502, <8 x double> %24, i8 %489, <8 x double> %551) #9, !srcloc !87
   tail call void @llvm.masked.store.v8f64.p0(<8 x double> %553, ptr align 1 %gep3502, <8 x i1> %492)
   %554 = fmul <8 x double> %22, %.02861.lcssa
   %555 = mul nsw i64 %.pre-phi3776, %10
   %gep3504 = getelementptr double, ptr %invariant.gep3495, i64 %555
-  %556 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3504, <8 x double> %24, i8 %489, <8 x double> %554) #10, !srcloc !88
+  %556 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3504, <8 x double> %24, i8 %489, <8 x double> %554) #9, !srcloc !88
   tail call void @llvm.masked.store.v8f64.p0(<8 x double> %556, ptr align 1 %gep3504, <8 x i1> %492)
   %557 = fmul <8 x double> %22, %.02862.lcssa
   %558 = mul nsw i64 %.pre-phi3778, %10
   %gep3506 = getelementptr double, ptr %invariant.gep3495, i64 %558
-  %559 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3506, <8 x double> %24, i8 %489, <8 x double> %557) #10, !srcloc !89
+  %559 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3506, <8 x double> %24, i8 %489, <8 x double> %557) #9, !srcloc !89
   tail call void @llvm.masked.store.v8f64.p0(<8 x double> %559, ptr align 1 %gep3506, <8 x i1> %492)
   %560 = add nuw nsw i64 %.93507, 6
   %561 = icmp slt i64 %560, %18
@@ -1191,12 +1191,12 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %583 = fmul <8 x double> %22, %.02863.lcssa
   %584 = mul nsw i64 %.103522, %10
   %gep3519 = getelementptr double, ptr %invariant.gep3495, i64 %584
-  %585 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3519, <8 x double> %24, i8 %489, <8 x double> %583) #10, !srcloc !92
+  %585 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3519, <8 x double> %24, i8 %489, <8 x double> %583) #9, !srcloc !92
   tail call void @llvm.masked.store.v8f64.p0(<8 x double> %585, ptr align 1 %gep3519, <8 x i1> %506)
   %586 = fmul <8 x double> %22, %.02864.lcssa
   %587 = mul nsw i64 %.pre-phi3780, %10
   %gep3521 = getelementptr double, ptr %invariant.gep3495, i64 %587
-  %588 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3521, <8 x double> %24, i8 %489, <8 x double> %586) #10, !srcloc !93
+  %588 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3521, <8 x double> %24, i8 %489, <8 x double> %586) #9, !srcloc !93
   tail call void @llvm.masked.store.v8f64.p0(<8 x double> %588, ptr align 1 %gep3521, <8 x i1> %506)
   %589 = add nuw nsw i64 %.103522, 2
   %590 = icmp slt i64 %589, %20
@@ -1231,7 +1231,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %600 = fmul <8 x double> %22, %.02865.lcssa
   %601 = mul nsw i64 %.113535, %10
   %gep3534 = getelementptr double, ptr %invariant.gep3495, i64 %601
-  %602 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3534, <8 x double> %24, i8 %489, <8 x double> %600) #10, !srcloc !96
+  %602 = tail call <8 x double> asm "vfmadd231pd ($1), $2, $0 {$3}", "=v,r,v,^Yk,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3534, <8 x double> %24, i8 %489, <8 x double> %600) #9, !srcloc !96
   tail call void @llvm.masked.store.v8f64.p0(<8 x double> %602, ptr align 1 %gep3534, <8 x i1> %567)
   %603 = add i64 %.113535, 1
   %exitcond3722.not = icmp eq i64 %603, %1
@@ -1241,7 +1241,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %sext = shl i64 %481, 32
   %604 = ashr exact i64 %sext, 29
   %605 = mul i64 %604, %2
-  %606 = tail call noalias ptr @malloc(i64 noundef %605) #11
+  %606 = tail call noalias ptr @malloc(i64 noundef %605) #10
   %607 = and i64 %2, 9223372036854775800
   %608 = and i64 %2, 9223372036854775804
   %invariant.gep3270 = getelementptr double, ptr %606, i64 %2
@@ -1637,7 +1637,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %824 = fmul <4 x double> %660, %823
   %825 = mul nsw i64 %.123329, %10
   %gep3322 = getelementptr double, ptr %invariant.gep3321, i64 %825
-  %826 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3322, <4 x double> %662, <4 x double> %824) #10, !srcloc !104
+  %826 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3322, <4 x double> %662, <4 x double> %824) #9, !srcloc !104
   store <4 x double> %826, ptr %gep3322, align 1, !tbaa !3
   %827 = shufflevector <8 x double> %.12879, <8 x double> %.12881, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
   %828 = shufflevector <8 x double> %.12879, <8 x double> %.12881, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
@@ -1656,7 +1656,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %841 = fmul <4 x double> %660, %840
   %842 = mul nsw i64 %.pre-phi3782, %10
   %gep3324 = getelementptr double, ptr %invariant.gep3321, i64 %842
-  %843 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3324, <4 x double> %662, <4 x double> %841) #10, !srcloc !105
+  %843 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3324, <4 x double> %662, <4 x double> %841) #9, !srcloc !105
   store <4 x double> %843, ptr %gep3324, align 1, !tbaa !3
   %844 = shufflevector <8 x double> %.12903, <8 x double> %.12905, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
   %845 = shufflevector <8 x double> %.12903, <8 x double> %.12905, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
@@ -1675,7 +1675,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %858 = fmul <4 x double> %660, %857
   %859 = mul nsw i64 %.pre-phi3784, %10
   %gep3326 = getelementptr double, ptr %invariant.gep3321, i64 %859
-  %860 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3326, <4 x double> %662, <4 x double> %858) #10, !srcloc !106
+  %860 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3326, <4 x double> %662, <4 x double> %858) #9, !srcloc !106
   store <4 x double> %860, ptr %gep3326, align 1, !tbaa !3
   %861 = shufflevector <8 x double> %.12911, <8 x double> %.12913, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
   %862 = shufflevector <8 x double> %.12911, <8 x double> %.12913, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
@@ -1694,7 +1694,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %875 = fmul <4 x double> %660, %874
   %876 = mul nsw i64 %.pre-phi3786, %10
   %gep3328 = getelementptr double, ptr %invariant.gep3321, i64 %876
-  %877 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3328, <4 x double> %662, <4 x double> %875) #10, !srcloc !107
+  %877 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3328, <4 x double> %662, <4 x double> %875) #9, !srcloc !107
   store <4 x double> %877, ptr %gep3328, align 1, !tbaa !3
   %878 = add nuw nsw i64 %.123329, 4
   %879 = icmp slt i64 %878, %19
@@ -1822,7 +1822,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %957 = fmul <4 x double> %660, %956
   %958 = mul nsw i64 %.133355, %10
   %gep3352 = getelementptr double, ptr %invariant.gep3321, i64 %958
-  %959 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3352, <4 x double> %662, <4 x double> %957) #10, !srcloc !110
+  %959 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3352, <4 x double> %662, <4 x double> %957) #9, !srcloc !110
   store <4 x double> %959, ptr %gep3352, align 1, !tbaa !3
   %960 = shufflevector <8 x double> %.12927, <8 x double> %.12929, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
   %961 = shufflevector <8 x double> %.12927, <8 x double> %.12929, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
@@ -1841,7 +1841,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %974 = fmul <4 x double> %660, %973
   %975 = mul nsw i64 %.pre-phi3788, %10
   %gep3354 = getelementptr double, ptr %invariant.gep3321, i64 %975
-  %976 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3354, <4 x double> %662, <4 x double> %974) #10, !srcloc !111
+  %976 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3354, <4 x double> %662, <4 x double> %974) #9, !srcloc !111
   store <4 x double> %976, ptr %gep3354, align 1, !tbaa !3
   %977 = add nuw nsw i64 %.133355, 2
   %978 = icmp slt i64 %977, %20
@@ -1916,7 +1916,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %1024 = fmul <4 x double> %660, %1023
   %1025 = mul nsw i64 %.143371, %10
   %gep3370 = getelementptr double, ptr %invariant.gep3321, i64 %1025
-  %1026 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3370, <4 x double> %662, <4 x double> %1024) #10, !srcloc !114
+  %1026 = tail call <4 x double> asm "vfmadd231pd ($1), $2, $0", "=v,r,v,0,~{dirflag},~{fpsr},~{flags}"(ptr %gep3370, <4 x double> %662, <4 x double> %1024) #9, !srcloc !114
   store <4 x double> %1026, ptr %gep3370, align 1, !tbaa !3
   %1027 = add i64 %.143371, 1
   %exitcond3706.not = icmp eq i64 %1027, %1
@@ -2573,17 +2573,17 @@ declare <8 x double> @llvm.x86.avx512.vpermi2var.pd.512(<8 x double>, <8 x i64>,
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x double> @llvm.fma.v4f64(<4 x double>, <4 x double>, <4 x double>) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.vector.reduce.fadd.v8f64(double, <8 x double>) #7
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.vector.reduce.fadd.v8f64(double, <8 x double>) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <8 x double> @llvm.masked.load.v8f64.p0(ptr captures(none), <8 x i1>, <8 x double>) #8
+declare <8 x double> @llvm.masked.load.v8f64.p0(ptr captures(none), <8 x i1>, <8 x double>) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v8f64.p0(<8 x double>, ptr captures(none), <8 x i1>) #9
+declare void @llvm.masked.store.v8f64.p0(<8 x double>, ptr captures(none), <8 x i1>) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <4 x double> @llvm.masked.load.v4f64.p0(ptr captures(none), <4 x i1>, <4 x double>) #8
+declare <4 x double> @llvm.masked.load.v4f64.p0(ptr captures(none), <4 x i1>, <4 x double>) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
@@ -2592,11 +2592,10 @@ attributes #3 = { nounwind }
 attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind memory(none) }
-attributes #11 = { nounwind allocsize(0) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind memory(none) }
+attributes #10 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 
