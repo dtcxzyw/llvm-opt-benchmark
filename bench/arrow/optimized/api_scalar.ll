@@ -27191,6 +27191,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_17Arithm
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !293
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -31110,6 +31111,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_21Assume
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !457
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -38132,6 +38134,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_16DayOfW
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !635
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -41221,6 +41224,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_27Elemen
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !720
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -42995,6 +42999,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_19Extrac
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !778
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -45437,6 +45442,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_11JoinOp
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !840
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -49163,6 +49169,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_17MakeSt
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !938
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -63173,6 +63180,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_16MapLoo
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !1468
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -66532,6 +66540,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_21MatchS
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !1572
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -69350,6 +69359,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_11NullOp
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !1641
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -70948,6 +70958,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_10PadOpt
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !1701
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -76045,6 +76056,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_19Replac
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !1816
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -78985,6 +78997,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_23Replac
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !1888
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -82339,6 +82352,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_12RoundO
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !1963
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -86150,6 +86164,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_18RoundB
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !2058
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -88243,6 +88258,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_20RoundT
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !2121
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -93220,6 +93236,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_22RoundT
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !2261
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -96565,6 +96582,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_16SetLoo
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !2353
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -101140,6 +101158,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_12SliceO
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !2489
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -102761,6 +102780,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_16ListSl
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !2544
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -106703,6 +106723,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_19SplitP
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !2663
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -110566,6 +110587,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_12SplitO
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !2750
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -113098,6 +113120,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_15Strfti
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !2821
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -115511,6 +115534,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_15Strpti
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !2886
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -119670,6 +119694,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_18Struct
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !2997
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -122798,6 +122823,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_11TrimOp
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !3094
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -124613,6 +124639,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_20Utf8No
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !3146
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -126497,6 +126524,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_11WeekOp
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !3216
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -128036,6 +128064,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_13Random
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !51, !alias.scope !3272
+  store ptr %9, ptr %6, align 8, !tbaa !49
   store i64 0, ptr %15, align 8, !tbaa !51
   store i8 0, ptr %9, align 8, !tbaa !52
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

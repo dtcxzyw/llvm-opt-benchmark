@@ -1607,6 +1607,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %583, ptr noundef nonnull align 8 dereferenceable(1) %568, i64 %588, i1 false), !noalias !53
   %589 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %586, ptr %589, align 8, !tbaa !9, !alias.scope !70, !noalias !53
+  store ptr %568, ptr %13, align 8, !tbaa !12, !noalias !73
   store i64 0, ptr %561, align 8, !tbaa !9, !noalias !73
   store i8 0, ptr %568, align 8, !tbaa !13, !noalias !73
   br label %596
@@ -1772,6 +1773,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %643, ptr noundef nonnull align 8 dereferenceable(1) %610, i64 %648, i1 false), !noalias !53
   %649 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %646, ptr %649, align 8, !tbaa !9, !alias.scope !78, !noalias !53
+  store ptr %610, ptr %11, align 8, !tbaa !12, !noalias !81
   store i64 0, ptr %621, align 8, !tbaa !9, !noalias !81
   store i8 0, ptr %610, align 8, !tbaa !13, !noalias !81
   br label %656
@@ -2132,6 +2134,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %769, ptr noundef nonnull align 8 dereferenceable(1) %754, i64 %774, i1 false), !noalias !53
   %775 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %772, ptr %775, align 8, !tbaa !9, !alias.scope !86, !noalias !53
+  store ptr %754, ptr %18, align 8, !tbaa !12, !noalias !89
   store i64 0, ptr %747, align 8, !tbaa !9, !noalias !89
   store i8 0, ptr %754, align 8, !tbaa !13, !noalias !89
   br label %782
@@ -2297,6 +2300,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %829, ptr noundef nonnull align 8 dereferenceable(1) %796, i64 %834, i1 false), !noalias !53
   %835 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %832, ptr %835, align 8, !tbaa !9, !alias.scope !94, !noalias !53
+  store ptr %796, ptr %16, align 8, !tbaa !12, !noalias !97
   store i64 0, ptr %807, align 8, !tbaa !9, !noalias !97
   store i8 0, ptr %796, align 8, !tbaa !13, !noalias !97
   br label %842

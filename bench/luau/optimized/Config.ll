@@ -2821,6 +2821,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %30, ptr %34, align 8, !tbaa !44, !alias.scope !81
+  store ptr %27, ptr %24, align 8, !tbaa !48
   store i64 0, ptr %33, align 8, !tbaa !44
   store i8 0, ptr %27, align 8, !tbaa !45
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3152,6 +3153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %57, ptr %61, align 8, !tbaa !44, !alias.scope !90
+  store ptr %54, ptr %51, align 8, !tbaa !48
   store i64 0, ptr %60, align 8, !tbaa !44
   store i8 0, ptr %54, align 8, !tbaa !45
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3462,6 +3464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i79: ; p
   %182 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %183 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %179, ptr %183, align 8, !tbaa !44, !alias.scope !97
+  store ptr %176, ptr %173, align 8, !tbaa !48
   store i64 0, ptr %182, align 8, !tbaa !44
   store i8 0, ptr %176, align 8, !tbaa !45
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3837,6 +3840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %104 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %100, ptr %104, align 8, !tbaa !44, !alias.scope !101
+  store ptr %97, ptr %94, align 8, !tbaa !48
   store i64 0, ptr %103, align 8, !tbaa !44
   store i8 0, ptr %97, align 8, !tbaa !45
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8099,6 +8103,7 @@ _ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_alloc
   %262 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %263 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %259, ptr %263, align 8, !tbaa !44, !alias.scope !169
+  store ptr %256, ptr %253, align 8, !tbaa !48
   store i64 0, ptr %262, align 8, !tbaa !44
   store i8 0, ptr %256, align 8, !tbaa !45
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8286,6 +8291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %23, ptr %27, align 8, !tbaa !44, !alias.scope !172
+  store ptr %20, ptr %17, align 8, !tbaa !48
   store i64 0, ptr %26, align 8, !tbaa !44
   store i8 0, ptr %20, align 8, !tbaa !45
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16

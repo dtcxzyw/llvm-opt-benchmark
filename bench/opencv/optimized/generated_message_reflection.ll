@@ -3522,9 +3522,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %27, %_ZN6googl
   %127 = load ptr, ptr %126, align 8, !tbaa !147, !noalias !151
   %128 = load i32, ptr %125, align 4, !tbaa !15, !noalias !151
   %129 = load i32, ptr %124, align 8, !tbaa !15, !noalias !151
+  store ptr %114, ptr %113, align 8, !tbaa !154
   store i32 %129, ptr %118, align 8, !tbaa !15
   store i32 %128, ptr %119, align 4, !tbaa !15
   store ptr %127, ptr %120, align 8, !tbaa !147
+  store ptr %115, ptr %110, align 8, !tbaa !154
   store i32 %123, ptr %124, align 8, !tbaa !15
   store i32 %122, ptr %125, align 4, !tbaa !15
   store ptr %121, ptr %126, align 8, !tbaa !147
@@ -4041,18 +4043,20 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !147, !noalias !154
-  %49 = load i32, ptr %46, align 4, !tbaa !15, !noalias !154
-  %50 = load i32, ptr %45, align 8, !tbaa !15, !noalias !154
+  %48 = load ptr, ptr %47, align 8, !tbaa !147, !noalias !155
+  %49 = load i32, ptr %46, align 4, !tbaa !15, !noalias !155
+  %50 = load i32, ptr %45, align 8, !tbaa !15, !noalias !155
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %53 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !147, !noalias !157
-  %55 = load i32, ptr %52, align 4, !tbaa !15, !noalias !157
-  %56 = load i32, ptr %51, align 8, !tbaa !15, !noalias !157
+  %54 = load ptr, ptr %53, align 8, !tbaa !147, !noalias !158
+  %55 = load i32, ptr %52, align 4, !tbaa !15, !noalias !158
+  %56 = load i32, ptr %51, align 8, !tbaa !15, !noalias !158
+  store ptr %41, ptr %40, align 8, !tbaa !154
   store i32 %56, ptr %45, align 8, !tbaa !15
   store i32 %55, ptr %46, align 4, !tbaa !15
   store ptr %54, ptr %47, align 8, !tbaa !147
+  store ptr %42, ptr %37, align 8, !tbaa !154
   store i32 %50, ptr %51, align 8, !tbaa !15
   store i32 %49, ptr %52, align 4, !tbaa !15
   store ptr %48, ptr %53, align 8, !tbaa !147
@@ -4538,22 +4542,22 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %66, %_ZN6goo
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 12
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %156 = load ptr, ptr %155, align 8, !tbaa !147, !noalias !160
-  %157 = load i32, ptr %154, align 4, !tbaa !15, !noalias !160
-  %158 = load i32, ptr %153, align 8, !tbaa !15, !noalias !160
-  %159 = load ptr, ptr %152, align 8, !tbaa !163, !noalias !160
+  %156 = load ptr, ptr %155, align 8, !tbaa !147, !noalias !161
+  %157 = load i32, ptr %154, align 4, !tbaa !15, !noalias !161
+  %158 = load i32, ptr %153, align 8, !tbaa !15, !noalias !161
+  %159 = load ptr, ptr %152, align 8, !tbaa !154, !noalias !161
   %160 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %161 = getelementptr inbounds nuw i8, ptr %149, i64 12
   %162 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %163 = load ptr, ptr %162, align 8, !tbaa !147, !noalias !164
   %164 = load i32, ptr %161, align 4, !tbaa !15, !noalias !164
   %165 = load i32, ptr %160, align 8, !tbaa !15, !noalias !164
-  %166 = load ptr, ptr %149, align 8, !tbaa !163, !noalias !164
-  store ptr %166, ptr %152, align 8, !tbaa !163
+  %166 = load ptr, ptr %149, align 8, !tbaa !154, !noalias !164
+  store ptr %166, ptr %152, align 8, !tbaa !154
   store i32 %165, ptr %153, align 8, !tbaa !15
   store i32 %164, ptr %154, align 4, !tbaa !15
   store ptr %163, ptr %155, align 8, !tbaa !147
-  store ptr %159, ptr %149, align 8, !tbaa !163
+  store ptr %159, ptr %149, align 8, !tbaa !154
   store i32 %158, ptr %160, align 8, !tbaa !15
   store i32 %157, ptr %161, align 4, !tbaa !15
   store ptr %156, ptr %162, align 8, !tbaa !147
@@ -4883,19 +4887,19 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %44 = load ptr, ptr %43, align 8, !tbaa !147, !noalias !167
   %45 = load i32, ptr %42, align 4, !tbaa !15, !noalias !167
   %46 = load i32, ptr %41, align 8, !tbaa !15, !noalias !167
-  %47 = load ptr, ptr %40, align 8, !tbaa !163, !noalias !167
+  %47 = load ptr, ptr %40, align 8, !tbaa !154, !noalias !167
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !147, !noalias !170
   %52 = load i32, ptr %49, align 4, !tbaa !15, !noalias !170
   %53 = load i32, ptr %48, align 8, !tbaa !15, !noalias !170
-  %54 = load ptr, ptr %37, align 8, !tbaa !163, !noalias !170
-  store ptr %54, ptr %40, align 8, !tbaa !163
+  %54 = load ptr, ptr %37, align 8, !tbaa !154, !noalias !170
+  store ptr %54, ptr %40, align 8, !tbaa !154
   store i32 %53, ptr %41, align 8, !tbaa !15
   store i32 %52, ptr %42, align 4, !tbaa !15
   store ptr %51, ptr %43, align 8, !tbaa !147
-  store ptr %47, ptr %37, align 8, !tbaa !163
+  store ptr %47, ptr %37, align 8, !tbaa !154
   store i32 %46, ptr %48, align 8, !tbaa !15
   store i32 %45, ptr %49, align 4, !tbaa !15
   store ptr %44, ptr %50, align 8, !tbaa !147
@@ -27823,18 +27827,18 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS1_18GenericTypeHandle
   %55 = load ptr, ptr %54, align 8, !tbaa !147, !noalias !336
   %56 = load i32, ptr %53, align 4, !tbaa !15, !noalias !336
   %57 = load i32, ptr %5, align 8, !tbaa !15, !noalias !336
-  %58 = load ptr, ptr %3, align 8, !tbaa !163, !noalias !336
+  %58 = load ptr, ptr %3, align 8, !tbaa !154, !noalias !336
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !147, !noalias !339
   %62 = load i32, ptr %59, align 4, !tbaa !15, !noalias !339
   %63 = load i32, ptr %34, align 8, !tbaa !15, !noalias !339
-  %64 = load ptr, ptr %1, align 8, !tbaa !163, !noalias !339
-  store ptr %64, ptr %3, align 8, !tbaa !163
+  %64 = load ptr, ptr %1, align 8, !tbaa !154, !noalias !339
+  store ptr %64, ptr %3, align 8, !tbaa !154
   store i32 %63, ptr %5, align 8, !tbaa !15
   store i32 %62, ptr %53, align 4, !tbaa !15
   store ptr %61, ptr %54, align 8, !tbaa !147
-  store ptr %58, ptr %1, align 8, !tbaa !163
+  store ptr %58, ptr %1, align 8, !tbaa !154
   store i32 %57, ptr %34, align 8, !tbaa !15
   store i32 %56, ptr %59, align 4, !tbaa !15
   store ptr %55, ptr %60, align 8, !tbaa !147
@@ -28078,18 +28082,18 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS1_18GenericTypeHandle
   %55 = load ptr, ptr %54, align 8, !tbaa !147, !noalias !345
   %56 = load i32, ptr %53, align 4, !tbaa !15, !noalias !345
   %57 = load i32, ptr %5, align 8, !tbaa !15, !noalias !345
-  %58 = load ptr, ptr %3, align 8, !tbaa !163, !noalias !345
+  %58 = load ptr, ptr %3, align 8, !tbaa !154, !noalias !345
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !147, !noalias !348
   %62 = load i32, ptr %59, align 4, !tbaa !15, !noalias !348
   %63 = load i32, ptr %34, align 8, !tbaa !15, !noalias !348
-  %64 = load ptr, ptr %1, align 8, !tbaa !163, !noalias !348
-  store ptr %64, ptr %3, align 8, !tbaa !163
+  %64 = load ptr, ptr %1, align 8, !tbaa !154, !noalias !348
+  store ptr %64, ptr %3, align 8, !tbaa !154
   store i32 %63, ptr %5, align 8, !tbaa !15
   store i32 %62, ptr %53, align 4, !tbaa !15
   store ptr %61, ptr %54, align 8, !tbaa !147
-  store ptr %58, ptr %1, align 8, !tbaa !163
+  store ptr %58, ptr %1, align 8, !tbaa !154
   store i32 %57, ptr %34, align 8, !tbaa !15
   store i32 %56, ptr %59, align 4, !tbaa !15
   store ptr %55, ptr %60, align 8, !tbaa !147
@@ -31035,16 +31039,16 @@ attributes #30 = { builtin allocsize(0) }
 !151 = !{!152}
 !152 = distinct !{!152, !153, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
 !153 = distinct !{!153, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
-!154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
-!156 = distinct !{!156, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
-!157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
-!159 = distinct !{!159, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
-!160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
-!162 = distinct !{!162, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
-!163 = !{!60, !60, i64 0}
+!154 = !{!60, !60, i64 0}
+!155 = !{!156}
+!156 = distinct !{!156, !157, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
+!157 = distinct !{!157, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
+!158 = !{!159}
+!159 = distinct !{!159, !160, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
+!160 = distinct !{!160, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
+!161 = !{!162}
+!162 = distinct !{!162, !163, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
+!163 = distinct !{!163, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
 !164 = !{!165}
 !165 = distinct !{!165, !166, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
 !166 = distinct !{!166, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}

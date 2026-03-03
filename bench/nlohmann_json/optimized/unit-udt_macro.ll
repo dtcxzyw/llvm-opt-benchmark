@@ -77468,7 +77468,6 @@ define internal void @_ZL19DOCTEST_ANON_TMP_14ISt4pairIN8nlohmann16json_abi_v3_1
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %25, ptr %4, align 8, !tbaa !4
   store i32 1802072645, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -77480,6 +77479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %24
   store i8 0, ptr %30, align 1, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %31, ptr noundef nonnull align 8 dereferenceable(5) %25, i64 5, i1 false)
+  store ptr %25, ptr %4, align 8, !tbaa !21
   store i64 0, ptr %26, align 8, !tbaa !10
   store i8 0, ptr %25, align 8, !tbaa !13
   store ptr %31, ptr %3, align 8, !tbaa !4
@@ -77605,7 +77605,6 @@ _ZN7persons36derived_person_only_serialize_publicC2ENSt7__cxx1112basic_stringIcS
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %70, ptr %13, align 8, !tbaa !4
   store i32 1802072645, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 20
@@ -77617,6 +77616,7 @@ _ZN7persons36derived_person_only_serialize_publicC2ENSt7__cxx1112basic_stringIcS
   store i8 0, ptr %75, align 1, !tbaa !13
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %76, ptr noundef nonnull align 8 dereferenceable(5) %70, i64 5, i1 false)
+  store ptr %70, ptr %13, align 8, !tbaa !21
   store i64 0, ptr %71, align 8, !tbaa !10
   store i8 0, ptr %70, align 8, !tbaa !13
   store ptr %76, ptr %12, align 8, !tbaa !4
@@ -77635,7 +77635,6 @@ _ZN7persons36derived_person_only_serialize_publicC2ENSt7__cxx1112basic_stringIcS
   store i8 0, ptr %73, align 8, !tbaa !13
   %82 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %83, ptr %15, align 8, !tbaa !4
   store i32 1701607755, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -77647,6 +77646,7 @@ _ZN7persons36derived_person_only_serialize_publicC2ENSt7__cxx1112basic_stringIcS
   store i8 0, ptr %88, align 1, !tbaa !13
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %89, ptr noundef nonnull align 8 dereferenceable(5) %83, i64 5, i1 false)
+  store ptr %83, ptr %15, align 8, !tbaa !21
   store i64 0, ptr %84, align 8, !tbaa !10
   store i8 0, ptr %83, align 8, !tbaa !13
   store ptr %89, ptr %82, align 8, !tbaa !4
@@ -78953,7 +78953,6 @@ define internal void @_ZL19DOCTEST_ANON_TMP_14ISt4pairIN8nlohmann16json_abi_v3_1
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %25, ptr %4, align 8, !tbaa !4
   store i32 1802072645, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -78965,6 +78964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %24
   store i8 0, ptr %30, align 1, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %31, ptr noundef nonnull align 8 dereferenceable(5) %25, i64 5, i1 false)
+  store ptr %25, ptr %4, align 8, !tbaa !21
   store i64 0, ptr %26, align 8, !tbaa !10
   store i8 0, ptr %25, align 8, !tbaa !13
   store ptr %31, ptr %3, align 8, !tbaa !4
@@ -79090,7 +79090,6 @@ _ZN7persons37derived_person_only_serialize_privateC2ENSt7__cxx1112basic_stringIc
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %70, ptr %13, align 8, !tbaa !4
   store i32 1802072645, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 20
@@ -79102,6 +79101,7 @@ _ZN7persons37derived_person_only_serialize_privateC2ENSt7__cxx1112basic_stringIc
   store i8 0, ptr %75, align 1, !tbaa !13
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %76, ptr noundef nonnull align 8 dereferenceable(5) %70, i64 5, i1 false)
+  store ptr %70, ptr %13, align 8, !tbaa !21
   store i64 0, ptr %71, align 8, !tbaa !10
   store i8 0, ptr %70, align 8, !tbaa !13
   store ptr %76, ptr %12, align 8, !tbaa !4
@@ -79120,7 +79120,6 @@ _ZN7persons37derived_person_only_serialize_privateC2ENSt7__cxx1112basic_stringIc
   store i8 0, ptr %73, align 8, !tbaa !13
   %82 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %83, ptr %15, align 8, !tbaa !4
   store i32 1701607755, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -79132,6 +79131,7 @@ _ZN7persons37derived_person_only_serialize_privateC2ENSt7__cxx1112basic_stringIc
   store i8 0, ptr %88, align 1, !tbaa !13
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %89, ptr noundef nonnull align 8 dereferenceable(5) %83, i64 5, i1 false)
+  store ptr %83, ptr %15, align 8, !tbaa !21
   store i64 0, ptr %84, align 8, !tbaa !10
   store i8 0, ptr %83, align 8, !tbaa !13
   store ptr %89, ptr %82, align 8, !tbaa !4
@@ -80090,7 +80090,6 @@ define internal void @_ZL19DOCTEST_ANON_TMP_14ISt4pairIN8nlohmann16json_abi_v3_1
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %25, ptr %4, align 8, !tbaa !4
   store i32 1802072645, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -80102,6 +80101,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %24
   store i8 0, ptr %30, align 1, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %31, ptr noundef nonnull align 8 dereferenceable(5) %25, i64 5, i1 false)
+  store ptr %25, ptr %4, align 8, !tbaa !21
   store i64 0, ptr %26, align 8, !tbaa !10
   store i8 0, ptr %25, align 8, !tbaa !13
   store ptr %31, ptr %3, align 8, !tbaa !4
@@ -80227,7 +80227,6 @@ _ZN7persons36derived_person_only_serialize_publicC2ENSt7__cxx1112basic_stringIcS
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %70, ptr %13, align 8, !tbaa !4
   store i32 1802072645, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 20
@@ -80239,6 +80238,7 @@ _ZN7persons36derived_person_only_serialize_publicC2ENSt7__cxx1112basic_stringIcS
   store i8 0, ptr %75, align 1, !tbaa !13
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %76, ptr noundef nonnull align 8 dereferenceable(5) %70, i64 5, i1 false)
+  store ptr %70, ptr %13, align 8, !tbaa !21
   store i64 0, ptr %71, align 8, !tbaa !10
   store i8 0, ptr %70, align 8, !tbaa !13
   store ptr %76, ptr %12, align 8, !tbaa !4
@@ -80257,7 +80257,6 @@ _ZN7persons36derived_person_only_serialize_publicC2ENSt7__cxx1112basic_stringIcS
   store i8 0, ptr %73, align 8, !tbaa !13
   %82 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %83, ptr %15, align 8, !tbaa !4
   store i32 1701607755, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -80269,6 +80268,7 @@ _ZN7persons36derived_person_only_serialize_publicC2ENSt7__cxx1112basic_stringIcS
   store i8 0, ptr %88, align 1, !tbaa !13
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %89, ptr noundef nonnull align 8 dereferenceable(5) %83, i64 5, i1 false)
+  store ptr %83, ptr %15, align 8, !tbaa !21
   store i64 0, ptr %84, align 8, !tbaa !10
   store i8 0, ptr %83, align 8, !tbaa !13
   store ptr %89, ptr %82, align 8, !tbaa !4
@@ -81001,7 +81001,6 @@ define internal void @_ZL19DOCTEST_ANON_TMP_14ISt4pairIN8nlohmann16json_abi_v3_1
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %25, ptr %4, align 8, !tbaa !4
   store i32 1802072645, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -81013,6 +81012,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %24
   store i8 0, ptr %30, align 1, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %31, ptr noundef nonnull align 8 dereferenceable(5) %25, i64 5, i1 false)
+  store ptr %25, ptr %4, align 8, !tbaa !21
   store i64 0, ptr %26, align 8, !tbaa !10
   store i8 0, ptr %25, align 8, !tbaa !13
   store ptr %31, ptr %3, align 8, !tbaa !4
@@ -81138,7 +81138,6 @@ _ZN7persons37derived_person_only_serialize_privateC2ENSt7__cxx1112basic_stringIc
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %70, ptr %13, align 8, !tbaa !4
   store i32 1802072645, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 20
@@ -81150,6 +81149,7 @@ _ZN7persons37derived_person_only_serialize_privateC2ENSt7__cxx1112basic_stringIc
   store i8 0, ptr %75, align 1, !tbaa !13
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %76, ptr noundef nonnull align 8 dereferenceable(5) %70, i64 5, i1 false)
+  store ptr %70, ptr %13, align 8, !tbaa !21
   store i64 0, ptr %71, align 8, !tbaa !10
   store i8 0, ptr %70, align 8, !tbaa !13
   store ptr %76, ptr %12, align 8, !tbaa !4
@@ -81168,7 +81168,6 @@ _ZN7persons37derived_person_only_serialize_privateC2ENSt7__cxx1112basic_stringIc
   store i8 0, ptr %73, align 8, !tbaa !13
   %82 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %83, ptr %15, align 8, !tbaa !4
   store i32 1701607755, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -81180,6 +81179,7 @@ _ZN7persons37derived_person_only_serialize_privateC2ENSt7__cxx1112basic_stringIc
   store i8 0, ptr %88, align 1, !tbaa !13
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %89, ptr noundef nonnull align 8 dereferenceable(5) %83, i64 5, i1 false)
+  store ptr %83, ptr %15, align 8, !tbaa !21
   store i64 0, ptr %84, align 8, !tbaa !10
   store i8 0, ptr %83, align 8, !tbaa !13
   store ptr %89, ptr %82, align 8, !tbaa !4

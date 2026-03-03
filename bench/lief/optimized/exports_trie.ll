@@ -1248,12 +1248,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   %6 = alloca i32, align 4
   %7 = alloca %"class.LIEF::vector_iostream", align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %8, ptr %3, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %8, align 8, !tbaa !10
-  %10 = call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #26, !noalias !48
-  store i64 0, ptr %9, align 8, !tbaa !25, !noalias !48
+  %10 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #26, !noalias !48
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %8, ptr %3, align 8, !tbaa !29, !noalias !48
+  store i64 0, ptr %9, align 8, !tbaa !25, !noalias !48
   store i8 0, ptr %11, align 8, !noalias !53
   store i8 0, ptr %8, align 8, !tbaa !10, !noalias !48
   store ptr %11, ptr %10, align 8, !tbaa !22, !noalias !48

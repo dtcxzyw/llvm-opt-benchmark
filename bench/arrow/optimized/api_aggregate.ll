@@ -6160,6 +6160,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_22Scalar
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !100, !alias.scope !191
+  store ptr %9, ptr %6, align 8, !tbaa !114
   store i64 0, ptr %15, align 8, !tbaa !100
   store i8 0, ptr %9, align 8, !tbaa !101
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -11389,6 +11390,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_12CountO
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !100, !alias.scope !391
+  store ptr %9, ptr %6, align 8, !tbaa !114
   store i64 0, ptr %15, align 8, !tbaa !100
   store i8 0, ptr %9, align 8, !tbaa !101
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -13809,6 +13811,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_11ModeOp
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !100, !alias.scope !471
+  store ptr %9, ptr %6, align 8, !tbaa !114
   store i64 0, ptr %15, align 8, !tbaa !100
   store i8 0, ptr %9, align 8, !tbaa !101
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -18292,6 +18295,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_15Varian
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !100, !alias.scope !590
+  store ptr %9, ptr %6, align 8, !tbaa !114
   store i64 0, ptr %15, align 8, !tbaa !100
   store i8 0, ptr %9, align 8, !tbaa !101
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -23152,6 +23156,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_15Quanti
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !100, !alias.scope !717
+  store ptr %9, ptr %6, align 8, !tbaa !114
   store i64 0, ptr %15, align 8, !tbaa !100
   store i8 0, ptr %9, align 8, !tbaa !101
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -30989,6 +30994,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_14TDiges
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !100, !alias.scope !943
+  store ptr %9, ptr %6, align 8, !tbaa !114
   store i64 0, ptr %15, align 8, !tbaa !100
   store i8 0, ptr %9, align 8, !tbaa !101
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -35275,6 +35281,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_12IndexO
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !100, !alias.scope !1046
+  store ptr %9, ptr %6, align 8, !tbaa !114
   store i64 0, ptr %15, align 8, !tbaa !100
   store i8 0, ptr %9, align 8, !tbaa !101
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
