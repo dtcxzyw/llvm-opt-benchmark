@@ -114,7 +114,7 @@
   "early-cse.NumCSEGEP": 13206499,
   "early-cse.NumCSELoad": 7199878,
   "early-cse.NumDSE": 182725,
-  "early-cse.NumSimplify": 27851993,
+  "early-cse.NumSimplify": 27851989,
   "elim-avail-extern.NumRemovals": 245146,
   "elim-avail-extern.NumVariables": 98895,
   "func-properties-stats.NumBasicBlockCount": 58908250,
